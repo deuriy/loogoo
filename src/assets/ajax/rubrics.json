@@ -1,0 +1,73 @@
+[
+  {
+    "id": 3,
+    "slug": "wiki",
+    "name": {
+      "ru": "База знаний",
+      "uk": "База знань"
+    },
+    "is_parentable": true,
+    "is_editable": false,
+    "is_deletable": false,
+    "_lft": 9,
+    "_rgt": 16,
+    "parent_id": null,
+    "created_at": "2020-01-27 18:09:39",
+    "updated_at": "2020-01-27 18:09:39",
+    "ancestors": [],
+    "children": [
+      {
+        "id": 4,
+        "slug": "other",
+        "name": {
+          "ru": "Другое",
+          "uk": "Інше"
+        },
+        "is_parentable": false,
+        "is_editable": false,
+        "is_deletable": false,
+        "_lft": 10,
+        "_rgt": 11,
+        "parent_id": 3,
+        "created_at": "2020-01-27 18:09:39",
+        "updated_at": "2020-01-27 18:09:39",       
+        "children": []
+      },
+      {
+        "id": 11,
+        "slug": "germany",
+        "name": {
+          "ru": "Германия",
+          "uk": "Германия"
+        },
+        "is_parentable": true,
+        "is_editable": true,
+        "is_deletable": true,
+        "_lft": 12,
+        "_rgt": 15,
+        "parent_id": 3,
+        "created_at": "2020-01-27 18:43:07",
+        "updated_at": "2020-01-27 18:43:07",      
+        "children": [
+          {
+            "id": 13,
+            "slug": "docs",
+            "name": {
+              "ru": "Документы",
+              "uk": "Документи"
+            },
+            "is_parentable": true,
+            "is_editable": true,
+            "is_deletable": true,
+            "_lft": 13,
+            "_rgt": 14,
+            "parent_id": 11,
+            "created_at": "2020-01-27 18:43:45",
+            "updated_at": "2020-01-27 18:43:45",            
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

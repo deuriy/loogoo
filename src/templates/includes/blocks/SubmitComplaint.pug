@@ -1,0 +1,11 @@
+.Popup.Popup-submitComplaint#SubmitComplaint(style="display: none;")
+	.SeparateText.Popup_separateText
+		h3.Popup_title.Popup_title-separate Отправить жалобу
+	form(action="#").Form
+		.Form_item
+			label(for="complaint_text").Form_label На что именно вы хотите пожаловаться (необязательно)
+			textarea(name="complaint_text", id="complaint_text", placeholder="Текст жалобы...").FormTextarea.FormTextarea-submitComplaint
+			input(type="hidden", name="entity_type")
+			input(type="hidden", name="entity_id")
+		.Form_actions
+			button(type="submit").BtnOrange.BtnOrange-large Отправить жалобу

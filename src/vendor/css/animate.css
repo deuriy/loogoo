@@ -1,0 +1,21 @@
+<style>
+    .animateColor {
+        background-color: #fcffca;
+        -webkit-animation-name: animate-color; /* Safari 4.0 - 8.0 */
+        -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+        animation-name: animate-color;
+        animation-duration: 4s;
+    }
+
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes animate-color {
+        from {background-color: #fcffca;}
+        to {background-color: #ffffff;}
+    }
+
+    /* Standard syntax */
+    @keyframes animate-color {
+        from {background-color: #fcffca;}
+        to {background-color: #ffffff;}
+    }
+</style>

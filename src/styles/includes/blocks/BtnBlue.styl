@@ -1,0 +1,67 @@
+.BtnBlue
+	display inline-block
+	padding 5px 13px 6px 14px
+	border none
+	outline none
+	border-radius 15px
+	background #4B69B4
+	color $white
+	font-weight 500
+	white-space nowrap
+	
+	& > .SvgIco
+		margin-top -2px
+		margin-right 10px
+	
+	&-large
+		display flex
+		justify-content center
+		align-items center
+		width 100%
+		padding-top 13px
+		padding-bottom 10px
+		border-radius 23px
+		font-size 16px
+		font-weight 600
+	
+	&-loginForm
+		width 100%
+		padding-top 20px
+		padding-bottom 20px
+		border-radius 0
+		background #5181B8
+		font-size 20px
+	
+	&-mobileMenu
+		width 100%
+		padding-top 11px
+		padding-bottom 9px
+		border-radius 0
+		text-align center
+		background #5181B8
+		font-size 12px
+	
+	&-light
+		background $blue
+	
+	&-topicCreation
+		padding 8px 38px 8px 43px
+	
+	&-commentForm
+		padding 7px 28px 9px 34px
+		
+		@media $xs
+			padding 12px 41px 11px 40px
+			border-radius 24px
+		
+		&:disabled
+			background $grey
+			color #7D7C97
+	
+	&-noResults
+		padding 10px 50px 10px 51px
+		border-radius 18px
+		
+		@media $xs
+			width 100%
+			border-radius 24px

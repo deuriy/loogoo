@@ -1,0 +1,41 @@
+.QuestionTags
+	padding 14px
+	border 1px solid $grey
+	
+	@media $xs 
+		padding 0
+		border none
+	
+	&_title
+		margin-bottom 5px
+		font-weight 500
+		color $blue2
+	
+	&_list
+		display flex
+		
+		@media $xs
+			padding 10px 10px 8px
+			border 1px solid $grey
+	
+	&_item
+		display flex
+		margin-right 8px
+		padding 2px 3px 2px 8px
+		border 1px solid #ccc
+		border-radius 3px
+		color #7D7D7D
+		
+		&:last-child
+			margin-right 0
+	
+	&_itemText
+		color #666
+		font-size 13px
+		
+		@media $xs
+			font-size 11px
+	
+	&_removeLink
+		width 10px
+		margin-left 5px

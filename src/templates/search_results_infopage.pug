@@ -1,0 +1,35 @@
+extends /layouts/main_layout
+block vars
+	- var title = "База знаний";
+	- var mainModifiers = "Main-infoPages";
+block content
+	.Container.Main_container
+		include /includes/blocks/TopMenu
+		.Main_columns
+			.Main_sidebar
+				include /includes/blocks/SidebarMenu
+			.Categories.Categories-isSearched.Main_categories
+				form(action="", name="categories_filter").Filter.Categories_filter#CategoriesFilter
+					.Search.Search-categories.Filter_search
+						input(type="text", name="search_query2", placeholder="Поиск").Search_text
+					.Filter_resultsText По запросу #[span.Black “Книга почему”] найдено #[span.Black 4122] записей
+					.Filter_main.WhiteSection
+						.Filter_item.Filter_item-title
+							h3.Filter_title
+								include /includes/svg/SvgIco/icon_filter
+					input(type="hidden", name="rubrics_id", value="")
+				.Categories_items
+					a(href="/infopage1.html").CategoryBlock.CategoryBlock-column.Categories_item
+						.CategoryBlock_imgWrap
+							img(src="/img/categoryblock/1.png" alt="ВКонтакте для бизнеса")
+						.CategoryBlock_textWrap
+							h3.CategoryBlock_title ВКонтакте для бизнеса
+							.CategoryBlock_subTitle #[span.yellowBg Инструменты] для бизнеса Lorem ipsum dolor sit amet, consectetur adipisicing elit. At incidunt minus enim illo dolorum quas natus numquam dignissimos cum fuga suscipit, est dolores pariatur sapiente accusantium, aliquid debitis voluptatibus voluptates tempora reiciendis ipsa iste consequuntur? Dolore nemo recusandae sint quae earum ut numquam natus quam, necessitatibus quidem, dicta cupiditate rerum. Recusandae incidunt, quia officia, autem aut quo magni magnam cupiditate ratione, dignissimos ut eos? Illo natus, ratione reiciendis dicta nostrum nihil enim quisquam repellat odit quia eum nesciunt ex doloribus magni ducimus commodi, ab nulla nisi deserunt impedit itaque placeat praesentium. Similique quisquam officiis rerum at pariatur corporis sunt optio!
+					a(href="/infopage2.html").CategoryBlock.CategoryBlock-column.Categories_item
+						.CategoryBlock_imgWrap
+							img(src="/img/categoryblock/2.png" alt="ВКонтакте с авторами")
+						.CategoryBlock_textWrap
+							h3.CategoryBlock_title ВКонтакте с авторами
+							.CategoryBlock_subTitle Программа #[span.yellowBg поддержки] талантливых авторов
+block page_bottom
+	script(src="/js/infopage.js")

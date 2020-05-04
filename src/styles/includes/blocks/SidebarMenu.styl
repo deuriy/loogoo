@@ -1,0 +1,89 @@
+.SidebarMenu
+	width 270px
+	
+	&_menu
+		padding-bottom 10px
+	
+	&_item
+		display flex
+		align-items center
+		font-size 15px
+		
+		&-hasSubMenu
+			font-size 16px
+			
+			.SidebarMenu_link
+				position relative
+				font-weight 600
+				
+				&:after
+					content ""
+					position absolute
+					top 0
+					right 0
+					bottom 0
+					width 11px
+					height 7px
+					margin auto
+					background url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMSA4LjEyNSI+PHBhdGggZGF0YS1uYW1lPSLQn9GA0Y/QvNC+0YPQs9C+0LvRjNC90LjQuiA1INC60L7Qv9C40Y8iIGQ9Ik0xMCAyLjM4OEw1LjUgNy4xMzMgMSAyLjM4OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjODM5NmFjIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=') 0 0 no-repeat
+					transform rotate(-90deg)
+					@extend .transition
+			
+			& > .SidebarMenu_subMenu
+				padding-top 17px
+				padding-bottom 10px
+				border-bottom 1px solid $grey
+		
+		&-collapsed
+			.SidebarMenu_subMenu
+				display none
+	
+	&_link
+		display block
+		padding 12px 3px 12px
+		border-bottom 1px solid $grey
+		color #626262
+		font-weight 600
+		
+		&.active
+			color $blue
+	
+	&_title
+		margin-bottom 11px
+		padding-top 10px
+		padding-bottom 10px
+		border-bottom 1px solid $grey
+		font-weight 600
+		font-size 16px
+	
+	&_subItem
+		margin-bottom 11px
+		font-weight 500
+		font-size 15px
+		
+	&_subLink
+		display block
+		padding 3px 0 3px 3px
+		@extend .transition
+		
+		&.active, &:hover
+			color $blue
+		
+		&.active
+			font-weight 600
+	
+	&_number
+		margin-top 3px
+		margin-left 5px
+	
+	&-profileMenu
+		.SidebarMenu_link
+			padding 12px 0 11px
+			border-bottom none
+			@extend .transition
+			
+			&.active, &:hover
+				color $blue
+			
+			&.active
+				font-weight 600

@@ -1,0 +1,93 @@
+.Authorization
+	padding-top 37px
+	padding-bottom 70px
+	
+	&_title, &_note
+		text-align center
+		
+	&_title
+		margin-bottom 26px
+		font-weight 600
+		font-size 18px
+	
+	&_note
+		margin-bottom 47px
+		padding 23px 0
+		background rgba($grey, 33%)
+		color rgba(64, 64, 64, 59)
+		font-size 17px
+		font-family 'Decima Nova Pro', sans-serif
+		text-align center
+	
+	&_description
+		text-align center
+		font-size 16px
+		line-height 1.5625
+		
+		@media $xs
+			margin-bottom 18px
+		
+		a
+			color $blue
+			text-decoration underline
+			
+			&:hover
+				text-decoration none
+	
+	&_form
+		width 530px
+		max-width 100%
+		margin-right auto
+		margin-bottom 80px
+		margin-left auto
+		padding 19px 16px 0 19px
+		background $white
+		
+		&-passwordRecovery
+			width 435px
+			padding-top 28px
+	
+	&_text
+		font-size 20px
+		text-align center
+		
+		a
+			color $blue
+	
+	&-login
+		@media $xxs
+			padding-top 47px
+		
+		.Authorization_title
+			margin-bottom 30px
+			font-weight bold
+			font-size 22px
+			
+		.Authorization_form
+			width 515px
+			margin-bottom 15px
+			background transparent
+			
+		.Authorization_text
+			color #999EA5
+	
+	&-passwordRecovery
+		@media $xs
+			padding-top 19px
+			
+			.Authorization_note
+				margin-bottom 5px
+				padding 0 5px
+				background transparent
+				color $black
+				font-size 16px
+				line-height 1.5625
+				font-family $baseFont
+				text-align left
+			
+			.Authorization_form
+				margin-bottom 40px
+				padding 0 4px
+			
+			.Authorization_text
+				font-size 14px

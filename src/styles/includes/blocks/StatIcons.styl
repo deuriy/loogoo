@@ -1,0 +1,62 @@
+.StatIcons
+	display flex
+	justify-content space-between
+	align-items center
+	
+	&_left
+		position relative
+	
+	&_list
+		display flex
+		align-items center
+	
+	&_item
+		margin-right 14px
+		
+		@media $xs
+			margin-right 10px
+		
+		&:last-child
+			margin-right 0
+		
+		&-country, &-views
+			& > .SvgIco
+				color #999
+		
+		&-country
+			margin-right 8px
+		
+		&-smallMargin
+			margin-right 21px
+	
+	&_blockLike
+		position absolute
+		z-index 10
+		top -30px
+		left -20px
+	
+	&-sidebarBlock
+		.StatIcons_item
+			margin-right 24px
+	
+	&-newsFeed
+		.StatIcons_item
+			margin-right 7px
+			
+			&:last-child
+				margin-right 0
+	
+	&-newsBlock
+		.StatIcons_item
+			margin-right 4px
+			
+			&:last-child
+				margin-right 0
+	
+	&-searchPage
+		.StatIcons_item
+			@media $xs
+				margin-right 18px
+				
+				&:last-child
+					margin-right 0

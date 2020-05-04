@@ -1,0 +1,70 @@
+.Modal
+	position fixed
+	top 0
+	right 0
+	bottom 0
+	left 0
+	display flex
+	justify-content center
+	align-items center
+	padding 25px 20px
+	
+	@media $xs
+		align-items flex-start
+	
+	&_inner
+		width 710px
+		max-width 100%
+		padding 45px 60px 60px
+		background #f7f7f7
+		box-shadow 0 5px 20px 0 rgba(0, 0, 0, 0.05)
+		text-align center
+		
+		@media $xs
+			padding 25px 20px
+			border-radius 4px
+	
+	&_siteName
+		margin-bottom 24px
+		
+		@media $xs
+			margin-bottom 15px
+	
+	&_title
+		margin-bottom 13px
+		font-weight 600
+		font-size 30px
+		
+		@media $xs
+			margin-bottom 14px
+			font-size 21px
+			line-height 1.42857
+	
+	&_text
+		font-size 16px
+		
+		@media $xs
+			font-size 15px
+			line-height 1.4
+	
+	&-welcome
+		.Modal_inner
+			padding-bottom 90px
+			background #f7f7f7 url('../img/ribbon.png') left bottom no-repeat
+			
+			@media $xs
+				padding-bottom 115px
+				background-position 0 102%
+				background-size auto 150px
+			
+		.Modal_text
+			margin-bottom 70px
+			
+			@media $xs
+				margin-bottom 30px
+		
+		.Modal_linkWrapper
+			text-align right
+			
+			@media $xs
+				text-align center

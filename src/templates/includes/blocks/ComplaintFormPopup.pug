@@ -1,0 +1,39 @@
+.Popup.Popup-complaintForm#ComplaintFormPopup(style="display: none;")
+	h3.Popup_title Причина жалобы
+	form(action="#").Form.Form-complaint.Form-complaintSuccess
+		.CheckboxList.CheckboxList-radio.Form_checkboxList
+			.Checkbox.Checkbox-radio.CheckboxList_item
+				input(type="radio", name="complaint_reason", id="spam", value="spam" checked, disabled).Checkbox_input
+				label(for="spam").Checkbox_label Нежелательная реклама или спам
+			.Checkbox.Checkbox-radio.CheckboxList_item
+				input(type="radio", name="complaint_reason", id="insults_or_threats", value="insults_or_threats", disabled).Checkbox_input
+				label(for="insults_or_threats").Checkbox_label Оскорбления или угрозы
+			.Checkbox.Checkbox-radio.CheckboxList_item
+				input(type="radio", name="complaint_reason", id="pornography", value="pornography", disabled).Checkbox_input
+				label(for="pornography").Checkbox_label Порнография
+			.Checkbox.Checkbox-radio.CheckboxList_item
+				input(type="radio", name="complaint_reason", id="drug_propaganda", value="drug_propaganda", disabled).Checkbox_input
+				label(for="drug_propaganda").Checkbox_label Пропаганда наркотиков
+			.Checkbox.Checkbox-radio.CheckboxList_item
+				input(type="radio", name="complaint_reason", id="weapons_sale", value="weapons_sale", disabled).Checkbox_input
+				label(for="weapons_sale").Checkbox_label Продажа оружия
+			.Checkbox.Checkbox-radio.CheckboxList_item
+				input(type="radio", name="complaint_reason", id="violence", value="violence", disabled).Checkbox_input
+				label(for="violence").Checkbox_label Насилие
+			.Checkbox.Checkbox-radio.CheckboxList_item
+				input(type="radio", name="complaint_reason", id="animal_abuse", value="animal_abuse", disabled).Checkbox_input
+				label(for="animal_abuse").Checkbox_label Жестокое обращение с животными
+			.Checkbox.Checkbox-radio.CheckboxList_item
+				input(type="radio", name="complaint_reason", id="misleading", value="misleading", disabled).Checkbox_input
+				label(for="misleading").Checkbox_label Введение в заблуждение
+			.Checkbox.Checkbox-radio.CheckboxList_item
+				input(type="radio", name="complaint_reason", id="fraud", value="fraud", disabled).Checkbox_input
+				label(for="fraud").Checkbox_label Мошенничество
+			.Checkbox.Checkbox-radio.CheckboxList_item
+				input(type="radio", name="complaint_reason", id="extremism", value="extremism", disabled).Checkbox_input
+				label(for="extremism").Checkbox_label Экстремизм
+		.Form_success
+			include /includes/svg/SvgIco/success
+			.Form_successText Мы получили вашу жалобу и отреагируем на неё! Спасибо
+		//- .Form_actions
+		//- 	button(type="submit").BtnOrange.BtnOrange-complaintForm Отправить жалобу

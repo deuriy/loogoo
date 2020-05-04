@@ -1,0 +1,42 @@
+.ProfileVerification
+	padding 46px 60px 70px 60px
+	background $white
+	text-align center
+	
+	@media $xs
+		padding 0
+		font-size 15px
+		line-height 1.6
+		text-align left
+	
+	&_icon
+		display inline-block
+		width 103px
+		margin-bottom 47px
+		color $green
+		
+		@media $xs
+			display none
+	
+	&_text
+		@media $xs
+			padding 13px 4px
+			
+		p
+			margin-bottom 16px
+			
+			@media $xs
+				margin-bottom 9px
+				
+				&:last-child
+					margin-bottom 0
+			
+			&:last-child
+				margin-bottom 0
+				
+		a
+			color $blue
+			text-decoration underline
+			
+			&:hover
+				text-decoration none

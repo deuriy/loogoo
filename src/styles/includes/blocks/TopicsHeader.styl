@@ -1,0 +1,22 @@
+.TopicsHeader
+	display flex
+	justify-content space-between
+	align-items center
+	height 56px
+	border-bottom 1px solid #ebf0f2
+	
+	&_left
+		display flex
+		align-items center
+		flex-grow 1
+		padding 8px 30px 8px 0
+	
+	&_right
+		padding-right 10px
+	
+	&-myTopics
+		.TopicsHeader_right
+			@media $xs
+				flex-grow 1
+				padding-right 0
+				text-align center

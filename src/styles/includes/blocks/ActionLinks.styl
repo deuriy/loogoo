@@ -1,0 +1,90 @@
+.ActionLinks
+	&_list
+		display flex
+	
+	&_item
+		font-size 13px
+		
+		&:first-child
+			position relative
+			margin-right 20px
+			padding-right 22px
+			
+			&:after
+				content ""
+				position absolute
+				top 0
+				right 0
+				width 1px
+				height 23px
+				background $grey3
+	
+	&_link
+		display flex
+		align-items center
+		font-weight 500
+		
+		& > .SvgIco
+			margin-right 4px
+		
+		&-btn
+			justify-content center
+			padding 5px 10px
+			border-radius 12px
+			// border 1px solid rgba($black, 33%)
+			border 1px solid #c3c3c3
+			color #4A4A4A
+			
+			& > .SvgIco
+				margin-right 5px
+		
+		&-orange
+			border-color rgba($orange, 33%)
+			color $orange
+		
+		&-blue
+			position relative
+			border-color rgba($blue, 33%)
+			color $blue
+			
+			&:after
+				content ""
+				position absolute
+				right 0
+				bottom 0
+				left 21px
+				height 1px
+				background transparent
+				opacity 0.2
+				@extend .transition
+			
+			&:hover
+				&:after
+					background $blue
+		
+		&-green
+			border-color rgba(#85BE1F, 33%)
+			color #85BE1F
+					
+	&-twocol
+		// padding 23px 10px 0 17px
+		// border-top 1px solid $grey
+		background $white
+		
+		.ActionLinks_list
+			flex-wrap wrap
+		
+		.ActionLinks_item
+			flex-basis 50%
+			margin-bottom 10px
+			padding-right 20px
+			
+			&:first-child
+				margin-right 0
+				
+				&:after
+					display none
+		
+		.ActionLinks_link
+			&:hover:after
+				background transparent

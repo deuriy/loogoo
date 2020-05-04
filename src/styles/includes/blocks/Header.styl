@@ -1,0 +1,105 @@
+.Header
+	position relative
+	box-shadow: 0px 4px 10px rgba(100, 124, 151, 0.1)
+	background $white
+	
+	@media $xs
+		padding-right 12px
+		padding-left 12px
+		box-shadow none
+	
+	&_container
+		position relative
+		display flex
+		justify-content space-between
+		align-items center
+		padding-top 28px
+		padding-bottom 26px
+		
+		@media $xs
+			padding-top 17px
+			padding-bottom 17px
+	
+	&_siteName
+		margin-right 2.259em
+		
+		@media $mdMinus
+			margin-right 1.4em
+		
+		@media $xs
+			position relative
+			top 1px
+			padding-top 0.1147em
+	
+	&_left
+		display flex
+		align-items center
+		
+		@media $xs
+			padding-top 3px
+	
+	&_menuHamburger
+		margin-right 14px
+		
+		@media $xs
+			position relative
+			top -2px
+			margin-right 23px
+			vertical-align middle
+	
+	&_primaryMenu
+		@media $smMinus
+			display none
+	
+	&_icons
+		margin-right 33px
+		
+		@media $mdMinus
+			margin-right 0
+	
+	&_right
+		display flex
+		align-items center
+	
+	&_languageSwitch
+		margin-right 49px
+		
+		@media $smMinus
+			display none
+	
+	&_profileBlock
+		@media $xs
+			margin-left 30px
+
+	&-fixed
+		position fixed
+		z-index 10
+		top 0
+		right 0
+		left 0
+		height 67px
+		@extend .transition
+	
+	&-fixedTop
+		top -67px
+	
+	&-searchOpen
+		.Header_primaryMenu
+			display none
+	
+	&-profile
+		.Header_container
+			padding-top 29px
+			padding-bottom 30px
+		
+		.Header_profileBlock
+			margin-right -4px
+		
+		.Header_languageSwitch
+			margin-right 30px
+		
+		.Header_icons
+			margin-right 38px
+			
+			@media $xs
+				margin-right 0

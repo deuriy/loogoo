@@ -1,0 +1,36 @@
+.CategoryMenu
+	&_menu
+		display flex
+		margin-left 2px
+	
+	&_item
+		margin-right 46px
+		font-weight 500
+		font-size 13px
+		
+		&:last-child
+			margin-right 0
+	
+	&_link
+		display block
+		position relative
+		padding-top 7px
+		padding-bottom 10px
+		color #8396AC
+		@extend .transition
+		
+		&:after
+			content ""
+			position absolute
+			right 0
+			bottom 0
+			width 100%
+			height 2px
+			background transparent
+			@extend .transition
+		
+		&.active, &:hover
+			color $blue
+			
+			&:after
+				background $blue

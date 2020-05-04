@@ -1,0 +1,40 @@
+.Filter#TopicsFilter(style="display:none;")
+	.Filter_main.WhiteSection
+		.Filter_item.Filter_item-title
+			h3.Filter_title
+				include /includes/svg/SvgIco/icon_filter
+				span.Filter_titleText Фильтр
+		.Filter_item
+			select.Select.Select-filterBlock(name="categories")
+				option(value="all") Категории
+				option(value="cat1") Товары для дома, отдыха, праздника
+				option(value="cat2") Животные, растения, аксессуары
+				option(value="cat3") Совместные покупки и заказы
+				option(value="cat4") Детские товары
+				option(value="cat5") Канцтовары, книги, арт
+				option(value="cat5") Куплю, обмен, отдам, спрос
+				option(value="cat5") Мужская одежда и обувь
+		.Filter_item
+			select.Select.Select-filterBlock(name="country")
+				option(value="all") Страна
+				option(value="country1") Страна 1
+				option(value="country2") Страна 2
+				option(value="country3") Страна 3
+				option(value="country4") Страна 4
+				option(value="country5") Страна 5
+		.Filter_item
+			select.Select.Select-filterBlock(name="city")
+				option(value="all") Город
+				option(value="city1") Город 1
+				option(value="city2") Город 2
+				option(value="city3") Город 3
+				option(value="city4") Город 4
+				option(value="city5") Город 5
+	.Filter_tags
+		.FilterTag.Filter_tag Украина
+			a(href="javascript:;").FilterTag_close
+				include /includes/svg/SvgIco/icon_close
+		.FilterTag.Filter_tag Хмельницкий
+			a(href="javascript:;").FilterTag_close
+				include /includes/svg/SvgIco/icon_close
+		a(href="javascript:;").Filter_clearLink Очистить все

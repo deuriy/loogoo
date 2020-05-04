@@ -1,0 +1,184 @@
+.ProfileSettings
+	&_fields
+		border 1px solid #edf1f4
+		background $white
+		
+		@media $xs
+			border none
+		
+	&_fieldGroup
+		padding 29px 28px
+		border-bottom 1px solid #edf1f4
+		
+		@media $xs
+			padding 11px 5px
+			border-bottom none
+		
+		&:last-child
+			border-bottom none
+		
+		&-photo
+			@media $xs
+				padding 14px 5px
+		
+		&-main
+			@media $xs
+				display flex
+				flex-direction column
+	
+	&_field
+		display flex
+		align-items center
+		margin-bottom 10px
+		
+		@media $xs
+			flex-direction column
+			align-items flex-start
+			margin-bottom 21px
+		
+		&:last-child
+			margin-bottom 0
+		
+		&-display
+			@media $xs
+				order 12
+				margin-top 21px
+				margin-bottom 0
+		
+		&-phone
+			margin-top 29px
+			margin-right -28px
+			margin-left -28px
+			padding 29px 28px 0
+			border-top 1px solid #edf1f4
+			
+			@media $xs
+				margin 0
+				padding 0
+				border-top none
+		
+		&-email
+			@media $xs
+				align-items stretch
+	
+	&_label
+		flex-basis 160px
+		color $blue2
+		
+		@media $xs
+			flex-basis auto
+			margin-bottom 5px
+			font-weight 500
+		
+		&-email
+			@media $xs
+				margin-bottom 12px
+	
+	&_fieldWrapper
+		display flex
+		align-items center
+		flex-grow 1
+		
+		&-phone
+			@media $xs
+				flex-direction row-reverse
+	
+	&_fieldContent
+		@media $xs
+			width 100%
+			
+		&-photo
+			@media $xs
+				display flex
+				align-items center
+	
+	&_nameAndRating
+		display flex
+		align-items center
+		margin-bottom 6px
+		font-size 16px
+	
+	&_userPhoto
+		width 144px
+		border-radius 50%
+		
+		@media $xs
+			width 70px
+			margin-right 20px
+	
+	&_userName
+		font-weight 600
+	
+	&_rating
+		margin-left 9px
+	
+	&_fieldRight
+		flex-grow 1
+		text-align right
+		
+		&-alignLeft
+			text-align left
+	
+	&_nameWrapper
+		margin-bottom 7px
+		padding-left 47px
+	
+	&_name
+		margin-bottom 5px
+		font-weight 500
+		font-size 21px
+	
+	&_link
+		position relative
+		color #2A5885
+		
+		@media $xs
+			color #4B97F9
+			font-weight 500
+			font-size 16px
+		
+		&:after
+			content ""
+			position absolute
+			right 0
+			bottom 0
+			left 0
+			height 1px
+			background #2A5885
+			@extend .transition
+			
+			@media $xs
+				display none
+		
+		&:hover:after
+			background transparent
+		
+		&-changePhoto
+			color $blue
+			font-weight 500
+			
+			&:after
+				display none
+	
+	&_actions
+		padding-top 20px
+		padding-bottom 20px
+		text-align center
+		
+		@media $xs
+			padding-top 28px
+			padding-bottom 28px
+	
+	&_btnsList
+		margin-top 25px
+		padding-left 160px
+	
+	&_savePassBtn
+		margin-right 24px
+
+#CropperActions
+	.CropperActionsLinks_link
+		margin-right 170px
+		
+		@media $xs
+			margin-right 80px

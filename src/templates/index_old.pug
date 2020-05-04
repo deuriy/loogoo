@@ -1,0 +1,503 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Главная страница";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				include /includes/blocks/MenuSection
+				.QuestionsSection.Main_questionsSection
+					.QuestionBlock.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.UserPhoto.QuestionBlock_userPhoto
+									img(src="/img/music_avatar.jpg", alt="Иван Иванов").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_nameAndRating
+											.QuestionBlock_userName Иван Иванов
+											a(href="javascript:;").Rating.QuestionBlock_rating
+												span.Rating_icon
+													include /includes/svg/SvgIco/icon_star
+												span.Rating_number 17
+										.QuestionBlock_date сегодня в 7:05
+									.Tags.hidden-xxs
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+							.QuestionBlock_headerRight
+								.QuestionBlock_label Вопрос
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Пространственная рама E-Motion для электровелосипеда
+						.QuestionStatistics.QuestionStatistics-advanced
+							.QuestionStatistics_left
+								ul.QuestionStatistics_list
+									li.QuestionStatistics_item.hidden-xsPlus
+										include /includes/svg/SvgIco/heart
+										.
+											26
+									li.QuestionStatistics_item.hidden-xsPlus
+										include /includes/svg/SvgIco/comment
+										.
+											4
+									li.QuestionStatistics_item.hidden-xxs
+										include /includes/svg/SvgIco/icon_answer_large
+										.
+											Ответов (8)
+									li.QuestionStatistics_item.hidden-xxs
+										include /includes/svg/SvgIco/icon_readers
+										.
+											Читают (30)
+							.QuestionStatistics_right
+								.QuestionStatistics_views.hidden-xsPlus
+									include /includes/svg/SvgIco/eye
+									.
+										643
+								.QuestionStatistics_country
+									img(src="img/icon_pl.png", alt="")
+									.
+										Варшава
+					.QuestionBlock.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.UserPhoto.QuestionBlock_userPhoto
+									img(src="/img/music_avatar.jpg", alt="Иван Иванов").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_nameAndRating
+											.QuestionBlock_userName Иван Иванов
+											a(href="javascript:;").Rating.QuestionBlock_rating
+												span.Rating_icon
+													include /includes/svg/SvgIco/icon_star
+												span.Rating_number 17
+										.QuestionBlock_date сегодня в 7:05
+									.Tags.hidden-xxs
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+							.QuestionBlock_headerRight
+								.QuestionBlock_label Вопрос
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Пространственная рама E-Motion для электровелосипеда
+						.QuestionStatistics.QuestionStatistics-advanced
+							.QuestionStatistics_left
+								ul.QuestionStatistics_list
+									li.QuestionStatistics_item.hidden-xsPlus
+										include /includes/svg/SvgIco/heart
+										.
+											26
+									li.QuestionStatistics_item.hidden-xsPlus
+										include /includes/svg/SvgIco/comment
+										.
+											4
+									li.QuestionStatistics_item.hidden-xxs
+										include /includes/svg/SvgIco/icon_answer_large
+										.
+											Ответов (8)
+									li.QuestionStatistics_item.hidden-xxs
+										include /includes/svg/SvgIco/icon_readers
+										.
+											Читают (30)
+							.QuestionStatistics_right
+								.QuestionStatistics_views.hidden-xsPlus
+									include /includes/svg/SvgIco/eye
+									.
+										643
+								.QuestionStatistics_country
+									img(src="img/icon_pl.png", alt="")
+									.
+										Варшава
+					.QuestionBlock.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.UserPhoto.QuestionBlock_userPhoto
+									img(src="/img/music_avatar.jpg", alt="Иван Иванов").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_nameAndRating
+											.QuestionBlock_userName Иван Иванов
+											a(href="javascript:;").Rating.QuestionBlock_rating
+												span.Rating_icon
+													include /includes/svg/SvgIco/icon_star
+												span.Rating_number 17
+										.QuestionBlock_date сегодня в 7:05
+									.Tags.hidden-xxs
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+							.QuestionBlock_headerRight
+								.QuestionBlock_label Вопрос
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Пространственная рама E-Motion для электровелосипеда
+						.QuestionStatistics.QuestionStatistics-advanced
+							.QuestionStatistics_left
+								ul.QuestionStatistics_list
+									li.QuestionStatistics_item.hidden-xsPlus
+										include /includes/svg/SvgIco/heart
+										.
+											26
+									li.QuestionStatistics_item.hidden-xsPlus
+										include /includes/svg/SvgIco/comment
+										.
+											4
+									li.QuestionStatistics_item.hidden-xxs
+										include /includes/svg/SvgIco/icon_answer_large
+										.
+											Ответов (8)
+									li.QuestionStatistics_item.hidden-xxs
+										include /includes/svg/SvgIco/icon_readers
+										.
+											Читают (30)
+							.QuestionStatistics_right
+								.QuestionStatistics_views.hidden-xsPlus
+									include /includes/svg/SvgIco/eye
+									.
+										643
+								.QuestionStatistics_country
+									img(src="img/icon_pl.png", alt="")
+									.
+										Варшава
+					.QuestionBlock.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.UserPhoto.QuestionBlock_userPhoto
+									img(src="/img/music_avatar.jpg", alt="Иван Иванов").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_nameAndRating
+											.QuestionBlock_userName Иван Иванов
+											a(href="javascript:;").Rating.QuestionBlock_rating
+												span.Rating_icon
+													include /includes/svg/SvgIco/icon_star
+												span.Rating_number 17
+										.QuestionBlock_date сегодня в 7:05
+									.Tags.hidden-xxs
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+							.QuestionBlock_headerRight
+								.QuestionBlock_label Вопрос
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Пространственная рама E-Motion для электровелосипеда
+						.QuestionStatistics.QuestionStatistics-advanced
+							.QuestionStatistics_left
+								ul.QuestionStatistics_list
+									li.QuestionStatistics_item.hidden-xsPlus
+										include /includes/svg/SvgIco/heart
+										.
+											26
+									li.QuestionStatistics_item.hidden-xsPlus
+										include /includes/svg/SvgIco/comment
+										.
+											4
+									li.QuestionStatistics_item.hidden-xxs
+										include /includes/svg/SvgIco/icon_answer_large
+										.
+											Ответов (8)
+									li.QuestionStatistics_item.hidden-xxs
+										include /includes/svg/SvgIco/icon_readers
+										.
+											Читают (30)
+							.QuestionStatistics_right
+								.QuestionStatistics_views.hidden-xsPlus
+									include /includes/svg/SvgIco/eye
+									.
+										643
+								.QuestionStatistics_country
+									img(src="img/icon_pl.png", alt="")
+									.
+										Варшава
+					.QuestionBlock.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.UserPhoto.QuestionBlock_userPhoto
+									img(src="/img/music_avatar.jpg", alt="Иван Иванов").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_nameAndRating
+											.QuestionBlock_userName Иван Иванов
+											a(href="javascript:;").Rating.QuestionBlock_rating
+												span.Rating_icon
+													include /includes/svg/SvgIco/icon_star
+												span.Rating_number 17
+										.QuestionBlock_date сегодня в 7:05
+									.Tags.hidden-xxs
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+							.QuestionBlock_headerRight
+								.QuestionBlock_label Вопрос
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Пространственная рама E-Motion для электровелосипеда
+						.QuestionStatistics.QuestionStatistics-advanced
+							.QuestionStatistics_left
+								ul.QuestionStatistics_list
+									li.QuestionStatistics_item.hidden-xsPlus
+										include /includes/svg/SvgIco/heart
+										.
+											26
+									li.QuestionStatistics_item.hidden-xsPlus
+										include /includes/svg/SvgIco/comment
+										.
+											4
+									li.QuestionStatistics_item.hidden-xxs
+										include /includes/svg/SvgIco/icon_answer_large
+										.
+											Ответов (8)
+									li.QuestionStatistics_item.hidden-xxs
+										include /includes/svg/SvgIco/icon_readers
+										.
+											Читают (30)
+							.QuestionStatistics_right
+								.QuestionStatistics_views.hidden-xsPlus
+									include /includes/svg/SvgIco/eye
+									.
+										643
+								.QuestionStatistics_country
+									img(src="img/icon_pl.png", alt="")
+									.
+										Варшава
+					.QuestionBlock.QuestionBlock-highlightedPost.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.UserPhoto.UserPhoto-online.UserPhoto-glow.QuestionBlock_userPhoto
+									img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_nameAndRating
+											.QuestionBlock_userName Илья Вакуленко
+											a(href="javascript:;").Rating.QuestionBlock_rating
+												span.Rating_icon
+													include /includes/svg/SvgIco/icon_star
+												span.Rating_number 30
+										.QuestionBlock_date 3 минуты назад
+									.Tags.hidden-xxs
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+							.QuestionBlock_headerRight
+								.QuestionBlock_label Совет
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
+						.QuestionStatistics.QuestionStatistics-advanced
+							.QuestionStatistics_left
+								ul.QuestionStatistics_list
+									li.QuestionStatistics_item
+										include /includes/svg/SvgIco/icon_answer_large
+										.
+											Ответов (8)
+									li.QuestionStatistics_item
+										include /includes/svg/SvgIco/icon_readers
+										.
+											Читают (30)
+							.QuestionStatistics_right
+								.QuestionStatistics_country
+									img(src="img/icon_pl.png", alt="")
+									.
+										Варшава
+					.QuestionBlock.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.QuestionBlock_userPhoto
+									img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_userName Илья Вакуленко
+										.QuestionBlock_date 3 минуты назад
+									.Tags.hidden-xxs
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
+						.QuestionStatistics
+							ul.QuestionStatistics_list
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_answer_large
+									.
+										Ответов (8)
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_readers
+									.
+										Читают (30)
+					.QuestionBlock.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.UserPhoto-online.QuestionBlock_userPhoto
+									img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_userName.QuestionBlock_userName-orange Илья Вакуленко
+										.QuestionBlock_date 3 минуты назад
+									.Tags.hidden-xxs
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+							.QuestionBlock_headerRight
+								.QuestionBlock_label Совет
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
+						.QuestionStatistics
+							ul.QuestionStatistics_list
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_answer_large
+									.
+										Ответов (8)
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_readers
+									.
+										Читают (30)
+					.QuestionBlock.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.QuestionBlock_userPhoto
+									img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_userName Илья Вакуленко
+										.QuestionBlock_date 3 минуты назад
+									.Tags.hidden-xxs
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
+						.QuestionStatistics
+							ul.QuestionStatistics_list
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_answer_large
+									.
+										Ответов (8)
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_readers
+									.
+										Читают (30)
+					.QuestionBlock.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.QuestionBlock_userPhoto
+									img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_userName Илья Вакуленко
+										.QuestionBlock_date 3 минуты назад
+									.Tags.hidden-xxs
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
+						.QuestionStatistics
+							ul.QuestionStatistics_list
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_answer_large
+									.
+										Ответов (8)
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_readers
+									.
+										Читают (30)
+					.QuestionBlock.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.QuestionBlock_userPhoto
+									img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_userName Илья Вакуленко
+										.QuestionBlock_date 3 минуты назад
+									.Tags.hidden-xxs
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
+						.QuestionStatistics
+							ul.QuestionStatistics_list
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_answer_large
+									.
+										Ответов (8)
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_readers
+									.
+										Читают (30)
+					.QuestionBlock.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.QuestionBlock_userPhoto
+									img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_userName Илья Вакуленко
+										.QuestionBlock_date 3 минуты назад
+									.Tags.hidden-xxs
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
+						.QuestionStatistics
+							ul.QuestionStatistics_list
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_answer_large
+									.
+										Ответов (8)
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_readers
+									.
+										Читают (30)
+					.QuestionBlock.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.QuestionBlock_userPhoto
+									img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_userName Илья Вакуленко
+										.QuestionBlock_date 3 минуты назад
+									.Tags.hidden-xxs
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
+						.QuestionStatistics
+							ul.QuestionStatistics_list
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_answer_large
+									.
+										Ответов (8)
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_readers
+									.
+										Читают (30)
+			.Aside.Main_aside
+				include /includes/blocks/AskQuestionBlock
+				include /includes/blocks/PopularQuestions

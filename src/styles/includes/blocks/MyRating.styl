@@ -1,0 +1,32 @@
+.MyRating
+	display flex
+	align-items center
+	padding 8px 23px 3px
+	background #F8F9FA
+	color $blue2
+	font-weight 600
+	
+	@media $xs
+		padding-right 20px
+		padding-left 20px
+	
+	& > .SvgIco
+		width 16px
+		margin-right 12px
+		color $orange
+	
+	&_number
+		margin-right 13px
+		font-size 50px
+		
+		@media $xs
+			margin-right 12px
+			font-size 46px
+	
+	&_label
+		font-size 16px
+		line-height 1.125
+		
+		@media $xs
+			font-size 15px
+			line-height 1.2

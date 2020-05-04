@@ -1,0 +1,18 @@
+.Popup#RegistrationPopup(style="display: none;")
+	h3.Popup_title Регистрация
+	form(action="#").Form.Form-registrationPopup
+		.Form_item
+			input(type="email", name="email", id="email", placeholder="Email").FormText
+		.Form_item
+			input(type="text", name="name", id="name", placeholder="Имя на сайте").FormText
+		.Form_item
+			input(type="password", name="password", id="password", placeholder="Придумайте пароль").FormText
+		.Form_item
+			input(type="password", name="password_repeat", id="password_repeat", placeholder="Повторите пароль").FormText
+		.Form_item
+			input(type="tel", name="phone", id="phone", placeholder="Телефон").FormText
+		.Form_actions
+			button(type="submit").BtnOrange.BtnOrange-registrationPopup Регистрация
+	.Popup_fbLogin
+		img(src="/img/facebook_login.jpg", alt="")
+	.Popup_text У вас уже есть аккаунт на infoza? #[a(href="javascript:;", data-src="#LoginPopup").OpenPopupLink.Popup_link.Semibold Вход]

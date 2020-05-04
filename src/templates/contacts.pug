@@ -1,0 +1,29 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Связь с нами";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-contactsPage";
+block content
+	.Main_container
+		.Container
+			.MobileHeader.hidden-smPlus
+				a(href="#").BtnBack.MobileHeader_btnBack
+					include /includes/svg/SvgIco/arrow_left
+				h1.MobileHeader_title Связь с нами
+		.WriteUs
+			.Container.WriteUs_container
+				h2.WriteUs_title С радостью ответим #[br]на ваши вопросы!
+				.Soclinks
+					ul.Soclinks_list
+						li.Soclinks_item
+							a(href="tg://resolve?domain=infoza.top").Soclink
+								include /includes/svg/SvgIco/soclinks/telegram
+								span.Soclink_text @infoza.top
+						li.Soclinks_item
+							a(href="viber://chat?number=+380680220201").Soclink
+								include /includes/svg/SvgIco/soclinks/viber
+								span.Soclink_text +38 068 022 02 01
+						li.Soclinks_item
+							a(href="mailto:info@infoza.top").Soclink
+								include /includes/svg/SvgIco/soclinks/email
+								span.Soclink_text info@infoza.top

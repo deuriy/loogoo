@@ -1,0 +1,116 @@
+extends /layouts/dummy_layout
+block vars
+	- var title = "Infoza - Найбільша спільнота заробітчан!";
+block content
+	.WelcomePage
+		.PageHeader.WelcomePage_header
+			.Container.PageHeader_container
+				h1.PageHeader_title infoza
+				h2.PageHeader_subTitle Ласкаво просимо до найбільшої спільноти заробітчан!
+		.Container
+			.Languages.WelcomePage_languages
+				ul.Languages_list
+					li.Languages_item
+						a(href="https://infoza.top", title="Українська").Languages_link.Languages_link-active
+							img(src="/img/flag_ua.jpg", alt="Українська").Languages_icon
+					li.Languages_item
+						a(href="https://infoza.top/ru", title="Російська").Languages_link.Languages_link-active
+							img(src="/img/flag_ru.jpg", alt="Російська").Languages_icon
+			.WelcomePage_description #[strong Інфоза] - це унікальний проект, створений українцями для українців, білорусів, росіян і жителів інших країн. #[br]#[br.hidden-smPlus] Основне завдання проекту - об'єднати всіх людей, яким цікава тема роботи за кордоном і все, що з цим пов'язано!
+			.Tabs.WelcomePage_tabs#FrontpageTabs
+				ul.Tabs_list
+					li.Tabs_item.Tabs_item-active Офіційний запуск
+					li.Tabs_item Про проект
+				.Tabs_container
+					.Tabs_content(style="display: block;")
+						.Tabs_infoBlocks.Tabs_infoBlocks-launch
+							.InfoBlock.InfoBlock-inverse.Tabs_infoBlock.Tabs_infoBlock-inverse
+								.InfoBlock_content
+									.InfoBlock_left
+										h3.SectionTitle.SectionTitle-large.InfoBlock_title.InfoBlock_title-left Beta версію офіційно запущено!
+										img(src="/img/infoza_mobile_beta.png", alt="Infoza mobile beta").InfoBlock_img.hidden-smPlus
+										.InfoBlock_text
+											p 11 січня 2020 року ми запустили Beta версію проекту та в хаотичному порядку розіслали посилання на закрите тестування вже готового сервісу більш ніж 15,000 користувачам! Якщо ви отримали посилання - ви вже зможете оцінити переваги всього функціоналу проекту і повідомити нас про будь-які несправності, якщо такі будуть.
+											p Якщо посилання ви не отримали - то вам всього лише потрібно ввести свій номер телефону (якщо ви раніше його не вводили) в полі, яке буде опубліковано нижче та зачекати до 1 березня!
+											p Тому що 1 березня відбудеться офіційний запуск порталу Infoza, після якого він стане відкритим і доступним всім без винятку!
+											p Також, ми розуміємо що багатьом з вас дуже хочеться почати користуватись сервісом прямо вже, але ми повинні бути впевненими, що ви отримаєте по-справжньому ідеальний портал, в роботі якого не буде виникати жодних помилок, тому мусимо провести невеличке тестування, яке й називається Beta-версія.
+									.InfoBlock_right.hidden-xs
+										img(src="/img/infoza_mobile_beta.png", alt="Infoza mobile beta").InfoBlock_img
+							.InfoBlock.InfoBlock-inverse.Tabs_infoBlock.Tabs_infoBlock-inverse
+								.InfoBlock_content
+									.InfoBlock_left
+										h3.SectionTitle.SectionTitle-large.InfoBlock_title.InfoBlock_title-left Що це за портал?
+										.InfoBlock_text
+											p Якщо ви щойно дізнались про портал Infoza і нічого про нього не знаєте, то в двох словах можна сказати так: На “Інфозі” ви зможете спілкуватись з людьми, яких об’єднує тема роботи за кордоном та не тільки; Залишати реальні коментарі з фото та відео доказами про роботу, на якій ви працювали; Перевіряти роботодавців та посередників через спеціальну базу-досьє, в якій будуть зібрані всі контактні дані та інформація про співпрацю від інших користувачів; Завжди знаходити потрібну інформацію в спеціальній “базі знань” де зібрані всі матеріали, які тільки можуть вам знадобитись і багато всього іншого!
+											p Тобто, якщо ви чи ваші друзі плануєте їхати на роботу за кордон або вам просто цікава ця тема і все що з нею зв’язано, тоді Infoza - це сервіс, без якого ви просто не зможете обійтись! Детальніше про портал Infoza #[a(href="javascript:;" onclick="changeTab('FrontpageTabs', 1)") написано тут.]
+					.Tabs_content
+						.Tabs_infoBlocks
+							.InfoBlock.Tabs_infoBlock
+								h3.SectionTitle.SectionTitle-thin.SectionTitle-line.InfoBlock_title Чому ІНФОЗА? #[br.hidden-smPlus] Звідки така назва?
+								.InfoBlock_content
+									.InfoBlock_left
+										img(src="/img/infoblock_img1_ua.png", alt="Інформація + заробітчани").InfoBlock_img
+									.InfoBlock_right
+										.InfoBlock_text
+											p Назва сервісу була обрана не випадково і складається з двох слів: Інформація та Заробітчани
+											p Інфоза - це майданчик, де люди, яким цікава тема роботи за кордоном (і не тільки) зможуть ділитися новинами, спілкуватися один з одним і завжди бути в курсі всіх змін і останніх подій.
+							.InfoBlock.Tabs_infoBlock
+								h3.SectionTitle.SectionTitle-thin.SectionTitle-line.InfoBlock_title Що може Infoza чого не можуть інші?
+								.InfoBlock_content
+									.InfoBlock_left
+										img(src="/img/infoblock_img2.png", alt="Що може Infoza чого не можуть інші?").InfoBlock_img
+									.InfoBlock_right
+										.InfoBlock_text
+											p Завдяки сервісу Infoza кожен може розповісти свою історію, поставити запитання або щось порадити і бути впевненим, що його повідомлення побачать сотні тисяч людей. Це спільнота, де всі рівні і допомагають один одному.
+											p Якщо раніше, для того щоб розповісти про якусь несправедливість, важливу подію або просто поставити запитання вам потрібно було обійти сотні груп в соц. мережах і просити їх адміністраторів розмістити ваш пост, то тепер вам достатньо написати лише одне повідомлення на сервісі infoza. Завдяки "живій стрічці" і розумним хештегам, ваше повідомлення буде показано не тільки всій спільноті, але і в особливому порядку тим, кому воно може бути цікаво. Таким чином, кожен зможе стежити за тими подіями, які йому найбільш важливі.
+											p До того ж, портал infoza завжди буде #[strong повністю безкоштовним і без реклами!]
+							.InfoBlock.Tabs_infoBlock
+								h3.SectionTitle.SectionTitle-thin.SectionTitle-line.InfoBlock_title Чому саме для Вас сервіс infoza стане незамінним?
+								.InfoBlock_content
+									.InfoBlock_left
+										img(src="/img/infoblock_img3.png", alt="Чому саме для Вас сервіс infoza стане незамінним?").InfoBlock_img
+									.InfoBlock_right
+										.InfoBlock_text
+											p Уявіть ситуацію: ви забули як заповнюється той чи інший документ, або хочете уточнити деталі нового закону, який недавно прийняли, наприклад, в Польщі. Раніше вам потрібно шукати таку інформацію в google і сподіватися, що вам вдасться знайти хоч щось по цій темі. З появою infoza вам потрібно просто поставити запитання, і ті користувачі, які вже з ним стикалися - вам дадуть відповідь і допоможуть.
+											p Те ж саме стосується будь-якого обману, якого в сфері працевлаштування дуже багато. Тепер ви не тільки миттєво зможете попередити інших людей і розповісти історію, яка з вами сталася, а й відновити справедливість і повернути свої гроші, тому що як тільки про шахраїв починають говорити публічно - вони відразу роблять все для того, щоб шум навколо них не піднімався.
+											p А ще, ви завжди зможете дізнатися про погоду, акції, покупки, зарплати, агенції, житло, вакансії та про інші речі, які цікаві всім заробітчанам, тому що infoza - це проект, де люди спілкуються, задають питання, діляться досвідом і порадами і так само безкоштовно допомагають один одному, адже добро, як відомо, завжди повертається добром!
+		.JoinUs.WelcomePage_joinUs
+			h2.SectionTitle.SectionTitle-thin.SectionTitle-line.JoinUs_title Приєднуйтесь і залишайтеся в курсі всіх подій!
+			.JoinUs_items
+				.JoinUs_item.JoinUs_item-left
+					h3.SectionTitle.JoinUs_itemTitle До офіційного старту залишилося:
+					.JoinUs_itemContent
+						include /includes/blocks/Timer
+				.JoinUs_item.JoinUs_item-right
+					h3.SectionTitle.JoinUs_itemTitle Користувачів вже приєдналося:
+					.JoinUs_itemContent
+						.Users
+							.Users_icon
+								img(src="/img/users.png", alt="Користувачі")
+							.Users_number 12,804
+		.Container
+			form(action="#").JoinForm
+				h2.SectionTitle.JoinForm_title Приєднуйтесь, і ми нагадаємо Вам про запуск!
+				//- .FormSuccess.JoinForm_success
+				//- 	.FormSuccess_icon
+				//- 		img(src="/img/ok.png", alt="Ok")
+				//- 	h3.FormSuccess_title Добре!
+				//- 	.FormSuccess_text
+				//- 		p.FormSuccess_par #[strong Ми обов'язково нагадаємо вам про запуск проекту!]
+				//- 		p.FormSuccess_par.FormSuccess_par-small Якщо ви допустили помилку при введенні даних - #[a(href="javascript:;").FormSuccess_link заповніть форму ще раз]
+				.JoinForm_wrapper
+					.JoinForm_fields
+						.JoinForm_field
+							input(type="email", name="email", placeholder="Ваш E-mail (необов'язково)").JoinForm_text
+						.JoinForm_fieldGroup
+							select(name="communication_type").JoinForm_select
+								option(value="viber") Viber
+								option(value="skype") Skype
+								option(value="telegram") Telegram
+								option(value="whatsapp") Whatsapp
+							input(type="text", name="login_or_number", placeholder="Ваш номер телефону").JoinForm_text
+					.JoinForm_actions
+						button(type="submit").BtnOutline.BtnOutline-joinForm #[span.BtnOutline_largeText Приєднатися] та нагадати про запуск
+
+block page_bottom
+	script(src="/js/dummy.js")

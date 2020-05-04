@@ -1,0 +1,47 @@
+.StatIcon
+	display inline-flex
+	align-items center
+	
+	& > .SvgIco
+		width 19px
+		color $blue2
+		
+		@media $xs
+			width 22px
+	
+	&_link
+		display inline-flex
+		align-items center
+		
+		& > .SvgIco
+			width 19px
+			color $blue2
+			
+			@media $xs
+				width 22px
+	
+	&_count
+		margin-left 7px
+		font-size 13px
+	
+	&-bordered
+		padding-right 10px
+		border-right 1px solid #ebeff3
+		
+		@media $xs
+			padding-right 13px
+	
+	&-answer
+		.StatIcon_link > .SvgIco
+			width 16px
+			
+			@media $xs
+				width 18px
+		
+		.StatIcon_count
+			margin-left 9px
+	
+	&-views
+		& > .SvgIco
+			width 16px
+			margin-left 4px

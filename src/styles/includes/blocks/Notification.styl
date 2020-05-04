@@ -1,0 +1,99 @@
+.Notification
+	display flex
+	align-items flex-start
+	padding-top 26px
+	padding-bottom 19px
+	border-bottom 1px solid #ebf0f2
+	line-height 22px
+	
+	@media $xs
+		padding-top 19px
+		padding-bottom 17px
+	
+	&_userPhotoWrapper
+		position relative
+		flex-shrink 0
+		margin-right 15px
+	
+	&_userPhoto
+		display block
+		width 34px
+		border-radius 50%
+	
+	&_circleIcon
+		flex-shrink 0
+		margin-right 15px
+	
+	&_icon
+		position absolute
+		
+		&-commentCreated
+			right -9px
+			bottom -9px
+			width 24px
+			height 23px
+			background url('../img/notifications/comment_notification.svg') 0 0 no-repeat
+		
+		&-commentReplied
+			right -11px
+			bottom -7px
+			width 30px
+			height 23px
+			background url('../img/notifications/reply_notification.svg') 0 0 no-repeat
+		
+		&-userInvited
+			right -4px
+			bottom -3px
+			width 14px
+			height 14px
+			background url('../img/notifications/join_notification.svg') 0 0 no-repeat
+		
+		&-commentLiked
+			right -8px
+			bottom -6px
+			width 22px
+			height 20px
+			background url('../img/notifications/like_notification.svg') 0 0 no-repeat
+	
+	&_info
+		flex-grow 1
+		margin-top -5px
+	
+	&_nameWrapper
+		font-size 13px
+		
+		@media $xs
+			font-size 14px
+	
+	&_userName, &_date
+		display inline
+	
+	&_userName
+		font-weight 600
+		
+		@media $xs
+			font-weight 500
+	
+	&_text
+		font-size 14px
+		
+		@media $xs
+			font-size 15px
+		
+		a
+			color $blue
+			font-weight 600
+	
+	&-dropdown
+		padding-top 16px
+		padding-bottom 11px
+		line-height 18px
+		
+		.Notification_userPhotoWrapper
+			margin-right 14px
+		
+		.Notification_info
+			margin-top 0
+		
+		.Notification_text
+			font-size 13px

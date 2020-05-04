@@ -1,0 +1,42 @@
+.MobileNavigation#MobileNavigation
+	.MobileNavigation_overlay
+	.MobileNavigation_wrapper
+		.MobileNavigation_top
+			.MobileNavigation_group.MobileNavigation_group-login
+				a(href="/login.html").Login
+					img(src="/img/gennadiy_ponomarev.png", alt="Геннадий Пономарёв").Login_img
+					.Login_wrapper
+						.Login_text Геннадий Пономарёв
+						span.Rating.Rating-mobNav
+							span.Rating_icon
+								include /includes/svg/SvgIco/icon_star
+							span.Rating_number 489
+			.MobileNavigation_group.MobileNavigation_group-menu
+				.MobileMenu
+					ul.MobileMenu_menu
+						li.MobileMenu_item
+							a(href="#").MobileMenu_link Общение
+						li.MobileMenu_item
+							a(href="/dossier.html").MobileMenu_link.active Досье
+						li.MobileMenu_item
+							a(href="/article_feed.html").MobileMenu_link База знаний
+						li.MobileMenu_item
+							a(href="/news_feed.html").MobileMenu_link Новости
+						li.MobileMenu_item
+							a(href="#").MobileMenu_link О проекте
+						li.MobileMenu_item
+							a(href="#").MobileMenu_link Связь с нами
+		.MobileNavigation_bottom
+			.MobileNavigation_group.MobileNavigation_group-languages
+				.Languages.Languages-mobileNavigation
+					ul.Languages_list
+						li.Languages_item
+							a(href="/ua").Languages_link
+								img(src="/img/flag_ua.jpg", alt="Flag ua").Languages_icon
+								span.Languages_text Українська
+						li.Languages_item.Languages_item-current
+							a(href="/ru").Languages_link
+								img(src="/img/flag_ru.jpg", alt="Flag ru").Languages_icon
+								span.Languages_text Русский
+					a(href="javascript:;").Languages_arrowBtn
+						include /includes/svg/SvgIco/arrow_blue

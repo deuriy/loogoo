@@ -1,0 +1,9 @@
+.Popup.Popup-leaveNote#LeaveNote(style="display: none;")
+	.SeparateText.Popup_separateText
+		h3.Popup_title.Popup_title-separate Оставить заметку
+	form(action="#").Form
+		.Form_item
+			label(for="note_text").Form_label Напишите, о чём вы думаете
+			textarea(name="note_text", id="note_text", placeholder="Текст заметки...").FormTextarea.FormTextarea-leaveNote
+		.Form_actions
+			button(type="submit").BtnOrange.BtnOrange-large Оставить заметку

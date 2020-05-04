@@ -1,0 +1,288 @@
+.QuestionBlock
+	padding-right 15px
+	padding-left 3px
+	
+	@media $xs
+		padding 14px 0 10px
+	
+	&_header, &_headerLeft
+		display flex
+	
+	&_header
+		justify-content space-between
+		align-items flex-start
+		margin-bottom 18px
+		
+		@media $xs
+			margin-bottom 15px
+			padding-left 5px
+	
+	&_headerLeft
+		align-items center
+	
+	&_headerRight
+		padding-top 10px
+		padding-right 14px
+		
+		@media $xs
+			padding-top 8px
+			padding-right 5px
+	
+	&_info
+		margin-left 18px
+		
+		@media $xs
+			margin-top 2px
+	
+	&_nameAndRating
+		display flex
+		align-items center
+	
+	&_userName
+		font-weight 500
+		
+		&-orange
+			color $orange
+	
+	&_userIcons
+		position relative
+		top 1px
+		margin-left 6px
+	
+	&_rating
+		margin-left 6px
+		
+		@media $smPlus
+			margin-bottom 1px
+	
+	&_dateWrapper
+		display flex
+		align-items flex-end
+	
+	&_date
+		margin-left 1px
+		color $blue2
+		font-size 13px
+		
+		@media $xs
+			margin-top 1px
+			margin-left 0
+	
+	&_views
+		margin-top 2px
+		margin-left 20px
+	
+	&_label
+		color $blue2
+		font-size 13px
+		
+		@media $xs
+			font-size 12px
+	
+	&_title
+		margin-bottom 23px
+		margin-left 2px
+		font-size 24px
+		line-height 1.34
+		font-weight 500
+		
+		@media $xs
+			margin-bottom 3px
+			margin-left 4px
+			padding-bottom 20px
+			font-size 19px
+			line-height 1.238
+		
+		&-small
+			font-size 14px
+			line-height 1.5714
+		
+		a
+			display inline-block
+			
+			&:hover
+				text-decoration underline
+	
+	&_description
+		color #666
+		line-height 1.71428
+	
+	&_text
+		word-break break-word
+		margin-bottom 29px
+		font-size 16px
+		line-height 1.625
+		
+		p
+			margin-bottom 33px
+			
+			&:last-child
+				margin-bottom 0
+		
+		a
+			color $blue
+			text-decoration underline
+			
+			&:hover
+				text-decoration none
+	
+	&_videoContainer
+		margin-bottom 40px
+		
+		@media $xs
+			margin-bottom 30px
+			
+			&:last-child
+				margin-bottom 0
+		
+		&:last-child
+			margin-bottom 0
+	
+	&_images
+		margin-bottom 35px
+		
+		&.opened
+			margin-bottom 27px
+			
+			@media $xs
+				margin-bottom 14px
+	
+	&_statIcons
+		margin-right 15px
+		
+		@media $xs
+			margin-right 5px
+			margin-left 4px
+	
+	&-highlightedPost
+		.QuestionBlock_userName
+			font-size 13px
+			
+		.QuestionBlock_title
+			margin-top 23px
+			margin-bottom 29px
+	
+	&-full
+		padding 1px 28px 0 4px
+		
+		@media $smMinus
+			padding 0
+		
+		.QuestionBlock_header
+			margin-bottom 29px
+			
+			@media $xs
+				margin-bottom 20px
+				padding-top 3px
+		
+		.QuestionBlock_headerRight
+			padding-top 15px
+			padding-right 2px
+			
+			@media $xs
+				padding-top 4px
+				padding-right 5px
+			
+		.QuestionBlock_info
+			margin-left 15px
+			
+			@media $xs
+				margin-left 18px
+			
+		.QuestionBlock_title
+			margin-bottom 23px
+			margin-left 0
+			font-size 28px
+			
+			@media $xs
+				margin-bottom 19px
+				margin-left 5px
+				padding-bottom 0
+				border-bottom none
+				font-size 21px
+				line-height 1.238
+		
+		.QuestionBlock_text
+			@media $xs
+				margin-bottom 23px
+				padding-left 6px
+				font-size 15px
+				line-height 1.6
+				
+				& > p
+					margin-bottom 23px
+					
+					&:last-child
+						margin-bottom 0
+		
+		.QuestionBlock_images
+			margin-left -2px
+			
+			@media $xs
+				margin-left 5px
+		
+		.QuestionBlock_statIcons
+			margin-right 0
+	
+	&-small
+		padding-right 0
+		padding-left 0
+		
+		.QuestionBlock_header
+			margin-bottom 14px
+		
+		.QuestionBlock_info
+			margin-left 13px
+		
+		.QuestionBlock_userName
+			font-size 13px
+		
+		.QuestionBlock_date
+			font-size 12px
+		
+		.QuestionBlock_title
+			margin-bottom 13px
+			margin-left 0
+	
+	&-frontPage, &-search
+		.QuestionBlock_header
+			@media $xs
+				margin-bottom 18px
+				
+		.QuestionBlock_info
+			margin-top 3px
+			margin-left 16px
+			
+			@media $xs
+				margin-left 12px
+		
+		.QuestionBlock_userPhoto
+			flex-shrink 0
+		
+		.QuestionBlock_label
+			@media $xs
+				position relative
+				margin-right 7px
+				padding-right 8px
+				font-size 13px
+				
+				&:after
+					content ""
+					position absolute
+					top 3px
+					right 0
+					width 1px
+					height 14px
+					background $grey
+			
+		.QuestionBlock_title
+			margin-bottom 12px
+			margin-left 0
+			font-size 21px
+			
+			@media $xs
+				margin-bottom 0
+				margin-left 4px
+		
+		.QuestionBlock_description
+			margin-bottom 21px

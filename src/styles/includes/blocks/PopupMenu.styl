@@ -1,0 +1,45 @@
+.PopupMenu
+	z-index 100
+	visibility hidden
+	opacity 0
+	
+	&, &_overlay
+		position fixed
+		top 0
+		right 0
+		bottom 0
+		left 0
+		@extend .transition
+	
+	&_overlay
+		background rgba($black, 20%)
+	
+	&_title
+		margin 0 -10px 10px
+		padding 0 20px 10px
+		border-bottom 1px solid #ebeff3
+		font-weight 600
+		font-size 16px
+	
+	&_wrapper
+		position absolute
+		width 290px
+		max-width 100%
+		padding 16px 10px 13px
+		border-radius 4px
+		background $white
+	
+	&_link, &_label
+		display block
+		padding 11px 10px
+		font-weight 500
+		font-size 16px
+		color #8396AC
+		@extend .transition
+		
+		&:hover, &.active
+			color $blue
+	
+	&-opened
+		visibility visible
+		opacity 1

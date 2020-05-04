@@ -1,0 +1,51 @@
+.BonusForm
+	&_title
+		margin-bottom 0.75em
+		padding-left 2px
+		font-weight 600
+		font-size 16px
+		line-height 1.625
+		
+		@media $xs
+			margin-bottom 0.533em
+			font-size 15px
+			line-height 1.73
+		
+	&_item
+		position relative
+		
+		@media $xs
+			margin-left 0
+		
+	&_input
+		width 100%
+		height 60px
+		padding-right 60px
+		padding-left 21px
+		border none
+		background #F8F9FA
+		color $blue2
+		font-weight 500
+		font-size 16px
+		
+		@media $xs
+			padding-right 50px
+			padding-left 10px
+			font-size 15px
+	
+	&_btnCopy
+		position absolute
+		top 19px
+		right 19px
+		border none
+		background none
+		
+		@media $xs
+			right 19px
+		
+		& > .SvgIco
+			width 19px
+			color $blue
+			
+			@media $xs
+				width 17px

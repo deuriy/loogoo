@@ -1,0 +1,27 @@
+.Wrapper
+	display flex
+	flex-direction column
+	min-height 100%
+	
+	&-noMobileHeader
+		@media $xs
+			padding-top 51px
+			
+			.Header
+				display none
+		
+		.Main
+			margin-top 0
+	
+	&-blurred
+		filter blur(7px)
+		
+		&:after
+			content ""
+			position absolute
+			z-index 10
+			top 0
+			right 0
+			bottom 0
+			left 0
+			background rgba($black, 5%)

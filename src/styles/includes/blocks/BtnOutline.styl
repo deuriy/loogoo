@@ -1,0 +1,37 @@
+.BtnOutline
+	display inline-block
+	padding 12px 33px 12px 34px
+	border 1px solid $orange
+	border-radius 24px
+	background transparent
+	outline none
+	color $orange
+	font-size 14px
+	font-weight 500
+	@extend .transition
+	
+	&_largeText
+		@media $xs
+			font-size 15px
+			display block
+	
+	&:hover
+		background $orange
+		color $white
+	
+	&-joinForm
+		padding 0.9375em 2em
+		border-radius 2.5em
+		font-size 16px
+		font-weight 600
+		
+		@media $xs
+			font-size 13px
+	
+	&-blue
+		padding 7px 25px
+		border-color $blue
+		color $blue
+		
+		&:hover
+			background $blue

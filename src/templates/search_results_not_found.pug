@@ -1,0 +1,21 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Результаты поиска (ничего не найдено)";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				.Main_topicsFilter
+					form(action="", name="topics_filter")#TopicsFilter.Filter.Filter-results
+						.Search.Search-results.Filter_search.hidden-xs
+							input(type="text", name="search_query2", placeholder="Поиск").Search_text
+						.Filter_resultsText.hidden-xs По запросу #[span.Black “lorem ipsum”] найдено 0 записей
+				.NoResults.NoResults-search
+					.NoResults_icon
+						include /includes/svg/not_found
+					.NoResults_text По вашему запросу ничего не найдено
+			.Aside.Main_aside
+				include /includes/blocks/TopicCreationBlock
+				include /includes/blocks/PopularTopics
+block page_bottom
+	script(src="/js/filter.js")

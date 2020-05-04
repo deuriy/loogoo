@@ -1,0 +1,140 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Лента статей";
+	- var mainModifiers = "Main-infoPages Main-newsFeed";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_sidebar
+				.SidebarMenu#SidebarMenu.hidden-smMinus
+					ul.SidebarMenu_menu
+						li.SidebarMenu_item.SidebarMenu_item-hasSubMenu
+							a(href="#").SidebarMenu_link Категории
+							ul.SidebarMenu_subMenu
+								li.SidebarMenu_subItem
+									a(href="#").SidebarMenu_subLink Список объектов
+								li.SidebarMenu_subItem
+									a(href="#").SidebarMenu_subLink JSON-схема
+								li.SidebarMenu_subItem
+									a(href="#").SidebarMenu_subLink Товары для дома
+								li.SidebarMenu_subItem
+									a(href="#").SidebarMenu_subLink Компьютерная техника
+								li.SidebarMenu_subItem
+									a(href="#").SidebarMenu_subLink Одежда, обувь и аксессуары
+								li.SidebarMenu_subItem
+									a(href="#").SidebarMenu_subLink Спорт и отдых
+				a(href="#PopupMenu").SelectionLink.PopupMenuLink.hidden-md Категории
+			.Main_content
+				.ArticlesFeed
+					.NewsBlocks.NewsBlocks-column.ArticlesFeed_blocks
+						.NewsBlock.NewsBlock-twoCol.NewsBlocks_item
+							.NewsBlock_imgWrap
+								a(href="#")
+									img(src="/img/article1.jpg", alt="Sed do eiusmod tempor incididunt ut labore et dolore magna").NewsBlock_img
+							.NewsBlock_textContent
+								span.Date.NewsBlock_date.hidden-xs Сегодня в 7:05
+								h3.NewsBlock_title
+									a(href="#").NewsBlock_titleLink Sed do eiusmod tempor incididunt ut labore et dolore magna
+								.NewsBlock_text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+								.StatIcons.StatIcons-newsBlock.NewsBlock_statIcons
+									.StatIcons_left
+										ul.StatIcons_list
+											li.StatIcon.StatIcons_item
+												a(href="javascript:;").Like.Like-news
+													include /includes/svg/SvgIco/like
+													span.Like_count 0
+									.StatIcons_right
+										ul.StatIcons_list
+											li.StatIcon.StatIcon-bordered.StatIcons_item.hidden-smPlus
+												span.Date Сегодня в 7:05
+											li.StatIcon.StatIcon-views.StatIcons_item.StatIcons_item-views
+												include /includes/svg/SvgIco/eye
+												span.StatIcon_count 110
+						.NewsBlock.NewsBlock-twoCol.NewsBlocks_item
+							.NewsBlock_imgWrap
+								a(href="#")
+									img(src="/img/article2.jpg", alt="Sed do eiusmod tempor incididunt").NewsBlock_img
+							.NewsBlock_textContent
+								span.Date.NewsBlock_date.hidden-xs Сегодня в 7:05
+								h3.NewsBlock_title
+									a(href="#").NewsBlock_titleLink Sed do eiusmod tempor incididunt
+								.NewsBlock_text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+								.StatIcons.StatIcons-newsBlock.NewsBlock_statIcons
+									.StatIcons_left
+										ul.StatIcons_list
+											li.StatIcon.StatIcons_item
+												a(href="javascript:;").Like.Like-news
+													include /includes/svg/SvgIco/like
+													span.Like_count 0
+									.StatIcons_right
+										ul.StatIcons_list
+											li.StatIcon.StatIcon-bordered.StatIcons_item.hidden-smPlus
+												span.Date Сегодня в 7:05
+											li.StatIcon.StatIcon-views.StatIcons_item.StatIcons_item-views
+												include /includes/svg/SvgIco/eye
+												span.StatIcon_count 110
+						.NewsBlock.NewsBlock-twoCol.NewsBlocks_item
+							.NewsBlock_imgWrap
+								a(href="#")
+									img(src="/img/article3.jpg", alt="Sed do eiusmod tempor incididunt ut labore et dolore magna").NewsBlock_img
+							.NewsBlock_textContent
+								span.Date.NewsBlock_date.hidden-xs Сегодня в 7:05
+								h3.NewsBlock_title
+									a(href="#").NewsBlock_titleLink Sed do eiusmod tempor incididunt ut labore et dolore magna
+								.NewsBlock_text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+								.StatIcons.StatIcons-newsBlock.NewsBlock_statIcons
+									.StatIcons_left
+										ul.StatIcons_list
+											li.StatIcon.StatIcons_item
+												a(href="javascript:;").Like.Like-news
+													include /includes/svg/SvgIco/like
+													span.Like_count 0
+									.StatIcons_right
+										ul.StatIcons_list
+											li.StatIcon.StatIcon-bordered.StatIcons_item.hidden-smPlus
+												span.Date Сегодня в 7:05
+											li.StatIcon.StatIcon-views.StatIcons_item.StatIcons_item-views
+												include /includes/svg/SvgIco/eye
+												span.StatIcon_count 110
+						.NewsBlock.NewsBlock-twoCol.NewsBlocks_item
+							.NewsBlock_imgWrap
+								a(href="#")
+									img(src="/img/article4.jpg", alt="Sed do eiusmod tempor incididunt ut labore et dolore magna").NewsBlock_img
+							.NewsBlock_textContent
+								span.Date.NewsBlock_date.hidden-xs Сегодня в 7:05
+								h3.NewsBlock_title
+									a(href="#").NewsBlock_titleLink Sed do eiusmod tempor incididunt ut labore et dolore magna
+								.NewsBlock_text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+								.StatIcons.StatIcons-newsBlock.NewsBlock_statIcons
+									.StatIcons_left
+										ul.StatIcons_list
+											li.StatIcon.StatIcons_item
+												a(href="javascript:;").Like.Like-news
+													include /includes/svg/SvgIco/like
+													span.Like_count 0
+									.StatIcons_right
+										ul.StatIcons_list
+											li.StatIcon.StatIcon-bordered.StatIcons_item.hidden-smPlus
+												span.Date Сегодня в 7:05
+											li.StatIcon.StatIcon-views.StatIcons_item.StatIcons_item-views
+												include /includes/svg/SvgIco/eye
+												span.StatIcon_count 110
+	.PopupMenu#PopupMenu
+		.PopupMenu_overlay
+		.PopupMenu_wrapper
+			ul.PopupMenu_menu
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link.active Список объектов
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link JSON-схема
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Товары для дома
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Компьютерная техника
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Одежда, обувь и аксессуары
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Спорт и отдых
+block page_bottom
+	include /includes/blocks/LeaveNote
+	script(src="/js/article.js")

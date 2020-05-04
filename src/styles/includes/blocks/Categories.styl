@@ -1,0 +1,40 @@
+.Categories
+	&_filter
+		margin-top 0
+		margin-bottom 25px
+		margin-left 10px
+		
+	&_items
+		display flex
+		flex-wrap wrap
+		margin-top 25px
+		margin-right -10px
+		margin-left -10px
+		padding-left 10px
+	
+	&_item
+		flex 0 0 33.33%
+		padding 0 10px 42px
+	
+	&_links
+		padding-left 30px
+	
+	&_link
+		display block
+		padding-top 21px
+		padding-bottom 27px
+		padding-left 13px
+		border-bottom 1px solid #f0f0f0
+		color #4e6f7e
+		font-weight 500
+		font-size 20px
+		background url('../img/arrow_right.svg') right calc(50% - 2px) / auto 20px no-repeat
+	
+	&-isSearched
+		.Categories_items
+			flex-direction column
+		
+		.Categories_item
+			margin-bottom 20px
+			padding-bottom 10px
+			border-bottom 1px solid $grey

@@ -1,0 +1,153 @@
+.Form
+	&_item
+		position relative
+		margin-bottom 16px
+		padding-top 10px
+	
+	&_label
+		display block
+		margin-bottom 6px
+		font-size 16px
+		color $blue2
+	
+	&_actions
+		margin-top 50px
+		margin-bottom 18px
+	
+	&_agreement
+		margin-bottom 41px
+	
+	&_forgotPassword
+		margin-top 22px
+		margin-bottom 42px
+		text-align center
+	
+	&_separateText
+		margin-bottom 47px
+	
+	&_quickLogin
+		margin-bottom 36px
+		text-align center
+	
+	&_error
+		margin-top 22px
+		margin-bottom 10px
+		padding 5px 8px
+		background #BF0101
+		color $white
+		font-size 18px
+	
+	&_success
+		display flex
+		align-items flex-start
+		
+		& > svg
+			flex-shrink 0
+			width 19px
+			margin-top 5px
+			margin-right 14px
+			color #85BE1F
+			
+			@media $xxs
+				width 14px
+				margin-right 13px
+	
+	&_successText
+		font-weight 500
+		font-size 16px
+		line-height 1.625
+	
+	&_actionLinks
+		display flex
+		justify-content space-between
+		align-items center
+	
+	&_emailRecovery
+		margin-bottom 40px
+		text-align center
+	
+	&_linkWrapper
+		margin-bottom 26px
+		text-align center
+	
+	&_link
+		color $blue
+		font-weight 600
+		
+		&-large
+			font-size 16px
+	
+	&-login
+		.Form_item
+			padding-top 0
+		
+		.Form_actions
+			margin-top 40px
+			margin-bottom 53px
+	
+	&-loginPopup, &-registrationPopup
+		.Form_item
+			padding-top 0
+		
+		.Form_actions
+			margin-top 45px
+			margin-bottom 20px
+	
+	&-loginPopup
+		.Form_actions
+			margin-bottom 28px
+	
+	&-complaint			
+		.Form_actions
+			margin-top 23px
+			text-align right
+			
+			@media $xxs
+				margin-top 21px
+	
+	&-complaintSuccess
+		padding-bottom 8px
+		
+		.Form_checkboxList
+			margin-bottom 21px
+			
+			@media $xxs
+				margin-bottom 15px
+	
+	&-passwordRecovery
+		.Form_separateText
+			margin-top 12px
+			margin-bottom 31px
+			
+		.Form_actions
+			margin-bottom 46px
+		
+		.Form_success
+			justify-content center
+			margin-top 18px
+			margin-bottom 28px
+			
+			@media $xs
+				flex-direction column
+				align-items center
+				margin-top 23px
+				margin-bottom 24px
+			
+			& > svg
+				width 16px
+				margin-right 7px
+				
+				@media $xs
+					width 24px
+					margin-bottom 10px
+		
+		.Form_successText
+			@media $xs
+				text-align center
+			
+		@media $xs
+			.Form_item
+				margin-bottom 0
+			
+			.Form_actions
+				margin-top 40px

@@ -1,0 +1,40 @@
+.SeparateText
+	position relative
+	text-align center
+	
+	&_inner
+		display inline-block
+		position relative
+		z-index 1
+		padding-right 20px
+		padding-left 20px
+		background $white
+		font-size 15px
+		font-weight 500
+		line-height 1
+		color $blue2
+	
+	&:after
+		content ""
+		position absolute
+		bottom calc(50% - 1px)
+		left 0
+		width 100%
+		height 1px
+		background $grey
+	
+	&-login
+		.SeparateText_inner
+			background #F4F9FC
+			color #999EA5
+			font-size 20px
+			
+		&:after
+			height 2px
+			background #e1e4ed
+	
+	&-passwordRecovery
+		.SeparateText_inner
+			color #0E0C0D
+			font-weight 600
+			font-size 14px

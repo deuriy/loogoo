@@ -1,0 +1,29 @@
+.Rating2
+	&, &_list
+		display flex
+		align-items center
+	
+	&_list
+		margin-right 7px
+		
+	&_item
+		margin-right 5px
+		color #dfe3e6
+		@extend .transition
+		
+		&:hover, &-fill
+			color #E6922B
+		
+		&:last-child
+			margin-right 0
+	
+	&_mark, &_number
+		font-size 13px
+	
+	&_mark
+		margin-right 4px
+		font-weight 600
+		color #E6922B
+	
+	&_number
+		color #999

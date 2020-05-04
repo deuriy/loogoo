@@ -1,0 +1,44 @@
+.FormTextarea
+	display block
+	width 100%
+	max-width 100%
+	padding 17px 20px
+	border 1px solid $grey
+	color $black
+	font-size 15px
+	@extend .transition
+	outline none
+	resize none
+	overflow hidden
+	
+	&:focus
+		border-color $blue2
+	
+	&-commentForm
+		min-height 72px
+	
+	&-topicCreationForm
+		height 171px
+		padding 20px 25px
+		color $black
+		
+		@media $xs
+			height 160px
+			padding 12px 10px
+	
+	&-submitComplaint, &-leaveNote
+		height 100px
+		padding 7px 9px
+		font-size 16px
+		resize both
+		
+		+placeholder()
+			color rgba($blue2, 30%)
+	
+	&-sendMessage
+		height 50px
+		padding 15px
+		border-color #DFE2E6
+		border-radius 3px
+		font-size 14px
+		color $blue2

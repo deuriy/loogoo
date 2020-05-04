@@ -1,0 +1,36 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Мои уведомления (нет результатов)";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Мои уведомления
+				.NoResults.NoResults-notifications
+					.NoResults_icon
+						include /includes/svg/bell
+					.NoResults_text У вас ещё не было уведомлений
+			.Aside.Main_aside
+				.SidebarMenu.SidebarMenu-profileMenu#SidebarMenu.hidden-smMinus
+					h3.SidebarMenu_title Профиль
+					ul.SidebarMenu_menu
+						li.SidebarMenu_item
+							a(href="/my_topics.html").SidebarMenu_link Мои темы
+						li.SidebarMenu_item
+							a(href="/profile_invite.html").SidebarMenu_link Мои приглашения
+						li.SidebarMenu_item
+							a(href="/my_notifications_no_results.html").SidebarMenu_link Уведомления
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Настройки
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Выход
+				.TopicCreationBlock.hidden-xs
+					h3.TopicCreationBlock_title Нужен ответ?
+					.TopicCreationBlock_text Просто создайте тему и вам ответят
+					a(href="#").BtnBlue.BtnBlue-light.BtnBlue-topicCreation Cоздать
+block page_bottom
+	script(src="/js/topics_filter.js")

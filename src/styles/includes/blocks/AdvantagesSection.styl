@@ -1,0 +1,78 @@
+.AdvantagesSection
+	padding-top 103px
+	padding-bottom 123px
+	
+	@media $mdMinus
+		padding-top 70px
+		padding-bottom 93px
+	
+	@media $smMinus
+		padding-top 40px
+		padding-bottom 63px 
+	
+	@media $xs
+		padding-top 10px
+		padding-bottom 33px
+	
+	&_title
+		margin-bottom 2.28125em
+		font-weight 600
+		font-size 36px
+		line-height 1.278
+		text-align center
+		
+		@media $mdMinus
+			font-size 32px
+		
+		@media $smMinus
+			font-size 28px
+		
+		@media $xs
+			margin-bottom 24px
+			font-size 24px
+			line-height 1.34
+	
+	&_items
+		display flex
+		align-items flex-start
+		
+		@media $smMinus
+			flex-direction column
+			align-items center
+	
+	&_column		
+		&-left
+			width 53.2%
+			padding-right 30px
+			
+			@media $smMinus
+				width 550px
+				margin-bottom 30px
+				padding-right 0
+			
+			@media $xs
+				width 320px
+		
+		&-right
+			width 46.8%
+			
+			@media $smMinus
+				width 550px
+			
+			@media $xs
+				width 320px
+	
+	&_item
+		margin-bottom 56px
+		
+		@media $mdMinus
+			margin-bottom 40px
+		
+		@media $smMinus
+			margin-bottom 30px
+		
+		@media $xs
+			margin-bottom 20px
+		
+		&:last-child
+			margin-bottom 0

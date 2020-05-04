@@ -1,0 +1,59 @@
+.MenuSection.Main_menuSection
+	.MenuSection_left
+		.CategoryMenu.hidden-xs
+			ul.CategoryMenu_menu
+				li.CategoryMenu_item
+					a(href="#").CategoryMenu_link.active Новое
+				li.CategoryMenu_item
+					a(href="#").CategoryMenu_link Вопросы
+				li.CategoryMenu_item
+					a(href="#").CategoryMenu_link Советы
+				li.CategoryMenu_item
+					a(href="#").CategoryMenu_link Рассказы
+				li.CategoryMenu_item
+					a(href="#").CategoryMenu_link Предупреждения
+		a(href="#PopupMenu").SelectionLink.MenuSection_selectionLink.PopupMenuLink.hidden-smPlus Новое
+		a(href="#DateSorting").SelectionLink.MenuSection_selectionLink.PopupMenuLink.hidden-smPlus Сегодня
+	.MenuSection_right
+		//- a(href="#").FilterIcon
+		//- 	include /includes/svg/SvgIco/filter
+//- .DateSortTags.Main_dateSortTags
+//- 	ul.DateSortTags_list
+//- 		li.DateSortTags_item
+//- 			a(href="#").FilterTag.FilterTag-white.DateSortTags_tag Сегодня
+//- 		li.DateSortTags_item
+//- 			a(href="#").FilterTag.FilterTag-white.DateSortTags_tag Вчера
+//- 		li.DateSortTags_item
+//- 			a(href="#").FilterTag.FilterTag-white.DateSortTags_tag 7 дней
+//- 		li.DateSortTags_item
+//- 			a(href="#").FilterTag.FilterTag-white.DateSortTags_tag 30 дней
+//- 		li.DateSortTags_item
+//- 			a(href="#").FilterTag.FilterTag-white.DateSortTags_tag Сейчас читают
+.PopupMenu#PopupMenu
+	.PopupMenu_overlay
+	.PopupMenu_wrapper
+		ul.PopupMenu_menu
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link.active Новое
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Популярное
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Вопросы
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Советы
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Рассказы
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Предупреждения
+.PopupMenu#DateSorting
+	.PopupMenu_overlay
+	.PopupMenu_wrapper
+		ul.PopupMenu_menu
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link.active Сегодня
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Вчера
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Неделя
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Месяц

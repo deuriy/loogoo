@@ -1,0 +1,88 @@
+.SectionAbout
+	background #F0F1F3
+	
+	&_container
+		display flex
+		padding-top 60px
+		
+		@media $mdMinus
+			padding-top 40px
+		
+		@media $smMinus
+			flex-direction column-reverse
+			padding-top 20px
+	
+	&_left, &_right
+		width 50%
+		
+		@media $smMinus
+			width 540px
+			margin-right auto
+			margin-left auto
+		
+		@media $xs
+			width 320px
+	
+	&_left
+		display flex
+		flex-direction column
+		justify-content flex-end
+		align-items flex-start
+		
+		@media $smMinus
+			align-items center
+	
+	&_img
+		display block
+		
+		@media $xs
+			margin-left 33px
+	
+	&_right
+		padding-top 40px
+		padding-bottom 40px
+		padding-left 33px
+		
+		@media $smMinus
+			padding-top 20px
+			padding-left 0
+		
+		@media $xs
+			padding-top 13px
+			padding-bottom 15px
+	
+	&_title
+		margin-bottom 0.75em
+		font-weight 600
+		font-size 36px
+		line-height 1.278
+		
+		@media $mdMinus
+			font-size 32px
+		
+		@media $smMinus
+			font-size 28px
+			text-align center
+		
+		@media $xs
+			margin-bottom 1em
+			font-size 24px
+			line-height 1.34
+	
+	&_text
+		margin-bottom 2.1em
+		font-size 16px
+		line-height 1.5
+		
+		@media $smMinus
+			font-size 15px
+		
+		p
+			margin-bottom 0.625em
+			
+			&:last-child
+				margin-bottom 0
+	
+	&_linkWrapper
+		@media $smMinus
+			text-align center

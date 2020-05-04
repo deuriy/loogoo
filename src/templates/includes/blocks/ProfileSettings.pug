@@ -1,0 +1,60 @@
+form(action="#").ProfileSettings
+	.ProfileSettings_fields
+		.ProfileSettings_fieldGroup.ProfileSettings_fieldGroup-photo
+			.ProfileSettings_field
+				label(for="user_photo").ProfileSettings_label.hidden-xs Фотография
+				.ProfileSettings_fieldContent.ProfileSettings_fieldContent-photo
+					img(src="/img/ivan_ivanov.png", alt="Иван Иванов").ProfileSettings_userPhoto
+					.ProfileSettings_info.hidden-smPlus
+						.ProfileSettings_nameAndRating
+							span.ProfileSettings_userName Иван Иванов
+							a(href="javascript:;").Rating.ProfileSettings_rating
+								span.Rating_icon
+									include /includes/svg/SvgIco/icon_star
+								span.Rating_number.Rating_number-profileSettings 17
+						a(href="#PopupChangePhoto").PopupMenuLink.ProfileSettings_link Изменить фото профиля
+				.ProfileSettings_fieldRight.ProfileSettings_fieldRight-alignLeft.hidden-xs
+					.ProfileSettings_nameWrapper
+						.ProfileSettings_name Иван Иванов
+						a(href="javascript:;").ProfileSettings_link.ProfileSettings_link-changePhoto Изменить фото
+		.ProfileSettings_fieldGroup.ProfileSettings_fieldGroup-main
+			.ProfileSettings_field
+				label(for="name2").ProfileSettings_label Имя
+				.ProfileSettings_fieldContent
+					input(type="text", name="name2", id="name2", placeholder="Имя", minlength="2", required).FormText.FormText-profileSettings
+			.ProfileSettings_field
+				label(for="surname").ProfileSettings_label Фамилия
+				.ProfileSettings_fieldContent
+					input(type="text", name="surname", id="surname", placeholder="Фамилия", minlength="2").FormText.FormText-profileSettings
+			.ProfileSettings_field
+				label(for="patronym").ProfileSettings_label Отчество
+				.ProfileSettings_fieldContent
+					input(type="text", name="patronym", id="patronym", placeholder="Отчество", minlength="2").FormText.FormText-profileSettings
+			.ProfileSettings_field
+				label(for="login").ProfileSettings_label Логин
+				.ProfileSettings_fieldContent
+					input(type="text", name="login", id="login", placeholder="Логин", minlength="3", maxlength="15").FormText.FormText-profileSettings
+			.ProfileSettings_field.ProfileSettings_field-display
+				label(for="show_name").ProfileSettings_label.hidden-xs Показывать имя
+				label(for="show_name").ProfileSettings_label.hidden-smPlus Отображение на сайте
+				.ProfileSettings_fieldContent
+					select(name="show_name").Select.Select-bordered.Select-profileSettings
+						option(value="1") Показывать имя
+						option(value="2") Показывать имя и фамилию
+						option(value="3") Показывать имя и отчество
+						option(value="4") Показывать имя и логин
+			.ProfileSettings_field.ProfileSettings_field-phone
+				label(for="messenger").ProfileSettings_label.hidden-xs Контактный телефон
+				label(for="messenger").ProfileSettings_label.hidden-smPlus Контакты
+				.ProfileSettings_fieldWrapper.ProfileSettings_fieldWrapper-phone
+					.ProfileSettings_fieldContent
+						input(type="tel", name="contact_phone", placeholder="Телефон").FormText.FormText-profileSettings
+					.ProfileSettings_fieldRight
+						select(name="messenger").Select.Select-bordered.Select-profileSettings.Select-messenger
+							option(value="none") Выберите мессенджер
+							option(value="viber") Viber
+							option(value="whatsapp") WhatsApp
+							option(value="telegram") Telegram
+	.ProfileSettings_actions
+		button(type="submit").BtnOutline.hidden-xs Сохранить изменения
+		button(type="submit").BtnOrange.BtnOrange-profileSettings.hidden-smPlus Сохранить изменения

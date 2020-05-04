@@ -1,0 +1,17 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Опубликовать вопрос";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Создать тему
+				include /includes/blocks/MenuSectionProfile
+				include /includes/blocks/PostQuestion
+			.Aside.Main_aside
+				include /includes/blocks/UserMenu
+				include /includes/blocks/ActionLinks-advanced

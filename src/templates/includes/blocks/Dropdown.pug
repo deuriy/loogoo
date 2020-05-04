@@ -1,0 +1,23 @@
+.Dropdown
+	.Dropdown_overlay
+	.Dropdown_wrapper
+		.Dropdown_header
+			.Dropdown_userNameWrapper
+				.Dropdown_userName Илья Вакуленко
+				a(href="javascript:;").Rating.Dropdown_rating.hidden-smPlus
+					span.Rating_icon
+						include /includes/svg/SvgIco/icon_star
+					span.Rating_number 17
+			img(src="/img/ivan_ivanov.png", alt="Илья Вакуленко").Dropdown_userPhoto
+		.Dropdown_body
+			ul.Dropdown_menu
+				li.Dropdown_item
+					a(href="/my_topics.html").Dropdown_link Мои темы
+				li.Dropdown_item
+					a(href="/profile_invite.html").Dropdown_link Мои приглашения
+				li.Dropdown_item
+					a(href="/my_notifications.html").Dropdown_link Уведомления #[span.Count 3]
+				li.Dropdown_item
+					a(href="/profile_settings.html").Dropdown_link Настройки
+				li.Dropdown_item
+					a(href="/logout.html").Dropdown_link Выход

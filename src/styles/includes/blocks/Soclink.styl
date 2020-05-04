@@ -1,0 +1,30 @@
+.Soclink
+	font-weight 600
+	font-size 18px
+	line-height 1.34
+	color $blue
+	
+	& > .SvgIco
+		margin-right 9px
+		color $blue2
+		
+		@media $xs
+			width 17px
+			margin-right 5px
+	
+	&_text
+		position relative
+		
+		&:after
+			content ""
+			position absolute
+			right 0
+			bottom 0
+			width 100%
+			height 1px
+			background $blue
+			@extend .transition
+	
+	&:hover
+		.Soclink_text:after
+			background transparent

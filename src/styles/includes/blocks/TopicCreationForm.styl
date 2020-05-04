@@ -1,0 +1,42 @@
+.TopicCreationForm
+	@media $xs
+		display flex
+		flex-direction column
+		
+	.ImageUpload
+		margin-bottom 34px
+		
+		@media $xs
+			margin-bottom 30px
+	
+	.AttachedImage
+		margin-bottom 35px
+	
+	.QuestionTags
+		margin-bottom 56px
+		
+		@media $xs
+			margin-top -4px
+			margin-bottom 30px
+		
+	&_item
+		margin-bottom 24px
+		
+		@media $xs
+			margin-bottom 23px
+		
+		&:last-child
+			margin-bottom 0
+	
+	&_label
+		@media $xs
+			display block
+			margin-bottom 5px
+			font-weight 500
+			color $blue2
+	
+	&_actions
+		text-align center
+		
+		@media $xs
+			order 2

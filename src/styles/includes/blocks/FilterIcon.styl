@@ -1,0 +1,27 @@
+.FilterIcon
+	position relative
+	display inline-block
+	width 16px
+	color #8396AC
+	@extend .transition
+	
+	&:hover
+		color $blue
+	
+	&_number
+		position absolute
+		right -7px
+		bottom -2px
+		display flex
+		justify-content center
+		align-items center
+		width 14px
+		height 14px
+		border-radius 50%
+		background $blue
+		color $white
+		font-size 9px
+		
+	&-zero
+		.FilterIcon_number
+			display none

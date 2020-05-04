@@ -1,0 +1,90 @@
+.UserPhoto
+	display inline-block
+	
+	&_link
+		display flex
+		align-items center
+	
+	&_img
+		display block
+		width 50px
+		border-radius 50%
+	
+	&_icon
+		margin-top -3px
+		margin-left 5px
+	
+	&-online
+		position relative
+		
+		&:after
+			content ""
+			position absolute
+			right 0
+			bottom 0
+			width 13px
+			height 13px
+			background $green
+			border 2px solid $white
+			border-radius 50%
+		
+		&.UserPhoto-fullMessage:after
+			width 8px
+			height 8px
+			border-width 1px
+	
+	&-glow
+		.UserPhoto_img
+			box-shadow 0 0 16px $orange
+			
+			@media $xs
+				box-shadow 0 0 8px $orange
+	
+	&-parentComment
+		.UserPhoto_img
+			width 40px
+	
+	&-small
+		.UserPhoto_img
+			width 34px
+	
+	&-profileBlock
+		position relative
+		
+		@media $xs
+			width 32px
+		
+		.UserPhoto_img
+			width 40px
+			
+			@media $xs
+				width 32px
+		
+		.UserPhoto_icon
+			margin-top 2px
+			color $grey
+			
+			& > .SvgIco
+				width 7px
+			
+			@media $xs
+				display none
+		
+		.Dropdown			
+			@media $xs
+				top -18px
+				right -18px
+				width 240px
+	
+	&-sidebarBlock, &-fullMessage
+		.UserPhoto_img
+			width 30px
+	
+	&-frontPage, &-search
+		@media $xs
+			.UserPhoto_img
+				width 40px
+	
+	&-shortMessage
+		.UserPhoto_img
+			width 40px

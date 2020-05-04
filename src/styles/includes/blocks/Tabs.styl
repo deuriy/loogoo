@@ -1,0 +1,57 @@
+.Tabs
+	&_list
+		display flex
+		margin-bottom 59px
+		
+		@media $xs
+			margin-bottom 35px
+	
+	&_item
+		display flex
+		justify-content center
+		align-items center
+		flex 1 0 0
+		padding-top 10px
+		padding-bottom 10px
+		border-bottom 1px solid rgba($black, 22%)
+		font-size 25px
+		font-family 'Decima Nova Pro', sans-serif
+		@extend .transition
+		color rgba($black, 33%)
+		text-align center
+		cursor pointer
+		
+		@media $xs
+			padding-top 7px
+			padding-bottom 7px
+			font-size 18px
+		
+		&:hover, &-active
+			border-bottom 2px solid #81BE1F
+			color #81BE1F
+		
+		&-active
+			font-weight 700
+	
+	&_content
+		display none
+	
+	&_infoBlocks
+		&-launch
+			padding-top 45px
+			
+			@media $xs
+				padding-top 0
+	
+	&_infoBlock
+		margin-bottom 70px
+		
+		@media $xs
+			margin-bottom 45px
+		
+		&:last-child
+			margin-bottom 0
+		
+		&-inverse
+			@media $xs
+				margin-bottom 30px

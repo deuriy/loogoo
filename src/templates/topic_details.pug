@@ -1,0 +1,376 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Страница вопроса";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				.TopicDetails
+					.QuestionBlock.QuestionBlock-full.TopicDetails_questionBlock
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.QuestionBlock_userPhoto
+									img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_nameAndRating
+										span.QuestionBlock_userName Иван Иванов
+										.UserIcons.QuestionBlock_userIcons
+											ul.UserIcons_list
+												li.UserIcons_item
+													include /includes/svg/user_icons/check
+												li.UserIcons_item
+													include /includes/svg/user_icons/cup
+												li.UserIcons_item.UserIcons_item-lightning
+													include /includes/svg/user_icons/lightning
+												li.UserIcons_item.UserIcons_item-shield
+													include /includes/svg/user_icons/shield
+										a(href="javascript:;").Rating.QuestionBlock_rating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 17
+									.QuestionBlock_date сегодня в 7:05
+							.QuestionBlock_headerRight
+								.DotsMenu
+									a(href="javascript:;").DotsMenu_icon
+										include /includes/svg/SvgIco/dots
+									.DotsMenu_wrapper
+										a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link
+											include /includes/svg/SvgIco/warning
+											.
+												Пожаловаться
+						h2.QuestionBlock_title Lorem ipsum dolor sit amet
+						.QuestionBlock_text
+							p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+							.VideoContainer.QuestionBlock_videoContainer
+								iframe(width="560", height="315", src="https://www.youtube.com/embed/6ddO3jPUFpg", frameborder="0", allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen)
+							.VideoContainer.QuestionBlock_videoContainer
+								iframe(width="560", height="315", src="https://www.youtube.com/embed/6ddO3jPUFpg", frameborder="0", allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen)
+							p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. #[a(href="#") ссылка в тексте]
+						.Images.QuestionBlock_images
+							ul.Images_list
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item
+									a(href="#").Images_link
+										img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+								li.Images_item.Images_item-other
+									a(href="#").Images_link.Images_link-other
+										span.Images_number +12
+							a(href="#").Images_hideLink скрыть
+						.StatIcons.QuestionBlock_statIcons
+							.StatIcons_left
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+										a(href="javascript:;").Like.Like-post
+											include /includes/svg/SvgIco/like
+											span.Like_count 0
+							.StatIcons_right
+								ul.StatIcons_list
+									li.StatIcon.StatIcon-views.StatIcons_item.StatIcons_item-views
+										include /includes/svg/SvgIco/eye
+										span.StatIcon_count 110
+					.CommentsBlock
+						.CommentsBlock_header
+							h3.CommentsBlock_title 3 комментария
+							.DropdownSelect.DropdownSelect-commentsSorting.CommentsBlock_dropdownSelect
+								select(name="sorting").DropdownSelect_select
+									option(value="new_first") Сначала новые
+									option(value="first_old") Сначала старые
+						form(action="#").CommentForm.CommentsBlock_commentForm
+							textarea(name="comment_text", placeholder="Напишите комментарий").FormTextarea.FormTextarea-commentForm.CommentForm_textArea
+							.CommentForm_actions
+								button(type="reset").CommentForm_resetBtn Отмена
+								button(type="submit").BtnBlue.BtnBlue-light.BtnBlue-commentForm Отправить
+						.CommentsBlock_items
+							.Comment.Comment-hasChild.Comment-hideChildComments.CommentsBlock_item
+								.Comment_wrapper
+									.Comment_header
+										.Comment_headerLeft
+											.UserPhoto.UserPhoto-parentComment.Comment_userPhoto
+												img(src="/img/anna_sergeevna.png", alt="Анна Сергеевна").UserPhoto_img
+											.Comment_info
+												.Comment_nameAndRating
+													.Comment_userName Анна Сергеевна
+													.UserIcons.Comment_userIcons
+														ul.UserIcons_list
+															li.UserIcons_item
+																include /includes/svg/user_icons/check
+															li.UserIcons_item
+																include /includes/svg/user_icons/cup
+															li.UserIcons_item.UserIcons_item-lightning
+																include /includes/svg/user_icons/lightning
+															li.UserIcons_item.UserIcons_item-shield
+																include /includes/svg/user_icons/shield
+													a(href="javascript:;").Rating.Comment_rating
+														span.Rating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.Rating_number 17
+												.Comment_date сегодня в 7:05
+										.Comment_headerRight
+											.DotsMenu
+												a(href="javascript:;").DotsMenu_icon
+													include /includes/svg/SvgIco/dots
+												.DotsMenu_wrapper
+													ul.DotsMenu_menu
+														li.DotsMenu_item
+															a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
+																include /includes/svg/SvgIco/edit
+																.
+																	Редактировать
+														li.DotsMenu_item
+															a(href="javascript:;").DotsMenu_link
+																include /includes/svg/SvgIco/remove
+																.
+																	Удалить
+									.Comment_text
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcorati laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in volup
+										//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua. #[a(href="#") ссылка]
+										//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua.
+										//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua.
+										//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua.
+										//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua.
+									.Comment_footer
+										.Comment_actionLinks
+											a(href="#").Comment_actionLink Ответить
+											a(href="#").Comment_actionLink.Comment_actionLink-toggleAnswers.Comment_actionLink-answersOpened Скрыть ответы
+										a(href="javascript:;").Like.Like-comment
+											include /includes/svg/SvgIco/like
+											span.Like_count 42
+								.Comment_childComments
+									.Comment.Comment-child
+										.Comment_wrapper
+											.Comment_header
+												.Comment_headerLeft
+													.UserPhoto.UserPhoto-small.Comment_userPhoto
+														img(src="/img/vladimir_petrov.png", alt="Владимир Петров").UserPhoto_img
+													.Comment_info
+														.Comment_nameAndRating
+															.Comment_userName Владимир Петров
+															a(href="javascript:;").Rating.Comment_rating
+																span.Rating_icon
+																	include /includes/svg/SvgIco/icon_star
+																span.Rating_number 17
+															a(href="#").ReplyName.Comment_replyName.hidden-xs
+																include /includes/svg/SvgIco/reply
+																.
+																	Анна Сергеевна
+														.Comment_dateWrapper
+															.Comment_date сегодня в 7:05
+															a(href="#").ReplyName.Comment_replyName.hidden-smPlus
+																include /includes/svg/SvgIco/reply
+																.
+																	Анна Сергеевна
+												.Comment_headerRight
+													.DotsMenu
+														a(href="javascript:;").DotsMenu_icon
+															include /includes/svg/SvgIco/dots
+														.DotsMenu_wrapper.DotsMenu_wrapper-complaint
+															a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link.DotsMenu_link-complaint.CommentComplaintLink
+																include /includes/svg/SvgIco/warning
+																.
+																	Пожаловаться
+											.Comment_text
+												//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+												p Lorem ipsum dolor sit amet, cons ectetur adipisicing elit, sed doeis mod
+											.Comment_footer
+												a(href="#").Comment_actionLink Ответить
+												a(href="javascript:;").Like.Like-comment
+													include /includes/svg/SvgIco/like
+													span.Like_count 42
+									.Comment.Comment-child
+										.Comment_wrapper
+											.Comment_header
+												.Comment_headerLeft
+													.UserPhoto.UserPhoto-small.Comment_userPhoto
+														img(src="/img/anton_sergeevich.png", alt="Антон Сергеевич").UserPhoto_img
+													.Comment_info
+														.Comment_nameAndRating
+															.Comment_userName Антон Сергеевич
+															a(href="javascript:;").Rating.Comment_rating
+																span.Rating_icon
+																	include /includes/svg/SvgIco/icon_star
+																span.Rating_number 17
+															a(href="#").ReplyName.Comment_replyName.hidden-xs
+																include /includes/svg/SvgIco/reply
+																.
+																	Анна Сергеевна
+														.Comment_dateWrapper
+															.Comment_date сегодня в 7:05
+															a(href="#").ReplyName.Comment_replyName.hidden-smPlus
+																include /includes/svg/SvgIco/reply
+																.
+																	Анна Сергеевна
+												.Comment_headerRight
+													.DotsMenu
+														a(href="javascript:;").DotsMenu_icon
+															include /includes/svg/SvgIco/dots
+														.DotsMenu_wrapper
+															a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link.CommentComplaintLink
+																include /includes/svg/SvgIco/warning
+																.
+																	Пожаловаться
+											.Comment_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+											.Comment_footer
+												a(href="#").Comment_actionLink Ответить
+												a(href="javascript:;").Like.Like-comment
+													include /includes/svg/SvgIco/like
+													span.Like_count 42
+							.Comment.Comment-reply.CommentsBlock_item
+								.Comment_wrapper
+									.Comment_header
+										.Comment_headerLeft
+											.UserPhoto.UserPhoto-parentComment.Comment_userPhoto
+												img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
+											.Comment_info
+												.Comment_nameAndRating
+													.Comment_userName.Comment_userName-highlighted Иван Иванов
+													.UserIcons.Comment_userIcons
+														ul.UserIcons_list
+															li.UserIcons_item
+																include /includes/svg/user_icons/check
+															li.UserIcons_item
+																include /includes/svg/user_icons/cup
+															li.UserIcons_item.UserIcons_item-lightning
+																include /includes/svg/user_icons/lightning
+															li.UserIcons_item.UserIcons_item-shield
+																include /includes/svg/user_icons/shield
+													a(href="javascript:;").Rating.Comment_rating
+														span.Rating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.Rating_number 17
+												.Comment_date.Comment_date-highlightedName сегодня в 7:05
+										.Comment_headerRight
+											.DotsMenu
+												a(href="javascript:;").DotsMenu_icon
+													include /includes/svg/SvgIco/dots
+												.DotsMenu_wrapper
+													a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link.CommentComplaintLink
+														include /includes/svg/SvgIco/warning
+														.
+															Пожаловаться
+									.Comment_text
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcorati laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in volup
+									.Comment_footer
+										a(href="#").Comment_actionLink Ответить
+										a(href="javascript:;").Like.Like-comment
+											include /includes/svg/SvgIco/like
+											span.Like_count 42
+									form(action="#").CommentForm.Comment_commentForm
+										textarea(name="comment_text", placeholder="Напишите комментарий").FormTextarea.FormTextarea-commentForm.CommentForm_textArea
+										.CommentForm_actions
+											button(type="reset").CommentForm_resetBtn Отмена
+											button(type="submit").BtnBlue.BtnBlue-light.BtnBlue-commentForm Отправить
+							.Comment.Comment-reply.CommentsBlock_item
+								.Comment_wrapper
+									.Comment_header
+										.Comment_headerLeft
+											.UserPhoto.UserPhoto-parentComment.Comment_userPhoto
+												img(src="/img/vasilisa_andreevna.png", alt="Василиса Андреевна").UserPhoto_img
+											.Comment_info
+												.Comment_nameAndRating
+													.Comment_userName Василиса Андреевна
+													.UserIcons.Comment_userIcons
+														ul.UserIcons_list
+															li.UserIcons_item
+																include /includes/svg/user_icons/check
+															li.UserIcons_item
+																include /includes/svg/user_icons/cup
+															li.UserIcons_item.UserIcons_item-lightning
+																include /includes/svg/user_icons/lightning
+															li.UserIcons_item.UserIcons_item-shield
+																include /includes/svg/user_icons/shield
+													a(href="javascript:;").Rating.Comment_rating
+														span.Rating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.Rating_number 17
+												.Comment_date сегодня в 7:05
+										.Comment_headerRight
+											.DotsMenu
+												a(href="javascript:;").DotsMenu_icon
+													include /includes/svg/SvgIco/dots
+												.DotsMenu_wrapper
+													a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link.CommentComplaintLink
+														include /includes/svg/SvgIco/warning
+														.
+															Пожаловаться
+									.Comment_text
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcorati laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in volup
+									.Comment_footer
+										.Comment_actionLinks
+											a(href="#").Comment_actionLink Ответить
+											a(href="#").Comment_actionLink.Comment_actionLink-toggleAnswers Показать 10 ответов
+										a(href="javascript:;").Like.Like-comment
+											include /includes/svg/SvgIco/like
+											span.Like_count 42
+			.Aside.Main_aside
+				include /includes/blocks/TopicCreationBlock
+				include /includes/blocks/PopularTopics
+		include /includes/blocks/ComplaintFormPopup
+				
+block page_bottom
+	script(src="/js/topic_details.js")

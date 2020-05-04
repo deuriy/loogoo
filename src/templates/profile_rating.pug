@@ -1,0 +1,92 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Мой рейтинг";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-profileContent";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Мои рейтинг
+				.ProfileContent.ProfileContent-rating
+					.MyRating.ProfileContent_myRating
+						include /includes/svg/SvgIco/icon_star
+						.MyRating_number 12,4k
+						.MyRating_label мой #[br]рейтинг
+					.ProfileContent_text
+						h3 О рейтинге. Почему он важнее денег
+						p Самое ценное, что существует в нашем мире – это информация. И, если FaceBook, Instagram и другие площадки уже не дают возможности делиться информацией с широкой аудиторией, то на Infoza – каждый будет услышан!
+						p Благодаря умной ленте каждую вашу тему сразу же увидят десятки тысяч людей, а если у вас будет высокий рейтинг – система дополнительно покажет созданную вами информацию даже тем людям, которым она не подходит по интересам, но может оказаться полезной.
+						p Высокий рейтинг на портале Infoza – это возможность общаться с огромным количеством людей и делится с ними своей информацией. Это то, что гораздо ценнее денег, и то, что можно конвертировать в дополнительный заработок. Поэтому, проявляйте активность, увеличивайте рейтинг, а с ним и свою популярность и влияние.
+						h3 Как увеличить рейтинг самостоятельно
+						p На данный момент существуют несколько способов повысить рейтинг:
+						.RatingIncrease.ProfileContent_ratingIncrease
+							.RatingIncrease_item
+								.RatingIncrease_text Создание темы
+								.RatingIncrease_number +3
+							.RatingIncrease_item
+								.RatingIncrease_text Написание комментария
+								.RatingIncrease_number +1
+							.RatingIncrease_item
+								.RatingIncrease_text Предоставление информации об агенстве, посреднике или работодателе, к которому вы обращались за трудоустройством или другими услугами
+								.RatingIncrease_number +100
+							.RatingIncrease_item
+								.RatingIncrease_text Предоставление информации о любой вакансии за границей 
+								.RatingIncrease_number +100
+							.RatingIncrease_item
+								.RatingIncrease_text Предоставление информации о любой вакансии за границей, которая будет подтверждена любыми фото или видео (даже в плохом качестве)
+								.RatingIncrease_number +5000
+							.RatingIncrease_item
+								.RatingIncrease_text Предоставление информации о жилье на любой любой вакансии за границей, которая будет подтверждена любыми фото или видео (даже в плохом качестве
+								.RatingIncrease_number +500
+							.RatingIncrease_item
+								.RatingIncrease_text Прохождение верификации на портале Infoza
+								.RatingIncrease_number +250
+							.RatingIncrease_item
+								.RatingIncrease_text Выявление любых ошибок (грамматических, технических и т.д.) #[br.hidden-smPlus]
+								.RatingIncrease_number от +50 до +5000
+							.RatingIncrease_item
+								.RatingIncrease_text Предложение различных идей или любого рода улучшений на портале Infoza
+								.RatingIncrease_number от +50 до +10 000
+							.RatingIncrease_item
+								.RatingIncrease_text Установка мобильного приложения #[a(href="https://play.google.com/store/apps/details?id=application.infoza&hl=ru", target="_blank") Infoza] для Android
+								.RatingIncrease_number +250
+							.RatingIncrease_item
+								.RatingIncrease_text Положительный отзыв и оценка в 5 звёзд на #[a(href="https://play.google.com/store/apps/details?id=application.infoza&hl=ru", target="_blank") Play Market]
+								.RatingIncrease_number +500
+						.Note.ProfileContent_note #[span.Semibold Важно:] для получения вознаграждения – напишите нам на почту: #[a(href="mailto:info@infoza.top") info@infoza.top] или в один из мессенджеров: #[a(href="viber://chat?number=+380680220201") Viber] или #[a(href="tg://resolve?domain=infoza.top") Telegram]
+						h3 Как увеличить рейтинг с помощью друзей и знакомых
+						p За каждого пользователя, которого вы пригласили – вы постоянно будете получать #[span.Semibold 35%] от заработанного им рейтинга. Все начисления будут происходить мгновенно и в автоматическом режиме. Кроме того, ваши друзья так же не останутся без подарка, ведь за то что они зарегистрировались по вашей ссылке – они автоматически получат #[span.Semibold +100] баллов рейтинга. Таким образом, и вам и вашим друзьям будет выгодно зарегистрироваться именно по партнёрской ссылке, а не напрямую.
+						h3 Как пригласить друзей и знакомых
+						p Просто отправьте друзьям вашу уникальную бонусную ссылку:
+						form(action="").BonusForm.ProfileContent_bonusForm
+							.BonusForm_item
+								input(type="text", name="bonus_link", value="http://infoza.fun/referralq4toz780ix", readonly).BonusForm_input#BonusLink
+								button(type="button").BonusForm_btnCopy
+									include /includes/svg/SvgIco/copy
+						p Всех пользователей, которые по ней зарегистрируются, и все рейтинговые начисления за каждое их действие вы мгновенно увидите в специальной таблице в разделе #[a(href="/profile_invite.html") Мои приглашения].
+						h3 Другие пользователи будут знать какой у меня рейтинг?
+						p Да, эта информация всегда будет выводится рядом возле аватара с вашим именем (или никнеймом). То есть, это будет выглядеть так:
+						.ImgWrapper.ProfileContent_imgWrapper
+							img(src="/img/rating_block.png", alt="Rating block").ImgWrapper_img
+							.ImgWrapper_text Кроме того, иконка звезды возле вашего имени будет менять цвет, в зависимости от величины вашего рейтинга, что тоже очень заметно выделит ваш профиль среди остальных.
+						p Помните, что никаких ограничений на Инфозе не существует и всё только в ваших руках! К тому же, о всём хорошем люди узнают очень быстро, а это значит, что если вы сейчас не расскажите своим друзьям и знакомым об Инфозе, то, возможно, завтра они узнают о портале самостоятельно, или от кого-то другого. Поэтому, действуйте прямо сейчас!
+			.Aside.Main_aside
+				.SidebarMenu.SidebarMenu-profileMenu#SidebarMenu.hidden-smMinus
+					h3.SidebarMenu_title Профиль
+					ul.SidebarMenu_menu
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Мои темы
+						li.SidebarMenu_item
+							a(href="/profile_invite.html").SidebarMenu_link Мои приглашения
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Уведомления
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Настройки
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Выход
+block page_bottom
+	script(src="/js/profile_invite.js")

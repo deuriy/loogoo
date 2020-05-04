@@ -1,0 +1,45 @@
+.FormControl
+	&_text
+		&-notEmpty, &:focus
+			padding-top 0
+			
+			& ~ .FormControl_label
+				top 0
+				font-size 12px
+	
+	&_label
+		position absolute
+		top 20px
+		left 0
+		display block
+		color $blue2
+		font-size 16px
+		line-height 1
+		pointer-events none
+		@extend .transition
+	
+	&_icon
+		position absolute
+		right 0
+		bottom 8px
+	
+	&-passwordRecovery
+		@media $xs
+			display flex
+			flex-direction column-reverse
+			
+			.FormControl_text
+				&-notEmpty, &:focus
+					& ~ .FormControl_label
+						top 0
+						font-size 16px
+			
+			.FormControl_label
+				position static
+				margin-bottom 8px
+				font-weight 500
+				font-size 14px
+				pointer-events all
+			
+			.FormControl_icon
+				display none

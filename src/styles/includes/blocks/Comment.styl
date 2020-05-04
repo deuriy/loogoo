@@ -1,0 +1,220 @@
+.Comment
+	&_wrapper
+		padding 3px 4px 10px
+		border-bottom 1px solid #ebf0f2
+		
+		.CommentForm
+			margin-bottom 15px
+		
+		&:hover
+			.Comment_dotsMenu
+				display block
+		
+	&_header, &_headerLeft, &_infoTop
+		display flex
+	
+	&_header
+		justify-content space-between
+		align-items flex-start
+		margin-bottom 13px
+	
+	&_headerLeft
+		align-items center
+	
+	&_headerRight
+		position relative
+		padding-top 14px
+		padding-right 7px
+		
+		@media $xs
+			padding-top 4px
+			padding-right 3px
+	
+	&_dotsMenu
+		display none
+		top 1px
+		right -20px
+	
+	&_userPhoto
+		margin-top 3px
+		flex-shrink 0
+	
+	&_info
+		margin-top 5px
+		margin-left 13px
+		
+		@media $xs
+			margin-left 11px
+	
+	&_infoTop
+		align-items center
+	
+	&_userName
+		flex-shrink 0
+		font-weight 500
+		font-size 14px
+		
+		@media $xs
+			max-width 153px
+			white-space nowrap
+			overflow hidden
+			text-overflow ellipsis
+		
+		&-highlighted
+			padding 2px 8px
+			border-radius 12px
+			background #85be1f
+			color $white
+			font-size 14px
+	
+	&_replyName
+		margin-left 10px
+		
+		@media $xs
+			max-width 153px
+			margin-left 5px
+			white-space nowrap
+			overflow hidden
+			text-overflow ellipsis
+	
+	&_userIcons
+		position relative
+		top 1px
+		margin-left 7px
+	
+	&_dateWrapper
+		display flex
+		align-items center
+	
+	&_date
+		margin-left 1px
+		font-size 13px
+		color $blue2
+		
+		@media $xs
+			font-size 12px
+		
+		&-highlightedName
+			margin-left 8px
+	
+	&_mobile
+		margin-top 2px
+		margin-left 15px
+		color #C4C4C4
+	
+	&_text
+		margin-bottom 19px
+		font-size 15px
+		line-height 1.67
+		
+		a
+			color $blue
+			text-decoration underline
+			
+			&:hover
+				text-decoration none
+		
+		@media $xs
+			margin-bottom 13px
+			font-size 14px
+			line-height 1.5714
+	
+	&_nameAndRating
+		display flex
+		align-items center
+		
+		@media $xs
+			margin-bottom 3px
+	
+	&_rating
+		margin-left 6px
+	
+	&_replyLink
+		display inline-block
+		margin-top 16px
+		margin-bottom 15px
+		color $blue2
+		@extend .transition
+		
+		&:hover
+			color $blue
+	
+	&_footer
+		display flex
+		justify-content space-between
+		align-items center
+		padding-right 7px
+		
+		@media $xs
+			padding-right 0
+	
+	&_actionLinks
+		display flex
+		align-items center
+	
+	&_actionLink
+		color $blue2
+		
+		&:first-child
+			margin-right 18px
+			
+			@media $xs
+				margin-right 21px
+		
+		&-toggleAnswers
+			position relative
+			padding-right 10px
+			color $blue
+			font-weight 500
+			
+			&:after
+				content ""
+				position absolute
+				top 8px
+				right 0
+				border 3px solid transparent
+				border-top 3px solid $blue
+				@extend .transition
+		
+		&-answersOpened:after
+			top 5px
+			border-top 3px solid transparent
+			border-bottom 3px solid $blue
+	
+	&_childComments
+		padding 0 3px 0 60px
+		
+		@media $xs
+			padding 0 3px 0 45px
+	
+	&_commentForm
+		margin-top 18px
+		margin-right 6px
+	
+	&-hasChild
+		& > .Comment_wrapper
+			padding-bottom 20px
+	
+	&-child
+		& > .Comment_wrapper
+			padding 18px 0 20px
+			
+			@media $xs
+				padding 12px 0 17px
+		
+	&-highlighted
+		& > .Comment_wrapper
+			margin-right -12px
+			margin-left -12px
+			padding 4px 16px 7px 16px
+			border-radius 10px
+			background rgba($blue, 5%)
+	
+	&-reply
+		& > .Comment_wrapper
+			padding-bottom 4px
+			border-bottom none
+	
+	&-hideChildComments
+		& > .Comment_childComments
+			display none

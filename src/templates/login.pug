@@ -1,0 +1,21 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Вход";
+	- var mainModifiers = "Main-loginPage";
+block content
+	.Main_container
+		.Authorization.Authorization-login
+			h1.Authorization_title Войти в кабинет
+			form(action="#").Form.Form-login.Authorization_form
+				.Form_item
+					input(type="email", name="email3", id="email3", placeholder="Email или номер телефона").FormText.FormText-bordered.FormText-login
+				.Form_item
+					input(type="email", name="password3", id="password3", placeholder="Ваш пароль").FormText.FormText-bordered.FormText-login
+					.Form_error Необходимо ввести E-mail или номер телефона
+				.Form_actions
+					button(type="submit").BtnBlue.BtnBlue-loginForm Войти
+				.SeparateText.SeparateText-login.Form_separateText
+					.SeparateText_inner Быстрый вход
+				.Form_quickLogin
+					img(src="/img/continue_as.jpg", alt="")
+			.Authorization_text Нет аккаунта? #[a(href="javascript:;", data-src="#RegistrationPopup").OpenPopupLink.Semibold Зарегистрироваться]

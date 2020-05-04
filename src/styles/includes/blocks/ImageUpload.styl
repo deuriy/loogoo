@@ -1,0 +1,44 @@
+.ImageUpload	
+	&_input
+		position absolute
+		clip rect(0, 0, 0, 0)
+	
+	&_label
+		display flex
+		width 34px
+		height 34px
+		justify-content center
+		align-items center
+		background #F0F3F6
+		border-radius 50%
+		
+		@media $xs
+			width auto
+			height auto
+			border-radius 0
+			background transparent
+	
+	&_text
+		margin-top 7px
+		padding-left 10px
+		font-size 11px
+		
+		@media $xs
+			margin-top 1px
+			padding-left 12px
+			font-weight 500
+			font-size 14px
+			color $blue
+	
+	&-topicCreation
+		display flex
+		align-items center
+		
+		svg
+			width 18px
+			margin-bottom 4px
+			
+			@media $xs
+				width 22px
+				margin-bottom 0
+				color $blue

@@ -1,0 +1,216 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Мои сообщения (поиск)";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-profileMessages";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Мои сообщения
+				.ProfileMessages
+					.ProfileMessages_left
+						.Search.Search-messages.ProfileMessages_search
+							input(type="text", name="search_query", placeholder="Поиск по контактам и сообщениям").Search_text
+						.DialogueList.ProfileMessages_dialogueList
+							a(href="javascript:;").Message.DialogueList_message
+								.UserPhoto.UserPhoto-online.UserPhoto-shortMessage.Message_userPhoto
+									img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
+								.Message_info
+									.Message_header
+										.Message_nameWrapper
+											.Message_name Кирилл Фомичёв
+											.Message_statusIcon
+												include /includes/svg/checkmarks
+										.Message_dateTime 7:05
+									.Message_body
+										.Message_text Плазма обнаружима кристаллы чего-то там, и ещё кучу интересного текста
+										.Quantity.Quantity-message.Message_quantity 10
+							a(href="javascript:;").Message.Message-highlighted.DialogueList_message
+								.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
+									img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+								.Message_info
+									.Message_header
+										.Message_nameWrapper
+											.Message_name Геннадий Трофимов
+											.Message_statusIcon
+												include /includes/svg/checkmark
+										.Message_dateTime вчера
+									.Message_body
+										.Message_text Привет
+							a(href="javascript:;").Message.DialogueList_message
+								.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
+									img(src="/img/konstantin_konstantinovich.png", alt="Константин Константинович").UserPhoto_img
+								.Message_info
+									.Message_header
+										.Message_nameWrapper
+											.Message_name Константин Константинович
+											.Message_statusIcon
+												include /includes/svg/checkmarks
+										.Message_dateTime 30 апр 2019
+									.Message_body
+										.Message_text Закон сохранения энергии
+										.Quantity.Quantity-message.Message_quantity 9
+							a(href="javascript:;").Message.DialogueList_message
+								.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
+									img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
+								.Message_info
+									.Message_header
+										.Message_nameWrapper
+											.Message_name Кирилл Фомичёв
+											.Message_statusIcon
+												include /includes/svg/checkmarks
+										.Message_dateTime 28 фев 2019
+									.Message_body
+										.Message_text Нет
+							a(href="javascript:;").Message.DialogueList_message
+								.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
+									img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+								.Message_info
+									.Message_header
+										.Message_nameWrapper
+											.Message_name Геннадий Трофимов
+											.Message_statusIcon
+												include /includes/svg/checkmarks
+										.Message_dateTime 28 фев 2019
+									.Message_body
+										.Message_text Осциллятор устойчив в магнитном поле, и дальше по тексту
+						a(href="javascript:;").ProfileMessages_link.ProfileMessages_link-showUnread Показать непрочитанные
+					.ProfileMessages_right
+						.Dialogue.ProfileMessages_dialogue
+							.Dialogue_header
+								.Dialogue_headerLeft
+									.Dialogue_userName Геннадий Трофимов
+									.Dialogue_userIcons
+										include /includes/svg/verification_icon
+									a(href="javascript:;").Rating.Rating-orange.Dialogue_userRating
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 12,4k
+								.Dialogue_headerRight
+									.Dialogue_actionIcons
+										a(href="javascript:;").Dialogue_actionIcon.Dialogue_actionIcon-search
+											include /includes/svg/messages_search_icon
+										a(href="javascript:;").Dialogue_actionIcon.Dialogue_actionIcon-dots
+											include /includes/svg/SvgIco/dots
+							.Dialogue_messages
+								.Message.Message-full.Dialogue_message
+									a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
+										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+									.Message_info
+										.Message_header
+											.Message_nameWrapper
+												.Message_name Геннадий Трофимов
+												.Message_dateTime 7:05
+										.Message_body
+											.Message_text Жидкость масштабирует гидродинамический удар.
+								.Message.Message-full.Dialogue_message
+									a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
+										img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
+									.Message_info
+										.Message_header
+											.Message_nameWrapper
+												.Message_name Иван Иванов
+												.Message_dateTime 7:05
+												.Message_statusIcon
+													include /includes/svg/checkmarks
+										.Message_body
+											.Message_text В соответствии с принципом неопределенности, осциллятор теоретически возможен. Самосогласованная модель предсказывает, что при определенных условиях активно.
+								.Message.Message-full.Dialogue_message
+									a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
+										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+									.Message_info
+										.Message_header
+											.Message_nameWrapper
+												.Message_name Геннадий Трофимов
+												.Message_dateTime 7:05
+										.Message_body
+											.Message_text Жидкость масштабирует гидродинамический удар. Течение среды, можно показать с помощью не совсем тривиальных
+								.Message.Message-full.Dialogue_message
+									a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
+										img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
+									.Message_info
+										.Message_header
+											.Message_nameWrapper
+												.Message_name Иван Иванов
+												.Message_dateTime 7:05
+												.Message_statusIcon
+													include /includes/svg/checkmarks
+										.Message_body
+											.Message_text Очевидно, что гидродинамический удар отражает квазар. Идеальная тепловая машина вертикально синхронизует гидродинамический удар. Вещество зеркально восстанавливает эксимер без обмена зарядами или спинами.
+								.Message.Message-full.Dialogue_message
+									a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
+										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+									.Message_info
+										.Message_header
+											.Message_nameWrapper
+												.Message_name Геннадий Трофимов
+												.Message_dateTime 7:05
+										.Message_body
+											.Message_text Плазма эксперментально верифицируема.
+								.Message.Message-full.Dialogue_message
+									a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
+										img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
+									.Message_info
+										.Message_header
+											.Message_nameWrapper
+												.Message_name Иван Иванов
+												.Message_dateTime 7:05
+												.Message_statusIcon
+													include /includes/svg/checkmarks
+										.Message_body
+											.Message_text Многочисленные расчеты предсказывают, а эксперименты подтверждают, что гравитирующая сфера индуцирует разрыв в полном соответствии с законом сохранения энергии. #[br]Сверхновая вертикально синхронизует векторный эксимер.
+								.Message.Message-full.Dialogue_message
+									a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
+										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+									.Message_info
+										.Message_header
+											.Message_nameWrapper
+												.Message_name Геннадий Трофимов
+												.Message_dateTime 7:05
+										.Message_body
+											.Message_text Возмущение плотности нейтрализует гидродинамический удар.
+								.Message.Message-full.Dialogue_message
+									a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
+										img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
+									.Message_info
+										.Message_header
+											.Message_nameWrapper
+												.Message_name Иван Иванов
+												.Message_dateTime 7:05
+												.Message_statusIcon
+													include /includes/svg/checkmark
+										.Message_body
+											.Message_text Очевидно, что гидродинамический удар отражает квазар. Идеальная тепловая машина вертикально синхронизует гидродинамический удар. Вещество зеркально восстанавливает эксимер без обмена зарядами или спинами.
+							form(action="#").SendMessage.Dialogue_sendMessage
+								textarea(name="message_text", placeholder="Введите сообщение").FormTextarea.FormTextarea-sendMessage.SendMessage_textArea
+								.UploadFile.SendMessage_uploadFile
+									input(type="file", name="file", id="file").UploadFile_input
+									label(for="file").UploadFile_label
+										include /includes/svg/icon_add
+								button(type="submit").SendMessage_submit
+									include /includes/svg/send_icon
+			.Aside.Main_aside
+				.SidebarMenu.SidebarMenu-profileMenu#SidebarMenu.hidden-smMinus
+					h3.SidebarMenu_title Профиль
+					ul.SidebarMenu_menu
+						li.SidebarMenu_item
+							a(href="/my_topics.html").SidebarMenu_link Мои темы
+						li.SidebarMenu_item
+							a(href="/profile_messages.html").SidebarMenu_link Мои сообщения
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Мои ответы
+							span.Quantity.SidebarMenu_number 10
+						li.SidebarMenu_item
+							a(href="/profile_invite.html").SidebarMenu_link Мои приглашения
+						li.SidebarMenu_item
+							a(href="/profile_rating.html").SidebarMenu_link Мои рейтинг
+						li.SidebarMenu_item
+							a(href="/my_notifications.html").SidebarMenu_link Мои уведомления
+						li.SidebarMenu_item
+							a(href="/profile_settings.html").SidebarMenu_link Мои настройки
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Выход

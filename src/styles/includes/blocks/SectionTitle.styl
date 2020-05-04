@@ -1,0 +1,35 @@
+.SectionTitle
+	font-size 25px
+	font-weight 700
+	font-family 'Decima Nova Pro', sans-serif
+	color rgba($black, 77%)
+	
+	@media $xs
+		font-size 20px
+	
+	&-thin
+		font-weight normal
+	
+	&-large
+		font-size 33px
+		
+		@media $xs
+			font-size 24px
+	
+	&-line
+		position relative
+		padding-bottom 11px
+		
+		&:after
+			content ""
+			position absolute
+			right 0
+			bottom 0
+			left 0
+			width 524px
+			height 1px
+			margin auto
+			background #E3E3E3
+			
+			@media $xs
+				max-width 100%

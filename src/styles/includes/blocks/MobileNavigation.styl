@@ -1,0 +1,66 @@
+.MobileNavigation
+	position fixed
+	z-index 1000
+	top 0
+	right 0
+	bottom 0
+	left 0
+	visibility hidden
+	@extend .transition
+	
+	&_overlay
+		position fixed
+		top 0
+		right 0
+		bottom 0
+		left 0
+		background rgba($black, .2)
+		opacity 0
+		@extend .transition
+	
+	&_wrapper
+		display flex
+		flex-direction column
+		justify-content space-between
+		position absolute
+		top 0
+		bottom 0
+		left -280px
+		width 280px
+		background #fff
+		overflow hidden
+		@extend .transition
+	
+	&_group
+		border-bottom 1px solid #ebeff3
+				
+		&-login
+			padding 18px 20px
+		
+		&-menu
+			border-bottom none
+		
+		&-languages
+			border-top 1px solid #ebeff3
+			border-bottom none
+	
+	&_quickLogin
+		padding 19px 22px 10px 21px
+	
+	&_btnsList
+		padding 19px 22px 22px 21px
+	
+	&_btnsItem
+		margin-bottom 9px
+		
+		&:last-child
+			margin-bottom 0
+	
+	&-opened
+		visibility visible
+		
+		.MobileNavigation_overlay
+			opacity 1
+		
+		.MobileNavigation_wrapper
+			left 0

@@ -1,0 +1,96 @@
+extends /layouts/main_layout
+block vars
+	- var title = "О нас";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-pageAbout";
+block content
+	.Main_container
+		.Container
+			.MobileHeader.hidden-smPlus
+				a(href="#").BtnBack.MobileHeader_btnBack
+					include /includes/svg/SvgIco/arrow_left
+				h1.MobileHeader_title О проекте
+		.SectionAbout
+			.Container.SectionAbout_container
+				.SectionAbout_left
+					img(src="/img/phone.png", alt="Phone").SectionAbout_img.hidden-smMinus
+					img(src="/img/phone_mobile.png", alt="Phone").SectionAbout_img.hidden-md
+				.SectionAbout_right
+					h2.SectionAbout_title Добро пожаловать в крупнейшее сообщество заробитчан!
+					.SectionAbout_text.hidden-xs
+						p Инфоза – это уникальный проект, созданный украинцами для украинцев, белорусов, россиян и жителей других стран. Основная задача проекта - объединить всех людей, которым интересна тема работы за границей и всё, что с этим связано!
+						p Название сервиса была выбрана не случайно и состоит из двух слов: Информация и Заробитчане.
+						p Благодаря сервису Infoza каждый может рассказать свою историю, задать вопрос или что-то посоветовать и быть уверенным, что его сообщение увидят сотни тысяч людей. Это сообщество, где все равны и помогают друг другу.
+					.SectionAbout_linkWrapper
+						a(href="https://play.google.com/store/apps/details?id=application.infoza&hl=ru", target="_blank", title="Скачать приложение").SectionAbout_link
+							img(src="/img/google_play.png", alt="Google Play")
+		.TextAbout.hidden-smPlus
+			.Container
+				p Инфоза – это уникальный проект, созданный украинцами для украинцев, белорусов, россиян и жителей других стран. Основная задача проекта - объединить всех людей, которым интересна тема работы за границей и всё, что с этим связано!
+				p Название сервиса была выбрана не случайно и состоит из двух слов: Информация и Заробитчане.
+				p Благодаря сервису Infoza каждый может рассказать свою историю, задать вопрос или что-то посоветовать и быть уверенным, что его сообщение увидят сотни тысяч людей. Это сообщество, где все равны и помогают друг другу.
+		.AdvantagesSection
+			.Container
+				h2.AdvantagesSection_title Только на Infoza
+				.AdvantagesSection_items
+					.AdvantagesSection_column.AdvantagesSection_column-left
+						.Advantage.AdvantagesSection_item
+							.Advantage_icon
+								include /includes/svg/SvgIco/advantages/dossier
+							.Advantage_textWrap
+								h3.Advantage_title Досье на любого работодателя
+								.Advantage_text А также посредника, агентство или компанию по трудоустройству. Вы увидите, что о них говорят люди, которые до этого пользовались их услугами
+						.Advantage.AdvantagesSection_item
+							.Advantage_icon
+								include /includes/svg/SvgIco/advantages/vacancy_photo
+							.Advantage_textWrap
+								h3.Advantage_title Фотографии и видео вакансий
+								.Advantage_text На которых уже работали люди. То есть, перед тем, как ехать на ту или иную работу, вы собственными глазами увидите, как там все выглядит на самом деле и поймёте, подходит она вам или нет
+						.Advantage.AdvantagesSection_item
+							.Advantage_icon
+								include /includes/svg/SvgIco/advantages/people
+							.Advantage_textWrap
+								h3.Advantage_title Люди объединяются
+								.Advantage_text Те, кому интересна работа за границей и не только - помогают друг другу!
+					.AdvantagesSection_column.AdvantagesSection_column-right
+						.Advantage.AdvantagesSection_item
+							.Advantage_icon.Advantage_icon-smallMargin
+								include /includes/svg/SvgIco/advantages/answer
+							.Advantage_textWrap
+								h3.Advantage_title Ответы на ваши вопросы
+								.Advantage_text От других людей, которые уже столкнулись с этой ситуацией раньше, и знают, как правильно и наиболее лучше её решить
+						.Advantage.AdvantagesSection_item
+							.Advantage_icon.Advantage_icon-smallMargin
+								include /includes/svg/SvgIco/advantages/articles
+							.Advantage_textWrap
+								h3.Advantage_title Профессиональные статьи
+								.Advantage_text Которые были составлены юристами, для того, чтобы вы смогли разобраться, как работают те или иные законы в разных странах и получили всю нужную информацию перед тем, как поехать в другую страну
+						.Advantage.AdvantagesSection_item
+							.Advantage_icon.Advantage_icon-smallMargin
+								include /includes/svg/SvgIco/advantages/actual_news
+							.Advantage_textWrap
+								h3.Advantage_title Актуальные новости
+								.Advantage_text Каждый день, касающиеся заробитчан и не только
+		.SectionLine
+			.Container.SectionLine_container
+				.SectionLine_text Присоединяйтесь и вы к крупнейшему сообществу заробитчан!
+				.SectionLine_linkWrapper
+					a(href="https://play.google.com/store/apps/details?id=application.infoza&hl=ru", target="_blank", title="Скачать приложение").SectionLine_link
+						img(src="/img/google_play_black.png", alt="Google Play").SectionLine_icon
+		.WriteUs
+			.Container.WriteUs_container
+				h2.WriteUs_title Остались вопросы? Напишите нам!
+				.Soclinks
+					ul.Soclinks_list
+						li.Soclinks_item
+							a(href="tg://resolve?domain=infoza.top").Soclink
+								include /includes/svg/SvgIco/soclinks/telegram
+								span.Soclink_text @infoza.top
+						li.Soclinks_item
+							a(href="viber://chat?number=+380680220201").Soclink
+								include /includes/svg/SvgIco/soclinks/viber
+								span.Soclink_text +38 068 022 02 01
+						li.Soclinks_item
+							a(href="mailto:info@infoza.top").Soclink
+								include /includes/svg/SvgIco/soclinks/email
+								span.Soclink_text info@infoza.top

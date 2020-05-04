@@ -1,0 +1,33 @@
+.PrimaryMenu
+	&_list
+		display flex
+		align-items center
+	
+	&_item
+		margin-right 2.9em
+		
+		@media $mdMinus
+			margin-right 1.9em
+		
+		&:last-child
+			margin-right 0
+	
+	&_link
+		padding-top 3px
+		padding-bottom 3px
+		color #7D7F80
+		
+		&.active
+			font-weight 600
+			color #1D1D1D
+		
+		&:hover
+			color #1D1D1D
+	
+	&-footer
+		.PrimaryMenu_item
+			margin-right 2.7em
+			font-size 12px
+			
+			&:last-child
+				margin-right 0

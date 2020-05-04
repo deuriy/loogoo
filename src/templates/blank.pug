@@ -1,0 +1,70 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Component page";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				include /includes/blocks/MenuSection
+				a(href="javascript:;", data-src="#SubmitComplaint").OpenPopupLink.LoginLink Подать жалобу
+				.QuestionsSection
+					.QuestionBlock.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.UserPhoto-online.QuestionBlock_userPhoto
+									img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_userName Илья Вакуленко
+										.QuestionBlock_date ·  3 минуты назад
+									.Tags
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+							.QuestionBlock_headerRight
+								.QuestionBlock_label Совет
+						h2.QuestionBlock_title Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
+						.QuestionStatistics
+							ul.QuestionStatistics_list
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_answer_large
+									.
+										Ответов (8)
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_readers
+									.
+										Читают (30)
+					.QuestionBlock.WhiteSection.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.QuestionBlock_userPhoto
+									img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_infoTop
+										.QuestionBlock_userName Илья Вакуленко
+										.QuestionBlock_date ·  3 минуты назад
+									.Tags
+										ul.Tags_list
+											li.Tags_item
+												a(href="#").Tags_link # Семья, Дом, Дети
+											li.Tags_item
+												a(href="#").Tags_link # Он, она
+						h2.QuestionBlock_title Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
+						.QuestionStatistics
+							ul.QuestionStatistics_list
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_answer_large
+									.
+										Ответов (8)
+								li.QuestionStatistics_item
+									include /includes/svg/SvgIco/icon_readers
+									.
+										Читают (30)
+			.Aside.Main_aside
+				include /includes/blocks/AskQuestionBlock
+				include /includes/blocks/PopularQuestions
+block page_bottom
+	include /includes/blocks/SubmitComplaint
+	//- script(src="/js/script_for_this_page")

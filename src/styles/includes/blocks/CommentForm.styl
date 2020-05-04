@@ -1,0 +1,44 @@
+.CommentForm
+	position relative
+	
+	// &_imageUpload
+	// 	position absolute
+	// 	top 8px
+	// 	right 15px
+	
+	&_textArea
+		min-height 50px
+		margin-bottom 30px
+		@extend .transition
+		
+		@media $xs
+			margin-bottom 25px
+	
+	&_actions
+		display none
+		justify-content flex-end
+		align-items center
+		
+		&-visible
+			display flex
+	
+	&_resetBtn
+		position relative
+		margin-right 19px
+		border none
+		outline none
+		background transparent
+		font-size 14px
+		color $blue2
+		
+		@media $xs
+			margin-right 30px
+	
+	.AttachedImage
+		position absolute
+		bottom 70px
+		left 15px
+	
+	&-expanded
+		.CommentForm_actions
+			display flex

@@ -1,0 +1,55 @@
+.MenuSection.MenuSection-notifications.Main_menuSection
+	.MenuSection_left
+		.CategoryMenu.hidden-xs
+			ul.CategoryMenu_menu
+				li.CategoryMenu_item
+					a(href="#").CategoryMenu_link.active Все
+				li.CategoryMenu_item
+					a(href="#").CategoryMenu_link Ответы
+				li.CategoryMenu_item
+					a(href="#").CategoryMenu_link Отметки
+				li.CategoryMenu_item
+					a(href="#").CategoryMenu_link Приглашения
+				li.CategoryMenu_item
+					a(href="#").CategoryMenu_link Infoza
+		a(href="#PopupMenu").SelectionLink.MenuSection_selectionLink.PopupMenuLink.hidden-smPlus Все
+		a(href="#DateSorting").SelectionLink.MenuSection_selectionLink.PopupMenuLink.hidden-smPlus Сегодня
+	.MenuSection_right
+		.DropdownSelect.DropdownSelect-notifications.hidden-xs
+			select(name="period").DropdownSelect_select
+				option(value="all") Весь период
+				option(value="today") Сегодня
+				option(value="tomorrow") Вчера
+				option(value="week") Неделя
+				option(value="month") Месяц
+				option(value="year") Год
+.PopupMenu#PopupMenu
+	.PopupMenu_overlay
+	.PopupMenu_wrapper
+		ul.PopupMenu_menu
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link.active Все
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Ответы
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Отметки
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Приглашения
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Infoza
+.PopupMenu#DateSorting
+	.PopupMenu_overlay
+	.PopupMenu_wrapper
+		ul.PopupMenu_menu
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link.active Весь период
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Сегодня
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Вчера
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Неделя
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Месяц
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Год

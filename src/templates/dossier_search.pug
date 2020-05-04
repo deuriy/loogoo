@@ -1,0 +1,317 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Поиск досье";
+	- var mainModifiers = "Main-infoPages";
+block content
+	.Container.Main_container
+		include /includes/blocks/TopMenu
+		.Main_columns
+			.Main_sidebar
+				include /includes/blocks/DossierFilter
+			.DossierList.Main_dossierList
+				form(action="", name="categories_filter").Filter.DossierList_filter#CategoriesFilter
+					.Search.Search-categories.Filter_search
+						input(type="text", name="search_query2", placeholder="Поиск").Search_text
+					.Filter_resultsText По запросу #[span.Black “lorem ipsum”] найдено #[span.Black 3] записи
+				.DossierList_items
+					.Dossier.DossierList_item
+						.Dossier_imgWrap
+							img(src="/img/work_intense.jpg" alt="Work Intense")
+						.Dossier_content
+							.Dossier_header
+								.Dossier_headerLeft
+									h2.Dossier_title Work Intense
+									.Rating2
+										ul.Rating2_list
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+										span.Rating2_mark 4,5
+										span.Rating2_number (28)
+								.Dossier_headerRight
+									.Entity.Dossier_entity
+										include /includes/svg/SvgIco/company
+										span.Entity_name Компания
+							.Labels.Dossier_labels
+								.Label.Labels_item
+									include /includes/svg/SvgIco/planet
+									span.Label_text andriym.com
+								.Label.Label-green.Labels_item
+									include /includes/svg/SvgIco/license_ok
+									span.Label_text лицензия
+							.Dossier_text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed do eiusmod tempor incididunt labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi...
+							.StatIcons
+								.StatIcons_left
+									ul.StatIcons_list
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/like
+											span.StatIcon_count 9
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/answer
+											span.StatIcon_count 9
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/images
+											span.StatIcon_count 5
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/video
+											span.StatIcon_count 2
+								.StatIcons_right
+									ul.StatIcons_list
+										li.StatIcon.StatIcon-bordered.StatIcons_item.StatIcons_item-country
+											img(src="/img/icon_pl.png", alt="Poland")
+											span.StatIcon_count Warszawa
+										li.StatIcon.StatIcons_item.StatIcons_item-views
+											include /includes/svg/SvgIco/eye
+											span.StatIcon_count 110
+					.Dossier.DossierList_item
+						.Dossier_imgWrap
+							img(src="/img/work_intense.jpg" alt="Work Intense")
+						.Dossier_content
+							.Dossier_header
+								.Dossier_headerLeft
+									h2.Dossier_title Work Intense
+									.Rating2
+										ul.Rating2_list
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+										span.Rating2_mark 4,5
+										span.Rating2_number (28)
+								.Dossier_headerRight
+									.Entity.Dossier_entity
+										include /includes/svg/SvgIco/flp
+										span.Entity_name ФЛП
+							.Labels.Dossier_labels
+								.Label.Labels_item
+									include /includes/svg/SvgIco/planet
+									span.Label_text andriym.com
+								.Label.Label-green.Labels_item
+									include /includes/svg/SvgIco/license_ok
+									span.Label_text лицензия
+							.Dossier_text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed do eiusmod tempor incididunt labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi...
+							.StatIcons
+								.StatIcons_left
+									ul.StatIcons_list
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/like
+											span.StatIcon_count 9
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/answer
+											span.StatIcon_count 9
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/images
+											span.StatIcon_count 5
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/video
+											span.StatIcon_count 2
+								.StatIcons_right
+									ul.StatIcons_list
+										li.StatIcon.StatIcon-bordered.StatIcons_item.StatIcons_item-country
+											img(src="/img/icon_pl.png", alt="Poland")
+											span.StatIcon_count Warszawa
+										li.StatIcon.StatIcons_item.StatIcons_item-views
+											include /includes/svg/SvgIco/eye
+											span.StatIcon_count 110
+					.Dossier.DossierList_item
+						.Dossier_imgWrap
+							img(src="/img/work_intense.jpg" alt="Work Intense")
+						.Dossier_content
+							.Dossier_header
+								.Dossier_headerLeft
+									h2.Dossier_title Work Intense
+									.Rating2
+										ul.Rating2_list
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+										span.Rating2_mark 4,5
+										span.Rating2_number (28)
+								.Dossier_headerRight
+									.Entity.Dossier_entity
+										include /includes/svg/SvgIco/intermediary
+										span.Entity_name Посредник
+							.Labels.Dossier_labels
+								.Label.Labels_item
+									include /includes/svg/SvgIco/planet
+									span.Label_text andriym.com
+								.Label.Label-green.Labels_item
+									include /includes/svg/SvgIco/license_ok
+									span.Label_text лицензия
+							.Dossier_text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed do eiusmod tempor incididunt labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi...
+							.StatIcons
+								.StatIcons_left
+									ul.StatIcons_list
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/like
+											span.StatIcon_count 9
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/answer
+											span.StatIcon_count 9
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/images
+											span.StatIcon_count 5
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/video
+											span.StatIcon_count 2
+								.StatIcons_right
+									ul.StatIcons_list
+										li.StatIcon.StatIcon-bordered.StatIcons_item.StatIcons_item-country
+											img(src="/img/icon_pl.png", alt="Poland")
+											span.StatIcon_count Warszawa
+										li.StatIcon.StatIcons_item.StatIcons_item-views
+											include /includes/svg/SvgIco/eye
+											span.StatIcon_count 110
+					.Dossier.DossierList_item
+						.Dossier_imgWrap
+							img(src="/img/intel.jpg" alt="Intel")
+						.Dossier_content
+							.Dossier_header
+								.Dossier_headerLeft
+									h2.Dossier_title Lorem ipsum
+									.Rating2
+										ul.Rating2_list
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item.Rating2_item-fill
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+											li.Rating2_item
+												a(href="#").Rating2_link
+													include /includes/svg/SvgIco/star
+										span.Rating2_mark 4,5
+										span.Rating2_number (28)
+								.Dossier_headerRight
+									.Entity.Dossier_entity
+										include /includes/svg/SvgIco/vacancy
+										span.Entity_name Вакансия
+							.Labels.Dossier_labels
+								.Label.Labels_item
+									include /includes/svg/SvgIco/planet
+									span.Label_text andriym.com
+								.Label.Label-green.Labels_item
+									include /includes/svg/SvgIco/license_ok
+									span.Label_text лицензия
+							.Dossier_text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed do eiusmod tempor incididunt labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi...
+							.StatIcons
+								.StatIcons_left
+									ul.StatIcons_list
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/like
+											span.StatIcon_count 9
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/answer
+											span.StatIcon_count 9
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/images
+											span.StatIcon_count 5
+										li.StatIcon.StatIcons_item
+											include /includes/svg/SvgIco/video
+											span.StatIcon_count 2
+								.StatIcons_right
+									ul.StatIcons_list
+										li.StatIcon.StatIcons_item.StatIcons_item-views
+											include /includes/svg/SvgIco/eye
+											span.StatIcon_count 110
+				.Company.CompanyList_company
+					.Company_imgWrap
+						img(src="/img/intel.jpg" alt="Intel")
+					.Company_content
+						.Company_header
+							.Company_headerLeft
+								h2.Company_title Work Intense
+								.Rating2
+									ul.Rating2_list
+										li.Rating2_item.Rating2_item-fill
+											a(href="#").Rating2_link
+												include /includes/svg/SvgIco/star
+										li.Rating2_item.Rating2_item-fill
+											a(href="#").Rating2_link
+												include /includes/svg/SvgIco/star
+										li.Rating2_item.Rating2_item-fill
+											a(href="#").Rating2_link
+												include /includes/svg/SvgIco/star
+										li.Rating2_item.Rating2_item-fill
+											a(href="#").Rating2_link
+												include /includes/svg/SvgIco/star
+										li.Rating2_item
+											a(href="#").Rating2_link
+												include /includes/svg/SvgIco/star
+									span.Rating2_mark 4,5
+									span.Rating2_number (28)
+							.Company_headerRight
+								.Entity.Company_entity
+									include /includes/svg/SvgIco/vacancy
+									span.Entity_name Вакансия
+						.Labels.Company_labels
+							.Label.Labels_item
+								include /includes/svg/SvgIco/planet
+								span.Label_text andriym.com
+							.Label.Label-green.Labels_item
+								include /includes/svg/SvgIco/license_ok
+								span.Label_text лицензия
+						.Company_text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed do eiusmod tempor incididunt labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi...
+						.StatIcons
+							.StatIcons_left
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item
+										include /includes/svg/SvgIco/like
+										span.StatIcon_count 9
+									li.StatIcon.StatIcons_item
+										include /includes/svg/SvgIco/answer
+										span.StatIcon_count 9
+									li.StatIcon.StatIcons_item
+										include /includes/svg/SvgIco/images
+										span.StatIcon_count 5
+									li.StatIcon.StatIcons_item
+										include /includes/svg/SvgIco/video
+										span.StatIcon_count 2
+							.StatIcons_right
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item.StatIcons_item-views
+										include /includes/svg/SvgIco/eye
+										span.StatIcon_count 110
+block page_bottom
+	script(src="/js/infopage.js")

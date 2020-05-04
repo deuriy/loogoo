@@ -1,0 +1,183 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Результаты поиска";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="/").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Поиск
+				.Main_topicsFilter
+					form(action="", name="topics_filter")#TopicsFilter.Filter.Filter-results
+						.Search.Search-results.Filter_search
+							.Search_item
+								input(type="text", name="search_query2", placeholder="Поиск").Search_text
+								a(href="javascript:;").Search_closeBtn.hidden-smPlus.hidden
+									include /includes/svg/SvgIco/close
+							button(type="submit").Search_icon.hidden-smPlus
+								include /includes/svg/SvgIco/search
+						//- .Filter_resultsText По запросу #[span.Black “lorem ipsum dolor sit amet”] найдено 4 записи
+						.Filter_resultsText По запросу #[span.Black “lorem ipsum dolor si”] найдено 4 записи
+						.Filter_main
+							.Filter_left
+								a(href="javascript:;").FilterIcon.FilterIcon-zero.Filter_toggleLink.hidden-smPlus
+									include /includes/svg/SvgIco/filter
+									span.FilterIcon_number
+								.Filter_wrapper
+									.MobileHeader.MobileHeader-filter.Filter_mobileHeader.hidden-smPlus
+										a(href="javascript:;").BtnBack.MobileHeader_btnBack.Filter_closeLink
+											include /includes/svg/SvgIco/arrow_left
+										h1.MobileHeader_title Фильтр
+									.Filter_items
+										.Filter_item.Filter_item-staticDropdownxs
+											select.Select.Select-filterBlock(name="type")
+												option(value="all") Предупреждения
+												option(value="cat1", hidden) Новое
+												option(value="cat2") Вопросы
+												option(value="cat3") Советы
+												option(value="cat4") Рассказы
+										.Filter_item.Filter_item-staticDropdownxs
+											select.Select.Select-filterBlock(name="categories")
+												option(value="all") Категория
+												option(value="cat1") Товары для дома, отдыха, праздника
+												option(value="cat2") Животные, растения, аксессуары
+												option(value="cat3") Совместные покупки и заказы
+												option(value="cat4") Детские товары
+												option(value="cat5") Канцтовары, книги, арт
+												option(value="cat5") Куплю, обмен, отдам, спрос
+												option(value="cat5") Мужская одежда и обувь
+										.Filter_item.Filter_item-staticDropdownxs
+											select.Select.Select-filterBlock(name="country")
+												option(value="all") Страна
+												option(value="country1", hidden) Страна 1
+												option(value="country2", hidden) Страна 2
+												option(value="country3").hidden Страна 3
+												option(value="country4").hidden Страна 4
+												option(value="country5").hidden Страна 5
+												option(value="country6", hidden) Страна 6
+												option(value="country7", hidden) Страна 7
+												option(value="country8") Страна 8
+												option(value="country9") Страна 9
+												option(value="country10") Страна 10
+												option(value="country8") Страна 8
+												option(value="country9") Страна 9
+												option(value="country10") Страна 10
+												option(value="country8") Страна 8
+												option(value="country9") Страна 9
+												option(value="country10") Страна 10
+										.Filter_item.Filter_item-staticDropdownxs
+											select.Select.Select-filterBlock(name="city")
+												option(value="all") Город
+												option(value="city1") Город 1
+												option(value="city2") Город 2
+												option(value="city3", hidden) Город 3
+												option(value="city4") Город 4
+												option(value="city5") Город 5
+										.Filter_item.Filter_item-apply
+											button(type="submit").BtnOrange.BtnOrange-applySelected.Filter_applyBtn.hidden-smPlus Показать результаты #[span.Filter_resultsCount (18)]
+										.Filter_item.Filter_item-clearBtn
+											a(href="javascript:;", hidden).ClearBtn.Filter_clearBtn
+												span.ClearBtn_text Очистить
+												include /includes/svg/SvgIco/icon_close
+							.Filter_right
+								.Filter_item.Filter_item-blueLinkxs
+									select.Select.Select-filterBlock(name="city")
+										option(value="all") По популярности
+										option(value="city1") Город 1
+										option(value="city2") Город 2
+										option(value="city3") Город 3
+										option(value="city4") Город 4
+										option(value="city5") Город 5
+				.QuestionsSection
+					.QuestionBlock.QuestionBlock-search.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.UserPhoto-search.QuestionBlock_userPhoto
+									a(href="/topic_details.html")
+										img(src="/img/sergey.png", alt="Сергей").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_nameAndRating
+										span.QuestionBlock_userName Сергей
+										a(href="javascript:;").Rating.QuestionBlock_rating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 969
+									.QuestionBlock_dateWrapper
+										.QuestionBlock_label.hidden Вопрос
+										.QuestionBlock_date 36 минут назад
+							.QuestionBlock_headerRight.hidden-xs
+								.QuestionBlock_label Вопрос
+						h2.QuestionBlock_title.QuestionBlock_title-search
+							a(href="/topic_details_authorization.html") Виїзд з Києва до Варшави
+						.QuestionBlock_description.hidden-xs Dolor sit amet, consectetur adipisicing elit, sed do #[strong lorem ipsum] eiusmod tempor incididunt ut labore et dolor magna #[strong lorem ipsum] aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+						.StatIcons.StatIcons-searchPage.QuestionBlock_statIcons
+							.StatIcons_left
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+										a(href="javascript:;").Like.hidden-smMinus
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+										a(href="javascript:;", data-src="#LikePopup").OpenPopupLink.Like.Like-searchPage.hidden-md
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+									li.StatIcon.StatIcon-answer.StatIcons_item
+										a(href="/topic_details.html").StatIcon_link
+											include /includes/svg/SvgIco/answer
+											span.StatIcon_count 369
+							.StatIcons_right
+								ul.StatIcons_list
+									li.StatIcon.StatIcon-views.StatIcon-bordered.StatIcons_item.StatIcons_item-views
+										include /includes/svg/SvgIco/eye
+										span.StatIcon_count 110
+									li.StatIcon.StatIcons_item.StatIcons_item-country
+										img(src="/img/icon_pl.png", alt="Poland")
+										span.StatIcon_count.hidden-xs Warszawa
+					//- .QuestionBlock.QuestionBlock-search.QuestionsSection_item
+					//- 	.QuestionBlock_header
+					//- 		.QuestionBlock_headerLeft
+					//- 			.UserPhoto.UserPhoto-search.QuestionBlock_userPhoto
+					//- 				a(href="/topic_details.html")
+					//- 					img(src="/img/vladimir_petrov.png", alt="Владимир Петров").UserPhoto_img
+					//- 			.QuestionBlock_info
+					//- 				.QuestionBlock_nameAndRating
+					//- 					span.QuestionBlock_userName Владимир Петров
+					//- 					a(href="javascript:;").Rating.QuestionBlock_rating
+					//- 						span.Rating_icon
+					//- 							include /includes/svg/SvgIco/icon_star
+					//- 						span.Rating_number 17
+					//- 				.QuestionBlock_date сегодня в 7:05
+					//- 		.QuestionBlock_headerRight
+					//- 			.QuestionBlock_label Вопрос
+					//- 	h2.QuestionBlock_title.QuestionBlock_title-search
+					//- 		a(href="/topic_details_authorization.html") Lorem ipsum dolor sit amet
+					//- 	.QuestionBlock_description Dolor sit amet, consectetur adipisicing elit, sed do #[strong lorem ipsum] eiusmod tempor incididunt ut labore et dolor magna #[strong lorem ipsum] aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+					//- 	.StatIcons.QuestionBlock_statIcons
+					//- 		.StatIcons_left
+					//- 			ul.StatIcons_list
+					//- 				li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+					//- 					a(href="javascript:;").Like.hidden-smMinus
+					//- 						include /includes/svg/SvgIco/like
+					//- 						span.Like_count 42
+					//- 					a(href="javascript:;", data-src="#LikePopup").OpenPopupLink.Like.hidden-md
+					//- 						include /includes/svg/SvgIco/like
+					//- 						span.Like_count 42
+					//- 				li.StatIcon.StatIcon-answer.StatIcons_item
+					//- 					a(href="/topic_details.html").StatIcon_link
+					//- 						include /includes/svg/SvgIco/answer
+					//- 						span.StatIcon_count 42
+					//- 		.StatIcons_right
+					//- 			ul.StatIcons_list
+					//- 				li.StatIcon.StatIcon-views.StatIcon-bordered.StatIcons_item.StatIcons_item-views
+					//- 					include /includes/svg/SvgIco/eye
+					//- 					span.StatIcon_count 110
+					//- 				li.StatIcon.StatIcons_item.StatIcons_item-country
+					//- 					img(src="/img/icon_pl.png", alt="Poland")
+					//- 					span.StatIcon_count Warszawa
+			.Aside.Main_aside
+				include /includes/blocks/TopicCreationBlock
+				include /includes/blocks/PopularTopics
+block page_bottom
+	script(src="/js/filter.js")

@@ -1,0 +1,65 @@
+.BtnOrange
+	display inline-block
+	padding 5px 13px 6px 14px
+	border none
+	outline none
+	border-radius 15px
+	background $orange
+	color $white
+	font-weight 500
+	white-space nowrap
+	
+	&-large
+		display block
+		width 100%
+		padding-top 13px
+		padding-bottom 13px
+		border-radius 23px
+	
+	&-loginPopup, &-registrationPopup
+		display block
+		width 100%
+		padding-top 10px
+		padding-bottom 10px
+		border-radius 4px
+		font-size 16px
+		font-weight 600
+	
+	&-profileSettings, &-topicCreationForm
+		@media $xs
+			width 320px
+			max-width 100%
+			padding-top 10px
+			padding-bottom 11px
+	
+	&-complaintForm
+		padding 11px 26px 11px 25px
+		border-radius 18px
+		
+		@media $xxs
+			width 100%
+	
+	&-authPage
+		width 100%
+		padding-top 10px
+		padding-bottom 10px
+		border-radius 4px
+		font-weight 600
+		font-size 16px
+	
+	&-passwordRecovery
+		width 100%
+		padding-top 10px
+		padding-bottom 10px
+		border-radius 4px
+		font-weight 600
+		font-size 16px
+	
+	&-applySelected
+		width 100%
+		padding-top 8px
+		padding-bottom 9px
+		border-radius 5px
+		font-weight 600
+		font-size 16px
+		text-align center

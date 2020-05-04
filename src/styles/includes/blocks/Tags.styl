@@ -1,0 +1,43 @@
+.Tags
+	&_list
+		display flex
+		flex-wrap wrap
+		
+	&_item
+		margin-right 10px
+		font-size 13px
+		color $blue2
+		
+		&:last-child
+			margin-right 0
+	
+	&_link
+		position relative
+		
+		&:after
+			content ""
+			position absolute
+			right 0
+			bottom 0
+			width 100%
+			height 1px
+			background $blue2
+			@extend .transition
+		
+		&:hover:after
+			background transparent
+	
+	&-blue
+		.Tags_item
+			color $blue
+			
+		.Tags_link
+			&:after
+				background $blue
+			
+			&:hover:after
+				background transparent
+	
+	&-large
+		.Tags_item
+			font-size 16px

@@ -1,0 +1,171 @@
+.Main
+	flex-grow 1
+	background $white
+	overflow-x auto
+	
+	@media $xs
+		margin-top 77px
+	
+	&_container
+		padding-top 40px
+		padding-bottom 32px
+		
+		@media $xs
+			padding-top 0
+			padding-bottom 50px
+	
+	&_columns
+		display flex
+		margin-right -15px
+		margin-left -15px
+		
+		@media $smMinus
+			flex-direction column
+	
+	&_left, &_aside
+		padding-right 15px
+		padding-left 15px
+	
+	&_left
+		width 67%
+		
+		@media $smMinus
+			width auto
+		
+	&_menuSection
+		margin-right 30px
+		margin-bottom 27px
+		
+		@media $xs
+			margin-right -15px
+			margin-left -15px
+			margin-bottom 12px
+	
+	&_topicsHeader
+		margin-bottom 33px
+	
+	&_topicsFilter
+		margin-bottom 19px
+		padding-right 30px
+		
+		@media $smMinus
+			padding-right 0
+		
+		@media $xs
+			position relative
+			margin-bottom 0
+		
+		&-opened
+			z-index 100
+	
+	&_aside
+		width 33%
+		
+		@media $smMinus
+			width auto
+	
+	&_categories, &_dossierList
+		flex-grow 1
+		padding-left 18px
+	
+	&_dateSortTags
+		margin-top 13px
+		margin-bottom 5px
+	
+	&-infoPages
+		background $white
+		
+		.TopMenu
+			margin-bottom 40px
+		
+		.Main_container
+			padding-top 43px
+		
+		.Main_columns
+			margin-right 0
+			margin-left 0
+	
+	&-article
+		padding-bottom 80px
+		
+		.Main_container
+			padding-top 37px
+		
+		.Main_content
+			flex-grow 1
+			margin-left 24px
+			
+			@media $smMinus
+				margin-left 0
+	
+	&-loginPage
+		background #F4F9FC
+	
+	&-newsFeed
+		.SidebarMenu
+			margin-top -7px
+		
+		.Main_container
+			@media $smMinus
+				padding-top 30px
+			
+			@media $xs
+				padding-top 20px
+		
+		.Main_sidebar
+			@media $xs
+				padding-left 4px
+			
+		.Main_content
+			margin-left 24px
+			
+			@media $smMinus
+				margin-left 0
+	
+	&-dossier
+		.Main_container
+			padding-top 0
+			
+			@media $smPlus
+				padding-bottom 0
+			
+		@media $xs
+			margin-top 67px
+	
+	&-profileInvite
+		.Main_container
+			padding-bottom 64px
+	
+	&-pageAbout, &-contactsPage
+		.Main_container
+			@media $smPlus
+				padding-top 0
+				padding-bottom 0
+	
+	&-profileSettings
+		@media $xs
+			padding-top 18px
+	
+	&-notifications
+		@media $xs
+			padding-top 13px
+			
+		.Main_menuSection
+			margin-right 0
+			margin-bottom 0
+			
+			@media $xs
+				margin-top 6px
+				margin-bottom 6px
+	
+	&-profileMessages
+		.Main_container
+			padding-top 30px
+		
+		.Main_left
+			width 80%
+		
+		.Main_aside
+			width 20%
+			padding-top 3px
+			padding-left 21px

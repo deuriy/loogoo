@@ -1,0 +1,127 @@
+header.Header.Header-profile
+	.Container.Header_container
+		.Header_left
+			a(href="#").MenuHamburger#MenuHamburger.Header_menuHamburger.hidden-smPlus
+				include /includes/svg/SvgIco/menu_hamburger
+			a(href="/").SiteName.Header_siteName infoza
+			.PrimaryMenu.Header_primaryMenu
+				ul.PrimaryMenu_list
+					li.PrimaryMenu_item.active
+						a(href="#").PrimaryMenu_link Общение
+					li.PrimaryMenu_item
+						a(href="/dossier.html").PrimaryMenu_link Досье
+					li.PrimaryMenu_item
+						a(href="/article_feed.html").PrimaryMenu_link База знаний
+					li.PrimaryMenu_item
+						a(href="/news_feed.html").PrimaryMenu_link Новости
+					li.PrimaryMenu_item
+						a(href="#").PrimaryMenu_link О проекте
+		.Header_right
+			form(action="").Search.Search-header
+				.Search_item
+					input(type="text", name="search_query", placeholder="Введите ваш запрос").Search_text
+					button(type="submit").Search_icon
+						span.hidden-xs
+							include /includes/svg/SvgIco/arrow_blue_right
+						span.hidden-xsPlus
+							include /includes/svg/SvgIco/search
+				a(href="javascript:;").Search_closeBtn
+					include /includes/svg/SvgIco/close
+			.Icons.Header_icons
+				ul.Icons_list
+					li.Icons_item.hidden-md
+						a(href="#").Icons_link
+							include /includes/svg/SvgIco/square_add
+					li.Icons_item
+						a(href="#").Icons_link.Icons_link-search
+							include /includes/svg/SvgIco/search
+			.LanguageSwitch.Header_languageSwitch
+				a(href="#").LanguageSwitch_selected РУС
+				ul.LanguageSwitch_list
+					li.LanguageSwitch_item
+						a(href="#").LanguageSwitch_link
+							img(src="/img/flag_ua.jpg", alt="Flag ua").LanguageSwitch_icon
+							span.LanguageSwitch_title Українська
+					li.LanguageSwitch_item
+						a(href="#").LanguageSwitch_link
+							img(src="/img/flag_ru.jpg", alt="Flag ru").LanguageSwitch_icon
+							span.LanguageSwitch_title Русский
+			.ProfileBlock.Header_profileBlock
+				.Notifications.Notifications-dropdown.ProfileBlock_notifications
+					a(href="javascript:;").Notifications_icon.hidden-xs
+						include /includes/svg/SvgIco/icon_bell
+						span.Notifications_number 10
+					.Notifications_wrapper
+						.Notifications_header
+							h3.Notifications_title Уведомления
+						.Notifications_body
+							.NoResults.NoResults-notificationsSmall
+								.NoResults_icon
+									include /includes/svg/bell
+								.NoResults_text У вас ще не було сповіщень
+							//- .Notification.Notification-dropdown.Notifications_item
+							//- 	.Notification_userPhotoWrapper
+							//- 		img(src="/img/vladimir_petrov2.png", alt="Владимир Петров").Notification_userPhoto
+							//- 		.Notification_icon.Notification_icon-commentCreated
+							//- 	.Notification_info
+							//- 		.Notification_nameWrapper
+							//- 			.Notification_userName Владимир Петров,
+							//- 			.Notification_date сегодня в 7:05
+							//- 		.Notification_text Ответил в теме #[a(href="#") Lorem ipsum dolor sit amet consectetu]
+							//- .Notification.Notification-dropdown.Notifications_item
+							//- 	.Notification_userPhotoWrapper
+							//- 		img(src="/img/vladimir_petrov2.png", alt="Владимир Петров").Notification_userPhoto
+							//- 		.Notification_icon.Notification_icon-commentReplied
+							//- 	.Notification_info
+							//- 		.Notification_nameWrapper
+							//- 			.Notification_userName Владимир Петров,
+							//- 			.Notification_date сегодня в 7:05
+							//- 		.Notification_text Ответил на ваш комментарий в теме #[a(href="#") Lorem ipsum dolor sit amet consectetur]
+							//- .Notification.Notification-dropdown.Notifications_item
+							//- 	.Notification_userPhotoWrapper
+							//- 		img(src="/img/vladimir_petrov2.png", alt="Владимир Петров").Notification_userPhoto
+							//- 		.Notification_icon.Notification_icon-userInvited
+							//- 	.Notification_info
+							//- 		.Notification_nameWrapper
+							//- 			.Notification_userName Владимир Петров,
+							//- 			.Notification_date сегодня в 7:05
+							//- 		.Notification_text Присоединился к вашей #[a(href="#") Команде]
+							//- .Notification.Notification-dropdown.Notifications_item
+							//- 	.Notification_userPhotoWrapper
+							//- 		img(src="/img/vladimir_petrov2.png", alt="Владимир Петров").Notification_userPhoto
+							//- 		.Notification_icon.Notification_icon-commentLiked
+							//- 	.Notification_info
+							//- 		.Notification_nameWrapper
+							//- 			.Notification_userName Владимир Петров,
+							//- 			.Notification_date сегодня в 7:05
+							//- 		.Notification_text Оценил ваш ответ в теме #[a(href="#") Lorem ipsum dolor sit amet]
+							//- .Notification.Notification-dropdown.Notifications_item
+							//- 	span.CircleIcon.CircleIcon-orange.Notification_circleIcon i
+							//- 	.Notification_info
+							//- 		.Notification_nameWrapper
+							//- 			.Notification_userName Сообщество Infoza,
+							//- 			.Notification_date сегодня в 7:05
+							//- 		.Notification_text Текст, который отправит администрация
+							//- .Notification.Notification-dropdown.Notifications_item
+							//- 	span.CircleIcon.Notification_circleIcon i
+							//- 	.Notification_info
+							//- 		.Notification_nameWrapper
+							//- 			.Notification_userName Сообщество Infoza,
+							//- 			.Notification_date сегодня в 7:05
+							//- 		.Notification_text В связи с многочисленными жалобами пользователей – ваш ответ в теме #[a(href="#") Lorem ipsum dolor sit amet consectetur adipiscing] был удален.
+						.Notifications_footer
+							a(href="/my_notifications.html").Notifications_link Показать все
+				//- a(href="javascript:;").Rating.Rating-bordered.ProfileBlock_rating.hidden-xs
+				//- 	span.Rating_icon
+				//- 		include /includes/svg/SvgIco/icon_star
+				//- 	span.Rating_number 30
+				a(href="javascript:;").Rating.ProfileBlock_rating.hidden-xs
+					span.Rating_icon
+						include /includes/svg/SvgIco/icon_star
+					span.Rating_number 987
+				.UserPhoto.UserPhoto-profileBlock
+					a(href="javascript:;").UserPhoto_link#dropdown_link
+						img(src="/img/ivan_ivanov.png", alt="Илья Вакуленко").UserPhoto_img
+						span.UserPhoto_icon
+							include /includes/svg/SvgIco/triangle_down
+					include /includes/blocks/Dropdown

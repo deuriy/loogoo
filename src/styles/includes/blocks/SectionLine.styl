@@ -1,0 +1,37 @@
+.SectionLine
+	background #435973
+	
+	&_container
+		display flex
+		justify-content center
+		align-items center
+		padding-top 26px
+		padding-bottom 29px
+		
+		@media $xs
+			flex-direction column
+			padding-top 36px
+			padding-bottom 40px
+	
+	&_text
+		margin-right 0.9047em
+		font-weight 600
+		font-size 21px
+		line-height 1.14285
+		color $white
+		
+		@media $mdMinus
+			font-size 20px
+		
+		@media $smMinus
+			font-size 19px
+		
+		@media $xs
+			margin-right 0
+			margin-bottom 1.167em
+			text-align center
+			font-size 18px
+			line-height 1.45
+	
+	&_icon
+		display block

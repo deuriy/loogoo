@@ -1,0 +1,65 @@
+.NotificationSettingsItem
+	display flex
+	justify-content space-between
+	align-items flex-start
+	
+	@media $xs
+		position relative
+	
+	&_circleIcon, &_icon
+		flex-shrink 0
+		margin-top 4px
+		margin-right 17px
+		
+		@media $xs
+			margin-top 3px
+	
+	&_icon
+		width 28px
+		
+		@media $xs
+			width 32px
+	
+	&_info
+		flex-grow 1
+		line-height 18px
+	
+	&_title
+		font-weight 500
+		font-size 15px
+		
+		@media $xs
+			font-size 16px
+	
+	&_infoWrapper
+		display flex
+		justify-content space-between
+		align-items center
+	
+	&_description
+		font-size 13px
+		
+	&_dropdownSelect
+		margin-top -5px
+		margin-bottom -8px
+		
+		@media $xs
+			margin-top -3px
+			margin-bottom -5px
+			margin-left -10px
+	
+	&_switch
+		margin-top -3px
+		margin-right 4px
+		
+		@media $xs
+			margin-right 0
+		
+	&-push
+		align-items center
+		
+		.NotificationSettingsItem_infoWrapper
+			align-items flex-start
+		
+		@media $xs
+			align-items flex-start

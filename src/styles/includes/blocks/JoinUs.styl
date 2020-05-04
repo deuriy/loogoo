@@ -1,0 +1,69 @@
+.JoinUs
+	&_title
+		margin-bottom 51px
+		text-align center
+		
+		@media $xs
+			margin-bottom 35px
+			padding-right 15px
+			padding-left 15px
+		
+	&_items
+		display flex
+		
+		@media $xs
+			flex-direction column
+	
+	&_item
+		flex 1 0 0
+		display flex
+		flex-direction column
+		
+		&-left
+			margin-right 29px
+			text-align right
+			
+			@media $xs
+				margin-right 0
+				margin-bottom 35px
+				text-align center
+			
+			.JoinUs_itemTitle
+				margin-right 33px
+				
+				@media $xs
+					margin-right 0
+			
+			.JoinUs_itemContent
+				display flex
+				justify-content flex-end
+				align-items center
+				padding-right 43px
+				
+				@media $xs
+					justify-content center
+					padding-right 15px
+		
+		&-right
+			.JoinUs_itemTitle
+				margin-left 60px
+				
+				@media $xs
+					margin-left 0
+					text-align center
+	
+	&_itemTitle
+		margin-bottom 40px
+		
+		@media $xs
+			margin-bottom 20px
+			padding-right 15px
+			padding-left 15px
+	
+	&_itemContent
+		flex-grow 1
+		padding 41px 30px 46px
+		background #F2F2F2
+		
+		@media $xs
+			padding 25px 15px

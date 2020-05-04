@@ -1,0 +1,44 @@
+.IconMenu
+	position fixed
+	right 0
+	bottom 0
+	left 0
+	z-index 100
+	background $white
+	box-shadow 0 0 10px 0 rgba(0, 0, 0, .05)
+	
+	&_menu
+		display flex
+		justify-content space-between
+		align-items center
+		padding 6px 27px
+	
+	&_item
+		margin 0 8px
+		
+		&-active
+			.IconMenu_link
+				color #5681b8
+	
+	&_link
+		display block
+		padding 7px
+		color #999
+		@extend .transition
+		
+		&:hover
+			color #5681b8
+		
+		&-dot
+			position relative
+			
+			&:before
+				content ""
+				position absolute
+				top 4px
+				right 3px
+				width 11px
+				height 11px
+				border 2px solid $white
+				background $orange
+				border-radius 50%

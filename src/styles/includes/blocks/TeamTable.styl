@@ -1,0 +1,66 @@
+.TeamTable
+	width 100%
+	font-size 16px
+	
+	@media $xs
+		font-size 15px
+	
+	th, td
+		height 70px
+		border-bottom 1px solid #ebf0f2
+		vertical-align middle
+		
+		@media $xs
+			height 71px
+	
+	th
+		text-align left
+		
+		&:last-child
+			padding-right 8px
+			text-align right
+	
+	td
+		&:first-child
+			width 78.8%
+		
+		&:last-child
+			padding-right 11px
+			text-align right
+			
+			@media $xs
+				vertical-align top
+				padding-top 14px
+				padding-right 8px
+	
+	&_count
+		margin-left 4px
+	
+	&_user
+		display flex
+		align-items center
+	
+	&_userPhoto
+		width 30px
+		margin-right 14px
+		
+		@media $xs
+			margin-right 10px
+	
+	&_nameAndDate
+		flex-grow 1
+		display flex
+		justify-content space-between
+		align-items center
+		
+		@media $xs
+			flex-direction column
+			align-items flex-start
+	
+	&_userName
+		@media $xs
+			font-size 14px
+	
+	&_date
+		@media $xs
+			font-size 12px

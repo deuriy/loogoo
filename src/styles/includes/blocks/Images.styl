@@ -1,0 +1,84 @@
+.Images
+	&_list
+		display flex
+		flex-wrap wrap
+	
+	&_item
+		margin-right 16px
+		margin-bottom 16px
+		
+		@media $xs
+			margin-right 5px
+			margin-bottom 4px
+			
+			&:last-child
+				margin-right 0
+		
+		&:nth-child(8n)
+			margin-right 0
+		
+		&:nth-child(n+8):not(.Images_item-other)
+			display none
+	
+	&_link
+		display block
+		
+		&-other
+			display flex
+			justify-content center
+			align-items center
+			width 75px
+			height 75px
+			background #F8F9FA
+	
+	&_img
+		display block
+		width 76px
+		height 76px
+		object-fit cover
+		
+		@media $xs
+			width 74px
+			height 72px
+	
+	&_number
+		color $blue
+		font-weight 600
+		font-size 16px
+	
+	&_hideLink
+		position relative
+		display none
+		padding-right 8px
+		font-weight 500
+		color $blue
+		
+		&:after
+			content ""
+			position absolute
+			top 6px
+			right 0
+			border 3px solid transparent
+			border-bottom 3px solid $blue
+	
+	&.opened
+		.Images_list
+			margin-bottom -4px
+			
+			@media $xs
+				margin-bottom 8px
+			
+		.Images_item
+			margin-bottom 17px
+			
+			@media $xs
+				margin-bottom 4px
+			
+			&:nth-child(n+8):not(.Images_item-other)
+				display block
+			
+			&-other
+				display none
+		
+		.Images_hideLink
+			display inline-block

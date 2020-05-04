@@ -1,0 +1,31 @@
+extends /layouts/main_layout
+block vars
+	- var title = "База знаний 2";
+	- var mainModifiers = "Main-infoPages";
+block content
+	.Container.Main_container
+		include /includes/blocks/TopMenu
+		.Main_columns
+			.Main_sidebar
+				include /includes/blocks/SidebarMenu
+			.Categories.Main_categories
+				form(action="", name="categories_filter").Filter.Categories_filter#CategoriesFilter
+					.Search.Search-categories.Filter_search
+						input(type="text", name="search_query2", placeholder="Поиск").Search_text
+					.Filter_resultsText По запросу #[span.Black “Книга почему”] найдено #[span.Black 4122] записей
+					.Filter_main.WhiteSection
+						.Filter_item.Filter_item-title
+							h3.Filter_title
+								include /includes/svg/SvgIco/icon_filter
+					input(type="hidden", name="rubrics_id", value="")
+				ul.Categories_links
+					li.Categories_linkItem
+						a(href="/article.html").Categories_link События в реальном времени
+					li.Categories_linkItem
+						a(href="/article.html").Categories_link События в реальном времени
+					li.Categories_linkItem
+						a(href="/article.html").Categories_link События в реальном времени
+					li.Categories_linkItem
+						a(href="/article.html").Categories_link События в реальном времени
+block page_bottom
+	script(src="/js/infopage.js")

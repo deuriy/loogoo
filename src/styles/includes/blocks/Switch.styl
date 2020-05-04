@@ -1,0 +1,41 @@
+.Switch
+	position relative
+	display inline-block
+	width 29px
+	height 10px
+	
+	&_checkbox
+		display none
+		
+		&:checked + .Switch_slider
+			background-color $blue
+		
+		&:checked + .Switch_slider:before
+			transform translateX(14px)
+			border-color $blue
+		
+		&:focus + .Switch_slider
+			box-shadow 0 0 1px $blue
+	
+	&_slider
+		position absolute
+		top 0
+		right 0
+		bottom 0
+		left 0
+		border-radius 6px
+		background-color #d0d7e0
+		transition .4s
+		cursor pointer
+		
+		&:before
+			content ""
+			position absolute
+			bottom -3px
+			left 0
+			width 16px
+			height 16px
+			border 2px solid #d0d7e0
+			border-radius 50%
+			background-color $white
+			transition .4s

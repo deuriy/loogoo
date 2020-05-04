@@ -1,0 +1,60 @@
+header.Header
+	.Container.Header_container
+		.Header_left
+			a(href="#").MenuHamburger#MenuHamburger.Header_menuHamburger.hidden-md
+				include /includes/svg/SvgIco/menu_hamburger
+			a(href="/").SiteName.Header_siteName infoza
+			.PrimaryMenu.Header_primaryMenu
+				ul.PrimaryMenu_list
+					li.PrimaryMenu_item
+						a(href="#").PrimaryMenu_link.active Общение
+					li.PrimaryMenu_item
+						a(href="/dossier.html").PrimaryMenu_link Досье
+					li.PrimaryMenu_item
+						a(href="/article_feed.html").PrimaryMenu_link База знаний
+					li.PrimaryMenu_item
+						a(href="/news_feed.html").PrimaryMenu_link Новости
+					li.PrimaryMenu_item
+						a(href="#").PrimaryMenu_link О проекте
+		.Header_right
+			//- form(action="").Search.Search-header
+			//- 	.Search_item
+			//- 		input(type="text", name="search_query", placeholder="Введите ваш запрос").Search_text
+			//- 		button(type="submit").Search_icon
+			//- 			span.hidden-xs
+			//- 				include /includes/svg/SvgIco/arrow_blue_right
+			//- 			span.hidden-smPlus
+			//- 				include /includes/svg/SvgIco/search
+			//- 	a(href="javascript:;").Search_closeBtn
+			//- 		include /includes/svg/SvgIco/close
+			.Icons.Header_icons
+				ul.Icons_list
+					li.Icons_item.hidden-md
+						a(href="#").Icons_link
+							include /includes/svg/SvgIco/square_add
+					//- li.Icons_item
+					//- 	a(href="#").Icons_link.Icons_link-search
+					//- 		include /includes/svg/SvgIco/search
+					li.Icons_item.hidden-md
+						a(href="#LoginPopupMenu").Icons_link.PopupMenuLink
+							img(src="/img/default_avatar.png", alt="").Icons_img
+			.LanguageSwitch.Header_languageSwitch
+				a(href="#").LanguageSwitch_selected РУС
+				ul.LanguageSwitch_list
+					li.LanguageSwitch_item
+						a(href="#").LanguageSwitch_link
+							img(src="/img/flag_ua.jpg", alt="Flag ua").LanguageSwitch_icon
+							span.LanguageSwitch_title Українська
+					li.LanguageSwitch_item
+						a(href="#").LanguageSwitch_link
+							img(src="/img/flag_ru.jpg", alt="Flag ru").LanguageSwitch_icon
+							span.LanguageSwitch_title Русский
+			.AuthorizationBlock.hidden-smMinus
+				ul.AuthorizationBlock_list
+					li.AuthorizationBlock_item
+						a(href="javascript:;", data-src="#LoginPopup").OpenPopupLink.LoginLink
+							include ../svg/SvgIco/icon_user
+							.
+								Вход
+					li.AuthorizationBlock_item
+						a(href="javascript:;", data-fancybox, data-src="#RegistrationPopup").OpenPopupLink.BtnOutline Регистрация

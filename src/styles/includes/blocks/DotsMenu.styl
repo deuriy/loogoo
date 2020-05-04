@@ -1,0 +1,75 @@
+.DotsMenu
+	position relative
+	
+	&_icon
+		display block
+		width 14px
+		color $blue2
+		opacity 0.4
+		@extend .transition
+		
+		&:hover
+			opacity 1
+	
+	&_wrapper
+		display none
+		z-index 10
+		position absolute
+		top calc(100% + 3px)
+		left -9px
+		width 176px
+		padding 13px 0
+		border-radius 4px
+		box-shadow 0 0 5px 0 rgba(0, 0, 0, .1)
+		background $white
+		@extend .transition
+		
+		&:before
+			content ""
+			position absolute
+			top -10px
+			left 8px
+			width 16px
+			height 10px
+			background url('../img/corner_shadow.jpg') 0 0 no-repeat
+			
+			@media $smMinus
+				left auto
+				right 8px
+		
+		&-complaint
+			width 162px
+		
+		@media $smMinus
+			width 189px
+			top calc(100% + 6px)
+			right -11px
+			left auto
+	
+	&_link
+		display flex
+		align-items center
+		padding 5px 36px 5px 19px
+		font-weight 500
+		line-height normal
+		color #0D0D0D
+		
+		@media $smMinus
+			padding-top 9px
+			padding-bottom 8px
+			font-size 16px
+		
+		& > .SvgIco
+			flex-shrink 0
+			width 13px
+			margin-right 10px
+			color $blue2
+		
+		&-complaint
+			padding 5px 28px 5px 14px
+			
+			@media $smMinus
+				padding-left 23px
+	
+	&-commentForm
+		position absolute

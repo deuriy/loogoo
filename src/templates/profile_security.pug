@@ -1,0 +1,31 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Безопасность";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-profileSettings";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Мои настройки
+				include /includes/blocks/MenuSectionProfileSettings
+				include /includes/blocks/ProfileSettingsSecurity
+			.Aside.Main_aside
+				.SidebarMenu.SidebarMenu-profileMenu#SidebarMenu.hidden-smMinus
+					h3.SidebarMenu_title Профиль
+					ul.SidebarMenu_menu
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Мои темы
+						li.SidebarMenu_item
+							a(href="/profile_invite.html").SidebarMenu_link Мои приглашения
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Уведомления
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Настройки
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Выход
+block page_bottom
+	script(src="/js/profile_security.js")

@@ -1,0 +1,85 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Мои уведомления";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-notifications";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Мои уведомления
+				include /includes/blocks/MenuSectionNotifications
+				.Notifications
+					.Notification.Notifications_item
+						.Notification_userPhotoWrapper
+							img(src="/img/vladimir_petrov2.png", alt="Владимир Петров").Notification_userPhoto
+							.Notification_icon.Notification_icon-commentCreated
+						.Notification_info
+							.Notification_nameWrapper
+								.Notification_userName Владимир Петров,
+								.Notification_date сегодня в 7:05
+							.Notification_text Ответил в теме #[a(href="#") Lorem ipsum dolor sit amet consectetur]
+					.Notification.Notifications_item
+						.Notification_userPhotoWrapper
+							img(src="/img/vladimir_petrov2.png", alt="Владимир Петров").Notification_userPhoto
+							.Notification_icon.Notification_icon-commentReplied
+						.Notification_info
+							.Notification_nameWrapper
+								.Notification_userName Владимир Петров,
+								.Notification_date сегодня в 7:05
+							.Notification_text Ответил на ваш комментарий в теме #[a(href="#") Lorem ipsum dolor sit amet consectetur]
+					.Notification.Notifications_item
+						.Notification_userPhotoWrapper
+							img(src="/img/vladimir_petrov2.png", alt="Владимир Петров").Notification_userPhoto
+							.Notification_icon.Notification_icon-userInvited
+						.Notification_info
+							.Notification_nameWrapper
+								.Notification_userName Владимир Петров,
+								.Notification_date сегодня в 7:05
+							.Notification_text Присоединился к вашей #[a(href="#") Команде]
+					.Notification.Notifications_item
+						.Notification_userPhotoWrapper
+							img(src="/img/vladimir_petrov2.png", alt="Владимир Петров").Notification_userPhoto
+							.Notification_icon.Notification_icon-commentLiked
+						.Notification_info
+							.Notification_nameWrapper
+								.Notification_userName Владимир Петров,
+								.Notification_date сегодня в 7:05
+							.Notification_text Оценил ваш ответ в теме #[a(href="#") Lorem ipsum dolor sit amet]
+					.Notification.Notifications_item
+						span.CircleIcon.CircleIcon-orange.Notification_circleIcon i
+						.Notification_info
+							.Notification_nameWrapper
+								.Notification_userName Сообщество Infoza,
+								.Notification_date сегодня в 7:05
+							.Notification_text Текст, который отправит администрация
+					.Notification.Notifications_item
+						span.CircleIcon.Notification_circleIcon i
+						.Notification_info
+							.Notification_nameWrapper
+								.Notification_userName Сообщество Infoza,
+								.Notification_date сегодня в 7:05
+							.Notification_text В связи с многочисленными жалобами пользователей – ваш ответ в теме #[a(href="#") Lorem ipsum dolor sit amet consectetur adipiscing] был удален.
+			.Aside.Main_aside
+				.SidebarMenu.SidebarMenu-profileMenu#SidebarMenu.hidden-smMinus
+					h3.SidebarMenu_title Профиль
+					ul.SidebarMenu_menu
+						li.SidebarMenu_item
+							a(href="/my_topics.html").SidebarMenu_link Мои темы
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Мои ответы
+						li.SidebarMenu_item
+							a(href="/profile_invite.html").SidebarMenu_link Мои приглашения
+						li.SidebarMenu_item
+							a(href="/profile_rating.html").SidebarMenu_link Мои рейтинг
+						li.SidebarMenu_item
+							a(href="/my_notifications.html").SidebarMenu_link Мои уведомления
+						li.SidebarMenu_item
+							a(href="/profile_settings.html").SidebarMenu_link Мои настройки
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Выход
+				//- include /includes/blocks/TopicCreationBlock
+				//- include /includes/blocks/PopularTopics

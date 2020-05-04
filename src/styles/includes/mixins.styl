@@ -1,0 +1,27 @@
+font-face(fontFamily, fontUrl, fontWeight = normal, fontStyle = normal)
+	@font-face
+		font-family: fontFamily
+		src: url(fontUrl + '.eot')
+		src: url(fontUrl + '.eot?#iefix') format('embedded-opentype'),url(fontUrl + '.woff2') format('woff2'), url(fontUrl + '.woff') format('woff'),url(fontUrl + '.ttf') format('truetype'), url(fontUrl + '.svg#DINPro-Light') format('svg')
+		font-weight: fontWeight
+		font-style: fontStyle
+
+placeholder()
+	&::-webkit-input-placeholder
+		{block}
+
+	&::-moz-placeholder
+		{block}
+
+	&:-moz-placeholder
+		{block}
+
+	&:-ms-input-placeholder
+		{block}
+
+autofill(color)
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover, 
+	&:-webkit-autofill:focus, 
+	&:-webkit-autofill:active
+		-webkit-box-shadow 0 0 0 30px color inset

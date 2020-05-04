@@ -1,0 +1,94 @@
+.Popup
+	width 476px
+	max-width 100%
+	padding 38px 40px 33px 35px
+	
+	&_title
+		margin-bottom 35px
+		text-align center
+		font-size 18px
+		line-height 1
+		font-weight 600
+		
+		&-separate
+			position relative
+			z-index 1
+			display inline-block
+			margin-bottom 0
+			padding-right 20px
+			padding-left 20px
+			background $white
+	
+	&_link
+		color $blue
+		
+		&-small
+			font-size 13px
+	
+	&_fbLogin
+		margin-bottom 37px
+		text-align center
+	
+	&_separateText
+		margin-bottom 52px
+	
+	&_text
+		text-align center
+	
+	&_actionLinks
+		display flex
+		justify-content space-between
+	
+	&_actionLink
+		font-weight 600
+		color $blue
+	
+	&-submitComplaint
+		padding-bottom 50px
+		
+		.Popup_separateText
+			margin-bottom 46px
+	
+	&-complaintForm
+		width 480px
+		padding 48px 40px 23px 40px
+		background $white url('../img/warning.png') right bottom no-repeat
+		
+		@media $xxs
+			width 320px
+			padding 24px 20px 12px 20px
+			border-radius 5px
+			background-image none
+		
+		.fancybox-button
+			top 0
+			right 0
+			
+			@media $xxs
+				top -10px
+				right -10px
+		
+		.Popup_title
+			margin-bottom 30px
+			
+			@media $xxs
+				display none
+	
+	&-authPage
+		.Popup_title
+			margin-bottom 25px
+	
+	// &-loginMenu
+	// 	width 270px
+	// 	padding 17px 30px
+		
+	// 	.fancybox-close-small
+	// 		display none
+	
+	&-blockLike
+		width 340px
+		padding 0
+		border-radius 5px
+		
+		.fancybox-close-small
+			display none

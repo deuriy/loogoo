@@ -1,0 +1,191 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Настройки уведомлений в профиле";
+	//- - var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-notifications";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				//- .MobileHeader.hidden-smPlus
+				//- 	a(href="#").BtnBack.MobileHeader_btnBack
+				//- 		include /includes/svg/SvgIco/arrow_left
+				//- 	h1.MobileHeader_title Мои настройки
+				include /includes/blocks/MenuSectionProfileSettings
+				.NotificationSettings
+					.NotificationSettings_group
+						h2.NotificationSettings_groupTitle В браузере
+						.NotificationSettings_groupItems
+							.NotificationSettingsItem.NotificationSettings_item
+								.NotificationSettingsItem_icon
+									include /includes/svg/notification_settings/comment_notification
+								.NotificationSettingsItem_info
+									h3.NotificationSettingsItem_title Ответ в теме
+									.NotificationSettingsItem_infoWrapper
+										.NotificationSettingsItem_description.hidden-xs кто-то ответил в созданной вами теме
+										.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-profileSettings.DropdownSelect-mobile.NotificationSettingsItem_dropdownSelect
+											select(name="comment_notifications_desktop").DropdownSelect_select
+												option(value="on") Включены
+												option(value="off") Отключены
+												option(value="without_sound") Без звука
+							.NotificationSettingsItem.NotificationSettings_item
+								.NotificationSettingsItem_icon
+									include /includes/svg/notification_settings/reply_notification
+								.NotificationSettingsItem_info
+									h3.NotificationSettingsItem_title Ответ на комментарий
+									.NotificationSettingsItem_infoWrapper
+										.NotificationSettingsItem_description.hidden-xs кто-то ответил на ваш комментарий
+										.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-profileSettings.DropdownSelect-mobile.NotificationSettingsItem_dropdownSelect
+											select(name="reply_notifications_desktop").DropdownSelect_select
+												option(value="on") Включены
+												option(value="off") Отключены
+												option(value="without_sound" selected) Без звука
+							.NotificationSettingsItem.NotificationSettings_item
+								.NotificationSettingsItem_icon
+									include /includes/svg/notification_settings/join_notification
+								.NotificationSettingsItem_info
+									h3.NotificationSettingsItem_title Приглашение в команду
+									.NotificationSettingsItem_infoWrapper
+										.NotificationSettingsItem_description.hidden-xs кто-то присоединился к вашей команде
+										.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-profileSettings.DropdownSelect-mobile.NotificationSettingsItem_dropdownSelect
+											select(name="join_notifications_desktop").DropdownSelect_select
+												option(value="on") Включены
+												option(value="off" selected) Отключены
+												option(value="without_sound") Без звука
+							.NotificationSettingsItem.NotificationSettings_item
+								.NotificationSettingsItem_icon
+									include /includes/svg/notification_settings/like_notification
+								.NotificationSettingsItem_info
+									h3.NotificationSettingsItem_title Оценка комментария
+									.NotificationSettingsItem_infoWrapper
+										.NotificationSettingsItem_description.hidden-xs кому-то понравился ваш комментарий
+										.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-profileSettings.DropdownSelect-mobile.NotificationSettingsItem_dropdownSelect
+											select(name="like_notifications_desktop").DropdownSelect_select
+												option(value="on") Включены
+												option(value="off" selected) Отключены
+												option(value="without_sound") Без звука
+							.NotificationSettingsItem.NotificationSettings_item
+								span.CircleIcon.CircleIcon-profileSettings.NotificationSettingsItem_circleIcon i
+								.NotificationSettingsItem_info
+									h3.NotificationSettingsItem_title Автоматическое уведомление от Infoza
+									.NotificationSettingsItem_infoWrapper
+										.NotificationSettingsItem_description.hidden-xs информационные уведомление от Infoza
+										.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-profileSettings.DropdownSelect-mobile.NotificationSettingsItem_dropdownSelect
+											select(name="infoza_notifications_desktop").DropdownSelect_select
+												option(value="on") Включены
+												option(value="off") Отключены
+												option(value="without_sound") Без звука
+							.NotificationSettingsItem.NotificationSettings_item
+								span.CircleIcon.CircleIcon-profileSettings.CircleIcon-orange.NotificationSettingsItem_circleIcon i
+								.NotificationSettingsItem_info
+									h3.NotificationSettingsItem_title Персональные уведомления от Infoza
+									.NotificationSettingsItem_infoWrapper
+										.NotificationSettingsItem_description.hidden-xs сообщения от администрации
+										.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-profileSettings.DropdownSelect-mobile.NotificationSettingsItem_dropdownSelect
+											select(name="warning_notifications_desktop").DropdownSelect_select
+												option(value="on") Включены
+												option(value="off") Отключены
+												option(value="without_sound") Без звука
+							.NotificationSettingsItem.NotificationSettingsItem-push.NotificationSettings_item
+								.NotificationSettingsItem_icon
+									include /includes/svg/notification_settings/push_notification
+								.NotificationSettingsItem_info
+									h3.NotificationSettingsItem_title Push-уведомления
+									.NotificationSettingsItem_infoWrapper
+										.NotificationSettingsItem_description браузерные уведомления
+										label.Switch.NotificationSettingsItem_switch
+											input(type="checkbox" name="push_notifications" id="on" value="on" checked).Switch_checkbox
+											span.Switch_slider
+					.NotificationSettings_group
+						h2.NotificationSettings_groupTitle В мобильном приложении
+						.NotificationSettings_groupItems
+							.NotificationSettingsItem.NotificationSettings_item
+								.NotificationSettingsItem_icon
+									include /includes/svg/notification_settings/comment_notification
+								.NotificationSettingsItem_info
+									h3.NotificationSettingsItem_title Ответ в теме
+									.NotificationSettingsItem_infoWrapper
+										.NotificationSettingsItem_description.hidden-xs кто-то ответил в созданной вами теме
+										.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-profileSettings.DropdownSelect-mobile.NotificationSettingsItem_dropdownSelect
+											select(name="comment_notifications_app").DropdownSelect_select
+												option(value="on") Включены
+												option(value="off") Отключены
+												option(value="without_sound") Без звука
+							.NotificationSettingsItem.NotificationSettings_item
+								.NotificationSettingsItem_icon
+									include /includes/svg/notification_settings/reply_notification
+								.NotificationSettingsItem_info
+									h3.NotificationSettingsItem_title Ответ на комментарий
+									.NotificationSettingsItem_infoWrapper
+										.NotificationSettingsItem_description.hidden-xs кто-то ответил на ваш комментарий
+										.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-profileSettings.DropdownSelect-mobile.NotificationSettingsItem_dropdownSelect
+											select(name="reply_notifications_app").DropdownSelect_select
+												option(value="on") Включены
+												option(value="off") Отключены
+												option(value="without_sound" selected) Без звука
+							.NotificationSettingsItem.NotificationSettings_item
+								.NotificationSettingsItem_icon
+									include /includes/svg/notification_settings/join_notification
+								.NotificationSettingsItem_info
+									h3.NotificationSettingsItem_title Приглашение в команду
+									.NotificationSettingsItem_infoWrapper
+										.NotificationSettingsItem_description.hidden-xs кто-то присоединился к вашей команде
+										.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-profileSettings.DropdownSelect-mobile.NotificationSettingsItem_dropdownSelect
+											select(name="join_notifications_app").DropdownSelect_select
+												option(value="on") Включены
+												option(value="off" selected) Отключены
+												option(value="without_sound") Без звука
+							.NotificationSettingsItem.NotificationSettings_item
+								.NotificationSettingsItem_icon
+									include /includes/svg/notification_settings/like_notification
+								.NotificationSettingsItem_info
+									h3.NotificationSettingsItem_title Оценка комментария
+									.NotificationSettingsItem_infoWrapper
+										.NotificationSettingsItem_description.hidden-xs кому-то понравился ваш комментарий
+										.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-profileSettings.DropdownSelect-mobile.NotificationSettingsItem_dropdownSelect
+											select(name="like_notifications_app").DropdownSelect_select
+												option(value="on") Включены
+												option(value="off" selected) Отключены
+												option(value="without_sound") Без звука
+							.NotificationSettingsItem.NotificationSettings_item
+								span.CircleIcon.CircleIcon-profileSettings.NotificationSettingsItem_circleIcon i
+								.NotificationSettingsItem_info
+									h3.NotificationSettingsItem_title Автоматическое уведомление от Infoza
+									.NotificationSettingsItem_infoWrapper
+										.NotificationSettingsItem_description.hidden-xs информационные уведомление от Infoza
+										.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-profileSettings.DropdownSelect-mobile.NotificationSettingsItem_dropdownSelect
+											select(name="infoza_notifications_app").DropdownSelect_select
+												option(value="on") Включены
+												option(value="off") Отключены
+												option(value="without_sound") Без звука
+							.NotificationSettingsItem.NotificationSettings_item
+								span.CircleIcon.CircleIcon-profileSettings.CircleIcon-orange.NotificationSettingsItem_circleIcon i
+								.NotificationSettingsItem_info
+									h3.NotificationSettingsItem_title Персональные уведомления от Infoza
+									.NotificationSettingsItem_infoWrapper
+										.NotificationSettingsItem_description.hidden-xs сообщения от администрации
+										.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-profileSettings.DropdownSelect-mobile.NotificationSettingsItem_dropdownSelect
+											select(name="warning_notifications_app").DropdownSelect_select
+												option(value="on") Включены
+												option(value="off") Отключены
+												option(value="without_sound") Без звука
+			.Aside.Main_aside
+				.SidebarMenu.SidebarMenu-profileMenu#SidebarMenu.hidden-smMinus
+					h3.SidebarMenu_title Профиль
+					ul.SidebarMenu_menu
+						li.SidebarMenu_item
+							a(href="/my_topics.html").SidebarMenu_link Мои темы
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Мои ответы
+						li.SidebarMenu_item
+							a(href="/profile_invite.html").SidebarMenu_link Мои приглашения
+						li.SidebarMenu_item
+							a(href="/profile_rating.html").SidebarMenu_link Мои рейтинг
+						li.SidebarMenu_item
+							a(href="/my_notifications.html").SidebarMenu_link Мои уведомления
+						li.SidebarMenu_item
+							a(href="/profile_settings.html").SidebarMenu_link Мои настройки
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Выход
+				//- include /includes/blocks/TopicCreationBlock
+				//- include /includes/blocks/PopularTopics

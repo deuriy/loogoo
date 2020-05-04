@@ -1,0 +1,354 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Мои темы";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				.Main_topicsHeader
+					include /includes/blocks/TopicsHeader
+				.Main_topicsFilter
+					include /includes/blocks/TopicsFilter
+				.QuestionsSection
+					//- .QuestionBlock.QuestionBlock-highlightedPost.WhiteSection.QuestionsSection_item
+					//- 	.QuestionBlock_header
+					//- 		.QuestionBlock_headerLeft
+					//- 			.UserPhoto.UserPhoto.UserPhoto-online.UserPhoto-glow.QuestionBlock_userPhoto
+					//- 				img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
+					//- 			.QuestionBlock_info
+					//- 				.QuestionBlock_infoTop
+					//- 					.QuestionBlock_userName Илья Вакуленко
+					//- 					a(href="javascript:;").Rating.QuestionBlock_rating
+					//- 						span.Rating_icon
+					//- 							include /includes/svg/SvgIco/icon_star
+					//- 						span.Rating_number 30
+					//- 					.QuestionBlock_date ·  3 минуты назад
+					//- 				.Tags
+					//- 					ul.Tags_list
+					//- 						li.Tags_item
+					//- 							a(href="#").Tags_link # Семья, Дом, Дети
+					//- 						li.Tags_item
+					//- 							a(href="#").Tags_link # Он, она
+					//- 		.QuestionBlock_headerRight
+					//- 			.QuestionBlock_label Совет
+					//- 	h2.QuestionBlock_title
+					//- 		a(href="/topic_details_authorization.html") Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
+					//- 	.QuestionStatistics.QuestionStatistics-advanced
+					//- 		.QuestionStatistics_left
+					//- 			ul.QuestionStatistics_list
+					//- 				li.QuestionStatistics_item
+					//- 					include /includes/svg/SvgIco/icon_answer_large
+					//- 					.
+					//- 						(8)
+					//- 				li.QuestionStatistics_item
+					//- 					include /includes/svg/SvgIco/icon_readers
+					//- 					.
+					//- 						(30)
+					//- 				li.QuestionStatistics_item.QuestionStatistics_item-likes
+					//- 					include /includes/svg/SvgIco/icon_heart2
+					//- 					.
+					//- 						(30)
+					//- 		.QuestionStatistics_right
+					//- 			.QuestionStatistics_country
+					//- 				img(src="img/icon_pl.png", alt="")
+					//- 				.
+					//- 					Варшава
+					//- .QuestionBlock.QuestionBlock-highlightedPost.WhiteSection.QuestionsSection_item
+					//- 	.QuestionBlock_header
+					//- 		.QuestionBlock_headerLeft
+					//- 			.UserPhoto.UserPhoto.UserPhoto-online.UserPhoto-glow.QuestionBlock_userPhoto
+					//- 				img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
+					//- 			.QuestionBlock_info
+					//- 				.QuestionBlock_infoTop
+					//- 					.QuestionBlock_userName Илья Вакуленко
+					//- 					a(href="javascript:;").Rating.QuestionBlock_rating
+					//- 						span.Rating_icon
+					//- 							include /includes/svg/SvgIco/icon_star
+					//- 						span.Rating_number 30
+					//- 					.QuestionBlock_date ·  3 минуты назад
+					//- 				.Tags
+					//- 					ul.Tags_list
+					//- 						li.Tags_item
+					//- 							a(href="#").Tags_link # Семья, Дом, Дети
+					//- 						li.Tags_item
+					//- 							a(href="#").Tags_link # Он, она
+					//- 		.QuestionBlock_headerRight
+					//- 			.QuestionBlock_label Совет
+					//- 	h2.QuestionBlock_title
+					//- 		a(href="/topic_details_authorization.html") Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
+					//- 	.QuestionStatistics.QuestionStatistics-advanced
+					//- 		.QuestionStatistics_left
+					//- 			ul.QuestionStatistics_list
+					//- 				li.QuestionStatistics_item
+					//- 					include /includes/svg/SvgIco/icon_answer_large
+					//- 					.
+					//- 						(8)
+					//- 				li.QuestionStatistics_item
+					//- 					include /includes/svg/SvgIco/icon_readers
+					//- 					.
+					//- 						(30)
+					//- 				li.QuestionStatistics_item.QuestionStatistics_item-likes
+					//- 					include /includes/svg/SvgIco/icon_heart2
+					//- 					.
+					//- 						(30)
+					//- 		.QuestionStatistics_right
+					//- 			.QuestionStatistics_country
+					//- 				img(src="img/icon_pl.png", alt="")
+					//- 				.
+					//- 					Варшава
+					//- .QuestionBlock.QuestionBlock-highlightedPost.WhiteSection.QuestionsSection_item
+					//- 	.QuestionBlock_header
+					//- 		.QuestionBlock_headerLeft
+					//- 			.UserPhoto.UserPhoto.UserPhoto-online.UserPhoto-glow.QuestionBlock_userPhoto
+					//- 				img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
+					//- 			.QuestionBlock_info
+					//- 				.QuestionBlock_infoTop
+					//- 					.QuestionBlock_userName Илья Вакуленко
+					//- 					a(href="javascript:;").Rating.QuestionBlock_rating
+					//- 						span.Rating_icon
+					//- 							include /includes/svg/SvgIco/icon_star
+					//- 						span.Rating_number 30
+					//- 					.QuestionBlock_date ·  3 минуты назад
+					//- 				.Tags
+					//- 					ul.Tags_list
+					//- 						li.Tags_item
+					//- 							a(href="#").Tags_link # Семья, Дом, Дети
+					//- 						li.Tags_item
+					//- 							a(href="#").Tags_link # Он, она
+					//- 		.QuestionBlock_headerRight
+					//- 			.QuestionBlock_label Совет
+					//- 	h2.QuestionBlock_title
+					//- 		a(href="/topic_details_authorization.html") Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
+					//- 	.QuestionStatistics.QuestionStatistics-advanced
+					//- 		.QuestionStatistics_left
+					//- 			ul.QuestionStatistics_list
+					//- 				li.QuestionStatistics_item
+					//- 					include /includes/svg/SvgIco/icon_answer_large
+					//- 					.
+					//- 						(8)
+					//- 				li.QuestionStatistics_item
+					//- 					include /includes/svg/SvgIco/icon_readers
+					//- 					.
+					//- 						(30)
+					//- 				li.QuestionStatistics_item.QuestionStatistics_item-likes
+					//- 					include /includes/svg/SvgIco/icon_heart2
+					//- 					.
+					//- 						(30)
+					//- 		.QuestionStatistics_right
+					//- 			.QuestionStatistics_country
+					//- 				img(src="img/icon_pl.png", alt="")
+					//- 				.
+					//- 					Варшава
+					.QuestionBlock.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.QuestionBlock_userPhoto
+									a(href="/topic_details.html")
+										img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_nameAndRating
+										span.QuestionBlock_userName Иван Иванов
+										.UserIcons.QuestionBlock_userIcons
+											ul.UserIcons_list
+												li.UserIcons_item
+													include /includes/svg/user_icons/check
+												li.UserIcons_item
+													include /includes/svg/user_icons/cup
+												li.UserIcons_item.UserIcons_item-lightning
+													include /includes/svg/user_icons/lightning
+												li.UserIcons_item.UserIcons_item-shield
+													include /includes/svg/user_icons/shield
+										a(href="javascript:;").Rating.QuestionBlock_rating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 17
+									.QuestionBlock_date сегодня в 7:05
+							.QuestionBlock_headerRight
+								.QuestionBlock_label Вопрос
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Lorem ipsum dolor sit amet, consectetur adipiscing elit
+						.StatIcons.QuestionBlock_statIcons
+							.StatIcons_left
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+										a(href="javascript:;").Like.hidden-smMinus
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+										a(href="javascript:;", data-src="#LikePopup").OpenPopupLink.Like.hidden-md
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+									li.StatIcon.StatIcon-answer.StatIcons_item
+										a(href="/topic_details.html").StatIcon_link
+											include /includes/svg/SvgIco/answer
+											span.StatIcon_count 36
+							.StatIcons_right
+								ul.StatIcons_list
+									li.StatIcon.StatIcon-views.StatIcon-bordered.StatIcons_item.StatIcons_item-views
+										include /includes/svg/SvgIco/eye
+										span.StatIcon_count 110
+									li.StatIcon.StatIcons_item.StatIcons_item-country
+										img(src="/img/icon_pl.png", alt="Poland")
+										span.StatIcon_count Warszawa
+					.QuestionBlock.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.QuestionBlock_userPhoto
+									a(href="/topic_details.html").StatIcon_link
+										img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_nameAndRating
+										span.QuestionBlock_userName Иван Иванов
+										.UserIcons.QuestionBlock_userIcons
+											ul.UserIcons_list
+												li.UserIcons_item
+													include /includes/svg/user_icons/check
+												li.UserIcons_item
+													include /includes/svg/user_icons/cup
+												li.UserIcons_item.UserIcons_item-lightning
+													include /includes/svg/user_icons/lightning
+												li.UserIcons_item.UserIcons_item-shield
+													include /includes/svg/user_icons/shield
+										a(href="javascript:;").Rating.QuestionBlock_rating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 17
+									.QuestionBlock_date сегодня в 7:05
+							.QuestionBlock_headerRight
+								.QuestionBlock_label Вопрос
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Lorem ipsum dolor sit amet, consectetur adipiscing elit
+						.StatIcons.QuestionBlock_statIcons
+							.StatIcons_left
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+										a(href="javascript:;").Like
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+									li.StatIcon.StatIcon-answer.StatIcons_item
+										a(href="/topic_details.html").StatIcon_link
+											include /includes/svg/SvgIco/answer
+											span.StatIcon_count 36
+							.StatIcons_right
+								ul.StatIcons_list
+									li.StatIcon.StatIcon-views.StatIcon-bordered.StatIcons_item.StatIcons_item-views
+										include /includes/svg/SvgIco/eye
+										span.StatIcon_count 110
+									li.StatIcon.StatIcons_item.StatIcons_item-country
+										img(src="/img/icon_pl.png", alt="Poland")
+										span.StatIcon_count Warszawa
+					.QuestionBlock.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.QuestionBlock_userPhoto
+									a(href="/topic_details.html").StatIcon_link
+										img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_nameAndRating
+										span.QuestionBlock_userName Иван Иванов
+										.UserIcons.QuestionBlock_userIcons
+											ul.UserIcons_list
+												li.UserIcons_item
+													include /includes/svg/user_icons/check
+												li.UserIcons_item
+													include /includes/svg/user_icons/cup
+												li.UserIcons_item.UserIcons_item-lightning
+													include /includes/svg/user_icons/lightning
+												li.UserIcons_item.UserIcons_item-shield
+													include /includes/svg/user_icons/shield
+										a(href="javascript:;").Rating.QuestionBlock_rating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 17
+									.QuestionBlock_date сегодня в 7:05
+							.QuestionBlock_headerRight
+								.QuestionBlock_label Вопрос
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+						.StatIcons.QuestionBlock_statIcons
+							.StatIcons_left
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+										a(href="javascript:;").Like
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+									li.StatIcon.StatIcon-answer.StatIcons_item
+										a(href="/topic_details.html").StatIcon_link
+											include /includes/svg/SvgIco/answer
+											span.StatIcon_count 36
+							.StatIcons_right
+								ul.StatIcons_list
+									li.StatIcon.StatIcon-views.StatIcon-bordered.StatIcons_item.StatIcons_item-views
+										include /includes/svg/SvgIco/eye
+										span.StatIcon_count 110
+									li.StatIcon.StatIcons_item.StatIcons_item-country
+										img(src="/img/icon_pl.png", alt="Poland")
+										span.StatIcon_count Warszawa
+					.QuestionBlock.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.QuestionBlock_userPhoto
+									a(href="/topic_details.html").StatIcon_link
+										img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_nameAndRating
+										span.QuestionBlock_userName Иван Иванов
+										.UserIcons.QuestionBlock_userIcons
+											ul.UserIcons_list
+												li.UserIcons_item
+													include /includes/svg/user_icons/check
+												li.UserIcons_item
+													include /includes/svg/user_icons/cup
+												li.UserIcons_item.UserIcons_item-lightning
+													include /includes/svg/user_icons/lightning
+												li.UserIcons_item.UserIcons_item-shield
+													include /includes/svg/user_icons/shield
+										a(href="javascript:;").Rating.QuestionBlock_rating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 17
+									.QuestionBlock_date сегодня в 7:05
+							.QuestionBlock_headerRight
+								.QuestionBlock_label Вопрос
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+						.StatIcons.QuestionBlock_statIcons
+							.StatIcons_left
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+										a(href="javascript:;").Like
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+									li.StatIcon.StatIcon-answer.StatIcons_item
+										a(href="/topic_details.html").StatIcon_link
+											include /includes/svg/SvgIco/answer
+											span.StatIcon_count 36
+							.StatIcons_right
+								ul.StatIcons_list
+									li.StatIcon.StatIcon-views.StatIcon-bordered.StatIcons_item.StatIcons_item-views
+										include /includes/svg/SvgIco/eye
+										span.StatIcon_count 110
+									li.StatIcon.StatIcons_item.StatIcons_item-country
+										img(src="/img/icon_pl.png", alt="Poland")
+										span.StatIcon_count Warszawa
+			.Aside.Main_aside
+				.SidebarMenu.SidebarMenu-profileMenu#SidebarMenu.hidden-smMinus
+					h3.SidebarMenu_title Профиль
+					ul.SidebarMenu_menu
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Мои темы
+						li.SidebarMenu_item
+							a(href="/profile_invite.html").SidebarMenu_link Мои приглашения
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Уведомления
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Настройки
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Выход
+				.TopicCreationBlock
+					h3.TopicCreationBlock_title Нужен ответ?
+					.TopicCreationBlock_text Просто создайте тему и вам ответят
+					a(href="#").BtnBlue.BtnBlue-light.BtnBlue-topicCreation Cоздать
+				//- include /includes/blocks/UserMenu
+				//- include /includes/blocks/ActionLinks-advanced
+block page_bottom
+	script(src="/js/topics_filter.js")

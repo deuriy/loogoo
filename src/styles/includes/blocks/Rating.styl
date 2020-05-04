@@ -1,0 +1,44 @@
+.Rating
+	display flex
+	align-items center
+	
+	&_icon
+		width 12px
+		margin-right 3px
+		color $grey3
+		
+		@media $xs
+			margin-top -3px
+	
+	&_number
+		font-size 13px
+		color $blue2
+		
+		&-profileSettings
+			@media $xs
+				font-size 14px
+	
+	&-bordered
+		padding 9px 13px
+		border 1px solid #f0f3f6
+		border-radius 18px
+	
+	&-blue
+		.Rating_icon
+			color $blue2
+			
+	&-green
+		.Rating_icon
+			color $green
+			
+	&-orange
+		.Rating_icon
+			color $orange
+	
+	&-mobNav
+		.Rating_icon
+			width 12px
+			margin-right 1px
+		
+		.Rating_number
+			font-size 12px

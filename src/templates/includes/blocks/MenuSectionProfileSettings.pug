@@ -1,0 +1,35 @@
+.MenuSection.MenuSection-profile.Main_menuSection
+	.CategoryMenu#ProfileSettingsMenu.hidden-xs
+		ul.CategoryMenu_menu
+			li.CategoryMenu_item
+				a(href="/profile_settings.html").CategoryMenu_link Общая информация
+			li.CategoryMenu_item
+				a(href="/profile_security.html").CategoryMenu_link Безопасность
+			li.CategoryMenu_item
+				a(href="/profile_verification.html").CategoryMenu_link Верификация
+			li.CategoryMenu_item
+				a(href="/profile_settings_notifications.html").CategoryMenu_link Оповещения
+	a(href="#PopupMenu").SelectionLink.PopupMenuLink.hidden-smPlus Общая информация
+.PopupMenu#PopupMenu
+	.PopupMenu_overlay
+	.PopupMenu_wrapper
+		ul.PopupMenu_menu
+			li.PopupMenu_item
+				a(href="/profile_settings.html").PopupMenu_link Общая информация
+			li.PopupMenu_item
+				a(href="/profile_security.html").PopupMenu_link Безопасность
+			li.PopupMenu_item
+				a(href="/profile_verification.html").PopupMenu_link Верификация
+			li.PopupMenu_item
+				a(href="/profile_settings_notifications.html").PopupMenu_link Оповещения
+.PopupMenu#PopupChangePhoto
+	.PopupMenu_overlay
+	.PopupMenu_wrapper
+		h3.PopupMenu_title Изменить фото профиля
+		ul.PopupMenu_menu
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link.PopupMenu_link-uploadPhoto Загрузить фото
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Удалить текущее фото
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link.PopupMenu_close Отмена

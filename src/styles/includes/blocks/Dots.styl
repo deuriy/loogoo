@@ -1,0 +1,22 @@
+.Dots
+	position relative
+	height 3px
+	
+	&_inner, &:before, &:after
+		width 3px
+		height 3px
+		background $blue2
+	
+	&_inner
+		display inline-block
+	
+	&:before, &:after
+		content ""
+		position absolute
+		top 0
+	
+	&:before
+		left -6px
+	
+	&:after
+		right -6px

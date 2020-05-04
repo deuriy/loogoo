@@ -1,0 +1,106 @@
+.Notifications
+	padding-right 30px
+	padding-left 3px
+	
+	@media $smMinus
+		padding-right 5px
+		padding-left 5px
+	
+	&-dropdown
+		position relative
+		padding-right 0
+		padding-left 0
+		
+		.Notifications_icon
+			position relative
+			
+		.Notifications_number
+			content ""
+			position absolute
+			right -9px
+			bottom 2px
+			display flex
+			justify-content center
+			align-items center
+			width 16px
+			height 16px
+			padding-top 2px
+			padding-left 2px
+			border-radius 50%
+			background $orange
+			color $white
+			font-weight 600
+			font-size 10px
+		
+		.Notifications_wrapper
+			position absolute
+			z-index 12
+			top calc(100% + 13px)
+			right -145px
+			width 460px
+			border-radius 3px
+			background $white
+			box-shadow 0 0 10px 0 rgba(0, 0, 0, 0.1)
+			visibility hidden
+			opacity 0
+			
+			&:before
+				content ""
+				position absolute
+				top -10px
+				right 147px
+				width 16px
+				height 10px
+				background url('../img/notifications_corner_shadow.png') 0 0 no-repeat
+			
+			&-opened
+				visibility visible
+				opacity 1
+		
+		.Notifications_header
+			padding 12px 21px 10px
+			border-bottom 1px solid #ebf0f2
+		
+		.Notifications_title
+			font-weight 600
+			font-size 13px
+		
+		.Notifications_body
+			position relative
+			height 275px
+			padding-right 20px
+			padding-left 20px
+		
+		.ps__rail-y
+			margin-top 10px
+		
+		.Notifications_footer
+			min-height 37px
+			padding-top 9px
+			padding-bottom 9px
+			text-align center
+		
+		.Notifications_link
+			color $blue
+			font-weight 600
+			font-size 13px
+
+.ps__rail-x,
+.ps__rail-y
+	opacity 0.6
+
+.ps__thumb-x,
+.ps__thumb-y
+	border-radius 3px
+	background-color #DFE4E6
+
+.ps__thumb-y
+	width 3px
+	cursor pointer
+
+.ps__rail-y.ps--clicking .ps__thumb-y, .ps__rail-y:focus>.ps__thumb-y, .ps__rail-y:hover>.ps__thumb-y
+	width 3px
+	background-color #DFE4E6
+
+.ps .ps__rail-x.ps--clicking, .ps .ps__rail-x:focus, .ps .ps__rail-x:hover, .ps .ps__rail-y.ps--clicking, .ps .ps__rail-y:focus, .ps .ps__rail-y:hover
+	background transparent

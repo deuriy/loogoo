@@ -1,0 +1,40 @@
+.Like
+	display inline-flex
+	justify-content flex-start
+	align-items center
+	color $black
+	font-size 13px
+	@extend .transition
+	
+	& > .SvgIco
+		width 18px
+		margin-right 5px
+		color $blue2
+		opacity 0.8
+	
+	&-comment
+		& > .SvgIco
+			width 16px
+	
+	&-post
+		& > .SvgIco
+			width 22px
+	
+	&-news		
+		& > .SvgIco
+			width 23px
+	
+	&-liked
+		color $orange
+		
+		& > .SvgIco
+			color $orange
+			
+			path
+				fill $orange
+	
+	&-searchPage
+		& > .SvgIco
+			@media $xs
+				width 22px
+				margin-right 6px

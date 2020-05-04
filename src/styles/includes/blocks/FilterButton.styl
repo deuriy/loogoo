@@ -1,0 +1,24 @@
+.FilterButton
+	position relative
+	display inline-flex
+	width 63px
+	height 54px
+	
+	&:after
+		content ""
+		position absolute
+		top 0
+		right 0
+		bottom 0
+		left 0
+		width 16px
+		height 13px
+		margin auto
+		background url('../img/icon_filter.svg') center center no-repeat
+	
+	&-active
+		background-image url()
+		
+		&:after
+			background-image url('../img/arrow_down.svg')
+			transform rotate(180deg)

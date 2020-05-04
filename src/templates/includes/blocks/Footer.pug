@@ -1,0 +1,45 @@
+.Footer.hidden-xs
+	.Container.Footer_container
+		.Footer_left
+			.Footer_copyright © INFOZA, 2020. Все права защищены
+		.Footer_right
+			.PrimaryMenu.PrimaryMenu-footer
+				ul.PrimaryMenu_list
+					li.PrimaryMenu_item.active
+						a(href="#").PrimaryMenu_link Общение
+					li.PrimaryMenu_item
+						a(href="/dossier.html").PrimaryMenu_link Досье
+					li.PrimaryMenu_item
+						a(href="/article_feed.html").PrimaryMenu_link База знаний
+					li.PrimaryMenu_item
+						a(href="/news_feed.html").PrimaryMenu_link Новости
+					li.PrimaryMenu_item
+						a(href="#").PrimaryMenu_link О проекте
+			.LanguageSwitch.LanguageSwitch-inverse.Footer_languageSwitch
+				a(href="#").LanguageSwitch_selected РУС
+				ul.LanguageSwitch_list
+					li.LanguageSwitch_item
+						a(href="#").LanguageSwitch_link
+							img(src="/img/flag_ua.jpg", alt="Flag ua").LanguageSwitch_icon
+							span.LanguageSwitch_title Українська
+					li.LanguageSwitch_item
+						a(href="#").LanguageSwitch_link
+							img(src="/img/flag_ru.jpg", alt="Flag ru").LanguageSwitch_icon
+							span.LanguageSwitch_title Русский
+.IconMenu.hidden-smPlus
+	ul.IconMenu_menu
+		li.IconMenu_item.IconMenu_item-active
+			a(href="#").IconMenu_link
+				include /includes/svg/SvgIco/chat2
+		li.IconMenu_item
+			a(href="#").IconMenu_link
+				include /includes/svg/SvgIco/checked
+		li.IconMenu_item
+			a(href="/my_notifications.html").IconMenu_link.IconMenu_link-dot
+				include /includes/svg/SvgIco/bell
+		li.IconMenu_item
+			a(href="#").IconMenu_link
+				include /includes/svg/SvgIco/planet2
+		li.IconMenu_item
+			a(href="#").IconMenu_link
+				include /includes/svg/SvgIco/news

@@ -1,0 +1,27 @@
+.Loader
+	position relative
+	padding-bottom 80px
+	
+	&:after
+		content ""
+		position absolute
+		right 0
+		bottom 0
+		left 0
+		display block
+		width 56px
+		height 56px
+		margin -28px auto 0
+		border 8px solid rgba($blue, 30%)
+		border-top-color $blue
+		border-radius 50%
+		animation loader-rotate 1s linear infinite
+  
+@keyframes loader-rotate
+	0% {
+		transform rotate(0)
+	}
+
+	100% {
+		transform rotate(360deg)
+	}

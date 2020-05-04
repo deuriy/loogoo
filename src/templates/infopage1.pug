@@ -1,0 +1,53 @@
+extends /layouts/main_layout
+block vars
+	- var title = "База знаний";
+	- var mainModifiers = "Main-infoPages";
+block content
+	.Container.Main_container
+		include /includes/blocks/TopMenu
+		.Main_columns
+			.Main_sidebar
+				include /includes/blocks/SidebarMenu
+			.Categories.Main_categories
+				form(action="", name="categories_filter").Filter.Categories_filter#CategoriesFilter
+					.Search.Search-categories.Filter_search
+						input(type="text", name="search_query2", placeholder="Поиск").Search_text
+					.Filter_resultsText По запросу #[span.Black “Книга почему”] найдено #[span.Black 4122] записей
+					.Filter_main.WhiteSection
+						.Filter_item.Filter_item-title
+							h3.Filter_title
+								include /includes/svg/SvgIco/icon_filter
+					input(type="hidden", name="rubrics_id", value="")
+				.Categories_items
+					.CategoryBlock.Categories_item
+						.CategoryBlock_imgWrap
+							img(src="/img/categoryblock/1.png" alt="ВКонтакте для бизнеса")
+						h3.CategoryBlock_title ВКонтакте для бизнеса
+						h4.CategoryBlock_subTitle Инструменты для бизнеса
+					.CategoryBlock.Categories_item
+						.CategoryBlock_imgWrap
+							img(src="/img/categoryblock/2.png" alt="ВКонтакте с авторами")
+						h3.CategoryBlock_title ВКонтакте с авторами
+						h4.CategoryBlock_subTitle Программа поддержки талантливых авторов
+					.CategoryBlock.Categories_item
+						.CategoryBlock_imgWrap
+							img(src="/img/categoryblock/3.png" alt="Конструктор QR")
+						h3.CategoryBlock_title Конструктор QR
+						h4.CategoryBlock_subTitle Создание и оформление QR-кодов для любых задач
+					.CategoryBlock.Categories_item
+						.CategoryBlock_imgWrap
+							img(src="/img/categoryblock/4.png" alt="Музыка ВКонтакте")
+						h3.CategoryBlock_title Музыка ВКонтакте
+						h4.CategoryBlock_subTitle Любимые треки, новые альбомы и подборки на все случаи жизни
+					.CategoryBlock.Categories_item
+						.CategoryBlock_imgWrap
+							img(src="/img/categoryblock/5.png" alt="VK Pay")
+						h3.CategoryBlock_title VK Pay
+						h4.CategoryBlock_subTitle Оплата товаров и услуг, денежные переводы и кешбэк
+					.CategoryBlock.Categories_item
+						.CategoryBlock_imgWrap
+							img(src="/img/categoryblock/6.jpg" alt="VK Mini Apps")
+						h3.CategoryBlock_title VK Mini Apps
+						h4.CategoryBlock_subTitle Платформа полезных сервисов
+block page_bottom
+	script(src="/js/infopage.js")

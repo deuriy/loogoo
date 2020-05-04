@@ -1,0 +1,86 @@
+.LanguageSwitch
+	position relative
+	
+	&_selected
+		display flex
+		padding 10px 9px 10px 0
+		
+		&:hover + .LanguageSwitch_list
+			top 100%
+			visibility visible
+			opacity 1
+		
+		&:after
+			content ""
+			position absolute
+			top 18px
+			right 0
+			border 3px solid transparent
+			border-top 3px solid $black
+	
+	&_list
+		position absolute
+		top calc(100% + 10px)
+		left 0
+		width 140px
+		padding 11px 21px
+		border-radius 2px
+		background $white
+		box-shadow 0 0 5px 0 rgba($black, 0.1)
+		@extend .transition
+		visibility hidden
+		opacity 0
+		
+		&:hover
+			top 100%
+			visibility visible
+			opacity 1
+		
+		&:before
+			content ""
+			position absolute
+			top -10px
+			left 13px
+			width 16px
+			height 10px
+			background url('../img/corner_shadow.jpg') 0 0 no-repeat
+	
+	&_link
+		display flex
+		align-items center
+		padding 5px 0
+	
+	&_icon
+		width 14px
+		margin-right 8px
+	
+	&_title
+		font-weight 500
+		font-size 13px
+	
+	&-inverse
+		.LanguageSwitch_selected
+			padding-right 7px
+			color #7D7F80
+			font-size 12px
+			
+			&:hover + .LanguageSwitch_list
+				top auto
+				bottom 100%
+			
+			&:after
+				top 13px
+				border-top-color transparent
+				border-bottom 3px solid #7D7F80
+		
+		.LanguageSwitch_list
+			top auto
+			right 0
+			bottom calc(100% + 10px)
+			left auto
+			
+			&:before
+				display none
+			
+			&:hover
+				bottom 100%

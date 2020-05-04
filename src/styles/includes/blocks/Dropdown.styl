@@ -1,0 +1,107 @@
+.Dropdown
+	&_overlay
+		display none
+		content ""
+		position fixed
+		z-index 10
+		top 0
+		right 0
+		bottom 0
+		left 0
+		background rgba(0, 0, 0, .2)
+		
+	&_wrapper
+		position absolute
+		z-index 11
+		top -15px
+		right -8px
+		width 220px
+		border 1px solid $grey
+		background $white
+		visibility hidden
+		opacity 0
+		@extend .transition
+		
+		@media $xs
+			top -20px
+			right -20px
+	
+	@media $xs
+		border-radius 5px
+	
+	.Count
+		margin-left 5px
+		vertical-align middle
+	
+	&_header
+		display flex
+		justify-content space-between
+		align-items center
+		min-height 69px
+		padding 11px 19px
+		border-bottom 1px solid $grey
+		
+		@media $xs
+			padding-top 12px
+			padding-bottom 10px
+	
+	&_userNameWrapper
+		display flex
+		align-items center
+	
+	&_userName
+		max-width 90px
+		font-weight 600
+		line-height 1.7
+		
+		@media $xs
+			font-size 13px
+			line-height 1.3846
+	
+	&_rating
+		@media $xs
+			margin-left 5px
+	
+	&_userPhoto
+		width 40px
+		border-radius 50%
+		
+		@media $xs
+			width 32px
+	
+	&_body
+		padding 15px 20px
+		box-shadow 0 4px 10px rgba(100, 124, 151, 0.1)
+		
+		@media $xs
+			padding 24px 18px
+			box-shadow none
+	
+	&_item
+		margin-bottom 16px
+		
+		@media $xs
+			margin-bottom 22px
+		
+		&:last-child
+			margin-bottom 0
+	
+	&_link
+		color $blue2
+		font-weight 500
+		line-height 1.4
+		
+		@media $xs
+			font-size 16px
+		
+		&-orange
+			color $orange
+	
+	&-visible
+		.Dropdown_overlay
+			@media $xs
+				display block
+			
+		.Dropdown_wrapper
+			visibility visible
+			opacity 1

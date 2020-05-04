@@ -1,0 +1,22 @@
+form(action="#").ProfileSettings
+	.ProfileSettings_fields
+		.ProfileSettings_fieldGroup.ProfileSettings_fieldGroup-password
+			.ProfileSettings_field
+				label(for="current_password").ProfileSettings_label Текущий пароль
+				.ProfileSettings_fieldContent
+					input(type="password", name="current_password", id="current_password", placeholder="Текущий пароль").FormText.FormText-profileSettings
+			.ProfileSettings_field
+				label(for="new_password").ProfileSettings_label Новый пароль
+				.ProfileSettings_fieldContent
+					input(type="password", name="new_password", id="new_password", placeholder="Новый пароль").FormText.FormText-profileSettings
+			.ProfileSettings_field
+				label(for="password_repeat2").ProfileSettings_label Повторите пароль
+				.ProfileSettings_fieldContent
+					input(type="password", name="password_repeat2", id="password_repeat2", placeholder="Повторите пароль").FormText.FormText-profileSettings
+		.ProfileSettings_fieldGroup.ProfileSettings_fieldGroup-email
+			.ProfileSettings_field.ProfileSettings_field-email
+				label.ProfileSettings_label.ProfileSettings_label-email E-mail
+				.ProfileSettings_fieldWrapper
+					.ProfileSettings_fieldContent mail@mail.ru
+					.ProfileSettings_fieldRight
+						a(href="javascript:;").ProfileSettings_link#change_email_link Изменить
