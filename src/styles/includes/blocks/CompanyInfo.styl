@@ -1,0 +1,80 @@
+.Company
+  &_Img
+    margin-left 5px
+
+  &Info_wrapper
+    display flex
+    flex-flow row nowrap
+
+  &MainInfo 
+    width 100% 
+
+  &_name 
+    font-weight 900
+    font-size 36px
+    margin-bottom 30px
+
+  &_tabs
+    width 100%
+    display flex
+    flex-flow row nowrap
+    padding-bottom 13px
+    margin-bottom 30px
+    border-bottom 1px solid #ebf0f2
+    color #8396ac
+    font-size 13px
+
+  &_tab
+    margin-right 40px
+    position relative
+
+    &:last-child
+      margin-right 0
+
+    &-active
+      color $blue
+
+      &:after
+        content ''
+        display block
+        position absolute
+        left 0
+        bottom -13px
+        width 100%
+        height 1px
+        background $blue
+
+  &_info
+    margin-bottom 30px
+
+    &Row
+      display flex
+      flex-flow row nowrap
+      margin-bottom 25px
+      font-size 16px
+      &:last-child
+        margin-bottom 0
+
+    &Label
+      width 200px
+      font-weight 900
+
+    a 
+      color $blue
+      font-weight 500
+  
+  &_description
+    margin-bottom 30px
+    font-size 16px
+    line-height: 26px
+
+  &_infoLink
+    display block
+    padding-bottom 30px
+    margin-bottom 30px
+    color $blue
+    font-weight 500
+    border-bottom 1px solid #ebf0f2
+
+    &-arrow
+      margin-left 3px

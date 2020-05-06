@@ -1,0 +1,85 @@
+.CompanyRatingValue
+  display flex
+  flex-flow row nowrap
+  align-items flex-end
+
+  &_current
+    font-weight 500
+    font-size 24px
+    line-height 20px
+    margin-right 3px
+
+  &_max
+    margin-right 3px
+    font-weight 500
+    line-height 1
+
+  &_reviews
+    padding-left 5px
+    color #8396ac
+    font-weight 500
+    line-height 1
+
+  &_link
+    padding-left 5px
+    color $blue
+    line-height 1
+    font-weight 500
+
+  .Rating_icon
+    color #e6922b
+    svg 
+      width 12px
+
+.CompanyRating
+  margin-bottom 35px 
+  
+  &_title
+    margin-bottom 25px
+    font-size 24px
+    font-weight 500
+
+  &_recommend
+    margin 25px 0
+    font-size 16px
+
+.CompanyRatingBlock
+  margin-bottom 15px
+
+  &:last-child
+    margin-bottom 0
+
+  &_row
+    display flex 
+    flex-flow row nowrap
+    align-items center
+
+    &-chart 
+      padding-left 40px
+
+  &_value
+    margin-right 15px
+    font-weight 500
+    font-size 16px
+
+  &_info
+    font-size 13px
+    color #8396ac
+    font-weight 500
+
+  &_chart
+    width 500px
+    height 5px
+    margin-right 20px
+    position relative
+    overflow hidden
+    background #ebf0f2
+    border-radius 2px
+
+    &-value
+      height 100%
+      width 70%
+      position absolute
+      top 0
+      left 0
+      background linear-gradient(to right, #f29624, #ffc20d);
