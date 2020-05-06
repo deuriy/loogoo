@@ -64,4 +64,22 @@ document.addEventListener('DOMContentLoaded', function () {
 		document.querySelector('.ProfileMessages_messages').classList.add('hidden');
 		document.forms['dialogue_search']['dialogue_search_query'].value = '';
 	});
+
+	let searchAllQuery = document.forms['search_all']['search_all_query'];
+	let searchAllCloseBtn = document.forms['search_all'].querySelector('.Search_closeBtn');
+
+	if (searchAllQuery && searchAllCloseBtn) {
+		searchAllQuery.oninput = function (e) {
+			if (this.value.length) {
+				searchAllCloseBtn.classList.remove('hidden');
+			} else {
+				searchAllCloseBtn.classList.add('hidden');
+			}
+		};
+
+		searchAllCloseBtn.onclick = function (e) {
+			searchAllQuery.value = '';
+			searchAllCloseBtn.classList.add('hidden');
+		};
+	}
 });
