@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="9" height="9" viewBox="0 0 9 9">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #4b97f9;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <image id="Фон" width="9" height="9" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGklEQVQYlWP8////fwYCgImQAoZRRQwMDAwAMiMEDk9XUr0AAAAASUVORK5CYII="/>
+  <path id="Фигура_881" data-name="Фигура 881" class="cls-1" d="M4,1V2H1V8H7V5H8V8A1.175,1.175,0,0,1,7,9H1A0.943,0.943,0,0,1,0,8V2A0.946,0.946,0,0,1,1,1H4ZM9,0V3L7.892,1.892,4.559,5.225,3.774,4.44,7.106,1.107,6,0H9Z"/>
+</svg>
