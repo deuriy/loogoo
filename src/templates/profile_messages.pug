@@ -19,7 +19,7 @@ block content
 								include /includes/svg/SvgIco/close
 						.Messages.ProfileMessages_dialogueList
 							.Messages_items
-								a(href="javascript:;").Message.Message-short.Messages_item
+								a(href="javascript:;", data-message-filter="unread").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-online.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
 									.Message_info
@@ -44,7 +44,7 @@ block content
 											.Message_dateTime вчера
 										.Message_body
 											.Message_text Привет
-								a(href="javascript:;").Message.Message-short.Messages_item
+								a(href="javascript:;", data-message-filter="unread").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/konstantin_konstantinovich2.png", alt="Константин Константинович").UserPhoto_img
 									.Message_info
@@ -85,7 +85,7 @@ block content
 						.Messages.ProfileMessages_messages.hidden
 							h3.Messages_title Сообщения
 							.Messages_items
-								a(href="javascript:;").Message.Messages_item
+								a(href="javascript:;").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-online.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
 									.Message_info
@@ -95,7 +95,7 @@ block content
 											.Message_dateTime 7:05
 										.Message_body
 											.Message_text.Message_text-twoLines Луч устойчиво трансформирует межядерный экситон. Удар по всему остальному и много текста очень много текста
-								a(href="javascript:;").Message.Messages_item
+								a(href="javascript:;").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-online.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
 									.Message_info
@@ -107,7 +107,7 @@ block content
 											.Message_text.Message_text-twoLines Луч устойчиво трансформирует межядерный экситон. Удар по всему остальному и много текста очень много текста
 					.ProfileMessages_right
 						.Dialogue.ProfileMessages_dialogue
-							.Dialogue_header
+							.Dialogue_header.hidden
 								.Dialogue_headerWrapper
 									.Dialogue_headerLeft
 										.Dialogue_userName Геннадий Трофимов
@@ -125,13 +125,13 @@ block content
 												include /includes/svg/SvgIco/dots
 								form(action="#", name="dialogue_search").Search.Search-messages.hidden
 									input(type="text", name="dialogue_search_query", placeholder="Поиск по истории сообщений").Search_text
-									a(href="javascript:;").Search_closeBtn
+									a(href="javascript:;").Search_closeBtn.Search_closeBtn-dialogueSearch
 										include /includes/svg/SvgIco/close
-							.ConversationChoice.hidden
+							.ConversationChoice
 								.ConversationChoice_icon
 									include /includes/svg/messages_icon
 								.ConversationChoice_text Пожалуйста, выберите беседу
-							.Dialogue_messages
+							.Dialogue_messages.hidden
 								.Message.Message-full.Dialogue_message
 									a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
 										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
@@ -164,63 +164,63 @@ block content
 												.Message_dateTime 7:05
 										.Message_body
 											.Message_text Жидкость масштабирует гидродинамический удар. Течение среды, можно показать с помощью не совсем тривиальных
-								.Message.Message-full.Dialogue_message
-									a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
-										img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
-									.Message_info
-										.Message_header
-											.Message_nameWrapper
-												.Message_name Иван Иванов
-												.Message_dateTime 7:05
-												.Message_statusIcon
-													include /includes/svg/checkmarks
-										.Message_body
-											.Message_text Очевидно, что гидродинамический удар отражает квазар. Идеальная тепловая машина вертикально синхронизует гидродинамический удар. Вещество зеркально восстанавливает эксимер без обмена зарядами или спинами.
-								.Message.Message-full.Dialogue_message
-									a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
-										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
-									.Message_info
-										.Message_header
-											.Message_nameWrapper
-												.Message_name Геннадий Трофимов
-												.Message_dateTime 7:05
-										.Message_body
-											.Message_text Плазма эксперментально верифицируема.
-								.Message.Message-full.Dialogue_message
-									a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
-										img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
-									.Message_info
-										.Message_header
-											.Message_nameWrapper
-												.Message_name Иван Иванов
-												.Message_dateTime 7:05
-												.Message_statusIcon
-													include /includes/svg/checkmarks
-										.Message_body
-											.Message_text Многочисленные расчеты предсказывают, а эксперименты подтверждают, что гравитирующая сфера индуцирует разрыв в полном соответствии с законом сохранения энергии. #[br]Сверхновая вертикально синхронизует векторный эксимер.
-								.Message.Message-full.Dialogue_message
-									a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
-										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
-									.Message_info
-										.Message_header
-											.Message_nameWrapper
-												.Message_name Геннадий Трофимов
-												.Message_dateTime 7:05
-										.Message_body
-											.Message_text Возмущение плотности нейтрализует гидродинамический удар.
-								.Message.Message-full.Dialogue_message
-									a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
-										img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
-									.Message_info
-										.Message_header
-											.Message_nameWrapper
-												.Message_name Иван Иванов
-												.Message_dateTime 7:05
-												.Message_statusIcon
-													include /includes/svg/checkmark
-										.Message_body
-											.Message_text Очевидно, что гидродинамический удар отражает квазар. Идеальная тепловая машина вертикально синхронизует гидродинамический удар. Вещество зеркально восстанавливает эксимер без обмена зарядами или спинами.
-							form(action="#", name="send_message").SendMessage.Dialogue_sendMessage
+								//- .Message.Message-full.Dialogue_message
+								//- 	a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
+								//- 		img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
+								//- 	.Message_info
+								//- 		.Message_header
+								//- 			.Message_nameWrapper
+								//- 				.Message_name Иван Иванов
+								//- 				.Message_dateTime 7:05
+								//- 				.Message_statusIcon
+								//- 					include /includes/svg/checkmarks
+								//- 		.Message_body
+								//- 			.Message_text Очевидно, что гидродинамический удар отражает квазар. Идеальная тепловая машина вертикально синхронизует гидродинамический удар. Вещество зеркально восстанавливает эксимер без обмена зарядами или спинами.
+								//- .Message.Message-full.Dialogue_message
+								//- 	a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
+								//- 		img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+								//- 	.Message_info
+								//- 		.Message_header
+								//- 			.Message_nameWrapper
+								//- 				.Message_name Геннадий Трофимов
+								//- 				.Message_dateTime 7:05
+								//- 		.Message_body
+								//- 			.Message_text Плазма эксперментально верифицируема.
+								//- .Message.Message-full.Dialogue_message
+								//- 	a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
+								//- 		img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
+								//- 	.Message_info
+								//- 		.Message_header
+								//- 			.Message_nameWrapper
+								//- 				.Message_name Иван Иванов
+								//- 				.Message_dateTime 7:05
+								//- 				.Message_statusIcon
+								//- 					include /includes/svg/checkmarks
+								//- 		.Message_body
+								//- 			.Message_text Многочисленные расчеты предсказывают, а эксперименты подтверждают, что гравитирующая сфера индуцирует разрыв в полном соответствии с законом сохранения энергии. #[br]Сверхновая вертикально синхронизует векторный эксимер.
+								//- .Message.Message-full.Dialogue_message
+								//- 	a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
+								//- 		img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+								//- 	.Message_info
+								//- 		.Message_header
+								//- 			.Message_nameWrapper
+								//- 				.Message_name Геннадий Трофимов
+								//- 				.Message_dateTime 7:05
+								//- 		.Message_body
+								//- 			.Message_text Возмущение плотности нейтрализует гидродинамический удар.
+								//- .Message.Message-full.Dialogue_message
+								//- 	a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
+								//- 		img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
+								//- 	.Message_info
+								//- 		.Message_header
+								//- 			.Message_nameWrapper
+								//- 				.Message_name Иван Иванов
+								//- 				.Message_dateTime 7:05
+								//- 				.Message_statusIcon
+								//- 					include /includes/svg/checkmark
+								//- 		.Message_body
+								//- 			.Message_text Очевидно, что гидродинамический удар отражает квазар. Идеальная тепловая машина вертикально синхронизует гидродинамический удар. Вещество зеркально восстанавливает эксимер без обмена зарядами или спинами.
+							form(action="#", name="send_message").SendMessage.Dialogue_sendMessage.hidden
 								textarea(name="message_text", placeholder="Введите сообщение").FormTextarea.FormTextarea-sendMessage.SendMessage_textArea
 								.UploadFile.SendMessage_uploadFile
 									input(type="file", name="file", id="file").UploadFile_input

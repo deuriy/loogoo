@@ -1,20 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-	let actionIconSearch = document.querySelector('.Dialogue_actionIcon-search');
-	let dialogueHeaderWrapper = document.querySelector('.Dialogue_headerWrapper');
-	let dialogueMessages = document.querySelector('.Dialogue_messages');
-	let shortMessages = document.querySelector('.Dialogue_messages');
-	let profileMessagesContainer = document.querySelector('.ProfileMessages_messages');
-	let showUnreadLink = document.querySelector('.ProfileMessages_link-showUnread');
-	let dialogueSearchForm = document.forms['dialogue_search'];
-	let dialogueSearchFormClose = dialogueSearchForm.querySelector('.Search_closeBtn');
-	let conversationChoice = document.querySelector('.ConversationChoice');
-	let sendMessageForm = document.forms['send_message'];
-	let sendMessageTextarea = sendMessageForm.querySelector('.FormTextarea-sendMessage');
-
-	sendMessageTextarea.addEventListener('keydown', () => {
+	document.forms['send_message'].querySelector('.FormTextarea-sendMessage').addEventListener('keydown', e => {
 		setTimeout(() => {
-			sendMessageTextarea.style.cssText = 'height:auto; padding:0';
-			sendMessageTextarea.style.cssText = 'height:' + sendMessageTextarea.scrollHeight + 'px';
+			e.target.style.cssText = 'height:auto; padding:0';
+			e.target.style.cssText = 'height:' + e.target.scrollHeight + 'px';
 		}, 0);
 	});
 
@@ -23,26 +11,57 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!shortMessage) return;
 
-		shor
+		let highlitedMessage = document.querySelector('.Message-highlighted');
+		if (highlitedMessage) {
+			highlitedMessage.classList.remove('Message-highlighted');
+		}
+		
+		shortMessage.classList.add('Message-highlighted');
+		document.querySelector('.Dialogue_header').classList.remove('hidden');
+		document.querySelector('.ConversationChoice').classList.add('hidden');
+		document.querySelector('.Dialogue_messages').classList.remove('hidden');
+		document.forms['send_message'].classList.remove('hidden');
 	});
 
-	actionIconSearch.onclick = function () {
-		dialogueHeaderWrapper.classList.add('hidden');
-		dialogueSearchForm.classList.remove('hidden');
-		dialogueMessages.classList.add('hidden');
-		conversationChoice.classList.remove('hidden');
-		showUnreadLink.classList.add('hidden');
-		profileMessagesContainer.classList.remove('hidden');
-		dialogueSearchForm['dialogue_search_query'].focus();
-	};
+	document.addEventListener('click', function (e) {
+		let showUnreadLink = e.target.closest('.ProfileMessages_link-showUnread');
 
-	dialogueSearchFormClose.onclick = function () {
-		dialogueHeaderWrapper.classList.remove('hidden');
-		dialogueSearchForm.classList.add('hidden');
-		dialogueMessages.classList.remove('hidden');
-		conversationChoice.classList.add('hidden');
-		showUnreadLink.classList.remove('hidden');
-		profileMessagesContainer.classList.add('hidden');
-		dialogueSearchForm['dialogue_search_query'].value = '';
-	}
+		if (!showUnreadLink) return;
+
+		let unreadMessages = document.querySelectorAll('.ProfileMessages_dialogueList .Message:not([data-message-filter="unread"])');
+
+		unreadMessages.forEach( (el, index) => {
+			el.classList.toggle('hidden');
+		});
+
+		if (showUnreadLink.textContent == 'Показать непрочитанные') {
+			showUnreadLink.textContent = 'Показать все';
+		} else {
+			showUnreadLink.textContent = 'Показать непрочитанные';
+		}
+	});
+
+	document.addEventListener('click', function (e) {
+		let actionIconSearch = e.target.closest('.Dialogue_actionIcon-search');
+
+		if (!actionIconSearch) return;
+
+		document.querySelector('.Dialogue_headerWrapper').classList.add('hidden');
+		document.forms['dialogue_search'].classList.remove('hidden');
+		document.querySelector('.ProfileMessages_link-showUnread').classList.add('hidden');
+		document.querySelector('.ProfileMessages_messages').classList.remove('hidden');
+		document.forms['dialogue_search']['dialogue_search_query'].focus();
+	});
+
+	document.addEventListener('click', function (e) {
+		let searchCloseBtn = e.target.closest('.Search_closeBtn-dialogueSearch');
+
+		if (!searchCloseBtn) return;
+
+		document.querySelector('.Dialogue_headerWrapper').classList.remove('hidden');
+		document.forms['dialogue_search'].classList.add('hidden');
+		document.querySelector('.ProfileMessages_link-showUnread').classList.remove('hidden');
+		document.querySelector('.ProfileMessages_messages').classList.add('hidden');
+		document.forms['dialogue_search']['dialogue_search_query'].value = '';
+	});
 });
