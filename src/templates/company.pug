@@ -18,7 +18,19 @@ block content
 						a(href="#").BtnBlue.BtnBlue-company Написать сообщение
 				.Company_right
 					h1.Company_title Sony Corporation
-					include /includes/blocks/MenuSectionCompany
+					.MenuSection.Company_menuSection
+						.CategoryMenu.CategoryMenu-company
+							ul.CategoryMenu_menu
+								li.CategoryMenu_item
+									a(href="#").CategoryMenu_link.active Общая информация
+								li.CategoryMenu_item
+									a(href="#").CategoryMenu_link О компании
+								li.CategoryMenu_item
+									a(href="#").CategoryMenu_link Отзывы (55)
+								li.CategoryMenu_item
+									a(href="#").CategoryMenu_link Вакансии (3)
+								li.CategoryMenu_item
+									a(href="#").CategoryMenu_link Фотографии (10)
 					.Characteristics.Company_characteristics
 						.Characteristic.Characteristics_item
 							.Characteristic_name Страна:
