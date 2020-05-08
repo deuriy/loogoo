@@ -86,14 +86,15 @@
 		display flex
 		align-items center
 	
-	&_date
+	&_date, &_person
 		margin-left 1px
 		font-size 13px
 		color $blue2
 		
 		@media $xs
 			font-size 12px
-		
+	
+	&_date		
 		&-highlightedName
 			margin-left 8px
 	
@@ -191,9 +192,25 @@
 		margin-top 18px
 		margin-right 6px
 	
+	&_country
+		display flex
+		align-items center
+		font-size 13px
+		color #666
+	
+	&_countryIcon
+		margin-right 10px
+	
+	&_images
+		margin-bottom -10px
+	
 	&-hasChild
 		& > .Comment_wrapper
 			padding-bottom 20px
+		
+		&.Comment-company
+			& > .Comment_wrapper
+				padding-bottom 25px
 	
 	&-child
 		& > .Comment_wrapper
@@ -218,3 +235,35 @@
 	&-hideChildComments
 		& > .Comment_childComments
 			display none
+	
+	&-company		
+		.Comment_header
+			margin-bottom 17px
+	
+		.Comment_ratingWrapper
+			display flex
+			align-items center
+			margin-bottom 10px
+		
+		.Comment_confirmLabel
+			margin-top 3px
+			margin-left 13px
+		
+		.Comment_wrapper
+			padding-right 0
+			padding-left 0
+		
+		.Comment_text
+			margin-bottom 13px
+		
+		.Comment_footer
+			margin-top 18px
+			padding-right 0
+		
+		.Comment_childComments
+			padding-top 14px
+			padding-left 55px
+	
+	&-companyChild
+		.Comment_header
+			margin-bottom 12px

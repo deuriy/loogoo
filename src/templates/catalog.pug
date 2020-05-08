@@ -1,0 +1,171 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Главная страница";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				include /includes/blocks/MenuSection
+				.QuestionsSection.Main_questionsSection.Loader
+					.QuestionBlock.QuestionBlock-frontPage.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.UserPhoto-frontPage.QuestionBlock_userPhoto
+									a(href="/topic_details.html")
+										img(src="/img/konstantin_konstantinovich.png", alt="Константин Константинович").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_nameAndRating
+										span.QuestionBlock_userName Константин Константинович
+										.UserIcons.QuestionBlock_userIcons
+											ul.UserIcons_list 
+												//- li.UserIcons_item
+												//- 	include /includes/svg/user_icons/check
+												//- li.UserIcons_item
+												//- 	include /includes/svg/user_icons/cup
+												//- li.UserIcons_item.UserIcons_item-lightning
+												//- 	include /includes/svg/user_icons/lightning
+												//- li.UserIcons_item.UserIcons_item-shield
+												//- 	include /includes/svg/user_icons/shield
+										.QuestionBlock_dateWrapper
+										a(href="javascript:;").Rating.QuestionBlock_rating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 969
+									.QuestionBlock_dateWrapper
+										.QuestionBlock_label.hidden Вопрос
+										.QuestionBlock_date 36 минут назад
+							.QuestionBlock_headerRight.hidden-xs
+								.QuestionBlock_label Вопрос
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Обязательная обсервация
+						.StatIcons.QuestionBlock_statIcons
+							.StatIcons_left
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+										a(href="javascript:;").Like.hidden-smMinus
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+										a(href="javascript:;", data-src="#LikePopup").OpenPopupLink.Like.hidden-md
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+									li.StatIcon.StatIcon-answer.StatIcons_item
+										a(href="/topic_details.html").StatIcon_link
+											include /includes/svg/SvgIco/answer
+											span.StatIcon_count 369
+							.StatIcons_right
+								ul.StatIcons_list
+									li.StatIcon.StatIcon-views.StatIcon-bordered.StatIcons_item.StatIcons_item-views
+										include /includes/svg/SvgIco/eye
+										span.StatIcon_count 110
+									li.StatIcon.StatIcons_item.StatIcons_item-country
+										img(src="/img/icon_pl.png", alt="Poland")
+										span.StatIcon_count.hidden-xs Warszawa
+					.QuestionBlock.QuestionBlock-frontPage.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.UserPhoto-frontPage.QuestionBlock_userPhoto
+									a(href="/topic_details.html")
+										img(src="/img/ivan.png", alt="Иван").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_nameAndRating
+										span.QuestionBlock_userName Иван
+										.UserIcons.QuestionBlock_userIcons
+											ul.UserIcons_list
+												li.UserIcons_item
+													include /includes/svg/user_icons/check
+												li.UserIcons_item
+													include /includes/svg/user_icons/cup
+												li.UserIcons_item.UserIcons_item-lightning
+													include /includes/svg/user_icons/lightning
+												li.UserIcons_item.UserIcons_item-shield
+													include /includes/svg/user_icons/shield
+										.QuestionBlock_dateWrapper
+										a(href="javascript:;").Rating.QuestionBlock_rating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 969
+									.QuestionBlock_dateWrapper
+										.QuestionBlock_label.hidden Совет
+										.QuestionBlock_date 36 минут назад
+							.QuestionBlock_headerRight.hidden-xs
+								.QuestionBlock_label Совет
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Рабочая вакансия
+						.StatIcons.QuestionBlock_statIcons
+							.StatIcons_left
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+										a(href="javascript:;").Like.hidden-smMinus
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+										a(href="javascript:;", data-src="#LikePopup").OpenPopupLink.Like.hidden-md
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+									li.StatIcon.StatIcon-answer.StatIcons_item
+										a(href="/topic_details.html").StatIcon_link
+											include /includes/svg/SvgIco/answer
+											span.StatIcon_count 369
+							.StatIcons_right
+								ul.StatIcons_list
+									li.StatIcon.StatIcon-views.StatIcon-bordered.StatIcons_item.StatIcons_item-views
+										include /includes/svg/SvgIco/eye
+										span.StatIcon_count 110
+									li.StatIcon.StatIcons_item.StatIcons_item-country
+										img(src="/img/icon_pl.png", alt="Poland")
+										span.StatIcon_count.hidden-xs Warszawa
+					.QuestionBlock.QuestionBlock-frontPage.QuestionsSection_item
+						.QuestionBlock_header
+							.QuestionBlock_headerLeft
+								.UserPhoto.UserPhoto-frontPage.QuestionBlock_userPhoto
+									a(href="/topic_details.html")
+										img(src="/img/sergey2.png", alt="Сергей").UserPhoto_img
+								.QuestionBlock_info
+									.QuestionBlock_nameAndRating
+										span.QuestionBlock_userName Сергей
+										.UserIcons.QuestionBlock_userIcons
+											ul.UserIcons_list
+												li.UserIcons_item
+													include /includes/svg/user_icons/check
+												li.UserIcons_item
+													include /includes/svg/user_icons/cup
+												li.UserIcons_item.UserIcons_item-lightning
+													include /includes/svg/user_icons/lightning
+												li.UserIcons_item.UserIcons_item-shield
+													include /includes/svg/user_icons/shield
+										.QuestionBlock_dateWrapper
+										a(href="javascript:;").Rating.QuestionBlock_rating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 969
+									.QuestionBlock_dateWrapper
+										.QuestionBlock_label.hidden Вопрос
+										.QuestionBlock_date 36 минут назад
+							.QuestionBlock_headerRight.hidden-xs
+								.QuestionBlock_label Вопрос
+						h2.QuestionBlock_title
+							a(href="/topic_details_authorization.html") Виїзд з Києва до Варшави
+						.StatIcons.QuestionBlock_statIcons
+							.StatIcons_left
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+										a(href="javascript:;").Like.hidden-smMinus
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+										a(href="javascript:;", data-src="#LikePopup").OpenPopupLink.Like.hidden-md
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+									li.StatIcon.StatIcon-answer.StatIcons_item
+										a(href="/topic_details.html").StatIcon_link
+											include /includes/svg/SvgIco/answer
+											span.StatIcon_count 369
+							.StatIcons_right
+								ul.StatIcons_list
+									li.StatIcon.StatIcon-views.StatIcon-bordered.StatIcons_item.StatIcons_item-views
+										include /includes/svg/SvgIco/eye
+										span.StatIcon_count 110
+									li.StatIcon.StatIcons_item.StatIcons_item-country
+										img(src="/img/icon_pl.png", alt="Poland")
+										span.StatIcon_count.hidden-xs Warszawa
+			.Aside.Main_aside
+				include /includes/blocks/TopicCreationBlock
+				include /includes/blocks/PopularTopics

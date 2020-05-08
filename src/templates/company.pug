@@ -1,314 +1,257 @@
 extends /layouts/main_layout
 block vars
-	- var title = "Компания";
-	- var mainModifiers = "Main-companyInfo";
+	- var title = "Sony Corporation";
+	- var mainModifiers = "Main-companyPage";
 block content
 	.Container.Main_container
-		.CompanyInfo_wrapper
-			.CompanyPanel
-				.CompanyPanel_img
-				.CompanyRatingValue
-					span.Rating_icon
-						include /includes/svg/SvgIco/icon_star
-					span.CompanyRatingValue_current 7.5 
-					span.CompanyRatingValue_max / 10
-					span.CompanyRatingValue_reviews (55 отзывов)
-				button.CompanyPanel_message Написать сообщение
-			section.CompanyMainInfo
-				h2.Company_name Sony Corporation
-				ul.Company_tabs 
-					li.Company_tab.Company_tab-active 
-						a(href="#") Общая информация
-					li.Company_tab 
-						a(href="#") О компании
-					li.Company_tab 
-						a(href="#") Отзывы (55)
-					li.Company_tab 
-						a(href="#") Вакансии (3)
-					li.Company_tab 
-						a(href="#") Фотографии (10)
-				.Company_info
-					.Company_infoRow
-						.Company_infoLabel Страна:
-						.Company_infoValue Украина
-					.Company_infoRow
-						.Company_infoLabel Лицензия: 
-						.Company_infoValue 	
-							a(href="#") лицензия №805
-								img(src="/img/icon_link.svg", alt="link").Company_Img
-					.Company_infoRow
-						.Company_infoLabel Специализация:
-						.Company_infoValue трудоустройство и визовая поддержка
-					.Company_infoRow
-						.Company_infoLabel Адрес офиса:
-						.Company_infoValue 
-							p г. Киев, ул. Крещатик 117, оф. 17 Б
-							p г. Харьков, Харьковская наб., 16, оф. 12
-							p г. Львов, ул. Лычаковская, 22, оф. 234
-					.Company_infoRow
-						.Company_infoLabel Режим работы
-						.Company_infoValue 
-							p Пн–Пт: 9:00–18:00, без перерыва
-							p Сб–Вс: 10:00–17:00, без перерыва
-					.Company_infoRow
-						.Company_infoLabel Телефон:
-						.Company_infoValue 
-							p +38 098 765 43 21
-							p +38 098 765 43 21
-					.Company_infoRow
-						.Company_infoLabel Сайт:
-						.Company_infoValue 
-							a(href="#") www.sony.com
-				.Company_description Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 года. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская промышленная коммуникационная компания) или сокращённо Тоцуко или TTK, но, как выяснил Акио Морита, это название тяжело произносить американцам.
-				a.Company_infoLink(href="#") Информация о компании 
-					img(src="/img/arrow_blue.png", alt="arrow").Company_infoLink-arrow
-				.CompanyRating
-					.CompanyRating_title Рейтинг и отзывы 
-					.CompanyRatingValue
-						span.Rating_icon
-							include /includes/svg/SvgIco/icon_star
-						span.CompanyRatingValue_current 7.5 
-						span.CompanyRatingValue_max / 10
-						span.CompanyRatingValue_reviews 55 отзывов
-						a.CompanyRatingValue_link(href="#") по всем категориям
-					.CompanyRating_recommend 95% клиентов рекомендуют эту компанию
-					.CompanyRatingBlock
-						.CompanyRatingBlock_row
-							.CompanyRatingBlock_value 8,2
-							.CompanyRatingBlock_info качество обслуживания и поддержки 
-						.CompanyRatingBlock_row.CompanyRatingBlock_row-chart
-							.CompanyRatingBlock_chart
-								.CompanyRatingBlock_chart-value(data-value=8.2)
-							.CompanyRatingBlock_info 45 оценок
-					.CompanyRatingBlock
-						.CompanyRatingBlock_row
-							.CompanyRatingBlock_value 8,7
-							.CompanyRatingBlock_info достоверность информации о работе 
-						.CompanyRatingBlock_row.CompanyRatingBlock_row-chart
-							.CompanyRatingBlock_chart
-								.CompanyRatingBlock_chart-value(data-value=8.7)
-							.CompanyRatingBlock_info 36 оценок
-					.CompanyRatingBlock
-						.CompanyRatingBlock_row
-							.CompanyRatingBlock_value 6,2
-							.CompanyRatingBlock_info достоверность информации о жилье 
-						.CompanyRatingBlock_row.CompanyRatingBlock_row-chart
-							.CompanyRatingBlock_chart
-								.CompanyRatingBlock_chart-value(data-value=6.2)
-							.CompanyRatingBlock_info 47 оценок
-					.CompanyRatingBlock
-						.CompanyRatingBlock_row
-							.CompanyRatingBlock_value 6,5
-							.CompanyRatingBlock_info соблюдение сроков изготовления документов 
-						.CompanyRatingBlock_row.CompanyRatingBlock_row-chart
-							.CompanyRatingBlock_chart
-								.CompanyRatingBlock_chart-value(data-value=6.5)
-							.CompanyRatingBlock_info 53 оценок
-					.CompanyRatingBlock
-						.CompanyRatingBlock_row
-							.CompanyRatingBlock_value 9,2
-							.CompanyRatingBlock_info качество полученных документов или услуг 
-						.CompanyRatingBlock_row.CompanyRatingBlock_row-chart
-							.CompanyRatingBlock_chart
-								.CompanyRatingBlock_chart-value(data-value=9.2)
-							.CompanyRatingBlock_info 55 оценок
-				.CompanyReview_count 55 отзывов
-				.CompanyReviewNotif
-					img(src="/img/check.png", alt="check").CompanyReviewNotif_check
-					img(src="/img/close.png", alt="close").CompanyReviewNotif_close
-					p.CompanyReviewNotif_title Здесь только реальные отзывы, которым вы действительно можете доверять!
-					p.CompanyReviewNotif_text INFOZA – первый и единственный портал, который публикует только те отзывы, которые прошли тщательную проверку и обязательно были документально подтверждены! Благодаря этому, только у нас вы можете узнать всю правду о любой компании!
-					a.CompanyReviewNotif_text-link(href="#") Подробнее
-						img(src="/img/arrow_blue.png", alt="arrow").CompanyReviewNotif_arrow
-				textarea(name="comment_company", placeholder="Оставьте отзыв").CompanyReview_textarea
-				.CompanyReview_comments
-					.CompanyComment
-						.CompanyComment_wrapper
-							.CompanyComment_header
-								.CompanyComment_headerLeft
-									.UserPhoto.UserPhoto-parentComment.CompanyComment_userPhoto
-										img(src="/img/vladimir_petrov.png", alt="Владимир Петров").UserPhoto_img
-									.CompanyComment_info
-										.CompanyComment_nameAndRating
-											.CompanyComment_userName Владимир Петров
-											.UserIcons.CompanyComment_userIcons
-												ul.UserIcons_list
-													li.UserIcons_item
-														include /includes/svg/user_icons/check
-											a(href="javascript:;").Rating.CompanyComment_rating
-												span.Rating_icon
-													include /includes/svg/user_icons/lightning
-												span.Rating_number 528
-										.CompanyComment_date сегодня в 7:05
-								.CompanyComment_headerRight
-									.DotsMenu
-										a(href="javascript:;").DotsMenu_icon
-											include /includes/svg/SvgIco/dots
-										.DotsMenu_wrapper
-											ul.DotsMenu_menu
-												li.DotsMenu_item
-													a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
-														include /includes/svg/SvgIco/edit
-														.
-															Редактировать
-												li.DotsMenu_item
-													a(href="javascript:;").DotsMenu_link
-														include /includes/svg/SvgIco/remove
-														.
-															Удалить
-							.CompanyComment_text
-								.CompanyComment_rate
-									span.Rating_icon
-										include /includes/svg/SvgIco/icon_star
-									span.CompanyComment_rate-current 7.3 
-									span.CompanyComment_rate-max / 10
-										img(src="/img/arrow_down_black.png", alt="Arrow").CompanyComment_rate-arrow
-								p Маркетингово-ориентированное издание синхронизирует продвигаемый фактор коммуникации. Эластичность спроса изоморфна времени. Медиаплан, следовательно, нейтрализует инвестиционный продукт. Косвенная реклама экономит типичный метод изучения рынка. Выставка индуцирует продвигаемый презентационный материал.
-							.CompanyComment_footer
-								a(href="javascript:;").Like.Like-comment
-									include /includes/svg/SvgIco/like
-									span.Like_count 42
-								.CompanyComment_location
-									img(src="/img/poland_flag.png", alt="Флаг").CompanyComment_flag
-									span Польша, Вроцлав
-						.CompanyComment_childComments
-							.CompanyComment
-								.CompanyComment_wrapper
-									.CompanyComment_header
-										.CompanyComment_headerLeft
-											.UserPhoto.UserPhoto-small.CompanyComment_userPhoto
-												img(src="/img/sony.png", alt="Sony Corporation").UserPhoto_img
-											.CompanyComment_info
-												.CompanyComment_nameAndRating
-													.CompanyComment_userName Sony Corporation
-												.CompanyComment_dateWrapper
-													.CompanyComment_date компания
-										.CompanyComment_headerRight
+		.MainContent
+			.Company
+				.Company_left
+					.CompanyPhoto
+						img(src="img/company_photo.jpg", alt="Company photo").CompanyPhoto_img
+						.Rating.Rating-company.Rating-center.CompanyPhoto_rating
+							span.Rating_icon
+								include /includes/svg/SvgIco/icon_star
+							span.Rating_number 7,5
+							span.Rating_max / 10
+							span.Rating_label (55 отзывов)
+						a(href="#").BtnBlue.BtnBlue-company Написать сообщение
+				.Company_right
+					h1.Company_title Sony Corporation
+					include /includes/blocks/MenuSectionCompany
+					.Characteristics.Company_characteristics
+						.Characteristic.Characteristics_item
+							.Characteristic_name Страна:
+							.Characteristic_value Украина
+						.Characteristic.Characteristics_item
+							.Characteristic_name Лицензия:
+							.Characteristic_value
+								a(href="#", target="_blank").Characteristic_link.Characteristic_link-doc лицензия №806
+									include /includes/svg/SvgIco/icon_doc
+						.Characteristic.Characteristics_item
+							.Characteristic_name Специализация:
+							.Characteristic_value трудоустройство и визовая поддержка
+						.Characteristic.Characteristics_item
+							.Characteristic_name Адрес офиса:
+							.Characteristic_value г. Киев, ул. Крещатик 117, оф. 17 Б#[br]г. Харьков, Харьковская наб., 16, оф. 12#[br]г. Львов, ул. Лычаковская, 22, оф. 234
+						.Characteristic.Characteristics_item
+							.Characteristic_name Режим работы
+							.Characteristic_value Пн–Пт: 9:00–18:00, без перерыва#[br]Сб–Вс: 10:00–17:00, без перерыва
+						.Characteristic.Characteristics_item
+							.Characteristic_name Телефон:
+							a(href="#").Characteristic_value +38 098 765 43 21#[br]+38 098 765 43 21
+						.Characteristic.Characteristics_item
+							.Characteristic_name Сайт:
+							.Characteristic_value
+								a(href="http://www.sony.com", target="_blank").Characteristic_link www.sony.com
+					.Company_description Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 года. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская промышленная коммуникационная компания) или сокращённо Тоцуко или TTK, но, как выяснил Акио Морита, это название тяжело произносить американцам.
+					a(href="#").ArrowLink.Company_infoLink Информация о компании
+					.RatingSection.Company_ratingSection
+						h3.RatingSection_title Рейтинг и отзывы
+						.RatingSection_ratingWrapper
+							.Rating.Rating-company.RatingSection_rating
+								span.Rating_icon
+									include /includes/svg/SvgIco/icon_star
+								span.Rating_number 7,5
+								span.Rating_max / 10
+								span.Rating_label 55 отзывов
+							.DropdownSelect.DropdownSelect-noPadding.RatingSection_dropdownSelect
+								select(name="categories").DropdownSelect_select
+									option(value="all") по всем категориям
+									option(value="categories1") Сегодня
+									option(value="categories2") Вчера
+									option(value="categories3") Неделя
+									option(value="categories4") Месяц
+						.RatingSection_text 95% работников рекомендуют эту компанию
+						.ExtendedRatings.RatingSection_extendedRatings
+							.ExtendedRating.ExtendedRatings_item
+								.ExtendedRating_mark 8,2
+								.ExtendedRating_wrapper
+									.ExtendedRating_label качество обслуживания и поддержки
+									.ExtendedRating_line
+										.ExtendedRating_lineFill(data-mark="8.2")
+								.ExtendedRating_ratingsNumber 45 оценок
+							.ExtendedRating.ExtendedRatings_item
+								.ExtendedRating_mark 8,7
+								.ExtendedRating_wrapper
+									.ExtendedRating_label достоверность информации о работе
+									.ExtendedRating_line
+										.ExtendedRating_lineFill(data-mark="8.7")
+								.ExtendedRating_ratingsNumber 36 оценок
+							.ExtendedRating.ExtendedRatings_item
+								.ExtendedRating_mark 6,2
+								.ExtendedRating_wrapper
+									.ExtendedRating_label достоверность информации о жилье
+									.ExtendedRating_line
+										.ExtendedRating_lineFill(data-mark="6.2")
+								.ExtendedRating_ratingsNumber 47 оценок
+							.ExtendedRating.ExtendedRatings_item
+								.ExtendedRating_mark 6,5
+								.ExtendedRating_wrapper
+									.ExtendedRating_label соблюдение сроков изготовления документов
+									.ExtendedRating_line
+										.ExtendedRating_lineFill(data-mark="6.5")
+								.ExtendedRating_ratingsNumber 53 оценок
+							.ExtendedRating.ExtendedRatings_item
+								.ExtendedRating_mark 9,2
+								.ExtendedRating_wrapper
+									.ExtendedRating_label качество полученных документов или услуг
+									.ExtendedRating_line
+										.ExtendedRating_lineFill(data-mark="9.2")
+								.ExtendedRating_ratingsNumber 55 оценок
+						.RatingSection_reviewsNumber 55 отзывов
+					.Remark.Company_remark
+						a(href="javascript:;").Remark_close
+							include /includes/svg/icon_close_remark
+						h3.Remark_title Здесь только реальные отзывы, которым вы действительно можете доверять!
+						.Remark_text INFOZA – первый и единственный портал, который публикует только те отзывы, которые прошли тщательную проверку и обязательно были документально подтверждены! Благодаря этому, только у нас вы можете узнать всю правду о любой компании! #[a(href="#").ArrowLink Подробнее]
+					.CommentsBlock.CommentsBlock-company.Company_commentsBlock
+						form(action="#").CommentForm.CommentForm-company.CommentsBlock_commentForm
+							textarea(name="comment_text", placeholder="Оставьте отзыв").FormTextarea.FormTextarea-commentFormCompany.FormTextarea-commentFormCompany.CommentForm_textArea
+							.CommentForm_actions
+								button(type="reset").CommentForm_resetBtn Отмена
+								button(type="submit").BtnBlue.BtnBlue-light.BtnBlue-commentForm Отправить
+						.CommentsBlock_items
+							.Comment.Comment-company.Comment-hasChild.CommentsBlock_item
+								.Comment_wrapper
+									.Comment_header
+										.Comment_headerLeft
+											.UserPhoto.UserPhoto-parentComment.Comment_userPhoto
+												img(src="/img/vladimir_petrov.png", alt="Владимир Петров").UserPhoto_img
+											.Comment_info
+												.Comment_nameAndRating
+													.Comment_userName Владимир Петров
+													.UserIcons.Comment_userIcons
+														ul.UserIcons_list
+															li.UserIcons_item
+																include /includes/svg/user_icons/check
+															li.UserIcons_item.UserIcons_item-lightning
+																include /includes/svg/user_icons/lightning
+													a(href="javascript:;").Rating.Comment_rating
+														span.Rating_number 528
+												.Comment_date сегодня в 7:05
+										.Comment_headerRight
 											.DotsMenu
 												a(href="javascript:;").DotsMenu_icon
 													include /includes/svg/SvgIco/dots
-												.DotsMenu_wrapper.DotsMenu_wrapper-complaint
-													a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link.DotsMenu_link-complaint.CommentComplaintLink
-														include /includes/svg/SvgIco/warning
-														.
-															Пожаловаться
-									.CompanyComment_text
-										p Поисковая реклама, пренебрегая деталями, одновременно позиционирует культурный системный анализ, расширяя долю рынка. Рыночная ситуация допускает продукт. Баинг и селлинг основан на анализе телесмотрения.
-					.CompanyComment
-						.CompanyComment_wrapper
-							.CompanyComment_header
-								.CompanyComment_headerLeft
-									.UserPhoto.UserPhoto-parentComment.CompanyComment_userPhoto
-										img(src="/img/vladimir_petrov.png", alt="Владимир Петров").UserPhoto_img
-									.CompanyComment_info
-										.CompanyComment_nameAndRating
-											.CompanyComment_userName Владимир Петров
-											.UserIcons.CompanyComment_userIcons
-												ul.UserIcons_list
-													li.UserIcons_item
-														include /includes/svg/user_icons/check
-											a(href="javascript:;").Rating.CompanyComment_rating
-												span.Rating_icon
-													include /includes/svg/user_icons/lightning
-												span.Rating_number 528
-										.CompanyComment_date сегодня в 7:05
-								.CompanyComment_headerRight
-									.DotsMenu
-										a(href="javascript:;").DotsMenu_icon
-											include /includes/svg/SvgIco/dots
-										.DotsMenu_wrapper
-											ul.DotsMenu_menu
-												li.DotsMenu_item
-													a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
-														include /includes/svg/SvgIco/edit
-														.
-															Редактировать
-												li.DotsMenu_item
-													a(href="javascript:;").DotsMenu_link
-														include /includes/svg/SvgIco/remove
-														.
-															Удалить
-							.CompanyComment_text
-								.CompanyComment_rate
-									span.Rating_icon
-										include /includes/svg/SvgIco/icon_star
-									span.CompanyComment_rate-current 7.3 
-									span.CompanyComment_rate-max / 10
-										img(src="/img/arrow_down_black.png", alt="Arrow").CompanyComment_rate-arrow 	
-									span.CompanyComment_rate-confirmed 	
-										img(src="/img/list.png", alt="List").CompanyComment_rate-img 	
-										span Подтвержден
-								p Маркетингово-ориентированное издание синхронизирует продвигаемый фактор коммуникации. Эластичность спроса изоморфна времени. Медиаплан, следовательно, нейтрализует инвестиционный продукт. Косвенная реклама экономит типичный метод изучения рынка. Выставка индуцирует продвигаемый презентационный материал.
-								ul.CompanyComment_ImagesList
-									li.CompanyComment_ImagesItem
-										a(href="#")
-											img(src="/img/post_img.jpg", alt="Картинка записи").CompanyComment_Image
-									li.CompanyComment_ImagesItem
-										a(href="#")
-											img(src="/img/post_img.jpg", alt="Картинка записи").CompanyComment_Image
-									li.CompanyComment_ImagesItem
-										a(href="#")
-											img(src="/img/post_img.jpg", alt="Картинка записи").CompanyComment_Image
-							.CompanyComment_footer
-								a(href="javascript:;").Like.Like-comment
-									include /includes/svg/SvgIco/like
-									span.Like_count 42
-								.CompanyComment_location
-									img(src="/img/poland_flag.png", alt="Флаг").CompanyComment_flag
-									span Польша, Вроцлав				
-					.CompanyComment
-						.CompanyComment_wrapper
-							.CompanyComment_header
-								.CompanyComment_headerLeft
-									.UserPhoto.UserPhoto-parentComment.CompanyComment_userPhoto
-										img(src="/img/vladimir_petrov.png", alt="Владимир Петров").UserPhoto_img
-									.CompanyComment_info
-										.CompanyComment_nameAndRating
-											.CompanyComment_userName Владимир Петров
-											.UserIcons.CompanyComment_userIcons
-												ul.UserIcons_list
-													li.UserIcons_item
-														include /includes/svg/user_icons/check
-											a(href="javascript:;").Rating.CompanyComment_rating
-												span.Rating_icon
-													include /includes/svg/user_icons/lightning
-												span.Rating_number 528
-										.CompanyComment_date сегодня в 7:05
-								.CompanyComment_headerRight
-									.DotsMenu
-										a(href="javascript:;").DotsMenu_icon
-											include /includes/svg/SvgIco/dots
-										.DotsMenu_wrapper
-											ul.DotsMenu_menu
-												li.DotsMenu_item
-													a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
-														include /includes/svg/SvgIco/edit
-														.
-															Редактировать
-												li.DotsMenu_item
-													a(href="javascript:;").DotsMenu_link
-														include /includes/svg/SvgIco/remove
-														.
-															Удалить
-							.CompanyComment_text
-								.CompanyComment_rate
-									span.Rating_icon
-										include /includes/svg/SvgIco/icon_star
-									span.CompanyComment_rate-current 7.3 
-									span.CompanyComment_rate-max / 10
-										img(src="/img/arrow_down_black.png", alt="Arrow").CompanyComment_rate-arrow
-								p Маркетингово-ориентированное издание синхронизирует продвигаемый фактор коммуникации. Эластичность спроса изоморфна времени. Медиаплан, следовательно, нейтрализует инвестиционный продукт. Косвенная реклама экономит типичный метод изучения рынка. Выставка индуцирует продвигаемый презентационный материал.
-							.CompanyComment_footer
-								a(href="javascript:;").Like.Like-comment
-									include /includes/svg/SvgIco/like
-									span.Like_count 42
-								.CompanyComment_location
-									img(src="/img/poland_flag.png", alt="Флаг").CompanyComment_flag
-									span Польша, Вроцлав
-					.CompanyComment_button-wrapper
-						button.CompanyComment_button Посмотреть все отзывы 
-							img(src="/img/white_arrow.png", alt="Arrow").CompanyComment_button-img
+												.DotsMenu_wrapper
+													ul.DotsMenu_menu
+														li.DotsMenu_item
+															a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
+																include /includes/svg/SvgIco/edit
+																.
+																	Редактировать
+														li.DotsMenu_item
+															a(href="javascript:;").DotsMenu_link
+																include /includes/svg/SvgIco/remove
+																.
+																	Удалить
+									.Comment_ratingWrapper
+										.Rating.Rating-companyComment.Comment_companyRating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,3
+											span.Rating_max / 10
+									.Comment_text
+										p Маркетингово-ориентированное издание синхронизирует продвигаемый фактор коммуникации. Эластичность спроса изоморфна времени. Медиаплан, следовательно, нейтрализует инвестиционный продукт. Косвенная реклама экономит типичный метод изучения рынка. Выставка индуцирует продвигаемый презентационный материал.
+									.Comment_footer
+										a(href="javascript:;").Like.Like-comment
+											include /includes/svg/SvgIco/like
+											span.Like_count 42
+										.Comment_country
+											img(src="img/icon_poland.png", alt="Poland").Comment_countryIcon
+											.
+												Польша, Вроцлав
+								.Comment_childComments
+									.Comment.Comment-companyChild
+										.Comment_wrapper
+											.Comment_header
+												.Comment_headerLeft
+													.UserPhoto.UserPhoto-small.Comment_userPhoto
+														img(src="/img/sony.png", alt="Sony Corporation").UserPhoto_img
+													.Comment_info
+														.Comment_nameAndRating
+															.Comment_userName Sony Corporation
+														.Comment_dateWrapper
+															.Comment_person компания
+															a(href="#").ReplyName.Comment_replyName.hidden-smPlus
+																include /includes/svg/SvgIco/reply
+																.
+																	Анна Сергеевна
+												.Comment_headerRight
+													.DotsMenu
+														a(href="javascript:;").DotsMenu_icon
+															include /includes/svg/SvgIco/dots
+														.DotsMenu_wrapper
+															a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link.CommentComplaintLink
+																include /includes/svg/SvgIco/warning
+																.
+																	Пожаловаться
+											.Comment_text
+												p Поисковая реклама, пренебрегая деталями, одновременно позиционирует культурный системный анализ, расширяя долю рынка. Рыночная ситуация допускает продукт. Баинг и селлинг основан на анализе телесмотрения.
+							.Comment.Comment-company.Comment-hasChild.CommentsBlock_item
+								.Comment_wrapper
+									.Comment_header
+										.Comment_headerLeft
+											.UserPhoto.UserPhoto-parentComment.Comment_userPhoto
+												img(src="/img/vladimir_petrov.png", alt="Владимир Петров").UserPhoto_img
+											.Comment_info
+												.Comment_nameAndRating
+													.Comment_userName Владимир Петров
+													.UserIcons.Comment_userIcons
+														ul.UserIcons_list
+															li.UserIcons_item
+																include /includes/svg/user_icons/check
+															li.UserIcons_item.UserIcons_item-lightning
+																include /includes/svg/user_icons/lightning
+													a(href="javascript:;").Rating.Comment_rating
+														span.Rating_number 528
+												.Comment_date сегодня в 7:05
+										.Comment_headerRight
+											.DotsMenu
+												a(href="javascript:;").DotsMenu_icon
+													include /includes/svg/SvgIco/dots
+												.DotsMenu_wrapper
+													ul.DotsMenu_menu
+														li.DotsMenu_item
+															a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
+																include /includes/svg/SvgIco/edit
+																.
+																	Редактировать
+														li.DotsMenu_item
+															a(href="javascript:;").DotsMenu_link
+																include /includes/svg/SvgIco/remove
+																.
+																	Удалить
+									.Comment_ratingWrapper
+										.Rating.Rating-companyComment.Comment_companyRating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,3
+											span.Rating_max / 10
+										.ConfirmLabel.Comment_confirmLabel Подтвержден
+									.Comment_text
+										p Маркетингово-ориентированное издание синхронизирует продвигаемый фактор коммуникации. Эластичность спроса изоморфна времени. Медиаплан, следовательно, нейтрализует инвестиционный продукт. Косвенная реклама экономит типичный метод изучения рынка. Выставка индуцирует продвигаемый презентационный материал.
+									.Images.Images-comment.Comment_images
+										ul.Images_list
+											li.Images_item
+												a(href="#").Images_link
+													img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+											li.Images_item
+												a(href="#").Images_link
+													img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+											li.Images_item
+												a(href="#").Images_link
+													img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+									.Comment_footer
+										a(href="javascript:;").Like.Like-comment
+											include /includes/svg/SvgIco/like
+											span.Like_count 42
+										.Comment_country
+											img(src="img/icon_poland.png", alt="Poland").Comment_countryIcon
+											.
+												Польша, Вроцлав
+						.CommentsBlock_footer
+							a(href="#").BtnBlue.BtnBlue-companyArrow Посмотреть все отзывы
 block page_bottom
-	script(src="/js/rating_chart.js")
-
-	
+	script(src="/js/company.js")

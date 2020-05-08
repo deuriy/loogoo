@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	// Textarea auto height
-	let textarea = document.querySelectorAll('.FormTextarea-commentForm');
+	let textarea = document.querySelectorAll('.FormTextarea-commentForm, .FormTextarea-commentFormCompany');
 
 	textarea.forEach(el => {
 		el.addEventListener('keydown', () => {

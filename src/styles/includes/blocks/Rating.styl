@@ -17,6 +17,12 @@
 		&-profileSettings
 			@media $xs
 				font-size 14px
+		
+	&_max
+		margin-right 3px
+	
+	&_label
+		color #8396AC
 	
 	&-bordered
 		padding 9px 13px
@@ -42,3 +48,43 @@
 		
 		.Rating_number
 			font-size 12px
+	
+	&-center
+		justify-content center
+	
+	&-company, &-companyComment
+		.Rating_icon
+			align-self center
+			margin-right 5px
+			color $brown
+		
+		.Rating_number
+			margin-right 5px
+			color $black
+			line-height 1
+	
+	&-company
+		align-items flex-end
+		font-weight 500
+		
+		.Rating_number
+			font-size 26px
+	
+	&-companyComment
+		position relative
+		display inline-flex
+		
+		&:after
+			content ""
+			position absolute
+			right -4px
+			bottom 4px
+			width 4px
+			height 3px
+			background url('../img/arrow_black_bottom.svg') 0 0 no-repeat
+		
+		.Rating_number
+			font-size 18px
+		
+		.Rating_max
+			font-size 13px

@@ -17,7 +17,6 @@
 		.fs-label
 			padding 5px 5px 5px 10px
 			color $blue
-			font-weight 500
 			text-align right
 		
 		.fs-arrow
@@ -107,6 +106,22 @@
 				padding 11px 10px
 				font-size 16px
 				color #8396AC
+	
+	&-noPadding
+		max-height 18px
+		
+		.fs-wrap
+			width auto
+			
+		.fs-label-wrap
+			&:after
+				top 8px
+				right -5px
+				
+			.fs-label
+				padding 0
+				font-weight 600
+				font-size 14px
 
 .fs-options	
 	.ps__rail-y
