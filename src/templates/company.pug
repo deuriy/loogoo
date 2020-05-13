@@ -22,9 +22,9 @@ block content
 						.CategoryMenu.CategoryMenu-company
 							ul.CategoryMenu_menu
 								li.CategoryMenu_item
-									a(href="#").CategoryMenu_link.active Общая информация
+									a(href="/company.html").CategoryMenu_link.active Общая информация
 								li.CategoryMenu_item
-									a(href="#").CategoryMenu_link О компании
+									a(href="/company_about.html").CategoryMenu_link О компании
 								li.CategoryMenu_item
 									a(href="#").CategoryMenu_link Отзывы (55)
 								li.CategoryMenu_item
@@ -67,13 +67,11 @@ block content
 								span.Rating_number 7,5
 								span.Rating_max / 10
 								span.Rating_label 55 отзывов
-							.DropdownSelect.DropdownSelect-noPadding.RatingSection_dropdownSelect
+							.DropdownSelect.DropdownSelect-companyProfile.RatingSection_dropdownSelect
 								select(name="categories").DropdownSelect_select
 									option(value="all") по всем категориям
-									option(value="categories1") Сегодня
-									option(value="categories2") Вчера
-									option(value="categories3") Неделя
-									option(value="categories4") Месяц
+									option(value="employment") трудоустройство
+									option(value="document_preparation") изготовление документов
 						.RatingSection_text 95% работников рекомендуют эту компанию
 						.ExtendedRatings.RatingSection_extendedRatings
 							.ExtendedRating.ExtendedRatings_item
@@ -159,11 +157,39 @@ block content
 																.
 																	Удалить
 									.Comment_ratingWrapper
-										.Rating.Rating-companyComment.Comment_companyRating
+										.Rating.Rating-companyComment.Rating-dropdown.Comment_companyRating
 											span.Rating_icon
 												include /includes/svg/SvgIco/icon_star
 											span.Rating_number 7,3
 											span.Rating_max / 10
+											.Rating_dropdown
+												.AdvantagesRating
+													ul.AdvantagesRating_list
+														li.AdvantagesRating_item
+															span.AdvantagesRating_icon
+																include /includes/svg/SvgIco/icon_star
+															span.AdvantagesRating_number 6
+															span.AdvantagesRating_text качество обслуживания и поддержки
+														li.AdvantagesRating_item
+															span.AdvantagesRating_icon
+																include /includes/svg/SvgIco/icon_star
+															span.AdvantagesRating_number 7
+															span.AdvantagesRating_text достоверность информации о работе
+														li.AdvantagesRating_item
+															span.AdvantagesRating_icon
+																include /includes/svg/SvgIco/icon_star
+															span.AdvantagesRating_number 8
+															span.AdvantagesRating_text достоверность информации о жилье
+														li.AdvantagesRating_item
+															span.AdvantagesRating_icon
+																include /includes/svg/SvgIco/icon_star
+															span.AdvantagesRating_number 9
+															span.AdvantagesRating_text соблюдение сроков изготовления документов
+														li.AdvantagesRating_item
+															span.AdvantagesRating_icon
+																include /includes/svg/SvgIco/icon_star
+															span.AdvantagesRating_number 10
+															span.AdvantagesRating_text качество полученных документов или услуг 
 									.Comment_text
 										p Маркетингово-ориентированное издание синхронизирует продвигаемый фактор коммуникации. Эластичность спроса изоморфна времени. Медиаплан, следовательно, нейтрализует инвестиционный продукт. Косвенная реклама экономит типичный метод изучения рынка. Выставка индуцирует продвигаемый презентационный материал.
 									.Comment_footer

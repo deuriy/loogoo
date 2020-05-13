@@ -19,10 +19,28 @@
 				font-size 14px
 		
 	&_max
-		margin-right 3px
+		margin-right 7px
 	
 	&_label
 		color #8396AC
+	
+	&_dropdown
+		position absolute
+		z-index 10
+		top calc(100% + 9px)
+		left -21px
+		width 412px
+		padding 14px 22px
+		border-radius 3px
+		background $white
+		box-shadow 0 0 5px 0 rgba($black, 0.12)
+		visibility hidden
+		opacity 0
+		@extend .transition
+		
+		&:hover
+			visibility visible
+			opacity 1
 	
 	&-bordered
 		padding 9px 13px
@@ -77,8 +95,8 @@
 		&:after
 			content ""
 			position absolute
-			right -4px
-			bottom 4px
+			right 0
+			bottom 5px
 			width 4px
 			height 3px
 			background url('../img/arrow_black_bottom.svg') 0 0 no-repeat
@@ -88,3 +106,14 @@
 		
 		.Rating_max
 			font-size 13px
+	
+	&-dropdown
+		position relative
+		
+		.Rating_max
+			cursor pointer
+			
+			&:hover
+				& ~ .Rating_dropdown
+					visibility visible
+					opacity 1

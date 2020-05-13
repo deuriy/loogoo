@@ -1,0 +1,91 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Основные настройки профиля компании";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-basicCompanySettings";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Настройки профиля компании
+				form(action="#").CompanySettings
+					h2.CompanySettings_title Основная информация
+					.CompanySettings_fields.CompanySettings_fields-mainInformation
+						.CompanySettings_field
+							label(for="company_name").CompanySettings_label Название компании:
+							.CompanySettings_fieldContent
+								input(type="text", name="company_name", id="company_name", value="Sony Corporation", minlength="2", maxlength="45", required).CompanySettings_formText.CompanySettings_formText-fullWidth
+						.CompanySettings_field
+							label(for="specialization").CompanySettings_label Специализация:
+							.CompanySettings_fieldContent
+								input(type="text", name="specialization", id="specialization", minlength="2", maxlength="100").CompanySettings_formText.CompanySettings_formText-fullWidth
+						.CompanySettings_field
+							label(for="company_website").CompanySettings_label Веб-сайт компании:
+							.CompanySettings_fieldContent
+								input(type="text", name="company_website", id="company_website", value="www.sonycorporation.com").CompanySettings_formText.CompanySettings_formText-fullWidth
+						.CompanySettings_field.CompanySettings_field-pageAddress
+							label(for="page_address").CompanySettings_label Адрес страницы:
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem
+										.PageAddress.PageAddress-error.CompanySettings_pageAddress
+											.PageAddress_siteUrl https://infoza.top/
+											input(type="text", name="page_company_url[]", value="sonycorporation").PageAddress_companyUrl
+								a(href="#AltAddress",).AddFieldItem.AddFieldItem-altAddress
+									include /includes/svg/icon_add
+									.
+										Дополнительный адрес
+							.Error.CompanySettings_error адрес уже занят
+						.CreateAddress.CreateAddress-companySettings#AltAddress(style="display:none;")
+							h3.CreateAddress_title Создать дополнительный адрес за 250 UAH / мес
+							.CreateAddress_content
+								p Вы можете создать неограниченное количество адресов, которые защитят вашу компанию от появления разного рода клонов, а также сделают доступ к вашей странице очень удобным и запоминающимся. Больше адресов – больше удобства.
+								p.Semibold Мы рекомендуем создать хотя бы 3 адреса:
+								.UrlTable.CreateAddress_urlTable
+									.UrlTable_item
+										.UrlTable_url /yourcompany
+										.UrlTable_destination полное имя вашей компании, например /samsung
+									.UrlTable_item
+										.UrlTable_url /youcompany.com
+										.UrlTable_destination веб-сайт вашей компании, например /samsung.com
+									.UrlTable_item
+										.UrlTable_url /name
+										.UrlTable_destination сокращенное имя вашего бренда, например /smg
+								p Помните, вы в любой момент сможете отказаться от этой услуги, но тогда эти адреса станут свободными для использования другими пользователями.
+							.Warning.CreateAddress_warning.hidden Недостаточно средств на счёте. Необходимо #[a(href="#") пополнить баланс] на 250 UAH
+							.PageAddressField.CreateAddress_pageAddressField
+								label(for="page_address").PageAddressField_label Адрес страницы:
+								.PageAddress.PageAddressField_pageAddress
+									.PageAddress_siteUrl https://infoza.top/
+									input(type="text", name="page_company_url[]", value="sonycorporation").PageAddress_companyUrl
+								.Error.PageAddressField_error.hidden адрес уже занят
+							.CreateAddress_buttons
+								a(href="#").BtnBlue.BtnBlue-createAddress Добавить адрес за 250 UAH / мес
+								a(href="#").CreateAddress_link.CreateAddress_link-cancel Отмена
+					.CompanySettings_actions
+						button(type="submit").BtnOutline.BtnOutline-blue.BtnOutline-companySettings Сохранить
+						.SuccessfulSave.CompanySettings_successfulSave.hidden Изменения сохранены
+			.Aside.Main_aside
+				a(href="/company.html", title="Sony Corporation").CompanyLink.Aside_companyLink
+					img(src="img/sony2.png", alt="Sony Corporation").CompanyLink_img
+					.CompanyLink_textWrap
+						.CompanyLink_title Sony Corporation
+						.CompanyLink_text на страницу компании
+				.SettingsMenu
+					ul.SettingsMenu_menu
+						li.SettingsMenu_item
+							a(href="/profile_company_settings.html").SettingsMenu_link.SettingsMenu_link-active Настройки
+							ul.SettingsMenu_subMenu
+								li.SettingsMenu_subMenuItem
+									a(href="/basic_company_settings.html").SettingsMenu_subMenuLink.SettingsMenu_subMenuLink-active Основная информация
+								li.SettingsMenu_subMenuItem
+									a(href="/profile_company_settings.html").SettingsMenu_subMenuLink О компании
+								li.SettingsMenu_subMenuItem
+									a(href="/company_verification.html").SettingsMenu_subMenuLink Верификация
+						li.SettingsMenu_item
+							a(href="/profile_messages.html").SettingsMenu_link Сообщения
+block page_bottom
+	script(src="/js/company_settings.js")

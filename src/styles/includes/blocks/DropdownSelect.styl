@@ -107,11 +107,11 @@
 				font-size 16px
 				color #8396AC
 	
-	&-noPadding
+	&-companyProfile
 		max-height 18px
 		
 		.fs-wrap
-			width auto
+			width 214px
 			
 		.fs-label-wrap
 			&:after
@@ -122,8 +122,78 @@
 				padding 0
 				font-weight 600
 				font-size 14px
+		
+		.fs-dropdown
+			left -45px
+			
+			&:before
+				right 0
+				left 0
+				margin auto
+	
+	&-companySettings
+		.fs-wrap
+			display block
+			width auto
+			
+		.fs-label-wrap
+			display block
+			padding-right 0
+			border 1px solid $grey
+			border-radius 3px
+			
+			.fs-label
+				display flex
+				align-items center
+				padding 11px 12px 12px
+				font-size 15px
+				text-align left
+				
+				&:after
+					content ""
+					margin-top 5px
+					margin-left 3px
+					border 3px solid transparent
+					border-top 3px solid $blue
+			
+			&:after
+				display none
+		
+		.fs-dropdown
+			&:before
+				right 0
+				left 0
+				margin auto
 
 .fs-options	
 	.ps__rail-y
 		margin-top 10px
 		margin-bottom 10px
+
+.DropdownSelect
+	.fs-wrap.multiple
+		.fs-dropdown
+			left 5px
+			width 155px
+			margin-top 12px
+		
+		.fs-options
+			padding-top 8px
+			padding-bottom 8px
+		
+		.fs-checkbox i
+			height 12px
+			border none
+			border-radius 0
+			
+		.fs-option
+			padding 7px 13px 6px 34px
+			color #D2D7D9
+			font-size 14px
+			
+			&.selected
+				color $black
+				
+				.fs-checkbox i
+					left 8px
+					background url('../img/dropdown_checkbox.svg') 0 0 no-repeat

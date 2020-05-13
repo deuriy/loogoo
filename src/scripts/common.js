@@ -11,6 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		showSearch: false
 	});
 
+	$('.DropdownSelect-daysWeek .DropdownSelect_select').fSelect({
+		placeholder: 'Дни недели',
+		overflowText: '{n} выбрано',
+		showSearch: false
+	});
+
 	$('.DropdownSelect_select').fSelect({
 		showSearch: false
 	});

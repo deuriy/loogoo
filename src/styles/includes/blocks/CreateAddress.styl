@@ -1,0 +1,52 @@
+.CreateAddress
+	position relative
+	width 720px
+	padding 25px 31px
+	border-radius 3px
+	background $white
+	box-shadow 0 0 7px 0 rgba(0, 0, 0, 0.1)
+	
+	&:before
+		content ""
+		position absolute
+		top -10px
+		left 172px
+		width 16px
+		height 10px
+		background url('../img/corner_shadow.jpg') 0 0 no-repeat
+	
+	&_title
+		margin-bottom 11px
+		font-weight 600
+		font-size 16px
+		line-height 1.5625
+	
+	p
+		margin-bottom 15px
+		font-size 15px
+		line-height 1.67
+	
+	&_urlTable
+		margin-bottom 17px
+	
+	&_warning
+		margin-top 23px
+		margin-bottom 29px
+	
+	&_pageAddressField
+		margin-top 33px
+		margin-bottom 43px
+	
+	&_link
+		color $blue
+		font-weight 500
+		font-size 14px
+		line-height 1.5714
+		
+		&-cancel
+			margin-left 29px
+	
+	// &-companySettings
+	// 	position absolute
+	// 	top calc(100% + 7px)
+	// 	left 0

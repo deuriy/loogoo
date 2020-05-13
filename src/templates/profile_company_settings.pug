@@ -1,0 +1,173 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Настройки профиля компании";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-companySettings";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Настройки профиля компании
+				form(action="#").CompanySettings
+					h2.CompanySettings_title О компании
+					.CompanySettings_fields
+						.CompanySettings_field
+							label.CompanySettings_label Страна
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem
+										.DropdownSelect.DropdownSelect-companySettings.CompanySettings_dropdownSelect
+											select(name="country", id="country").DropdownSelect_select
+												option(value="uk") Украина
+												option(value="ru") Россия
+												option(value="by") Беларусь
+												option(value="pl") Польша
+												option(value="kz") Казахстан
+						.CompanySettings_field
+							label.CompanySettings_label Главный офис
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem
+										.DropdownSelect.DropdownSelect-companySettings.CompanySettings_dropdownSelect
+											select(name="main_office[]").DropdownSelect_select
+												option(value="varshava") Варшава
+												option(value="moscow") Москва
+												option(value="spb") Санкт-Петербург
+												option(value="kiev") Киев
+												option(value="almaata") Алма-ата
+										input(type="text", name="office_address[]", placeholder="адрес").CompanySettings_formText
+								a(href="javascript:;").AddFieldItem.AddFieldItem-office
+									include /includes/svg/icon_add
+									.
+										Добавить ещё офис
+						.CompanySettings_field
+							label.CompanySettings_label График работы:
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem
+										.DropdownSelect.DropdownSelect-companySettings.DropdownSelect-daysWeek.CompanySettings_dropdownSelect
+											select(name="days_week[]", multiple="multiple").DropdownSelect_select
+												option(value="monday") Понедельник
+												option(value="tuesday") Вторник
+												option(value="wednesday") Среда
+												option(value="thursday") Четверг
+												option(value="friday") Пятница
+												option(value="saturday") Суббота
+												option(value="sunday") Воскресенье
+										.TimeRangeDropdown.CompanySettings_timeRangeDropdown.CompanySettings_timeRangeDropdown-workingHours
+											.TimeRangeDropdown_label Время работы
+											.TimeRangeDropdown_dropdown
+												.TimeRangeDropdown_wrapper
+													input(type="time", name="working_hours_from", min="08:00", max="10:00", placeholder="с").TimeRangeDropdown_time.TimeRangeDropdown_time-from
+													input(type="time", name="working_hours_to", min="07:00" max="20:00", placeholder="до").TimeRangeDropdown_time.TimeRangeDropdown_time-to
+												.Checkbox.Checkbox-square.Checkbox-timeRangeDropdown
+													input(type="checkbox", name="around_clock", value="yes", id="around_clock").Checkbox_input
+													label(for="around_clock").Checkbox_label Круглосуточно
+										.TimeRangeDropdown.CompanySettings_timeRangeDropdown.CompanySettings_timeRangeDropdown-noMargin
+											.TimeRangeDropdown_label Перерыв
+											.TimeRangeDropdown_dropdown
+												.TimeRangeDropdown_wrapper
+													input(type="time", name="break_from", min="08:00", max="10:00", placeholder="с").TimeRangeDropdown_time.TimeRangeDropdown_time-from
+													input(type="time", name="break_to", min="07:00" max="20:00", placeholder="до").TimeRangeDropdown_time.TimeRangeDropdown_time-to
+												.Checkbox.Checkbox-square.Checkbox-timeRangeDropdown
+													input(type="checkbox", name="break", value="yes", id="break").Checkbox_input
+													label(for="break").Checkbox_label Без перерыва
+								a(href="javascript:;").AddFieldItem.AddFieldItem-daysWeek
+									include /includes/svg/icon_add
+									.
+										Добавить ещё дни
+						.CompanySettings_field
+							label(for="contact_phone").CompanySettings_label Контактный телефон:
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem
+										input(type="tel", name="contact_phone[]").CompanySettings_formText
+								a(href="javascript:;").AddFieldItem.AddFieldItem-phone
+									include /includes/svg/icon_add
+									.
+										Добавить ещё телефон
+						.CompanySettings_field
+							label.CompanySettings_label Год основания:
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem
+										.DropdownSelect.DropdownSelect-companySettings.CompanySettings_dropdownSelect
+											select(name="foundation_year").DropdownSelect_select
+												option(value="none") Выберите
+												option(value="2010") 2010
+												option(value="2011") 2011
+												option(value="2012") 2012
+												option(value="2013") 2013
+												option(value="2014") 2014
+												option(value="2015") 2015
+												option(value="2016") 2016
+												option(value="2017") 2017
+												option(value="2018") 2018
+												option(value="2019") 2019
+												option(value="2020") 2020
+						.CompanySettings_field
+							label(for="license").CompanySettings_label Лицензия:
+							.CompanySettings_fieldContent
+								input(type="text", name="license", id="license", placeholder="ссылка на документ").CompanySettings_formText.CompanySettings_formText-fullWidth
+						.CompanySettings_field
+							label(for="license").CompanySettings_label Форма регистрации:
+							.CompanySettings_fieldContent
+								.DropdownSelect.DropdownSelect-companySettings.CompanySettings_dropdownSelect
+									select(name="registration_form").DropdownSelect_select
+										option(value="none") Выберите
+										option(value="form1") Форма 1
+										option(value="form2") Форма 2
+						.CompanySettings_field
+							label.CompanySettings_label Владелец:
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem
+										input(type="text", name="owner_fio", placeholder="ФИО").CompanySettings_formText
+						.CompanySettings_field
+							label.CompanySettings_label Директор:
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem
+										input(type="text", name="director_fio", placeholder="ФИО").CompanySettings_formText
+									.CompanySettings_fieldItem.CompanySettings_fieldItem-post
+										input(type="text", name="post", placeholder="должность").CompanySettings_formText.CompanySettings_formText-inline.CompanySettings_formText-post
+										input(type="text", name="fio", placeholder="ФИО").CompanySettings_formText
+										//- a(href="javascript:;").CompanySettings_removeFieldItem
+								a(href="javascript:;").AddFieldItem.AddFieldItem-post
+									include /includes/svg/icon_add
+									.
+										Добавить ещё должность
+						.CompanySettings_field
+							label(for="short_description").CompanySettings_label Краткое описание:
+							.CompanySettings_fieldContent
+								textarea(name="short_description", id="short_description").CompanySettings_textarea.CompanySettings_textarea-fullWidth
+						.CompanySettings_field
+							label(for="full_description").CompanySettings_label Полное описание:
+							.CompanySettings_fieldContent
+								textarea(name="full_description", id="full_description").CompanySettings_textarea.CompanySettings_textarea-fullWidth
+					.CompanySettings_actions
+						button(type="submit").BtnOutline.BtnOutline-blue.BtnOutline-companySettings Сохранить
+			.Aside.Main_aside
+				a(href="/company.html", title="Sony Corporation").CompanyLink.Aside_companyLink
+					img(src="img/sony2.png", alt="Sony Corporation").CompanyLink_img
+					.CompanyLink_textWrap
+						.CompanyLink_title Sony Corporation
+						.CompanyLink_text на страницу компании
+				.SettingsMenu
+					ul.SettingsMenu_menu
+						li.SettingsMenu_item
+							a(href="/profile_company_settings.html").SettingsMenu_link.SettingsMenu_link-active Настройки
+							ul.SettingsMenu_subMenu
+								li.SettingsMenu_subMenuItem
+									a(href="/basic_company_settings.html").SettingsMenu_subMenuLink Основная информация
+								li.SettingsMenu_subMenuItem
+									a(href="/profile_company_settings.html").SettingsMenu_subMenuLink.SettingsMenu_subMenuLink-active О компании
+								li.SettingsMenu_subMenuItem
+									a(href="/company_verification.html").SettingsMenu_subMenuLink Верификация
+						li.SettingsMenu_item
+							a(href="/profile_messages.html").SettingsMenu_link Сообщения
+block page_bottom
+	script(src="/js/company_settings.js")

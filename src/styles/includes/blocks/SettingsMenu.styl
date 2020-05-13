@@ -1,0 +1,51 @@
+.SettingsMenu
+	&_item
+		margin-bottom 20px
+		font-weight 500
+		font-size 15px
+		line-height 1.6
+	
+	&_link
+		display block
+		color #404040
+		@extend .transition
+		
+		&-active
+			font-weight 600
+			color $black
+		
+		&:hover
+			color $blue
+	
+	&_subMenu
+		margin-top 16px
+		border-left 1px solid #ebf0f2
+	
+	&_subMenuItem
+		margin-bottom 16px
+	
+	&_subMenuLink
+		display block
+		padding-left 18px
+		color #404040
+		@extend .transition
+			
+		&:before
+			content ""
+			position absolute
+			top -5px
+			left 0
+			width 1px
+			height 30px
+			background transparent
+		
+		&-active
+			position relative
+			font-weight 600
+			color $blue
+			
+			&:before
+				background $blue
+		
+		&:hover
+			color $blue
