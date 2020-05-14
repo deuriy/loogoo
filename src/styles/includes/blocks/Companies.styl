@@ -1,0 +1,34 @@
+.Companies
+	padding-top 6px
+	
+	&_categories
+		display flex
+		align-items center
+		margin-bottom 14px
+		padding-left 2px
+	
+	&_category
+		margin-right 38px
+		
+		&:last-child
+			margin-right 0
+	
+	&_categoryLink
+		font-size 15px
+		color #404040
+		@extend .transition
+		
+		&-active, &:hover
+			color $blue
+		
+		&-active
+			font-weight 600
+	
+	&_searchForm
+		margin-bottom 35px
+	
+	&_item
+		margin-bottom 40px
+		
+		&:last-child
+			margin-bottom 0

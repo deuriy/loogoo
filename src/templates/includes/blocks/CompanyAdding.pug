@@ -1,0 +1,37 @@
+.CompanyAdding#CompanyAdding(style="display: none;")
+	h2.CompanyAdding_title Добавление компании
+	.CompanyAdding_main
+		form(action="#").CompanySettings.CompanySettings-popup
+			.CompanySettings_fields
+				.CompanySettings_field
+					label(for="company_name").CompanySettings_label Название компании:
+					.CompanySettings_fieldContent
+						input(type="text", name="company_name", id="company_name", value="Sony Corporation", minlength="2", maxlength="45", required).CompanySettings_formText.CompanySettings_formText-fullWidth
+					a(href="javascript:;").CompanyInfo.CompanySettings_autoComplete
+						.CompanyInfo_logo
+							img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyInfo_logoImg
+						.CompanyInfo_wrapper
+							h4.CompanyInfo_name Sony Corporation
+							.Rating.Rating-companyInfo.Rating-dropdown
+								span.Rating_icon
+									include /includes/svg/SvgIco/icon_star
+								span.Rating_number 7,5
+								span.Rating_max / 10
+				.CompanySettings_field
+					label.CompanySettings_label Страна:
+					.CompanySettings_fieldContent
+						.DropdownSelect.DropdownSelect-companySettings.CompanySettings_dropdownSelect.CompanySettings_dropdownSelect-fullWidth
+							select(name="country").DropdownSelect_select
+								option(value="none") Выберите
+								option(value="uk") Украина
+								option(value="ru") Россия
+								option(value="by") Беларусь
+								option(value="kz") Казахстан
+				.CompanySettings_field
+					label(for="company_website").CompanySettings_label Веб-сайт:
+					.CompanySettings_fieldContent
+						input(type="text", name="company_website", id="company_website").CompanySettings_formText.CompanySettings_formText-fullWidth
+			.CompanySettings_actions
+				button(type="submit").BtnBlue.BtnBlue-addCompanyPopup.CompanySettings_addButton Добавить компанию
+				//- a(href="#").BtnBlue.BtnBlue-createAddress Добавить адрес за 250 UAH / мес
+				a(href="javascript:;", data-fancybox-close).CompanySettings_link.CompanySettings_link-cancel Отмена

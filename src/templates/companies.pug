@@ -1,0 +1,486 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Компании";
+	- var mainModifiers = "Main-companies";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_sidebar
+				.CompaniesFilter
+					h3.CompaniesFilter_title Фильтр
+					.CompaniesFilter_blocks
+						ul.CompaniesFilter_block
+							li.CompaniesFilter_item
+								a(href="javascript:;").CompaniesFilter_link.CompaniesFilter_link-active Все страны
+							li.CompaniesFilter_item
+								a(href="javascript:;").CompaniesFilter_link Германия
+							li.CompaniesFilter_item
+								a(href="javascript:;").CompaniesFilter_link Чехия
+							li.CompaniesFilter_item
+								a(href="javascript:;").CompaniesFilter_link Польша
+						ul.CompaniesFilter_block
+							li.CompaniesFilter_item
+								a(href="javascript:;").CompaniesFilter_link.CompaniesFilter_link-active Все страны
+							li.CompaniesFilter_item
+								a(href="javascript:;").CompaniesFilter_link Германия
+							li.CompaniesFilter_item
+								a(href="javascript:;").CompaniesFilter_link Чехия
+							li.CompaniesFilter_item
+								a(href="javascript:;").CompaniesFilter_link Польша
+						ul.CompaniesFilter_block
+							li.CompaniesFilter_item
+								a(href="javascript:;").CompaniesFilter_link.CompaniesFilter_link-active Все страны
+							li.CompaniesFilter_item
+								a(href="javascript:;").CompaniesFilter_link Германия
+							li.CompaniesFilter_item
+								a(href="javascript:;").CompaniesFilter_link Чехия
+							li.CompaniesFilter_item
+								a(href="javascript:;").CompaniesFilter_link Польша
+			.Main_content
+				.Companies
+					ul.Companies_categories
+						li.Companies_category
+							a(href="javascript:;").Companies_categoryLink.Companies_categoryLink-active Работодатели
+						li.Companies_category
+							a(href="javascript:;").Companies_categoryLink Вакансии
+					form(action="", name="companies_search").Filter.Companies_searchForm
+						.Search.Search-companies
+							input(type="text", name="search_query", placeholder="Поиск").Search_text
+					.NoResults.NoResults-companies.hidden
+						.NoResults_icon
+							include /includes/svg/not_found
+						.NoResults_text По вашему запросу ничего не найдено
+						a(href="javascript:;", data-src="#CompanyAdding").BtnBlue.BtnBlue-company.BtnBlue-addCompany.OpenPopupLink Добавить компанию
+					.Companies_items
+						.CompanyBlock.Companies_item
+							.CompanyBlock_logo
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation")
+							.CompanyBlock_mainWrapper
+								h3.CompanyBlock_name
+									a(href="/company.html") Sony Corporation
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 г. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская промышленная
+								.CompanyBlock_footer
+									.Rating.Rating-companyBlock.Rating-dropdown
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											.AdvantagesRating
+												ul.AdvantagesRating_list
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 6
+														span.AdvantagesRating_text качество обслуживания и поддержки
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 7
+														span.AdvantagesRating_text достоверность информации о работе
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 8
+														span.AdvantagesRating_text достоверность информации о жилье
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 9
+														span.AdvantagesRating_text соблюдение сроков изготовления документов
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 10
+														span.AdvantagesRating_text качество полученных документов или услуг
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+						.CompanyBlock.Companies_item
+							.CompanyBlock_logo
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation")
+							.CompanyBlock_mainWrapper
+								h3.CompanyBlock_name
+									a(href="/company.html") Sony Corporation
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 г. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская промышленная
+								.CompanyBlock_footer
+									.Rating.Rating-companyBlock.Rating-dropdown
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											.AdvantagesRating
+												ul.AdvantagesRating_list
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 6
+														span.AdvantagesRating_text качество обслуживания и поддержки
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 7
+														span.AdvantagesRating_text достоверность информации о работе
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 8
+														span.AdvantagesRating_text достоверность информации о жилье
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 9
+														span.AdvantagesRating_text соблюдение сроков изготовления документов
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 10
+														span.AdvantagesRating_text качество полученных документов или услуг
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+						.CompanyBlock.Companies_item
+							.CompanyBlock_logo
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation")
+							.CompanyBlock_mainWrapper
+								h3.CompanyBlock_name
+									a(href="/company.html") Sony Corporation
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 г. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская промышленная
+								.CompanyBlock_footer
+									.Rating.Rating-companyBlock.Rating-dropdown
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											.AdvantagesRating
+												ul.AdvantagesRating_list
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 6
+														span.AdvantagesRating_text качество обслуживания и поддержки
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 7
+														span.AdvantagesRating_text достоверность информации о работе
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 8
+														span.AdvantagesRating_text достоверность информации о жилье
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 9
+														span.AdvantagesRating_text соблюдение сроков изготовления документов
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 10
+														span.AdvantagesRating_text качество полученных документов или услуг
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+						.CompanyBlock.Companies_item
+							.CompanyBlock_logo
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation")
+							.CompanyBlock_mainWrapper
+								h3.CompanyBlock_name
+									a(href="/company.html") Sony Corporation
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_footer
+									.Rating.Rating-companyBlock.Rating-dropdown
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											.AdvantagesRating
+												ul.AdvantagesRating_list
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 6
+														span.AdvantagesRating_text качество обслуживания и поддержки
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 7
+														span.AdvantagesRating_text достоверность информации о работе
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 8
+														span.AdvantagesRating_text достоверность информации о жилье
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 9
+														span.AdvantagesRating_text соблюдение сроков изготовления документов
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 10
+														span.AdvantagesRating_text качество полученных документов или услуг
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+						.CompanyBlock.Companies_item
+							.CompanyBlock_logo
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation")
+							.CompanyBlock_mainWrapper
+								h3.CompanyBlock_name
+									a(href="/company.html") Sony Corporation
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_footer
+									.Rating.Rating-companyBlock.Rating-dropdown
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											.AdvantagesRating
+												ul.AdvantagesRating_list
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 6
+														span.AdvantagesRating_text качество обслуживания и поддержки
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 7
+														span.AdvantagesRating_text достоверность информации о работе
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 8
+														span.AdvantagesRating_text достоверность информации о жилье
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 9
+														span.AdvantagesRating_text соблюдение сроков изготовления документов
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 10
+														span.AdvantagesRating_text качество полученных документов или услуг
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+						.CompanyBlock.Companies_item
+							.CompanyBlock_logo
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation")
+							.CompanyBlock_mainWrapper
+								h3.CompanyBlock_name
+									a(href="/company.html") Sony Corporation
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_footer
+									.Rating.Rating-companyBlock.Rating-dropdown
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											.AdvantagesRating
+												ul.AdvantagesRating_list
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 6
+														span.AdvantagesRating_text качество обслуживания и поддержки
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 7
+														span.AdvantagesRating_text достоверность информации о работе
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 8
+														span.AdvantagesRating_text достоверность информации о жилье
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 9
+														span.AdvantagesRating_text соблюдение сроков изготовления документов
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 10
+														span.AdvantagesRating_text качество полученных документов или услуг
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+						.CompanyBlock.Companies_item
+							.CompanyBlock_logo.CompanyBlock_logo-small
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation")
+							.CompanyBlock_mainWrapper
+								h3.CompanyBlock_name
+									a(href="/company.html") Sony Corporation
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 г. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская промышленная компания) или
+								.CompanyBlock_footer
+									.Rating.Rating-companyBlock.Rating-dropdown
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											.AdvantagesRating
+												ul.AdvantagesRating_list
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 6
+														span.AdvantagesRating_text качество обслуживания и поддержки
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 7
+														span.AdvantagesRating_text достоверность информации о работе
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 8
+														span.AdvantagesRating_text достоверность информации о жилье
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 9
+														span.AdvantagesRating_text соблюдение сроков изготовления документов
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 10
+														span.AdvantagesRating_text качество полученных документов или услуг
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+						.CompanyBlock.Companies_item
+							.CompanyBlock_logo.CompanyBlock_logo-small
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation")
+							.CompanyBlock_mainWrapper
+								h3.CompanyBlock_name
+									a(href="/company.html") Sony Corporation
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 г. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская промышленная компания) или
+								.CompanyBlock_footer
+									.Rating.Rating-companyBlock.Rating-dropdown
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											.AdvantagesRating
+												ul.AdvantagesRating_list
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 6
+														span.AdvantagesRating_text качество обслуживания и поддержки
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 7
+														span.AdvantagesRating_text достоверность информации о работе
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 8
+														span.AdvantagesRating_text достоверность информации о жилье
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 9
+														span.AdvantagesRating_text соблюдение сроков изготовления документов
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 10
+														span.AdvantagesRating_text качество полученных документов или услуг
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+						.CompanyBlock.Companies_item
+							.CompanyBlock_logo.CompanyBlock_logo-small
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation")
+							.CompanyBlock_mainWrapper
+								h3.CompanyBlock_name
+									a(href="/company.html") Sony Corporation
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 г. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская промышленная компания) или
+								.CompanyBlock_footer
+									.Rating.Rating-companyBlock.Rating-dropdown
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											.AdvantagesRating
+												ul.AdvantagesRating_list
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 6
+														span.AdvantagesRating_text качество обслуживания и поддержки
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 7
+														span.AdvantagesRating_text достоверность информации о работе
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 8
+														span.AdvantagesRating_text достоверность информации о жилье
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 9
+														span.AdvantagesRating_text соблюдение сроков изготовления документов
+													li.AdvantagesRating_item
+														span.AdvantagesRating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.AdvantagesRating_number 10
+														span.AdvantagesRating_text качество полученных документов или услуг
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+block page_bottom
+	include /includes/blocks/CompanyAdding
+	//- script(src="/js/article.js")

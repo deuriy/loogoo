@@ -70,7 +70,9 @@
 	&-center
 		justify-content center
 	
-	&-company, &-companyComment
+	&-company,
+	&-companyComment,
+	&-companyBlock
 		.Rating_icon
 			align-self center
 			margin-right 5px
@@ -88,7 +90,8 @@
 		.Rating_number
 			font-size 26px
 	
-	&-companyComment
+	&-companyComment,
+	&-companyBlock
 		position relative
 		display inline-flex
 		
@@ -107,13 +110,38 @@
 		.Rating_max
 			font-size 13px
 	
+	&-companyBlock
+		&:after
+			bottom 7px
+			right -7px
+			
+		.Rating_icon
+			margin-right 7px
+		
+		.Rating_label
+			margin-top 2px
+	
 	&-dropdown
 		position relative
+		cursor pointer
+			
+		&:hover
+			.Rating_dropdown
+				visibility visible
+				opacity 1
+	
+	&-companyInfo
+		font-weight 500
+		
+		.Rating_icon
+			color $brown
+		
+		.Rating_number
+			margin-right 3px
+			color $black
+			font-size 15px
 		
 		.Rating_max
-			cursor pointer
-			
-			&:hover
-				& ~ .Rating_dropdown
-					visibility visible
-					opacity 1
+			margin-top 2px
+			margin-right 0
+			font-size 12px

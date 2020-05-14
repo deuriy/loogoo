@@ -1,0 +1,62 @@
+.CompanyBlock
+	display flex
+	align-items flex-start
+	padding-bottom 25px
+	border-bottom 1px solid #ebf0f2
+	
+	&_logo
+		flex auto 0 0
+		width 100px
+		margin-right 32px
+		border-radius 2px
+		
+		&-small
+			width 50px
+			margin-right 20px
+	
+	&_mainWrapper
+		flex auto 1 1
+	
+	&_name
+		margin-top -9px
+		margin-bottom 4px
+		font-weight 500
+		font-size 24px
+		
+		&:after
+			content ""
+			display inline-block
+			width 14px
+			height 14px
+			margin-left 7px
+			background url('../img/checkbox_green.svg') 0 0 no-repeat
+		
+		a
+			&:hover
+				text-decoration underline
+	
+	&_activity, &_description
+		font-size 15px
+		line-height 1.6
+	
+	&_activity
+		margin-bottom 6px
+		margin-left 2px
+		font-weight 500
+	
+	&_description
+		margin-bottom 16px
+		color #404040
+	
+	&_footer
+		display flex
+		justify-content space-between
+		align-items center
+	
+	&_country
+		margin-top 2px
+		margin-right -3px
+		color #666
+	
+	&_countryIcon
+		margin-right 8px
