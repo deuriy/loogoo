@@ -15,6 +15,7 @@
 	
 	&_logoImg
 		display block
+		border-radius 4px
 	
 	&_wrapper
 		padding-top 2px
@@ -23,3 +24,33 @@
 		font-weight 500
 		font-size 16px
 		line-height 1.25
+	
+	&-balance
+		padding 7px 30px 25px 32px
+		box-shadow none
+		
+		&:hover
+			background $white
+			
+		.CompanyInfo_logo
+			width 50px
+		
+		.CompanyInfo_wrapper
+			flex auto 1 1
+			display flex
+			justify-content space-between
+			align-items flex-start
+			margin-top -6px
+		
+		.CompanyInfo_name
+			margin-top -5px
+			font-weight 600
+			font-size 21px
+			line-height 1.857
+		
+		.CompanyInfo_balance
+			font-weight 600
+			font-size 15px
+		
+		.CompanyInfo_sum
+			font-size 21px

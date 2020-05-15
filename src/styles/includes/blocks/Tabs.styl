@@ -10,7 +10,7 @@
 		display flex
 		justify-content center
 		align-items center
-		flex 1 0 0
+		flex auto 1 1
 		padding-top 10px
 		padding-bottom 10px
 		border-bottom 1px solid rgba($black, 22%)
@@ -55,3 +55,25 @@
 		&-inverse
 			@media $xs
 				margin-bottom 30px
+	
+	&-profileMenu
+		.Tabs_list
+			margin-bottom 10px
+			
+		.Tabs_item
+			flex-grow 0
+			border-bottom-color $grey
+			font-weight 500
+			font-size 13px
+			font-family $baseFont
+			color #8396AC
+			
+			&:hover, &-active
+				border-bottom 1px solid $blue
+				color $blue
+			
+			&-active
+				font-weight 500
+			
+			&-user
+				padding-right 29px

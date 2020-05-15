@@ -141,11 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let timeRangeDropdown = timeRangeDropdownLabel.parentNode.querySelector('.TimeRangeDropdown_dropdown');
 
-		if (timeRangeDropdown.classList.contains('TimeRangeDropdown_dropdown-opened')) {
-			timeRangeDropdown.classList.remove('TimeRangeDropdown_dropdown-opened');
-		} else {
-			timeRangeDropdown.classList.add('TimeRangeDropdown_dropdown-opened');
-		}
+		timeRangeDropdown.classList.toggle('TimeRangeDropdown_dropdown-opened');
 	});
 
 	document.addEventListener('click', function (e) {

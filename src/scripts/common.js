@@ -425,11 +425,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		let notificationsWrapper = notificationsIcon.parentNode.querySelector('.Notifications_wrapper');
 
-		if (notificationsWrapper.classList.contains('Notifications_wrapper-opened')) {
-			notificationsWrapper.classList.remove('Notifications_wrapper-opened');
-		} else {
-			notificationsWrapper.classList.add('Notifications_wrapper-opened');
-		}
+		notificationsWrapper.classList.toggle('Notifications_wrapper-opened');
 	});
 
 	document.addEventListener('click', function (e) {
@@ -472,5 +468,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		dropdownOverlay.parentNode.classList.remove('Dropdown-visible');
 	});
+
+	// jQuery Tabs
+	$('.Tabs_list').each(function() {
+	  $(this).find('.Tabs_item').each(function(i) {
+	    $(this).click(function() {
+	      $(this).addClass('Tabs_item-active').siblings().removeClass('Tabs_item-active');
+	      var p = $(this).parents('.Tabs');
+	      p.find('.Tabs_content').hide();
+	      p.find('.Tabs_content:eq(' + i + ')').show();
+	    });
+	  });
+	});
+
+	// let tabsList = document.querySelectorAll('.Tabs_list');
+
+	// tabsList.forEach(function (tabList) {
+	// 	// console.log('Yes!');
+	// 	let tabItems = tabList.querySelectorAll('.Tabs_item');
+
+	// 	tabItems.forEach(function (tabItem, tabItemIndex) {
+	// 		tabItem.onclick = function () {
+	// 			let activeTabItem = tabItem.parent.querySelector('.Tabs_item-active');
+
+	// 			if (activeTabItem) {
+	// 				activeTabItem.classList.remove('Tabs_item-active');
+	// 			}
+
+	// 			let parent = tabItem.closest('.Tabs');
+	// 			let tabsContent = parent.querySelectorAll('.Tabs_content');
+
+	// 			tabsContent.forEach(function (tabContent, tabContentIndex) {
+	// 				tabContent.style.display = 'none';
+	// 			});
+
+	// 			tabsContent[tabItemIndex].style.display = 'block';
+	// 		};
+	// 	});
+	// });
 
 });

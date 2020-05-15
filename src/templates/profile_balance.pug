@@ -1,0 +1,205 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Баланс профиля";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-profileBalance";
+block content
+	.Container.Main_container
+		.Main_columns
+			.MainContent.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Баланс профиля
+				.ProfileBalance
+					.CompaniesBalances.ProfileBalance_companiesBalances
+						.CompanyInfo.CompanyInfo-balance.CompaniesBalances_item.CompaniesBalances_item-first
+							.CompanyInfo_logo
+								img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyInfo_logoImg
+							.CompanyInfo_wrapper
+								.CompanyInfo_nameWrapper
+									h4.CompanyInfo_name
+										a(href="javascript:;").ArrowLink.ArrowLink-companyInfoName.ArrowLink-companiesBalances.CompanyInfo_nameLink Sony Corporation
+									.Rating.Rating-balance.Rating-dropdown
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,5
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+								.CompanyInfo_finance
+									.CompanyInfo_balance #[span.CompanyInfo_sum 5000] UAH
+									a(href="javascript:;").ArrowLink.ArrowLink-replenishment.CompanyInfo_replenishmentLink пополнить
+						.CompaniesBalances_additional.hidden
+							.CompanyInfo.CompanyInfo-balance.CompaniesBalances_item
+								.CompanyInfo_logo
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyInfo_logoImg
+								.CompanyInfo_wrapper
+									.CompanyInfo_nameWrapper
+										h4.CompanyInfo_name Sony Corporation
+										.Rating.Rating-balance.Rating-dropdown
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,5
+											span.Rating_max / 10
+											span.Rating_label (55 отзывов)
+									.CompanyInfo_finance
+										.CompanyInfo_balance #[span.CompanyInfo_sum 5000] UAH
+							.CompanyInfo.CompanyInfo-balance.CompaniesBalances_item
+								.CompanyInfo_logo
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyInfo_logoImg
+								.CompanyInfo_wrapper
+									.CompanyInfo_nameWrapper
+										h4.CompanyInfo_name Sony Corporation
+										.Rating.Rating-balance.Rating-dropdown
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,5
+											span.Rating_max / 10
+											span.Rating_label (55 отзывов)
+									.CompanyInfo_finance
+										.CompanyInfo_balance #[span.CompanyInfo_sum 5000] UAH
+							.CompanyInfo.CompanyInfo-balance.CompaniesBalances_item
+								.CompanyInfo_logo
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyInfo_logoImg
+								.CompanyInfo_wrapper
+									.CompanyInfo_nameWrapper
+										h4.CompanyInfo_name Sony Corporation
+										.Rating.Rating-balance.Rating-dropdown
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,5
+											span.Rating_max / 10
+											span.Rating_label (55 отзывов)
+									.CompanyInfo_finance
+										.CompanyInfo_balance #[span.CompanyInfo_sum 5000] UAH
+					.OperationsHistory
+						h2.OperationsHistory_title История операций
+						.OperationsHistory_header
+							.DropdownSelect.DropdownSelect-operations
+								select(name="operations_type").DropdownSelect_select
+									option(value="all") Все операции
+									option(value="replenishment") Пополнение
+									option(value="consumption") Расход
+							a(href="javascript:;").OperationsHistory_period 15 мар. 2020 – 15 апр. 2020
+								include /includes/svg/calendar
+						.OperationsHistory_body
+							.OperationsHistory_group
+								.OperationsHistory_date 12 апреля 2020
+								.OperationsHistory_groupContent
+									.Operation
+										.Operation_left
+											.Operation_icon
+												include /includes/svg/reservation
+											.Operation_nameWrapper
+												.Operation_name Резервирование средств
+												.Operation_time 19:45
+										.Operation_right
+											.Operation_statusWrapper
+												.Operation_status проведён
+												.Operation_id ID 123456
+											.Operation_balanceWrapper
+												.Operation_sum + 7000 UAH
+												.Operation_balance 7000 UAH
+									.Operation
+										.Operation_left
+											.Operation_icon
+												include /includes/svg/package_renewal
+											.Operation_nameWrapper
+												.Operation_name Продление пакета №5
+												.Operation_time 19:45
+										.Operation_right
+											.Operation_statusWrapper
+												.Operation_status проведён
+												.Operation_id ID 123456
+											.Operation_balanceWrapper
+												.Operation_sum - 5000.25 UAH
+												.Operation_balance 3999.75 UAH
+							.OperationsHistory_group
+								.OperationsHistory_date 13 апреля 2020
+								.OperationsHistory_groupContent
+									.Operation
+										.Operation_left
+											.Operation_icon
+												include /includes/svg/reservation
+											.Operation_nameWrapper
+												.Operation_name Резервирование средств
+												.Operation_time 19:45
+										.Operation_right
+											.Operation_statusWrapper
+												.Operation_status проведён
+												.Operation_id ID 123456
+											.Operation_balanceWrapper
+												.Operation_sum + 7000 UAH
+												.Operation_balance 7000 UAH
+									.Operation
+										.Operation_left
+											.Operation_icon
+												include /includes/svg/package_renewal
+											.Operation_nameWrapper
+												.Operation_name Продление пакета №5
+												.Operation_time 19:45
+										.Operation_right
+											.Operation_statusWrapper
+												.Operation_status проведён
+												.Operation_id ID 123456
+											.Operation_balanceWrapper
+												.Operation_sum - 5000.25 UAH
+												.Operation_balance 3999.75 UAH
+							.OperationsHistory_group
+								.OperationsHistory_date 13 апреля 2020
+								.OperationsHistory_groupContent
+									.Operation
+										.Operation_left
+											.Operation_icon
+												include /includes/svg/reservation
+											.Operation_nameWrapper
+												.Operation_name Резервирование средств
+												.Operation_time 19:45
+										.Operation_right
+											.Operation_statusWrapper
+												.Operation_status проведён
+												.Operation_id ID 123456
+											.Operation_balanceWrapper
+												.Operation_sum + 7000 UAH
+												.Operation_balance 7000 UAH
+			.Aside.Main_aside
+				.Tabs.Tabs-profileMenu
+					ul.Tabs_list
+						li.Tabs_item.Tabs_item-user Пользователь
+						li.Tabs_item.Tabs_item-active Работодатель
+					.Tabs_container
+						.Tabs_content
+							.SidebarMenu.SidebarMenu-profileMenu.hidden-smMinus
+								ul.SidebarMenu_menu
+									li.SidebarMenu_item
+										a(href="/my_topics.html").SidebarMenu_link Мои темы
+									li.SidebarMenu_item
+										a(href="/profile_messages.html").SidebarMenu_link Мои сообщения
+									li.SidebarMenu_item
+										a(href="#").SidebarMenu_link Мои ответы
+										span.Quantity.SidebarMenu_number 10
+									li.SidebarMenu_item
+										a(href="/profile_invite.html").SidebarMenu_link Мои приглашения
+									li.SidebarMenu_item
+										a(href="/profile_rating.html").SidebarMenu_link Мои рейтинг
+									li.SidebarMenu_item
+										a(href="/my_notifications.html").SidebarMenu_link Мои уведомления
+									li.SidebarMenu_item
+										a(href="/profile_settings.html").SidebarMenu_link Мои настройки
+									li.SidebarMenu_item
+										a(href="#").SidebarMenu_link Выход
+						.Tabs_content(style="display: block;")
+							.SidebarMenu.SidebarMenu-profileMenu.hidden-smMinus
+								ul.SidebarMenu_menu
+									li.SidebarMenu_item
+										a(href="/companies.html").SidebarMenu_link Мои компании
+									li.SidebarMenu_item
+										a(href="#").SidebarMenu_link Статистика
+									li.SidebarMenu_item
+										a(href="/profile_balance.html").SidebarMenu_link Баланс и операции
+									li.SidebarMenu_item
+										a(href="/profile_rating.html").SidebarMenu_link Premium функции
+									li.SidebarMenu_item
+										a(href="#").SidebarMenu_link Выход
+block page_bottom
+	script(src="/js/profile_balance.js")

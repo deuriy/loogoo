@@ -1,16 +1,16 @@
 extends /layouts/main_layout_profile
 block vars
 	- var title = "Настройки уведомлений в профиле";
-	//- - var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-notifications";
 block content
 	.Container.Main_container
 		.Main_columns
 			.MainContent.Main_left
-				//- .MobileHeader.hidden-smPlus
-				//- 	a(href="#").BtnBack.MobileHeader_btnBack
-				//- 		include /includes/svg/SvgIco/arrow_left
-				//- 	h1.MobileHeader_title Мои настройки
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Мои настройки
 				include /includes/blocks/MenuSectionProfileSettings
 				.NotificationSettings
 					.NotificationSettings_group
