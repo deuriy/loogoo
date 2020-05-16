@@ -380,12 +380,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	// Go back button
-	let btnBack = document.querySelector('.BtnBack:not(.Filter_closeLink)');
-	if (btnBack) {
-		btnBack.onclick = function (e) {
-			window.history.back();
-		};
-	}
+	document.addEventListener('click', function (e) {
+		let btnBack = e.target.closest('.BtnBack:not(.BtnBack-noScript)');
+
+		if (!btnBack) return;
+
+		window.history.back();
+	});
 
 	document.addEventListener('click', function (e) {
 		let selectWrap = e.target.closest('.fs-wrap');

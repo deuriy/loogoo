@@ -137,11 +137,17 @@
 			margin-bottom 9px
 			padding-right 0
 			
+			@media $xs
+				margin-bottom 15px
+			
 		.CompanySettings_field
 			position relative
 			flex-direction column
 			align-items stretch
 			margin-bottom 21px
+			
+			@media $xs
+				margin-bottom 27px
 			
 			&:last-child
 				margin-bottom 0
@@ -150,6 +156,11 @@
 			flex auto 1 1
 			margin-top 0
 			margin-bottom 5px
+		
+		.CompanySettings_formText
+			@media $xs
+				font-weight 500
+				font-size 16px
 		
 		.CompanySettings_autoComplete
 			position absolute
@@ -163,6 +174,10 @@
 		
 		.CompanySettings_addButton
 			margin-right 34px
+			
+			@media $xs
+				margin-right 0
+				flex-grow 1
 		
 		.CompanySettings_link
 			color $blue

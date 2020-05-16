@@ -1,5 +1,9 @@
-.CompanyAdding#CompanyAdding(style="display: none;")
-	h2.CompanyAdding_title Добавление компании
+.CompanyAdding.CompanyAdding-popup#CompanyAdding(style="display: none;")
+	.MobileHeader.hidden-smPlus
+		a(href="javascript:;", data-fancybox-close).BtnBack.BtnBack-noScript.MobileHeader_btnBack
+			include /includes/svg/SvgIco/arrow_left
+		h2.MobileHeader_title Добавление компании
+	h2.CompanyAdding_title.hidden-xs Добавление компании
 	.CompanyAdding_main
 		form(action="#").CompanySettings.CompanySettings-popup
 			.CompanySettings_fields
@@ -33,5 +37,4 @@
 						input(type="text", name="company_website", id="company_website").CompanySettings_formText.CompanySettings_formText-fullWidth
 			.CompanySettings_actions
 				button(type="submit").BtnBlue.BtnBlue-addCompanyPopup.CompanySettings_addButton Добавить компанию
-				//- a(href="#").BtnBlue.BtnBlue-createAddress Добавить адрес за 250 UAH / мес
-				a(href="javascript:;", data-fancybox-close).CompanySettings_link.CompanySettings_link-cancel Отмена
+				a(href="javascript:;", data-fancybox-close).CompanySettings_link.CompanySettings_link-cancel.hidden-xs Отмена

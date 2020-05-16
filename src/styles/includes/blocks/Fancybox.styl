@@ -21,3 +21,13 @@
 
 .fancybox-is-open .fancybox-bg
 	opacity 0.5
+
+.fancybox-container
+	&--no-padding
+		.fancybox-slide--html
+			padding 0
+		
+		.fancybox-slide
+			@media $xs
+				padding-right 0
+				padding-left 0
