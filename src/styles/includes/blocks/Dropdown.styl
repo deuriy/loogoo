@@ -87,12 +87,17 @@
 			margin-bottom 0
 	
 	&_link
+		display block
 		color $blue2
 		font-weight 500
 		line-height 1.4
+		@extend .transition
 		
 		@media $xs
 			font-size 16px
+		
+		&:hover
+			color $blue
 		
 		&-orange
 			color $orange
@@ -105,3 +110,22 @@
 		.Dropdown_wrapper
 			visibility visible
 			opacity 1
+	
+	&-tabs
+		.Dropdown_wrapper
+			right -11px
+			width 270px
+			box-shadow 0 0 10px 0 rgba($black, .1)
+		
+		.Dropdown_header
+			min-height 0
+			border-bottom none
+			padding 14px 24px 0
+		
+		.Dropdown_userName
+			max-width 180px
+			margin-top 9px
+		
+		.Dropdown_body
+			padding 6px 18px 15px 24px
+			box-shadow none
