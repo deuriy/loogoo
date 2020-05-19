@@ -32,3 +32,47 @@
 		
 		&:last-child
 			margin-bottom 0
+	
+	&-search
+		max-width 722px
+		
+		.Companies_categories
+			margin-bottom 30px
+			border-bottom 1px solid #ebf0f2
+		
+		.Companies_category
+			margin-right 52px
+			
+			&:last-child
+				margin-right 0
+			
+		.Companies_categoryLink
+			position relative
+			display block
+			padding-bottom 10px
+			font-weight 500
+			font-size 14px
+			color #8396AC
+			@extend .transition
+			
+			&:after
+				content ""
+				position absolute
+				right 0
+				bottom -1px
+				left 0
+				height 1px
+				background transparent
+				@extend .transition
+			
+			&-active, &:hover
+				color $blue
+				
+				&:after
+					background $blue
+		
+		.Companies_item
+			margin-bottom 35px
+			
+			&:last-child
+				margin-bottom 0
