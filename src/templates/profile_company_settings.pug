@@ -6,13 +6,22 @@ block vars
 block content
 	.Container.Main_container
 		.Main_columns
-			.MainContent.Main_left
-				.MobileHeader.hidden-smPlus
+			.Main_left
+				.MobileHeader.MobileHeader-noBorder.hidden-smPlus
 					a(href="#").BtnBack.MobileHeader_btnBack
 						include /includes/svg/SvgIco/arrow_left
-					h1.MobileHeader_title Настройки профиля компании
+					h1.MobileHeader_title Sony Corporation
+				.MenuSection.MenuSection-companySettings.Main_menuSection
+					.CategoryMenu.CategoryMenu-companySettings.hidden-smPlus
+						ul.CategoryMenu_menu
+							li.CategoryMenu_item
+								a(href="/basic_company_settings.html").CategoryMenu_link Информация
+							li.CategoryMenu_item
+								a(href="/profile_company_settings.html").CategoryMenu_link.active О компании
+							li.CategoryMenu_item
+								a(href="/company_verification.html").CategoryMenu_link Верификация
 				form(action="#").CompanySettings
-					h2.CompanySettings_title О компании
+					h2.CompanySettings_title.hidden-xs О компании
 					.CompanySettings_fields
 						.CompanySettings_field
 							label.CompanySettings_label Страна
@@ -80,7 +89,7 @@ block content
 									.
 										Добавить ещё дни
 						.CompanySettings_field
-							label(for="contact_phone").CompanySettings_label Контактный телефон:
+							label.CompanySettings_label Контактный телефон:
 							.CompanySettings_fieldContent
 								.CompanySettings_fieldItems
 									.CompanySettings_fieldItem
@@ -113,7 +122,7 @@ block content
 							.CompanySettings_fieldContent
 								input(type="text", name="license", id="license", placeholder="ссылка на документ").CompanySettings_formText.CompanySettings_formText-fullWidth
 						.CompanySettings_field
-							label(for="license").CompanySettings_label Форма регистрации:
+							label(for="registration_form").CompanySettings_label Форма регистрации:
 							.CompanySettings_fieldContent
 								.DropdownSelect.DropdownSelect-companySettings.CompanySettings_dropdownSelect
 									select(name="registration_form").DropdownSelect_select
@@ -149,8 +158,9 @@ block content
 							.CompanySettings_fieldContent
 								textarea(name="full_description", id="full_description").CompanySettings_textarea.CompanySettings_textarea-fullWidth
 					.CompanySettings_actions
-						button(type="submit").BtnOutline.BtnOutline-blue.BtnOutline-companySettings Сохранить
-			.Aside.Main_aside
+						button(type="submit").BtnOutline.BtnOutline-blue.BtnOutline-companySettings.hidden-xs Сохранить
+						button(type="submit").BtnBlue.BtnBlue-companySettings.hidden-smPlus Сохранить
+			.Aside.Main_aside.hidden-smMinus
 				a(href="/company.html", title="Sony Corporation").CompanyLink.Aside_companyLink
 					img(src="img/sony2.png", alt="Sony Corporation").CompanyLink_img
 					.CompanyLink_textWrap

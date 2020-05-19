@@ -6,6 +6,10 @@
 	background $white
 	box-shadow 0 0 7px 0 rgba(0, 0, 0, 0.1)
 	
+	@media $xs
+		width auto
+		padding 20px 19px 23px
+	
 	&:before
 		content ""
 		position absolute
@@ -14,28 +18,60 @@
 		width 16px
 		height 10px
 		background url('../img/corner_shadow.jpg') 0 0 no-repeat
+		
+		@media $xs
+			left 22px
+	
+	&_close
+		position absolute
+		top 20px
+		right 20px
+		width 14px
+		opacity 0.5
+		color $blue2
 	
 	&_title
 		margin-bottom 11px
 		font-weight 600
 		font-size 16px
 		line-height 1.5625
+		
+		@media $xs
+			margin-bottom 5px
 	
 	p
 		margin-bottom 15px
 		font-size 15px
 		line-height 1.67
+		
+		@media $xs
+			margin-bottom 10px
+			line-height 1.6
 	
 	&_urlTable
 		margin-bottom 17px
+		
+		@media $xs
+			margin-bottom 15px
 	
 	&_warning
 		margin-top 23px
 		margin-bottom 29px
+		
+		@media $xs
+			margin-top 17px
+			margin-bottom 26px
 	
 	&_pageAddressField
 		margin-top 33px
 		margin-bottom 43px
+	
+	&_buttons		
+		@media $xs
+			display flex
+			flex-direction column
+			align-items center
+			margin-top 23px
 	
 	&_link
 		color $blue
@@ -45,8 +81,7 @@
 		
 		&-cancel
 			margin-left 29px
-	
-	// &-companySettings
-	// 	position absolute
-	// 	top calc(100% + 7px)
-	// 	left 0
+			
+			@media $xs
+				margin-top 25px
+				margin-left 0

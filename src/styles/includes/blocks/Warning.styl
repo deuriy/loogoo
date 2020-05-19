@@ -1,10 +1,16 @@
 .Warning
 	padding 13px 20px 13px 41px
-	background #F8F9FA url('../img/warning_icon.svg') 18px center no-repeat
+	background #F8F9FA url('../img/warning_icon.svg') 18px 18px no-repeat
 	color $blue2
 	font-weight 600
 	font-size 14px
 	line-height 1.7143
+	
+	@media $xs
+		background-position 17px 18px
+		background-size 16px auto
+		font-size 15px
+		line-height 1.6
 	
 	a
 		color $blue

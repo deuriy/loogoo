@@ -86,13 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		let fieldItemsPostWrapper =  addPostLink.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
 		let fieldItemsPost = fieldItemsPostWrapper.querySelectorAll('.CompanySettings_fieldItem-post');
 		let newFieldItem = fieldItemsPost[0].cloneNode(true);
-		// let textFields = fieldItems.children;
 		console.log(fieldItemsPost);
 		fieldItemsPostWrapper.append(newFieldItem);
-
-		// for (let fieldItemPost of fieldItemsPost) {
-		// 	// statement
-		// }
 
 		newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem"></a>');		
 	});
@@ -106,11 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		let targetSelector = altAddress.getAttribute('href');
 		let targetElement = document.querySelector(targetSelector);
 
-		if (targetElement.style.display == 'none') {
-			targetElement.style.display = 'block';
-		} else {
-			targetElement.style.display = 'none';
-		}
+		targetElement.classList.toggle('hidden');
 
 		e.preventDefault();
 	});
@@ -126,11 +117,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Hide address creation block
 	document.addEventListener('click', function (e) {
-		let cancelAddressCreation = e.target.closest('.CreateAddress_link-cancel');
+		let cancelAddressCreation = e.target.closest('.CreateAddress_link-cancel, .CreateAddress_close');
 
 		if (!cancelAddressCreation) return;
 
-		cancelAddressCreation.closest('.CreateAddress').style.display = 'none';
+		cancelAddressCreation.closest('.CreateAddress').classList.add('hidden');
 		e.preventDefault();
 	});
 
@@ -139,21 +130,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!timeRangeDropdownLabel) return;
 
-		let timeRangeDropdown = timeRangeDropdownLabel.parentNode.querySelector('.TimeRangeDropdown_dropdown');
+		let timeRangeDropdown = timeRangeDropdownLabel.parentNode;
 
-		timeRangeDropdown.classList.toggle('TimeRangeDropdown_dropdown-opened');
+		timeRangeDropdown.classList.toggle('TimeRangeDropdown-opened');
 	});
 
 	document.addEventListener('click', function (e) {
-		let timeRangeDropdowns = document.querySelectorAll('.TimeRangeDropdown_dropdown');
+		let timeRangeDropdowns = document.querySelectorAll('.TimeRangeDropdown');
 
 		if (!timeRangeDropdowns) return;
 
 		for (let timeRangeDropdown of timeRangeDropdowns) {
-			let timeRangeDropdownLabel = timeRangeDropdown.parentNode.querySelector('.TimeRangeDropdown_label');
+			let timeRangeDropdownLabel = timeRangeDropdown.querySelector('.TimeRangeDropdown_label');
 
-			if (timeRangeDropdown.classList.contains('TimeRangeDropdown_dropdown-opened') && !timeRangeDropdown.contains(e.target) && !timeRangeDropdownLabel.contains(e.target)) {
-				timeRangeDropdown.classList.remove('TimeRangeDropdown_dropdown-opened');
+			if (timeRangeDropdown.classList.contains('TimeRangeDropdown-opened') && !timeRangeDropdown.contains(e.target) && !timeRangeDropdownLabel.contains(e.target)) {
+				timeRangeDropdown.classList.remove('TimeRangeDropdown-opened');
 			}
 		}
 	});
@@ -183,7 +174,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 
 		console.log(timeRangeDropdownTime.value);
-		// if (timeRangeDropdownTime.value) {}
 		
 		timeRangeDropdownLabel.textContent = timeRangeFrom + '-' + timeRangeTo;
 	});
@@ -195,7 +185,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let isClockAround = checkboxTimeRange.querySelector('.Checkbox_input');
 
-		// console.log(isClockAround.checked);
 		let timeRangeDropdown = checkboxTimeRange.closest('.TimeRangeDropdown');
 		let timeRangeDropdownLabel = timeRangeDropdown.querySelector('.TimeRangeDropdown_label');
 		let checkboxTimeRangeLabel = checkboxTimeRange.querySelector('.Checkbox_label').textContent;
@@ -209,7 +198,5 @@ document.addEventListener('DOMContentLoaded', function () {
 			timeRangeDropdownLabel.textContent = timeRangeFrom + '-' + timeRangeTo;
 		}
 	});
-
-	// $('.DropdownSelect-daysWeek .DropdownSelect_select').fSelect('reload');
 	
 });

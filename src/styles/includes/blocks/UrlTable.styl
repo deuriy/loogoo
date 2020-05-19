@@ -3,16 +3,39 @@
 	font-size 15px
 	line-height 1.67
 	
+	@media $xs
+		border none
+		line-height 1.6
+	
 	&_item
 		display flex
+		
+		@media $xs
+			flex-direction column
+			margin-bottom 12px
+			padding-right 5px
+			padding-bottom 11px
+			border-bottom 1px solid #ebf0f2
+			
+			&:last-child
+				margin-bottom 0
+				padding-bottom 0
+				border-bottom none
 	
 	&_url, &_destination
 		padding 10px 15px
+		
+		@media $xs
+			padding 0
 	
 	&_url
 		position relative
 		flex 180px 0 0
 		font-weight 600
+		
+		@media $xs
+			flex auto 0 0
+			color $blue2
 		
 		&:after
 			content ""
@@ -22,6 +45,9 @@
 			bottom 4px
 			width 1px
 			background #EBF0F2
+			
+			@media $xs
+				display none
 	
 	&_destination
 		flex auto 1 1

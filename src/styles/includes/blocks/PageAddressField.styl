@@ -4,13 +4,23 @@
 	align-items center
 	padding-left 3px
 	
+	@media $xs
+		flex-direction column
+		align-items stretch
+	
 	&_label
 		flex 141px 0 0
 		font-weight 500
 		color $blue2
+		
+		@media $xs
+			flex auto 0 1
 	
 	&_pageAddress
-		flex 360px 0 0
+		flex 360px 0 1
+		
+		@media $xs
+			flex auto 0 1
 	
 	&_error
 		position absolute

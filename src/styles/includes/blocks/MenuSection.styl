@@ -37,3 +37,25 @@
 	
 	&-notifications
 		overflow visible
+	
+	&-companySettings
+		border-bottom none
+		
+		@media $xs
+			position relative
+			padding-right 0
+			padding-bottom 0
+			padding-left 0
+			background-image -webkit-linear-gradient(to top, #f8f9fa, #fff)
+			background-image -o-linear-gradient(to top, #f8f9fa, #fff)
+			background-image linear-gradient(to top, #f8f9fa, #fff)
+			
+			&:after
+				content ""
+				position absolute
+				top 19px
+				right 0
+				width 32px
+				height 10px
+				background url('../img/menu_section_blur.png') 0 0 / cover no-repeat
+				pointer-events none

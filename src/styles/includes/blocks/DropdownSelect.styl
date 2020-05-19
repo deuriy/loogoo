@@ -149,6 +149,10 @@
 				font-size 15px
 				text-align left
 				
+				@media $xs
+					justify-content space-between
+					font-size 16px
+				
 				&:after
 					content ""
 					margin-top 5px
@@ -189,6 +193,10 @@
 			left 5px
 			width 155px
 			margin-top 12px
+			
+			@media $xs
+				left 0
+				width 100%
 		
 		.fs-options
 			padding-top 8px
@@ -210,3 +218,19 @@
 				.fs-checkbox i
 					left 8px
 					background url('../img/dropdown_checkbox.svg') 0 0 no-repeat
+	
+	&-companySettings
+		.fs-label-wrap .fs-label:after
+			border none
+			width 9px
+			height 6px
+			margin-top 3px
+			background url('../img/arrow_down.svg') 0 0 / cover no-repeat
+			@extend .transition
+		
+		.fs-wrap.fs-open .fs-label:after
+			transform rotate(180deg)
+			
+		.fs-dropdown .fs-options
+			@media $xs
+				max-height 260px

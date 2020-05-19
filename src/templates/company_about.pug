@@ -4,78 +4,77 @@ block vars
 	- var mainModifiers = "Main-companyPage";
 block content
 	.Container.Main_container
-		.MainContent
-			.Company
-				.Company_left
-					.CompanyPhoto
-						img(src="img/company_photo.jpg", alt="Company photo").CompanyPhoto_img
-						.Rating.Rating-company.Rating-center.CompanyPhoto_rating
-							span.Rating_icon
-								include /includes/svg/SvgIco/icon_star
-							span.Rating_number 7,5
-							span.Rating_max / 10
-							span.Rating_label (55 отзывов)
-						a(href="#").BtnBlue.BtnBlue-company Написать сообщение
-				.Company_right
-					h1.Company_title Sony Corporation
-					.MenuSection.Company_menuSection
-						.CategoryMenu.CategoryMenu-company
-							ul.CategoryMenu_menu
-								li.CategoryMenu_item
-									a(href="/company.html").CategoryMenu_link Общая информация
-								li.CategoryMenu_item
-									a(href="/company_about.html").CategoryMenu_link.active О компании
-								li.CategoryMenu_item
-									a(href="#").CategoryMenu_link Отзывы (55)
-								li.CategoryMenu_item
-									a(href="#").CategoryMenu_link Вакансии (3)
-								li.CategoryMenu_item
-									a(href="#").CategoryMenu_link Фотографии (10)
-					.Characteristics.Company_characteristics.Company_characteristics-largeIndent
-						.Characteristic.Characteristics_item
-							.Characteristic_name Страна:
-							.Characteristic_value Украина
-						.Characteristic.Characteristics_item
-							.Characteristic_name Лицензия:
-							.Characteristic_value
-								a(href="#", target="_blank").Characteristic_link.Characteristic_link-doc лицензия №806
-									include /includes/svg/SvgIco/icon_doc
-						.Characteristic.Characteristics_item
-							.Characteristic_name Специализация:
-							.Characteristic_value трудоустройство и визовая поддержка
-						.Characteristic.Characteristics_item
-							.Characteristic_name Адрес офиса:
-							.Characteristic_value г. Киев, ул. Крещатик 117, оф. 17 Б#[br]г. Харьков, Харьковская наб., 16, оф. 12#[br]г. Львов, ул. Лычаковская, 22, оф. 234
-						.Characteristic.Characteristics_item
-							.Characteristic_name Режим работы
-							.Characteristic_value Пн–Пт: 9:00–18:00, без перерыва#[br]Сб–Вс: 10:00–17:00, без перерыва
-						.Characteristic.Characteristics_item
-							.Characteristic_name Телефон:
-							a(href="#").Characteristic_value +38 098 765 43 21#[br]+38 098 765 43 21
-						.Characteristic.Characteristics_item
-							.Characteristic_name Сайт:
-							.Characteristic_value
-								a(href="http://www.sony.com", target="_blank").Characteristic_link www.sony.com
-						.Characteristic.Characteristics_item
-							.Characteristic_name Форма регистрации:
-							.Characteristic_value общество с ограниченной ответственностью
-						.Characteristic.Characteristics_item
-							.Characteristic_name Лицензия:
-							.Characteristic_value
-								a(href="#", target="_blank").Characteristic_link.Characteristic_link-doc лицензия №806
-									include /includes/svg/SvgIco/icon_doc
-						.Characteristic.Characteristics_item
-							.Characteristic_name Год основания:
-							a(href="#").Characteristic_value 1946
-						.Characteristic.Characteristics_item
-							.Characteristic_name Владелец:
-							a(href="#").Characteristic_value Акио Морито
-						.Characteristic.Characteristics_item
-							.Characteristic_name Директор:
-							a(href="#").Characteristic_value Масару Ибуко
-					.Company_description
-						p Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 года. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская #[br]коммуникационно-промышленная компания) или сокращённо Тоцуко или TTK, но, как выяснил Акио Морита, это название тяжело произносить американцам. Нынешнее название «Сони» произошло от комбинации лат. sonus («звук») и англ. sunny boys («солнечные ребята»; в варианте англ. sonny-boys приобрело в японском значение «малолетние гении»); кроме того, Морита старался найти слово, которого нет ни в одном языке мира. Поскольку в японском языке звуки «сон-ни» напоминают слово, обозначающее неуспешный бизнес (буквально: «потерять деньги»), было решено убрать одну из букв n.
-						p Морита возглавлял компанию долгое время, отвечал за маркетинг и продажи и сумел привести её к огромному успеху на рынке. Sony сделала своё имя на хорошем и привлекательном дизайне и новшествах. Особенную роль компания уделяла уменьшению размеров своих изделий.
-						p В 1950 году компания, тогда ещё называвшаяся TTK, начала выпуск первого в Японии магнитофона. Над улучшением качества звука магнитофонов начал работать Норио Ога. В начале 1950-х годов компания за 25 000 $ купила у Western Electric лицензию на производство транзисторов и в 1955 году выпустила свой первый радиоприёмник — «TR-63», эта новинка положила начало успеху компании. Приёмник, хоть и назывался карманным и действительно был маленьким, в карман обычной мужской рубашки не влезал. Для коммивояжёров компания сшила специальные рубашки с увеличенными карманами, чтобы они могли при продаже продемонстрировать, как легко туда помещается приёмник.
+		.Company
+			.Company_left
+				.CompanyPhoto
+					img(src="img/company_photo.jpg", alt="Company photo").CompanyPhoto_img
+					.Rating.Rating-company.Rating-center.CompanyPhoto_rating
+						span.Rating_icon
+							include /includes/svg/SvgIco/icon_star
+						span.Rating_number 7,5
+						span.Rating_max / 10
+						span.Rating_label (55 отзывов)
+					a(href="#").BtnBlue.BtnBlue-company Написать сообщение
+			.Company_right
+				h1.Company_title Sony Corporation
+				.MenuSection.Company_menuSection
+					.CategoryMenu.CategoryMenu-company
+						ul.CategoryMenu_menu
+							li.CategoryMenu_item
+								a(href="/company.html").CategoryMenu_link Общая информация
+							li.CategoryMenu_item
+								a(href="/company_about.html").CategoryMenu_link.active О компании
+							li.CategoryMenu_item
+								a(href="#").CategoryMenu_link Отзывы (55)
+							li.CategoryMenu_item
+								a(href="#").CategoryMenu_link Вакансии (3)
+							li.CategoryMenu_item
+								a(href="#").CategoryMenu_link Фотографии (10)
+				.Characteristics.Company_characteristics.Company_characteristics-largeIndent
+					.Characteristic.Characteristics_item
+						.Characteristic_name Страна:
+						.Characteristic_value Украина
+					.Characteristic.Characteristics_item
+						.Characteristic_name Лицензия:
+						.Characteristic_value
+							a(href="#", target="_blank").Characteristic_link.Characteristic_link-doc лицензия №806
+								include /includes/svg/SvgIco/icon_doc
+					.Characteristic.Characteristics_item
+						.Characteristic_name Специализация:
+						.Characteristic_value трудоустройство и визовая поддержка
+					.Characteristic.Characteristics_item
+						.Characteristic_name Адрес офиса:
+						.Characteristic_value г. Киев, ул. Крещатик 117, оф. 17 Б#[br]г. Харьков, Харьковская наб., 16, оф. 12#[br]г. Львов, ул. Лычаковская, 22, оф. 234
+					.Characteristic.Characteristics_item
+						.Characteristic_name Режим работы
+						.Characteristic_value Пн–Пт: 9:00–18:00, без перерыва#[br]Сб–Вс: 10:00–17:00, без перерыва
+					.Characteristic.Characteristics_item
+						.Characteristic_name Телефон:
+						a(href="#").Characteristic_value +38 098 765 43 21#[br]+38 098 765 43 21
+					.Characteristic.Characteristics_item
+						.Characteristic_name Сайт:
+						.Characteristic_value
+							a(href="http://www.sony.com", target="_blank").Characteristic_link www.sony.com
+					.Characteristic.Characteristics_item
+						.Characteristic_name Форма регистрации:
+						.Characteristic_value общество с ограниченной ответственностью
+					.Characteristic.Characteristics_item
+						.Characteristic_name Лицензия:
+						.Characteristic_value
+							a(href="#", target="_blank").Characteristic_link.Characteristic_link-doc лицензия №806
+								include /includes/svg/SvgIco/icon_doc
+					.Characteristic.Characteristics_item
+						.Characteristic_name Год основания:
+						a(href="#").Characteristic_value 1946
+					.Characteristic.Characteristics_item
+						.Characteristic_name Владелец:
+						a(href="#").Characteristic_value Акио Морито
+					.Characteristic.Characteristics_item
+						.Characteristic_name Директор:
+						a(href="#").Characteristic_value Масару Ибуко
+				.Company_description
+					p Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 года. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская #[br]коммуникационно-промышленная компания) или сокращённо Тоцуко или TTK, но, как выяснил Акио Морита, это название тяжело произносить американцам. Нынешнее название «Сони» произошло от комбинации лат. sonus («звук») и англ. sunny boys («солнечные ребята»; в варианте англ. sonny-boys приобрело в японском значение «малолетние гении»); кроме того, Морита старался найти слово, которого нет ни в одном языке мира. Поскольку в японском языке звуки «сон-ни» напоминают слово, обозначающее неуспешный бизнес (буквально: «потерять деньги»), было решено убрать одну из букв n.
+					p Морита возглавлял компанию долгое время, отвечал за маркетинг и продажи и сумел привести её к огромному успеху на рынке. Sony сделала своё имя на хорошем и привлекательном дизайне и новшествах. Особенную роль компания уделяла уменьшению размеров своих изделий.
+					p В 1950 году компания, тогда ещё называвшаяся TTK, начала выпуск первого в Японии магнитофона. Над улучшением качества звука магнитофонов начал работать Норио Ога. В начале 1950-х годов компания за 25 000 $ купила у Western Electric лицензию на производство транзисторов и в 1955 году выпустила свой первый радиоприёмник — «TR-63», эта новинка положила начало успеху компании. Приёмник, хоть и назывался карманным и действительно был маленьким, в карман обычной мужской рубашки не влезал. Для коммивояжёров компания сшила специальные рубашки с увеличенными карманами, чтобы они могли при продаже продемонстрировать, как легко туда помещается приёмник.
 block page_bottom
 	script(src="/js/company.js")

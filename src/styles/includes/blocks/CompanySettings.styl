@@ -15,14 +15,32 @@
 		padding-bottom 30px
 		border-bottom 1px solid #ebf0f2
 		
+		@media $smMinus
+			margin-bottom 40px
+			padding-right 5px
+			padding-bottom 0
+			border-bottom none
+		
 		&-mainInformation
 			padding-right 180px
 			padding-bottom 17px
+			
+			@media $mdMinus
+				padding-right 140px
+			
+			@media $xs
+				margin-bottom 0
+				padding-right 0
 	
 	&_field
 		display flex
 		align-items flex-start
 		margin-bottom 20px
+		
+		@media $xs
+			flex-direction column
+			align-items stretch
+			margin-bottom 27px
 		
 		&:last-child
 			margin-bottom 0
@@ -30,18 +48,29 @@
 		&-pageAddress
 			position relative
 			margin-bottom 8px
+			
+			@media $xs
+				margin-bottom 12px
 	
 	&_label
 		margin-top 13px
 		flex 170px 0 0
 		font-weight 500
 		color $blue2
+		
+		@media $xs
+			margin-top 0
+			margin-bottom 5px
+			flex auto 0 0
 	
 	&_fieldContent
 		flex auto 1 1
 	
 	&_fieldItems
 		margin-bottom 30px
+		
+		@media $xs
+			margin-bottom 31px
 		
 		&:last-child
 			margin-bottom 0
@@ -51,16 +80,29 @@
 		position relative
 		margin-bottom 20px
 		
+		@media $xs
+			flex-direction column
+		
 		&:last-child
 			margin-bottom 0
 	
 	&_dropdownSelect, &_timeRangeDropdown
-		max-width 166px
 		flex 166px 0 1
+		max-width 166px
 		margin-right 15px
+		
+		@media $xs
+			flex auto 0 0
+			max-width none
+			margin-right 0
+			margin-bottom 25px
 		
 		&:last-child, &-noMargin
 			margin-right 0
+		
+		&:last-child
+			@media $xs
+				margin-bottom 0
 	
 	&_formText, &_textarea, &_dropdownSelect
 		&-fullWidth
@@ -84,25 +126,45 @@
 		+placeholder()
 			color #8396AC
 		
+		@media $xs
+			flex auto 1 1
+			font-size 16px
+		
 		&:last-child
 			margin-right 0
 		
 		&-inline
 			flex 166px 0 1
 			width 166px
+			
+			@media $xs
+				flex auto 0 1
+				width auto
 		
 		&-post
 			margin-right 16px
+			
+			@media $xs
+				margin-right 0
+				margin-bottom 25px
 	
 	&_error
 		position absolute
 		top 12px
 		right -146px
 		width 133px
+		
+		@media $xs
+			top 72px
+			right auto
+			left 0
 	
 	&_timeRangeDropdown
 		&-workingHours
 			margin-right 15px
+			
+			@media $xs
+				margin-right 0
 	
 	&_textarea
 		display block
@@ -112,9 +174,17 @@
 		border-radius 3px
 		outline none
 		resize none
+		
+		@media $xs
+			height 160px
 	
 	&_pageAddress
 		width 100%
+	
+	&_createAddress
+		@media $xs
+			margin-right -15px
+			margin-left -18px
 	
 	&_removeFieldItem
 		position absolute
@@ -123,11 +193,21 @@
 		width 10px
 		height 10px
 		background url('../img/icon_close.svg') 0 0 / cover no-repeat
+		
+		@media $smMinus
+			top 17px
+			right -16px
 	
 	&_actions
 		display flex
 		align-items center
 		padding-left 170px
+		
+		@media $smMinus
+			padding-left 0
+		
+		@media $xs
+			justify-content center
 	
 	&_successfulSave
 		margin-left 29px

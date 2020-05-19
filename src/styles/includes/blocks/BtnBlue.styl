@@ -1,5 +1,6 @@
 .BtnBlue
 	display inline-block
+	max-width 100%
 	padding 5px 13px 6px 14px
 	border none
 	outline none
@@ -87,6 +88,10 @@
 		padding 11px 23px
 		border-radius 18px
 		background $blue
+		text-align center
+		
+		@media $xs
+			width 320px
 	
 	&-disabled
 		background #D0D7E0
@@ -99,5 +104,12 @@
 	
 	&-addCompanyPopup
 		padding 11px 32px 11px 34px
+		border-radius 20px
+		background $blue
+	
+	&-companySettings
+		width 320px
+		padding-top 10px
+		padding-bottom 12px
 		border-radius 20px
 		background $blue

@@ -14,12 +14,23 @@
 		font-size 15px
 		cursor pointer
 		
+		@media $xs
+			justify-content space-between
+		
 		&:after
 			content ""
 			margin-top 5px
 			margin-left 3px
 			border 3px solid transparent
 			border-top 3px solid $blue
+			
+			@media $xs
+				border none
+				width 9px
+				height 6px
+				margin-top 3px
+				background url('../img/arrow_down.svg') 0 0 / cover no-repeat
+				@extend .transition
 	
 	&_dropdown
 		display none
@@ -32,6 +43,9 @@
 		box-shadow 0 0 5px 0 rgba($black, 0.1)
 		background $white
 		
+		@media $xs
+			left 0
+		
 		&:before
 			content ""
 			position absolute
@@ -42,9 +56,6 @@
 			height 10px
 			margin auto
 			background url('../img/corner_shadow.jpg') 0 0 no-repeat
-		
-		&-opened
-			display block
 	
 	&_wrapper
 		display flex
@@ -81,3 +92,12 @@
 		
 		&:last-child
 			margin-right 0
+	
+	&-opened
+		.TimeRangeDropdown_label
+			&:after
+				@media $xs
+					transform rotate(180deg)
+			
+		.TimeRangeDropdown_dropdown
+			display block
