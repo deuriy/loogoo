@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	document.addEventListener('click', function (e) {
-		let companiesSearchText = e.target.closest('.Search-companiesSearch .Search_text');
+		let companiesSearchText = e.target.closest('.Search-companiesDossiers .Search_text');
 
 		if (!companiesSearchText) return;
 
-		let closeSearchBtn = companiesSearchText.closest('.Search-companiesSearch').querySelector('.Search_closeBtn');
+		let closeSearchBtn = companiesSearchText.closest('.Search-companiesDossiers').querySelector('.Search_closeBtn');
 		closeSearchBtn.classList.remove('hidden');
 	});
 
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!closeSearchBtn) return;
 
-		let companiesSearchText = closeSearchBtn.closest('.Search-companiesSearch').querySelector('.Search_text');
+		let companiesSearchText = closeSearchBtn.closest('.Search-companiesDossiers').querySelector('.Search_text');
 		companiesSearchText.value = '';
 		companiesSearchText.focus();
 	});

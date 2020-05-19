@@ -33,8 +33,14 @@
 		&:last-child
 			margin-bottom 0
 	
-	&-search
+	&-dossiers
 		max-width 722px
+		
+		@media $smMinus
+			max-width 100%
+		
+		@media $xs
+			padding-top 19px
 		
 		.Companies_categories
 			margin-bottom 30px
@@ -73,6 +79,9 @@
 		
 		.Companies_item
 			margin-bottom 35px
+			
+			@media $xs
+				margin-bottom 27px
 			
 			&:last-child
 				margin-bottom 0

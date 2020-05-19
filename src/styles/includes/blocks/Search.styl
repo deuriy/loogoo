@@ -72,19 +72,46 @@
 				opacity 1
 				color $blue2
 	
-	&-companiesSearch
+	&-companiesDossiers
+		@media $xs
+			display flex
+			align-items center
+		
+		.Search_item
+			@media $xs
+				margin-right 17px
+				
 		.Search_text
 			height 50px
+			
+			@media $xs
+				height 45px
+				padding-right 42px
+				padding-left 13px
+				background-image none
+				font-size 13px
 		
 		.Search_closeBtn
 			position absolute
 			top 6px
 			right -2px
 			opacity 0.5
+			color #ababab
+			
+			@media $xs
+				position absolute
+				top 0
+				right 0
 			
 			& > .SvgIco
 				width 18px
 				color $blue2
+				
+		.Search_icon
+			position relative
+			
+			.SvgIco
+				width 16px
 	
 	&-header
 		display none

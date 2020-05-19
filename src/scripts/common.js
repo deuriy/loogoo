@@ -346,7 +346,9 @@ document.addEventListener("DOMContentLoaded", function () {
 			coords = popupMenuLink.getBoundingClientRect();
 			popupMenuWrapper.style.top = coords.top - 30 + "px";
 			popupMenuWrapper.style.left = coords.left - 5 + "px";
-		}		
+
+			console.log(coords.right);
+		}
 		
 		e.preventDefault();
 	});

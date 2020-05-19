@@ -31,7 +31,8 @@
 			width 14px
 			height 14px
 			margin-left 7px
-			background url('../img/checkbox_green.svg') 0 0 no-repeat
+			background url('../img/checkbox_green.svg') 0 0 / cover no-repeat
+			vertical-align middle
 		
 		a
 			&:hover
@@ -63,13 +64,62 @@
 	&_countryIcon
 		margin-right 8px
 	
-	&-search
+	&-dossiers
+		@media $xs
+			padding-bottom 18px
+			
+		.CompanyBlock_header
+			display flex
+			align-items flex-start
+			
+			@media $xs
+				margin-bottom 4px
+			
 		.CompanyBlock_logo
 			width 90px
 			margin-right 28px
+			
+			@media $xs
+				width 46px
+				margin-right 15px
 		
 		.CompanyBlock_name
 			margin-top -6px
+			
+			&:after
+				@media $xs
+					width 12px
+					height 12px
+					margin-left 6px
+			
+			@media $xs
+				font-size 18px
+				line-height 1.44
+		
+		.CompanyBlock_activity
+			@media $xs
+				width 320px
+				margin-bottom 5px
+				margin-left 0
+				font-size 16px
+				line-height 1.5
+				white-space nowrap
+				overflow hidden
+				text-overflow ellipsis
 		
 		.CompanyBlock_description
 			margin-bottom 18px
+			
+			@media $xs
+				margin-bottom 8px
+				font-size 16px
+				line-height 1.5
+		
+		.CompanyBlock_country
+			@media $xs
+				margin-right 0
+				font-size 15px
+		
+		.CompanyBlock_countryIcon
+			@media $xs
+				margin-right 5px
