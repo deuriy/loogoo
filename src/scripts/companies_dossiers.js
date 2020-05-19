@@ -7,5 +7,22 @@ document.addEventListener('DOMContentLoaded', function () {
 		applicationCloseBtn.closest('.Application').classList.add('hidden');
 	});
 
-	
+	document.addEventListener('click', function (e) {
+		let companiesSearchText = e.target.closest('.Search-companiesSearch .Search_text');
+
+		if (!companiesSearchText) return;
+
+		let closeSearchBtn = companiesSearchText.closest('.Search-companiesSearch').querySelector('.Search_closeBtn');
+		closeSearchBtn.classList.remove('hidden');
+	});
+
+	document.addEventListener('click', function (e) {
+		let closeSearchBtn = e.target.closest('.Search_closeBtn');
+
+		if (!closeSearchBtn) return;
+
+		let companiesSearchText = closeSearchBtn.closest('.Search-companiesSearch').querySelector('.Search_text');
+		companiesSearchText.value = '';
+		companiesSearchText.focus();
+	});
 });
