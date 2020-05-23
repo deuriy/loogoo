@@ -136,6 +136,9 @@
 			display block
 			width auto
 			
+			&.fs-open .fs-label:after
+				transform rotate(180deg)
+			
 		.fs-label-wrap
 			display block
 			padding-right 0
@@ -144,21 +147,23 @@
 			
 			.fs-label
 				display flex
+				justify-content space-between
 				align-items center
 				padding 11px 12px 12px
 				font-size 15px
 				text-align left
 				
 				@media $xs
-					justify-content space-between
 					font-size 16px
 				
 				&:after
 					content ""
-					margin-top 5px
+					width 9px
+					height 6px
+					margin-top 3px
 					margin-left 3px
-					border 3px solid transparent
-					border-top 3px solid $blue
+					background url('../img/arrow_down.svg') 0 0 / cover no-repeat
+					@extend .transition
 			
 			&:after
 				display none
@@ -168,6 +173,17 @@
 				right 0
 				left 0
 				margin auto
+			
+			.fs-options
+				@media $xs
+					max-height 255px
+					padding-top 5px
+					padding-bottom 5px
+			
+			.fs-option
+				@media $xs
+					padding 8px 12px
+					font-size 16px
 	
 	&-operations
 		.fs-label-wrap .fs-label
@@ -209,7 +225,8 @@
 			
 		.fs-option
 			padding 7px 13px 6px 34px
-			color #D2D7D9
+			// color #D2D7D9
+			color #545556
 			font-size 14px
 			
 			&.selected
@@ -218,19 +235,3 @@
 				.fs-checkbox i
 					left 8px
 					background url('../img/dropdown_checkbox.svg') 0 0 no-repeat
-	
-	&-companySettings
-		.fs-label-wrap .fs-label:after
-			border none
-			width 9px
-			height 6px
-			margin-top 3px
-			background url('../img/arrow_down.svg') 0 0 / cover no-repeat
-			@extend .transition
-		
-		.fs-wrap.fs-open .fs-label:after
-			transform rotate(180deg)
-			
-		.fs-dropdown .fs-options
-			@media $xs
-				max-height 260px

@@ -20,7 +20,7 @@ block content
 								a(href="/profile_company_settings.html").CategoryMenu_link.active О компании
 							li.CategoryMenu_item
 								a(href="/company_verification.html").CategoryMenu_link Верификация
-				form(action="#").CompanySettings
+				form(action="#", name="company_settings").CompanySettings
 					h2.CompanySettings_title.hidden-xs О компании
 					.CompanySettings_fields
 						.CompanySettings_field
@@ -120,9 +120,9 @@ block content
 						.CompanySettings_field
 							label(for="license").CompanySettings_label Лицензия:
 							.CompanySettings_fieldContent
-								input(type="text", name="license", id="license", placeholder="ссылка на документ").CompanySettings_formText.CompanySettings_formText-fullWidth
+								input(type="text", name="license", id="license", placeholder="ссылка на лицензию").CompanySettings_formText.CompanySettings_formText-fullWidth
 						.CompanySettings_field
-							label(for="registration_form").CompanySettings_label Форма регистрации:
+							label.CompanySettings_label Форма регистрации:
 							.CompanySettings_fieldContent
 								.DropdownSelect.DropdownSelect-companySettings.CompanySettings_dropdownSelect
 									select(name="registration_form").DropdownSelect_select
@@ -134,29 +134,36 @@ block content
 							.CompanySettings_fieldContent
 								.CompanySettings_fieldItems
 									.CompanySettings_fieldItem
-										input(type="text", name="owner_fio", placeholder="ФИО").CompanySettings_formText
+										input(type="text", name="owner_surname", placeholder="Фамилия").CompanySettings_formText.CompanySettings_formText-col3.CompanySettings_formText-gutter
+										input(type="text", name="owner_name", placeholder="Имя").CompanySettings_formText.CompanySettings_formText-col3.CompanySettings_formText-gutter
+										input(type="text", name="owner_patronym", placeholder="Отчество").CompanySettings_formText.CompanySettings_formText-col3
 						.CompanySettings_field
 							label.CompanySettings_label Директор:
 							.CompanySettings_fieldContent
 								.CompanySettings_fieldItems
 									.CompanySettings_fieldItem
-										input(type="text", name="director_fio", placeholder="ФИО").CompanySettings_formText
-									.CompanySettings_fieldItem.CompanySettings_fieldItem-post
-										input(type="text", name="post", placeholder="должность").CompanySettings_formText.CompanySettings_formText-inline.CompanySettings_formText-post
-										input(type="text", name="fio", placeholder="ФИО").CompanySettings_formText
-										//- a(href="javascript:;").CompanySettings_removeFieldItem
-								a(href="javascript:;").AddFieldItem.AddFieldItem-post
+										input(type="text", name="director_surname", placeholder="Фамилия").CompanySettings_formText.CompanySettings_formText-col3.CompanySettings_formText-gutter
+										input(type="text", name="director_name", placeholder="Имя").CompanySettings_formText.CompanySettings_formText-col3.CompanySettings_formText-gutter
+										input(type="text", name="director_patronym", placeholder="Отчество").CompanySettings_formText.CompanySettings_formText-col3
+						.CompanySettings_field.CompanySettings_field-postAddition
+							.CompanySettings_fieldContent.CompanySettings_fieldContent-postAddition
+								.CompanySettings_posts.hidden-smPlus
+								a(href="javascript:;").AddFieldItem.AddFieldItem-post.hidden-xs
+									include /includes/svg/icon_add
+									.
+										Добавить ещё должность
+								a(href="javascript:;", data-src="#PostAddition").AddFieldItem.hidden-smPlus.OpenPopupLink
 									include /includes/svg/icon_add
 									.
 										Добавить ещё должность
 						.CompanySettings_field
 							label(for="short_description").CompanySettings_label Краткое описание:
 							.CompanySettings_fieldContent
-								textarea(name="short_description", id="short_description").CompanySettings_textarea.CompanySettings_textarea-fullWidth
+								textarea(name="short_description", id="short_description").FormTextarea.FormTextarea-companySettings
 						.CompanySettings_field
 							label(for="full_description").CompanySettings_label Полное описание:
 							.CompanySettings_fieldContent
-								textarea(name="full_description", id="full_description").CompanySettings_textarea.CompanySettings_textarea-fullWidth
+								textarea(name="full_description", id="full_description").FormTextarea.FormTextarea-companySettings
 					.CompanySettings_actions
 						button(type="submit").BtnOutline.BtnOutline-blue.BtnOutline-companySettings.hidden-xs Сохранить
 						button(type="submit").BtnBlue.BtnBlue-companySettings.hidden-smPlus Сохранить
@@ -180,4 +187,6 @@ block content
 						li.SettingsMenu_item
 							a(href="/profile_messages.html").SettingsMenu_link Сообщения
 block page_bottom
+	include /includes/blocks/PostAddition
+	include /includes/blocks/PostAdditionEdit
 	script(src="/js/company_settings.js")

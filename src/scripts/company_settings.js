@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		let formText = fieldItems.firstElementChild.querySelector('.CompanySettings_formText').cloneNode(true);
 
 		let newFieldItem = document.createElement('div');
-		newFieldItem.className = 'CompanySettings_fieldItem';
+		newFieldItem.className = 'CompanySettings_fieldItem CompanySettings_fieldItem-additional';
 		newFieldItem.append(dropdownSelect, formText);
 		newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem"></a>');
 
@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let fieldItems = addPhoneLink.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
 		let newFieldItem = fieldItems.firstElementChild.cloneNode(true);
+		newFieldItem.classList.add('CompanySettings_fieldItem-additional');
 		fieldItems.append(newFieldItem);
 
 		newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem"></a>');		
@@ -47,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let fieldItems = addDaysWeekLink.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
 		let fieldItemsNumber = fieldItems.children.length;
-		console.log(fieldItemsNumber);
 
 		let select = fieldItems.firstElementChild.querySelector('select').cloneNode(true);
 		select.classList.remove('hidden');
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 
 		let newFieldItem = document.createElement('div');
-		newFieldItem.className = 'CompanySettings_fieldItem';
+		newFieldItem.className = 'CompanySettings_fieldItem CompanySettings_fieldItem-additional';
 		newFieldItem.append(dropdownSelect, ...timeRangeDropdownsCloned);
 		newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem"></a>');
 
@@ -83,13 +83,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!addPostLink) return;
 
-		let fieldItemsPostWrapper =  addPostLink.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
-		let fieldItemsPost = fieldItemsPostWrapper.querySelectorAll('.CompanySettings_fieldItem-post');
-		let newFieldItem = fieldItemsPost[0].cloneNode(true);
-		console.log(fieldItemsPost);
-		fieldItemsPostWrapper.append(newFieldItem);
+		let currentFieldItem = addPostLink.closest('.CompanySettings_field');
 
-		newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem"></a>');		
+		currentFieldItem.insertAdjacentHTML('beforebegin', '<div class="CompanySettings_field CompanySettings_field-post"><div class="CompanySettings_fieldContent"><div class="CompanySettings_fieldItems"><div class="CompanySettings_fieldItem CompanySettings_fieldItem-post"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="post" placeholder="должность"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="surname" placeholder="Фамилия"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="name" placeholder="Имя"><input class="CompanySettings_formText CompanySettings_formText-col4" type="text" name="patronym" placeholder="Отчество"><a class="CompanySettings_removeFieldItem" href="javascript:;"></a></div></div></div></div>');
 	});
 
 	// Add alternative address
@@ -112,7 +108,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!removeFieldItemLink) return;
 
-		removeFieldItemLink.closest('.CompanySettings_fieldItem').remove();
+		let parentField = removeFieldItemLink.closest('.CompanySettings_field');
+
+		if (!parentField.classList.contains('CompanySettings_field-post')) {
+			removeFieldItemLink.closest('.CompanySettings_fieldItem').remove();
+		} else {
+			parentField.remove();
+		}
 	});
 
 	// Hide address creation block
@@ -172,8 +174,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		} else {
 			timeRangeDropdownTime.classList.remove('TimeRangeDropdown_time-notEmpty');
 		}
-
-		console.log(timeRangeDropdownTime.value);
 		
 		timeRangeDropdownLabel.textContent = timeRangeFrom + '-' + timeRangeTo;
 	});
@@ -197,6 +197,139 @@ document.addEventListener('DOMContentLoaded', function () {
 		} else {
 			timeRangeDropdownLabel.textContent = timeRangeFrom + '-' + timeRangeTo;
 		}
+	});
+
+	$('[data-src="#PostAddition"]').fancybox({
+		touch: false,
+		smallBtn: false,
+		toolbar: false,
+		baseTpl:
+	    '<div class="fancybox-container fancybox-container--no-padding" role="dialog" tabindex="-1">' +
+	    '<div class="fancybox-bg"></div>' +
+	    '<div class="fancybox-inner">' +
+	    '<div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div>' +
+	    '<div class="fancybox-toolbar">{{buttons}}</div>' +
+	    '<div class="fancybox-navigation">{{arrows}}</div>' +
+	    '<div class="fancybox-stage"></div>' +
+	    '<div class="fancybox-caption"><div class=""fancybox-caption__body"></div></div>' +
+	    '</div>' +
+	    '</div>',
+
+	  beforeLoad: function(instance, current) {
+	   	let postAdditionForm = document.forms['post_addition'];
+
+	   	postAdditionForm.post2.value = postAdditionForm.surname2.value = postAdditionForm.name2.value = postAdditionForm.patronym2.value = '';
+
+      postAdditionForm.addEventListener('submit', function (e) {
+      	let companySettingsPosts = document.querySelector('.CompanySettings_posts');
+
+      	let fullName = postAdditionForm.surname2.value + ' ' + postAdditionForm.name2.value + ' ' + postAdditionForm.patronym2.value;
+
+      	companySettingsPosts.insertAdjacentHTML('beforeend', `<div class="CompanySettings_post"><div class="CompanySettings_postHeader"><div class="CompanySettings_jobTitle">${postAdditionForm.post2.value}</div><a href="javascript:;" class="CompanySettings_removePost"></a></div><a href="javascript:;" data-src="#PostAdditionEdit" class="CompanySettings_link CompanySettings_link-fullNameEdit OpenPopupLink">${fullName}</a></div>`);
+
+      	e.preventDefault();
+      	$.fancybox.close();
+      });
+    }
+	});
+
+	document.addEventListener('click', function (e) {
+		let fullNameEditLink = e.target.closest('.CompanySettings_link-fullNameEdit');
+
+		if (!fullNameEditLink) return;
+
+		$.fancybox.open({
+	    src: '#PostAdditionEdit',
+	    type: 'inline',
+	    opts: {
+	    	touch: false,
+				smallBtn: false,
+				toolbar: false,
+				baseTpl:
+			    '<div class="fancybox-container fancybox-container--no-padding" role="dialog" tabindex="-1">' +
+			    '<div class="fancybox-bg"></div>' +
+			    '<div class="fancybox-inner">' +
+			    '<div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div>' +
+			    '<div class="fancybox-toolbar">{{buttons}}</div>' +
+			    '<div class="fancybox-navigation">{{arrows}}</div>' +
+			    '<div class="fancybox-stage"></div>' +
+			    '<div class="fancybox-caption"><div class=""fancybox-caption__body"></div></div>' +
+			    '</div>' +
+			    '</div>',
+
+	    	beforeLoad: function (instance, current) {
+		      let [lastName, firstName, patronym] = fullNameEditLink.textContent.split(' ');
+
+		      let currentPost = fullNameEditLink.closest('.CompanySettings_post');
+		      let jobTitle = currentPost.querySelector('.CompanySettings_jobTitle').textContent;
+
+		      let postEditingForm = document.forms['post_editing'];
+
+		      postEditingForm.post3.value = jobTitle;
+		      postEditingForm.name3.value = firstName;
+		      postEditingForm.surname3.value = lastName;
+		      postEditingForm.patronym3.value = patronym;
+
+		      postEditingForm.addEventListener('submit', function (e) {
+		      	currentPost.querySelector('.CompanySettings_jobTitle').textContent = postEditingForm.post3.value;
+
+		      	let fullName = postEditingForm.surname3.value + ' ' + postEditingForm.name3.value + ' ' + postEditingForm.patronym3.value;
+
+		      	currentPost.querySelector('.CompanySettings_link-fullNameEdit').textContent = fullName;
+
+		      	e.preventDefault();
+		      	$.fancybox.close();
+		      });
+		    }
+		  }
+		});
+	});
+
+	document.addEventListener('click', function (e) {
+		let removePostLink = e.target.closest('.CompanySettings_removePost');
+
+		if (!removePostLink) return;
+
+		removePostLink.closest('.CompanySettings_post').remove();
+	});
+
+	function isOrderedSequence(arr) {
+		for (let i = 0; i < arr.length - 1; i++) {
+			if (arr[i] + 1 != arr[i + 1]) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	let abbreviatedNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+
+	document.addEventListener('click', function (e) {
+		let clickedOption = e.target.closest('.DropdownSelect-daysWeek .fs-option');
+
+		if (!clickedOption) return;
+
+		let dropdownSelect = clickedOption.closest('.DropdownSelect-daysWeek');
+		let selectedOptions = dropdownSelect.querySelectorAll('.fs-option.selected');
+
+		let selectedIndexes = Array.from(selectedOptions).map(item => item.dataset.index * 1);
+
+		let fSelectLabel = dropdownSelect.querySelector('.fs-label');
+		let resultArray;
+
+		if (selectedIndexes.length == 1) {
+			fSelectLabel.textContent = selectedOptions[0].querySelector('.fs-option-label').textContent;
+		} else if (isOrderedSequence(selectedIndexes)) {
+			let firstOptionIndex = selectedIndexes[0];
+			let lastOptionIndex = selectedIndexes[selectedIndexes.length - 1];
+			fSelectLabel.textContent = abbreviatedNames[firstOptionIndex] + '-' + abbreviatedNames[lastOptionIndex];
+		} else {
+			resultArray = selectedIndexes.map(item => abbreviatedNames[item]);
+			fSelectLabel.textContent = resultArray.join(', ');
+		}
+
+		resultArray = selectedIndexes.map((item, index) => abbreviatedNames[item]);
 	});
 	
 });

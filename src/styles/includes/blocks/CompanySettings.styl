@@ -17,7 +17,8 @@
 		
 		@media $smMinus
 			margin-bottom 40px
-			padding-right 5px
+			// padding-right 5px
+			padding-right 0
 			padding-bottom 0
 			border-bottom none
 		
@@ -45,6 +46,16 @@
 		&:last-child
 			margin-bottom 0
 		
+		&-post
+			margin-left -13px
+			
+			@media $xs
+				margin-left 0
+		
+		&-postAddition
+			margin-top 30px
+			margin-bottom 24px
+		
 		&-pageAddress
 			position relative
 			margin-bottom 8px
@@ -65,6 +76,12 @@
 	
 	&_fieldContent
 		flex auto 1 1
+		
+		&-postAddition
+			padding-left 171px
+
+			@media $xs
+				padding-left 0
 	
 	&_fieldItems
 		margin-bottom 30px
@@ -85,6 +102,10 @@
 		
 		&:last-child
 			margin-bottom 0
+		
+		&-additional
+			@media $xs
+				padding-right 23px
 	
 	&_dropdownSelect, &_timeRangeDropdown
 		flex 166px 0 1
@@ -133,20 +154,22 @@
 		&:last-child
 			margin-right 0
 		
-		&-inline
-			flex 166px 0 1
-			width 166px
-			
-			@media $xs
-				flex auto 0 1
-				width auto
-		
-		&-post
+		&-gutter
 			margin-right 16px
 			
 			@media $xs
 				margin-right 0
 				margin-bottom 25px
+		
+		&-col3
+			width 33.33%
+		
+		&-col4
+			width 25%
+		
+		&-col3, &-col4
+			@media $xs
+				width auto
 	
 	&_error
 		position absolute
@@ -166,37 +189,33 @@
 			@media $xs
 				margin-right 0
 	
-	&_textarea
-		display block
-		height 90px
-		padding 10px 12px
-		border-color $grey
-		border-radius 3px
-		outline none
-		resize none
-		
-		@media $xs
-			height 160px
-	
 	&_pageAddress
 		width 100%
 	
 	&_createAddress
 		@media $xs
 			margin-right -15px
+			margin-bottom 20px
 			margin-left -18px
+	
+	&_removeFieldItem, &_removePost
+		width 30px
+		height 30px
+		padding 10px
+		background url('../img/icon_close.svg') center center / 10px auto no-repeat
 	
 	&_removeFieldItem
 		position absolute
-		top 14px
-		right -21px
-		width 10px
-		height 10px
-		background url('../img/icon_close.svg') 0 0 / cover no-repeat
+		top 7px
+		right -29px
 		
 		@media $smMinus
 			top 17px
 			right -16px
+		
+		@media $xs
+			top 7px
+			right -10px
 	
 	&_actions
 		display flex
@@ -211,6 +230,40 @@
 	
 	&_successfulSave
 		margin-left 29px
+	
+	&_link
+		color $blue
+		
+		&-cancel, &-fullNameEdit
+			font-weight 500
+		
+		&-fullNameEdit
+			font-size 16px
+			line-height 1.5625
+	
+	// &_posts
+	// 	margin-bottom 28px
+	
+	&_post
+		margin-bottom 24px
+	
+	&_postHeader
+		display flex
+		justify-content space-between
+		align-items center
+		margin-bottom 4px
+	
+	&_jobTitle
+		margin-left 2px
+		font-weight 500
+		font-size 14px
+		color $blue2
+		white-space nowrap
+		overflow hidden
+		text-overflow ellipsis
+	
+	&_removePost
+		margin-right -10px
 	
 	&-popup
 		.CompanySettings_fields
@@ -258,9 +311,16 @@
 			@media $xs
 				margin-right 0
 				flex-grow 1
+	
+	&-postAddition
+		padding-left 0
 		
-		.CompanySettings_link
-			color $blue
-			
-			&-cancel
-				font-weight 500
+		.CompanySettings_fields
+			margin-bottom 46px
+		
+		.CompanySettings_actions
+			flex-direction column
+		
+		.CompanySettings_addButton 
+			width 100%
+			margin-bottom 36px

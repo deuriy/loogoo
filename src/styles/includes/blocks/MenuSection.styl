@@ -38,8 +38,9 @@
 	&-notifications
 		overflow visible
 	
-	&-companySettings, &-companiesDossiers
+	&-companySettings
 		border-bottom none
+		overflow hidden
 		
 		@media $xs
 			position relative
@@ -52,8 +53,8 @@
 			
 			&:after
 				content ""
-				position fixed
-				top 75px
+				position absolute
+				top 20px
 				right 0
 				width 32px
 				height 10px

@@ -1067,6 +1067,10 @@
         if (shouldPrevent(differenceX, differenceY)) {
           e.preventDefault();
         }
+
+        if (e.cancelable) {
+           e.preventDefault();
+        }
       }
     }
     function touchEnd() {

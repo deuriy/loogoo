@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	// Textarea auto height
-	let textarea = document.querySelectorAll('.FormTextarea-commentForm, .FormTextarea-commentFormCompany');
+	let textarea = document.querySelectorAll('.FormTextarea-commentForm, .FormTextarea-commentFormCompany, .FormTextarea-companySettings');
 
 	textarea.forEach(el => {
 		el.addEventListener('keydown', () => {
@@ -211,7 +211,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	activePopupMenuItem( document.querySelector('#PopupMenu'), document.querySelector('.PopupMenuLink') );
 
 	// Sidebar Menu
-	// let sidebarMenu = document.querySelector('#SidebarMenu');
 	let sidebarMenuParentLinks = document.querySelectorAll('.SidebarMenu_item-hasSubMenu > a');
 
 	sidebarMenuParentLinks.forEach(el => {
@@ -249,7 +248,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		let header = searchForm.closest('.Header');
 
 		searchLink.onclick = e => {
-			console.log('Yes!');
 			e.preventDefault();
 			searchForm.classList.toggle('Search-visibleFlex');
 			searchForm.querySelector('.Search_text').focus();
@@ -342,12 +340,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			popupMenuWrapper.style.top = coords.top + "px";
 			popupMenuWrapper.style.left = coords.left + "px";
-		} else {
-			coords = popupMenuLink.getBoundingClientRect();
-			popupMenuWrapper.style.top = coords.top - 30 + "px";
-			popupMenuWrapper.style.left = coords.left - 5 + "px";
-
-			console.log(coords.right);
 		}
 		
 		e.preventDefault();
@@ -395,9 +387,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (!selectWrap) return;
 
-		const dropdownPs = new PerfectScrollbar(selectWrap.querySelector('.fs-dropdown .fs-options'), {
+		let dropdownSelector = selectWrap.querySelector('.fs-dropdown .fs-options');
+
+		const dropdownPs = new PerfectScrollbar(dropdownSelector, {
 		  wheelPropagation: false,
-			minScrollbarLength: 20,
+			minScrollbarLength: 20
 		});
 	});
 

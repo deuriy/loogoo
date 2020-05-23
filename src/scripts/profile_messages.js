@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		document.querySelector('.Dialogue_headerWrapper').classList.add('hidden');
 		document.forms['dialogue_search'].classList.remove('hidden');
 		document.querySelector('.ProfileMessages_link-showUnread').classList.add('hidden');
-		document.querySelector('.ProfileMessages_messages').classList.remove('hidden');
+		// document.querySelector('.ProfileMessages_messages').classList.remove('hidden');
 		document.forms['dialogue_search']['dialogue_search_query'].focus();
 	});
 
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		document.querySelector('.Dialogue_headerWrapper').classList.remove('hidden');
 		document.forms['dialogue_search'].classList.add('hidden');
 		document.querySelector('.ProfileMessages_link-showUnread').classList.remove('hidden');
-		document.querySelector('.ProfileMessages_messages').classList.add('hidden');
+		// document.querySelector('.ProfileMessages_messages').classList.add('hidden');
 		document.forms['dialogue_search']['dialogue_search_query'].value = '';
 	});
 

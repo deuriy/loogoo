@@ -47,7 +47,14 @@
 				margin-right 0
 	
 	&-companySettings, &-companiesDossiers
-		@media $xs			
+		overflow auto
+		
+		@media $xs
+			&::-webkit-scrollbar
+				width 0
+				height 0
+				background transparent
+				
 			.CategoryMenu_item
 				margin-right 0
 				font-size 14px
