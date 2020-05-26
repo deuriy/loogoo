@@ -1,0 +1,36 @@
+.FieldAddition.FieldAddition-popup.FieldAddition-altAddress#AltAddressAddition(style="display: none;")
+	.MobileHeader.hidden-smPlus
+		a(href="javascript:;", data-fancybox-close).BtnBack.BtnBack-noScript.MobileHeader_btnBack
+			include /includes/svg/SvgIco/arrow_left
+		h2.MobileHeader_title Дополнительный адрес
+	.FieldAddition_main
+		form(action="#", name="owner_addition").CompanySettings.CompanySettings-fieldAddition
+			.CompanySettings_fields
+				.CreateAddress.CreateAddress-companySettings.CompanySettings_createAddress
+					a(href="javascript:;").CreateAddress_close.hidden
+						include /includes/svg/SvgIco/close
+					h3.CreateAddress_title Создать дополнительный #[br.hidden-smPlus]адрес за 250 UAH / мес
+					.CreateAddress_content
+						p Вы можете создать неограниченное количество адресов, которые защитят вашу компанию от появления разного рода клонов, а также сделают доступ к вашей странице очень удобным и запоминающимся. Больше адресов – больше удобства.
+						p.Semibold Мы рекомендуем создать хотя бы #[br.hidden-smPlus]3 адреса:
+						.UrlTable.CreateAddress_urlTable
+							.UrlTable_item
+								.UrlTable_url /yourcompany
+								.UrlTable_destination полное имя вашей компании, например /samsung
+							.UrlTable_item
+								.UrlTable_url /youcompany.com
+								.UrlTable_destination веб-сайт вашей компании, например /samsung.com
+							.UrlTable_item
+								.UrlTable_url /name
+								.UrlTable_destination сокращенное имя вашего бренда, например /smg
+						p Помните, вы в любой момент сможете отказаться от этой услуги, но тогда эти адреса станут свободными для использования другими пользователями.
+					.Warning.CreateAddress_warning Недостаточно средств на счёте. Необходимо #[a(href="#") пополнить баланс] на 250 UAH
+					.PageAddressField.CreateAddress_pageAddressField
+						label(for="page_company_additional_url2").PageAddressField_label Адрес страницы:
+						.PageAddress.PageAddressField_pageAddress
+							.PageAddress_siteUrl https://infoza.top/
+							input(type="text", name="page_company_url[]", value="sonycorporation", id="page_company_additional_url2").PageAddress_companyUrl
+						.Error.PageAddressField_error.hidden адрес уже занят
+					.CreateAddress_buttons
+						a(href="#").BtnBlue.BtnBlue-createAddress.BtnBlue-disabled Добавить адрес за 250 UAH / мес
+						a(href="javascript:;", data-fancybox-close).CreateAddress_link.CreateAddress_link-closePopup Отмена

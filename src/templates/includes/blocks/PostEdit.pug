@@ -1,27 +1,27 @@
-.PostAddition.PostAddition-popup#PostAdditionEdit(style="display: none;")
+.FieldAddition.FieldAddition-popup#PostEdit(style="display: none;")
 	.MobileHeader.hidden-smPlus
 		a(href="javascript:;", data-fancybox-close).BtnBack.BtnBack-noScript.MobileHeader_btnBack
 			include /includes/svg/SvgIco/arrow_left
-		h2.MobileHeader_title Редактирование
-	.PostAddition_main
-		form(action="#", name="post_editing").CompanySettings.CompanySettings-postAddition
+		h2.MobileHeader_title Редактировать должность
+	.FieldAddition_main
+		form(action="#", name="post_editing").CompanySettings.CompanySettings-fieldAddition
 			.CompanySettings_fields
 				.CompanySettings_field
 					label(for="post3").CompanySettings_label Название должности:
 					.CompanySettings_fieldContent
 						input(type="text", name="post3", id="post3", required).CompanySettings_formText.CompanySettings_formText-fullWidth
 				.CompanySettings_field
-					label(for="name3").CompanySettings_label Имя:
-					.CompanySettings_fieldContent
-						input(type="text", name="name3", id="name3", required).CompanySettings_formText.CompanySettings_formText-fullWidth
-				.CompanySettings_field
 					label(for="surname3").CompanySettings_label Фамилия:
 					.CompanySettings_fieldContent
 						input(type="text", name="surname3", id="surname3", required).CompanySettings_formText.CompanySettings_formText-fullWidth
 				.CompanySettings_field
+					label(for="name3").CompanySettings_label Имя:
+					.CompanySettings_fieldContent
+						input(type="text", name="name3", id="name3", required).CompanySettings_formText.CompanySettings_formText-fullWidth
+				.CompanySettings_field
 					label(for="patronym3").CompanySettings_label Отчество:
 					.CompanySettings_fieldContent
-						input(type="text", name="patronym3", id="patronym3", required).CompanySettings_formText.CompanySettings_formText-fullWidth
+						input(type="text", name="patronym3", id="patronym3").CompanySettings_formText.CompanySettings_formText-fullWidth
 			.CompanySettings_actions
 				button(type="submit").BtnBlue.BtnBlue-addCompanyPopup.CompanySettings_addButton Сохранить изменения
 				.CompanySettings_cancelLinkWrapper

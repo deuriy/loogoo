@@ -52,6 +52,9 @@
 			@media $xs
 				margin-left 0
 		
+		&-ownerAddition
+			margin-bottom 20px
+		
 		&-postAddition
 			margin-top 30px
 			margin-bottom 24px
@@ -120,8 +123,7 @@
 		
 		&:last-child, &-noMargin
 			margin-right 0
-		
-		&:last-child
+
 			@media $xs
 				margin-bottom 0
 	
@@ -163,13 +165,16 @@
 		
 		&-col3
 			width 33.33%
+			max-width calc(33.33% - 11px)
 		
 		&-col4
 			width 25%
+			max-width calc(25% - 12px)
 		
 		&-col3, &-col4
 			@media $xs
 				width auto
+				max-width none
 	
 	&_error
 		position absolute
@@ -198,7 +203,7 @@
 			margin-bottom 20px
 			margin-left -18px
 	
-	&_removeFieldItem, &_removePost
+	&_removeFieldItem, &_removePost, &_removeOwner
 		width 30px
 		height 30px
 		padding 10px
@@ -234,27 +239,23 @@
 	&_link
 		color $blue
 		
-		&-cancel, &-fullNameEdit
+		&-cancel, &-fullNameEdit, &-ownerFullNameEdit
 			font-weight 500
 		
-		&-fullNameEdit
+		&-fullNameEdit, &-ownerFullNameEdit
 			font-size 16px
 			line-height 1.5625
-	
-	// &_posts
-	// 	margin-bottom 28px
 	
 	&_post
 		margin-bottom 24px
 	
-	&_postHeader
+	&_postHeader, &_ownerHeader
 		display flex
 		justify-content space-between
 		align-items center
 		margin-bottom 4px
 	
-	&_jobTitle
-		margin-left 2px
+	&_jobTitle, &_ownerFullName
 		font-weight 500
 		font-size 14px
 		color $blue2
@@ -262,7 +263,7 @@
 		overflow hidden
 		text-overflow ellipsis
 	
-	&_removePost
+	&_removePost, &_removeOwner
 		margin-right -10px
 	
 	&-popup
@@ -312,7 +313,7 @@
 				margin-right 0
 				flex-grow 1
 	
-	&-postAddition
+	&-fieldAddition
 		padding-left 0
 		
 		.CompanySettings_fields

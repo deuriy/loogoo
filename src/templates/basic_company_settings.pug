@@ -43,7 +43,11 @@ block content
 										.PageAddress.PageAddress-error.CompanySettings_pageAddress
 											.PageAddress_siteUrl https://infoza.top/
 											input(type="text", name="page_company_url[]", value="sonycorporation" id="page_company_url").PageAddress_companyUrl
-								a(href="#AltAddress",).AddFieldItem.AddFieldItem-altAddress
+								a(href="#AltAddress").AddFieldItem.AddFieldItem-altAddress.hidden-xs
+									include /includes/svg/icon_add
+									.
+										Дополнительный адрес
+								a(href="#AltAddressAddition", data-fancybox="alt_address_addition").AddFieldItem.AddFieldItem-altAddressMobile.hidden-smPlus
 									include /includes/svg/icon_add
 									.
 										Дополнительный адрес
@@ -100,4 +104,5 @@ block content
 						li.SettingsMenu_item
 							a(href="/profile_messages.html").SettingsMenu_link Сообщения
 block page_bottom
+	include /includes/blocks/AltAddressAddition
 	script(src="/js/company_settings.js")

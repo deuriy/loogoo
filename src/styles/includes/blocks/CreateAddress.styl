@@ -5,6 +5,9 @@
 	border-radius 3px
 	background $white
 	box-shadow 0 0 7px 0 rgba(0, 0, 0, 0.1)
+
+	@media $xs
+		box-shadow none
 	
 	@media $xs
 		width auto
@@ -20,7 +23,7 @@
 		background url('../img/corner_shadow.jpg') 0 0 no-repeat
 		
 		@media $xs
-			left 22px
+			display none
 	
 	&_close
 		position absolute
@@ -80,7 +83,7 @@
 		font-size 14px
 		line-height 1.5714
 		
-		&-cancel
+		&-cancel, &-closePopup
 			margin-left 29px
 			
 			@media $xs
