@@ -504,4 +504,41 @@ document.addEventListener("DOMContentLoaded", function () {
 	// 	});
 	// });
 
+	document.addEventListener('click', function (e) {
+		let target = e.target.closest('[data-tooltip]');
+		let existingTooltip = document.querySelector('.Tooltip');
+
+		if (!target || existingTooltip) return;
+
+		let tooltipText = target.dataset.tooltip;
+
+		let targetCoords = target.getBoundingClientRect();
+
+		let tooltip = document.createElement('div');
+		tooltip.className = 'Tooltip';
+
+		tooltip.style.top = targetCoords.top - 15 + 'px';
+		tooltip.style.left = targetCoords.left + 'px';
+
+		tooltip.textContent = tooltipText;
+
+		target.insertAdjacentElement('afterend', tooltip);
+
+		let start = Date.now();
+
+		let timer = setInterval(() => {
+			let timePassed = Date.now() - start;
+
+			if (timePassed >= 700) {
+				clearInterval(timer);
+				tooltip.remove();
+			} else {
+				let computedStyle = getComputedStyle(tooltip);
+
+				tooltip.style.top = (parseInt(computedStyle.top) - 1) + 'px';
+				tooltip.style.opacity = computedStyle.opacity - 0.06;
+			}
+		}, 20);
+	})
+
 });

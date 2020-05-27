@@ -1,0 +1,50 @@
+.CopyLink
+	position relative
+	
+	&_input
+		width 330px
+		height 40px
+		padding-right 115px
+		padding-left 10px
+		border none
+		outline 1px solid transparent
+		border-radius 2px
+		font-weight 500
+		background #F8F9FA
+		color $blue2
+		text-overflow ellipsis
+		
+		&:focus
+			outline-color $blue
+		
+		@media $xs
+			width 260px
+			height 36px
+			padding-right 90px
+			font-size 12px
+	
+	&_btnCopy
+		position absolute
+		top 0
+		right 0
+		display flex
+		align-items center
+		min-width 100px
+		height 40px
+		padding-right 10px
+		padding-left 10px
+		font-weight 500
+		font-size 13px
+		color $blue
+		
+		@media $xs
+			width 90px
+			height 36px
+			font-size 12px
+	
+	&-copied
+		.CopyLink_input
+			outline-color $green
+		
+		.CopyLink_btnCopy
+			color $green

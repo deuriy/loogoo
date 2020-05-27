@@ -1,10 +1,13 @@
 .Popup.Popup-complaintForm#ComplaintFormPopup(style="display: none;")
 	h3.Popup_title Причина жалобы
-	form(action="#").Form.Form-complaint.Form-complaintSuccess
+	form(action="#").Form.Form-complaint
 		.CheckboxList.CheckboxList-radio.Form_checkboxList
-			.Checkbox.Checkbox-radio.CheckboxList_item
+			.Checkbox.Checkbox-radio.CheckboxList_item.hidden-xxs
 				input(type="radio", name="complaint_reason", id="spam", value="spam" checked, disabled).Checkbox_input
 				label(for="spam").Checkbox_label Нежелательная реклама или спам
+			.Checkbox.Checkbox-radio.CheckboxList_item.hidden-xxsPlus
+				input(type="radio", name="complaint_reason", id="spam", value="spam" checked, disabled).Checkbox_input
+				label(for="spam").Checkbox_label Реклама или спам
 			.Checkbox.Checkbox-radio.CheckboxList_item
 				input(type="radio", name="complaint_reason", id="insults_or_threats", value="insults_or_threats", disabled).Checkbox_input
 				label(for="insults_or_threats").Checkbox_label Оскорбления или угрозы
@@ -32,8 +35,9 @@
 			.Checkbox.Checkbox-radio.CheckboxList_item
 				input(type="radio", name="complaint_reason", id="extremism", value="extremism", disabled).Checkbox_input
 				label(for="extremism").Checkbox_label Экстремизм
-		.Form_success
+		.Form_success.hidden
 			include /includes/svg/SvgIco/success
 			.Form_successText Мы получили вашу жалобу и отреагируем на неё! Спасибо
-		//- .Form_actions
-		//- 	button(type="submit").BtnOrange.BtnOrange-complaintForm Отправить жалобу
+		.Form_actions
+			button(type="button", data-fancybox-close).BtnGrey.Form_btn.Form_btn-close.hidden-xxsPlus Закрыть
+			button(type="submit").BtnOrange.BtnOrange-complaintForm.Form_btn Отправить

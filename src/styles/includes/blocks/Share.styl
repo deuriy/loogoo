@@ -1,0 +1,54 @@
+.Share
+	position relative
+	
+	&_icon
+		display inline-block
+		width 19px
+		color #8396AC
+	
+	&_wrapper
+		position absolute
+		z-index 10
+		top calc(100% + 10px)
+		left -54px
+		width 370px
+		padding 18px 20px 20px
+		border-radius 3px
+		box-shadow 0 0 5px 0 rgba($black, 0.12)
+		background $white
+		visibility hidden
+		opacity 0
+		
+		@media $xs
+			width 290px
+			padding 15px
+		
+		&-opened
+			visibility visible
+			opacity 1
+	
+	&_title
+		margin-bottom 0.875em
+		font-weight 600
+		font-size 16px
+		
+		@media $xs
+			font-size 14px
+	
+	&_socIcons
+		display flex
+		align-items center
+		margin-bottom 15px
+	
+	&_socItem
+		margin-right 10px
+		
+		&:last-child
+			margin-right 0
+	
+	&_socLink
+		display inline-block
+		width 26px
+		
+		@media $xs
+			width 22px

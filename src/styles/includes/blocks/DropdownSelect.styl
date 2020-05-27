@@ -50,14 +50,28 @@
 			width 140px
 			text-align right
 		
+		.fs-label-wrap
+			.fs-label
+				@media $xs
+					font-size 15px
+		
 		.fs-dropdown
 			text-align left
+			
+			@media $xs
+				right 0
+				width 170px
+				text-align right
+			
+			.fs-option
+				@media $xs
+					font-size 15px
 	
 	&-autoWidth
 		.fs-wrap
 			width auto
 	
-	&-profileSettings				
+	&-notificationSettings				
 		.fs-dropdown
 			right 0
 			min-width 115px
@@ -132,7 +146,7 @@
 				left 0
 				margin auto
 	
-	&-companySettings
+	&-companySettings, &-profileSettings
 		.fs-wrap
 			display block
 			width auto
@@ -187,6 +201,33 @@
 				@media $xs
 					padding 8px 12px
 					font-size 16px
+	
+	&-profileSettings
+		width 280px
+		
+		@media $xs
+			width 100%
+		
+		.fs-wrap
+			&.fs-open
+				.fs-label:after
+					margin-top -1px
+				
+		.fs-label-wrap
+			.fs-label
+				padding-top 8px
+				padding-bottom 7px
+				font-size 14px
+				
+				&:after
+					margin-top 1px
+		
+		.fs-dropdown
+			text-align left
+	
+	&-messenger
+		display inline-block
+		width 220px
 	
 	&-operations
 		.fs-label-wrap .fs-label

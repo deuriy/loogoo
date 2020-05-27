@@ -167,4 +167,58 @@ document.addEventListener("DOMContentLoaded", function () {
 			e.preventDefault();
 		};
 	}
+
+	document.addEventListener('click', function (e) {
+		let notificationsIcon = e.target.closest('.Share_icon');
+
+		if (!notificationsIcon) return;
+
+		let notificationsWrapper = notificationsIcon.parentNode.querySelector('.Share_wrapper');
+
+		notificationsWrapper.classList.toggle('Share_wrapper-opened');
+	});
+
+	document.addEventListener('click', function (e) {
+		let notificationsWrapper = document.querySelector('.Share_wrapper');
+
+		if (!notificationsWrapper) return;
+
+		let notificationsIcon = notificationsWrapper.parentNode.querySelector('.Share_icon');
+
+		if (notificationsWrapper.classList.contains('Share_wrapper-opened') && !notificationsWrapper.contains(e.target) && !notificationsIcon.contains(e.target)) {
+			notificationsWrapper.classList.remove('Share_wrapper-opened');
+		}
+	});
+
+	function copyInputText (targetElem) {
+	  targetElem.select();
+	  targetElem.setSelectionRange(0, 99999);
+
+	  document.execCommand("copy");
+	}
+
+	document.addEventListener('click', function (e) {
+		let copyBtn = e.target.closest('.CopyLink_btnCopy');
+
+		if (!copyBtn) return;
+
+		let copyLink = copyBtn.closest('.CopyLink');
+		let copyLinkInput = copyLink.querySelector('.CopyLink_input');
+		copyInputText(copyLinkInput);
+		copyLink.classList.add('CopyLink-copied');
+		copyBtn.textContent = 'Скопировано!';
+
+		setTimeout(() => {
+			copyLink.classList.remove('CopyLink-copied');
+			copyBtn.textContent = 'Копировать';
+		}, 3000);
+	});
+
+	document.addEventListener('click', function (e) {
+		let bookmarkIcon = e.target.closest('.StatIcon-bookmark');
+
+		if (!bookmarkIcon) return;
+
+		bookmarkIcon.classList.toggle('StatIcon-bookmarkFill');
+	});
 });

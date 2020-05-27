@@ -128,11 +128,39 @@ block content
 										a(href="javascript:;").Like.Like-post
 											include /includes/svg/SvgIco/like
 											span.Like_count 0
+									li.StatIcon.StatIcons_item
+										.Share
+											a(href="javascript:;").Share_icon
+												include /includes/svg/SvgIco/share
+											.Share_wrapper
+												.Share_title Поделиться:
+												ul.Share_socIcons
+													li.Share_socItem
+														a(href="http://fb.com", target="_blank").Share_socLink
+															include /includes/svg/socicons/fb
+													li.Share_socItem
+														a(href="http://fb.com", target="_blank").Share_socLink
+															include /includes/svg/socicons/viber
+													li.Share_socItem
+														a(href="http://fb.com", target="_blank").Share_socLink
+															include /includes/svg/socicons/whatsapp
+													li.Share_socItem
+														a(href="http://fb.com", target="_blank").Share_socLink
+															include /includes/svg/socicons/telegram
+													li.Share_socItem.hidden
+														a(href="http://fb.com", target="_blank").Share_socLink
+															include /includes/svg/socicons/vk
+												.CopyLink
+													input(type="text", name="copy_link", value="https://infoza.top/posts/3193", readonly).CopyLink_input
+													a(href="javascript:;").CopyLink_btnCopy Копировать
 							.StatIcons_right
 								ul.StatIcons_list
+									li.StatIcon.StatIcon-bookmark.StatIcons_item.StatIcons_item-bookmark
+										a(href="javascript:;", title="Сохранить в закладки").StatIcon_link
+											include /includes/svg/SvgIco/bookmark
 									li.StatIcon.StatIcon-views.StatIcons_item.StatIcons_item-views
 										include /includes/svg/SvgIco/eye
-										span.StatIcon_count 110
+										span.StatIcon_count 9.8K
 					.CommentsBlock
 						.CommentsBlock_header
 							h3.CommentsBlock_title 3 комментария

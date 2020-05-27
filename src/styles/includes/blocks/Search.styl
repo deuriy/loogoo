@@ -127,9 +127,8 @@
 			color #C5C7CA
 			
 			@media $xs
-				position absolute
-				top 12px
-				left 0
+				position static
+				order -1
 				color $black
 		
 		.Search_icon
@@ -159,6 +158,10 @@
 			@media $xs
 				width calc(100% - 63px)
 				margin-left 10px
+				font-size 16px !important
+				
+				&:focus
+					font-size 16px !important
 		
 		@media $smMinus
 			top 23px
@@ -166,6 +169,7 @@
 		
 		@media $xs
 			display none
+			height 55px
 			align-items center
 			position absolute
 			z-index 10
@@ -174,7 +178,6 @@
 			width 100%
 			padding-top 17px
 			padding-right 1px
-			padding-left 37px
 			background $white
 			
 			.Search_text

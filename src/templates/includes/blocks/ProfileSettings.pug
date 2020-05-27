@@ -38,11 +38,12 @@ form(action="#").ProfileSettings
 				label(for="show_name").ProfileSettings_label.hidden-xs Показывать имя
 				label(for="show_name").ProfileSettings_label.hidden-smPlus Отображение на сайте
 				.ProfileSettings_fieldContent
-					select(name="show_name").Select.Select-bordered.Select-profileSettings
-						option(value="1") Показывать имя
-						option(value="2") Показывать имя и фамилию
-						option(value="3") Показывать имя и отчество
-						option(value="4") Показывать имя и логин
+					.DropdownSelect.DropdownSelect-profileSettings.DropdownSelect-mobile
+						select(name="show_name").Select.Select-bordered.Select-profileSettings.DropdownSelect_select
+							option(value="1") Показывать имя
+							option(value="2") Показывать имя и фамилию
+							option(value="3") Показывать имя и отчество
+							option(value="4") Показывать имя и логин
 			.ProfileSettings_field.ProfileSettings_field-phone
 				label(for="messenger").ProfileSettings_label.hidden-xs Контактный телефон
 				label(for="messenger").ProfileSettings_label.hidden-smPlus Контакты
@@ -50,11 +51,12 @@ form(action="#").ProfileSettings
 					.ProfileSettings_fieldContent
 						input(type="tel", name="contact_phone", placeholder="Телефон").FormText.FormText-profileSettings
 					.ProfileSettings_fieldRight
-						select(name="messenger").Select.Select-bordered.Select-profileSettings.Select-messenger
-							option(value="none") Выберите мессенджер
-							option(value="viber") Viber
-							option(value="whatsapp") WhatsApp
-							option(value="telegram") Telegram
+						.DropdownSelect.DropdownSelect-profileSettings.DropdownSelect-messenger.DropdownSelect-mobile
+							select(name="messenger").Select.Select-bordered.Select-profileSettings.Select-messenger.DropdownSelect_select
+								option(value="none") Выберите мессенджер
+								option(value="viber") Viber
+								option(value="whatsapp") WhatsApp
+								option(value="telegram") Telegram
 	.ProfileSettings_actions
 		button(type="submit").BtnOutline.hidden-xs Сохранить изменения
 		button(type="submit").BtnOrange.BtnOrange-profileSettings.hidden-smPlus Сохранить изменения
