@@ -2,7 +2,6 @@
 	display flex
 	flex-direction column
 	justify-content space-between
-	height 100%
 	
 	&_headerWrapper, &_headerLeft, &_headerRight
 		display flex
@@ -16,11 +15,19 @@
 		margin-bottom 6px
 		padding-top 12px
 		padding-bottom 5px
+		
+		@media $xs
+			padding 4px 20px 8px
+	
+	&_btnBack
+		margin-top -2px
+		margin-right 16px
 	
 	&_userName
 		margin-right 8px
 		font-weight 600
 		font-size 16px
+		white-space nowrap
 	
 	&_userIcons, &_actionIcons
 		display flex
@@ -37,9 +44,31 @@
 			margin-left 13px
 			color $blue2
 	
+	&_dotsMenu
+		margin-left 13px
+	
+	// &_footer
+	// 	@media $xs
+	// 		height calc(100vh - 100px)
+	
+	&_conversationChoice
+		margin-top 160px
+	
 	&_messages
-		// display flex
-		// flex-direction column
-		// justify-content flex-end
-		// min-height 410px
+		position relative
+		display flex
+		flex-direction column
+		height calc(100vh - 240px)
 		margin-bottom 11px
+		padding-top 5px
+		overflow-y auto
+		
+		@media $xs
+			// height calc(100vh - 170px)
+			padding-top 15px
+			padding-right 20px
+			padding-left 20px
+		
+		&:before
+			content ""
+			flex auto 1 1

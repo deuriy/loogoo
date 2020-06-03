@@ -39,12 +39,34 @@
 			color rgba($blue2, 30%)
 	
 	&-sendMessage
+		position relative
 		height 50px
-		padding 15px
+		max-height 200px
+		padding 15px 80px 15px 15px
 		border-color #DFE2E6
 		border-radius 3px
 		font-size 14px
 		color $blue2
+		overflow-x hidden
+		overflow-y auto
+		
+		@media $xs
+			max-height 60px
+		
+		&::-webkit-scrollbar
+			width 5px
+			right 2px
+		
+		&::-webkit-scrollbar-track
+			border-radius 3px
+		
+		&::-webkit-scrollbar-thumb
+			border-radius 3px
+			background-color #DFE4E6
+		
+		@media $xs
+			height 40px
+			padding 10px 9px
 	
 	&-companySettings
 		min-height 90px

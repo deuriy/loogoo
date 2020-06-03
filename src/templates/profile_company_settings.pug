@@ -20,7 +20,7 @@ block content
 								a(href="/profile_company_settings.html").CategoryMenu_link.active О компании
 							li.CategoryMenu_item
 								a(href="/company_verification.html").CategoryMenu_link Верификация
-				form(action="#", name="company_settings").CompanySettings
+				form(action="#", name="company_settings", novalidate).CompanySettings
 					h2.CompanySettings_title.hidden-xs О компании
 					.CompanySettings_fields
 						.CompanySettings_field
@@ -59,19 +59,19 @@ block content
 									.CompanySettings_fieldItem
 										.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.DropdownSelect-daysWeek.CompanySettings_dropdownSelect
 											select(name="days_week[]", multiple="multiple").DropdownSelect_select
-												option(value="monday") Понедельник
-												option(value="tuesday") Вторник
-												option(value="wednesday") Среда
-												option(value="thursday") Четверг
-												option(value="friday") Пятница
+												option(value="monday", selected) Понедельник
+												option(value="tuesday", selected) Вторник
+												option(value="wednesday", selected) Среда
+												option(value="thursday", selected) Четверг
+												option(value="friday", selected) Пятница
 												option(value="saturday") Суббота
 												option(value="sunday") Воскресенье
 										.TimeRangeDropdown.CompanySettings_timeRangeDropdown.CompanySettings_timeRangeDropdown-workingHours
 											.TimeRangeDropdown_label(data-label="Время работы") Время работы
 											.TimeRangeDropdown_dropdown
 												.TimeRangeDropdown_wrapper
-													input(type="time", name="working_hours_from", min="08:00", max="10:00", data-placeholder="с").TimeRangeDropdown_time.TimeRangeDropdown_time-from
-													input(type="time", name="working_hours_to", min="07:00" max="20:00", data-placeholder="до").TimeRangeDropdown_time.TimeRangeDropdown_time-to
+													input(type="time", name="working_hours_from", min="08:00", max="10:00", data-placeholder="с", value="09:00").TimeRangeDropdown_time.TimeRangeDropdown_time-from
+													input(type="time", name="working_hours_to", min="07:00" max="20:00", data-placeholder="до", value="18:00").TimeRangeDropdown_time.TimeRangeDropdown_time-to
 												.Checkbox.Checkbox-square.Checkbox-timeRangeDropdown
 													input(type="checkbox", name="around_clock", value="yes", id="around_clock").Checkbox_input
 													label(for="around_clock").Checkbox_label Круглосуточно
@@ -79,11 +79,40 @@ block content
 											.TimeRangeDropdown_label(data-label="Перерыв") Перерыв
 											.TimeRangeDropdown_dropdown
 												.TimeRangeDropdown_wrapper
-													input(type="time", name="break_from", min="08:00", max="10:00", data-placeholder="с").TimeRangeDropdown_time.TimeRangeDropdown_time-from
-													input(type="time", name="break_to", min="07:00" max="20:00", data-placeholder="до").TimeRangeDropdown_time.TimeRangeDropdown_time-to
+													input(type="time", name="break_from", min="08:00", max="10:00", data-placeholder="с", value="10:00").TimeRangeDropdown_time.TimeRangeDropdown_time-from
+													input(type="time", name="break_to", min="07:00" max="20:00", data-placeholder="до", value="16:00").TimeRangeDropdown_time.TimeRangeDropdown_time-to
 												.Checkbox.Checkbox-square.Checkbox-timeRangeDropdown
 													input(type="checkbox", name="break", value="yes", id="break").Checkbox_input
 													label(for="break").Checkbox_label Без перерыва
+									.CompanySettings_fieldItem.CompanySettings_fieldItem-additional
+										.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.DropdownSelect-daysWeek.CompanySettings_dropdownSelect
+											select(name="days_week2[]", multiple="multiple").DropdownSelect_select
+												option(value="monday") Понедельник
+												option(value="tuesday") Вторник
+												option(value="wednesday") Среда
+												option(value="thursday") Четверг
+												option(value="friday") Пятница
+												option(value="saturday", selected) Суббота
+												option(value="sunday", selected) Воскресенье
+										.TimeRangeDropdown.CompanySettings_timeRangeDropdown.CompanySettings_timeRangeDropdown-workingHours
+											.TimeRangeDropdown_label(data-label="Время работы") Время работы
+											.TimeRangeDropdown_dropdown
+												.TimeRangeDropdown_wrapper
+													input(type="time", name="working_hours_from_2", min="08:00", max="10:00", data-placeholder="с", value="09:00").TimeRangeDropdown_time.TimeRangeDropdown_time-from
+													input(type="time", name="working_hours_to_2", min="07:00" max="20:00", data-placeholder="до", value="09:00").TimeRangeDropdown_time.TimeRangeDropdown_time-to
+												.Checkbox.Checkbox-square.Checkbox-timeRangeDropdown
+													input(type="checkbox", name="around_clock_2", value="yes", id="around_clock_2").Checkbox_input
+													label(for="around_clock_2").Checkbox_label Круглосуточно
+										.TimeRangeDropdown.CompanySettings_timeRangeDropdown.CompanySettings_timeRangeDropdown-noMargin
+											.TimeRangeDropdown_label(data-label="Перерыв") Перерыв
+											.TimeRangeDropdown_dropdown
+												.TimeRangeDropdown_wrapper
+													input(type="time", name="break_from_2", min="08:00", max="10:00", data-placeholder="с", value="09:00").TimeRangeDropdown_time.TimeRangeDropdown_time-from
+													input(type="time", name="break_to_2", min="07:00" max="20:00", data-placeholder="до", value="09:00").TimeRangeDropdown_time.TimeRangeDropdown_time-to
+												.Checkbox.Checkbox-square.Checkbox-timeRangeDropdown
+													input(type="checkbox", name="break_2", value="yes", id="break_2").Checkbox_input
+													label(for="break_2").Checkbox_label Без перерыва
+										a(href="javascript:;").CompanySettings_removeFieldItem
 								a(href="javascript:;").AddFieldItem.AddFieldItem-daysWeek
 									include /includes/svg/icon_add
 									.

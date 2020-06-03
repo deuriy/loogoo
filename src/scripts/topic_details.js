@@ -125,30 +125,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		touch: false
 	});
 
-	// let json = '{"action":"like","rating":522}';
-	// let json = '{"action":"unlike","rating":521}';
-	// let likeObj = JSON.parse(json);
-	// let likeItem = document.querySelector('.Like');
-
-	// if (likeObj.action == 'like') {
-	// 	likeItem.classList.add('Like-liked');
-	// }
-
-	// likeItem.querySelector('.Like_count').textContent = likeObj.rating;
-
-	// likeItem.onclick = function (e) {
-	// 	e.preventDefault();
-	// 	let likes = +likeItem.querySelector('.Like_count').textContent;
-
-	// 	if (likeItem.classList.contains('Like-liked')) {
-	// 		likeItem.classList.remove('Like-liked');
-	// 		likeItem.querySelector('.Like_count').textContent = likes - 1;
-	// 	} else {
-	// 		likeItem.classList.add('Like-liked');
-	// 		likeItem.querySelector('.Like_count').textContent = likes + 1;
-	// 	}
-	// };
-
 	// Show all images
 	let linkOther = document.querySelector('.Images_link-other');
 	if (linkOther) {
@@ -169,24 +145,24 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	document.addEventListener('click', function (e) {
-		let notificationsIcon = e.target.closest('.Share_icon');
+		let shareIcon = e.target.closest('.Share_icon');
 
-		if (!notificationsIcon) return;
+		if (!shareIcon) return;
 
-		let notificationsWrapper = notificationsIcon.parentNode.querySelector('.Share_wrapper');
+		let shareWrapper = shareIcon.parentNode.querySelector('.Share_wrapper');
 
-		notificationsWrapper.classList.toggle('Share_wrapper-opened');
+		shareWrapper.classList.toggle('Share_wrapper-opened');
 	});
 
 	document.addEventListener('click', function (e) {
-		let notificationsWrapper = document.querySelector('.Share_wrapper');
+		let shareWrapper = document.querySelector('.Share_wrapper');
 
-		if (!notificationsWrapper) return;
+		if (!shareWrapper) return;
 
-		let notificationsIcon = notificationsWrapper.parentNode.querySelector('.Share_icon');
+		let shareIcon = shareWrapper.parentNode.querySelector('.Share_icon');
 
-		if (notificationsWrapper.classList.contains('Share_wrapper-opened') && !notificationsWrapper.contains(e.target) && !notificationsIcon.contains(e.target)) {
-			notificationsWrapper.classList.remove('Share_wrapper-opened');
+		if (shareWrapper.classList.contains('Share_wrapper-opened') && !shareWrapper.contains(e.target) && !shareIcon.contains(e.target)) {
+			shareWrapper.classList.remove('Share_wrapper-opened');
 		}
 	});
 

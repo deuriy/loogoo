@@ -1,40 +1,30 @@
-// // jQuery Tabs
-// $('.Tabs_list').each(function() {
-//   $(this).find('.Tabs_item').each(function(i) {
-//     $(this).click(function() {
-//       $(this).addClass('Tabs_item-active').siblings().removeClass('Tabs_item-active');
-//       var p = $(this).parents('.Tabs');
-//       p.find('.Tabs_content').hide();
-//       p.find('.Tabs_content:eq(' + i + ')').show();
-//     });
-//   });
-// });
+// Tabs
+let tabsList = document.querySelectorAll('.Tabs_list');
 
-// // let tabsList = document.querySelectorAll('.Tabs_list');
+tabsList.forEach(function (tabList) {
+	let tabItems = tabList.querySelectorAll('.Tabs_item');
 
-// // tabsList.forEach(function (tabList) {
-// // 	// console.log('Yes!');
-// // 	let tabItems = tabList.querySelectorAll('.Tabs_item');
+	tabItems.forEach(function (tabItem, tabItemIndex) {
+		tabItem.onclick = function () {
+			let activeTabItem = document.querySelector('.Tabs_item-active');
 
-// // 	tabItems.forEach(function (tabItem, tabItemIndex) {
-// // 		tabItem.onclick = function () {
-// // 			let activeTabItem = tabItem.parent.querySelector('.Tabs_item-active');
+			if (activeTabItem) {
+				activeTabItem.classList.remove('Tabs_item-active');
+			}
 
-// // 			if (activeTabItem) {
-// // 				activeTabItem.classList.remove('Tabs_item-active');
-// // 			}
+			tabItem.classList.add('Tabs_item-active');
 
-// // 			let parent = tabItem.closest('.Tabs');
-// // 			let tabsContent = parent.querySelectorAll('.Tabs_content');
+			let parent = tabItem.closest('.Tabs');
+			let tabsContent = parent.querySelectorAll('.Tabs_content');
 
-// // 			tabsContent.forEach(function (tabContent, tabContentIndex) {
-// // 				tabContent.style.display = 'none';
-// // 			});
+			tabsContent.forEach(function (tabContent, tabContentIndex) {
+				tabContent.style.display = 'none';
+			});
 
-// // 			tabsContent[tabItemIndex].style.display = 'block';
-// // 		};
-// // 	});
-// // });
+			tabsContent[tabItemIndex].style.display = 'block';
+		};
+	});
+});
 
 // Change tab
 function changeTab (tabsId, tabIndex) {

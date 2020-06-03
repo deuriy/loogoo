@@ -91,6 +91,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 
+	function checkTimeFields () {
+		let timeFields = document.querySelectorAll('.TimeRangeDropdown_time');
+
+		timeFields.forEach(timeField => {
+			if (timeField.defaultValue) {
+				timeField.classList.add('TimeRangeDropdown_time-notEmpty');
+			}
+		});
+	}
+
+	checkTimeFields();
+
 	// Add post field
 	document.addEventListener('click', function (e) {
 		let addPostLink = e.target.closest('.AddFieldItem-post');
@@ -485,18 +497,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	let abbreviatedNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
-	document.addEventListener('click', function (e) {
-		let clickedOption = e.target.closest('.DropdownSelect-daysWeek .fs-option');
-
-		if (!clickedOption) return;
-
-		let dropdownSelect = clickedOption.closest('.DropdownSelect-daysWeek');
+	function changeDaysWeekDropdown (dropdownSelect) {
 		let selectedOptions = dropdownSelect.querySelectorAll('.fs-option.selected');
 
 		let selectedIndexes = Array.from(selectedOptions).map(item => item.dataset.index * 1);
 
 		let fSelectLabel = dropdownSelect.querySelector('.fs-label');
-		let resultArray;
+		let resultArray = [];
 
 		if (!selectedIndexes.length) {
 			fSelectLabel.textContent = 'Дни недели';
@@ -513,6 +520,25 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 
 		resultArray = selectedIndexes.map(item => abbreviatedNames[item]);
+	}
+
+	function changeDaysWeekDropdowns () {
+		let daysWeekDropdowns = document.querySelectorAll('.DropdownSelect-daysWeek');
+
+		daysWeekDropdowns.forEach(daysWeekDropdown => {
+			changeDaysWeekDropdown(daysWeekDropdown);
+		});
+	}
+
+	changeDaysWeekDropdowns();
+
+	document.addEventListener('click', function (e) {
+		let clickedOption = e.target.closest('.DropdownSelect-daysWeek .fs-option');
+
+		if (!clickedOption) return;
+
+		let dropdownSelect = clickedOption.closest('.DropdownSelect-daysWeek');
+		changeDaysWeekDropdown(dropdownSelect);
 	});
 	
 });

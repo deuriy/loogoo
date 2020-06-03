@@ -157,15 +157,30 @@
 				margin-top 6px
 				margin-bottom 6px
 	
-	&-profileMessages
+	&-profileMessages		
 		.Main_container
 			padding-top 30px
+			
+			@media $smMinus
+				padding-top 15px
+			
+			@media $xs
+				padding-top 11px
 		
 		.Main_left
 			width 80%
+			
+			@media $smMinus
+				width auto
+			
+			@media $xs
+				padding-right 0
+				padding-left 0
 		
 		.Main_aside
+			position relative
 			width 20%
+			height calc(100vh - 145px)
 			padding-top 3px
 			padding-left 21px
 	

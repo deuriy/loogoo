@@ -2,11 +2,27 @@
 	display flex
 	
 	&_left
-		width 35.5%
-		flex 35.5% 0 0
+		// position relative
+		width 320px
+		flex 320px 0 0
+		// height calc(100vh - 140px)
+		// overflow-x hidden
+		// overflow-y auto
+		
+		@media $xs
+			width 100%
+			flex auto 1 1
+			height auto
 	
 	&_dialogueList
+		position relative
+		max-height calc(100vh - 193px)
+		// height calc(100vh - 347px)
 		margin-bottom 15px
+		
+		@media $xs
+			height auto
+			margin-bottom 0
 	
 	&_link
 		color $blue
@@ -16,7 +32,18 @@
 		&-showUnread
 			margin-left 3px
 	
+	&_messages
+		@media $xs
+			margin-top 6px
+	
 	&_right
 		flex-grow 1
 		padding-right 4px
 		padding-left 41px
+		
+		@media $smMinus
+			padding-right 0
+			padding-left 20px
+		
+		@media $xs
+			padding-left 0

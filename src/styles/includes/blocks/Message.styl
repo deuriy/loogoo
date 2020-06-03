@@ -2,8 +2,13 @@
 	position relative
 	display flex
 	align-items flex-start
+	width 320px
 	padding 19px 14px 16px 17px
-		
+	
+	@media $xs
+		width auto
+		padding 14px 20px
+	
 	&:after
 		content ""
 		position absolute
@@ -12,6 +17,9 @@
 		left 15px
 		height 1px
 		background #EBF0F2
+		
+		@media $xs
+			display none
 	
 	&:hover
 		background #F2F4F6
@@ -27,10 +35,18 @@
 	&_info
 		width 236px
 		line-height 21px
+		
+		@media $xs
+			width calc(100% - 52px)
 	
 	&_header, &_body
 		display flex
 		justify-content space-between
+	
+	&_header
+		@media $xs
+			margin-top -2px
+			margin-bottom 2px
 	
 	&_nameWrapper
 		display flex
@@ -43,15 +59,26 @@
 		white-space nowrap
 		overflow hidden
 		text-overflow ellipsis
+		
+		@media $xs
+			font-size 15px
+			line-height 1.4
 	
 	&_statusIcon
 		margin-left 4px
+		
+		@media $xs
+			margin-left 3px
 	
 	&_dateTime
 		flex-shrink 0
 		margin-left 7px
 		font-size 11px
 		color $blue2
+		
+		@media $xs
+			margin-left 13px
+			font-size 13px
 	
 	&_text
 		color #4C4C4C
@@ -60,23 +87,37 @@
 		overflow hidden
 		text-overflow ellipsis
 		
+		@media $xs
+			font-size 14px
+			line-height 1.5
+		
 		&-twoLines
 			display -webkit-box
 			-webkit-line-clamp 2
 			-webkit-box-orient vertical
 			white-space normal
 			line-height 18px
+			
+			@media $xs
+				line-height 1.5
 	
 	&_quantity
 		flex-shrink 0
 		margin-top 3px
 		margin-left 9px
+		
+		@media $xs
+			margin-top 1px
 	
 	&-highlighted
 		background #F2F4F6
 	
 	&-full
+		width auto
 		padding 10px 0 11px
+		
+		@media $xs
+			padding 9px 0
 		
 		&:hover
 			background transparent
@@ -84,6 +125,9 @@
 		.Message_userPhoto
 			margin-top 5px
 			margin-right 14px
+			
+			@media $xs
+				margin-right 10px
 		
 		.Message_info
 			flex-grow 1
@@ -91,6 +135,9 @@
 		
 		.Message_header
 			justify-content flex-start
+			
+			@media $xs
+				margin-bottom 0
 		
 		.Message_dateTime
 			margin-left 8px
@@ -99,3 +146,12 @@
 			font-size 14px
 			color $black
 			white-space normal
+			
+			@media $xs
+				font-size 15px
+				line-height 1.34
+	
+	&-short
+		.Message_text
+			@media $xs
+				color #999

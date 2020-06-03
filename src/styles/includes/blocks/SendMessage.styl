@@ -1,15 +1,29 @@
 .SendMessage
 	position relative
 	
+	@media $xs
+		padding-right 56px
+		padding-left 56px
+	
 	&_uploadFile, &_submit
 		position absolute
 		top 15px
 		display flex
 		border none
+		
+		@media $xs
+			top 9px
 	
 	&_uploadFile
 		right 52px
+		
+		@media $xs
+			right auto
+			left 20px
 	
 	&_submit
 		right 15px
 		background transparent
+		
+		@media $xs
+			right 20px

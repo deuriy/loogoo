@@ -1,25 +1,34 @@
 extends /layouts/main_layout_profile
 block vars
 	- var title = "Мои сообщения";
-	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var wrapperModifiers = "Wrapper-noMobileHeader Wrapper-profileMessages";
 	- var mainModifiers = "Main-profileMessages";
 block content
 	.Container.Main_container
 		.Main_columns
 			.Main_left
-				.MobileHeader.hidden-smPlus
+				.MobileHeader.MobileHeader-profileMessages.hidden-smPlus
 					a(href="#").BtnBack.MobileHeader_btnBack
 						include /includes/svg/SvgIco/arrow_left
-					h1.MobileHeader_title Мои сообщения
+					.MobileHeader_titleWrapper
+						a(href="#PopupMessagesFilter").MobileHeader_title.MobileHeader_title-popupMenuLink.PopupMenuLink Все сообщения
+					a(href="#").MobileHeader_searchLink
+						include /includes/svg/SvgIco/search2
+					form.Search.Search-mobileHeader.MobileHeader_search.hidden
+						a(href="javascript:;").BtnBack.BtnBack-noBack.Search_btnBack
+							include /includes/svg/SvgIco/arrow_left
+						input(type="text", name="search_query", placeholder="Поиск").Search_text
+						a(href="javascript:;").Search_closeBtn.hidden
+							include /includes/svg/SvgIco/close
 				.ProfileMessages
 					.ProfileMessages_left
-						form(action="#", name="search_all").Search.Search-messages
+						form(action="#", name="search_all").Search.Search-messages.hidden-xs
 							input(type="text", name="search_all_query", placeholder="Поиск по контактам и сообщениям").Search_text
 							a(href="javascript:;").Search_closeBtn.hidden
 								include /includes/svg/SvgIco/close
 						.Messages.ProfileMessages_dialogueList
 							.Messages_items
-								a(href="javascript:;", data-message-filter="unread").Message.Message-short.Messages_item
+								a(href="#show_dialog", data-message-filter="unread").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-online.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
 									.Message_info
@@ -30,21 +39,22 @@ block content
 													include /includes/svg/checkmarks
 											.Message_dateTime 7:05
 										.Message_body
-											.Message_text Плазма обнаружима кристаллы чего-то там, и ещё кучу интересного текста
+											//- .Message_text Плазма обнаружима кристаллы чего-то там, и ещё кучу интересного текста
+											.Message_text Возмущение плотности казалось ему чем-то необыкновенным
 											.Quantity.Quantity-message.Message_quantity 10
-								a(href="javascript:;").Message.Message-short.Messages_item
-									.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
+								a(href="#show_dialog").Message.Message-short.Messages_item
+									.UserPhoto.UserPhoto-online.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
 									.Message_info
 										.Message_header
 											.Message_nameWrapper
 												.Message_name Геннадий Трофимов
 												.Message_statusIcon
-													include /includes/svg/checkmark
+													include /includes/svg/checkmarks
 											.Message_dateTime вчера
 										.Message_body
 											.Message_text Привет
-								a(href="javascript:;", data-message-filter="unread").Message.Message-short.Messages_item
+								a(href="#show_dialog", data-message-filter="unread").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/konstantin_konstantinovich2.png", alt="Константин Константинович").UserPhoto_img
 									.Message_info
@@ -57,7 +67,7 @@ block content
 										.Message_body
 											.Message_text Закон сохранения энергии
 											.Quantity.Quantity-message.Message_quantity 9
-								a(href="javascript:;").Message.Message-short.Messages_item
+								a(href="#show_dialog").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
 									.Message_info
@@ -68,8 +78,9 @@ block content
 													include /includes/svg/checkmarks
 											.Message_dateTime 28 фев 2019
 										.Message_body
-											.Message_text Нет
-								a(href="javascript:;").Message.Message-short.Messages_item
+											//- .Message_text Нет
+											.Message_text Возмущение плотности казалось ему чем-то необыкновенным
+								a(href="#show_dialog").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
 									.Message_info
@@ -78,38 +89,81 @@ block content
 												.Message_name Геннадий Трофимов
 												.Message_statusIcon
 													include /includes/svg/checkmarks
-											.Message_dateTime 28 фев 2019
+											.Message_dateTime 22 фев 2019
 										.Message_body
-											.Message_text Осциллятор устойчив в магнитном поле, и дальше по тексту
-						a(href="javascript:;").ProfileMessages_link.ProfileMessages_link-showUnread Показать непрочитанные
+											//- .Message_text Осциллятор устойчив в магнитном поле, и дальше по тексту
+											.Message_text Привет
+								//- a(href="#show_dialog", data-message-filter="unread").Message.Message-short.Messages_item
+								//- 	.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
+								//- 		img(src="/img/konstantin_konstantinovich2.png", alt="Константин Константинович").UserPhoto_img
+								//- 	.Message_info
+								//- 		.Message_header
+								//- 			.Message_nameWrapper
+								//- 				.Message_name Константин Константинович
+								//- 				.Message_statusIcon
+								//- 					include /includes/svg/checkmarks
+								//- 			.Message_dateTime 20 фев 2019
+								//- 		.Message_body
+								//- 			.Message_text Закон сохранения энергии
+								//- 			.Quantity.Quantity-message.Message_quantity 9
+						a(href="javascript:;").ProfileMessages_link.ProfileMessages_link-showUnread.hidden-xs Показать непрочитанные
+						//- .Messages.ProfileMessages_messages.hidden
+						//- 	h3.Messages_title Сообщения
+						//- 	.Messages_items
+						//- 		a(href="javascript:;").Message.Message-short.Messages_item
+						//- 			.UserPhoto.UserPhoto-online.UserPhoto-shortMessage.Message_userPhoto
+						//- 				img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
+						//- 			.Message_info
+						//- 				.Message_header
+						//- 					.Message_nameWrapper
+						//- 						.Message_name Кирилл Фомичёв
+						//- 					.Message_dateTime 7:05
+						//- 				.Message_body
+						//- 					.Message_text.Message_text-twoLines Луч устойчиво трансформирует межядерный экситон. Удар по всему остальному и много текста очень много текста
+						//- 		a(href="javascript:;").Message.Message-short.Messages_item
+						//- 			.UserPhoto.UserPhoto-online.UserPhoto-shortMessage.Message_userPhoto
+						//- 				img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
+						//- 			.Message_info
+						//- 				.Message_header
+						//- 					.Message_nameWrapper
+						//- 						.Message_name Кирилл Фомичёв
+						//- 					.Message_dateTime 7:05
+						//- 				.Message_body
+						//- 					.Message_text.Message_text-twoLines Луч устойчиво трансформирует межядерный экситон. Удар по всему остальному и много текста очень много текста
 						.Messages.ProfileMessages_messages.hidden
 							h3.Messages_title Сообщения
 							.Messages_items
 								a(href="javascript:;").Message.Message-short.Messages_item
-									.UserPhoto.UserPhoto-online.UserPhoto-shortMessage.Message_userPhoto
-										img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
+									.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
+										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
 									.Message_info
 										.Message_header
 											.Message_nameWrapper
-												.Message_name Кирилл Фомичёв
-											.Message_dateTime 7:05
+												.Message_name Геннадий Трофимов
+												.Message_statusIcon.hidden-smPlus
+													include /includes/svg/checkmarks
+											.Message_dateTime 22 фев 2019
 										.Message_body
-											.Message_text.Message_text-twoLines Луч устойчиво трансформирует межядерный экситон. Удар по всему остальному и много текста очень много текста
+											.Message_text.Message_text-twoLines Квант искажает фотон при любом агрегатном состоянии среды взаимодействия
 								a(href="javascript:;").Message.Message-short.Messages_item
-									.UserPhoto.UserPhoto-online.UserPhoto-shortMessage.Message_userPhoto
-										img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
+									.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
+										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
 									.Message_info
 										.Message_header
 											.Message_nameWrapper
-												.Message_name Кирилл Фомичёв
-											.Message_dateTime 7:05
+												.Message_name Геннадий Трофимов
+												.Message_statusIcon.hidden-smPlus
+													include /includes/svg/checkmarks
+											.Message_dateTime 22 фев 2019
 										.Message_body
-											.Message_text.Message_text-twoLines Луч устойчиво трансформирует межядерный экситон. Удар по всему остальному и много текста очень много текста
-					.ProfileMessages_right
+											.Message_text.Message_text-twoLines Квант искажает фотон при любом агрегатном состоянии среды взаимодействия
+					.ProfileMessages_right.hidden-xs
 						.Dialogue.ProfileMessages_dialogue
 							.Dialogue_header.hidden
 								.Dialogue_headerWrapper
 									.Dialogue_headerLeft
+										a(href="#").BtnBack.Dialogue_btnBack.hidden-smPlus
+											include /includes/svg/SvgIco/arrow_left
 										.Dialogue_userName Геннадий Трофимов
 										.Dialogue_userIcons
 											include /includes/svg/verification_icon
@@ -119,16 +173,30 @@ block content
 											span.Rating_number 12,4k
 									.Dialogue_headerRight
 										.Dialogue_actionIcons
-											a(href="javascript:;").Dialogue_actionIcon.Dialogue_actionIcon-search
+											a(href="javascript:;").Dialogue_actionIcon.Dialogue_actionIcon-search.hidden-xs
 												include /includes/svg/messages_search_icon
-											a(href="javascript:;").Dialogue_actionIcon.Dialogue_actionIcon-dots
+											.DotsMenu.DotsMenu-dialogue.Dialogue_dotsMenu.hidden-xs
+												a(href="javascript:;").DotsMenu_icon
+													include /includes/svg/SvgIco/dots
+												.DotsMenu_wrapper
+													a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link
+														include /includes/svg/SvgIco/warning
+														.
+															Пожаловаться
+													a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link
+														include /includes/svg/SvgIco/ban
+														.
+															Запретить сообщения
+											//- a(href="javascript:;").Dialogue_actionIcon.Dialogue_actionIcon-dots.hidden-xs
+											//- 	include /includes/svg/SvgIco/dots
+											a(href="#PopupMessageActions").Dialogue_actionIcon.Dialogue_actionIcon-dots.PopupMenuLink.hidden-smPlus
 												include /includes/svg/SvgIco/dots
 								form(action="#", name="dialogue_search").Search.Search-messages.hidden
 									input(type="text", name="dialogue_search_query", placeholder="Поиск по истории сообщений").Search_text
 									a(href="javascript:;").Search_closeBtn.Search_closeBtn-dialogueSearch
 										include /includes/svg/SvgIco/close
 							.Dialogue_footer
-								.ConversationChoice
+								.ConversationChoice.ConversationChoice-profileMessages.Dialogue_conversationChoice
 									.ConversationChoice_icon
 										include /includes/svg/messages_icon
 									.ConversationChoice_text Пожалуйста, выберите беседу
@@ -142,7 +210,8 @@ block content
 													.Message_name Геннадий Трофимов
 													.Message_dateTime 7:05
 											.Message_body
-												.Message_text Жидкость масштабирует гидродинамический удар.
+												//- .Message_text Жидкость масштабирует гидродинамический удар.
+												.Message_text Течение среды, можно показать
 									.Message.Message-full.Dialogue_message
 										a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
 											img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
@@ -154,7 +223,8 @@ block content
 													.Message_statusIcon
 														include /includes/svg/checkmarks
 											.Message_body
-												.Message_text В соответствии с принципом неопределенности, осциллятор теоретически возможен. Самосогласованная модель предсказывает, что при определенных условиях активно.
+												//- .Message_text В соответствии с принципом неопределенности, осциллятор теоретически возможен. Самосогласованная модель предсказывает, что при определенных условиях активно.
+												.Message_text В соответствии с принципом неопределенности, осциллятор теоретически возможен.
 									.Message.Message-full.Dialogue_message
 										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
 											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
@@ -164,7 +234,8 @@ block content
 													.Message_name Геннадий Трофимов
 													.Message_dateTime 7:05
 											.Message_body
-												.Message_text Жидкость масштабирует гидродинамический удар. Течение среды, можно показать с помощью не совсем тривиальных
+												//- .Message_text Жидкость масштабирует гидродинамический удар. Течение среды, можно показать с помощью не совсем тривиальных
+												.Message_text Течение среды, можно показать с помощью вычислений
 									.Message.Message-full.Dialogue_message
 										a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
 											img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
@@ -176,7 +247,8 @@ block content
 													.Message_statusIcon
 														include /includes/svg/checkmarks
 											.Message_body
-												.Message_text Очевидно, что гидродинамический удар отражает квазар. Идеальная тепловая машина вертикально синхронизует гидродинамический удар. Вещество зеркально восстанавливает эксимер без обмена зарядами или спинами.
+												//- .Message_text Очевидно, что гидродинамический удар отражает квазар. Идеальная тепловая машина вертикально синхронизует гидродинамический удар. Вещество зеркально восстанавливает эксимер без обмена зарядами или спинами.
+												.Message_text В соответствии с принципом неопределенности, осциллятор теоретически возможен.
 									.Message.Message-full.Dialogue_message
 										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
 											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
@@ -186,7 +258,8 @@ block content
 													.Message_name Геннадий Трофимов
 													.Message_dateTime 7:05
 											.Message_body
-												.Message_text Плазма эксперментально верифицируема.
+												//- .Message_text Плазма эксперментально верифицируема.
+												.Message_text Течение среды, можно показать с помощью вычислений
 									.Message.Message-full.Dialogue_message
 										a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
 											img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
@@ -198,7 +271,8 @@ block content
 													.Message_statusIcon
 														include /includes/svg/checkmarks
 											.Message_body
-												.Message_text Многочисленные расчеты предсказывают, а эксперименты подтверждают, что гравитирующая сфера индуцирует разрыв в полном соответствии с законом сохранения энергии. #[br]Сверхновая вертикально синхронизует векторный эксимер.
+												//- .Message_text Многочисленные расчеты предсказывают, а эксперименты подтверждают, что гравитирующая сфера индуцирует разрыв в полном соответствии с законом сохранения энергии. #[br]Сверхновая вертикально синхронизует векторный эксимер.
+												.Message_text В соответствии с принципом неопределенности осциллятора
 									.Message.Message-full.Dialogue_message
 										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
 											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
@@ -229,8 +303,8 @@ block content
 											include /includes/svg/icon_add
 									button(type="submit").SendMessage_submit
 										include /includes/svg/send_icon
-			.Aside.Main_aside
-				.SidebarMenu.SidebarMenu-profileMenu#SidebarMenu.hidden-smMinus
+			.Aside.Main_aside.hidden-smMinus
+				.SidebarMenu.SidebarMenu-profileMenu#SidebarMenu
 					h3.SidebarMenu_title Профиль
 					ul.SidebarMenu_menu
 						li.SidebarMenu_item
@@ -250,5 +324,22 @@ block content
 							a(href="/profile_settings.html").SidebarMenu_link Мои настройки
 						li.SidebarMenu_item
 							a(href="#").SidebarMenu_link Выход
+	.PopupMenu.PopupMenu-profileMessages#PopupMessagesFilter
+		.PopupMenu_overlay
+		.PopupMenu_wrapper
+			ul.PopupMenu_menu
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link.PopupMenu_link-showAll.active Все сообщения
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link.PopupMenu_link-showUnread Непрочитанные
+	.PopupMenu.PopupMenu-profileMessages.PopupMenu-right.PopupMenu-fixedText#PopupMessageActions
+		.PopupMenu_overlay
+		.PopupMenu_wrapper
+			ul.PopupMenu_menu
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Пожаловаться
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Запретить сообщения
+	include /includes/blocks/ComplaintFormPopup
 block page_bottom
 	script(src="/js/profile_messages.js")

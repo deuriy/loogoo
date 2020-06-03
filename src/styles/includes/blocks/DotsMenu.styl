@@ -48,20 +48,26 @@
 	
 	&_link
 		display flex
-		align-items center
+		// align-items center
+		align-items flex-start
 		padding 5px 36px 5px 19px
 		font-weight 500
 		line-height normal
 		color #0D0D0D
+		@extend .transition
 		
 		@media $smMinus
 			padding-top 9px
 			padding-bottom 8px
 			font-size 16px
 		
+		&:hover
+			background #F2F8F6
+		
 		& > .SvgIco
 			flex-shrink 0
 			width 13px
+			margin-top 3px
 			margin-right 10px
 			color $blue2
 		
@@ -73,3 +79,16 @@
 	
 	&-commentForm
 		position absolute
+	
+	&-dialogue
+		.DotsMenu_icon
+			width 16px
+			opacity 1
+		
+		.DotsMenu_wrapper
+			left auto
+			right 0
+		
+		.DotsMenu_link
+			padding-right 12px
+			padding-left 15px
