@@ -35,6 +35,7 @@ block content
 												option(value="by") Беларусь
 												option(value="pl") Польша
 												option(value="kz") Казахстан
+										//- .Error.Error-small.CompanySettings_fieldError Поле заполнено неправильно
 						.CompanySettings_field
 							label.CompanySettings_label Главный офис
 							.CompanySettings_fieldContent
@@ -47,6 +48,7 @@ block content
 												option(value="spb") Санкт-Петербург
 												option(value="kiev") Киев
 												option(value="almaata") Алма-ата
+										//- .Error.Error-small.CompanySettings_fieldError Поле заполнено неправильно
 										input(type="text", name="office_address[]", placeholder="адрес").CompanySettings_formText
 								a(href="javascript:;").AddFieldItem.AddFieldItem-office
 									include /includes/svg/icon_add
@@ -70,9 +72,9 @@ block content
 											.TimeRangeDropdown_label(data-label="Время работы") Время работы
 											.TimeRangeDropdown_dropdown
 												.TimeRangeDropdown_wrapper
-													input(type="time", name="working_hours_from", min="08:00", max="10:00", data-placeholder="с", value="09:00").TimeRangeDropdown_time.TimeRangeDropdown_time-from
+													input(type="time", name="working_hours_from", min="08:00", max="10:00", data-placeholder="с", value="10:00").TimeRangeDropdown_time.TimeRangeDropdown_time-from
 													input(type="time", name="working_hours_to", min="07:00" max="20:00", data-placeholder="до", value="18:00").TimeRangeDropdown_time.TimeRangeDropdown_time-to
-												.Checkbox.Checkbox-square.Checkbox-timeRangeDropdown
+												.Checkbox.Checkbox-square.Checkbox-timeRangeDropdown.Checkbox-aroundClock
 													input(type="checkbox", name="around_clock", value="yes", id="around_clock").Checkbox_input
 													label(for="around_clock").Checkbox_label Круглосуточно
 										.TimeRangeDropdown.CompanySettings_timeRangeDropdown.CompanySettings_timeRangeDropdown-noMargin
@@ -81,7 +83,7 @@ block content
 												.TimeRangeDropdown_wrapper
 													input(type="time", name="break_from", min="08:00", max="10:00", data-placeholder="с", value="10:00").TimeRangeDropdown_time.TimeRangeDropdown_time-from
 													input(type="time", name="break_to", min="07:00" max="20:00", data-placeholder="до", value="16:00").TimeRangeDropdown_time.TimeRangeDropdown_time-to
-												.Checkbox.Checkbox-square.Checkbox-timeRangeDropdown
+												.Checkbox.Checkbox-square.Checkbox-timeRangeDropdown.Checkbox-nonStop
 													input(type="checkbox", name="break", value="yes", id="break").Checkbox_input
 													label(for="break").Checkbox_label Без перерыва
 									.CompanySettings_fieldItem.CompanySettings_fieldItem-additional
@@ -98,9 +100,9 @@ block content
 											.TimeRangeDropdown_label(data-label="Время работы") Время работы
 											.TimeRangeDropdown_dropdown
 												.TimeRangeDropdown_wrapper
-													input(type="time", name="working_hours_from_2", min="08:00", max="10:00", data-placeholder="с", value="09:00").TimeRangeDropdown_time.TimeRangeDropdown_time-from
-													input(type="time", name="working_hours_to_2", min="07:00" max="20:00", data-placeholder="до", value="09:00").TimeRangeDropdown_time.TimeRangeDropdown_time-to
-												.Checkbox.Checkbox-square.Checkbox-timeRangeDropdown
+													input(type="time", name="working_hours_from_2", min="08:00", max="10:00", data-placeholder="с", value="11:00").TimeRangeDropdown_time.TimeRangeDropdown_time-from
+													input(type="time", name="working_hours_to_2", min="07:00" max="20:00", data-placeholder="до", value="15:30").TimeRangeDropdown_time.TimeRangeDropdown_time-to
+												.Checkbox.Checkbox-square.Checkbox-timeRangeDropdown.Checkbox-aroundClock
 													input(type="checkbox", name="around_clock_2", value="yes", id="around_clock_2").Checkbox_input
 													label(for="around_clock_2").Checkbox_label Круглосуточно
 										.TimeRangeDropdown.CompanySettings_timeRangeDropdown.CompanySettings_timeRangeDropdown-noMargin
@@ -109,7 +111,7 @@ block content
 												.TimeRangeDropdown_wrapper
 													input(type="time", name="break_from_2", min="08:00", max="10:00", data-placeholder="с", value="09:00").TimeRangeDropdown_time.TimeRangeDropdown_time-from
 													input(type="time", name="break_to_2", min="07:00" max="20:00", data-placeholder="до", value="09:00").TimeRangeDropdown_time.TimeRangeDropdown_time-to
-												.Checkbox.Checkbox-square.Checkbox-timeRangeDropdown
+												.Checkbox.Checkbox-square.Checkbox-timeRangeDropdown.Checkbox-nonStop
 													input(type="checkbox", name="break_2", value="yes", id="break_2").Checkbox_input
 													label(for="break_2").Checkbox_label Без перерыва
 										a(href="javascript:;").CompanySettings_removeFieldItem

@@ -84,24 +84,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		fieldItems.insertAdjacentElement('beforeend', newFieldItem);
 
+		// $('.DropdownSelect_select').fSelect('reload');
+
 		$(select).fSelect({
 			placeholder: 'Дни недели',
 			overflowText: '{n} выбрано',
 			showSearch: false
 		});
-	});
 
-	function checkTimeFields () {
-		let timeFields = document.querySelectorAll('.TimeRangeDropdown_time');
-
-		timeFields.forEach(timeField => {
-			if (timeField.defaultValue) {
-				timeField.classList.add('TimeRangeDropdown_time-notEmpty');
-			}
-		});
-	}
-
-	checkTimeFields();
+		changeDaysWeekDropdowns();
+	});	
 
 	// Add post field
 	document.addEventListener('click', function (e) {
@@ -180,35 +172,59 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
-	let timeRangeFrom = '';
-	let timeRangeTo = '';
+	function syncTimeField (timeRangeDropdown, className, from, to) {
+		let timeFieldLabel = timeRangeDropdown.querySelector('.TimeRangeDropdown_label');
+		let timeRangeInputFrom = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-from');
+		let timeRangeInputTo = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-to');
+		let checkboxTimeRange = timeRangeDropdown.querySelector('.Checkbox-timeRangeDropdown');
+		let checkboxTimeRangeInput = checkboxTimeRange.querySelector('.Checkbox_input');
+		let checkboxTimeRangeLabel = checkboxTimeRange.querySelector('.Checkbox_label');
+
+		if (checkboxTimeRange.classList.contains(className)) {
+			if (timeRangeInputFrom.value != from || timeRangeInputTo.value != to) {
+				checkboxTimeRangeInput.checked = false;
+			} else {
+				checkboxTimeRangeInput.checked = true;
+				timeFieldLabel.textContent = checkboxTimeRangeLabel.textContent;
+			}
+		}
+	}
+
+	function checkTimeFieldState (timeField) {
+		let timeRangeDropdown = timeField.closest('.TimeRangeDropdown');
+		let timeFieldLabel = timeRangeDropdown.querySelector('.TimeRangeDropdown_label');
+		let timeRangeInputFrom = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-from');
+		let timeRangeInputTo = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-to');
+
+		if (timeField.value) {
+			timeField.classList.add('TimeRangeDropdown_time-notEmpty');
+		} else {
+			timeField.classList.remove('TimeRangeDropdown_time-notEmpty');
+		}
+
+		if (timeRangeInputFrom.value && timeRangeInputTo.value) {
+			timeFieldLabel.textContent = timeRangeInputFrom.value + '-' + timeRangeInputTo.value;
+
+			syncTimeField(timeRangeDropdown, 'Checkbox-nonStop', '00:00', '00:00');
+			syncTimeField(timeRangeDropdown, 'Checkbox-aroundClock', '00:00', '23:59');
+		} else {
+			timeFieldLabel.textContent = timeFieldLabel.dataset.label;
+		}
+	}
+
+	function checkTimeFieldsState () {
+		let timeFields = document.querySelectorAll('.TimeRangeDropdown_time');
+		timeFields.forEach(timeField => checkTimeFieldState(timeField));
+	}
+
+	checkTimeFieldsState();
 
 	document.addEventListener('change', function (e) {
 		let timeRangeDropdownTime = e.target.closest('.TimeRangeDropdown_time');
 
 		if (!timeRangeDropdownTime) return;
 
-		let timeRangeDropdownLabel = timeRangeDropdownTime.closest('.TimeRangeDropdown').querySelector('.TimeRangeDropdown_label');
-
-		if (timeRangeDropdownTime.classList.contains('TimeRangeDropdown_time-from')) {
-			timeRangeFrom = timeRangeDropdownTime.value;
-		}
-
-		if (timeRangeDropdownTime.classList.contains('TimeRangeDropdown_time-to')) {
-			timeRangeTo = timeRangeDropdownTime.value;
-		}
-
-		if (timeRangeDropdownTime.value) {
-			timeRangeDropdownTime.classList.add('TimeRangeDropdown_time-notEmpty');
-		} else {
-			timeRangeDropdownTime.classList.remove('TimeRangeDropdown_time-notEmpty');
-		}
-
-		if (timeRangeFrom && timeRangeTo) {
-			timeRangeDropdownLabel.textContent = timeRangeFrom + '-' + timeRangeTo;
-		} else {
-			timeRangeDropdownLabel.textContent = timeRangeDropdownLabel.dataset.label;
-		}
+		checkTimeFieldState(timeRangeDropdownTime)
 	});
 
 	document.addEventListener('click', function (e) {
@@ -216,17 +232,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!checkboxTimeRange) return;
 
-		let isClockAround = checkboxTimeRange.querySelector('.Checkbox_input');
+		let checkboxTimeRangeInput = checkboxTimeRange.querySelector('.Checkbox_input');
 
 		let timeRangeDropdown = checkboxTimeRange.closest('.TimeRangeDropdown');
 		let timeRangeDropdownLabel = timeRangeDropdown.querySelector('.TimeRangeDropdown_label');
-		let checkboxTimeRangeLabel = checkboxTimeRange.querySelector('.Checkbox_label').textContent;
+		let checkboxTimeRangeLabelText = checkboxTimeRange.querySelector('.Checkbox_label').textContent;
 
 		let timeRangeInputFrom = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-from');
 		let timeRangeInputTo = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-to');
 
-		if (isClockAround.checked) {
-			timeRangeDropdownLabel.textContent = checkboxTimeRangeLabel;
+		if (checkboxTimeRangeInput.checked) {
+			timeRangeDropdownLabel.textContent = checkboxTimeRangeLabelText;
+
+			if (checkboxTimeRange.classList.contains('Checkbox-aroundClock')) {
+				timeRangeInputFrom.value = '00:00';
+				timeRangeInputTo.value = '23:59';
+			}
+
+			if (checkboxTimeRange.classList.contains('Checkbox-nonStop')) {
+				timeRangeInputFrom.value = '00:00';
+				timeRangeInputTo.value = '00:00';
+			}
 		} else if (timeRangeInputFrom.value && timeRangeInputTo.value) {
 			timeRangeDropdownLabel.textContent = timeRangeInputFrom.value + '-' + timeRangeInputTo.value;
 		} else {
@@ -539,6 +565,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let dropdownSelect = clickedOption.closest('.DropdownSelect-daysWeek');
 		changeDaysWeekDropdown(dropdownSelect);
+
+		let selectedValue = clickedOption.dataset.value;
+		let selectedOption = dropdownSelect.querySelector(`.DropdownSelect_select option[value="${selectedValue}"]`);
+
+		selectedOption.toggleAttribute('selected');
 	});
 	
 });

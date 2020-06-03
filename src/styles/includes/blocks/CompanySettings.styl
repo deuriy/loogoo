@@ -103,12 +103,20 @@
 		@media $xs
 			flex-direction column
 		
-		&:last-child
+		&:last-child:not(.CompanySettings_fieldItem-hasError)
 			margin-bottom 0
 		
 		&-additional
 			@media $xs
 				padding-right 23px
+		
+		&-hasError
+			margin-bottom 20px
+	
+	&_fieldError
+		position absolute
+		bottom -20px
+		left 0
 	
 	&_dropdownSelect, &_timeRangeDropdown
 		flex 166px 0 1
