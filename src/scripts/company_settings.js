@@ -553,7 +553,10 @@ document.addEventListener('DOMContentLoaded', function () {
 					currentPostFullName.textContent = fullName;
 				}
 			} else {
-				currentPost.remove();
+				if (currentPost) {
+					currentPost.remove();
+				}
+				
 			}
 		});
 	});
@@ -718,6 +721,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		document.querySelector(`.CompanySettings_fieldItem-post:nth-child(${currentPostIndex + 1})`).remove();
 		removePostLink.closest('.CompanySettings_post').remove();
+
+		let postFieldItems = document.querySelectorAll('.CompanySettings_field-post .CompanySettings_fieldItem');
+		if (!postFieldItems.length) {
+			document.querySelector('.CompanySettings_field-post').remove();
+		}
+		
 		checkExistingPosts();
 	});
 
