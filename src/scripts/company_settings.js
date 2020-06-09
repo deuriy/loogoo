@@ -726,7 +726,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (!postFieldItems.length) {
 			document.querySelector('.CompanySettings_field-post').remove();
 		}
-		
+
 		checkExistingPosts();
 	});
 
@@ -889,6 +889,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	window.addEventListener('resize', function () {
 		syncOwnerAdditionField();
+		checkExistingPosts();
 	});
 	
 });
