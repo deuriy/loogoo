@@ -45,20 +45,10 @@
 		font-weight 500
 		color $black
 	
-	// &_error
-	// 	position absolute
-	// 	bottom -20px
-	// 	left 0
-	
 	&-commentsSorting
 		.fs-wrap
 			width 140px
 			text-align right
-		
-		.fs-label-wrap
-			.fs-label
-				@media $xs
-					font-size 15px
 		
 		.fs-dropdown
 			text-align left
@@ -66,7 +56,6 @@
 			@media $xs
 				right 0
 				width 170px
-				text-align right
 			
 			.fs-option
 				@media $xs
@@ -80,6 +69,9 @@
 		.fs-dropdown
 			right 0
 			min-width 115px
+			
+			@media $xs
+				min-width 250px
 	
 	&-notifications
 		.fs-wrap

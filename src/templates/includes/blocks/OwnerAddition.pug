@@ -4,21 +4,9 @@
 			include /includes/svg/SvgIco/arrow_left
 		h2.MobileHeader_title Добавить владельца
 	.FieldAddition_main
-		form(action="#", name="owner_addition").CompanySettings.CompanySettings-fieldAddition
+		.CompanySettings.CompanySettings-fieldAddition
 			.CompanySettings_fields
-				.CompanySettings_field
-					label(for="owner_surname2").CompanySettings_label Фамилия:
-					.CompanySettings_fieldContent
-						input(type="text", name="owner_surname2", id="owner_surname2", required).CompanySettings_formText.CompanySettings_formText-fullWidth
-				.CompanySettings_field
-					label(for="owner_name2").CompanySettings_label Имя:
-					.CompanySettings_fieldContent
-						input(type="text", name="owner_name2", id="owner_name2", required).CompanySettings_formText.CompanySettings_formText-fullWidth
-				.CompanySettings_field
-					label(for="owner_patronym2").CompanySettings_label Отчество:
-					.CompanySettings_fieldContent
-						input(type="text", name="owner_patronym2", id="owner_patronym2").CompanySettings_formText.CompanySettings_formText-fullWidth
 			.CompanySettings_actions
-				button(type="submit").BtnBlue.BtnBlue-addCompanyPopup.CompanySettings_addButton Добавить владельца
+				button(type="button").BtnBlue.BtnBlue-addCompanyPopup.CompanySettings_addButton.CompanySettings_addButton-owner Добавить владельца
 				.CompanySettings_cancelLinkWrapper
 					a(href="javascript:;", data-fancybox-close).CompanySettings_link.CompanySettings_link-cancel Отмена

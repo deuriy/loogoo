@@ -155,9 +155,17 @@ block content
 													a(href="javascript:;").CopyLink_btnCopy Копировать
 							.StatIcons_right
 								ul.StatIcons_list
+									li.StatIcon.StatIcon-bookmarkNotification.StatIcons_item.StatIcons_item-bookmarkNotification
+										.Notifications.Notifications-dropdown
+											a(href="javascript:;").Notifications_icon.hidden-xs
+												include /includes/svg/SvgIco/icon_bell
+												span.Notifications_number 10
+											.Notifications_wrapper
+												.Notifications_body
 									li.StatIcon.StatIcon-bookmark.StatIcons_item.StatIcons_item-bookmark
-										a(href="javascript:;", title="Сохранить в закладки").StatIcon_link
-											include /includes/svg/SvgIco/bookmark
+										.Bookmark
+											a(href="javascript:;", title="Сохранить в закладки").Bookmark_icon
+												include /includes/svg/SvgIco/bookmark
 									li.StatIcon.StatIcon-views.StatIcons_item.StatIcons_item-views
 										include /includes/svg/SvgIco/eye
 										span.StatIcon_count 9.8K
@@ -174,7 +182,8 @@ block content
 								button(type="reset").CommentForm_resetBtn Отмена
 								button(type="submit").BtnBlue.BtnBlue-light.BtnBlue-commentForm Отправить
 						.CommentsBlock_items
-							.Comment.Comment-hasChild.Comment-hideChildComments.CommentsBlock_item
+							//- .Comment.Comment-hasChild.Comment-hideChildComments.CommentsBlock_item
+							.Comment.Comment-hasChild.CommentsBlock_item
 								.Comment_wrapper
 									.Comment_header
 										.Comment_headerLeft
@@ -215,7 +224,7 @@ block content
 																.
 																	Удалить
 									.Comment_text
-										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcorati laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in volup
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcorati laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in volup #[a(href="http://google.com") Google]
 										//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua. #[a(href="#") ссылка]
 										//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua.
 										//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua.

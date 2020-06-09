@@ -84,8 +84,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		fieldItems.insertAdjacentElement('beforeend', newFieldItem);
 
-		// $('.DropdownSelect_select').fSelect('reload');
-
 		$(select).fSelect({
 			placeholder: 'Дни недели',
 			overflowText: '{n} выбрано',
@@ -93,7 +91,45 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 
 		changeDaysWeekDropdowns();
-	});	
+	});
+
+	function createDesktopPostFields () {
+		let postAdditionField = document.querySelector('.CompanySettings_field-postAddition');
+
+		let postFieldItems = document.querySelectorAll('.CompanySettings_fieldItem-post');
+		let postsNumber = postFieldItems.length;
+
+		if (!postsNumber) {
+			postAdditionField.insertAdjacentHTML('beforebegin', `<div class="CompanySettings_field CompanySettings_field-post hidden-xs"><div class="CompanySettings_fieldContent"><div class="CompanySettings_fieldItems"></div></div></div>`);
+		}
+
+		let postFieldItemsWrapper = document.querySelector('.CompanySettings_field-post .CompanySettings_fieldItems');
+		postFieldItemsWrapper.insertAdjacentHTML('beforeend', `<div class="CompanySettings_fieldItem CompanySettings_fieldItem-post"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="post[${postsNumber}][name]" placeholder="должность"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="post[${postsNumber}][lastName]" placeholder="Фамилия"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="post[${postsNumber}][firstName]" placeholder="Имя"><input class="CompanySettings_formText CompanySettings_formText-col4" type="text" name="post[${postsNumber}][patronym]" placeholder="Отчество"><a class="CompanySettings_removeFieldItem" href="javascript:;"></a></div>`);
+		checkExistingPosts();
+	}
+
+	function refreshDesktopPostFieldItem (fieldItemIndex) {
+		let currentPost;
+
+		if (fieldItemIndex == undefined) {
+			currentPost = document.querySelector('.CompanySettings_post:last-child');
+			fieldItemIndex = getChildNodeIndex(currentPost) + 1;
+		} else {
+			currentPost = document.querySelector(`.CompanySettings_post:nth-child(${fieldItemIndex})`);
+		}
+
+		let currentPostFullName = currentPost.querySelector('.CompanySettings_link-fullNameEdit');
+		let [lastName, firstName, patronym] = currentPostFullName.textContent.split(' ');
+		let jobTitle = currentPost.querySelector('.CompanySettings_jobTitle').textContent;
+
+		let currentPostFieldItem = document.querySelector(`.CompanySettings_fieldItem-post:nth-child(${fieldItemIndex})`);
+		let postAdditionFormText = currentPostFieldItem.querySelectorAll('.CompanySettings_formText');
+
+		postAdditionFormText[0].value = jobTitle;
+		postAdditionFormText[1].value = lastName;
+		postAdditionFormText[2].value = firstName;
+		postAdditionFormText[3].value = patronym;
+	}
 
 	// Add post field
 	document.addEventListener('click', function (e) {
@@ -101,10 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!addPostLink) return;
 
-		let currentFieldItem = addPostLink.closest('.CompanySettings_field');
-
-		currentFieldItem.insertAdjacentHTML('beforebegin', '<div class="CompanySettings_field CompanySettings_field-post"><div class="CompanySettings_fieldContent"><div class="CompanySettings_fieldItems"><div class="CompanySettings_fieldItem CompanySettings_fieldItem-post"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="post" placeholder="должность"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="surname" placeholder="Фамилия"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="name" placeholder="Имя"><input class="CompanySettings_formText CompanySettings_formText-col4" type="text" name="patronym" placeholder="Отчество"><a class="CompanySettings_removeFieldItem" href="javascript:;"></a></div></div></div></div>');
-		checkExistingPosts();
+		createDesktopPostFields();
 	});
 
 	// Add alternative address
@@ -128,11 +161,23 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (!removeFieldItemLink) return;
 
 		let parentField = removeFieldItemLink.closest('.CompanySettings_field');
+		let fieldItem = removeFieldItemLink.closest('.CompanySettings_fieldItem');
 
 		if (!parentField.classList.contains('CompanySettings_field-post')) {
-			removeFieldItemLink.closest('.CompanySettings_fieldItem').remove();
+			fieldItem.remove();
 		} else {
-			parentField.remove();
+			let fieldItemIndex = getChildNodeIndex(fieldItem);
+			let currentPost = document.querySelector(`.CompanySettings_post:nth-child(${fieldItemIndex + 1})`);
+
+			if (currentPost) {
+				currentPost.remove();
+			}
+			fieldItem.remove();
+
+			let postFieldItems = document.querySelectorAll('.CompanySettings_field-post .CompanySettings_fieldItem');
+			if (!postFieldItems.length) {
+				document.querySelector('.CompanySettings_field-post').remove();
+			}
 		}
 
 		checkExistingPosts();
@@ -264,8 +309,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		let companyPosts = document.querySelectorAll('.CompanySettings_fieldItem-post');
 		let companyMobilePosts = document.querySelectorAll('.CompanySettings_post');
 
-		if (!companyPosts.length || !companyMobilePosts.length) return;
-
 		if (companyPosts.length) {
 			document.querySelector('.AddFieldItem-post .AddFieldItem_text').textContent = 'Добавить ещё должность';
 		} else {
@@ -291,22 +334,82 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-	let ownerAdditionForm = document.forms['owner_addition'];
+	// Owner addition
+	document.addEventListener('click', function (e) {
+		let addOwnerBtn = e.target.closest('.CompanySettings_addButton-owner');
 
-	if (ownerAdditionForm) {
-		ownerAdditionForm.addEventListener('submit', function (e) {
-			let ownerWrapper = document.querySelector('.CompanySettings_ownerWrapper');
-	
-			let ownerFullName = ownerAdditionForm.owner_surname2.value + ' ' + ownerAdditionForm.owner_name2.value + ' ' + ownerAdditionForm.owner_patronym2.value;
-	
-			ownerWrapper.insertAdjacentHTML('beforeend', `<div class="CompanySettings_owner"><div class="CompanySettings_ownerHeader"><div class="CompanySettings_ownerFullName">Владелец</div><a href="javascript:;"class="CompanySettings_removeOwner"></a></div><a href="javascript:;" data-fancybox-trigger="owner_edit" class="CompanySettings_link CompanySettings_link-ownerFullNameEdit">${ownerFullName}</a></div>`);
-	
-			document.querySelector('.AddFieldItem-ownerMobile').classList.add('hidden');
-	
-			e.preventDefault();
-			$.fancybox.close();
-		});
-	}
+		if (!addOwnerBtn) return;
+
+		let ownerAddition = document.getElementById('OwnerAddition');
+		let ownerWrapper = document.querySelector('.CompanySettings_ownerWrapper');
+		let ownerAdditionSurname = ownerAddition.querySelector('input[name="owner_surname"]');
+		let ownerAdditionName = ownerAddition.querySelector('input[name="owner_name"]');
+		let ownerAdditionPatronym = ownerAddition.querySelector('input[name="owner_patronym"]');
+
+		let ownerFullName = ownerAdditionSurname.value + ' ' + ownerAdditionName.value + ' ' + ownerAdditionPatronym.value;
+
+		ownerWrapper.insertAdjacentHTML('beforeend', `<div class="CompanySettings_owner"><div class="CompanySettings_ownerHeader"><div class="CompanySettings_ownerFullName">Владелец</div><a href="javascript:;"class="CompanySettings_removeOwner"></a></div><a href="#owner_edit" class="CompanySettings_link CompanySettings_link-ownerFullNameEdit">${ownerFullName}</a></div>`);
+
+		document.querySelector('.AddFieldItem-ownerMobile').classList.add('hidden');
+
+		e.preventDefault();
+		$.fancybox.close();
+	});
+
+	// Owner Edit
+	document.addEventListener('click', function (e) {
+		let ownerEditBtn = e.target.closest('.CompanySettings_addButton-ownerEdit');
+
+		if (!ownerEditBtn) return;
+
+		let ownerAddition = document.getElementById('OwnerAddition');
+		let owner = document.querySelector('.CompanySettings_owner');
+		let ownerAdditionSurname = ownerAddition.querySelector('input[name="owner_surname"]');
+		let ownerAdditionName = ownerAddition.querySelector('input[name="owner_name"]');
+		let ownerAdditionPatronym = ownerAddition.querySelector('input[name="owner_patronym"]');
+
+		let ownerFullName = ownerAdditionSurname.value + ' ' + ownerAdditionName.value + ' ' + ownerAdditionPatronym.value;
+
+		owner.querySelector('.CompanySettings_link-ownerFullNameEdit').textContent = ownerFullName.trim();
+
+		e.preventDefault();
+		$.fancybox.close();
+	});
+
+	document.addEventListener('input', function (e) {
+		let ownerFullNameField = e.target.closest('.CompanySettings_field-ownerAdditionDesktop .CompanySettings_formText');
+
+		if (!ownerFullNameField) return;
+
+		let ownerAdditionDesktop = document.querySelector('.CompanySettings_field-ownerAdditionDesktop');
+		let ownerAdditionSurname = ownerAdditionDesktop.querySelector('input[name="owner_surname"]');
+		let ownerAdditionName = ownerAdditionDesktop.querySelector('input[name="owner_name"]');
+		let ownerAdditionPatronym = ownerAdditionDesktop.querySelector('input[name="owner_patronym"]');
+
+		let ownerWrapper = document.querySelector('.CompanySettings_ownerWrapper');
+		let companySettingsOwner = ownerWrapper.querySelector('.CompanySettings_owner');
+
+		let ownerFullName = (ownerAdditionSurname.value + ' ' + ownerAdditionName.value + ' ' + ownerAdditionPatronym.value).trim();
+		let addOwnerMobileLink = document.querySelector('.AddFieldItem-ownerMobile');
+
+		if (ownerFullName.length) {
+			if (!companySettingsOwner) {
+				companySettingsOwner = document.createElement('div');
+				companySettingsOwner.className = 'CompanySettings_owner';
+				ownerWrapper.append(companySettingsOwner);
+
+				companySettingsOwner.insertAdjacentHTML('beforeend', `<div class="CompanySettings_ownerHeader"><div class="CompanySettings_ownerFullName">Владелец</div><a href="javascript:;"class="CompanySettings_removeOwner"></a></div><a href="javascript:;" data-fancybox-trigger="owner_edit" class="CompanySettings_link CompanySettings_link-ownerFullNameEdit">${ownerFullName}</a>`);
+			} else {
+				let ownerFullNameEditLink = document.querySelector('.CompanySettings_link-ownerFullNameEdit');
+				ownerFullNameEditLink.textContent = ownerFullName;
+			}
+
+			addOwnerMobileLink.classList.add('hidden');
+		} else {
+			companySettingsOwner.remove();
+			addOwnerMobileLink.classList.remove('hidden');
+		}
+	});
 
 	$('a[href="#OwnerAddition"]').fancybox({
 		touch: false,
@@ -326,7 +429,14 @@ document.addEventListener('DOMContentLoaded', function () {
 			'</div>',
 
 	  beforeLoad: function(instance, current) {
-			ownerAdditionForm.owner_surname2.value = ownerAdditionForm.owner_name2.value = ownerAdditionForm.owner_patronym2.value = '';
+	  	let ownerAddition = document.getElementById('OwnerAddition');
+	  	let ownerAdditionSurname = ownerAddition.querySelector('input[name="owner_surname"]');
+	  	let ownerAdditionName = ownerAddition.querySelector('input[name="owner_name"]');
+	  	let ownerAdditionPatronym = ownerAddition.querySelector('input[name="owner_patronym"]');
+
+	  	if (ownerAdditionSurname && ownerAdditionName && ownerAdditionPatronym) {
+	  		ownerAdditionSurname.value = ownerAdditionName.value = ownerAdditionPatronym.value = '';
+	  	}
     }
 	});
 
@@ -336,13 +446,14 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (!ownerFullNameEditLink) return;
 
 		$.fancybox.open({
-	    src: '#OwnerEdit',
+	    src: '#OwnerAddition',
 	    type: 'inline',
 	    opts: {
 	    	touch: false,
 				smallBtn: false,
 				toolbar: false,
 				animationEffect: false,
+				hash: false,
 				baseTpl:
 			    '<div class="fancybox-container fancybox-container--no-padding" role="dialog" tabindex="-1">' +
 			    '<div class="fancybox-bg"></div>' +
@@ -359,41 +470,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		      let [lastName, firstName, patronym] = ownerFullNameEditLink.textContent.split(' ');
 
 		      let currentOwner = document.querySelector('.CompanySettings_owner');
+		      let ownerAddition = document.getElementById('OwnerAddition');
+		      let mobileHeaderTitle = ownerAddition.querySelector('.MobileHeader_title');
+		      mobileHeaderTitle.textContent = 'Редактировать владельца';
 
-		      let ownerEditForm = document.forms['owner_edit'];
-
-		      ownerEditForm.owner_name3.value = firstName;
-		      ownerEditForm.owner_surname3.value = lastName;
-		      ownerEditForm.owner_patronym3.value = patronym;
-
-		      ownerEditForm.addEventListener('submit', function (e) {
-		      	let ownerFullName = ownerEditForm.owner_surname3.value + ' ' + ownerEditForm.owner_name3.value + ' ' + ownerEditForm.owner_patronym3.value;
-
-		      	document.querySelector('.CompanySettings_link-ownerFullNameEdit').textContent = ownerFullName;
-
-		      	e.preventDefault();
-						$.fancybox.close();
-		      });
+		      let addButton = ownerAddition.querySelector('.CompanySettings_addButton');
+		      addButton.textContent = 'Сохранить изменения';
+		      addButton.classList.remove('CompanySettings_addButton-owner');
+		      addButton.classList.add('CompanySettings_addButton-ownerEdit');
 		    }
 		  }
 		});
 	});
-
-	let postAdditionForm = document.forms['post_addition'];
-
-	if (postAdditionForm) {
-		postAdditionForm.addEventListener('submit', function (e) {
-			let companySettingsPosts = document.querySelector('.CompanySettings_posts');
-	
-			let fullName = postAdditionForm.surname2.value + ' ' + postAdditionForm.name2.value + ' ' + postAdditionForm.patronym2.value;
-	
-			companySettingsPosts.insertAdjacentHTML('beforeend', `<div class="CompanySettings_post"><div class="CompanySettings_postHeader"><div class="CompanySettings_jobTitle">${postAdditionForm.post2.value}</div><a href="javascript:;" class="CompanySettings_removePost"></a></div><a href="javascript:;" data-src="#PostAddition" class="CompanySettings_link CompanySettings_link-fullNameEdit">${fullName}</a></div>`);
-	
-			checkExistingPosts();
-			e.preventDefault();
-			$.fancybox.close();
-		});
-	}
 
 	$('[data-src="#PostAddition"]').fancybox({
 		touch: false,
@@ -413,8 +501,116 @@ document.addEventListener('DOMContentLoaded', function () {
 			'</div>',
 
 	  beforeLoad: function(instance, current) {
-	   	postAdditionForm.post2.value = postAdditionForm.surname2.value = postAdditionForm.name2.value = postAdditionForm.patronym2.value = '';
+	  	let companySettingsPost = document.querySelectorAll('.CompanySettings_post');
+	  	let postsCount = document.querySelectorAll('.CompanySettings_post').length;
+			
+	   	let postAddition = document.getElementById('PostAddition');
+			let postAdditionName = postAddition.querySelector(`input[name$="[name]"]`);
+			let postAdditionLastname = postAddition.querySelector(`input[name$="[lastName]"]`);
+			let postAdditionfirstName = postAddition.querySelector(`input[name$="[firstName]"]`);
+			let postAdditionPatronym = postAddition.querySelector(`input[name$="[patronym]"]`);
+
+      let mobileHeaderTitle = postAddition.querySelector('.MobileHeader_title');
+      mobileHeaderTitle.textContent = 'Добавить должность';
+
+      let addButton = postAddition.querySelector('.CompanySettings_addButton');
+      addButton.textContent = 'Добавить должность';
+      addButton.classList.remove('CompanySettings_addButton-postEdit');
+      addButton.classList.add('CompanySettings_addButton-post');
+
+			postAdditionName.value = postAdditionLastname.value = postAdditionfirstName.value = postAdditionPatronym.value = '';
+
+			postAdditionName.name = `post[${companySettingsPost.length}][name]`;
+			postAdditionLastname.name = `post[${companySettingsPost.length}][lastName]`;
+			postAdditionfirstName.name = `post[${companySettingsPost.length}][firstName]`;
+			postAdditionPatronym.name = `post[${companySettingsPost.length}][patronym]`;
     }
+	});
+
+	document.addEventListener('input', function (e) {
+		let fieldPostInput = e.target.closest('.CompanySettings_field-post .CompanySettings_formText');
+
+		if (!fieldPostInput) return;
+
+		let postAdditionFieldItems = document.querySelectorAll('.CompanySettings_fieldItem-post');
+		let companySettingsPosts = document.querySelector('.CompanySettings_posts');
+
+		postAdditionFieldItems.forEach( (postAdditionFieldItem, postAdditionFieldIndex) => {
+			let postAdditionFormText = postAdditionFieldItem.querySelectorAll('.CompanySettings_formText');
+
+			let fullName = (postAdditionFormText[1].value + ' ' + postAdditionFormText[2].value + ' ' + postAdditionFormText[3].value).trim();
+
+			let currentPost = companySettingsPosts.querySelector(`.CompanySettings_post:nth-child(${postAdditionFieldIndex + 1})`);
+
+			if (fullName.length || postAdditionFormText[0].value) {
+				if (!currentPost) {
+					companySettingsPosts.insertAdjacentHTML('beforeend', `<div class="CompanySettings_post"><div class="CompanySettings_postHeader"><div class="CompanySettings_jobTitle">${postAdditionFormText[0].value}</div><a href="javascript:;" class="CompanySettings_removePost"></a></div><a href="javascript:;"  class="CompanySettings_link CompanySettings_link-fullNameEdit">${fullName}</a></div>`);
+				} else {
+					let currentPostJobTitle = currentPost.querySelector('.CompanySettings_jobTitle');
+					let currentPostFullName = currentPost.querySelector('.CompanySettings_link-fullNameEdit');
+
+					currentPostJobTitle.textContent = postAdditionFormText[0].value;
+					currentPostFullName.textContent = fullName;
+				}
+			} else {
+				currentPost.remove();
+			}
+		});
+	});
+
+	function createMobilePost () {
+		let postAddition = document.getElementById('PostAddition');
+		let postAdditionName = postAddition.querySelector(`input[name$="[name]"]`);
+		let postAdditionLastname = postAddition.querySelector(`input[name$="[lastName]"]`);
+		let postAdditionfirstName = postAddition.querySelector(`input[name$="[firstName]"]`);
+		let postAdditionPatronym = postAddition.querySelector(`input[name$="[patronym]"]`);
+		let companySettingsPosts = document.querySelector('.CompanySettings_posts');
+
+		let fullName = postAdditionLastname.value + ' ' + postAdditionfirstName.value + ' ' + postAdditionPatronym.value;
+
+		companySettingsPosts.insertAdjacentHTML('beforeend', `<div class="CompanySettings_post"><div class="CompanySettings_postHeader"><div class="CompanySettings_jobTitle">${postAdditionName.value}</div><a href="javascript:;" class="CompanySettings_removePost"></a></div><a href="javascript:;"  class="CompanySettings_link CompanySettings_link-fullNameEdit">${fullName}</a></div>`);
+
+		checkExistingPosts();
+	}
+
+	// Post addition
+	document.addEventListener('click', function (e) {
+		let addPostBtn = e.target.closest('.CompanySettings_addButton-post');
+
+		if (!addPostBtn) return;
+
+		createMobilePost();
+		createDesktopPostFields();
+		refreshDesktopPostFieldItem();
+		$.fancybox.close();
+	});
+
+	// Edit post
+	document.addEventListener('click', function (e) {
+		let editPostBtn = e.target.closest('.CompanySettings_addButton-postEdit');
+
+		if (!editPostBtn) return;
+
+		let postEdit = document.getElementById('PostAddition');
+		let postEditId = postEdit.dataset.postId * 1 + 1;
+		let postEditName = postEdit.querySelector('input[name$="[name]"]');
+		let postEditLastname = postEdit.querySelector('input[name$="[lastName]"]');
+		let postEditfirstName = postEdit.querySelector('input[name$="[firstName]"]');
+		let postEditPatronym = postEdit.querySelector('input[name$="[patronym]"]');
+
+		let fullName = postEditLastname.value + ' ' + postEditfirstName.value + ' ' + postEditPatronym.value;
+
+		let currentPost = document.querySelector(`.CompanySettings_post:nth-child(${postEditId})`);
+		let currentPostJobTitle = currentPost.querySelector('.CompanySettings_jobTitle');
+		let currentPostFullName = currentPost.querySelector('.CompanySettings_link-fullNameEdit');
+
+		currentPostJobTitle.textContent = postEditName.value;
+		currentPostFullName.textContent = fullName;
+
+		refreshDesktopPostFieldItem(postEditId);
+
+		e.preventDefault();
+		$.fancybox.close();
 	});
 
 	document.addEventListener('click', function (e) {
@@ -423,7 +619,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (!fullNameEditLink) return;
 
 		$.fancybox.open({
-	    src: '#PostEdit',
+	    src: '#PostAddition',
 	    type: 'inline',
 	    opts: {
 	    	touch: false,
@@ -447,25 +643,34 @@ document.addEventListener('DOMContentLoaded', function () {
 		      let [lastName, firstName, patronym] = fullNameEditLink.textContent.split(' ');
 
 		      let currentPost = fullNameEditLink.closest('.CompanySettings_post');
+		      let currentPostIndex = getChildNodeIndex(currentPost);
 					let jobTitle = currentPost.querySelector('.CompanySettings_jobTitle').textContent;
 
-		      let postEditingForm = document.forms['post_editing'];
+		      let postAddition = document.getElementById('PostAddition');
+		      let mobileHeaderTitle = postAddition.querySelector('.MobileHeader_title');
+		      mobileHeaderTitle.textContent = 'Редактировать должность';
 
-		      postEditingForm.post3.value = jobTitle;
-		      postEditingForm.name3.value = firstName;
-		      postEditingForm.surname3.value = lastName;
-		      postEditingForm.patronym3.value = patronym;
+		      postAddition.dataset.postId = currentPostIndex;
 
-		      postEditingForm.addEventListener('submit', function (e) {
-		      	currentPost.querySelector('.CompanySettings_jobTitle').textContent = postEditingForm.post3.value;
+		      let addButton = postAddition.querySelector('.CompanySettings_addButton');
+		      addButton.textContent = 'Сохранить изменения';
+		      addButton.classList.remove('CompanySettings_addButton-post');
+		      addButton.classList.add('CompanySettings_addButton-postEdit');
 
-		      	let fullName = postEditingForm.surname3.value + ' ' + postEditingForm.name3.value + ' ' + postEditingForm.patronym3.value;
+		      let postAdditionName = postAddition.querySelector('input[name$="[name]"]');
+					let postAdditionLastname = postAddition.querySelector('input[name$="[lastName]"]');
+					let postAdditionfirstName = postAddition.querySelector('input[name$="[firstName]"]');
+					let postAdditionPatronym = postAddition.querySelector('input[name$="[patronym]"]');
 
-		      	currentPost.querySelector('.CompanySettings_link-fullNameEdit').textContent = fullName;
+					postAdditionName.name = `post[${currentPostIndex}][name]`;
+					postAdditionLastname.name = `post[${currentPostIndex}][lastName]`;
+					postAdditionfirstName.name = `post[${currentPostIndex}][firstName]`;
+					postAdditionPatronym.name = `post[${currentPostIndex}][patronym]`;
 
-		      	e.preventDefault();
-		      	$.fancybox.close();
-		      });
+					postAdditionName.value = jobTitle;
+					postAdditionLastname.value = lastName;
+					postAdditionfirstName.value = firstName;
+					postAdditionPatronym.value = patronym;
 		    }
 		  }
 		});
@@ -489,15 +694,29 @@ document.addEventListener('DOMContentLoaded', function () {
 			'</div>',
 
 	  beforeLoad: function(instance, current) {
-			// ownerAdditionForm.owner_surname2.value = ownerAdditionForm.owner_name2.value = ownerAdditionForm.owner_patronym2.value = '';
+			
     }
 	});
+
+	function getChildNodeIndex (child) {
+		let i = 0;
+
+		while ((child = child.previousElementSibling)) {
+			i++;
+		}
+
+		return i;
+	}
 
 	document.addEventListener('click', function (e) {
 		let removePostLink = e.target.closest('.CompanySettings_removePost');
 
 		if (!removePostLink) return;
 
+		let currentPost = removePostLink.closest('.CompanySettings_post');
+		let currentPostIndex = getChildNodeIndex(currentPost);
+
+		document.querySelector(`.CompanySettings_fieldItem-post:nth-child(${currentPostIndex + 1})`).remove();
 		removePostLink.closest('.CompanySettings_post').remove();
 		checkExistingPosts();
 	});
@@ -508,7 +727,16 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (!removeOwnerLink) return;
 
 		removeOwnerLink.closest('.CompanySettings_owner').remove();
-		document.querySelector('.AddFieldItem-ownerMobile').classList.remove('hidden');
+
+		let addOwnerMobileLink = document.querySelector('.AddFieldItem-ownerMobile');
+		addOwnerMobileLink.classList.remove('hidden');
+
+		let ownerAdditionFields = document.querySelector('#OwnerAddition .CompanySettings_fields');
+		let ownerFullNameDesktop = ownerAdditionFields.querySelectorAll('.CompanySettings_formText');
+
+		ownerFullNameDesktop.forEach( item => {
+			item.value = '';
+		});
 	});
 
 	function isOrderedSequence(arr) {
@@ -570,6 +798,88 @@ document.addEventListener('DOMContentLoaded', function () {
 		let selectedOption = dropdownSelect.querySelector(`.DropdownSelect_select option[value="${selectedValue}"]`);
 
 		selectedOption.toggleAttribute('selected');
+	});
+
+	function wrapElement (elem, wrapperClassName) {
+		let newElement = document.createElement('div');
+		newElement.className = wrapperClassName;
+
+		newElement.append(elem);
+		return newElement;
+	}
+
+	function wrapElements (arr, wrapperClassName) {
+		let newArr = [];
+
+		arr.forEach( item => {
+			newArr.push(wrapElement(item, wrapperClassName));
+		});
+
+		return newArr;
+	}
+
+	function syncOwnerAdditionField () {
+		let windowWidth = document.documentElement.clientWidth;
+		let companySettings = document.getElementById('CompanySettings');
+		let ownerAdditionFields = document.querySelector('#OwnerAddition .CompanySettings_fields');
+
+		if (windowWidth < 768) {
+			let ownerFullNameDesktop = companySettings.querySelectorAll('.CompanySettings_field-ownerAdditionDesktop .CompanySettings_formText');
+
+			let labels = Array.from(ownerFullNameDesktop).map(item => {
+				let label = document.createElement('label');
+				label.className = 'CompanySettings_label';
+				label.htmlFor = item.name;
+				label.textContent = item.placeholder;
+				return label;
+			});
+
+			ownerFullNameDesktop.forEach( item => {
+				item.className = 'CompanySettings_formText CompanySettings_formText-fullWidth';
+				item.id = item.name;
+				item.setAttribute('form', 'CompanySettings');
+				item.removeAttribute('placeholder');
+
+				if (item.name !== 'owner_patronym') {
+					item.required = true;
+				}
+			});
+
+			let fullNameWrapped = wrapElements(ownerFullNameDesktop, 'CompanySettings_field').map((item, index) => {
+				item.prepend(labels[index]);
+				return item;
+			});
+
+			ownerAdditionFields.append(...fullNameWrapped);
+		} else {
+			let ownerFullNameMob = ownerAdditionFields.querySelectorAll('.CompanySettings_formText');
+			let labels = ownerAdditionFields.querySelectorAll('.CompanySettings_label');
+			let ownerAdditionItemDesktop = document.querySelector('.CompanySettings_field-ownerAdditionDesktop .CompanySettings_fieldItem');
+
+			let labelsText = Array.from(labels).map(item => {
+				let text = item.textContent;
+				item.parentNode.remove();
+				return text;
+			});
+
+			ownerFullNameMob.forEach( (item, index) => {
+				item.className = 'CompanySettings_formText CompanySettings_formText-col3 CompanySettings_formText-gutter';
+				item.placeholder = labelsText[index];
+				item.required = false;
+				item.removeAttribute('id');
+				item.removeAttribute('form');
+			});
+
+			ownerAdditionItemDesktop.append(...ownerFullNameMob);
+
+			$.fancybox.close();
+		}
+	}
+
+	syncOwnerAdditionField();
+
+	window.addEventListener('resize', function () {
+		syncOwnerAdditionField();
 	});
 	
 });

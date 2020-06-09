@@ -144,6 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		};
 	}
 
+	// Share
 	document.addEventListener('click', function (e) {
 		let shareIcon = e.target.closest('.Share_icon');
 
@@ -191,10 +192,18 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	document.addEventListener('click', function (e) {
-		let bookmarkIcon = e.target.closest('.StatIcon-bookmark');
+		let bookmarkIcon = e.target.closest('.Bookmark_icon');
 
 		if (!bookmarkIcon) return;
 
-		bookmarkIcon.classList.toggle('StatIcon-bookmarkFill');
+		let bookmark = bookmarkIcon.closest('.Bookmark');
+		bookmark.classList.toggle('Bookmark-active');
+	});
+
+	let commentLinks = document.querySelectorAll('.Comment_text a');
+	commentLinks.forEach( commentLink => {
+		if (!commentLink.hasAttribute('target') || commentLink.getAttribute('target') != '_blank') {
+			commentLink.setAttribute('target', '_blank');
+		}
 	});
 });

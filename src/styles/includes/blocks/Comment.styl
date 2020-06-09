@@ -94,7 +94,10 @@
 		@media $xs
 			font-size 12px
 	
-	&_date		
+	&_date
+		@media $xs
+			flex-shrink 0
+			
 		&-highlightedName
 			margin-left 8px
 	
@@ -117,6 +120,7 @@
 			text-decoration underline
 			overflow hidden
 			text-overflow ellipsis
+			vertical-align middle
 			
 			&:hover
 				text-decoration none

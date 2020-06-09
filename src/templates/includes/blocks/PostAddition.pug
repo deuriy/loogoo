@@ -4,25 +4,25 @@
 			include /includes/svg/SvgIco/arrow_left
 		h2.MobileHeader_title Добавить должность
 	.FieldAddition_main
-		form(action="#", name="post_addition").CompanySettings.CompanySettings-fieldAddition
+		.CompanySettings.CompanySettings-fieldAddition
 			.CompanySettings_fields
 				.CompanySettings_field
-					label(for="post2").CompanySettings_label Название должности:
+					label(for="postName").CompanySettings_label Название должности:
 					.CompanySettings_fieldContent
-						input(type="text", name="post2", id="post2", required).CompanySettings_formText.CompanySettings_formText-fullWidth
+						input(type="text", name="post[][name]", id="postName", required).CompanySettings_formText.CompanySettings_formText-fullWidth
 				.CompanySettings_field
-					label(for="surname2").CompanySettings_label Фамилия:
+					label(for="postLastName").CompanySettings_label Фамилия:
 					.CompanySettings_fieldContent
-						input(type="text", name="surname2", id="surname2", required).CompanySettings_formText.CompanySettings_formText-fullWidth
+						input(type="text", name="post[][lastName]", id="postLastName", required).CompanySettings_formText.CompanySettings_formText-fullWidth
 				.CompanySettings_field
-					label(for="name2").CompanySettings_label Имя:
+					label(for="postFirstName").CompanySettings_label Имя:
 					.CompanySettings_fieldContent
-						input(type="text", name="name2", id="name2", required).CompanySettings_formText.CompanySettings_formText-fullWidth
+						input(type="text", name="post[][firstName]", id="postFirstName", required).CompanySettings_formText.CompanySettings_formText-fullWidth
 				.CompanySettings_field
-					label(for="patronym2").CompanySettings_label Отчество:
+					label(for="postPatronym").CompanySettings_label Отчество:
 					.CompanySettings_fieldContent
-						input(type="text", name="patronym2", id="patronym2").CompanySettings_formText.CompanySettings_formText-fullWidth
+						input(type="text", name="post[][patronym]", id="postPatronym").CompanySettings_formText.CompanySettings_formText-fullWidth
 			.CompanySettings_actions
-				button(type="submit").BtnBlue.BtnBlue-addCompanyPopup.CompanySettings_addButton Добавить должность
+				button(type="button").BtnBlue.BtnBlue-addCompanyPopup.CompanySettings_addButton.CompanySettings_addButton-post Добавить должность
 				.CompanySettings_cancelLinkWrapper
 					a(href="javascript:;", data-fancybox-close).CompanySettings_link.CompanySettings_link-cancel Отмена

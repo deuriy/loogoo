@@ -20,7 +20,7 @@ block content
 								a(href="/profile_company_settings.html").CategoryMenu_link.active О компании
 							li.CategoryMenu_item
 								a(href="/company_verification.html").CategoryMenu_link Верификация
-				form(action="#", name="company_settings", novalidate).CompanySettings
+				form(action="#", name="company_settings", novalidate).CompanySettings#CompanySettings
 					h2.CompanySettings_title.hidden-xs О компании
 					.CompanySettings_fields
 						.CompanySettings_field
@@ -170,7 +170,7 @@ block content
 										option(value="none") Выберите
 										option(value="form1") Форма 1
 										option(value="form2") Форма 2
-						.CompanySettings_field.hidden-xs
+						.CompanySettings_field.CompanySettings_field-ownerAdditionDesktop.hidden-xs
 							label.CompanySettings_label Владелец:
 							.CompanySettings_fieldContent
 								.CompanySettings_fieldItems
@@ -181,7 +181,7 @@ block content
 						.CompanySettings_field.CompanySettings_field-ownerAddition.hidden-smPlus
 							.CompanySettings_fieldContent
 								.CompanySettings_ownerWrapper.hidden-smPlus
-								a(href="#OwnerAddition", data-fancybox="owner_addition").AddFieldItem.AddFieldItem-ownerMobile.hidden-smPlus
+								a(href="#OwnerAddition", data-fancybox="owner_add").AddFieldItem.AddFieldItem-ownerMobile.hidden-smPlus
 									include /includes/svg/icon_add
 									span.AddFieldItem_text Добавить владельца
 						.CompanySettings_field.CompanySettings_field-postAddition
@@ -225,7 +225,5 @@ block content
 							a(href="/profile_messages.html").SettingsMenu_link Сообщения
 block page_bottom
 	include /includes/blocks/OwnerAddition
-	include /includes/blocks/OwnerEdit
 	include /includes/blocks/PostAddition
-	include /includes/blocks/PostEdit
 	script(src="/js/company_settings.js")
