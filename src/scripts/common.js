@@ -483,6 +483,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		dropdownOverlay.parentNode.classList.remove('Dropdown-visible');
 	});
 
+	// function getActiveUserTab () {
+	// 	let 
+	// }
+
 	// Tabs
 	let tabsList = document.querySelectorAll('.Tabs_list');
 

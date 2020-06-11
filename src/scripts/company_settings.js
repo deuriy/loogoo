@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		let companySettingsPosts = document.querySelector('.CompanySettings_posts');
 		let fullName = postAdditionLastname.value + ' ' + postAdditionfirstName.value + ' ' + postAdditionPatronym.value;
 
-		companySettingsPosts.insertAdjacentHTML('beforeend', `<div class="CompanySettings_post"><div class="CompanySettings_postHeader"><div class="CompanySettings_jobTitle">${postAdditionName.value}</div><a href="javascript:;" class="CompanySettings_removePost"></a></div><a href="javascript:;"  class="CompanySettings_link CompanySettings_link-fullNameEdit">${fullName}</a></div>`);
+		companySettingsPosts.insertAdjacentHTML('beforeend', `<div class="CompanySettings_post"><div class="CompanySettings_postHeader"><div class="CompanySettings_jobTitle">${postAdditionName.value}</div><a href="javascript:;" class="CompanySettings_removePost"></a></div><a href="javascript:;"  class="CompanySettings_link CompanySettings_link-fullNameEdit">${fullName}</a></div><div class="Error Error-small CompanySettings_postError hidden"></div>`);
 
 		checkExistingPosts();
 	}
@@ -400,8 +400,16 @@ document.addEventListener('DOMContentLoaded', function () {
 				}
 			});
 
-			let currentPost = document.querySelector(`.CompanySettings_post:nth-child(${fieldItemIndex + 1})`);
+			let posts = document.querySelectorAll('.CompanySettings_post');
+			let currentPost = posts[fieldItemIndex];
+
 			if (currentPost) {
+				let postError = currentPost.nextElementSibling;
+
+				if (postError && postError.classList.contains('Error')) {
+					postError.remove();
+				}
+
 				currentPost.remove();
 			}
 
@@ -507,7 +515,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let ownerFullName = ownerAdditionSurname.value + ' ' + ownerAdditionName.value + ' ' + ownerAdditionPatronym.value;
 
-		ownerWrapper.insertAdjacentHTML('beforeend', `<div class="CompanySettings_owner"><div class="CompanySettings_ownerHeader"><div class="CompanySettings_ownerFullName">Владелец</div><a href="javascript:;"class="CompanySettings_removeOwner"></a></div><a href="#owner_edit" class="CompanySettings_link CompanySettings_link-ownerFullNameEdit">${ownerFullName}</a></div>`);
+		ownerWrapper.insertAdjacentHTML('beforeend', `<div class="CompanySettings_owner"><div class="CompanySettings_ownerHeader"><div class="CompanySettings_ownerFullName">Владелец</div><a href="javascript:;"class="CompanySettings_removeOwner"></a></div><a href="#owner_edit" class="CompanySettings_link CompanySettings_link-ownerFullNameEdit">${ownerFullName}</a></div><div class="Error Error-small CompanySettings_ownerError hidden">Поле заполнено неправильно</div>`);
 
 		document.querySelector('.AddFieldItem-ownerMobile').classList.add('hidden');
 
@@ -559,6 +567,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				ownerWrapper.append(companySettingsOwner);
 
 				companySettingsOwner.insertAdjacentHTML('beforeend', `<div class="CompanySettings_ownerHeader"><div class="CompanySettings_ownerFullName">Владелец</div><a href="javascript:;"class="CompanySettings_removeOwner"></a></div><a href="javascript:;" data-fancybox-trigger="owner_edit" class="CompanySettings_link CompanySettings_link-ownerFullNameEdit">${ownerFullName}</a>`);
+				companySettingsOwner.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_ownerError hidden">Поле заполнено неправильно</div>');
 			} else {
 				let ownerFullNameEditLink = document.querySelector('.CompanySettings_link-ownerFullNameEdit');
 				ownerFullNameEditLink.textContent = ownerFullName;
@@ -702,11 +711,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			let fullName = (postAdditionFormText[1].value + ' ' + postAdditionFormText[2].value + ' ' + postAdditionFormText[3].value).trim();
 
-			let currentPost = companySettingsPosts.querySelector(`.CompanySettings_post:nth-child(${postAdditionFieldIndex + 1})`);
+			// let currentPost = companySettingsPosts.querySelector(`.CompanySettings_post:nth-child(${postAdditionFieldIndex + 1})`);
+			let currentPost = document.querySelectorAll('.CompanySettings_post')[postAdditionFieldIndex];
+
+			console.log(currentPost);
 
 			if (fullName.length || postAdditionFormText[0].value) {
 				if (!currentPost) {
-					companySettingsPosts.insertAdjacentHTML('beforeend', `<div class="CompanySettings_post"><div class="CompanySettings_postHeader"><div class="CompanySettings_jobTitle">${postAdditionFormText[0].value}</div><a href="javascript:;" class="CompanySettings_removePost"></a></div><a href="javascript:;"  class="CompanySettings_link CompanySettings_link-fullNameEdit">${fullName}</a></div>`);
+					companySettingsPosts.insertAdjacentHTML('beforeend', `<div class="CompanySettings_post"><div class="CompanySettings_postHeader"><div class="CompanySettings_jobTitle">${postAdditionFormText[0].value}</div><a href="javascript:;" class="CompanySettings_removePost"></a></div><a href="javascript:;"  class="CompanySettings_link CompanySettings_link-fullNameEdit">${fullName}</a></div><div class="Error Error-small CompanySettings_postError hidden"></div>`);
 				} else {
 					let currentPostJobTitle = currentPost.querySelector('.CompanySettings_jobTitle');
 					let currentPostFullName = currentPost.querySelector('.CompanySettings_link-fullNameEdit');
@@ -716,6 +728,12 @@ document.addEventListener('DOMContentLoaded', function () {
 				}
 			} else {
 				if (currentPost) {
+					let postError = currentPost.nextElementSibling;
+
+					if (postError && postError.classList.contains('Error')) {
+						postError.remove();
+					}
+
 					currentPost.remove();
 				}
 			}
@@ -851,7 +869,19 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (!removePostLink) return;
 
 		let currentPost = removePostLink.closest('.CompanySettings_post');
-		let currentPostIndex = getChildNodeIndex(currentPost);
+		let currentPostIndex;
+		let posts = document.querySelectorAll('.CompanySettings_post');
+		let postError = currentPost.nextElementSibling;
+
+		if (postError && postError.classList.contains('Error')) {
+			postError.remove();
+		}
+
+		posts.forEach((post, index) => {
+			if (post == currentPost) {
+				currentPostIndex = index;
+			}
+		});
 
 		let postFieldItems = document.querySelectorAll(`.CompanySettings_fieldItem-post`);
 		postFieldItems[currentPostIndex].remove();
@@ -869,7 +899,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!removeOwnerLink) return;
 
-		removeOwnerLink.closest('.CompanySettings_owner').remove();
+		let owner = removeOwnerLink.closest('.CompanySettings_owner');
+
+		if (owner) {
+			let ownerError = owner.nextElementSibling;
+
+			console.log(ownerError);
+
+			if (ownerError && ownerError.classList.contains('Error')) {
+				ownerError.remove();
+			}
+
+			owner.remove();
+		}
 
 		let addOwnerMobileLink = document.querySelector('.AddFieldItem-ownerMobile');
 		addOwnerMobileLink.classList.remove('hidden');
