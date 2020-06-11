@@ -7,21 +7,21 @@
 		.CompanySettings.CompanySettings-fieldAddition
 			.CompanySettings_fields
 				.CompanySettings_field
-					label(for="postName").CompanySettings_label Название должности:
+					label(for="personPost").CompanySettings_label Название должности:
 					.CompanySettings_fieldContent
-						input(type="text", name="post[][name]", id="postName", required).CompanySettings_formText.CompanySettings_formText-fullWidth
+						input(type="text", name="person[][post]", id="personPost", required).CompanySettings_formText.CompanySettings_formText-fullWidth
 				.CompanySettings_field
-					label(for="postLastName").CompanySettings_label Фамилия:
+					label(for="personLastName").CompanySettings_label Фамилия:
 					.CompanySettings_fieldContent
-						input(type="text", name="post[][lastName]", id="postLastName", required).CompanySettings_formText.CompanySettings_formText-fullWidth
+						input(type="text", name="person[][last_name]", id="personLastName", required).CompanySettings_formText.CompanySettings_formText-fullWidth
 				.CompanySettings_field
-					label(for="postFirstName").CompanySettings_label Имя:
+					label(for="personFirstName").CompanySettings_label Имя:
 					.CompanySettings_fieldContent
-						input(type="text", name="post[][firstName]", id="postFirstName", required).CompanySettings_formText.CompanySettings_formText-fullWidth
+						input(type="text", name="person[][first_name]", id="personFirstName", required).CompanySettings_formText.CompanySettings_formText-fullWidth
 				.CompanySettings_field
-					label(for="postPatronym").CompanySettings_label Отчество:
+					label(for="personPatronymic").CompanySettings_label Отчество:
 					.CompanySettings_fieldContent
-						input(type="text", name="post[][patronym]", id="postPatronym").CompanySettings_formText.CompanySettings_formText-fullWidth
+						input(type="text", name="person[][patronymic]", id="personPatronymic").CompanySettings_formText.CompanySettings_formText-fullWidth
 			.CompanySettings_actions
 				button(type="button").BtnBlue.BtnBlue-addCompanyPopup.CompanySettings_addButton.CompanySettings_addButton-post Добавить должность
 				.CompanySettings_cancelLinkWrapper

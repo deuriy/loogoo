@@ -98,25 +98,28 @@
 	&_fieldItem
 		display flex
 		position relative
-		margin-bottom 20px
+		margin-top 20px
 		
 		@media $xs
 			flex-direction column
 		
-		&:last-child:not(.CompanySettings_fieldItem-hasError)
-			margin-bottom 0
+		&:first-child
+			margin-top 0
 		
 		&-additional
 			@media $xs
 				padding-right 23px
 		
-		&-hasError
-			margin-bottom 20px
+		// &-post:nth-last-child(2)
+		// 	margin-bottom 0
 	
 	&_fieldError
-		position absolute
-		bottom -20px
-		left 0
+		// margin-top -18px
+		margin-top 2px
+		margin-bottom 10px
+		
+		&:last-child
+			margin-bottom 0
 	
 	&_dropdownSelect, &_timeRangeDropdown
 		flex 166px 0 1
