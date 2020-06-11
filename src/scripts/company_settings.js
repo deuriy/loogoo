@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function createDesktopPostFields () {
 		let postAdditionField = document.querySelector('.CompanySettings_field-postAddition');
-
 		let postFieldItems = document.querySelectorAll('.CompanySettings_fieldItem-post');
 		let postsNumber = postFieldItems.length;
 
@@ -20,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		checkExistingPosts();
 	}
 
-	function refreshDesktopPostFieldItem (fieldItemIndex) {
+	function updateDesktopPostFieldItem (fieldItemIndex) {
 		let posts = document.querySelectorAll('.CompanySettings_post');
 
 		if (fieldItemIndex === undefined) {
@@ -186,9 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	function wrapElements (arr, wrapperClassName) {
 		let newArr = [];
 
-		arr.forEach( item => {
-			newArr.push(wrapElement(item, wrapperClassName));
-		});
+		arr.forEach(item => newArr.push(wrapElement(item, wrapperClassName)));
 
 		return newArr;
 	}
@@ -413,9 +410,6 @@ document.addEventListener('DOMContentLoaded', function () {
 				currentPost.remove();
 			}
 
-			console.log(`fieldItemIndex: ${fieldItemIndex}`);
-			console.log(`postFieldItems: ${postFieldItems.length}`);
-
 			if (postFieldItems.length == 1) {
 				document.querySelector('.CompanySettings_field-post').remove();
 			}
@@ -515,7 +509,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let ownerFullName = ownerAdditionSurname.value + ' ' + ownerAdditionName.value + ' ' + ownerAdditionPatronym.value;
 
-		ownerWrapper.insertAdjacentHTML('beforeend', `<div class="CompanySettings_owner"><div class="CompanySettings_ownerHeader"><div class="CompanySettings_ownerFullName">Владелец</div><a href="javascript:;"class="CompanySettings_removeOwner"></a></div><a href="#owner_edit" class="CompanySettings_link CompanySettings_link-ownerFullNameEdit">${ownerFullName}</a></div><div class="Error Error-small CompanySettings_ownerError hidden">Поле заполнено неправильно</div>`);
+		ownerWrapper.insertAdjacentHTML('beforeend', `<div class="CompanySettings_owner"><div class="CompanySettings_ownerHeader"><div class="CompanySettings_ownerFullName">Владелец</div><a href="javascript:;"class="CompanySettings_removeOwner"></a></div><a href="#owner_edit" class="CompanySettings_link CompanySettings_link-ownerFullNameEdit">${ownerFullName}</a></div><div class="Error Error-small CompanySettings_ownerError hidden"></div>`);
 
 		document.querySelector('.AddFieldItem-ownerMobile').classList.add('hidden');
 
@@ -567,7 +561,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				ownerWrapper.append(companySettingsOwner);
 
 				companySettingsOwner.insertAdjacentHTML('beforeend', `<div class="CompanySettings_ownerHeader"><div class="CompanySettings_ownerFullName">Владелец</div><a href="javascript:;"class="CompanySettings_removeOwner"></a></div><a href="javascript:;" data-fancybox-trigger="owner_edit" class="CompanySettings_link CompanySettings_link-ownerFullNameEdit">${ownerFullName}</a>`);
-				companySettingsOwner.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_ownerError hidden">Поле заполнено неправильно</div>');
+				companySettingsOwner.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_ownerError hidden"></div>');
 			} else {
 				let ownerFullNameEditLink = document.querySelector('.CompanySettings_link-ownerFullNameEdit');
 				ownerFullNameEditLink.textContent = ownerFullName;
@@ -711,10 +705,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			let fullName = (postAdditionFormText[1].value + ' ' + postAdditionFormText[2].value + ' ' + postAdditionFormText[3].value).trim();
 
-			// let currentPost = companySettingsPosts.querySelector(`.CompanySettings_post:nth-child(${postAdditionFieldIndex + 1})`);
 			let currentPost = document.querySelectorAll('.CompanySettings_post')[postAdditionFieldIndex];
-
-			console.log(currentPost);
 
 			if (fullName.length || postAdditionFormText[0].value) {
 				if (!currentPost) {
@@ -748,7 +739,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		createMobilePost();
 		createDesktopPostFields();
-		refreshDesktopPostFieldItem();
+		updateDesktopPostFieldItem();
 
 		$.fancybox.close();
 	});
@@ -776,7 +767,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		currentPostJobTitle.textContent = postEditName.value;
 		currentPostFullName.textContent = fullName;
 
-		refreshDesktopPostFieldItem(postEditId);
+		updateDesktopPostFieldItem(postEditId);
 
 		e.preventDefault();
 		$.fancybox.close();
@@ -904,8 +895,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (owner) {
 			let ownerError = owner.nextElementSibling;
 
-			console.log(ownerError);
-
 			if (ownerError && ownerError.classList.contains('Error')) {
 				ownerError.remove();
 			}
@@ -919,7 +908,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		let ownerAdditionFields = document.querySelector('#OwnerAddition .CompanySettings_fields');
 		let ownerFullNameDesktop = ownerAdditionFields.querySelectorAll('.CompanySettings_formText');
 
-		ownerFullNameDesktop.forEach( item => item.value = '');
+		ownerFullNameDesktop.forEach(item => item.value = '');
 	});
 
 	document.addEventListener('click', function (e) {
