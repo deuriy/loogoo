@@ -483,9 +483,67 @@ document.addEventListener("DOMContentLoaded", function () {
 		dropdownOverlay.parentNode.classList.remove('Dropdown-visible');
 	});
 
+	function getCookie(name) {
+	  let matches = document.cookie.match(new RegExp(
+	    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+	  ));
+	  return matches ? decodeURIComponent(matches[1]) : undefined;
+	}
+
+	function setCookie(name, value, options = {}) {
+	  options = {
+	    path: '/',
+	    ...options
+	  };
+
+	  if (options.expires instanceof Date) {
+	    options.expires = options.expires.toUTCString();
+	  }
+
+	  let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+	  for (let optionKey in options) {
+	    updatedCookie += "; " + optionKey;
+	    let optionValue = options[optionKey];
+	    if (optionValue !== true) {
+	      updatedCookie += "=" + optionValue;
+	    }
+	  }
+
+	  document.cookie = updatedCookie;
+	}
+
+	// Пример использования:
+	// setCookie('activeTabIndex', 'John', {'max-age': 31536000});
+
 	// function getActiveUserTab () {
-	// 	let 
+	// 	// let 
 	// }
+
+	// function setActiveUserTab () {
+	// 	// body... 
+	// }
+
+	// let name = 'My name';
+	// let value = 'Yuriy Demchenko';
+
+	// document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + "; max-age=31536000";
+	console.log(document.cookie);
+
+	let profileMenuTabs = document.querySelector('.Tabs-profileMenu');
+
+	if (profileMenuTabs) {
+		let activeTabIndex = getCookie('activeTabIndex');
+
+		if (activeTabIndex !== undefined) {
+			let profileMenuTabsList = profileMenuTabs.querySelector('.Tabs_list');
+			
+			profileMenuTabs.querySelectorAll('.Tabs_item')[activeTabIndex].classList.add('Tabs_item-active');
+			profileMenuTabs.querySelectorAll('.Tabs_content')[activeTabIndex].style.display = 'block';
+		} else {
+			setCookie('activeTabIndex', 0, {'max-age': 31536000});
+		}
+	}
 
 	// Tabs
 	let tabsList = document.querySelectorAll('.Tabs_list');
@@ -511,6 +569,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				});
 
 				tabsContent[tabItemIndex].style.display = 'block';
+				setCookie('activeTabIndex', tabItemIndex, {'max-age': 31536000});
 			};
 		});
 	});

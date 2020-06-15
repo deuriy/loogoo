@@ -9,19 +9,19 @@
 				.CompanySettings_field
 					label(for="personPost").CompanySettings_label Название должности:
 					.CompanySettings_fieldContent
-						input(type="text", name="person[][post]", id="personPost", required).CompanySettings_formText.CompanySettings_formText-fullWidth
+						input(type="text", name="person[][post]", id="personPost", required, form="CompanySettingsForm").CompanySettings_formText.CompanySettings_formText-fullWidth
 				.CompanySettings_field
 					label(for="personLastName").CompanySettings_label Фамилия:
 					.CompanySettings_fieldContent
-						input(type="text", name="person[][last_name]", id="personLastName", required).CompanySettings_formText.CompanySettings_formText-fullWidth
+						input(type="text", name="person[][last_name]", id="personLastName", required, form="CompanySettingsForm").CompanySettings_formText.CompanySettings_formText-fullWidth
 				.CompanySettings_field
 					label(for="personFirstName").CompanySettings_label Имя:
 					.CompanySettings_fieldContent
-						input(type="text", name="person[][first_name]", id="personFirstName", required).CompanySettings_formText.CompanySettings_formText-fullWidth
+						input(type="text", name="person[][first_name]", id="personFirstName", required, form="CompanySettingsForm").CompanySettings_formText.CompanySettings_formText-fullWidth
 				.CompanySettings_field
 					label(for="personPatronymic").CompanySettings_label Отчество:
 					.CompanySettings_fieldContent
-						input(type="text", name="person[][patronymic]", id="personPatronymic").CompanySettings_formText.CompanySettings_formText-fullWidth
+						input(type="text", name="person[][patronymic]", id="personPatronymic", form="CompanySettingsForm").CompanySettings_formText.CompanySettings_formText-fullWidth
 			.CompanySettings_actions
 				button(type="button").BtnBlue.BtnBlue-addCompanyPopup.CompanySettings_addButton.CompanySettings_addButton-post Добавить должность
 				.CompanySettings_cancelLinkWrapper
