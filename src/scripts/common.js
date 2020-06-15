@@ -513,23 +513,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	  document.cookie = updatedCookie;
 	}
 
-	// Пример использования:
-	// setCookie('activeTabIndex', 'John', {'max-age': 31536000});
-
-	// function getActiveUserTab () {
-	// 	// let 
-	// }
-
-	// function setActiveUserTab () {
-	// 	// body... 
-	// }
-
-	// let name = 'My name';
-	// let value = 'Yuriy Demchenko';
-
-	// document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + "; max-age=31536000";
-	console.log(document.cookie);
-
 	let profileMenuTabs = document.querySelector('.Tabs-profileMenu');
 
 	if (profileMenuTabs) {
@@ -537,7 +520,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (activeTabIndex !== undefined) {
 			let profileMenuTabsList = profileMenuTabs.querySelector('.Tabs_list');
-			
+
 			profileMenuTabs.querySelectorAll('.Tabs_item')[activeTabIndex].classList.add('Tabs_item-active');
 			profileMenuTabs.querySelectorAll('.Tabs_content')[activeTabIndex].style.display = 'block';
 		} else {
