@@ -1,3 +1,5 @@
+/*=require ./includes/blocks/*.js*/
+
 document.addEventListener('DOMContentLoaded', function () {
 	let fancyboxOpts = {
 		touch: false,
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-	function createDesktopPostFields () {
+	function createDesktopPostFields (postKey) {
 		let postAdditionField = document.querySelector('.CompanySettings_field-postAddition');
 		let postFieldItems = document.querySelectorAll('.CompanySettings_fieldItem-post');
 		let postsNumber = postFieldItems.length;
@@ -34,24 +36,26 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 
 		let postFieldItemsWrapper = document.querySelector('.CompanySettings_field-post .CompanySettings_fieldItems');
-		postFieldItemsWrapper.insertAdjacentHTML('beforeend', `<div class="CompanySettings_fieldItem CompanySettings_fieldItem-post"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="person[${postsNumber}][post]" placeholder="должность"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="person[${postsNumber}][last_name]" placeholder="Фамилия"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="person[${postsNumber}][first_name]" placeholder="Имя"><input class="CompanySettings_formText CompanySettings_formText-col4" type="text" name="person[${postsNumber}][patronymic]" placeholder="Отчество"><a class="CompanySettings_removeFieldItem" href="javascript:;"></a></div><div class="Error Error-small CompanySettings_fieldError hidden"></div>`);
+		postFieldItemsWrapper.insertAdjacentHTML('beforeend', `<div class="CompanySettings_fieldItem CompanySettings_fieldItem-post" data-post-key="${postKey}"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="person[${postKey}][post]" placeholder="должность"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="person[${postKey}][last_name]" placeholder="Фамилия"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="person[${postKey}][first_name]" placeholder="Имя"><input class="CompanySettings_formText CompanySettings_formText-col4" type="text" name="person[${postKey}][patronymic]" placeholder="Отчество"><a class="CompanySettings_removeFieldItem" href="javascript:;"></a></div><div class="Error Error-small CompanySettings_fieldError hidden"></div>`);
 
 		checkExistingPosts();
 	}
 
-	function updateDesktopPostFieldItem (fieldItemIndex) {
+	function updateDesktopPostFieldItem (postKey) {
 		let posts = document.querySelectorAll('.CompanySettings_post');
 
-		if (fieldItemIndex === undefined) {
-			fieldItemIndex = posts.length - 1;
+		if (postKey === undefined) {
+			postKey = posts[posts.length - 1].dataset.postKey;
 		}
 
-		let currentPost = posts[fieldItemIndex];
+		let currentPost = document.querySelector(`.CompanySettings_post[data-post-key="${postKey}"]`);
 		let currentPostFullName = currentPost.querySelector('.CompanySettings_link-fullNameEdit');
+
 		let [lastName, firstName, patronym] = currentPostFullName.textContent.split(' ');
 		let jobTitle = currentPost.querySelector('.CompanySettings_jobTitle').textContent;
-		let postFieldItems = document.querySelectorAll(`.CompanySettings_fieldItem-post`);
-		let postAdditionFormText = postFieldItems[fieldItemIndex].querySelectorAll('.CompanySettings_formText');
+
+		let currentPostFieldItem = document.querySelector(`.CompanySettings_fieldItem-post[data-post-key="${postKey}"]`);
+		let postAdditionFormText = currentPostFieldItem.querySelectorAll('.CompanySettings_formText');
 
 		postAdditionFormText[0].value = jobTitle;
 		postAdditionFormText[1].value = lastName;
@@ -137,29 +141,30 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	function saveMobilePost () {
-		let postId = document.querySelector('#PostAddition').dataset.postId;
+		let actionType = document.querySelector('#PostAddition').dataset.actionType;
+		let postKey = document.querySelector('#PostAddition').dataset.postKey;
 
-		if (postId === undefined) {
-			createMobilePost();
-			createDesktopPostFields();
+		if (actionType === 'create') {
+			createMobilePost(postKey);
+			createDesktopPostFields(postKey);
 			updateDesktopPostFieldItem();
-		} else {
-			updateMobilePost(postId * 1);
-			updateDesktopPostFieldItem(postId * 1);
+		} else if (actionType === 'edit') {
+			updateMobilePost(postKey);
+			updateDesktopPostFieldItem(postKey);
 		}
 	}
 
-	function createMobilePost () {
+	function createMobilePost (postKey) {
 		let formText = document.querySelectorAll('#PostAddition .CompanySettings_formText');
 		let posts = document.querySelector('.CompanySettings_posts');
 		let fullName = formText[1].value + ' ' + formText[2].value + ' ' + formText[3].value;
 
-		posts.insertAdjacentHTML('beforeend', `<div class="CompanySettings_post"><div class="CompanySettings_postHeader"><div class="CompanySettings_jobTitle">${formText[0].value}</div><a href="javascript:;" class="CompanySettings_removePost"></a></div><a href="javascript:;"  class="CompanySettings_link CompanySettings_link-fullNameEdit">${fullName}</a></div><div class="Error Error-small CompanySettings_postError hidden"></div>`);
+		posts.insertAdjacentHTML('beforeend', `<div class="CompanySettings_post" data-post-key="${postKey}"><div class="CompanySettings_postHeader"><div class="CompanySettings_jobTitle">${formText[0].value}</div><a href="javascript:;" class="CompanySettings_removePost"></a></div><a href="javascript:;"  class="CompanySettings_link CompanySettings_link-fullNameEdit">${fullName}</a></div><div class="Error Error-small CompanySettings_postError hidden"></div>`);
 
 		checkExistingPosts();
 	}
 
-	function updateMobilePost (postId, context) {
+	function updateMobilePost (postKey, context) {
 		if (context === undefined) {
 			context = document.querySelector('#PostAddition');
 		}
@@ -167,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		let formText = context.querySelectorAll('.CompanySettings_formText');
 		let fullName = formText[1].value + ' ' + formText[2].value + ' ' + formText[3].value;
 
-		let currentPost = document.querySelectorAll(`.CompanySettings_post`)[postId];
+		let currentPost = document.querySelector(`.CompanySettings_post[data-post-key="${postKey}"]`);
 		let currentPostJobTitle = currentPost.querySelector('.CompanySettings_jobTitle');
 		let currentPostFullName = currentPost.querySelector('.CompanySettings_link-fullNameEdit');
 
@@ -334,8 +339,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let addButton = popup.querySelector('.CompanySettings_addButton');
     addButton.textContent = buttonText;
 
+  	let popupFormText = popup.querySelectorAll('.CompanySettings_formText');
+  	popupFormText.forEach(formText => formText.classList.remove('HasError'));
+
     if (clearFields) {
-    	let popupFormText = popup.querySelectorAll('.CompanySettings_formText');
     	popupFormText.forEach(formText => formText.value = '');
     }
 	}
@@ -345,11 +352,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		postFieldItems.forEach( (fieldItem, index) => {
 			let formText = fieldItem.querySelectorAll('.CompanySettings_formText');
 			let fullName = (formText[1].value + ' ' + formText[2].value + ' ' + formText[3].value).trim();
-			let currentPost = document.querySelectorAll('.CompanySettings_post')[index];
+			let postKey = fieldItem.dataset.postKey;
+			let currentPost = document.querySelector(`.CompanySettings_post[data-post-key="${postKey}"]`);
 
 			if (fullName.length || formText[0].value.length) {
-				if (!currentPost) createMobilePost();
-				updateMobilePost(index, fieldItem);
+				if (!currentPost) createMobilePost(postKey);
+				updateMobilePost(postKey, fieldItem);
 			} else {
 				removeFieldAndError(currentPost);
 			}
@@ -464,7 +472,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!addPostLink) return;
 
-		createDesktopPostFields();
+		let key = randomString(4);
+		createDesktopPostFields(key);
 	});
 
 	// Add alternative address
@@ -626,16 +635,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	$('[data-src="#PostAddition"]').fancybox({
 		...fancyboxOpts,
 	  beforeLoad: function(instance, current) {
-	  	let postsCount = document.querySelectorAll('.CompanySettings_post').length;
+	  	let postAddition = document.querySelector(this.src);
+	  	let key = randomString(4);
 
 	  	changePopupOptions(this.src, 'Добавить должность', 'Добавить должность', true);
+	  	postAddition.dataset.postKey = key;
+	  	postAddition.dataset.actionType = 'create';
 
 	   	let postAdditionFormText = document.querySelectorAll(`${this.src} .CompanySettings_formText`);
 
-			postAdditionFormText[0].name = `person[${postsCount}][post]`;
-			postAdditionFormText[1].name = `person[${postsCount}][last_name]`;
-			postAdditionFormText[2].name = `person[${postsCount}][first_name]`;
-			postAdditionFormText[3].name = `person[${postsCount}][patronymic]`;
+			postAdditionFormText[0].name = `person[${key}][post]`;
+			postAdditionFormText[1].name = `person[${key}][last_name]`;
+			postAdditionFormText[2].name = `person[${key}][first_name]`;
+			postAdditionFormText[3].name = `person[${key}][patronymic]`;
     }
 	});
 
@@ -674,7 +686,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		      let posts = document.querySelectorAll('.CompanySettings_post');
 		      let currentPost = fullNameEditLink.closest('.CompanySettings_post');
-		      let currentPostIndex = Array.from(posts).indexOf(currentPost);
+		      let currentPostKey = currentPost.dataset.postKey;
 					let jobTitle = currentPost.querySelector('.CompanySettings_jobTitle').textContent;
 
 					changePopupOptions(this.src, 'Редактировать должность', 'Сохранить изменения');
@@ -682,12 +694,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		      let postAddition = document.querySelector(this.src);
 		      let postAdditionFormText = postAddition.querySelectorAll('.CompanySettings_formText');
 
-		      postAddition.dataset.postId = currentPostIndex;
+		      postAddition.dataset.postKey = currentPostKey;
+		      postAddition.dataset.actionType = 'edit';
 
-					setAttributes(postAdditionFormText[0], {'name': `person[${currentPostIndex}][post]`, 'value': jobTitle});
-					setAttributes(postAdditionFormText[1], {'name': `person[${currentPostIndex}][last_name]`, 'value': lastName});
-					setAttributes(postAdditionFormText[2], {'name': `person[${currentPostIndex}][first_name]`, 'value': firstName});
-					setAttributes(postAdditionFormText[3], {'name': `person[${currentPostIndex}][patronymic]`, 'value': patronymic});
+					setAttributes(postAdditionFormText[0], {'name': `person[${currentPostKey}][post]`, 'value': jobTitle});
+					setAttributes(postAdditionFormText[1], {'name': `person[${currentPostKey}][last_name]`, 'value': lastName});
+					setAttributes(postAdditionFormText[2], {'name': `person[${currentPostKey}][first_name]`, 'value': firstName});
+					setAttributes(postAdditionFormText[3], {'name': `person[${currentPostKey}][patronymic]`, 'value': patronymic});
 		    }
 		  }
 		});

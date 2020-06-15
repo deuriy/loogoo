@@ -523,8 +523,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			setCookie('activeTabIndex', activeTabIndex, {'max-age': 31536000});
 		}
 
-		let profileMenuTabsList = profileMenuTabs.querySelector('.Tabs_list');
-
 		profileMenuTabs.querySelectorAll('.Tabs_item')[activeTabIndex].classList.add('Tabs_item-active');
 		profileMenuTabs.querySelectorAll('.Tabs_content')[activeTabIndex].style.display = 'block';
 	}
