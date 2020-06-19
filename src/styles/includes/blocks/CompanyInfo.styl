@@ -54,3 +54,30 @@
 		
 		.CompanyInfo_sum
 			font-size 21px
+	
+	&-company
+		padding 0
+		box-shadow none
+		
+		&:hover
+			background $white
+		
+		.CompanyInfo_logo
+			width 70px
+			flex-shrink 0
+			
+			@media $xs
+				margin-right 20px
+		
+		.CompanyInfo_name
+			display -webkit-box
+			-webkit-line-clamp 2
+			-webkit-box-orient vertical
+			white-space normal
+			overflow hidden
+			font-size 18px
+			line-height 1.45
+			
+			@media $xs
+				margin-top -8px
+				margin-bottom 5px

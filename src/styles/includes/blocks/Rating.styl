@@ -17,6 +17,9 @@
 		&-profileSettings
 			@media $xs
 				font-size 14px
+	
+	&_max, &_label
+		flex-shrink 0
 		
 	&_max
 		margin-right 7px
@@ -89,6 +92,17 @@
 		
 		.Rating_number
 			font-size 26px
+			
+			@media $xs
+				font-size 36px
+		
+		.Rating_max
+			@media $xs
+				margin-right 10px
+		
+		.Rating_label
+			@media $xs
+				font-size 15px
 	
 	&-companyComment,
 	&-companyBlock
@@ -130,6 +144,7 @@
 		
 		.Rating_label
 			margin-top 2px
+			font-size 13px
 			
 			@media $xs
 				margin-top 0
@@ -196,4 +211,22 @@
 		.Rating_max
 			margin-right 4px
 			margin-left 3px
+			font-size 13px
+	
+	&-companyHeader
+		font-weight 500
+		
+		.Rating_icon
+			margin-right 5px
+			color $brown
+		
+		.Rating_number
+			margin-right 4px
+			font-size 16px
+			color $black
+		
+		.Rating_max
+			margin-right 2px
+		
+		.Rating_label
 			font-size 13px

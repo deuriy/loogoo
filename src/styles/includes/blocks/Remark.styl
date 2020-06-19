@@ -5,6 +5,10 @@
 	box-shadow 0 0 7px 0 rgba(0, 0, 0, 0.1)
 	background url('../img/blue_checkmark.svg') 21px 29px no-repeat
 	
+	@media $xs
+		padding 25px 17px 27px 38px
+		background-position 16px 30px
+	
 	&_close
 		position absolute
 		top 14px
@@ -15,7 +19,15 @@
 		font-weight 600
 		font-size 16px
 		line-height 1.5
+		
+		@media $xs
+			margin-bottom 0
+			font-size 15px
+			line-height 1.54
 	
 	&_text
 		font-size 15px
 		line-height 1.6
+	
+	&_arrowLink
+		margin-left 6px

@@ -197,14 +197,21 @@ block content
 										a(href="#OwnerAddition", data-fancybox="owner_add").AddFieldItem.AddFieldItem-ownerMobile.hidden-smPlus
 											include /includes/svg/icon_add
 											span.AddFieldItem_text Добавить владельца
-						//- .CompanySettings_field.CompanySettings_field-post.hidden-xs
-						//- 	.CompanySettings_fieldContent
-						//- 		.CompanySettings_fieldItems
-						//- 			.CompanySettings_fieldItem.CompanySettings_fieldItem-post
-						//- 				input(type="text", name="person[0][post]", placeholder="должность", value="Должность 1").CompanySettings_formText.CompanySettings_formText-col4.CompanySettings_formText-gutter
-						//- 				input(type="text", name="person[0][last_name]", placeholder="Фамилия", value="Демченко").CompanySettings_formText.CompanySettings_formText-col4.CompanySettings_formText-gutter
-						//- 				input(type="text", name="person[0][first_name]", placeholder="Имя", value="Юрий").CompanySettings_formText.CompanySettings_formText-col4.CompanySettings_formText-gutter
-						//- 				input(type="text", name="person[0][patronymic]", placeholder="Отчество", value="Юрьевич").CompanySettings_formText.CompanySettings_formText-col4
+						.CompanySettings_field.CompanySettings_field-post.hidden-xs
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem.CompanySettings_fieldItem-post(data-post-key="111")
+										input(type="text", name="person[0][post]", placeholder="должность", value="Должность 1").CompanySettings_formText.CompanySettings_formText-col4.CompanySettings_formText-gutter
+										input(type="text", name="person[0][last_name]", placeholder="Фамилия", value="Демченко").CompanySettings_formText.CompanySettings_formText-col4.CompanySettings_formText-gutter
+										input(type="text", name="person[0][first_name]", placeholder="Имя", value="Юрий").CompanySettings_formText.CompanySettings_formText-col4.CompanySettings_formText-gutter
+										input(type="text", name="person[0][patronymic]", placeholder="Отчество", value="Юрьевич").CompanySettings_formText.CompanySettings_formText-col4
+										a(href="javascript:;").CompanySettings_removeFieldItem
+									.CompanySettings_fieldItem.CompanySettings_fieldItem-post(data-post-key="222")
+										input(type="text", name="person[1][post]", placeholder="должность", value="Должность 2").CompanySettings_formText.CompanySettings_formText-col4.CompanySettings_formText-gutter
+										input(type="text", name="person[1][last_name]", placeholder="Фамилия", value="Демченко2").CompanySettings_formText.CompanySettings_formText-col4.CompanySettings_formText-gutter
+										input(type="text", name="person[1][first_name]", placeholder="Имя", value="Юрий2").CompanySettings_formText.CompanySettings_formText-col4.CompanySettings_formText-gutter
+										input(type="text", name="person[1][patronymic]", placeholder="Отчество", value="Юрьевич2").CompanySettings_formText.CompanySettings_formText-col4
+										a(href="javascript:;").CompanySettings_removeFieldItem
 						.CompanySettings_field.CompanySettings_field-postAddition
 							.CompanySettings_fieldContent.CompanySettings_fieldContent-postAddition
 								.CompanySettings_posts.hidden-smPlus

@@ -1,28 +1,54 @@
 .Company
 	display flex
 	
+	@media $smMinus
+		display block
+	
+	&_info
+		margin-bottom 22px
+	
 	&_left
 		flex-shrink 0
 		padding-top 6px
+		
+		@media $smMinus
+			display flex
+			justify-content center
+			margin-bottom 20px
+			padding-top 0
 	
 	&_right
 		flex-grow 1
 		padding-left 54px
+		
+		@media $smMinus
+			padding-left 0
 	
 	&_title
 		margin-bottom 22px
 		font-weight 600
 		font-size 36px
 		line-height 1.12
+		
+		@media $smMinus
+			font-size 34px
 	
 	&_menuSection
 		margin-bottom 25px
+		
+		@media $xs
+			margin-top 25px
+			margin-right -20px
+			margin-left -20px
 	
 	&_characteristics
 		margin-bottom 16px
 		
 		&-largeIndent
 			margin-bottom 47px
+		
+		&-dossier
+			margin-bottom 33px
 	
 	&_description
 		margin-bottom 15px
@@ -40,9 +66,15 @@
 	
 	&_ratingSection
 		margin-bottom 30px
+		
+		@media $xs
+			margin-bottom 24px
 	
 	&_remark
 		margin-bottom 30px
+		
+		@media $xs
+			margin-bottom 23px
 	
 	&_commentsBlock
 		margin-right -4px

@@ -1,3 +1,16 @@
-// .Overlay
-// 	&-mobile
-// 		
+.Overlay
+	content ""
+	position fixed
+	z-index 1000
+	top 0
+	left 0
+	width 100%
+	height 100%
+	background rgba(0, 0, 0, .2)
+	visibility hidden
+	opacity 0
+	@extend .transition
+
+	&-visible
+		visibility visible
+		opacity 1

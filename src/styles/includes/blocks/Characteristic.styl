@@ -3,9 +3,25 @@
 	font-size 16px
 	line-height 1.625
 	
+	@media $xs
+		flex-direction column
+	
 	&_name
 		flex-basis 200px
+		flex-shrink 0
 		font-weight 600
+		
+		@media $xs
+			flex-basis auto
+	
+	&_value
+		&-status
+			color #85BE1F
+			font-weight 500
+			
+			& > .SvgIco
+				width 14px
+				margin-right 6px
 	
 	&_link
 		font-weight 500
@@ -14,3 +30,25 @@
 		&-doc
 			& > .SvgIco
 				margin-left 6px
+	
+	&_date
+		color #8396AC
+		
+		&-status
+			font-weight normal
+			font-size 14px
+			line-height 1.714
+	
+	&-inlineMob
+		@media $xs
+			flex-direction row
+			
+			.Characteristic_name
+				margin-right 9px
+	
+	&-dossier
+		font-size 15px
+		line-height 1.6
+		
+		.Characteristic_name
+			flex-basis 258px

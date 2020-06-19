@@ -2,20 +2,43 @@
 	display flex
 	align-items flex-start
 	
+	@media $xs
+		display block
+	
+	&_markAndNumber
+		@media $xs
+			display flex
+			align-items center
+			margin-bottom 1px
+	
 	&_mark
 		font-size 16px
+		
+		@media $xs
+			margin-right 7px
 	
 	&_wrapper
 		flex-basis 497px
 		margin-left 12px
+		
+		@media $xs
+			margin-left 0
 	
 	&_label, &_ratingsNumber
 		color #8396AC
 		font-weight 500
 		font-size 13px
+		
+		@media $xs
+			font-weight normal
 	
 	&_label
 		margin-bottom 8px
+		
+		@media $xs
+			margin-bottom 10px
+			color $black
+			line-height 1.6153
 	
 	&_line
 		height 5px
@@ -30,6 +53,12 @@
 		background-image linear-gradient(to right, #f29624, #ffc20d)
 	
 	&_ratingsNumber
+		flex-shrink 0
 		align-self flex-end
 		margin-bottom -4px
 		margin-left 21px
+		
+		@media $xs
+			margin-bottom 0
+			margin-left 0
+			align-self initial

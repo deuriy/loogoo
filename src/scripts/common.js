@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	// Active menu item
-	function activeMenuItem (menu) {
+	function setActiveMenuItem (menu) {
 		if (!menu) return;
 
 		let lang = document.querySelector('html').getAttribute('lang') == 'ru' ? 'ru' : '';
@@ -198,17 +198,18 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	function activePopupMenuItem (popupMenu, selectionLink) {
-		let activeLink = activeMenuItem(popupMenu);
+		let activeLink = setActiveMenuItem(popupMenu);
 		if (activeLink) {
 			selectionLink.textContent = activeLink.textContent;
 		}
 	}
 
-	activeMenuItem( document.querySelector('#ProfileSettingsMenu') );
-	activeMenuItem( document.querySelector('#UserMenu') );
-	activeMenuItem( document.querySelector('#ActionsMenu') );
-	activeMenuItem( document.querySelector('#PrimaryMenu') );
-	activeMenuItem( document.querySelector('#SidebarMenu') );
+	setActiveMenuItem( document.querySelector('#ProfileSettingsMenu') );
+	setActiveMenuItem( document.querySelector('#UserMenu') );
+	setActiveMenuItem( document.querySelector('#ActionsMenu') );
+	setActiveMenuItem( document.querySelector('#PrimaryMenu') );
+	setActiveMenuItem( document.querySelector('#SidebarMenu') );
+	setActiveMenuItem( document.querySelector('.MenuSection-company') );
 	activePopupMenuItem( document.querySelector('#PopupMenu'), document.querySelector('.PopupMenuLink') );
 
 	// Sidebar Menu
@@ -593,8 +594,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		}, 20);
 	});
 
-	let dropdownSelectMobile = document.querySelectorAll('.DropdownSelect-mobile');
-	dropdownSelectMobile.forEach(item => {
+	document.querySelectorAll('.DropdownSelect-mobile, .TimeRangeDropdown').forEach(item => {
 		item.insertAdjacentHTML('beforeend', '<div class="Overlay Overlay-mobile"></div>');
 	});
 
@@ -604,11 +604,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!dropdownSelectMobile) return;
 
 		let dropdownOverlay = dropdownSelectMobile.querySelector('.Overlay');
-
 		if (dropdownSelectMobile.querySelector('.fs-wrap').classList.contains('fs-open')) {
 			dropdownOverlay.classList.add('Overlay-visible');
-		} else {
-			dropdownOverlay.classList.remove('Overlay-visible');
 		}
 	});
 
@@ -618,6 +615,26 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!dropdownOverlay) return;
 
 		dropdownOverlay.classList.remove('Overlay-visible');
+	});
+
+	document.addEventListener('click', function (e) {
+		let timeRangeDropdown = e.target.closest('.TimeRangeDropdown');
+
+		if (!timeRangeDropdown) return;
+
+		let timeRangeOverlay = timeRangeDropdown.querySelector('.Overlay');
+		if (!timeRangeDropdown.classList.contains('TimeRangeDropdown-opened')) {
+			timeRangeOverlay.classList.add('Overlay-visible');
+		}
+	});
+
+	document.addEventListener('click', function (e) {
+		let timeRangeOverlay = e.target.closest('.TimeRangeDropdown .Overlay');
+
+		if (!timeRangeOverlay) return;
+
+		timeRangeOverlay.closest('.TimeRangeDropdown').classList.remove('TimeRangeDropdown-opened');
+		timeRangeOverlay.classList.remove('Overlay-visible');
 	});
 
 });

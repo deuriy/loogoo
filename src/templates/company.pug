@@ -1,11 +1,28 @@
 extends /layouts/main_layout
 block vars
 	- var title = "Sony Corporation";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-companyPage";
 block content
-	.Container.Main_container
+	.Container.Container-company.Main_container
 		.Company
-			.Company_left
+			.MobileHeader.hidden-smPlus
+				a(href="#").BtnBack.MobileHeader_btnBack
+					include /includes/svg/SvgIco/arrow_left
+				h1.MobileHeader_title Sony Corporation
+			.CompanyInfo.CompanyInfo-company.Company_info.hidden-smPlus
+				.CompanyInfo_logo
+					img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyInfo_logoImg
+				.CompanyInfo_wrapper
+					h4.CompanyInfo_name Sony Corporation / Сони Электроникс Корпораи ещё чего-то там
+					.Rating.Rating-companyHeader
+						span.Rating_icon
+							include /includes/svg/SvgIco/icon_star
+						span.Rating_number 7,5
+						span.Rating_max / 10
+						span.Rating_label (55 отзывов)
+			a(href="#").BtnBlue.BtnBlue-company.hidden-smPlus Написать сообщение
+			.Company_left.hidden-xs
 				.CompanyPhoto
 					img(src="/img/company_photo.jpg", alt="Company photo").CompanyPhoto_img
 					.Rating.Rating-company.Rating-center.CompanyPhoto_rating
@@ -16,25 +33,13 @@ block content
 						span.Rating_label (55 отзывов)
 					a(href="#").BtnBlue.BtnBlue-company Написать сообщение
 			.Company_right
-				h1.Company_title Sony Corporation
-				.MenuSection.Company_menuSection
-					.CategoryMenu.CategoryMenu-company
-						ul.CategoryMenu_menu
-							li.CategoryMenu_item
-								a(href="/company.html").CategoryMenu_link.active Общая информация
-							li.CategoryMenu_item
-								a(href="/company_about.html").CategoryMenu_link О компании
-							li.CategoryMenu_item
-								a(href="#").CategoryMenu_link Отзывы (55)
-							li.CategoryMenu_item
-								a(href="#").CategoryMenu_link Вакансии (3)
-							li.CategoryMenu_item
-								a(href="#").CategoryMenu_link Фотографии (10)
+				h1.Company_title.hidden-xs Sony Corporation
+				include /includes/blocks/MenuSectionCompany
 				.Characteristics.Company_characteristics
 					.Characteristic.Characteristics_item
 						.Characteristic_name Страна:
 						.Characteristic_value Украина
-					.Characteristic.Characteristics_item
+					.Characteristic.Characteristic-inlineMob.Characteristics_item
 						.Characteristic_name Лицензия:
 						.Characteristic_value
 							a(href="#", target="_blank").Characteristic_link.Characteristic_link-doc лицензия №806
@@ -58,7 +63,13 @@ block content
 				.Company_description Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 года. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская промышленная коммуникационная компания) или сокращённо Тоцуко или TTK, но, как выяснил Акио Морита, это название тяжело произносить американцам.
 				a(href="#").ArrowLink.Company_infoLink Информация о компании
 				.RatingSection.Company_ratingSection
-					h3.RatingSection_title Рейтинг и отзывы
+					.RatingSection_header
+						h3.RatingSection_title Рейтинг#[span.hidden-xs  и отзывы]
+						.DropdownSelect.DropdownSelect-companyProfile.RatingSection_dropdownSelect.hidden-smPlus
+							select(name="categories").DropdownSelect_select
+								option(value="all") по всем категориям
+								option(value="employment") трудоустройство
+								option(value="document_preparation") изготовление документов
 					.RatingSection_ratingWrapper
 						.Rating.Rating-company.RatingSection_rating
 							span.Rating_icon
@@ -66,7 +77,7 @@ block content
 							span.Rating_number 7,5
 							span.Rating_max / 10
 							span.Rating_label 55 отзывов
-						.DropdownSelect.DropdownSelect-companyProfile.RatingSection_dropdownSelect
+						.DropdownSelect.DropdownSelect-companyProfile.RatingSection_dropdownSelect.hidden-xs
 							select(name="categories").DropdownSelect_select
 								option(value="all") по всем категориям
 								option(value="employment") трудоустройство
@@ -74,46 +85,56 @@ block content
 					.RatingSection_text 95% работников рекомендуют эту компанию
 					.ExtendedRatings.RatingSection_extendedRatings
 						.ExtendedRating.ExtendedRatings_item
-							.ExtendedRating_mark 8,2
+							.ExtendedRating_markAndNumber
+								.ExtendedRating_mark 8,2
+								.ExtendedRating_ratingsNumber.hidden-smPlus 45 оценок
 							.ExtendedRating_wrapper
 								.ExtendedRating_label качество обслуживания и поддержки
 								.ExtendedRating_line
 									.ExtendedRating_lineFill(data-mark="8.2")
-							.ExtendedRating_ratingsNumber 45 оценок
+							.ExtendedRating_ratingsNumber.hidden-xs 45 оценок
 						.ExtendedRating.ExtendedRatings_item
-							.ExtendedRating_mark 8,7
+							.ExtendedRating_markAndNumber
+								.ExtendedRating_mark 8,7
+								.ExtendedRating_ratingsNumber.hidden-smPlus 36 оценок
 							.ExtendedRating_wrapper
 								.ExtendedRating_label достоверность информации о работе
 								.ExtendedRating_line
 									.ExtendedRating_lineFill(data-mark="8.7")
-							.ExtendedRating_ratingsNumber 36 оценок
+							.ExtendedRating_ratingsNumber.hidden-xs 36 оценок
 						.ExtendedRating.ExtendedRatings_item
-							.ExtendedRating_mark 6,2
+							.ExtendedRating_markAndNumber
+								.ExtendedRating_mark 6,2
+								.ExtendedRating_ratingsNumber.hidden-smPlus 47 оценок
 							.ExtendedRating_wrapper
 								.ExtendedRating_label достоверность информации о жилье
 								.ExtendedRating_line
 									.ExtendedRating_lineFill(data-mark="6.2")
-							.ExtendedRating_ratingsNumber 47 оценок
+							.ExtendedRating_ratingsNumber.hidden-xs 47 оценок
 						.ExtendedRating.ExtendedRatings_item
-							.ExtendedRating_mark 6,5
+							.ExtendedRating_markAndNumber
+								.ExtendedRating_mark 6,5
+								.ExtendedRating_ratingsNumber.hidden-smPlus 53 оценок
 							.ExtendedRating_wrapper
 								.ExtendedRating_label соблюдение сроков изготовления документов
 								.ExtendedRating_line
 									.ExtendedRating_lineFill(data-mark="6.5")
-							.ExtendedRating_ratingsNumber 53 оценок
+							.ExtendedRating_ratingsNumber.hidden-xs 53 оценок
 						.ExtendedRating.ExtendedRatings_item
-							.ExtendedRating_mark 9,2
+							.ExtendedRating_markAndNumber
+								.ExtendedRating_mark 9,2
+								.ExtendedRating_ratingsNumber.hidden-smPlus 55 оценок
 							.ExtendedRating_wrapper
 								.ExtendedRating_label качество полученных документов или услуг
 								.ExtendedRating_line
 									.ExtendedRating_lineFill(data-mark="9.2")
-							.ExtendedRating_ratingsNumber 55 оценок
+							.ExtendedRating_ratingsNumber.hidden-xs 55 оценок
 					.RatingSection_reviewsNumber 55 отзывов
 				.Remark.Company_remark
 					a(href="javascript:;").Remark_close
 						include /includes/svg/icon_close_remark
-					h3.Remark_title Здесь только реальные отзывы, которым вы действительно можете доверять!
-					.Remark_text INFOZA – первый и единственный портал, который публикует только те отзывы, которые прошли тщательную проверку и обязательно были документально подтверждены! Благодаря этому, только у нас вы можете узнать всю правду о любой компании! #[a(href="#").ArrowLink Подробнее]
+					h3.Remark_title Здесь только реальные отзывы, которым вы действительно можете доверять! #[a(href="#").ArrowLink.ArrowLink-remark.Remark_arrowLink.hidden-smPlus Подробнее]
+					.Remark_text.hidden-xs INFOZA – первый и единственный портал, который публикует только те отзывы, которые прошли тщательную проверку и обязательно были документально подтверждены! Благодаря этому, только у нас вы можете узнать всю правду о любой компании! #[a(href="#").ArrowLink Подробнее]
 				.CommentsBlock.CommentsBlock-company.Company_commentsBlock
 					form(action="#").CommentForm.CommentForm-company.CommentsBlock_commentForm
 						textarea(name="comment_text", placeholder="Оставьте отзыв").FormTextarea.FormTextarea-commentFormCompany.FormTextarea-commentFormCompany.CommentForm_textArea
@@ -278,6 +299,9 @@ block content
 										li.Images_item
 											a(href="#").Images_link
 												img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+										li.Images_item
+											a(href="#").Images_link
+												img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
 								.Comment_footer
 									a(href="javascript:;").Like.Like-comment
 										include /includes/svg/SvgIco/like
@@ -287,6 +311,7 @@ block content
 										.
 											Польша, Вроцлав
 					.CommentsBlock_footer
-						a(href="#").BtnBlue.BtnBlue-companyArrow Посмотреть все отзывы
+						a(href="#").BtnBlue.BtnBlue-companyArrow.hidden-xs Посмотреть все отзывы
+						a(href="#").ArrowLink.ArrowLink-company.hidden-smPlus Посмотреть все отзывы
 block page_bottom
 	script(src="/js/company.js")

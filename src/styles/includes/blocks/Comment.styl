@@ -252,9 +252,16 @@
 		
 		.Comment_info
 			margin-left 15px
+			
+			@media $xs
+				margin-left 10px
 		
 		.Comment_nameAndRating
 			margin-bottom 3px
+		
+		.Comment_date, .Comment_person
+			@media $xs
+				font-size 13px
 		
 		.Comment_userIcons
 			margin-left 6px
@@ -271,6 +278,9 @@
 		.Comment_wrapper
 			padding-right 0
 			padding-left 0
+			
+			@media $xs
+				padding-bottom 6px
 		
 		.Comment_text
 			margin-bottom 13px
@@ -282,7 +292,14 @@
 		.Comment_childComments
 			padding-top 14px
 			padding-left 55px
+			
+			@media $xs
+				padding-top 11px
+				padding-left 40px
 	
 	&-companyChild
 		.Comment_header
 			margin-bottom 9px
+			
+			@media $xs
+				margin-bottom 12px
