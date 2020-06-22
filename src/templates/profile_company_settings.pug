@@ -11,15 +11,7 @@ block content
 					a(href="#").BtnBack.MobileHeader_btnBack
 						include /includes/svg/SvgIco/arrow_left
 					h1.MobileHeader_title Sony Corporation
-				.MenuSection.MenuSection-companySettings.Main_menuSection.hidden-smPlus
-					.CategoryMenu.CategoryMenu-companySettings
-						ul.CategoryMenu_menu
-							li.CategoryMenu_item
-								a(href="/basic_company_settings.html").CategoryMenu_link Информация
-							li.CategoryMenu_item
-								a(href="/profile_company_settings.html").CategoryMenu_link.active О компании
-							li.CategoryMenu_item
-								a(href="/company_verification.html").CategoryMenu_link Верификация
+				include /includes/blocks/MenuSectionCompanySettings
 				form(action="#", name="company_settings", novalidate).CompanySettings#CompanySettingsForm
 					h2.CompanySettings_title.hidden-xs О компании
 					.CompanySettings_fields
@@ -244,19 +236,7 @@ block content
 					.CompanyLink_textWrap
 						.CompanyLink_title Sony Corporation
 						.CompanyLink_text на страницу компании
-				.SettingsMenu
-					ul.SettingsMenu_menu
-						li.SettingsMenu_item
-							a(href="/profile_company_settings.html").SettingsMenu_link.SettingsMenu_link-active Настройки
-							ul.SettingsMenu_subMenu
-								li.SettingsMenu_subMenuItem
-									a(href="/basic_company_settings.html").SettingsMenu_subMenuLink Основная информация
-								li.SettingsMenu_subMenuItem
-									a(href="/profile_company_settings.html").SettingsMenu_subMenuLink.SettingsMenu_subMenuLink-active О компании
-								li.SettingsMenu_subMenuItem
-									a(href="/company_verification.html").SettingsMenu_subMenuLink Верификация
-						li.SettingsMenu_item
-							a(href="/profile_messages.html").SettingsMenu_link Сообщения
+				include /includes/blocks/SettingsMenu
 block page_bottom
 	include /includes/blocks/OwnerAddition
 	include /includes/blocks/PostAddition

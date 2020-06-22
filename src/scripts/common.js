@@ -186,18 +186,21 @@ document.addEventListener("DOMContentLoaded", function () {
 		let lang = document.querySelector('html').getAttribute('lang') == 'ru' ? 'ru' : '';
 		let pageUrl = window.location.href;
 		let links = menu.querySelectorAll('a');
+		let activeLink = null;
 
 		for (let link of links) {
 			let linkHref = link.getAttribute('href') != '/' ? link.href : link.href + lang;
 
 			if (pageUrl == linkHref) {
 				link.classList.add('active');
-				return link;
+				activeLink = link;
 			}
 		}
+
+		return activeLink;
 	}
 
-	function activePopupMenuItem (popupMenu, selectionLink) {
+	function setActivePopupMenuItem (popupMenu, selectionLink) {
 		let activeLink = setActiveMenuItem(popupMenu);
 		if (activeLink) {
 			selectionLink.textContent = activeLink.textContent;
@@ -210,7 +213,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	setActiveMenuItem( document.querySelector('#PrimaryMenu') );
 	setActiveMenuItem( document.querySelector('#SidebarMenu') );
 	setActiveMenuItem( document.querySelector('.MenuSection-company') );
-	activePopupMenuItem( document.querySelector('#PopupMenu'), document.querySelector('.PopupMenuLink') );
+	setActiveMenuItem( document.querySelector('.SettingsMenu') );
+	setActivePopupMenuItem( document.querySelector('#PopupMenu'), document.querySelector('.PopupMenuLink') );
 
 	// Sidebar Menu
 	let sidebarMenuParentLinks = document.querySelectorAll('.SidebarMenu_item-hasSubMenu > a');

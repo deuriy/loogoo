@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
+	function checkTextBoxFilling (textBox) {
+		let closeSearchBtn = textBox.closest('.Search-companiesDossiers').querySelector('.Search_closeBtn');
+
+		if (textBox.value.length) {
+			closeSearchBtn.classList.remove('hidden');
+		} else {
+			closeSearchBtn.classList.add('hidden');
+		}
+	}
+
 	document.addEventListener('click', function (e) {
 		let applicationCloseBtn = e.target.closest('.Application_close');
 
@@ -12,12 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!companiesSearchText) return;
 
-		let closeSearchBtn = companiesSearchText.closest('.Search-companiesDossiers').querySelector('.Search_closeBtn');
-		if (companiesSearchText.value.length) {
-			closeSearchBtn.classList.remove('hidden');
-		} else {
-			closeSearchBtn.classList.add('hidden');
-		}
+		checkTextBoxFilling(companiesSearchText);
 	});
 
 	document.addEventListener('click', function (e) {
@@ -29,5 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		companiesSearchText.value = '';
 		companiesSearchText.focus();
 		closeSearchBtn.classList.add('hidden');
+		location.href = '/companies_dossiers.html';
 	});
+
+	checkTextBoxFilling(document.querySelector('.Search-companiesDossiers .Search_text'));
 });
