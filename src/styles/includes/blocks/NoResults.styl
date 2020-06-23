@@ -15,6 +15,18 @@
 			@media $xs
 				width 134px
 	
+	&_img
+		display inline-block
+		margin-bottom 49px
+		
+		@media $smMinus
+			width 400px
+			margin-bottom 40px
+		
+		@media $xs
+			width 280px
+			margin-bottom 30px
+	
 	&_text
 		margin-bottom 40px
 		color $blue2
@@ -80,3 +92,20 @@
 			margin-bottom 20px
 			font-size 16px
 			line-height 1.875
+	
+	&-404
+		padding 120px 0
+		
+		@media $smMinus
+			padding 90px 0
+		
+		.NoResults_text
+			margin-bottom 33px
+			font-size 20px
+			
+			@media $smMinus
+				font-size 17px
+			
+			@media $xs
+				margin-bottom 25px
+				font-size 15px
