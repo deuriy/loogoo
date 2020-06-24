@@ -9,7 +9,7 @@ block content
 			.MobileHeader.hidden-smPlus
 				a(href="#").BtnBack.MobileHeader_btnBack
 					include /includes/svg/SvgIco/arrow_left
-				h1.MobileHeader_title Sony Corporation
+				h1.MobileHeader_title #{title}
 			.CompanyInfo.CompanyInfo-company.Company_info.hidden-smPlus
 				.CompanyInfo_logo
 					img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyInfo_logoImg
@@ -31,7 +31,8 @@ block content
 						span.Rating_number 7,5
 						span.Rating_max / 10
 						span.Rating_label (55 отзывов)
-					a(href="#").BtnBlue.BtnBlue-company Написать сообщение
+					//- a(href="#").BtnBlue.BtnBlue-company Написать сообщение
+					a(href="javascript:;").BtnOutline.BtnOutline-company Управление
 			.Company_right
 				h1.Company_title.hidden-xs Sony Corporation
 				include /includes/blocks/MenuSectionCompany

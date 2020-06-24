@@ -244,6 +244,19 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 		});
 	}
+
+	function showElementOnPages (elem, pathNames = []) {
+		let currentPathName = window.location.pathname.slice(1).split('/');
+
+		pathNames.forEach(pathName => {
+			if (currentPathName.includes(pathName)) {
+				elem.classList.remove('hidden');
+			}
+		});
+	}
+
+	let searchItem = document.querySelector('.Icons_item-search');
+	showElementOnPages(searchItem, ['', 'posts', 'companies']);
 	
 	// Mobile search
 	let searchLink = document.querySelector('.Icons_link-search');

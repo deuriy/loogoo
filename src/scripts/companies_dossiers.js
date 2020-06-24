@@ -38,4 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	checkTextBoxFilling(document.querySelector('.Search-companiesDossiers .Search_text'));
+
+	$('[data-src="#CompanyAdding"]').fancybox({
+		touch: false,
+		baseClass: 'fancybox-container--no-padding'
+	});
 });

@@ -73,6 +73,29 @@
 	&-authPage
 		padding-right 4px
 		padding-left 4px
+		
+		@media $xs
+			height 45px
+			padding-right 10px
+			padding-left 10px
+			border 1px solid $grey
+			font-size 14px
+			
+			&:focus
+				border-bottom-color $grey
+	
+	&-phone
+		&:focus
+			padding-left 17px
+			
+			@media $xs
+				padding-left 23px
+	
+	&-phoneNotEmpty
+		padding-left 17px
+		
+		@media $xs
+			padding-left 23px
 	
 	&-passwordRecovery
 		@media $xs

@@ -1,12 +1,17 @@
 extends /layouts/main_layout
 block vars
 	- var title = "Статья";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-infoPages Main-article";
 block content
 	.Container.Main_container
 		.Main_columns
 			.Main_sidebar
-				include /includes/blocks/SidebarMenu-article
+				.MobileHeader.MobileHeader-withLogo.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title #{title}
+					a(href="/").SiteName.SiteName-mobileHeader.MobileHeader_siteName infoza
 			.Main_content
 				.Article
 					h1.Article_title Lorem ipsum dolor sit amet

@@ -3,6 +3,10 @@ block vars
 	- var title = "Лента статей";
 	- var mainModifiers = "Main-infoPages Main-newsFeed";
 block content
+	.MobileHeader.hidden-smPlus
+		a(href="#").BtnBack.MobileHeader_btnBack
+			include /includes/svg/SvgIco/arrow_left
+		h1.MobileHeader_title #{title}
 	.Container.Main_container
 		.Main_columns
 			.Main_sidebar
