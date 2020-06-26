@@ -1,0 +1,37 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Обложка профиля компании";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-companySettings";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.MobileHeader-noBorder.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Sony Corporation
+				include /includes/blocks/MenuSectionCompanySettings
+				form(action="#", name="company_settings", novalidate).CompanySettings#CompanySettingsForm
+					h2.CompanySettings_title.hidden-xs Обложка
+					.CompanySettings_wrapper
+						.ProfileCover
+							.ProfileCover_main
+								.ProfileCover_current
+									img(src="img/current_profile_cover.jpg", alt="Current profile cover").ProfileCover_currentImg
+								.CoverSelection
+									h3.CoverSelection_title Текущая обложка
+									a(href="javascript:;").ArrowLink.ArrowLink-coverSelection Изменить изображение
+					.CompanySettings_actions
+						button(type="submit").BtnBlue.BtnBlue-company Сохранить изменения
+			.Aside.Main_aside.hidden-smMinus
+				a(href="/company.html", title="Sony Corporation").CompanyLink.Aside_companyLink
+					img(src="img/sony2.png", alt="Sony Corporation").CompanyLink_img
+					.CompanyLink_textWrap
+						.CompanyLink_title Sony Corporation
+						.CompanyLink_text на страницу компании
+				include /includes/blocks/SettingsMenu
+block page_bottom
+	//- include /includes/blocks/OwnerAddition
+	//- include /includes/blocks/PostAddition
+	//- script(src="/js/company_settings.js")

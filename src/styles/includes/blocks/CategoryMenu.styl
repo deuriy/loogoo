@@ -71,3 +71,28 @@
 				&:hover, &.active
 					&:after
 						background $blue
+	
+	&-save
+		.CategoryMenu_menu
+			@media $xs
+				margin-left 0
+				
+		.CategoryMenu_item
+			@media $xs
+				margin-right 0
+				font-size 14px
+				line-height 1.7857
+				text-transform uppercase
+		
+		.CategoryMenu_link
+			@media $xs
+				padding-top 14px
+				padding-right 14px
+				padding-bottom 14px
+				padding-left 20px
+				
+				&:after
+					bottom -1px
+					
+				&.active
+					font-weight 600

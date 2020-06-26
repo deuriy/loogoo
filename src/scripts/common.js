@@ -214,6 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	setActiveMenuItem( document.querySelector('#SidebarMenu') );
 	setActiveMenuItem( document.querySelector('.MenuSection-company') );
 	setActiveMenuItem( document.querySelector('.SettingsMenu') );
+	setActiveMenuItem( document.querySelector('.SidebarMenu-profileMenu') );
 	setActivePopupMenuItem( document.querySelector('#PopupMenu'), document.querySelector('.PopupMenuLink') );
 
 	// Sidebar Menu
@@ -255,8 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	let searchItem = document.querySelector('.Icons_item-search');
-	showElementOnPages(searchItem, ['', 'posts', 'companies']);
+	showElementOnPages(document.querySelector('.Icons_item-search'), ['', 'posts', 'companies']);
 	
 	// Mobile search
 	let searchLink = document.querySelector('.Icons_link-search');
@@ -364,31 +364,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			popupMenuWrapper.style.top = coords.top + "px";
 			popupMenuWrapper.style.left = coords.left + "px";
+		} else {
+			coords = popupMenuLink.getBoundingClientRect();
+
+			popupMenuWrapper.style.top = coords.top - 27 + "px";
+
+			if (popupMenu.classList.contains('PopupMenu-smallPadding')) {
+				popupMenuWrapper.style.left = coords.left - 14 + "px";
+			} else {
+				popupMenuWrapper.style.left = coords.left - 20 + "px";
+			}	
 		}
 	});
 
 	document.addEventListener('click', function (e) {
-		let popupMenu = e.target.closest('.PopupMenu');
+		let popupMenuWrapper = e.target.closest('.PopupMenu_wrapper');
 
-		if (!popupMenu) return;
+		if (!popupMenuWrapper) return;
 
+		let popupMenu = popupMenuWrapper.closest('.PopupMenu');
 		let popupMenuId = popupMenu.getAttribute('id');
 		let popupMenuLink = document.querySelector(`a[href="#${popupMenuId}"`);
 		popupMenu.classList.toggle('PopupMenu-opened');
 
 		if (e.target.nodeName != 'A' || e.target.closest('.PopupMenu_close')) return;
 
-		let popupMenuWrapper = popupMenu.querySelector('.PopupMenu_wrapper');
 		let activeMenuItem = popupMenuWrapper.querySelector('.PopupMenu_link.active');
 
 		if (activeMenuItem) {
 			activeMenuItem.classList.remove('active');
 			e.target.classList.add('active');
-		}		
+		}
 
 		if (!popupMenu.classList.contains('PopupMenu-fixedText')) {
 			popupMenuLink.textContent = e.target.textContent;
 		}
+	});
+
+	document.addEventListener('click', function (e) {
+		let popupMenuOverlay = e.target.closest('.PopupMenu_overlay');
+
+		if (!popupMenuOverlay) return;
+
+		popupMenuOverlay.closest('.PopupMenu').classList.remove('PopupMenu-opened');
 	});
 
 	// Mobile languages
@@ -553,7 +571,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		tabItems.forEach(function (tabItem, tabItemIndex) {
 			tabItem.onclick = function () {
-				let activeTabItem = document.querySelector('.Tabs_item-active');
+				let activeTabItem = tabList.querySelector('.Tabs_item-active');
 
 				if (activeTabItem) {
 					activeTabItem.classList.remove('Tabs_item-active');
@@ -652,6 +670,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		timeRangeOverlay.closest('.TimeRangeDropdown').classList.remove('TimeRangeDropdown-opened');
 		timeRangeOverlay.classList.remove('Overlay-visible');
+	});
+
+	// Save filter
+	document.addEventListener('click', function (e) {
+		let saveFilterIcon = e.target.closest('.SaveFilter_icon');
+
+		if (!saveFilterIcon) return;
+
+		let saveFilterMenu = saveFilterIcon.parentNode.querySelector('.SaveFilter_menu');
+		saveFilterMenu.classList.toggle('SaveFilter_menu-opened');
+	});
+
+	document.addEventListener('click', function (e) {
+		let saveFilterMenu = document.querySelector('.SaveFilter_menu');
+
+		if (!saveFilterMenu) return;
+
+		let saveFilterIcon = saveFilterMenu.parentNode.querySelector('.SaveFilter_icon');
+
+		if (saveFilterMenu.classList.contains('SaveFilter_menu-opened') && !saveFilterMenu.contains(e.target) && !saveFilterIcon.contains(e.target)) {
+			saveFilterMenu.classList.remove('SaveFilter_menu-opened');
+		}
+	});
+
+	document.addEventListener('click', function (e) {
+		let saveFilterLink = e.target.closest('.SaveFilter_link');
+
+		if (!saveFilterLink) return;
+
+		let saveFilter = saveFilterLink.closest('.SaveFilter');
+		let saveFilterIcon = saveFilter.querySelector('.SaveFilter_icon');
+		let activeFilterLink = saveFilter.querySelector('.SaveFilter_link-active');
+		let activeSvgIcon = saveFilterLink.querySelector('svg').cloneNode(true);
+
+		activeFilterLink.classList.remove('SaveFilter_link-active');
+		saveFilterLink.classList.add('SaveFilter_link-active');
+
+		saveFilterIcon.innerHTML = '';
+		saveFilterIcon.append(activeSvgIcon);
+		saveFilter.querySelector('.SaveFilter_menu').classList.remove('SaveFilter_menu-opened');
+
+		e.preventDefault();
 	});
 
 });

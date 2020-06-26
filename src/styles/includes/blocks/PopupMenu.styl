@@ -22,10 +22,11 @@
 		font-size 16px
 	
 	&_wrapper
-		top 47px
-		left 14px
+		// top 47px
+		// left 14px
 		position absolute
-		width 290px
+		// width 290px
+		min-width 180px
 		max-width 100%
 		padding 16px 10px 13px
 		border-radius 4px
@@ -40,6 +41,7 @@
 		@extend .transition
 		
 		&:hover, &.active
+			font-weight 600
 			color $blue
 	
 	&-opened
@@ -54,3 +56,7 @@
 		.PopupMenu_wrapper
 			right 10px
 			left auto
+	
+	&-smallPadding
+		.PopupMenu_wrapper
+			padding-left 4px

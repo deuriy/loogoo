@@ -1,0 +1,46 @@
+.MenuSection.MenuSection-save.Main_menuSection
+	.MenuSection_left
+		.CategoryMenu.CategoryMenu-save
+			ul.CategoryMenu_menu
+				li.CategoryMenu_item
+					a(href="#").CategoryMenu_link.active Темы
+				li.CategoryMenu_item
+					a(href="#").CategoryMenu_link Работодатели
+	.MenuSection_right.hidden-xs
+		.MenuSection_selectWrapper
+			select.Select.Select-filterBlock(name="sorting")
+				option(value="new_first") Сначала новые
+				option(value="first_old") Сначала старые
+		.SaveFilter.MenuSection_saveFilter
+			a(href="javascript:;").SaveFilter_icon
+				include /includes/svg/SvgIco/flag
+			.SaveFilter_menu
+				li.SaveFilter_item
+					a(href="#").SaveFilter_link.SaveFilter_link-active
+						include /includes/svg/SvgIco/flag
+						.
+							Все темы
+				li.SaveFilter_item
+					a(href="#").SaveFilter_link.SaveFilter_link-notifications
+						include /includes/svg/SvgIco/bell_check
+						.
+							С уведомлениями
+.PopupMenuLinks.Main_popupMenuLinks.hidden-smPlus
+	a(href="#PopupMenuSaveFilter").SelectionLink.PopupMenuLinks_link.PopupMenuLink Все темы
+	a(href="#PopupMenuSorting").SelectionLink.PopupMenuLinks_link.PopupMenuLink Новые
+.PopupMenu.PopupMenu-smallPadding#PopupMenuSaveFilter
+	.PopupMenu_overlay
+	.PopupMenu_wrapper
+		ul.PopupMenu_menu
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link.active Все темы
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link С уведомлениями
+.PopupMenu#PopupMenuSorting
+	.PopupMenu_overlay
+	.PopupMenu_wrapper
+		ul.PopupMenu_menu
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link.active Новые
+			li.PopupMenu_item
+				a(href="javascript:;").PopupMenu_link Старые

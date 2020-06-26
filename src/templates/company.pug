@@ -32,7 +32,19 @@ block content
 						span.Rating_max / 10
 						span.Rating_label (55 отзывов)
 					//- a(href="#").BtnBlue.BtnBlue-company Написать сообщение
-					a(href="javascript:;").BtnOutline.BtnOutline-company Управление
+					.Control
+						a(href="javascript:;").BtnOutline.BtnOutline-blue.BtnOutline-company.Control_btn Управление
+						ul.Control_menu
+							li.Control_item
+								a(href="#").Control_link
+									include /includes/svg/SvgIco/settings
+									.
+										Настройки
+							li.Control_item
+								a(href="#").Control_link
+									include /includes/svg/SvgIco/stat
+									.
+										Статистика
 			.Company_right
 				h1.Company_title.hidden-xs Sony Corporation
 				include /includes/blocks/MenuSectionCompany

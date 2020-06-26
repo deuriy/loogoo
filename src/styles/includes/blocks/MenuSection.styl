@@ -3,12 +3,12 @@
 	justify-content space-between
 	align-items center
 	border-bottom 1px solid $grey
-	overflow auto
 	
 	@media $xs
 		padding-right 20px
 		padding-bottom 14px
 		padding-left 19px
+		overflow auto
 	
 	&_selectionLink
 		margin-right 25px
@@ -63,3 +63,19 @@
 	
 	&-company
 		border-bottom 1px solid #ebeff3
+	
+	&-save
+		@media $xs
+			padding-right 0
+			padding-bottom 0
+			padding-left 0
+			
+		.MenuSection_right
+			display flex
+			align-items center
+		
+		.MenuSection_selectWrapper
+			margin-right 21px
+		
+		.MenuSection_saveFilter
+			margin-top -1px
