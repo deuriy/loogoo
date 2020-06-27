@@ -499,13 +499,13 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.querySelector('.Dropdown').classList.add('Dropdown-visible');
 	});
 
-	// document.addEventListener('mouseout', function (e) {
-	// 	let dropdownWrapper = e.target.closest('.Dropdown-visible .Dropdown_wrapper');
+	document.addEventListener('mouseout', function (e) {
+		let dropdownWrapper = e.target.closest('.Dropdown-visible .Dropdown_wrapper');
 
-	// 	if (!dropdownWrapper) return;
+		if (!dropdownWrapper) return;
 
-	// 	dropdownWrapper.parentNode.classList.remove('Dropdown-visible');
-	// });
+		dropdownWrapper.parentNode.classList.remove('Dropdown-visible');
+	});
 
 	document.addEventListener('mousedown', function (e) {
 		let windowWidth = document.documentElement.clientWidth;
@@ -747,5 +747,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		rating.querySelector('.Overlay').classList.remove('Overlay-visible');
 		rating.querySelector('.Rating_dropdown').classList.remove('Rating_dropdown-visible');
 	});
+
+	let ratingLineFill = document.querySelectorAll('.ExtendedRating_lineFill');
+	ratingLineFill.forEach( el => el.style.width = (el.dataset.mark * 10) + '%');
 
 });
