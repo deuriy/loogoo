@@ -1,21 +1,70 @@
 .AdvantagesRating
+	&_header
+		display flex
+		align-items center
+		margin-bottom 18px
+		padding-left 2px
+	
+	&_userPhoto
+		flex-shrink 0
+		margin-right 18px
+	
+	&_title
+		font-weight 600
+		font-size 18px
+	
+	&_userName
+		font-weight 500
+		font-size 13px
+		color $blue2
+		
 	&_item
 		display flex
 		align-items flex-end
 		font-weight 500
 		line-height 25px
 		
+		@media $xs
+			align-items flex-start
+			margin-bottom 10px
+			padding-bottom 8px
+			border-bottom 1px solid #ebf0f2
+			
+			&:last-child
+				margin-bottom 0
+				padding-bottom 0
+				border-bottom none
+		
 	&_icon
 		width 10px
 		margin-right 9px
 		color $brown
+		
+		@media $xs
+			flex-shrink 0
+			width 13px
+			margin-top 5px
+			margin-right 2px
 	
 	&_number
 		width 10px
 		margin-right 14px
 		font-size 16px
 		text-align right
+		
+		@media $xs
+			flex-shrink 0
+			width 28px
+			margin-top 5px
+			margin-right 16px
+			font-size 26px
+			text-align center
 	
 	&_text
 		font-size 13px
 		color #404040
+		
+		@media $xs
+			font-size 15px
+			line-height 1.467
+			color $black

@@ -2,11 +2,12 @@
 	display flex
 	align-items center
 	
+	&_wrapperLink
+		display flex
+	
 	&_icon
-		// width 12px
 		width 9px
 		margin-right 3px
-		// color $grey3
 		color $grey3
 		
 		@media $xs
@@ -44,9 +45,32 @@
 		opacity 0
 		@extend .transition
 		
+		@media $xs
+			position fixed
+			z-index 1001
+			top 50%
+			left 50%
+			max-width calc(100% - 40px)
+			padding 22px 27px 19px 25px
+			transform translate(-50%, -50%)
+			box-shadow none
+			border-radius 5px
+		
 		&:hover
+			@media $smPlus
+				visibility visible
+				opacity 1
+		
+		&-visible
 			visibility visible
 			opacity 1
+	
+	&_closeDropdown
+		position absolute
+		top 20px
+		right 20px
+		width 14px
+		height 14px
 	
 	&-bordered
 		padding 9px 13px
@@ -159,12 +183,12 @@
 	
 	&-dropdown
 		position relative
-		cursor pointer
 			
 		&:hover
-			.Rating_dropdown
-				visibility visible
-				opacity 1
+			@media $smPlus
+				.Rating_dropdown
+					visibility visible
+					opacity 1
 	
 	&-companyInfo
 		font-weight 500
@@ -233,3 +257,23 @@
 		
 		.Rating_label
 			font-size 13px
+	
+	&-companyBrief
+		align-items baseline
+		font-weight 600
+		
+		.Rating_icon
+			color $brown
+		
+		.Rating_number
+			margin-right 4px
+			font-size 15px
+			color $black
+		
+		.Rating_max
+			margin-right 5px
+			font-weight 600
+			font-size 8px
+		
+		.Rating_label
+			font-size 8px

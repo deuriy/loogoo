@@ -1,0 +1,403 @@
+//- extends /layouts/main_layout
+//- block vars
+//- 	- var title = "Sony Corporation";
+//- 	- var wrapperModifiers = "Wrapper-noMobileHeader";
+//- 	- var mainModifiers = "Main-companyPage";
+//- block content
+//- 	.Container.Container-company.Main_container
+//- 		.Company
+//- 			.MobileHeader.hidden-smPlus
+//- 				a(href="#").BtnBack.MobileHeader_btnBack
+//- 					include /includes/svg/SvgIco/arrow_left
+//- 				.MobileHeader_titleWrapper
+//- 					h1.MobileHeader_title.MobileHeader_title-company #{title}
+//- 			.CompanyInfo.CompanyInfo-company.Company_info.hidden-smPlus
+//- 				.CompanyInfo_logo
+//- 					img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyInfo_logoImg
+//- 				.CompanyInfo_wrapper
+//- 					h4.CompanyInfo_name Sony Corporation / Сони Электроникс Корпораи ещё чего-то там
+//- 					.Rating.Rating-companyHeader
+//- 						span.Rating_icon
+//- 							include /includes/svg/SvgIco/icon_star
+//- 						span.Rating_number 7,5
+//- 						span.Rating_max / 10
+//- 						span.Rating_label (55 отзывов)
+//- 			a(href="#").BtnBlue.BtnBlue-company.hidden-smPlus Написать сообщение
+//- 			.Company_left.hidden-xs
+//- 				.CompanyPhoto
+//- 					img(src="/img/company_photo.jpg", alt="Company photo").CompanyPhoto_img
+//- 					.Rating.Rating-company.Rating-center.CompanyPhoto_rating
+//- 						span.Rating_icon
+//- 							include /includes/svg/SvgIco/icon_star
+//- 						span.Rating_number 7,5
+//- 						span.Rating_max / 10
+//- 						span.Rating_label (55 отзывов)
+//- 					//- a(href="#").BtnBlue.BtnBlue-company Написать сообщение
+//- 					.Control
+//- 						a(href="javascript:;").BtnOutline.BtnOutline-blue.BtnOutline-company.Control_btn Управление
+//- 						ul.Control_menu
+//- 							li.Control_item
+//- 								a(href="#").Control_link
+//- 									include /includes/svg/SvgIco/settings
+//- 									.
+//- 										Настройки
+//- 							li.Control_item
+//- 								a(href="#").Control_link
+//- 									include /includes/svg/SvgIco/stat
+//- 									.
+//- 										Статистика
+//- 			.Company_right
+//- 				h1.Company_title.hidden-xs Sony Corporation
+//- 				include /includes/blocks/MenuSectionCompany
+//- 				.Characteristics.Company_characteristics
+//- 					.Characteristic.Characteristics_item
+//- 						.Characteristic_name Страна:
+//- 						.Characteristic_value Украина
+//- 					.Characteristic.Characteristic-inlineMob.Characteristics_item
+//- 						.Characteristic_name Лицензия:
+//- 						.Characteristic_value
+//- 							a(href="#", target="_blank").Characteristic_link.Characteristic_link-doc лицензия №806
+//- 								include /includes/svg/SvgIco/icon_doc
+//- 					.Characteristic.Characteristics_item
+//- 						.Characteristic_name Специализация:
+//- 						.Characteristic_value трудоустройство и визовая поддержка
+//- 					.Characteristic.Characteristics_item
+//- 						.Characteristic_name Адрес офиса:
+//- 						.Characteristic_value г. Киев, ул. Крещатик 117, оф. 17 Б#[br]г. Харьков, Харьковская наб., 16, оф. 12#[br]г. Львов, ул. Лычаковская, 22, оф. 234
+//- 					.Characteristic.Characteristics_item
+//- 						.Characteristic_name Режим работы
+//- 						.Characteristic_value Пн–Пт: 9:00–18:00, без перерыва#[br]Сб–Вс: 10:00–17:00, без перерыва
+//- 					.Characteristic.Characteristics_item
+//- 						.Characteristic_name Телефон:
+//- 						a(href="#").Characteristic_value +38 098 765 43 21#[br]+38 098 765 43 21
+//- 					.Characteristic.Characteristics_item
+//- 						.Characteristic_name Сайт:
+//- 						.Characteristic_value
+//- 							a(href="http://www.sony.com", target="_blank").Characteristic_link www.sony.com
+//- 				.Company_description Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 года. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская промышленная коммуникационная компания) или сокращённо Тоцуко или TTK, но, как выяснил Акио Морита, это название тяжело произносить американцам.
+//- 				a(href="#").ArrowLink.Company_infoLink Информация о компании
+//- 				.RatingSection.Company_ratingSection
+//- 					.RatingSection_header
+//- 						h3.RatingSection_title Рейтинг#[span.hidden-xs  и отзывы]
+//- 						.DropdownSelect.DropdownSelect-companyProfile.RatingSection_dropdownSelect.hidden-smPlus
+//- 							select(name="categories").DropdownSelect_select
+//- 								option(value="all") по всем категориям
+//- 								option(value="employment") трудоустройство
+//- 								option(value="document_preparation") изготовление документов
+//- 					.RatingSection_ratingWrapper
+//- 						.Rating.Rating-company.RatingSection_rating
+//- 							span.Rating_icon
+//- 								include /includes/svg/SvgIco/icon_star
+//- 							span.Rating_number 7,5
+//- 							span.Rating_max / 10
+//- 							span.Rating_label 55 отзывов
+//- 						.DropdownSelect.DropdownSelect-companyProfile.RatingSection_dropdownSelect.hidden-xs
+//- 							select(name="categories").DropdownSelect_select
+//- 								option(value="all") по всем категориям
+//- 								option(value="employment") трудоустройство
+//- 								option(value="document_preparation") изготовление документов
+//- 					//- .RatingSection_text 95% работников рекомендуют эту компанию
+//- 					.ExtendedRatings.RatingSection_extendedRatings
+//- 						.ExtendedRating.ExtendedRatings_item
+//- 							.ExtendedRating_markAndNumber
+//- 								.ExtendedRating_mark 8,2
+//- 								.ExtendedRating_ratingsNumber.hidden-smPlus 45 оценок
+//- 							.ExtendedRating_wrapper
+//- 								.ExtendedRating_label качество обслуживания и поддержки
+//- 								.ExtendedRating_line
+//- 									.ExtendedRating_lineFill(data-mark="8.2")
+//- 							.ExtendedRating_ratingsNumber.hidden-xs 45 оценок
+//- 						.ExtendedRating.ExtendedRatings_item
+//- 							.ExtendedRating_markAndNumber
+//- 								.ExtendedRating_mark 8,7
+//- 								.ExtendedRating_ratingsNumber.hidden-smPlus 36 оценок
+//- 							.ExtendedRating_wrapper
+//- 								.ExtendedRating_label достоверность информации о работе
+//- 								.ExtendedRating_line
+//- 									.ExtendedRating_lineFill(data-mark="8.7")
+//- 							.ExtendedRating_ratingsNumber.hidden-xs 36 оценок
+//- 						.ExtendedRating.ExtendedRatings_item
+//- 							.ExtendedRating_markAndNumber
+//- 								.ExtendedRating_mark 6,2
+//- 								.ExtendedRating_ratingsNumber.hidden-smPlus 47 оценок
+//- 							.ExtendedRating_wrapper
+//- 								.ExtendedRating_label достоверность информации о жилье
+//- 								.ExtendedRating_line
+//- 									.ExtendedRating_lineFill(data-mark="6.2")
+//- 							.ExtendedRating_ratingsNumber.hidden-xs 47 оценок
+//- 						.ExtendedRating.ExtendedRatings_item
+//- 							.ExtendedRating_markAndNumber
+//- 								.ExtendedRating_mark 6,5
+//- 								.ExtendedRating_ratingsNumber.hidden-smPlus 53 оценок
+//- 							.ExtendedRating_wrapper
+//- 								.ExtendedRating_label соблюдение сроков изготовления документов
+//- 								.ExtendedRating_line
+//- 									.ExtendedRating_lineFill(data-mark="6.5")
+//- 							.ExtendedRating_ratingsNumber.hidden-xs 53 оценок
+//- 						.ExtendedRating.ExtendedRatings_item
+//- 							.ExtendedRating_markAndNumber
+//- 								.ExtendedRating_mark 9,2
+//- 								.ExtendedRating_ratingsNumber.hidden-smPlus 55 оценок
+//- 							.ExtendedRating_wrapper
+//- 								.ExtendedRating_label качество полученных документов или услуг
+//- 								.ExtendedRating_line
+//- 									.ExtendedRating_lineFill(data-mark="9.2")
+//- 							.ExtendedRating_ratingsNumber.hidden-xs 55 оценок
+//- 					.RatingSection_reviewsNumber 55 отзывов
+//- 				.Remark.Company_remark
+//- 					a(href="javascript:;").Remark_close
+//- 						include /includes/svg/icon_close_remark
+//- 					h3.Remark_title Здесь только реальные отзывы, которым вы действительно можете доверять! #[a(href="#").ArrowLink.ArrowLink-remark.Remark_arrowLink.hidden-smPlus Подробнее]
+//- 					.Remark_text.hidden-xs INFOZA – первый и единственный портал, который публикует только те отзывы, которые прошли тщательную проверку и обязательно были документально подтверждены! Благодаря этому, только у нас вы можете узнать всю правду о любой компании! #[a(href="#").ArrowLink Подробнее]
+//- 				.CommentsBlock.CommentsBlock-company.Company_commentsBlock
+//- 					form(action="#").CommentForm.CommentForm-company.CommentsBlock_commentForm
+//- 						textarea(name="comment_text", placeholder="Оставьте отзыв").FormTextarea.FormTextarea-commentFormCompany.FormTextarea-commentFormCompany.CommentForm_textArea
+//- 						.CommentForm_actions
+//- 							button(type="reset").CommentForm_resetBtn Отмена
+//- 							button(type="submit").BtnBlue.BtnBlue-light.BtnBlue-commentForm Отправить
+//- 					.CommentsBlock_items
+//- 						.Comment.Comment-company.Comment-hasChild.CommentsBlock_item
+//- 							.Comment_wrapper
+//- 								.Comment_header
+//- 									.Comment_headerLeft
+//- 										.UserPhoto.UserPhoto-commentCompany.Comment_userPhoto
+//- 											img(src="/img/vladimir_petrov.png", alt="Владимир Петров").UserPhoto_img
+//- 										.Comment_info
+//- 											.Comment_nameAndRating
+//- 												.Comment_userName Владимир Петров
+//- 												.UserIcons.UserIcons-companyComment.Comment_userIcons
+//- 													ul.UserIcons_list
+//- 														li.UserIcons_item.UserIcons_item-check
+//- 															include /includes/svg/user_icons/check
+//- 														li.UserIcons_item.UserIcons_item-lightningFill
+//- 															include /includes/svg/user_icons/lightning_fill
+//- 												a(href="javascript:;").Rating.Comment_rating
+//- 													span.Rating_number 528
+//- 											.Comment_date сегодня в 7:05
+//- 									.Comment_headerRight
+//- 										.DotsMenu
+//- 											a(href="javascript:;").DotsMenu_icon
+//- 												include /includes/svg/SvgIco/dots
+//- 											.DotsMenu_wrapper
+//- 												ul.DotsMenu_menu
+//- 													li.DotsMenu_item
+//- 														a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
+//- 															include /includes/svg/SvgIco/edit
+//- 															.
+//- 																Редактировать
+//- 													li.DotsMenu_item
+//- 														a(href="javascript:;").DotsMenu_link
+//- 															include /includes/svg/SvgIco/remove
+//- 															.
+//- 																Удалить
+//- 								.Comment_ratingWrapper
+//- 									.Rating.Rating-companyComment.Rating-dropdown.Comment_companyRating
+//- 										a(href="javascript:;").Rating_wrapperLink
+//- 											span.Rating_icon
+//- 												include /includes/svg/SvgIco/icon_star
+//- 											span.Rating_number 7,3
+//- 											span.Rating_max / 10
+//- 										.Rating_dropdown
+//- 											a(href="javascript:;").Rating_closeDropdown.hidden-smPlus
+//- 												include /includes/svg/icon_close
+//- 											.AdvantagesRating
+//- 												.AdvantagesRating_header.hidden-smPlus
+//- 													.UserPhoto.UserPhoto-ratingDropdown.AdvantagesRating_userPhoto
+//- 														img(src="img/anna_sergeevna.png", alt="Анна Сергеевна").UserPhoto_img
+//- 													.AdvantagesRating_headerRight
+//- 														h3.AdvantagesRating_title Детальная оценка
+//- 														.AdvantagesRating_userName Анна Сергеевна
+//- 												ul.AdvantagesRating_list
+//- 													li.AdvantagesRating_item
+//- 														span.AdvantagesRating_icon
+//- 															include /includes/svg/SvgIco/icon_star
+//- 														span.AdvantagesRating_number 6
+//- 														span.AdvantagesRating_text качество обслуживания и поддержки
+//- 													li.AdvantagesRating_item
+//- 														span.AdvantagesRating_icon
+//- 															include /includes/svg/SvgIco/icon_star
+//- 														span.AdvantagesRating_number 7
+//- 														span.AdvantagesRating_text достоверность информации о работе
+//- 													li.AdvantagesRating_item
+//- 														span.AdvantagesRating_icon
+//- 															include /includes/svg/SvgIco/icon_star
+//- 														span.AdvantagesRating_number 8
+//- 														span.AdvantagesRating_text достоверность информации о жилье
+//- 													li.AdvantagesRating_item
+//- 														span.AdvantagesRating_icon
+//- 															include /includes/svg/SvgIco/icon_star
+//- 														span.AdvantagesRating_number 9
+//- 														span.AdvantagesRating_text соблюдение сроков изготовления документов
+//- 													li.AdvantagesRating_item
+//- 														span.AdvantagesRating_icon
+//- 															include /includes/svg/SvgIco/icon_star
+//- 														span.AdvantagesRating_number 10
+//- 														span.AdvantagesRating_text качество полученных документов или услуг
+//- 										.Overlay.Overlay-rating
+//- 								.Comment_text
+//- 									p Маркетингово-ориентированное издание синхронизирует продвигаемый фактор коммуникации. Эластичность спроса изоморфна времени. Медиаплан, следовательно, нейтрализует инвестиционный продукт. Косвенная реклама экономит типичный метод изучения рынка. Выставка индуцирует продвигаемый презентационный материал.
+//- 								.Comment_footer
+//- 									a(href="javascript:;").Like.Like-comment
+//- 										include /includes/svg/SvgIco/like
+//- 										span.Like_count 42
+//- 									.Comment_country
+//- 										img(src="/img/icon_poland.png", alt="Poland").Comment_countryIcon
+//- 										.
+//- 											Польша, Вроцлав
+//- 							.Comment_childComments
+//- 								.Comment.Comment-companyChild
+//- 									.Comment_wrapper
+//- 										.Comment_header
+//- 											.Comment_headerLeft
+//- 												.UserPhoto.UserPhoto-commentCompany.UserPhoto-roundedSquare.Comment_userPhoto
+//- 													img(src="/img/sony2.png", alt="Sony Corporation").UserPhoto_img
+//- 												.Comment_info
+//- 													.Comment_nameAndRating
+//- 														.Comment_userName Sony Corporation
+//- 													.Comment_dateWrapper
+//- 														.Comment_person компания
+//- 														a(href="#").ReplyName.Comment_replyName.hidden-smPlus
+//- 															include /includes/svg/SvgIco/reply
+//- 															.
+//- 																Анна Сергеевна
+//- 											.Comment_headerRight
+//- 												.DotsMenu
+//- 													a(href="javascript:;").DotsMenu_icon
+//- 														include /includes/svg/SvgIco/dots
+//- 													.DotsMenu_wrapper
+//- 														a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link.CommentComplaintLink
+//- 															include /includes/svg/SvgIco/warning
+//- 															.
+//- 																Пожаловаться
+//- 										.Comment_text
+//- 											p Поисковая реклама, пренебрегая деталями, одновременно позиционирует культурный системный анализ, расширяя долю рынка. Рыночная ситуация допускает продукт. Баинг и селлинг основан на анализе телесмотрения.
+//- 						.Comment.Comment-company.Comment-hasChild.CommentsBlock_item
+//- 							.Comment_wrapper
+//- 								.Comment_header
+//- 									.Comment_headerLeft
+//- 										.UserPhoto.UserPhoto-commentCompany.Comment_userPhoto
+//- 											img(src="/img/vladimir_petrov.png", alt="Владимир Петров").UserPhoto_img
+//- 										.Comment_info
+//- 											.Comment_nameAndRating
+//- 												.Comment_userName Владимир Петров
+//- 												.UserIcons.UserIcons-companyComment.Comment_userIcons
+//- 													ul.UserIcons_list
+//- 														li.UserIcons_item.UserIcons_item-check
+//- 															include /includes/svg/user_icons/check
+//- 														li.UserIcons_item.UserIcons_item-lightningFill
+//- 															include /includes/svg/user_icons/lightning_fill
+//- 											.Comment_date сегодня в 7:05
+//- 									.Comment_headerRight
+//- 										.DotsMenu
+//- 											a(href="javascript:;").DotsMenu_icon
+//- 												include /includes/svg/SvgIco/dots
+//- 											.DotsMenu_wrapper
+//- 												ul.DotsMenu_menu
+//- 													li.DotsMenu_item
+//- 														a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
+//- 															include /includes/svg/SvgIco/edit
+//- 															.
+//- 																Редактировать
+//- 													li.DotsMenu_item
+//- 														a(href="javascript:;").DotsMenu_link
+//- 															include /includes/svg/SvgIco/remove
+//- 															.
+//- 																Удалить
+//- 								.Comment_ratingWrapper
+//- 									.Rating.Rating-companyComment.Rating-dropdown.Comment_companyRating
+//- 										a(href="javascript:;").Rating_wrapperLink
+//- 											span.Rating_icon
+//- 												include /includes/svg/SvgIco/icon_star
+//- 											span.Rating_number 7,3
+//- 											span.Rating_max / 10
+//- 										.Rating_dropdown
+//- 											a(href="javascript:;").Rating_closeDropdown.hidden-smPlus
+//- 												include /includes/svg/icon_close
+//- 											.AdvantagesRating
+//- 												.AdvantagesRating_header.hidden-smPlus
+//- 													.UserPhoto.UserPhoto-ratingDropdown.AdvantagesRating_userPhoto
+//- 														img(src="img/anna_sergeevna.png", alt="Анна Сергеевна").UserPhoto_img
+//- 													.AdvantagesRating_headerRight
+//- 														h3.AdvantagesRating_title Детальная оценка
+//- 														.AdvantagesRating_userName Анна Сергеевна
+//- 												ul.AdvantagesRating_list
+//- 													li.AdvantagesRating_item
+//- 														span.AdvantagesRating_icon
+//- 															include /includes/svg/SvgIco/icon_star
+//- 														span.AdvantagesRating_number 6
+//- 														span.AdvantagesRating_text качество обслуживания и поддержки
+//- 													li.AdvantagesRating_item
+//- 														span.AdvantagesRating_icon
+//- 															include /includes/svg/SvgIco/icon_star
+//- 														span.AdvantagesRating_number 7
+//- 														span.AdvantagesRating_text достоверность информации о работе
+//- 													li.AdvantagesRating_item
+//- 														span.AdvantagesRating_icon
+//- 															include /includes/svg/SvgIco/icon_star
+//- 														span.AdvantagesRating_number 8
+//- 														span.AdvantagesRating_text достоверность информации о жилье
+//- 													li.AdvantagesRating_item
+//- 														span.AdvantagesRating_icon
+//- 															include /includes/svg/SvgIco/icon_star
+//- 														span.AdvantagesRating_number 9
+//- 														span.AdvantagesRating_text соблюдение сроков изготовления документов
+//- 													li.AdvantagesRating_item
+//- 														span.AdvantagesRating_icon
+//- 															include /includes/svg/SvgIco/icon_star
+//- 														span.AdvantagesRating_number 10
+//- 														span.AdvantagesRating_text качество полученных документов или услуг
+//- 										.Overlay.Overlay-rating
+//- 									.ConfirmLabel.Comment_confirmLabel Подтвержден
+//- 								.Comment_text
+//- 									p Маркетингово-ориентированное издание синхронизирует продвигаемый фактор коммуникации. Эластичность спроса изоморфна времени. Медиаплан, следовательно, нейтрализует инвестиционный продукт. Косвенная реклама экономит типичный метод изучения рынка. Выставка индуцирует продвигаемый презентационный материал.
+//- 								.Images.Images-comment.Comment_images
+//- 									ul.Images_list
+//- 										li.Images_item
+//- 											a(href="#").Images_link
+//- 												img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+//- 										li.Images_item
+//- 											a(href="#").Images_link
+//- 												img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+//- 										li.Images_item
+//- 											a(href="#").Images_link
+//- 												img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+//- 										li.Images_item
+//- 											a(href="#").Images_link
+//- 												img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+//- 								.Comment_footer
+//- 									a(href="javascript:;").Like.Like-comment
+//- 										include /includes/svg/SvgIco/like
+//- 										span.Like_count 42
+//- 									.Comment_country
+//- 										img(src="/img/icon_poland.png", alt="Poland").Comment_countryIcon
+//- 										.
+//- 											Польша, Вроцлав
+//- 					.CommentsBlock_footer
+//- 						a(href="/company_reviews.html").BtnBlue.BtnBlue-companyArrow.hidden-xs Посмотреть все отзывы
+//- 						a(href="/company_reviews.html").ArrowLink.ArrowLink-company.hidden-smPlus Посмотреть все отзывы
+//- 				.Contacts.Company_contacts.hidden-smPlus
+//- 					h3.Contacts_title Контакты
+//- 					ul.Contacts_list
+//- 						li.Contacts_item
+//- 							span.Contacts_icon
+//- 								include /includes/svg/contacts/flag_ua
+//- 							span.Contacts_text Украина
+//- 						li.Contacts_item
+//- 							span.Contacts_icon
+//- 								include /includes/svg/contacts/location
+//- 							span.Contacts_text г. Киев, ул. Крещатик 117, оф. 17 Б #[br]г. Харьков, Харьковская наб., 16
+//- 						li.Contacts_item
+//- 							span.Contacts_icon
+//- 								include /includes/svg/contacts/clock
+//- 							span.Contacts_text Пн–Пт: 9:00–18:00, без перерыва #[br]Сб–Вс: 10:00–17:00, без перерыва
+//- 						li.Contacts_item
+//- 							span.Contacts_icon
+//- 								include /includes/svg/contacts/phone
+//- 							span.Contacts_text +38 098 765 43 21 #[br]+38 098 765 43 21
+//- 						li.Contacts_item
+//- 							span.Contacts_icon
+//- 								include /includes/svg/contacts/link
+//- 							span.Contacts_text
+//- 								a(href="http://www.sony.com", target="_blank").Contacts_link www.sony.com
+//- block page_bottom
+//- 	script(src="/js/company.js")

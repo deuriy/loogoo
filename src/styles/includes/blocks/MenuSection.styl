@@ -1,14 +1,23 @@
 .MenuSection
+	position relative
 	display flex
 	justify-content space-between
 	align-items center
-	border-bottom 1px solid $grey
 	
 	@media $xs
 		padding-right 20px
 		padding-bottom 14px
 		padding-left 19px
 		overflow auto
+	
+	&:after
+		content ""
+		position absolute
+		right 0
+		bottom 0
+		left 0
+		height 1px
+		background $grey
 	
 	&_selectionLink
 		margin-right 25px
@@ -39,7 +48,6 @@
 		overflow visible
 	
 	&-company, &-companySettings
-		border-bottom none
 		overflow hidden
 		
 		@media $xs
@@ -60,9 +68,6 @@
 				height 10px
 				background url('../img/menu_section_blur.png') 0 0 / cover no-repeat
 				pointer-events none
-	
-	&-company
-		border-bottom 1px solid #ebeff3
 	
 	&-save
 		@media $xs

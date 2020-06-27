@@ -23,6 +23,7 @@
 		&:after
 			content ""
 			position absolute
+			z-index 1
 			right 0
 			bottom 0
 			width 100%
@@ -35,6 +36,16 @@
 			
 			&:after
 				background $blue
+		
+		&.active
+			font-weight 600
+	
+	&_count
+		@media $xs
+			position relative
+			top -5px
+			color $blue
+			font-size 11px
 	
 	&-company
 		.CategoryMenu_menu
@@ -90,9 +101,3 @@
 				padding-right 14px
 				padding-bottom 14px
 				padding-left 20px
-				
-				&:after
-					bottom -1px
-					
-				&.active
-					font-weight 600

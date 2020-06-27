@@ -499,13 +499,13 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.querySelector('.Dropdown').classList.add('Dropdown-visible');
 	});
 
-	document.addEventListener('mouseout', function (e) {
-		let dropdownWrapper = e.target.closest('.Dropdown-visible .Dropdown_wrapper');
+	// document.addEventListener('mouseout', function (e) {
+	// 	let dropdownWrapper = e.target.closest('.Dropdown-visible .Dropdown_wrapper');
 
-		if (!dropdownWrapper) return;
+	// 	if (!dropdownWrapper) return;
 
-		dropdownWrapper.parentNode.classList.remove('Dropdown-visible');
-	});
+	// 	dropdownWrapper.parentNode.classList.remove('Dropdown-visible');
+	// });
 
 	document.addEventListener('mousedown', function (e) {
 		let windowWidth = document.documentElement.clientWidth;
@@ -712,6 +712,40 @@ document.addEventListener("DOMContentLoaded", function () {
 		saveFilter.querySelector('.SaveFilter_menu').classList.remove('SaveFilter_menu-opened');
 
 		e.preventDefault();
+	});
+
+	// Rating dropdown
+	document.addEventListener('click', function (e) {
+		let windowWidth = document.documentElement.clientWidth;
+
+		if (windowWidth > 767) return;
+
+		let ratingWrapperLink = e.target.closest('.Rating-dropdown .Rating_wrapperLink');
+
+		if (!ratingWrapperLink) return;
+
+		let rating = ratingWrapperLink.closest('.Rating-dropdown');
+		rating.querySelector('.Rating_dropdown').classList.add('Rating_dropdown-visible');
+		rating.querySelector('.Overlay').classList.add('Overlay-visible');
+	});
+
+	document.addEventListener('click', function (e) {
+		let ratingOverlay = e.target.closest('.Rating-dropdown .Overlay');
+
+		if (!ratingOverlay) return;
+
+		ratingOverlay.classList.remove('Overlay-visible');
+		ratingOverlay.parentNode.querySelector('.Rating_dropdown').classList.remove('Rating_dropdown-visible');
+	});
+
+	document.addEventListener('click', function (e) {
+		let closeDropdown = e.target.closest('.Rating_closeDropdown');
+
+		if (!closeDropdown) return;
+
+		let rating = closeDropdown.closest('.Rating-dropdown');
+		rating.querySelector('.Overlay').classList.remove('Overlay-visible');
+		rating.querySelector('.Rating_dropdown').classList.remove('Rating_dropdown-visible');
 	});
 
 });

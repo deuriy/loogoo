@@ -219,6 +219,10 @@
 		&.Comment-company
 			& > .Comment_wrapper
 				padding-bottom 25px
+			
+			&:last-child > .Comment_wrapper
+				@media $xs
+					padding-bottom 0
 	
 	&-child
 		& > .Comment_wrapper
@@ -283,9 +287,16 @@
 		.Comment_text
 			margin-bottom 13px
 		
+		.Comment_images
+			@media $xs
+				margin-bottom -5px
+		
 		.Comment_footer
 			margin-top 18px
 			padding-right 0
+			
+			@media $xs
+				padding-right 3px
 		
 		.Comment_childComments
 			padding-top 14px
@@ -294,6 +305,11 @@
 			@media $xs
 				padding-top 11px
 				padding-left 40px
+		
+		&:last-child
+			.Comment_wrapper
+				@media $xs
+					border-bottom none
 	
 	&-companyChild
 		.Comment_header
