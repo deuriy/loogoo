@@ -280,6 +280,27 @@
 	&_removePost, &_removeOwner
 		margin-right -10px
 	
+	&_notice
+		margin-top -10px
+		margin-bottom 20px
+	
+	&_submitBtn
+		margin-right 30px
+		
+		@media $xxs
+			margin-right 0
+			margin-bottom 37px
+		
+	&_resetBtn
+		border none
+		background none
+		outline none
+		color $blue
+		font-weight 500
+		
+		@media $xs
+			margin-right 3px
+	
 	&-popup
 		.CompanySettings_fields
 			margin-bottom 28px
@@ -339,3 +360,10 @@
 		.CompanySettings_addButton 
 			width 100%
 			margin-bottom 36px
+	
+	&-profileCover
+		.CompanySettings_actions
+			padding-left 0
+			
+			@media $xxs
+				flex-direction column

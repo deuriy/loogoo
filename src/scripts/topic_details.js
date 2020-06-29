@@ -153,6 +153,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		let shareWrapper = shareIcon.parentNode.querySelector('.Share_wrapper');
 
 		shareWrapper.classList.toggle('Share_wrapper-opened');
+
+		let windowWidth = document.documentElement.clientWidth;
+
+		if (windowWidth > 767) return;
+
+		shareWrapper.parentNode.querySelector('.Overlay').classList.toggle('Overlay-visible');
 	});
 
 	document.addEventListener('click', function (e) {
@@ -164,7 +170,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (shareWrapper.classList.contains('Share_wrapper-opened') && !shareWrapper.contains(e.target) && !shareIcon.contains(e.target)) {
 			shareWrapper.classList.remove('Share_wrapper-opened');
+			shareWrapper.parentNode.querySelector('.Overlay').classList.remove('Overlay-visible');
 		}
+	});
+
+	document.addEventListener('click', function (e) {
+		let shareOverlay = e.target.closest('.Share .Overlay');
+
+		if (!shareOverlay) return;
+
+		shareOverlay.classList.remove('Overlay-visible');
+		shareOverlay.parentNode.querySelector('.Share_wrapper').classList.remove('Share_wrapper-opened');
 	});
 
 	function copyInputText (targetElem) {
@@ -191,6 +207,14 @@ document.addEventListener("DOMContentLoaded", function () {
 		}, 3000);
 	});
 
+	let commentLinks = document.querySelectorAll('.Comment_text a');
+	commentLinks.forEach( commentLink => {
+		if (!commentLink.hasAttribute('target') || commentLink.getAttribute('target') != '_blank') {
+			commentLink.setAttribute('target', '_blank');
+		}
+	});
+
+	// Bookmark icon
 	document.addEventListener('click', function (e) {
 		let bookmarkIcon = e.target.closest('.Bookmark_icon');
 
@@ -198,12 +222,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		let bookmark = bookmarkIcon.closest('.Bookmark');
 		bookmark.classList.toggle('Bookmark-active');
+
+		let bookmarkNotification = document.querySelector('.StatIcon-bookmarkNotification');
+		bookmarkNotification.hidden = !bookmarkNotification.hidden;
+
+		if (bookmarkNotification.hidden) {
+			let activeNotificationLink = bookmarkNotification.querySelector('.NotificationMenu_link-active');
+			activeNotificationLink.classList.remove('NotificationMenu_link-active');
+
+			let firstNotificationLink = bookmarkNotification.querySelector('.NotificationMenu_link:first-child');
+			firstNotificationLink.classList.add('NotificationMenu_link-active');
+
+			let notificationMenuIcon = bookmarkNotification.querySelector('.NotificationMenu_icon');
+			let svgIcon = firstNotificationLink.querySelector('svg').cloneNode(true);
+
+			notificationMenuIcon.innerHTML = '';
+			notificationMenuIcon.append(svgIcon);
+		}
 	});
 
-	let commentLinks = document.querySelectorAll('.Comment_text a');
-	commentLinks.forEach( commentLink => {
-		if (!commentLink.hasAttribute('target') || commentLink.getAttribute('target') != '_blank') {
-			commentLink.setAttribute('target', '_blank');
+	// Notification menu
+	document.addEventListener('click', function (e) {
+		let notificationMenuIcon = e.target.closest('.NotificationMenu_icon');
+
+		if (!notificationMenuIcon) return;
+
+		let notificationMenuWrapper = notificationMenuIcon.parentNode.querySelector('.NotificationMenu_wrapper');
+		notificationMenuWrapper.classList.toggle('NotificationMenu_wrapper-opened');
+	});
+
+	document.addEventListener('click', function (e) {
+		let notificationMenuWrapper = document.querySelector('.NotificationMenu_wrapper');
+
+		if (!notificationMenuWrapper) return;
+
+		let notificationMenuIcon = notificationMenuWrapper.parentNode.querySelector('.NotificationMenu_icon');
+
+		if (notificationMenuWrapper.classList.contains('NotificationMenu_wrapper-opened') && !notificationMenuWrapper.contains(e.target) && !notificationMenuIcon.contains(e.target)) {
+			notificationMenuWrapper.classList.remove('NotificationMenu_wrapper-opened');
 		}
+	});
+
+	document.addEventListener('click', function (e) {
+		let notificationMenuLink = e.target.closest('.NotificationMenu_link');
+
+		if (!notificationMenuLink) return;
+
+		let notificationMenu = notificationMenuLink.closest('.NotificationMenu');
+		let notificationMenuIcon = notificationMenu.querySelector('.NotificationMenu_icon');
+		let activeNotificationLink = notificationMenu.querySelector('.NotificationMenu_link-active');
+		let activeSvgIcon = notificationMenuLink.querySelector('svg').cloneNode(true);
+
+		activeNotificationLink.classList.remove('NotificationMenu_link-active');
+		notificationMenuLink.classList.add('NotificationMenu_link-active');
+
+		notificationMenuIcon.innerHTML = '';
+		notificationMenuIcon.append(activeSvgIcon);
+
+		e.preventDefault();
 	});
 });

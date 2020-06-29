@@ -1,0 +1,67 @@
+.NotificationMenu
+	position relative
+	
+	&_icon
+		display block
+		width 20px
+		color #8396AC
+		
+		.SvgIco_path-check
+			fill $orange
+	
+	&_wrapper
+		display none
+		position absolute
+		z-index 10
+		top calc(100% + 12px)
+		left -20px
+		width 189px
+		border-radius 2px
+		box-shadow 0 0 5px 0 rgba(0, 0, 0, 0.12)
+		background $white
+		text-align left
+		
+		@media $smMinus
+			right -88px
+			left auto
+		
+		@media $xs
+			width 230px
+		
+		&:before
+			content ""
+			position absolute
+			top -12px
+			left 20px
+			width 16px
+			height 10px
+			background url('../img/corner_shadow.jpg') 0 0 no-repeat
+			
+			@media $smMinus
+				right 92px
+				left auto
+		
+		&-opened
+			display block
+	
+	&_link
+		display flex
+		align-items center
+		padding 7px 10px 7px 19px
+		color #8396ac
+		font-weight 500
+		font-size 13px
+		line-height 1.8461
+		@extend .transition
+		
+		@media $xs
+			font-size 16px
+		
+		& > .SvgIco
+			margin-right 10px
+		
+			.SvgIco_path-check
+				fill $orange
+		
+		&-active
+			background #f5f5f5

@@ -2,6 +2,46 @@
 	&_main
 		display flex
 		align-items flex-start
+		margin-bottom 28px
+		
+		@media $xxs
+			margin-bottom 19px
+	
+	&_current
+		flex-basis 258px
+		margin-right 35px
+		
+		@media $xxs
+			flex-basis 70px
+			margin-right 22px
 		
 	&_currentImg
 		border-radius 4px
+	
+	&_selection
+		margin-top -4px
+		
+		@media $xxs
+			margin-top 8px
+	
+	&_description
+		margin-bottom 22px
+		font-size 15px
+		line-height 1.74
+		
+		@media $xxs
+			margin-bottom 19px
+			margin-left 2px
+			font-weight 500
+			font-size 14px
+			line-height 1.5714
+			color $blue2
+	
+	&_cropArea
+		height 300px
+		margin-bottom 40px
+		background-repeat no-repeat
+		
+		@media $xs
+			margin-right 5px
+			background-position center center

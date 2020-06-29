@@ -4,6 +4,7 @@
 	font-weight 600
 	font-size 14px
 	line-height 1.857
+	white-space nowrap
 	
 	&:after
 		content ""
@@ -33,6 +34,9 @@
 	
 	&-coverSelection
 		font-weight 500
+		
+		@media $xxs
+			font-size 16px
 		
 		&:after
 			transform rotate(90deg)

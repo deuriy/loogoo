@@ -215,6 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	setActiveMenuItem( document.querySelector('.MenuSection-company') );
 	setActiveMenuItem( document.querySelector('.SettingsMenu') );
 	setActiveMenuItem( document.querySelector('.SidebarMenu-profileMenu') );
+	setActiveMenuItem( document.querySelector('.CategoryMenu-companySettings') );
 	setActivePopupMenuItem( document.querySelector('#PopupMenu'), document.querySelector('.PopupMenuLink') );
 
 	// Sidebar Menu
@@ -256,7 +257,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	showElementOnPages(document.querySelector('.Icons_item-search'), ['', 'posts', 'companies']);
+	showElementOnPages(document.querySelector('.Icons_item-search'), ['', 'posts']);
 	
 	// Mobile search
 	let searchLink = document.querySelector('.Icons_link-search');
