@@ -279,6 +279,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		notificationMenuIcon.innerHTML = '';
 		notificationMenuIcon.append(activeSvgIcon);
 
+		notificationMenu.querySelector('.NotificationMenu_wrapper').classList.remove('NotificationMenu_wrapper-opened');
+
 		e.preventDefault();
 	});
 });
