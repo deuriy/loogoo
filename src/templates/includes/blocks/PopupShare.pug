@@ -1,0 +1,16 @@
+.MobilePopup#PopupShare
+	.Overlay
+	.MobilePopup_wrapper
+		h3.MobilePopup_title Поделиться
+		.MobilePopup_close
+			include /includes/svg/icon_close
+		.ShareMenu
+			ul.ShareMenu_menu
+				li.ShareMenu_item
+					a(href="javascript:;", data-action="share").ShareMenu_link
+						include /includes/svg/SvgIco/share_mob
+						span.ShareMenu_linkInner Поделиться с друзьями
+				li.ShareMenu_item
+					a(href="javascript:;").ShareMenu_link.ShareMenu_link-copy
+						include /includes/svg/SvgIco/copy_reverse
+						span.ShareMenu_linkInner Скопировать ссылку

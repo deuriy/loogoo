@@ -141,7 +141,7 @@ block content
 												include /includes/svg/SvgIco/share
 											.Share_wrapper
 												.Share_title Поделиться:
-												ul.Share_socIcons
+												ul.Share_socIcons.hidden
 													li.Share_socItem
 														a(href="http://fb.com", target="_blank").Share_socLink
 															include /includes/svg/socicons/fb
@@ -423,21 +423,6 @@ block content
 				include /includes/blocks/TopicCreationBlock
 				include /includes/blocks/PopularTopics
 		include /includes/blocks/ComplaintFormPopup
-		.MobilePopup#PopupShare
-			.Overlay
-			.MobilePopup_wrapper
-				h3.MobilePopup_title Поделиться
-				.MobilePopup_close
-					include /includes/svg/icon_close
-				.ShareMenu
-					ul.ShareMenu_menu
-						li.ShareMenu_item
-							a(href="javascript:;", data-action="share").ShareMenu_link
-								include /includes/svg/SvgIco/share_mob
-								span.ShareMenu_linkInner Поделиться с друзьями
-						li.ShareMenu_item
-							a(href="javascript:;").ShareMenu_link.ShareMenu_link-copy
-								include /includes/svg/SvgIco/copy_reverse
-								span.ShareMenu_linkInner Скопировать ссылку
+		include /includes/blocks/PopupShare
 block page_bottom
 	script(src="/js/topic_details.js")

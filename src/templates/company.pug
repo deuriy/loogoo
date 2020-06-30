@@ -22,7 +22,8 @@ block content
 						span.Rating_number 7,5
 						span.Rating_max / 10
 						span.Rating_label (55 отзывов)
-			a(href="#").BtnBlue.BtnBlue-company.hidden-smPlus Написать сообщение
+			a(href="#WriteMessagePopup", data-action="mobilePopup").BtnBlue.BtnBlue-company.hidden-smPlus Написать сообщение
+			a(href="#CallPopup", data-action="mobilePopup").BtnBlue.BtnBlue-company.hidden-smPlus Позвонить
 			.Company_left.hidden-xs
 				.CompanyPhoto
 					img(src="/img/company_photo.jpg", alt="Company photo").CompanyPhoto_img
@@ -399,3 +400,22 @@ block content
 								include /includes/svg/contacts/link
 							span.Contacts_text
 								a(href="http://www.sony.com", target="_blank").Contacts_link www.sony.com
+	.MobilePopup#WriteMessagePopup
+		.Overlay
+		.MobilePopup_wrapper
+			h3.MobilePopup_title Написать
+			.MobilePopup_close
+				include /includes/svg/icon_close
+			.ContactsMenu
+				ul.ContactsMenu_menu
+					li.ContactsMenu_item
+						a(href="tel:+380680220201").ContactsMenu_link +38 068 022 02 01
+							include /includes/svg/contacts_menu/telegram
+					li.ContactsMenu_item
+						a(href="tel:+380680220201").ContactsMenu_link +38 068 022 02 01
+							include /includes/svg/contacts_menu/viber
+					li.ContactsMenu_item
+						a(href="tel:+380680220201").ContactsMenu_link
+							span.ContactsMenu_linkWrapper Написать в Viber
+							include /includes/svg/contacts_menu/phone
+			a(href="javascript:;").BtnBlue.BtnBlue-mobilePopup.MobilePopup_closeBtn Отмена

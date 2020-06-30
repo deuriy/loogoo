@@ -878,4 +878,13 @@ document.addEventListener("DOMContentLoaded", function () {
 		mobilePopupOverlay.closest('.MobilePopup').classList.remove('MobilePopup-opened');
 	});
 
+	// document.addEventListener('click', function (e) {
+	// 	let mobilePopupOverlay = e.target.closest('.MobilePopup .Overlay');
+
+	// 	if (!mobilePopupOverlay) return;
+
+	// 	mobilePopupOverlay.classList.remove('Overlay-visible');
+	// 	mobilePopupOverlay.closest('.MobilePopup').classList.remove('MobilePopup-opened');
+	// });
+
 });
