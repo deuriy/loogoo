@@ -630,9 +630,30 @@ document.addEventListener("DOMContentLoaded", function () {
 		}, 20);
 	});
 
-	document.querySelectorAll('.DropdownSelect-mobile, .TimeRangeDropdown').forEach(item => {
-		item.insertAdjacentHTML('beforeend', '<div class="Overlay Overlay-mobile"></div>');
-	});
+	function toggleMobileOverlay () {
+		// console.log('Toggle mobile overlay');
+		// let windowWidth = document.documentElement.clientWidth;
+		// let dropdowns = document.querySelectorAll('.DropdownSelect-mobile, .TimeRangeDropdown');
+
+		// if (windowWidth < 768) {
+		// 	dropdowns.forEach(item => item.insertAdjacentHTML('beforeend', '<div class="Overlay Overlay-mobile"></div>'));
+		// } else {
+		// 	dropdowns.forEach(item => {
+		// 		// let overlay = item.querySelector('.Overlay');
+		// 		console.log(item);
+
+		// 		// if (overlay) {
+		// 		// 	overlay.remove();
+		// 		// }
+		// 	});
+		// }
+	}
+
+	toggleMobileOverlay();
+
+	// window.addEventListener('resize', function (e) {
+	// 	toggleMobileOverlay();
+	// });
 
 	document.addEventListener('click', function (e) {
 		let dropdownSelectMobile = e.target.closest('.DropdownSelect-mobile');
@@ -781,6 +802,80 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (controlMenu.classList.contains('Control_menu-opened') && !controlMenu.contains(e.target) && !controlBtn.contains(e.target)) {
 			controlMenu.classList.remove('Control_menu-opened');
 		}
+	});
+
+	document.addEventListener('click', function (e) {
+		let copyLink = e.target.closest('.ShareMenu_link-copy');
+
+		if (!copyLink) return;
+
+		let copyLinkInput = document.querySelector('.CopyLink_input');
+		let shareWrapper = document.querySelector('.Share_wrapper');
+		shareWrapper.classList.add('Share_wrapper-opened');
+		copyInputText(copyLinkInput);
+		shareWrapper.classList.remove('Share_wrapper-opened');
+
+		let copyLinkInner = copyLink.querySelector('.ShareMenu_linkInner');
+		copyLink.classList.add('ShareMenu_link-copied');
+		copyLinkInner.textContent = 'Скопировано!';
+
+		setTimeout(() => {
+			copyLink.classList.remove('ShareMenu_link-copied');
+			copyLinkInner.textContent = 'Скопировать ссылку';
+
+			let popupShare = document.getElementById('PopupShare');
+			popupShare.classList.remove('MobilePopup-opened');
+			popupShare.querySelector('.Overlay').classList.remove('Overlay-visible');
+		}, 800);
+	});
+
+	// Share for Android/IOS
+	document.addEventListener('click', function (e) {
+		let shareLink = e.target.closest('[data-action="share"]');
+
+		if (!shareLink) return;
+
+		let title = document.querySelector('.QuestionBlock_title');
+		let text = 'Ссылка на страницу темы';
+		let url = location.href;
+
+		navigator.share({title, text, url});
+	});
+
+	// Mobile popup
+	document.addEventListener('click', function (e) {
+		let mobilePopupLink = e.target.closest('[data-action="mobilePopup"]');
+
+		if (!mobilePopupLink) return;
+
+		let mobilePopupId = mobilePopupLink.getAttribute('href');
+		let mobilePopup = document.querySelector(`${mobilePopupId}`);
+
+		if (!mobilePopup) return;
+
+		mobilePopup.classList.add('MobilePopup-opened');
+		mobilePopup.querySelector('.Overlay').classList.add('Overlay-visible');
+
+		e.preventDefault();
+	});
+
+	document.addEventListener('click', function (e) {
+		let closeMobilePopup = e.target.closest('.MobilePopup_close');
+
+		if (!closeMobilePopup) return;
+
+		let mobilePopup = closeMobilePopup.closest('.MobilePopup');
+		mobilePopup.classList.remove('MobilePopup-opened');
+		mobilePopup.querySelector('.Overlay').classList.remove('Overlay-visible');
+	});
+
+	document.addEventListener('click', function (e) {
+		let mobilePopupOverlay = e.target.closest('.MobilePopup .Overlay');
+
+		if (!mobilePopupOverlay) return;
+
+		mobilePopupOverlay.classList.remove('Overlay-visible');
+		mobilePopupOverlay.closest('.MobilePopup').classList.remove('MobilePopup-opened');
 	});
 
 });

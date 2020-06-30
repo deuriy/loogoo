@@ -1,7 +1,12 @@
 extends /layouts/main_layout
 block vars
 	- var title = "Страница вопроса";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
 block content
+	.MobileHeader.hidden-smPlus
+		a(href="#").BtnBack.MobileHeader_btnBack
+			include /includes/svg/SvgIco/arrow_left
+		h1.MobileHeader_title Просмотр темы
 	.Container.Main_container
 		.Main_columns
 			.Main_left
@@ -130,7 +135,9 @@ block content
 											span.Like_count 0
 									li.StatIcon.StatIcons_item
 										.Share
-											a(href="javascript:;").Share_icon
+											a(href="javascript:;").Share_icon.hidden-xs
+												include /includes/svg/SvgIco/share
+											a(href="#PopupShare", data-action="mobilePopup").Share_mobIcon.hidden-smPlus
 												include /includes/svg/SvgIco/share
 											.Share_wrapper
 												.Share_title Поделиться:
@@ -153,7 +160,6 @@ block content
 												.CopyLink
 													input(type="text", name="copy_link", value="https://infoza.top/posts/3193", readonly).CopyLink_input
 													a(href="javascript:;").CopyLink_btnCopy Копировать
-											.Overlay
 							.StatIcons_right
 								ul.StatIcons_list
 									li.StatIcon.StatIcon-bookmarkNotification.StatIcons_item.StatIcons_item-bookmarkNotification(hidden)
@@ -417,6 +423,21 @@ block content
 				include /includes/blocks/TopicCreationBlock
 				include /includes/blocks/PopularTopics
 		include /includes/blocks/ComplaintFormPopup
-				
+		.MobilePopup#PopupShare
+			.Overlay
+			.MobilePopup_wrapper
+				h3.MobilePopup_title Поделиться
+				.MobilePopup_close
+					include /includes/svg/icon_close
+				.ShareMenu
+					ul.ShareMenu_menu
+						li.ShareMenu_item
+							a(href="javascript:;", data-action="share").ShareMenu_link
+								include /includes/svg/SvgIco/share_mob
+								span.ShareMenu_linkInner Поделиться с друзьями
+						li.ShareMenu_item
+							a(href="javascript:;").ShareMenu_link.ShareMenu_link-copy
+								include /includes/svg/SvgIco/copy_reverse
+								span.ShareMenu_linkInner Скопировать ссылку
 block page_bottom
 	script(src="/js/topic_details.js")

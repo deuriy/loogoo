@@ -1,0 +1,44 @@
+.MobilePopup
+	z-index 101
+	position fixed
+	top 0
+	right 0
+	bottom 0
+	left 0
+	@extend .transition
+	visibility hidden
+	opacity 0
+	
+	&_wrapper
+		position absolute
+		z-index 1000
+		right 0
+		bottom 0
+		left 0
+		padding 16px 19px
+		border-top-right-radius 10px
+		border-top-left-radius 10px
+		background $white
+		transform translateY(100%)
+		transition all .3s ease-in-out
+	
+	&_title
+		margin-bottom 21px
+		font-weight 600
+		font-size 18px
+	
+	&_close
+		position absolute
+		top 10px
+		right 10px
+		width 34px
+		height 34px
+		padding 10px
+		color $blue2
+	
+	&-opened
+		visibility visible
+		opacity 1
+		
+		.MobilePopup_wrapper
+			transform translateY(0)

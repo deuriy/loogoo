@@ -153,12 +153,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		let shareWrapper = shareIcon.parentNode.querySelector('.Share_wrapper');
 
 		shareWrapper.classList.toggle('Share_wrapper-opened');
-
-		let windowWidth = document.documentElement.clientWidth;
-
-		if (windowWidth > 767) return;
-
-		shareWrapper.parentNode.querySelector('.Overlay').classList.toggle('Overlay-visible');
 	});
 
 	document.addEventListener('click', function (e) {
@@ -170,17 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (shareWrapper.classList.contains('Share_wrapper-opened') && !shareWrapper.contains(e.target) && !shareIcon.contains(e.target)) {
 			shareWrapper.classList.remove('Share_wrapper-opened');
-			shareWrapper.parentNode.querySelector('.Overlay').classList.remove('Overlay-visible');
 		}
-	});
-
-	document.addEventListener('click', function (e) {
-		let shareOverlay = e.target.closest('.Share .Overlay');
-
-		if (!shareOverlay) return;
-
-		shareOverlay.classList.remove('Overlay-visible');
-		shareOverlay.parentNode.querySelector('.Share_wrapper').classList.remove('Share_wrapper-opened');
 	});
 
 	function copyInputText (targetElem) {
