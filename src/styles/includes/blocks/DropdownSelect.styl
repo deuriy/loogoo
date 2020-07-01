@@ -239,8 +239,16 @@
 				padding-bottom 7px
 				font-size 14px
 				
+				@media $xs
+					padding 13px 13px 12px 10px
+				
 				&:after
 					margin-top 1px
+					
+					@media $xs
+						width 11px
+						height 8px
+						margin-top 0
 		
 		.fs-dropdown
 			text-align left
@@ -248,6 +256,9 @@
 	&-messenger
 		display inline-block
 		width 220px
+		
+		@media $xs
+			width 155px
 	
 	&-operations
 		.fs-label-wrap .fs-label

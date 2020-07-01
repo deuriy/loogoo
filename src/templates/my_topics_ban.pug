@@ -1,0 +1,34 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Мои темы (запрет на создание)";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Запрет на создание тем
+				.Ban
+					.Ban_icon
+						include /includes/svg/ban
+					h1.Ban_title Вам временно запрещено создавать темы
+					.Ban_text В связи с нарушением правил вам запрещено создавать темы до 15.06.2020. #[br]Если вы считаете что произошла ошибка - обратитесь в поддержку.
+					a(href="/").BtnBlue.BtnBlue-ban На главную
+			.Aside.Main_aside
+				.SidebarMenu.SidebarMenu-profileMenu#SidebarMenu.hidden-smMinus
+					h3.SidebarMenu_title Профиль
+					ul.SidebarMenu_menu
+						li.SidebarMenu_item
+							a(href="/my_topics.html").SidebarMenu_link Мои темы
+						li.SidebarMenu_item
+							a(href="/profile_invite.html").SidebarMenu_link Мои приглашения
+						li.SidebarMenu_item
+							a(href="/my_notifications_no_results.html").SidebarMenu_link Уведомления
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Настройки
+						li.SidebarMenu_item
+							a(href="#").SidebarMenu_link Выход
+block page_bottom
+	script(src="/js/topics_filter.js")

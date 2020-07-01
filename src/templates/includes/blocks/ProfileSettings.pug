@@ -36,7 +36,7 @@ form(action="#").ProfileSettings
 					input(type="text", name="login", id="login", placeholder="Логин", minlength="3", maxlength="15").FormText.FormText-profileSettings
 			.ProfileSettings_field.ProfileSettings_field-display
 				label(for="show_name").ProfileSettings_label.hidden-xs Показывать имя
-				label(for="show_name").ProfileSettings_label.hidden-smPlus Отображение на сайте
+				label(for="show_name").ProfileSettings_label.hidden-smPlus Показывать имя
 				.ProfileSettings_fieldContent
 					.DropdownSelect.DropdownSelect-profileSettings.DropdownSelect-mobile
 						select(name="show_name").Select.Select-bordered.Select-profileSettings.DropdownSelect_select
@@ -46,14 +46,14 @@ form(action="#").ProfileSettings
 							option(value="4") Показывать имя и логин
 			.ProfileSettings_field.ProfileSettings_field-phone
 				label(for="messenger").ProfileSettings_label.hidden-xs Контактный телефон
-				label(for="messenger").ProfileSettings_label.hidden-smPlus Контакты
+				label(for="messenger").ProfileSettings_label.hidden-smPlus Контактный телефон
 				.ProfileSettings_fieldWrapper.ProfileSettings_fieldWrapper-phone
 					.ProfileSettings_fieldContent
 						input(type="tel", name="contact_phone", placeholder="Телефон").FormText.FormText-profileSettings
 					.ProfileSettings_fieldRight
 						.DropdownSelect.DropdownSelect-profileSettings.DropdownSelect-messenger.DropdownSelect-mobile
 							select(name="messenger").Select.Select-bordered.Select-profileSettings.Select-messenger.DropdownSelect_select
-								option(value="none") Выберите мессенджер
+								option(value="none") Мессенджер
 								option(value="viber") Viber
 								option(value="whatsapp") WhatsApp
 								option(value="telegram") Telegram
