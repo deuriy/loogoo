@@ -393,7 +393,7 @@ block content
 										.
 											Польша, Вроцлав
 			.Aside.Main_aside
-				.Application.hidden-xs
+				.Application#Application.hidden-xs
 					a(href="javascript:;").Application_close
 						include /includes/svg/SvgIco/close
 					h3.Application_title В приложении удобнее
@@ -401,8 +401,8 @@ block content
 					.Application_links
 						a(href="https://play.google.com/store/apps/details?id=application.infoza&hl=ru", target="_blank").Application_link
 							img(src="/img/google_play_transparent.png", alt="Google Play")
-						//- a(href="#", target="_blank").Application_link
-						//- 	img(src="/img/apple_store_grey.png", alt="App Store")
+						a(href="#", target="_blank").Application_link.hidden
+							img(src="/img/apple_store_grey.png", alt="App Store")
 				.CompanyReviews.hidden-smMinus
 					h3.CompanyReviews_title Новые отзывы
 					.CompanyReviews_items

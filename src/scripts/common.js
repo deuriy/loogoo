@@ -518,37 +518,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!dropdownOverlay) return;
 
 		dropdownOverlay.parentNode.classList.remove('Dropdown-visible');
-	});
-
-	function getCookie(name) {
-	  let matches = document.cookie.match(new RegExp(
-	    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-	  ));
-	  return matches ? decodeURIComponent(matches[1]) : undefined;
-	}
-
-	function setCookie(name, value, options = {}) {
-	  options = {
-	    path: '/',
-	    ...options
-	  };
-
-	  if (options.expires instanceof Date) {
-	    options.expires = options.expires.toUTCString();
-	  }
-
-	  let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
-
-	  for (let optionKey in options) {
-	    updatedCookie += "; " + optionKey;
-	    let optionValue = options[optionKey];
-	    if (optionValue !== true) {
-	      updatedCookie += "=" + optionValue;
-	    }
-	  }
-
-	  document.cookie = updatedCookie;
-	}
+	});	
 
 	let profileMenuTabs = document.querySelector('.Tabs-profileMenu');
 
@@ -591,8 +561,9 @@ document.addEventListener("DOMContentLoaded", function () {
 				setCookie('activeTabIndex', tabItemIndex, {'max-age': 31536000});
 			};
 		});
-	});
+	});	
 
+	// Tooltip
 	document.addEventListener('click', function (e) {
 		let target = e.target.closest('[data-tooltip]');
 		let existingTooltip = document.querySelector('.Tooltip');
@@ -788,12 +759,14 @@ document.addEventListener("DOMContentLoaded", function () {
 	let ratingLineFill = document.querySelectorAll('.ExtendedRating_lineFill');
 	ratingLineFill.forEach( el => el.style.width = (el.dataset.mark * 10) + '%');
 
+	checkBlockVisibility('Remark');
 	document.addEventListener('click', function (e) {
 		let closeRemark = e.target.closest('.Remark_close');
 
 		if (!closeRemark) return;
 
-		closeRemark.closest('.Remark').classList.add('hidden');
+		closeRemark.closest('.Remark').remove();
+		hideBlockWithCookie('Remark');
 	});
 
 	// Open/close control dropdown

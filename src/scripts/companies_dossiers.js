@@ -1,3 +1,5 @@
+/*=require ./includes/blocks/*.js*/
+
 document.addEventListener('DOMContentLoaded', function () {
 	function checkTextBoxFilling (textBox) {
 		let closeSearchBtn = textBox.closest('.Search-companiesDossiers').querySelector('.Search_closeBtn');
@@ -7,14 +9,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		} else {
 			closeSearchBtn.classList.add('hidden');
 		}
-	}
+	}	
+
+	checkBlockVisibility('Application');
 
 	document.addEventListener('click', function (e) {
 		let applicationCloseBtn = e.target.closest('.Application_close');
 
 		if (!applicationCloseBtn) return;
 
-		applicationCloseBtn.closest('.Application').classList.add('hidden');
+		let application = applicationCloseBtn.closest('.Application');
+		application.remove();
+		hideBlockWithCookie(application.id);
 	});
 
 	document.addEventListener('input', function (e) {
