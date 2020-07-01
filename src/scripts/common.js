@@ -630,30 +630,41 @@ document.addEventListener("DOMContentLoaded", function () {
 		}, 20);
 	});
 
-	function toggleMobileOverlay () {
-		// console.log('Toggle mobile overlay');
-		// let windowWidth = document.documentElement.clientWidth;
-		// let dropdowns = document.querySelectorAll('.DropdownSelect-mobile, .TimeRangeDropdown');
+	function addMobileOverlay (selectors) {
+		selectors.forEach(item => {
+			let overlay = item.querySelector('.Overlay');
 
-		// if (windowWidth < 768) {
-		// 	dropdowns.forEach(item => item.insertAdjacentHTML('beforeend', '<div class="Overlay Overlay-mobile"></div>'));
-		// } else {
-		// 	dropdowns.forEach(item => {
-		// 		// let overlay = item.querySelector('.Overlay');
-		// 		console.log(item);
-
-		// 		// if (overlay) {
-		// 		// 	overlay.remove();
-		// 		// }
-		// 	});
-		// }
+			if (!overlay) {
+				item.insertAdjacentHTML('beforeend', '<div class="Overlay Overlay-mobile"></div>');
+			}
+		});
 	}
 
-	toggleMobileOverlay();
+	function removeMobileOverlay (selectors) {
+		selectors.forEach(item => {
+			let overlay = item.querySelector('.Overlay');
 
-	// window.addEventListener('resize', function (e) {
-	// 	toggleMobileOverlay();
-	// });
+			if (overlay) {
+				overlay.remove();
+			}
+		});
+	}
+
+	function toggleMobileOverlay (selectors) {
+		let windowWidth = document.documentElement.clientWidth;
+
+		if (windowWidth < 768) {
+			addMobileOverlay(selectors);
+		} else {
+			removeMobileOverlay(selectors);
+		}
+	}
+
+	toggleMobileOverlay(document.querySelectorAll('.DropdownSelect-mobile, .TimeRangeDropdown'));
+
+	window.addEventListener('resize', function (e) {
+		toggleMobileOverlay(document.querySelectorAll('.DropdownSelect-mobile, .TimeRangeDropdown'));
+	});
 
 	document.addEventListener('click', function (e) {
 		let dropdownSelectMobile = e.target.closest('.DropdownSelect-mobile');
@@ -661,6 +672,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!dropdownSelectMobile) return;
 
 		let dropdownOverlay = dropdownSelectMobile.querySelector('.Overlay');
+
+		if (!dropdownOverlay) return;
+
 		if (dropdownSelectMobile.querySelector('.fs-wrap').classList.contains('fs-open')) {
 			dropdownOverlay.classList.add('Overlay-visible');
 		}
