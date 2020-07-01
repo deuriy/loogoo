@@ -759,7 +759,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	let ratingLineFill = document.querySelectorAll('.ExtendedRating_lineFill');
 	ratingLineFill.forEach( el => el.style.width = (el.dataset.mark * 10) + '%');
 
-	checkBlockVisibility('Remark');
+	let remarkBlock = document.querySelector('.Remark');
+	if (remarkBlock && !checkBlockHidden(remarkBlock.id)) {
+		remarkBlock.classList.remove('hidden');
+	} else {
+		remarkBlock.remove();
+	}
+
 	document.addEventListener('click', function (e) {
 		let closeRemark = e.target.closest('.Remark_close');
 
@@ -831,9 +837,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Mobile popup
 	document.addEventListener('click', function (e) {
-		let mobilePopupLink = e.target.closest('[data-action="mobilePopup"]');
+		let mobilePopupLink = e.target.closest('[data-action="openMobilePopup"]');
 
 		if (!mobilePopupLink) return;
+
+		let openedMobilePopup = document.querySelector('.MobilePopup-opened');
+
+		if (openedMobilePopup) {
+			openedMobilePopup.classList.remove('MobilePopup-opened');
+			openedMobilePopup.querySelector('.Overlay').classList.remove('Overlay-visible');
+		}
 
 		let mobilePopupId = mobilePopupLink.getAttribute('href');
 		let mobilePopup = document.querySelector(`${mobilePopupId}`);
@@ -847,11 +860,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	document.addEventListener('click', function (e) {
-		let closeMobilePopup = e.target.closest('.MobilePopup_close');
+		let closeMobilePopup = e.target.closest('[data-action="closeMobilePopup"]');
 
 		if (!closeMobilePopup) return;
 
 		let mobilePopup = closeMobilePopup.closest('.MobilePopup');
+
 		mobilePopup.classList.remove('MobilePopup-opened');
 		mobilePopup.querySelector('.Overlay').classList.remove('Overlay-visible');
 	});
@@ -864,14 +878,5 @@ document.addEventListener("DOMContentLoaded", function () {
 		mobilePopupOverlay.classList.remove('Overlay-visible');
 		mobilePopupOverlay.closest('.MobilePopup').classList.remove('MobilePopup-opened');
 	});
-
-	// document.addEventListener('click', function (e) {
-	// 	let mobilePopupOverlay = e.target.closest('.MobilePopup .Overlay');
-
-	// 	if (!mobilePopupOverlay) return;
-
-	// 	mobilePopupOverlay.classList.remove('Overlay-visible');
-	// 	mobilePopupOverlay.closest('.MobilePopup').classList.remove('MobilePopup-opened');
-	// });
 
 });

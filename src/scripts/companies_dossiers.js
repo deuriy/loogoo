@@ -9,9 +9,14 @@ document.addEventListener('DOMContentLoaded', function () {
 		} else {
 			closeSearchBtn.classList.add('hidden');
 		}
-	}	
+	}
 
-	checkBlockVisibility('Application');
+	let applicationBlock = document.querySelector('.Application');
+	if (applicationBlock && !checkBlockHidden(applicationBlock.id)) {
+		applicationBlock.classList.remove('hidden');
+	} else {
+		applicationBlock.remove();
+	}
 
 	document.addEventListener('click', function (e) {
 		let applicationCloseBtn = e.target.closest('.Application_close');

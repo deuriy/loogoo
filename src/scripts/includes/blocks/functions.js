@@ -45,9 +45,8 @@ function hideBlockWithCookie (blockId) {
 	setCookie(`${blockId}`, true, 604800);
 }
 
-function checkBlockVisibility (blockId) {
-	let isHidden = getCookie(`${blockId}`);
-	if (isHidden) {
-		document.querySelector(`#${blockId}`).remove();
-	}
+function checkBlockHidden (blockId) {
+  // if (getCookie(`${blockId}`)) return true;
+  // else return false;
+  return !!getCookie(`${blockId}`);
 }

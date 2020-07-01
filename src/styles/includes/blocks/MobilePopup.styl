@@ -22,8 +22,18 @@
 		transform translateY(100%)
 		transition all .3s ease-in-out
 	
-	&_title
+	&_header
 		margin-bottom 21px
+		
+		&-center
+			padding-right 30px
+			padding-left 30px
+			text-align center
+	
+	&_icon
+		margin-bottom 14px
+	
+	&_title
 		font-weight 600
 		font-size 18px
 	
@@ -36,9 +46,36 @@
 		padding 10px
 		color $blue2
 	
+	&_contactsMenu
+		margin-bottom 28px
+	
+	&_text
+		margin-bottom 52px
+		color #404040
+		font-size 16px
+		line-height 1.5
+		text-align center
+	
+	&_btnWrapper
+		text-align center
+	
 	&-opened
 		visibility visible
 		opacity 1
 		
 		.MobilePopup_wrapper
 			transform translateY(0)
+	
+	&-contacts
+		.MobilePopup_wrapper
+			padding-bottom 24px
+			
+		.MobilePopup_header
+			margin-bottom 23px
+	
+	&-callWaiting
+		.MobilePopup_wrapper
+			padding 35px 15px 16px 15px
+		
+		.MobilePopup_title
+			margin-bottom 32px

@@ -22,8 +22,9 @@ block content
 						span.Rating_number 7,5
 						span.Rating_max / 10
 						span.Rating_label (55 отзывов)
-			a(href="#WriteMessagePopup", data-action="mobilePopup").BtnBlue.BtnBlue-company.hidden-smPlus Написать сообщение
-			a(href="#CallPopup", data-action="mobilePopup").BtnBlue.BtnBlue-company.hidden-smPlus Позвонить
+			.Company_btnWrapper
+				a(href="#WriteMessagePopup", data-action="openMobilePopup").BtnBlue.BtnBlue-company.hidden-smPlus.Company_btn Написать
+				a(href="#CallPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-company.hidden-smPlus.Company_btn Позвонить
 			.Company_left.hidden-xs
 				.CompanyPhoto
 					img(src="/img/company_photo.jpg", alt="Company photo").CompanyPhoto_img
@@ -145,7 +146,7 @@ block content
 									.ExtendedRating_lineFill(data-mark="9.2")
 							.ExtendedRating_ratingsNumber.hidden-xs 55 оценок
 					.RatingSection_reviewsNumber 55 отзывов
-				.Remark.Company_remark#Remark
+				.Remark.Company_remark.hidden#Remark
 					a(href="javascript:;").Remark_close
 						include /includes/svg/icon_close_remark
 					h3.Remark_title Здесь только реальные отзывы, которым вы действительно можете доверять! #[a(href="#").ArrowLink.ArrowLink-remark.Remark_arrowLink.hidden-smPlus Подробнее]
@@ -400,22 +401,75 @@ block content
 								include /includes/svg/contacts/link
 							span.Contacts_text
 								a(href="http://www.sony.com", target="_blank").Contacts_link www.sony.com
-	.MobilePopup#WriteMessagePopup
+	.MobilePopup.MobilePopup-contacts#WriteMessagePopup
 		.Overlay
 		.MobilePopup_wrapper
-			h3.MobilePopup_title Написать
-			.MobilePopup_close
-				include /includes/svg/icon_close
-			.ContactsMenu
+			.MobilePopup_header
+				h3.MobilePopup_title Написать
+				a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+					include /includes/svg/icon_close
+			.ContactsMenu.MobilePopup_contactsMenu
 				ul.ContactsMenu_menu
 					li.ContactsMenu_item
 						a(href="tel:+380680220201").ContactsMenu_link +38 068 022 02 01
 							include /includes/svg/contacts_menu/telegram
 					li.ContactsMenu_item
-						a(href="tel:+380680220201").ContactsMenu_link +38 068 022 02 01
-							include /includes/svg/contacts_menu/viber
+						a(href="tel:+380730220201").ContactsMenu_link +38 073 022 02 01
+							include /includes/svg/contacts_menu/phone
 					li.ContactsMenu_item
 						a(href="tel:+380680220201").ContactsMenu_link
 							span.ContactsMenu_linkWrapper Написать в Viber
-							include /includes/svg/contacts_menu/phone
-			a(href="javascript:;").BtnBlue.BtnBlue-mobilePopup.MobilePopup_closeBtn Отмена
+							include /includes/svg/contacts_menu/viber
+			a(href="javascript:;", data-action="closeMobilePopup").BtnBlue.BtnBlue-mobilePopup.MobilePopup_btn Отмена
+	.MobilePopup.MobilePopup-contacts#CallPopup
+		.Overlay
+		.MobilePopup_wrapper
+			.MobilePopup_header
+				h3.MobilePopup_title Позвонить
+				a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+					include /includes/svg/icon_close
+			.ContactsMenu.MobilePopup_contactsMenu
+				ul.ContactsMenu_menu
+					li.ContactsMenu_item
+						a(href="tel:+380680220201").ContactsMenu_link +38 068 022 02 01
+							include /includes/svg/contacts_menu/handset
+					li.ContactsMenu_item
+						a(href="tel:+380730220201").ContactsMenu_link +38 073 022 02 01
+							include /includes/svg/contacts_menu/handset
+					li.ContactsMenu_item
+						a(href="tel:+380730220201").ContactsMenu_link +38 073 022 02 01
+							include /includes/svg/contacts_menu/handset
+			a(href="#RequestCallPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-mobilePopup.MobilePopup_closeBtn Перезвонить вам?
+	.MobilePopup.MobilePopup-contacts#RequestCallPopup
+		.Overlay
+		.MobilePopup_wrapper
+			.MobilePopup_header.MobilePopup_header-center
+				a(href="#CallPopup", data-action="openMobilePopup").BtnBack.BtnBack-noBack.MobileHeader_btnBack
+					include /includes/svg/SvgIco/arrow_left
+				h3.MobilePopup_title Заказать звонок
+				a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+					include /includes/svg/icon_close
+			form(action="").CompanySettings
+				.CompanySettings_fields
+					.CompanySettings_field
+						label(for="request_call_name").CompanySettings_label Имя
+						.CompanySettings_fieldContent
+							input(type="text", name="request_call_name", id="request_call_name").CompanySettings_formText.CompanySettings_formText-fullWidth
+					.CompanySettings_field
+						label(for="request_call_phone").CompanySettings_label Телефон
+						.CompanySettings_fieldContent
+							input(type="tel", name="request_call_phone", id="request_call_phone").CompanySettings_formText.CompanySettings_formText-fullWidth
+				.CompanySettings_actions
+					a(href="#CallWaitingPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-mobilePopup Перезвоните мне
+	.MobilePopup.MobilePopup-callWaiting#CallWaitingPopup
+		.Overlay
+		.MobilePopup_wrapper
+			.MobilePopup_header.MobilePopup_header-center
+				.MobilePopup_icon
+					include /includes/svg/contacts_menu/call_waiting
+				h3.MobilePopup_title Ожидайте звонка
+				a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+					include /includes/svg/icon_close
+			.MobilePopup_text Сотрудники компании #[strong Перша Віза ТМ] перезвонят вам в ближайшее время!
+			.MobilePopup_btnWrapper
+				a(href="javascript:;", data-action="closeMobilePopup").BtnBlue.BtnBlue-mobilePopup Отлично!

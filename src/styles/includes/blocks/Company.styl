@@ -7,6 +7,17 @@
 	&_info
 		margin-bottom 22px
 	
+	&_btnWrapper
+		@media $xs
+			display flex
+			justify-content center
+			align-items center
+	
+	&_btn
+		&:first-child
+			@media $xs
+				margin-right 10px
+	
 	&_left
 		flex-shrink 0
 		padding-top 6px

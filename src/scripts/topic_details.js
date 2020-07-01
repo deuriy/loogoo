@@ -104,15 +104,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	});
 
-	// document.addEventListener('click', function () {
-	// 	let toggleAnswersLink = e.target.closest('.Comment_actionLink-toggleAnswers');
-
-	// 	if (!toggleAnswersLink) return;
-
-	// 	let parentComment = toggleAnswersLink.closest('.Comment');
-		
-	// });
-
 	$('[data-src="#SubmitComplaint"]').fancybox({
 		touch: false,
 		afterLoad: function () {
@@ -191,11 +182,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		}, 3000);
 	});
 
-	let commentLinks = document.querySelectorAll('.Comment_text a');
-	commentLinks.forEach( commentLink => {
-		if (!commentLink.hasAttribute('target') || commentLink.getAttribute('target') != '_blank') {
-			commentLink.setAttribute('target', '_blank');
-		}
+	document.addEventListener('click', function (e) {
+		let commentTextLink = e.target.closest('.Comment_text a');
+
+		if (!commentTextLink) return;
+
+		commentTextLink.target = '_blank';
 	});
 
 	// Bookmark icon
