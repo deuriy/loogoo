@@ -1,6 +1,6 @@
 .Dropdown
 	&_overlay
-		display none
+		// display none
 		content ""
 		position fixed
 		z-index 10
@@ -8,7 +8,10 @@
 		right 0
 		bottom 0
 		left 0
-		background rgba(0, 0, 0, .2)
+		background rgba(0, 0, 0, .4)
+		opacity 0
+		visibility hidden
+		@extend .transition
 		
 	&_wrapper
 		position absolute
@@ -105,7 +108,9 @@
 	&-visible
 		.Dropdown_overlay
 			@media $xs
-				display block
+				// display block
+				opacity 1
+				visibility visible
 			
 		.Dropdown_wrapper
 			visibility visible
@@ -116,6 +121,9 @@
 			right -13px
 			width 270px
 			box-shadow 0 0 10px 0 rgba($black, .1)
+			
+			@media $xs
+				box-shadow none
 			
 			@media $mdMinus
 				right 0

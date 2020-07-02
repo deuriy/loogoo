@@ -46,7 +46,5 @@ function hideBlockWithCookie (blockId) {
 }
 
 function checkBlockHidden (blockId) {
-  // if (getCookie(`${blockId}`)) return true;
-  // else return false;
   return !!getCookie(`${blockId}`);
 }

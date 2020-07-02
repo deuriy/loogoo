@@ -760,10 +760,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	ratingLineFill.forEach( el => el.style.width = (el.dataset.mark * 10) + '%');
 
 	let remarkBlock = document.querySelector('.Remark');
-	if (remarkBlock && !checkBlockHidden(remarkBlock.id)) {
-		remarkBlock.classList.remove('hidden');
-	} else {
-		remarkBlock.remove();
+	if (remarkBlock) {
+		if (!checkBlockHidden(remarkBlock.id)) {
+			remarkBlock.classList.remove('hidden');
+		} else {
+			remarkBlock.remove();
+		}
 	}
 
 	document.addEventListener('click', function (e) {

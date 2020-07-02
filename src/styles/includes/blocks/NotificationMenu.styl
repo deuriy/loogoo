@@ -6,6 +6,21 @@
 		width 20px
 		color #8396AC
 		
+		@media $xs
+			width 21px
+			
+		& > .SvgIco
+			width 16.76px
+			
+			@media $xs
+				width 17.8px
+			
+			&-bellCheck
+				width 20.37px
+				
+				@media $xs
+					width 20.65px
+		
 		.SvgIco_path-check
 			fill $orange
 	
@@ -23,7 +38,7 @@
 		text-align left
 		
 		@media $smMinus
-			right -65px
+			right -78px
 			left auto
 		
 		@media $xs
@@ -41,6 +56,9 @@
 			@media $smMinus
 				right 92px
 				left auto
+			
+			@media $xs
+				display none
 		
 		&-opened
 			display block

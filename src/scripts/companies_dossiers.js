@@ -12,10 +12,12 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	let applicationBlock = document.querySelector('.Application');
-	if (applicationBlock && !checkBlockHidden(applicationBlock.id)) {
-		applicationBlock.classList.remove('hidden');
-	} else {
-		applicationBlock.remove();
+	if (applicationBlock) {
+		if (!checkBlockHidden(applicationBlock.id)) {
+			applicationBlock.classList.remove('hidden');
+		} else {
+			applicationBlock.remove();
+		}
 	}
 
 	document.addEventListener('click', function (e) {
