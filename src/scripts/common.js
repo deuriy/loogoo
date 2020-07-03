@@ -41,14 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Textarea auto height
 	let textarea = document.querySelectorAll('.FormTextarea-commentForm, .FormTextarea-commentFormCompany, .FormTextarea-companySettings');
 
-	textarea.forEach(el => {
-		el.addEventListener('keydown', () => {
-			setTimeout(() => {
-				el.style.cssText = 'height:auto; padding:0';
-				el.style.cssText = 'height:' + el.scrollHeight + 'px';
-			}, 0);
-		});
-	});
+	// textarea.forEach(el => {
+	// 	el.addEventListener('keydown', () => {
+	// 		setTimeout(() => {
+	// 			el.style.cssText = 'height:auto; padding:0';
+	// 			el.style.cssText = 'height:' + el.scrollHeight + 'px';
+	// 		}, 0);
+	// 	});
+	// });
 
 	function isSpacesString (string) {
 		for (let i = 0; i < string.length; i++) {

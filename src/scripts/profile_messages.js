@@ -2,10 +2,10 @@ let windowWidth = document.documentElement.clientWidth;
 
 document.addEventListener('DOMContentLoaded', function () {
 
-	const dialogueMessagesPs = new PerfectScrollbar('.Dialogue_messages', {
-		wheelPropagation: false,
-		minScrollbarLength: 20
-	});
+	// const dialogueMessagesPs = new PerfectScrollbar('.Dialogue_messages', {
+	// 	wheelPropagation: false,
+	// 	minScrollbarLength: 20
+	// });
 
 	if (windowWidth > 767) {
 		const dialogueListPs = new PerfectScrollbar('.ProfileMessages_dialogueList', {
@@ -27,6 +27,25 @@ document.addEventListener('DOMContentLoaded', function () {
 		}, 0);
 	});
 
+	// autosize(document.querySelectorAll('.FormTextarea-sendMessage'));
+
+	document.addEventListener('input', function (e) {
+		let sendMessageTextarea = e.target.closest('.FormTextarea-sendMessage');
+
+		if (!sendMessageTextarea) return;
+
+		let dialogueMessages = document.querySelector('.Dialogue_messages');
+
+		setTimeout(() => {
+			// dialogueMessages.scrollTop = dialogueMessages.scrollHeight - dialogueMessages.clientHeight;
+			// console.log(dialogueMessages.scrollTop);
+			// dialogueMessagesPs.update();
+			dialogueMessages.scrollTop = dialogueMessages.scrollHeight - dialogueMessages.clientHeight;
+		}, 0);
+		// dialogueMessages.scrollTop = 10000;
+		// console.log('Yes!');
+	});
+
 	document.addEventListener('click', function (e) {
 		let shortMessage = e.target.closest('.Message-short');
 
@@ -43,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		document.querySelector('.Dialogue_messages').classList.remove('hidden');
 		document.forms['send_message'].classList.remove('hidden');
 
-		dialogueMessagesPs.update();
+		// dialogueMessagesPs.update();
 	});
 
 	document.addEventListener('click', function (e) {
@@ -53,9 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let readMessages = document.querySelectorAll('.ProfileMessages_dialogueList .Message:not([data-message-filter="unread"])');
 
-		readMessages.forEach( (el, index) => {
-			el.classList.toggle('hidden');
-		});
+		readMessages.forEach(el => el.classList.toggle('hidden'));
 
 		if (showUnreadLink.textContent == 'Показать непрочитанные') {
 			showUnreadLink.textContent = 'Показать все';
@@ -174,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (!mobileSearchText) return;
 
 		let searchCloseBtn = mobileSearchText.closest('.Search-mobileHeader').querySelector('.Search_closeBtn');
-		console.log(mobileSearchText.value.length);
+		// console.log(mobileSearchText.value.length);
 
 		if (mobileSearchText.value.length) {
 			searchCloseBtn.classList.remove('hidden');
@@ -193,6 +210,10 @@ function checkLocationHash () {
 			document.querySelector('.ProfileMessages_right').classList.remove('hidden-xs');
 			document.querySelector('.MobileHeader-profileMessages').classList.add('hidden');
 			document.querySelector('.Wrapper-profileMessages').classList.add('Wrapper-noMobilePadding');
+			document.querySelector('.Dialogue_header').classList.remove('hidden');
+			document.querySelector('.ConversationChoice').classList.add('hidden');
+			document.querySelector('.Dialogue_messages').classList.remove('hidden');
+			document.forms['send_message'].classList.remove('hidden');
 		} else {
 			document.querySelector('.ProfileMessages_left').classList.remove('hidden');
 			document.querySelector('.ProfileMessages_right').classList.add('hidden-xs');
