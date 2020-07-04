@@ -1,6 +1,5 @@
 .Dropdown
 	&_overlay
-		// display none
 		content ""
 		position fixed
 		z-index 10
@@ -8,7 +7,7 @@
 		right 0
 		bottom 0
 		left 0
-		background rgba(0, 0, 0, .4)
+		background rgba(0, 0, 0, .5)
 		opacity 0
 		visibility hidden
 		@extend .transition
@@ -46,8 +45,9 @@
 		border-bottom 1px solid $grey
 		
 		@media $xs
-			padding-top 12px
-			padding-bottom 10px
+			min-height 52px
+			padding-top 6px
+			padding-bottom 6px
 	
 	&_userNameWrapper
 		display flex
@@ -109,7 +109,6 @@
 	&-visible
 		.Dropdown_overlay
 			@media $xs
-				// display block
 				opacity 1
 				visibility visible
 			
@@ -136,7 +135,6 @@
 		
 		.Dropdown_userName
 			max-width 180px
-			// margin-top 9px
 		
 		.Dropdown_body
 			padding 6px 18px 15px 24px
