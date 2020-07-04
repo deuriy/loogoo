@@ -17,15 +17,7 @@ block content
 									.QuestionBlock_nameAndRating
 										span.QuestionBlock_userName Константин Константинович
 										.UserIcons.QuestionBlock_userIcons
-											ul.UserIcons_list 
-												//- li.UserIcons_item.UserIcons_item-check
-												//- 	include /includes/svg/user_icons/check
-												//- li.UserIcons_item.UserIcons_item-cup
-												//- 	include /includes/svg/user_icons/cup
-												//- li.UserIcons_item.UserIcons_item-lightning
-												//- 	include /includes/svg/user_icons/lightning
-												//- li.UserIcons_item.UserIcons_item-shield
-												//- 	include /includes/svg/user_icons/shield
+											ul.UserIcons_list
 										.QuestionBlock_dateWrapper
 										a(href="javascript:;").Rating.QuestionBlock_rating
 											span.Rating_icon
@@ -45,7 +37,7 @@ block content
 										a(href="javascript:;").Like.hidden-smMinus
 											include /includes/svg/SvgIco/like
 											span.Like_count 423
-										a(href="javascript:;", data-src="#LikePopup").OpenPopupLink.Like.hidden-md
+										a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
 											include /includes/svg/SvgIco/like
 											span.Like_count 423
 									li.StatIcon.StatIcon-answer.StatIcons_item
@@ -98,7 +90,7 @@ block content
 										a(href="javascript:;").Like.hidden-smMinus
 											include /includes/svg/SvgIco/like
 											span.Like_count 423
-										a(href="javascript:;", data-src="#LikePopup").OpenPopupLink.Like.hidden-md
+										a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
 											include /includes/svg/SvgIco/like
 											span.Like_count 423
 									li.StatIcon.StatIcon-answer.StatIcons_item
@@ -151,7 +143,7 @@ block content
 										a(href="javascript:;").Like.hidden-smMinus
 											include /includes/svg/SvgIco/like
 											span.Like_count 423
-										a(href="javascript:;", data-src="#LikePopup").OpenPopupLink.Like.hidden-md
+										a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
 											include /includes/svg/SvgIco/like
 											span.Like_count 423
 									li.StatIcon.StatIcon-answer.StatIcons_item

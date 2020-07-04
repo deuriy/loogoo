@@ -130,7 +130,7 @@ block content
 							.StatIcons_left
 								ul.StatIcons_list
 									li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
-										a(href="javascript:;").Like.Like-post
+										a(href="#TopicLikePopup", data-action="openMobilePopup").Like.Like-post
 											include /includes/svg/SvgIco/like
 											span.Like_count 0
 									li.StatIcon.StatIcons_item
@@ -424,5 +424,6 @@ block content
 				include /includes/blocks/PopularTopics
 		include /includes/blocks/ComplaintFormPopup
 		include /includes/blocks/PopupShare
+		include /includes/blocks/TopicLikePopup
 block page_bottom
 	script(src="/js/topic_details.js")

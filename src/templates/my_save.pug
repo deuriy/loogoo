@@ -41,7 +41,7 @@ block content
 										a(href="javascript:;").Like.hidden-smMinus
 											include /includes/svg/SvgIco/like
 											span.Like_count 235
-										a(href="javascript:;", data-src="#LikePopup").OpenPopupLink.Like.hidden-md
+										a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
 											include /includes/svg/SvgIco/like
 											span.Like_count 235
 									li.StatIcon.StatIcon-answer.StatIcons_item
@@ -84,7 +84,7 @@ block content
 										a(href="javascript:;").Like.hidden-smMinus
 											include /includes/svg/SvgIco/like
 											span.Like_count 235
-										a(href="javascript:;", data-src="#LikePopup").OpenPopupLink.Like.hidden-md
+										a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
 											include /includes/svg/SvgIco/like
 											span.Like_count 235
 									li.StatIcon.StatIcon-answer.StatIcons_item
@@ -127,7 +127,7 @@ block content
 										a(href="javascript:;").Like.hidden-smMinus
 											include /includes/svg/SvgIco/like
 											span.Like_count 235
-										a(href="javascript:;", data-src="#LikePopup").OpenPopupLink.Like.hidden-md
+										a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
 											include /includes/svg/SvgIco/like
 											span.Like_count 235
 									li.StatIcon.StatIcon-answer.StatIcons_item
@@ -170,7 +170,7 @@ block content
 										a(href="javascript:;").Like.hidden-smMinus
 											include /includes/svg/SvgIco/like
 											span.Like_count 235
-										a(href="javascript:;", data-src="#LikePopup").OpenPopupLink.Like.hidden-md
+										a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
 											include /includes/svg/SvgIco/like
 											span.Like_count 235
 									li.StatIcon.StatIcon-answer.StatIcons_item
@@ -185,5 +185,6 @@ block content
 									li.StatIcon.StatIcons_item.StatIcons_item-country
 										img(src="/img/icon_pl.png", alt="Poland")
 										span.StatIcon_count.hidden-xs Польша
-			.Aside.Main_aside
+			.Aside.Main_aside.hidden-xs
 				include /includes/blocks/ProfileMenu
+	include /includes/blocks/LikePopup
