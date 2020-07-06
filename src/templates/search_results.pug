@@ -9,13 +9,12 @@ block content
 				.MobileHeader.hidden-smPlus
 					a(href="/").BtnBack.MobileHeader_btnBack
 						include /includes/svg/SvgIco/arrow_left
-					.MobileHeader_titleWrapper
-						h1.MobileHeader_title Поиск
-					.DotsMenu.DotsMenu_searchResults.MobileHeader_dotsMenu
+					h1.MobileHeader_title Поиск
+					.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
 						a(href="javascript:;").DotsMenu_icon
 							include /includes/svg/SvgIco/dots
 						.DotsMenu_wrapper
-							a(href="javascript:;").DotsMenu_link Поделиться
+							a(href="#PopupShare", data-action="openMobilePopup").DotsMenu_link Поделиться
 				.Main_topicsFilter
 					form(action="", name="topics_filter")#TopicsFilter.Filter.Filter-results
 						.Search.Search-results.Filter_search
@@ -185,5 +184,6 @@ block content
 			.Aside.Main_aside
 				include /includes/blocks/TopicCreationBlock
 				include /includes/blocks/PopularTopics
+	include /includes/blocks/PopupShare
 block page_bottom
 	script(src="/js/filter.js")

@@ -420,7 +420,9 @@ block content
 						a(href="tel:+380680220201").ContactsMenu_link
 							span.ContactsMenu_linkWrapper Написать в Viber
 							include /includes/svg/contacts_menu/viber
-			a(href="javascript:;", data-action="closeMobilePopup").BtnBlue.BtnBlue-mobilePopup.MobilePopup_btn Отмена
+			.MobilePopup_btnWrapper
+				//- a(href="javascript:;", data-action="closeMobilePopup").BtnBlue.BtnBlue-mobilePopup.MobilePopup_btn Отмена
+				a(href="javascript:;", data-action="closeMobilePopup").BtnGrey.BtnGrey-mobilePopupWrite.MobilePopup_btn Отмена
 	.MobilePopup.MobilePopup-contacts#CallPopup
 		.Overlay
 		.MobilePopup_wrapper
@@ -439,7 +441,8 @@ block content
 					li.ContactsMenu_item
 						a(href="tel:+380730220201").ContactsMenu_link +38 073 022 02 01
 							include /includes/svg/contacts_menu/handset
-			a(href="#RequestCallPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-mobilePopup.MobilePopup_closeBtn Перезвонить вам?
+			.MobilePopup_btnWrapper
+				a(href="#RequestCallPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-mobilePopup.MobilePopup_closeBtn Перезвонить вам?
 	.MobilePopup.MobilePopup-contacts#RequestCallPopup
 		.Overlay
 		.MobilePopup_wrapper

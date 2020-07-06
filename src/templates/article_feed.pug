@@ -1,12 +1,16 @@
 extends /layouts/main_layout
 block vars
-	- var title = "Лента статей";
+	- var title = "База знаний";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-infoPages Main-newsFeed";
 block content
 	.MobileHeader.hidden-smPlus
-		a(href="#").BtnBack.MobileHeader_btnBack
-			include /includes/svg/SvgIco/arrow_left
 		h1.MobileHeader_title #{title}
+		.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
+			a(href="javascript:;").DotsMenu_icon
+				include /includes/svg/SvgIco/dots
+			.DotsMenu_wrapper
+				a(href="#PopupShare", data-action="openMobilePopup").DotsMenu_link Поделиться
 	.Container.Main_container
 		.Main_columns
 			.Main_sidebar
@@ -33,12 +37,12 @@ block content
 					.NewsBlocks.NewsBlocks-column.ArticlesFeed_blocks
 						.NewsBlock.NewsBlock-twoCol.NewsBlocks_item
 							.NewsBlock_imgWrap
-								a(href="#")
+								a(href="/article.html")
 									img(src="/img/article1.jpg", alt="Sed do eiusmod tempor incididunt ut labore et dolore magna").NewsBlock_img
 							.NewsBlock_textContent
 								span.Date.NewsBlock_date.hidden-xs Сегодня в 7:05
 								h3.NewsBlock_title
-									a(href="#").NewsBlock_titleLink Sed do eiusmod tempor incididunt ut labore et dolore magna
+									a(href="/article.html").NewsBlock_titleLink Sed do eiusmod tempor incididunt ut labore et dolore magna
 								.NewsBlock_text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
 								.StatIcons.StatIcons-newsBlock.NewsBlock_statIcons
 									.StatIcons_left
@@ -56,12 +60,12 @@ block content
 												span.StatIcon_count 110
 						.NewsBlock.NewsBlock-twoCol.NewsBlocks_item
 							.NewsBlock_imgWrap
-								a(href="#")
+								a(href="/article.html")
 									img(src="/img/article2.jpg", alt="Sed do eiusmod tempor incididunt").NewsBlock_img
 							.NewsBlock_textContent
 								span.Date.NewsBlock_date.hidden-xs Сегодня в 7:05
 								h3.NewsBlock_title
-									a(href="#").NewsBlock_titleLink Sed do eiusmod tempor incididunt
+									a(href="/article.html").NewsBlock_titleLink Sed do eiusmod tempor incididunt
 								.NewsBlock_text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
 								.StatIcons.StatIcons-newsBlock.NewsBlock_statIcons
 									.StatIcons_left
@@ -79,12 +83,12 @@ block content
 												span.StatIcon_count 110
 						.NewsBlock.NewsBlock-twoCol.NewsBlocks_item
 							.NewsBlock_imgWrap
-								a(href="#")
+								a(href="/article.html")
 									img(src="/img/article3.jpg", alt="Sed do eiusmod tempor incididunt ut labore et dolore magna").NewsBlock_img
 							.NewsBlock_textContent
 								span.Date.NewsBlock_date.hidden-xs Сегодня в 7:05
 								h3.NewsBlock_title
-									a(href="#").NewsBlock_titleLink Sed do eiusmod tempor incididunt ut labore et dolore magna
+									a(href="/article.html").NewsBlock_titleLink Sed do eiusmod tempor incididunt ut labore et dolore magna
 								.NewsBlock_text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
 								.StatIcons.StatIcons-newsBlock.NewsBlock_statIcons
 									.StatIcons_left
@@ -102,12 +106,12 @@ block content
 												span.StatIcon_count 110
 						.NewsBlock.NewsBlock-twoCol.NewsBlocks_item
 							.NewsBlock_imgWrap
-								a(href="#")
+								a(href="/article.html")
 									img(src="/img/article4.jpg", alt="Sed do eiusmod tempor incididunt ut labore et dolore magna").NewsBlock_img
 							.NewsBlock_textContent
 								span.Date.NewsBlock_date.hidden-xs Сегодня в 7:05
 								h3.NewsBlock_title
-									a(href="#").NewsBlock_titleLink Sed do eiusmod tempor incididunt ut labore et dolore magna
+									a(href="/article.html").NewsBlock_titleLink Sed do eiusmod tempor incididunt ut labore et dolore magna
 								.NewsBlock_text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
 								.StatIcons.StatIcons-newsBlock.NewsBlock_statIcons
 									.StatIcons_left
@@ -123,7 +127,7 @@ block content
 											li.StatIcon.StatIcon-views.StatIcons_item.StatIcons_item-views
 												include /includes/svg/SvgIco/eye
 												span.StatIcon_count 110
-	.PopupMenu#PopupMenu
+	.PopupMenu.PopupMenu-paddingLeft#PopupMenu
 		.PopupMenu_overlay
 		.PopupMenu_wrapper
 			ul.PopupMenu_menu
@@ -139,6 +143,7 @@ block content
 					a(href="javascript:;").PopupMenu_link Одежда, обувь и аксессуары
 				li.PopupMenu_item
 					a(href="javascript:;").PopupMenu_link Спорт и отдых
+	include /includes/blocks/PopupShare
 block page_bottom
 	include /includes/blocks/LeaveNote
 	script(src="/js/article.js")

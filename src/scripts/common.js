@@ -368,13 +368,17 @@ document.addEventListener("DOMContentLoaded", function () {
 		} else {
 			coords = popupMenuLink.getBoundingClientRect();
 
-			popupMenuWrapper.style.top = coords.top - 27 + "px";
-
-			if (popupMenu.classList.contains('PopupMenu-smallPadding')) {
+			if (popupMenu.classList.contains('PopupMenu-paddingLeft')) {
 				popupMenuWrapper.style.left = coords.left - 14 + "px";
 			} else {
 				popupMenuWrapper.style.left = coords.left - 20 + "px";
-			}	
+			}
+
+			if (popupMenu.classList.contains('PopupMenu-paddingTop')) {
+				popupMenuWrapper.style.top = coords.top - 11 + "px";
+			} else {
+				popupMenuWrapper.style.top = coords.top - 27 + "px";
+			}
 		}
 	});
 
@@ -799,16 +803,24 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
+	let copyLinkInput = document.querySelector('.CopyLink_input');
+	if (copyLinkInput) {
+		copyLinkInput.value = location.href;
+	}
+
 	document.addEventListener('click', function (e) {
 		let copyLink = e.target.closest('.ShareMenu_link-copy');
 
 		if (!copyLink) return;
 
-		let copyLinkInput = document.querySelector('.CopyLink_input');
-		let shareWrapper = document.querySelector('.Share_wrapper');
-		shareWrapper.classList.add('Share_wrapper-opened');
-		copyInputText(copyLinkInput);
-		shareWrapper.classList.remove('Share_wrapper-opened');
+		let mobilePopupPageUrl = document.querySelector('.MobilePopup_pageUrl');
+		if (mobilePopupPageUrl) {
+			mobilePopupPageUrl.value = location.href;
+		}
+
+		mobilePopupPageUrl.classList.remove('hidden');
+		copyInputText(mobilePopupPageUrl);
+		mobilePopupPageUrl.classList.add('hidden');
 
 		let copyLinkInner = copyLink.querySelector('.ShareMenu_linkInner');
 		copyLink.classList.add('ShareMenu_link-copied');

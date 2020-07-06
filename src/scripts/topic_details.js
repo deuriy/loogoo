@@ -158,13 +158,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
-	function copyInputText (targetElem) {
-	  targetElem.select();
-	  targetElem.setSelectionRange(0, 99999);
-
-	  document.execCommand("copy");
-	}
-
 	document.addEventListener('click', function (e) {
 		let copyBtn = e.target.closest('.CopyLink_btnCopy');
 

@@ -1,8 +1,11 @@
 extends /layouts/main_layout
 block vars
-	- var title = "Лента новостей";
+	- var title = "Новости";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-infoPages Main-newsFeed";
 block content
+	.MobileHeader.hidden-smPlus
+		h1.MobileHeader_title #{title}
 	.Container.Main_container
 		.Main_columns
 			.Main_sidebar

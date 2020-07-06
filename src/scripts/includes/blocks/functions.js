@@ -41,6 +41,13 @@ function setCookie(name, value, options = {}) {
   document.cookie = updatedCookie;
 }
 
+function copyInputText (targetElem) {
+  targetElem.select();
+  targetElem.setSelectionRange(0, 99999);
+
+  document.execCommand("copy");
+}
+
 function hideBlockWithCookie (blockId) {
 	setCookie(`${blockId}`, true, 604800);
 }
