@@ -135,46 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		};
 	}
 
-	// Share
-	document.addEventListener('click', function (e) {
-		let shareIcon = e.target.closest('.Share_icon');
-
-		if (!shareIcon) return;
-
-		let shareWrapper = shareIcon.parentNode.querySelector('.Share_wrapper');
-
-		shareWrapper.classList.toggle('Share_wrapper-opened');
-	});
-
-	document.addEventListener('click', function (e) {
-		let shareWrapper = document.querySelector('.Share_wrapper');
-
-		if (!shareWrapper) return;
-
-		let shareIcon = shareWrapper.parentNode.querySelector('.Share_icon');
-
-		if (shareWrapper.classList.contains('Share_wrapper-opened') && !shareWrapper.contains(e.target) && !shareIcon.contains(e.target)) {
-			shareWrapper.classList.remove('Share_wrapper-opened');
-		}
-	});
-
-	document.addEventListener('click', function (e) {
-		let copyBtn = e.target.closest('.CopyLink_btnCopy');
-
-		if (!copyBtn) return;
-
-		let copyLink = copyBtn.closest('.CopyLink');
-		let copyLinkInput = copyLink.querySelector('.CopyLink_input');
-		copyInputText(copyLinkInput);
-		copyLink.classList.add('CopyLink-copied');
-		copyBtn.textContent = 'Скопировано!';
-
-		setTimeout(() => {
-			copyLink.classList.remove('CopyLink-copied');
-			copyBtn.textContent = 'Копировать';
-		}, 3000);
-	});
-
 	document.addEventListener('click', function (e) {
 		let commentTextLink = e.target.closest('.Comment_text a');
 

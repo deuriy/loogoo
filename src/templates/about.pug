@@ -4,12 +4,16 @@ block vars
 	- var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-pageAbout";
 block content
+	.MobileHeader.hidden-smPlus
+		a(href="#").BtnBack.MobileHeader_btnBack
+			include /includes/svg/SvgIco/arrow_left
+		h1.MobileHeader_title О проекте
+		.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
+			a(href="javascript:;").DotsMenu_icon
+				include /includes/svg/SvgIco/dots
+			.DotsMenu_wrapper
+				a(href="#PopupShare", data-action="openMobilePopup").DotsMenu_link Поделиться
 	.Main_container
-		.Container
-			.MobileHeader.hidden-smPlus
-				a(href="#").BtnBack.MobileHeader_btnBack
-					include /includes/svg/SvgIco/arrow_left
-				h1.MobileHeader_title О проекте
 		.SectionAbout
 			.Container.SectionAbout_container
 				.SectionAbout_left
@@ -94,3 +98,4 @@ block content
 							a(href="mailto:info@infoza.top").Soclink
 								include /includes/svg/SvgIco/soclinks/email
 								span.Soclink_text info@infoza.top
+	include /includes/blocks/PopupShare
