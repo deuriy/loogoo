@@ -1,35 +1,34 @@
+/*=require ./includes/blocks/*.js*/
+
 document.addEventListener('DOMContentLoaded', function () {
-	function copyInputText (targetElem) {
-	  targetElem.select();
-	  targetElem.setSelectionRange(0, 99999);
+	document.addEventListener('click', function (e) {
+		let bonusLink = e.target.closest('#BonusLink');
+		let btnCopy = e.target.closest('.BonusForm_btnCopy');
 
-	  document.execCommand("copy");
-	}
+		if (!bonusLink && !btnCopy) return;
 
-	let bonusLink = document.querySelector('#BonusLink');
-	bonusLink.onclick = function () {
-		copyInputText(this);
-	};
-
-	let btnCopy = document.querySelector('.BonusForm_btnCopy');
-	btnCopy.onclick = function () {
-		copyInputText(bonusLink);
-	};
-
-	let moreLink = document.querySelector('.ProfileContent_moreLink');
-	if (moreLink) {
-		moreLink.onclick = function (e) {
-			let moreText = this.closest('.ProfileContent').querySelector('.ProfileContent_moreText');
-
-			if (moreText.classList.contains('ProfileContent_moreText-visible')) {
-				moreText.classList.remove('ProfileContent_moreText-visible');
-				this.textContent = 'Показать больше';
-			} else {
-				moreText.classList.add('ProfileContent_moreText-visible');
-				this.textContent = 'Скрыть';
-			}
-			
-			e.preventDefault();
+		if (btnCopy) {
+			bonusLink = document.querySelector('#BonusLink');
 		}
-	}
+
+		copyInputText(bonusLink);
+	});
+
+	document.addEventListener('click', function (e) {
+		let moreLink = e.target.closest('.ProfileContent_moreLink');
+
+		if (!moreLink) return;
+
+		let moreText = moreLink.closest('.ProfileContent').querySelector('.ProfileContent_moreText');
+
+		if (moreText.classList.contains('ProfileContent_moreText-visible')) {
+			moreText.classList.remove('ProfileContent_moreText-visible');
+			moreLink.textContent = 'Показать больше';
+		} else {
+			moreText.classList.add('ProfileContent_moreText-visible');
+			moreLink.textContent = 'Скрыть';
+		}
+		
+		e.preventDefault();
+	});
 });

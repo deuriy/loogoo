@@ -41,14 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Textarea auto height
 	let textarea = document.querySelectorAll('.FormTextarea-commentForm, .FormTextarea-commentFormCompany, .FormTextarea-companySettings');
 
-	// textarea.forEach(el => {
-	// 	el.addEventListener('keydown', () => {
-	// 		setTimeout(() => {
-	// 			el.style.cssText = 'height:auto; padding:0';
-	// 			el.style.cssText = 'height:' + el.scrollHeight + 'px';
-	// 		}, 0);
-	// 	});
-	// });
+	textarea.forEach(el => {
+		el.addEventListener('keydown', () => {
+			setTimeout(() => {
+				el.style.cssText = 'height:auto; padding:0';
+				el.style.cssText = 'height:' + el.scrollHeight + 'px';
+			}, 0);
+		});
+	});
 
 	function isSpacesString (string) {
 		for (let i = 0; i < string.length; i++) {
@@ -931,6 +931,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		mobilePopupOverlay.classList.remove('Overlay-visible');
 		mobilePopupOverlay.closest('.MobilePopup').classList.remove('MobilePopup-opened');
+	});
+
+	// Hide/show activities
+	document.addEventListener('click', function (e) {
+		let toggleLink = e.target.closest('.Activities_toggleLink');
+
+		if (!toggleLink) return;
+
+		let moreText = toggleLink.closest('.Activities').querySelector('.Activities_list-additional');
+		if (!moreText.hidden) {
+			toggleLink.textContent = 'показать все';
+		} else {
+			toggleLink.textContent = 'скрыть';
+		}
+
+		moreText.hidden = !moreText.hidden;
+		e.preventDefault();
 	});
 
 });

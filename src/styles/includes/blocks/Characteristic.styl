@@ -22,6 +22,9 @@
 			& > .SvgIco
 				width 14px
 				margin-right 6px
+				
+				@media $xs
+					display none
 	
 	&_link
 		font-weight 500
@@ -34,10 +37,17 @@
 	&_date
 		color #8396AC
 		
+		@media $xs
+			margin-left 3px
+		
 		&-status
 			font-weight normal
 			font-size 14px
 			line-height 1.714
+			
+			@media $xs
+				font-size 16px
+				line-height 1.5625
 	
 	&-inlineMob
 		@media $xs
@@ -50,8 +60,22 @@
 		font-size 15px
 		line-height 1.6
 		
+		@media $xs
+			font-size 16px
+			line-height 1.5625
+		
 		.Characteristic_name
 			flex-basis 258px
 			
 			@media $xs
 				flex-basis auto
+	
+	&-notRegistered
+		.Characteristic_value
+			font-weight 500
+			color #D92B2B
+	
+	&-activities
+		.Characteristic_name
+			@media $xs
+				margin-bottom 9px
