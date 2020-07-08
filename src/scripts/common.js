@@ -1004,4 +1004,77 @@ document.addEventListener("DOMContentLoaded", function () {
 		e.preventDefault();
 	});
 
+	// Bookmark icon
+	document.addEventListener('click', function (e) {
+		let bookmarkIcon = e.target.closest('.Bookmark_icon');
+
+		if (!bookmarkIcon) return;
+
+		let bookmark = bookmarkIcon.closest('.Bookmark');
+		bookmark.classList.toggle('Bookmark-active');
+
+		let bookmarkNotification = document.querySelector('.StatIcon-bookmarkNotification');
+		
+		if (!bookmarkNotification) return;
+
+		bookmarkNotification.hidden = !bookmarkNotification.hidden;
+
+		if (bookmarkNotification.hidden) {
+			let activeNotificationLink = bookmarkNotification.querySelector('.NotificationMenu_link-active');
+			activeNotificationLink.classList.remove('NotificationMenu_link-active');
+
+			let firstNotificationLink = bookmarkNotification.querySelector('.NotificationMenu_link:first-child');
+			firstNotificationLink.classList.add('NotificationMenu_link-active');
+
+			let notificationMenuIcon = bookmarkNotification.querySelector('.NotificationMenu_icon');
+			let svgIcon = firstNotificationLink.querySelector('svg').cloneNode(true);
+
+			notificationMenuIcon.innerHTML = '';
+			notificationMenuIcon.append(svgIcon);
+		}
+	});
+
+	// Notification menu
+	document.addEventListener('click', function (e) {
+		let notificationMenuIcon = e.target.closest('.NotificationMenu_icon');
+
+		if (!notificationMenuIcon) return;
+
+		let notificationMenuWrapper = notificationMenuIcon.parentNode.querySelector('.NotificationMenu_wrapper');
+		notificationMenuWrapper.classList.toggle('NotificationMenu_wrapper-opened');
+	});
+
+	document.addEventListener('click', function (e) {
+		let notificationMenuWrapper = document.querySelector('.NotificationMenu_wrapper');
+
+		if (!notificationMenuWrapper) return;
+
+		let notificationMenuIcon = notificationMenuWrapper.parentNode.querySelector('.NotificationMenu_icon');
+
+		if (notificationMenuWrapper.classList.contains('NotificationMenu_wrapper-opened') && !notificationMenuWrapper.contains(e.target) && !notificationMenuIcon.contains(e.target)) {
+			notificationMenuWrapper.classList.remove('NotificationMenu_wrapper-opened');
+		}
+	});
+
+	document.addEventListener('click', function (e) {
+		let notificationMenuLink = e.target.closest('.NotificationMenu_link');
+
+		if (!notificationMenuLink) return;
+
+		let notificationMenu = notificationMenuLink.closest('.NotificationMenu');
+		let notificationMenuIcon = notificationMenu.querySelector('.NotificationMenu_icon');
+		let activeNotificationLink = notificationMenu.querySelector('.NotificationMenu_link-active');
+		let activeSvgIcon = notificationMenuLink.querySelector('svg').cloneNode(true);
+
+		activeNotificationLink.classList.remove('NotificationMenu_link-active');
+		notificationMenuLink.classList.add('NotificationMenu_link-active');
+
+		notificationMenuIcon.innerHTML = '';
+		notificationMenuIcon.append(activeSvgIcon);
+
+		notificationMenu.querySelector('.NotificationMenu_wrapper').classList.remove('NotificationMenu_wrapper-opened');
+
+		e.preventDefault();
+	});
+
 });

@@ -1,0 +1,17 @@
+.MobilePopup#CompleteArticlePopup
+	.Overlay
+	.MobilePopup_wrapper
+		.MobilePopup_header.MobilePopup_header-center
+			h3.MobilePopup_title Дополнить статью
+			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+				include /includes/svg/icon_close
+		form(action="#", name="complete_article").CompanySettings#CompleteArticleForm
+			.CompanySettings_fields
+				.CompanySettings_field
+					label(for="note_text_mob").CompanySettings_label Что вы хотите добавить?
+					.CompanySettings_fieldContent
+						.CompanySettings_fieldItems
+							.CompanySettings_fieldItem
+								textarea(name="note_text_mob", id="note_text_mob").FormTextarea.FormTextarea-companySettings
+			.CompanySettings_actions
+				button(type="button", data-action="closeMobilePopup").BtnBlue.BtnBlue-mobilePopup Дополнить статью

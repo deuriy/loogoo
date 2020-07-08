@@ -4,7 +4,7 @@ block vars
 	- var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-infoPages Main-article";
 block content
-	.Container.Main_container
+	.Container.Container-article.Main_container
 		.Main_columns
 			.Main_sidebar
 				.MobileHeader.MobileHeader-withLogo.hidden-smPlus
@@ -22,11 +22,11 @@ block content
 						p Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
 					.Article_footer
 						ul.Statistics.Article_statistics
-							li.Statistics_item.hidden
+							li.Statistics_item
 								a(href="javascript:;").Like.Like-post
 									include /includes/svg/SvgIco/like
 									span.Like_count 746
-							li.StatIcon.StatIcon-articleViews.StatIcons_item.StatIcons_item-views
+							li.StatIcon.StatIcon-articleViews.StatIcons_item.StatIcons_item-views.hidden
 								include /includes/svg/SvgIco/eye
 								span.StatIcon_count 16.8K
 							li.StatIcon.StatIcons_item
@@ -56,8 +56,16 @@ block content
 										.CopyLink
 											input(type="text", name="copy_link", value="", readonly).CopyLink_input
 											a(href="javascript:;").CopyLink_btnCopy Копировать
-						a(href="javascript:;", data-src="#LeaveNote").BtnGreen.OpenPopupLink.Article_leaveNote.hidden Дополнить статью
-						a(href="javascript:;", data-action="openMobilePopup").BtnGrey.BtnGrey-mobilePopup.Article_leaveNote Дополнить статью
+						a(href="javascript:;", data-src="#LeaveNote").BtnGreen.OpenPopupLink.Article_leaveNote.hidden-xs Дополнить статью
+						.StatIcons.hidden-smPlus
+							ul.StatIcons_list
+								li.StatIcon.StatIcon-bookmark.StatIcons_item.StatIcons_item-bookmark
+									.Bookmark
+										a(href="javascript:;", title="Сохранить в закладки").Bookmark_icon
+											include /includes/svg/SvgIco/bookmark
+					.Article_btnWrapper.hidden-smPlus
+						a(href="#CompleteArticlePopup", data-action="openMobilePopup").BtnGrey.BtnGrey-completeArticle.Article_leaveNote Дополнить статью
+	include /includes/blocks/CompleteArticlePopup
 	include /includes/blocks/PopupShare
 block page_bottom
 	include /includes/blocks/LeaveNote

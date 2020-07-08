@@ -34,9 +34,11 @@
 		align-items flex-start
 		
 		@media $xs
+			margin-bottom 30px
 			align-items center
-			padding-right 6px
-			padding-left 0
+	
+	&_btnWrapper
+		text-align center
 	
 	&-twoCol
 		display flex
@@ -91,3 +93,12 @@
 			
 			@media $xs
 				margin-right 0
+	
+	&-news
+		.Article_title
+			@media $xs
+				margin-bottom 15px
+				
+		.Article_statistics
+			@media $xs
+				margin-bottom 17px
