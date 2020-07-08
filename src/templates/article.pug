@@ -56,7 +56,8 @@ block content
 										.CopyLink
 											input(type="text", name="copy_link", value="", readonly).CopyLink_input
 											a(href="javascript:;").CopyLink_btnCopy Копировать
-						a(href="javascript:;", data-src="#LeaveNote").BtnGreen.OpenPopupLink.Article_leaveNote Дополнить статью
+						a(href="javascript:;", data-src="#LeaveNote").BtnGreen.OpenPopupLink.Article_leaveNote.hidden Дополнить статью
+						a(href="javascript:;", data-action="openMobilePopup").BtnGrey.BtnGrey-mobilePopup.Article_leaveNote Дополнить статью
 	include /includes/blocks/PopupShare
 block page_bottom
 	include /includes/blocks/LeaveNote

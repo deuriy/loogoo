@@ -928,9 +928,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (!shareLink) return;
 
-		let title = document.querySelector('.QuestionBlock_title');
-		let text = 'Ссылка на страницу темы';
+		let titleElem = document.querySelector('.QuestionBlock_title');
 		let url = location.href;
+		let title = '';
+		let text = '';
+
+		if (titleElem) {
+			title = titleElem.textContent;
+		} else {
+			title = document.querySelector('title').textContent;
+		}
+		text = title;
 
 		navigator.share({title, text, url});
 	});
