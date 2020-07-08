@@ -401,7 +401,7 @@ block content
 								include /includes/svg/contacts/link
 							span.Contacts_text
 								a(href="http://www.sony.com", target="_blank").Contacts_link www.sony.com
-	.MobilePopup.MobilePopup-contacts#WriteMessagePopup
+	.MobilePopup.MobilePopup-largeIndent#WriteMessagePopup
 		.Overlay
 		.MobilePopup_wrapper
 			.MobilePopup_header
@@ -422,7 +422,7 @@ block content
 							include /includes/svg/contacts_menu/viber
 			.MobilePopup_btnWrapper
 				a(href="javascript:;", data-action="closeMobilePopup").BtnGrey.BtnGrey-mobilePopupWrite.MobilePopup_btn Отмена
-	.MobilePopup.MobilePopup-contacts#CallPopup
+	.MobilePopup.MobilePopup-largeIndent#CallPopup
 		.Overlay
 		.MobilePopup_wrapper
 			.MobilePopup_header
@@ -442,7 +442,7 @@ block content
 							include /includes/svg/contacts_menu/handset
 			.MobilePopup_btnWrapper
 				a(href="#RequestCallPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-mobilePopup.MobilePopup_closeBtn Перезвонить вам?
-	.MobilePopup.MobilePopup-contacts#RequestCallPopup
+	.MobilePopup.MobilePopup-largeIndent#RequestCallPopup
 		.Overlay
 		.MobilePopup_wrapper
 			.MobilePopup_header.MobilePopup_header-center
@@ -463,7 +463,7 @@ block content
 							input(type="tel", name="request_call_phone", id="request_call_phone").CompanySettings_formText.CompanySettings_formText-fullWidth
 				.CompanySettings_actions
 					a(href="#CallWaitingPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-mobilePopup Перезвоните мне
-	.MobilePopup.MobilePopup-callWaiting#CallWaitingPopup
+	.MobilePopup.MobilePopup-submit#CallWaitingPopup
 		.Overlay
 		.MobilePopup_wrapper
 			.MobilePopup_header.MobilePopup_header-center

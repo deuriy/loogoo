@@ -1,4 +1,4 @@
-.MobilePopup#CompleteArticlePopup
+.MobilePopup.MobilePopup-largeIndent#CompleteArticlePopup
 	.Overlay
 	.MobilePopup_wrapper
 		.MobilePopup_header.MobilePopup_header-center
@@ -14,4 +14,16 @@
 							.CompanySettings_fieldItem
 								textarea(name="note_text_mob", id="note_text_mob").FormTextarea.FormTextarea-companySettings
 			.CompanySettings_actions
-				button(type="button", data-action="closeMobilePopup").BtnBlue.BtnBlue-mobilePopup Дополнить статью
+				a(href="#SubmitPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-mobilePopup Дополнить статью
+.MobilePopup.MobilePopup-submit#SubmitPopup
+	.Overlay
+	.MobilePopup_wrapper
+		.MobilePopup_header.MobilePopup_header-center
+			.MobilePopup_icon
+				include /includes/svg/SvgIco/success
+			h3.MobilePopup_title Дополнить статью
+			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+				include /includes/svg/icon_close
+		.MobilePopup_text Спасибо! Ваше дополнение отправлено и будет просмотрено в самое ближайшее время.
+		.MobilePopup_btnWrapper
+			a(href="javascript:;", data-action="closeMobilePopup").BtnBlue.BtnBlue-mobilePopup Отлично!
