@@ -33,7 +33,7 @@ block content
 									span.FilterIcon_number
 								.Filter_wrapper
 									.MobileHeader.MobileHeader-filter.Filter_mobileHeader.hidden-smPlus
-										a(href="javascript:;").BtnBack.BtnBack-noBack.MobileHeader_btnBack.Filter_closeLink
+										a(href="javascript:;", data-action="closeFilter").BtnBack.BtnBack-noBack.MobileHeader_btnBack.Filter_closeLink
 											include /includes/svg/SvgIco/arrow_left
 										h1.MobileHeader_title Фильтр
 									.Filter_items
@@ -82,13 +82,13 @@ block content
 												option(value="city4") Город 4
 												option(value="city5") Город 5
 										.Filter_item.Filter_item-apply
-											button(type="submit").BtnOrange.BtnOrange-applySelected.Filter_applyBtn.hidden-smPlus Показать результаты #[span.Filter_resultsCount (18)]
+											button(type="submit", data-action="closeFilter").BtnOrange.BtnOrange-applySelected.Filter_applyBtn.hidden-smPlus Показать результаты #[span.Filter_resultsCount (18)]
 										.Filter_item.Filter_item-clearBtn
 											a(href="javascript:;", hidden).ClearBtn.Filter_clearBtn
 												span.ClearBtn_text Очистить
 												include /includes/svg/SvgIco/icon_close
 							.Filter_right
-								.Filter_item.Filter_item-blueLinkxs
+								.Filter_item.Filter_item-mobile
 									select.Select.Select-filterBlock(name="city")
 										option(value="all") По популярности
 										option(value="city1") Город 1

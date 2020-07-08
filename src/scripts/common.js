@@ -635,10 +635,44 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	}
 
-	toggleMobileOverlay(document.querySelectorAll('.DropdownSelect-mobile, .TimeRangeDropdown'));
+	toggleMobileOverlay(document.querySelectorAll('.DropdownSelect-mobile, .TimeRangeDropdown, .Filter_item-mobile'));
 
 	window.addEventListener('resize', function (e) {
-		toggleMobileOverlay(document.querySelectorAll('.DropdownSelect-mobile, .TimeRangeDropdown'));
+		toggleMobileOverlay(document.querySelectorAll('.DropdownSelect-mobile, .TimeRangeDropdown, .Filter_item-mobile'));
+	});
+
+	document.addEventListener('click', function (e) {
+		let filterItemMobile = e.target.closest('.Filter_item-mobile');
+
+		if (!filterItemMobile) return;
+
+		let filterItemOverlay = filterItemMobile.querySelector('.Overlay');
+
+		if (!filterItemOverlay) return;
+
+		if (filterItemMobile.querySelector('.fs-wrap').classList.contains('fs-open')) {
+			filterItemOverlay.classList.add('Overlay-visible');
+		}
+	});
+
+	document.addEventListener('click', function (e) {
+		let filterItemOverlay = e.target.closest('.Filter_item-mobile .Overlay');
+
+		if (!filterItemOverlay) return;
+
+		filterItemOverlay.classList.remove('Overlay-visible');
+	});
+
+	document.addEventListener('click', function (e) {
+		let fsOption = e.target.closest('.Filter_item-mobile .fs-option');
+
+		if (!fsOption) return;
+
+		let filterItemOverlay = fsOption.closest('.Filter_item-mobile').querySelector('.Overlay');
+
+		if (!filterItemOverlay) return;
+
+		filterItemOverlay.classList.remove('Overlay-visible');
 	});
 
 	document.addEventListener('click', function (e) {
@@ -657,6 +691,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	document.addEventListener('click', function (e) {
 		let dropdownOverlay = e.target.closest('.DropdownSelect-mobile .Overlay');
+
+		if (!dropdownOverlay) return;
+
+		dropdownOverlay.classList.remove('Overlay-visible');
+	});
+
+	document.addEventListener('click', function (e) {
+		let fsOption = e.target.closest('.DropdownSelect-mobile .fs-option');
+
+		if (!fsOption) return;
+
+		let dropdownOverlay = fsOption.closest('.DropdownSelect-mobile').querySelector('.Overlay');
 
 		if (!dropdownOverlay) return;
 

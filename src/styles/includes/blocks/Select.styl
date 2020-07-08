@@ -136,23 +136,35 @@
 			border none
 			background url('../img/arrow_bottom_blue.svg') right center / cover no-repeat
 		
-		&-blueLinkxs
+		&-mobile
 			.fs-label-wrap .fs-label
 				color $blue
-			
-			.fs-option
-				padding 12px 17px
-				font-weight 500
-				font-size 16px
-			
+				
 			.fs-dropdown
-				left -15px
-				width 240px
-				margin-top 5px
+				z-index 1001
+				right auto
+				left 0
+				margin-top 0
+				border none
+				border-radius 4px
 				
 				.fs-options
-					padding-top 10px
-					padding-bottom 10px
+					padding 16px 10px 13px
+				
+				&:before
+					display none
+			
+			.fs-option
+				padding 11px 10px
+				font-weight 500
+				font-size 16px
+				color #8396AC
+				
+				&:hover, &.selected
+					color $blue
+				
+				&.selected
+					font-weight 600
 		
 		&-staticDropdownxs
 			.fs-wrap
