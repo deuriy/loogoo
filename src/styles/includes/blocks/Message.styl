@@ -24,7 +24,10 @@
 	&:hover
 		background #F2F4F6
 	
-	&-highlighted, &-full, &:hover, &:last-child
+	&-highlighted,
+	&-full,
+	&:hover,
+	&:last-child
 		&:after
 			display none
 	
@@ -32,7 +35,7 @@
 		flex-shrink 0
 		margin-right 12px
 	
-	&_info
+	&_mainWrapper
 		width 236px
 		line-height 21px
 		
@@ -80,6 +83,11 @@
 			margin-left 13px
 			font-size 13px
 	
+	&_wrapper
+		display flex
+		flex-direction column
+		align-items flex-start
+	
 	&_text
 		color #4C4C4C
 		font-size 13px
@@ -109,29 +117,33 @@
 		@media $xs
 			margin-top 1px
 	
+	&_info
+		// display flex
+		float right
+		margin-top -14px
+	
 	&-highlighted
 		background #F2F4F6
 	
 	&-full
 		width auto
-		padding 10px 0 11px
-		
-		@media $xs
-			padding 9px 0
+		padding 0
 		
 		&:hover
 			background transparent
 		
 		.Message_userPhoto
-			margin-top 5px
-			margin-right 14px
-			
-			@media $xs
-				margin-right 10px
+			margin-right 10px
 		
-		.Message_info
-			flex-grow 1
-			width auto
+		.Message_body
+			position relative
+			display block
+			margin-bottom 5px
+			padding 9px 11px 5px 16px
+			border-radius 9px
+			
+			&:last-child
+				margin-bottom 0
 		
 		.Message_header
 			justify-content flex-start
@@ -139,19 +151,74 @@
 			@media $xs
 				margin-bottom 0
 		
-		.Message_dateTime
-			margin-left 8px
+		.Message_dateTime,
+		.Message_statusIcon
+			display inline-block
+			vertical-align middle
+		
+		.Message_statusIcon
+			margin-left 0
+		// 	position absolute
+		// 	bottom 8px
 		
 		.Message_text
 			font-size 14px
+			line-height 21px
 			color $black
 			white-space normal
+			
+			&:after
+				content ""
+				display inline-block
+				visibility hidden
 			
 			@media $xs
 				font-size 15px
 				line-height 1.34
+		
+		.Message_dateTime
+			margin-left 0
+			font-size 12px
 	
 	&-short
 		.Message_text
 			@media $xs
 				color #999
+	
+	&-interlocutor
+		.Message_body
+			max-width 364px
+			background #EBF0F2
+			
+			&:first-child
+				border-top-left-radius 0				
+		
+		.Message_text
+			&:after
+				width 34px
+		
+		// .Message_dateTime
+		// 	right 12px
+		
+		// .Message_statusIcon
+		// 	right 0
+	
+	&-you
+		justify-content flex-end
+		
+		.Message_body
+			max-width 405px
+			background #D9EBFC
+			
+			&:first-child
+				border-bottom-right-radius 0
+		
+		.Message_text
+			&:after
+				width 40px
+		
+		// .Message_dateTime
+		// 	right 36px
+		
+		// .Message_statusIcon
+		// 	right 13px

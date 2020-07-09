@@ -12,9 +12,10 @@
 	
 	&_headerWrapper
 		justify-content space-between
-		margin-bottom 6px
-		padding-top 12px
-		padding-bottom 5px
+		// margin-bottom 6px
+		// padding-top 12px
+		padding-top 2px
+		padding-bottom 9px
 		
 		@media $xs
 			padding 4px 20px 8px
@@ -23,17 +24,8 @@
 		margin-top -2px
 		margin-right 16px
 	
-	&_userName
-		margin-right 8px
-		font-weight 600
-		font-size 16px
-		white-space nowrap
-	
-	&_userIcons, &_actionIcons
+	&_actionIcons
 		display flex
-	
-	&_userRating
-		margin-left 11px
 	
 	&_actionIcon
 		&-search
@@ -61,7 +53,7 @@
 	&_messages
 		position relative
 		margin-bottom 11px
-		padding-top 5px
+		padding-top 17px
 		overflow-y auto
 		
 		&::-webkit-scrollbar
@@ -82,3 +74,9 @@
 		&:before
 			content ""
 			flex auto 1 1
+	
+	&_message
+		margin-bottom 19px
+		
+		&:last-child
+			margin-bottom 0

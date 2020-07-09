@@ -1,12 +1,6 @@
 let windowWidth = document.documentElement.clientWidth;
 
 document.addEventListener('DOMContentLoaded', function () {
-
-	// const dialogueMessagesPs = new PerfectScrollbar('.Dialogue_messages', {
-	// 	wheelPropagation: false,
-	// 	minScrollbarLength: 20
-	// });
-
 	if (windowWidth > 767) {
 		const dialogueListPs = new PerfectScrollbar('.ProfileMessages_dialogueList', {
 			minScrollbarLength: 20,
@@ -27,8 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		}, 0);
 	});
 
-	// autosize(document.querySelectorAll('.FormTextarea-sendMessage'));
-
 	document.addEventListener('input', function (e) {
 		let sendMessageTextarea = e.target.closest('.FormTextarea-sendMessage');
 
@@ -37,13 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		let dialogueMessages = document.querySelector('.Dialogue_messages');
 
 		setTimeout(() => {
-			// dialogueMessages.scrollTop = dialogueMessages.scrollHeight - dialogueMessages.clientHeight;
-			// console.log(dialogueMessages.scrollTop);
-			// dialogueMessagesPs.update();
 			dialogueMessages.scrollTop = dialogueMessages.scrollHeight - dialogueMessages.clientHeight;
 		}, 0);
-		// dialogueMessages.scrollTop = 10000;
-		// console.log('Yes!');
 	});
 
 	document.addEventListener('click', function (e) {
@@ -61,8 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		document.querySelector('.ConversationChoice').classList.add('hidden');
 		document.querySelector('.Dialogue_messages').classList.remove('hidden');
 		document.forms['send_message'].classList.remove('hidden');
-
-		// dialogueMessagesPs.update();
 	});
 
 	document.addEventListener('click', function (e) {

@@ -31,7 +31,7 @@ block content
 								a(href="#show_dialog", data-message-filter="unread").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-online.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
-									.Message_info
+									.Message_mainWrapper
 										.Message_header
 											.Message_nameWrapper
 												.Message_name Кирилл Фомичёв
@@ -45,7 +45,7 @@ block content
 								a(href="#show_dialog").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-online.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
-									.Message_info
+									.Message_mainWrapper
 										.Message_header
 											.Message_nameWrapper
 												.Message_name Геннадий Трофимов
@@ -57,7 +57,7 @@ block content
 								a(href="#show_dialog", data-message-filter="unread").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/konstantin_konstantinovich2.png", alt="Константин Константинович").UserPhoto_img
-									.Message_info
+									.Message_mainWrapper
 										.Message_header
 											.Message_nameWrapper
 												.Message_name Константин Константинович
@@ -70,7 +70,7 @@ block content
 								a(href="#show_dialog").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
-									.Message_info
+									.Message_mainWrapper
 										.Message_header
 											.Message_nameWrapper
 												.Message_name Кирилл Фомичёв
@@ -83,7 +83,7 @@ block content
 								a(href="#show_dialog").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
-									.Message_info
+									.Message_mainWrapper
 										.Message_header
 											.Message_nameWrapper
 												.Message_name Геннадий Трофимов
@@ -96,7 +96,7 @@ block content
 								//- a(href="#show_dialog", data-message-filter="unread").Message.Message-short.Messages_item
 								//- 	.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
 								//- 		img(src="/img/konstantin_konstantinovich2.png", alt="Константин Константинович").UserPhoto_img
-								//- 	.Message_info
+								//- 	.Message_mainWrapper
 								//- 		.Message_header
 								//- 			.Message_nameWrapper
 								//- 				.Message_name Константин Константинович
@@ -113,7 +113,7 @@ block content
 						//- 		a(href="javascript:;").Message.Message-short.Messages_item
 						//- 			.UserPhoto.UserPhoto-online.UserPhoto-shortMessage.Message_userPhoto
 						//- 				img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
-						//- 			.Message_info
+						//- 			.Message_mainWrapper
 						//- 				.Message_header
 						//- 					.Message_nameWrapper
 						//- 						.Message_name Кирилл Фомичёв
@@ -123,7 +123,7 @@ block content
 						//- 		a(href="javascript:;").Message.Message-short.Messages_item
 						//- 			.UserPhoto.UserPhoto-online.UserPhoto-shortMessage.Message_userPhoto
 						//- 				img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
-						//- 			.Message_info
+						//- 			.Message_mainWrapper
 						//- 				.Message_header
 						//- 					.Message_nameWrapper
 						//- 						.Message_name Кирилл Фомичёв
@@ -136,7 +136,7 @@ block content
 								a(href="javascript:;").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
-									.Message_info
+									.Message_mainWrapper
 										.Message_header
 											.Message_nameWrapper
 												.Message_name Геннадий Трофимов
@@ -148,7 +148,7 @@ block content
 								a(href="javascript:;").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
-									.Message_info
+									.Message_mainWrapper
 										.Message_header
 											.Message_nameWrapper
 												.Message_name Геннадий Трофимов
@@ -164,13 +164,19 @@ block content
 									.Dialogue_headerLeft
 										a(href="#").BtnBack.Dialogue_btnBack.hidden-smPlus
 											include /includes/svg/SvgIco/arrow_left
-										.Dialogue_userName Геннадий Трофимов
-										.Dialogue_userIcons
-											include /includes/svg/verification_icon
-										a(href="javascript:;").Rating.Rating-orange.Dialogue_userRating
-											span.Rating_icon
-												include /includes/svg/SvgIco/icon_star
-											span.Rating_number 12,4k
+										.UserInfo
+											.UserPhoto.UserPhoto-fullMessage.UserPhoto-online.UserInfo_photo
+												img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+											.UserInfo_main
+												.UserInfo_nameWrapper
+													.UserInfo_name Геннадий Трофимов
+													.UserInfo_verification
+														include /includes/svg/SvgIco/verification_icon
+													a(href="javascript:;").Rating.Rating-userInfo.UserInfo_rating
+														span.Rating_icon
+															include /includes/svg/SvgIco/icon_star
+														span.Rating_number 12,4k
+												.UserInfo_status онлайн
 									.Dialogue_headerRight
 										.Dialogue_actionIcons
 											a(href="javascript:;").Dialogue_actionIcon.Dialogue_actionIcon-search.hidden-xs
@@ -201,58 +207,40 @@ block content
 										include /includes/svg/messages_icon
 									.ConversationChoice_text Пожалуйста, выберите беседу
 								.Dialogue_messages.hidden
+									.Message.Message-interlocutor.Message-full.Dialogue_message
+										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
+											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+										.Message_body
+											.Message_text Нестандартный подход, анализируя результаты рекламной кампании
+											.Message_info
+												.Message_dateTime 7:05
+									.Message.Message-you.Message-full.Dialogue_message
+										.Message_body
+											.Message_text диверсификация бизнеса ускоряет фирменный процесс стратегического планирования. Потребительский рынок искажает анализ зарубежного опыта, работая над проектом
+											.Message_info
+												.Message_dateTime 7:05
+												.Message_statusIcon
+													include /includes/svg/checkmarks
+									.Message.Message-interlocutor.Message-full.Dialogue_message
+										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
+											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+										.Message_wrapper
+											.Message_body
+												.Message_text Нестандартный подход, анализируя результаты рекламной кампании, изменяет рекламный блок, используя опыт
+												.Message_dateTime 7:05
+											.Message_body
+												.Message_text реклама актаульна как никогда
+												.Message_dateTime 7:05
+									.Message.Message-you.Message-full.Dialogue_message
+										.Message_body
+											.Message_text Не меняя концепции
+											.Message_dateTime 7:05
+											.Message_statusIcon
+												include /includes/svg/checkmarks
 									.Message.Message-full.Dialogue_message
 										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
 											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
-										.Message_info
-											.Message_header
-												.Message_nameWrapper
-													.Message_name Геннадий Трофимов
-													.Message_dateTime 7:05
-											.Message_body
-												//- .Message_text Жидкость масштабирует гидродинамический удар.
-												.Message_text Течение среды, можно показать
-									.Message.Message-full.Dialogue_message
-										a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
-											img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
-										.Message_info
-											.Message_header
-												.Message_nameWrapper
-													.Message_name Иван Иванов
-													.Message_dateTime 7:05
-													.Message_statusIcon
-														include /includes/svg/checkmarks
-											.Message_body
-												//- .Message_text В соответствии с принципом неопределенности, осциллятор теоретически возможен. Самосогласованная модель предсказывает, что при определенных условиях активно.
-												.Message_text В соответствии с принципом неопределенности, осциллятор теоретически возможен.
-									.Message.Message-full.Dialogue_message
-										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
-											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
-										.Message_info
-											.Message_header
-												.Message_nameWrapper
-													.Message_name Геннадий Трофимов
-													.Message_dateTime 7:05
-											.Message_body
-												//- .Message_text Жидкость масштабирует гидродинамический удар. Течение среды, можно показать с помощью не совсем тривиальных
-												.Message_text Течение среды, можно показать с помощью вычислений
-									.Message.Message-full.Dialogue_message
-										a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
-											img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
-										.Message_info
-											.Message_header
-												.Message_nameWrapper
-													.Message_name Иван Иванов
-													.Message_dateTime 7:05
-													.Message_statusIcon
-														include /includes/svg/checkmarks
-											.Message_body
-												//- .Message_text Очевидно, что гидродинамический удар отражает квазар. Идеальная тепловая машина вертикально синхронизует гидродинамический удар. Вещество зеркально восстанавливает эксимер без обмена зарядами или спинами.
-												.Message_text В соответствии с принципом неопределенности, осциллятор теоретически возможен.
-									.Message.Message-full.Dialogue_message
-										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
-											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
-										.Message_info
+										.Message_mainWrapper
 											.Message_header
 												.Message_nameWrapper
 													.Message_name Геннадий Трофимов
@@ -263,7 +251,7 @@ block content
 									.Message.Message-full.Dialogue_message
 										a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
 											img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
-										.Message_info
+										.Message_mainWrapper
 											.Message_header
 												.Message_nameWrapper
 													.Message_name Иван Иванов
@@ -276,7 +264,7 @@ block content
 									.Message.Message-full.Dialogue_message
 										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
 											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
-										.Message_info
+										.Message_mainWrapper
 											.Message_header
 												.Message_nameWrapper
 													.Message_name Геннадий Трофимов
@@ -286,7 +274,7 @@ block content
 									.Message.Message-full.Dialogue_message
 										a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
 											img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
-										.Message_info
+										.Message_mainWrapper
 											.Message_header
 												.Message_nameWrapper
 													.Message_name Иван Иванов
