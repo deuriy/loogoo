@@ -119,6 +119,12 @@
 		align-items flex-end
 		font-weight 500
 		
+		.Rating_icon
+			width 18px
+			
+			@media $xs
+				margin-top 0
+		
 		.Rating_number
 			font-size 26px
 			
@@ -245,17 +251,31 @@
 	&-companyHeader
 		font-weight 500
 		
+		@media $xs
+			align-items baseline
+		
 		.Rating_icon
 			margin-right 5px
 			color $brown
+			
+			@media $xs
+				width 11px
+				margin-right 4px
 		
 		.Rating_number
 			margin-right 4px
 			font-size 16px
 			color $black
+			
+			@media $xs
+				font-size 15px
 		
 		.Rating_max
 			margin-right 2px
+			
+			@media $xs
+				margin-right 4px
+				font-size 13px
 		
 		.Rating_label
 			font-size 13px

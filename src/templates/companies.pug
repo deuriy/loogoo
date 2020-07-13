@@ -46,12 +46,12 @@ block content
 					form(action="", name="companies_search").Filter.Companies_searchForm
 						.Search.Search-companies
 							input(type="text", name="search_query", placeholder="Поиск").Search_text
-					.NoResults.NoResults-companies
+					.NoResults.NoResults-companies.hidden
 						.NoResults_icon
 							include /includes/svg/not_found
 						.NoResults_text По вашему запросу ничего не найдено
 						a(href="javascript:;", data-src="#CompanyAdding").BtnBlue.BtnBlue-company.BtnBlue-addCompany.OpenPopupLink Добавить компанию
-					.Companies_items.hidden
+					.Companies_items
 						.CompanyBlock.Companies_item
 							.CompanyBlock_logo
 								a(href="/company.html", title="Sony Corporation")

@@ -14,6 +14,8 @@
 		left 20px
 	
 	&_titleWrapper
+		padding-right 30px
+		padding-left 30px
 		text-align center
 	
 	&_title
@@ -27,17 +29,15 @@
 			background url('../img/arrow_black_bottom.png') right center no-repeat
 		
 		&-company
-			display inline-block
+			display inline-flex
+			align-items center
 			
 			&:after
 				content ""
-				display inline-block
 				width 12px
 				height 12px
-				margin-bottom 1px
 				margin-left 6px
 				background url('../img/checkbox_green.svg') 0 0 / cover no-repeat
-				vertical-align middle
 	
 	&_searchLink
 		position absolute
@@ -54,6 +54,12 @@
 		position absolute
 		top 15px
 		right 20px
+	
+	&_phoneIcon
+		position absolute
+		top 14px
+		right 20px
+		color $blue
 	
 	&-passwordRecovery
 		padding-top 18px

@@ -1,0 +1,21 @@
+.MobilePopup.MobilePopup-largeIndent#RequestCallPopup
+	.Overlay
+	.MobilePopup_wrapper
+		.MobilePopup_header.MobilePopup_header-center
+			a(href="#CallPopup", data-action="openMobilePopup").BtnBack.BtnBack-noBack.MobileHeader_btnBack
+				include /includes/svg/SvgIco/arrow_left
+			h3.MobilePopup_title Заказать звонок
+			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+				include /includes/svg/icon_close
+		form(action="").CompanySettings
+			.CompanySettings_fields
+				.CompanySettings_field
+					label(for="request_call_name").CompanySettings_label Имя
+					.CompanySettings_fieldContent
+						input(type="text", name="request_call_name", id="request_call_name").CompanySettings_formText.CompanySettings_formText-fullWidth
+				.CompanySettings_field
+					label(for="request_call_phone").CompanySettings_label Телефон
+					.CompanySettings_fieldContent
+						input(type="tel", name="request_call_phone", id="request_call_phone").CompanySettings_formText.CompanySettings_formText-fullWidth
+			.CompanySettings_actions
+				a(href="#CallWaitingPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-mobilePopup Перезвоните мне

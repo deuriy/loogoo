@@ -1,0 +1,12 @@
+.MobilePopup.MobilePopup-submit#CallWaitingPopup
+	.Overlay
+	.MobilePopup_wrapper
+		.MobilePopup_header.MobilePopup_header-center
+			.MobilePopup_icon
+				include /includes/svg/contacts_menu/call_waiting
+			h3.MobilePopup_title Ожидайте звонка
+			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+				include /includes/svg/icon_close
+		.MobilePopup_text Сотрудники компании #[strong Перша Віза ТМ] перезвонят вам в ближайшее время!
+		.MobilePopup_btnWrapper
+			a(href="javascript:;", data-action="closeMobilePopup").BtnBlue.BtnBlue-mobilePopup Отлично!

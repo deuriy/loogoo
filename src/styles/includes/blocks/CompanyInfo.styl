@@ -59,15 +59,29 @@
 		padding 0
 		box-shadow none
 		
+		@media $xs
+			align-items center
+		
 		&:hover
 			background $white
+		
+		.CompanyInfo_wrapper
+			flex-grow 1
 		
 		.CompanyInfo_logo
 			width 70px
 			flex-shrink 0
 			
 			@media $xs
-				margin-right 20px
+				width 65px
+				margin-right 17px
+		
+		.CompanyInfo_nameWrapper
+			display flex
+			justify-content space-between
+			align-items center
+			margin-top -7px
+			margin-bottom 3px
 		
 		.CompanyInfo_name
 			display -webkit-box
@@ -77,7 +91,3 @@
 			overflow hidden
 			font-size 18px
 			line-height 1.45
-			
-			@media $xs
-				margin-top -8px
-				margin-bottom 5px

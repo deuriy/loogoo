@@ -1,19 +1,21 @@
-//- .MobilePopup#WriteMessagePopup
-//- 	.Overlay
-//- 	.MobilePopup_wrapper
-//- 		h3.MobilePopup_title Написать
-//- 		.MobilePopup_close
-//- 			include /includes/svg/icon_close
-//- 		.ContactsMenu
-//- 			ul.ContactsMenu_menu
-//- 				li.ContactsMenu_item
-//- 					a(href="tel:+380680220201").ContactsMenu_link +38 068 022 02 01
-//- 						include /includes/svg/contacts_menu/telegram
-//- 				li.ContactsMenu_item
-//- 					a(href="tel:+380680220201").ContactsMenu_link +38 068 022 02 01
-//- 						include /includes/svg/contacts_menu/viber
-//- 				li.ContactsMenu_item
-//- 					a(href="tel:+380680220201").ContactsMenu_link
-//- 						span.ContactsMenu_linkWrapper Написать в Viber
-//- 						include /includes/svg/contacts_menu/phone
-//- 		a(href="javascript:;").BtnBlue.BtnBlue-mobilePopup.MobilePopup_closeBtn Отмена
+.MobilePopup.MobilePopup-largeIndent#WriteMessagePopup
+	.Overlay
+	.MobilePopup_wrapper
+		.MobilePopup_header
+			h3.MobilePopup_title Написать
+			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+				include /includes/svg/icon_close
+		.ContactsMenu.MobilePopup_contactsMenu
+			ul.ContactsMenu_menu
+				li.ContactsMenu_item
+					a(href="tel:+380680220201").ContactsMenu_link +38 068 022 02 01
+						include /includes/svg/contacts_menu/telegram
+				li.ContactsMenu_item
+					a(href="tel:+380730220201").ContactsMenu_link +38 073 022 02 01
+						include /includes/svg/contacts_menu/phone
+				li.ContactsMenu_item
+					a(href="tel:+380680220201").ContactsMenu_link
+						span.ContactsMenu_linkWrapper Написать в Viber
+						include /includes/svg/contacts_menu/viber
+		.MobilePopup_btnWrapper
+			a(href="javascript:;", data-action="closeMobilePopup").BtnGrey.BtnGrey-mobilePopupWrite.MobilePopup_btn Отмена

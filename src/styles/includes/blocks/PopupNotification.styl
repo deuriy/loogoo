@@ -1,0 +1,23 @@
+.PopupNotification
+	// display none
+	position fixed
+	z-index 101
+	right 0
+	// bottom 15px
+	bottom -120px
+	left 0
+	width 330px
+	margin auto
+	padding 18px 20px 20px 24px
+	box-shadow 0 0 15px 0 rgba(1, 0, 0, .3)
+	background $white
+	border-radius 10px
+	transition all .25s linear
+	
+	&_title
+		margin-bottom 10px
+		font-weight 600
+		font-size 16px
+	
+	&-visible
+		bottom 15px

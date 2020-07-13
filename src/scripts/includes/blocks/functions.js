@@ -1,3 +1,10 @@
+function setAutoHeightTextarea (textarea) {
+  setTimeout(function() {
+    textarea.style.cssText = 'height:auto; padding:0';
+    textarea.style.cssText = 'height:' + textarea.scrollHeight + 'px';
+  }, 0);
+}
+
 function randomString(len, an) {
 	an = an && an.toLowerCase();
 	var str = "",

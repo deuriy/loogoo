@@ -1,6 +1,6 @@
 extends /layouts/main_layout
 block vars
-	- var title = "Статья";
+	- var title = "Новость";
 	- var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-infoPages Main-article";
 block content
@@ -20,14 +20,12 @@ block content
 						p Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
 						p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
 						p Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-					.Article_complete.hidden-xs
-						a(href="javascript:;", data-src="#LeaveNote").OpenPopupLink.Article_link Дополнить статью
 					.Article_footer
-						ul.Statistics.Statistics-article.Article_statistics
+						ul.Statistics.Article_statistics
 							li.Statistics_item
 								a(href="javascript:;").Like.Like-post
 									include /includes/svg/SvgIco/like
-									span.Like_count 1
+									span.Like_count 746
 							li.StatIcon.StatIcon-articleViews.StatIcons_item.StatIcons_item-views.hidden
 								include /includes/svg/SvgIco/eye
 								span.StatIcon_count 16.8K
@@ -58,10 +56,11 @@ block content
 										.CopyLink
 											input(type="text", name="copy_link", value="", readonly).CopyLink_input
 											a(href="javascript:;").CopyLink_btnCopy Копировать
-						.StatIcons
+						a(href="javascript:;", data-src="#LeaveNote").BtnGreen.OpenPopupLink.Article_leaveNote.hidden-xs Дополнить статью
+						.StatIcons.hidden-smPlus
 							ul.StatIcons_list
 								li.StatIcon.StatIcon-bookmark.StatIcons_item.StatIcons_item-bookmark
-									.Bookmark.Bookmark-article
+									.Bookmark
 										a(href="javascript:;", title="Сохранить в закладки").Bookmark_icon
 											include /includes/svg/SvgIco/bookmark
 					.Article_btnWrapper.hidden-smPlus

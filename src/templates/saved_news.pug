@@ -1,0 +1,102 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Мои сохранения";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-save";
+block content
+	.MobileHeader.MobileHeader-noBorder.hidden-smPlus
+		a(href="#").BtnBack.MobileHeader_btnBack
+			include /includes/svg/SvgIco/arrow_left
+		h1.MobileHeader_title #{title}
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				include /includes/blocks/MenuSectionSave
+				.NewsBlocks.NewsBlocks-saved
+					.NewsBlock.NewsBlock-saved.NewsBlocks_item
+						.NewsBlock_imgWrap
+							a(href="#")
+								img(src="/img/news_block1.jpg", alt="Duis aute irure dolor").NewsBlock_img
+						h3.NewsBlock_title
+							a(href="#").NewsBlock_titleLink Duis aute irure dolor
+						.NewsBlock_text Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod
+						.StatIcons.StatIcons-newsBlock.NewsBlock_statIcons
+							.StatIcons_left
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item
+										a(href="javascript:;").Like.Like-news
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+							.StatIcons_right
+								ul.StatIcons_list
+									li.StatIcon.StatIcon-bordered.StatIcons_item
+										span.Date Сегодня в 7:05
+									li.StatIcon.StatIcon-views.StatIcons_item.StatIcons_item-views
+										include /includes/svg/SvgIco/eye
+										span.StatIcon_count 110
+					.NewsBlock.NewsBlock-saved.NewsBlocks_item
+						.NewsBlock_imgWrap
+							a(href="#")
+								img(src="/img/news_block2.jpg", alt="Duis aute irure dolor in velit reprehenderit in volup").NewsBlock_img
+						h3.NewsBlock_title
+							a(href="#").NewsBlock_titleLink Duis aute irure dolor in velit reprehenderit in volup
+						.NewsBlock_text Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod
+						.StatIcons.StatIcons-newsBlock.NewsBlock_statIcons
+							.StatIcons_left
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item
+										a(href="javascript:;").Like.Like-news
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+							.StatIcons_right
+								ul.StatIcons_list
+									li.StatIcon.StatIcon-bordered.StatIcons_item
+										span.Date Сегодня в 7:05
+									li.StatIcon.StatIcon-views.StatIcons_item.StatIcons_item-views
+										include /includes/svg/SvgIco/eye
+										span.StatIcon_count 110
+					.NewsBlock.NewsBlock-saved.NewsBlocks_item
+						.NewsBlock_imgWrap
+							a(href="#")
+								img(src="/img/news_block3.jpg", alt="Duis aute irure dolor in velit reprehenderit in volup").NewsBlock_img
+						h3.NewsBlock_title
+							a(href="#").NewsBlock_titleLink Duis aute irure dolor in velit reprehenderit in volup
+						.NewsBlock_text Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod
+						.StatIcons.StatIcons-newsBlock.NewsBlock_statIcons
+							.StatIcons_left
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item
+										a(href="javascript:;").Like.Like-news
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+							.StatIcons_right
+								ul.StatIcons_list
+									li.StatIcon.StatIcon-bordered.StatIcons_item
+										span.Date Сегодня в 7:05
+									li.StatIcon.StatIcon-views.StatIcons_item.StatIcons_item-views
+										include /includes/svg/SvgIco/eye
+										span.StatIcon_count 110
+					.NewsBlock.NewsBlock-saved.NewsBlocks_item
+						.NewsBlock_imgWrap
+							a(href="#")
+								img(src="/img/news_block4.jpg", alt="Duis aute irure dolor in velit reprehenderit in volup").NewsBlock_img
+						h3.NewsBlock_title
+							a(href="#").NewsBlock_titleLink Duis aute irure dolor in velit reprehenderit in volup
+						.NewsBlock_text Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod
+						.StatIcons.StatIcons-newsBlock.NewsBlock_statIcons
+							.StatIcons_left
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item
+										a(href="javascript:;").Like.Like-news
+											include /includes/svg/SvgIco/like
+											span.Like_count 423
+							.StatIcons_right
+								ul.StatIcons_list
+									li.StatIcon.StatIcon-bordered.StatIcons_item
+										span.Date Сегодня в 7:05
+									li.StatIcon.StatIcon-views.StatIcons_item.StatIcons_item-views
+										include /includes/svg/SvgIco/eye
+										span.StatIcon_count 110
+			.Aside.Main_aside.hidden-xs
+				include /includes/blocks/ProfileMenu
+	include /includes/blocks/LikePopup

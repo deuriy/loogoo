@@ -27,6 +27,17 @@
 			
 			&:last-child
 				margin-bottom 0
+		
+		ul, ol
+			list-style-position inside
+	
+	&_complete
+		margin-bottom 30px
+	
+	&_link
+		color $blue
+		font-weight 500
+		font-size 15px
 	
 	&_footer
 		display flex
@@ -36,6 +47,9 @@
 		@media $xs
 			margin-bottom 30px
 			align-items center
+		
+		@media $smPlus
+			padding-right 12px
 	
 	&_btnWrapper
 		text-align center
@@ -96,9 +110,10 @@
 	
 	&-news
 		.Article_title
+			margin-bottom 13px
+			
 			@media $xs
 				margin-bottom 15px
 				
-		.Article_statistics
-			@media $xs
-				margin-bottom 17px
+		.Article_statistics-views
+			margin-bottom 17px

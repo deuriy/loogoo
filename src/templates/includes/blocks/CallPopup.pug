@@ -1,0 +1,20 @@
+.MobilePopup.MobilePopup-largeIndent#CallPopup
+	.Overlay
+	.MobilePopup_wrapper
+		.MobilePopup_header
+			h3.MobilePopup_title Позвонить
+			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+				include /includes/svg/icon_close
+		.ContactsMenu.MobilePopup_contactsMenu
+			ul.ContactsMenu_menu
+				li.ContactsMenu_item
+					a(href="tel:+380680220201").ContactsMenu_link +38 068 022 02 01
+						include /includes/svg/contacts_menu/handset
+				li.ContactsMenu_item
+					a(href="tel:+380730220201").ContactsMenu_link +38 073 022 02 01
+						include /includes/svg/contacts_menu/handset
+				li.ContactsMenu_item
+					a(href="tel:+380730220201").ContactsMenu_link +38 073 022 02 01
+						include /includes/svg/contacts_menu/handset
+		.MobilePopup_btnWrapper
+			a(href="#RequestCallPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-mobilePopup.MobilePopup_closeBtn Перезвонить вам?

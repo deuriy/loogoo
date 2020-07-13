@@ -38,16 +38,69 @@ document.addEventListener("DOMContentLoaded", function () {
 		control.onchange = () => isEmpty(control);
 	}
 
-	// Textarea auto height
-	let textarea = document.querySelectorAll('.FormTextarea-commentForm, .FormTextarea-commentFormCompany, .FormTextarea-companySettings');
+	// let lastHeight;
+	// document.addEventListener('keydown', function (e) {
+	// 	let textAreaComment = e.target.closest('.FormTextarea-commentForm');
 
-	textarea.forEach(el => {
-		el.addEventListener('keydown', () => {
-			setTimeout(() => {
-				el.style.cssText = 'height:auto; padding:0';
-				el.style.cssText = 'height:' + el.scrollHeight + 'px';
-			}, 0);
-		});
+	// 	if (!textAreaComment) return;
+
+	// 	// window.scrollTop = 10;
+	// 	document.documentElement.scrollTop -= 10;
+	// });
+
+	// Textarea auto height
+	// let textarea = document.querySelectorAll('.FormTextarea-commentForm, .FormTextarea-commentFormCompany, .FormTextarea-companySettings');
+
+	// textarea.forEach(el => {
+	// 	let currentHeight = el.clientHeight;
+
+	// 	el.addEventListener('keydown', () => {
+
+	// 		setTimeout(() => {
+	// 			el.style.cssText = 'height:auto; padding:0';
+	// 			el.style.cssText = 'height:' + (el.scrollHeight + 2) + 'px';
+
+	// 			if (currentHeight < el.clientHeight) {
+	// 				console.log(el.clientHeight - currentHeight);
+	// 				document.documentElement.scrollTop += el.clientHeight - currentHeight;
+	// 				currentHeight = el.clientHeight;
+	// 			}
+	// 		}, 0);
+	// 	});
+	// });
+	let prevHeight;
+
+	document.addEventListener('keydown', function (e) {
+		let textarea = e.target.closest('[data-input-type="autoHeight"]');
+
+		if (!textarea) return;
+
+		// let prevHeight;
+		console.log(prevHeight);
+
+		setAutoHeightTextarea(textarea);
+
+		setTimeout(function () {
+			prevHeight = textarea.offsetHeight;
+			if (prevHeight < textarea.offsetHeight) {
+				console.log(`difference: ${textarea.offsetHeight - prevHeight}`);
+				document.documentElement.scrollTop += textarea.offsetHeight - prevHeight;
+				prevHeight = textarea.offsetHeight;
+			}
+		}, 0);
+
+		// setTimeout(function() {
+		// 	textarea.style.cssText = 'height:auto; padding:0';
+		// 	textarea.style.cssText = 'height:' + textarea.scrollHeight + 'px';
+
+		// 	if (prevHeight < textarea.offsetHeight) {
+		// 		console.log(`difference: ${textarea.offsetHeight - prevHeight}`);
+		// 		document.documentElement.scrollTop += textarea.offsetHeight - prevHeight;
+		// 		prevHeight = textarea.offsetHeight;
+		// 	}
+		// }, 0);
+
+		// e.preventDefault();
 	});
 
 	function isSpacesString (string) {
@@ -365,7 +418,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			popupMenuWrapper.style.top = coords.top + "px";
 			popupMenuWrapper.style.left = coords.left + "px";
-		} else {
+		} else if (!popupMenu.classList.contains('PopupMenu-topRight')) {
 			coords = popupMenuLink.getBoundingClientRect();
 
 			if (popupMenu.classList.contains('PopupMenu-paddingLeft')) {
@@ -1009,9 +1062,33 @@ document.addEventListener("DOMContentLoaded", function () {
 		let bookmarkIcon = e.target.closest('.Bookmark_icon');
 
 		if (!bookmarkIcon) return;
+		
+		e.preventDefault();
 
 		let bookmark = bookmarkIcon.closest('.Bookmark');
 		bookmark.classList.toggle('Bookmark-active');
+
+		if (bookmark.classList.contains('Bookmark-company')) {
+			let popupNotification = document.querySelector(`${bookmarkIcon.getAttribute('href')}`);
+
+			popupNotification.classList.add('PopupNotification-visible');
+
+			let timer = setTimeout(function () {
+				popupNotification.classList.remove('PopupNotification-visible');
+			}, 2500);
+
+			document.addEventListener('click', function (e) {
+				let popupNotificationSwitch = e.target.closest('.NotificationSettingsItem_switch');
+
+				if (!popupNotificationSwitch) return;
+
+				clearTimeout(timer);
+
+				setTimeout(function () {
+					popupNotification.classList.remove('PopupNotification-visible');
+				}, 1500);
+			});
+		}
 
 		let bookmarkNotification = document.querySelector('.StatIcon-bookmarkNotification');
 		

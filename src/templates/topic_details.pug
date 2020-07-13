@@ -192,7 +192,7 @@ block content
 									option(value="new_first") Сначала новые
 									option(value="first_old") Сначала старые
 						form(action="#").CommentForm.CommentsBlock_commentForm
-							textarea(name="comment_text", placeholder="Напишите комментарий").FormTextarea.FormTextarea-commentForm.CommentForm_textArea
+							textarea(name="comment_text", placeholder="Напишите комментарий", data-input-type="autoHeight").FormTextarea.FormTextarea-commentForm.CommentForm_textArea
 							.CommentForm_actions
 								button(type="reset").CommentForm_resetBtn Отмена
 								button(type="submit").BtnBlue.BtnBlue-light.BtnBlue-commentForm Отправить
