@@ -62,9 +62,29 @@
 		font-size 16px
 		line-height 1.5
 		text-align center
+		
+		&-smallIndent
+			margin-bottom 26px
+	
+	&_notificationSettings
+		margin-bottom 30px
+	
+	&_notificationSettingsItem
+		margin-bottom 25px
+		
+		&:last-child
+			margin-bottom 0
 	
 	&_btnWrapper
-		text-align center
+		display flex
+		justify-content center
+		align-items center
+	
+	&_btn
+		margin-right 10px
+		
+		&:last-child
+			margin-right 0
 	
 	&-opened
 		visibility visible
@@ -82,10 +102,7 @@
 	
 	&-submit
 		.MobilePopup_wrapper
-			padding 35px 15px 16px 15px
-		
-		.MobilePopup_title
-			margin-bottom 32px
+			padding 35px 15px 26px
 		
 		.MobilePopup_icon
 			& > .SvgIco
@@ -99,15 +116,3 @@
 		
 		.MobilePopup_header
 			margin-bottom 10px
-		
-		.MobilePopup_text
-			margin-bottom 26px
-		
-		.MobilePopup_btnWrapper
-			display flex
-			justify-content center
-			align-items center
-		
-		.MobilePopup_btn
-			&:first-child
-				margin-right 10px

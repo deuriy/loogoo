@@ -1,0 +1,13 @@
+.MobilePopup.MobilePopup-largeIndent.MobilePopup-changeInfo#ChangeInfoPopup
+	.Overlay
+	.MobilePopup_wrapper
+		.MobilePopup_header.MobilePopup_header-center
+			a(href="#ExtraMenuPopup", data-action="openMobilePopup").BtnBack.BtnBack-noBack.MobileHeader_btnBack
+				include /includes/svg/SvgIco/arrow_left
+			h3.MobilePopup_title Изменить информацию
+			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+				include /includes/svg/icon_close
+		.MobilePopup_text.MobilePopup_text-smallIndent Для того, чтобы изменить информацию, вам необходимо пройти верификацию у нас на сайте. Для этого напишите на почту.
+		.MobilePopup_btnWrapper
+			a(href="/login.html").BtnBlue.BtnBlue-mobilePopupLogin.MobilePopup_btn Вход
+			a(href="/register.html").BtnGrey.BtnGrey-mobilePopup.MobilePopup_btn Регистрация

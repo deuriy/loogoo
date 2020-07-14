@@ -948,7 +948,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	document.addEventListener('click', function (e) {
-		let copyLink = e.target.closest('.ShareMenu_link-copy');
+		let copyLink = e.target.closest('.ActionMenu_link-copy');
 
 		if (!copyLink) return;
 
@@ -961,12 +961,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		copyInputText(mobilePopupPageUrl);
 		mobilePopupPageUrl.classList.add('hidden');
 
-		let copyLinkInner = copyLink.querySelector('.ShareMenu_linkInner');
-		copyLink.classList.add('ShareMenu_link-copied');
+		let copyLinkInner = copyLink.querySelector('.ActionMenu_linkInner');
+		copyLink.classList.add('ActionMenu_link-copied');
 		copyLinkInner.textContent = 'Скопировано!';
 
 		setTimeout(() => {
-			copyLink.classList.remove('ShareMenu_link-copied');
+			copyLink.classList.remove('ActionMenu_link-copied');
 			copyLinkInner.textContent = 'Скопировать ссылку';
 
 			let popupShare = document.getElementById('PopupShare');
@@ -1066,28 +1066,53 @@ document.addEventListener("DOMContentLoaded", function () {
 		e.preventDefault();
 
 		let bookmark = bookmarkIcon.closest('.Bookmark');
-		bookmark.classList.toggle('Bookmark-active');
 
-		if (bookmark.classList.contains('Bookmark-company')) {
+		if (bookmark.classList.contains('Bookmark-company') && !bookmark.classList.contains('Bookmark-active')) {
+			bookmark.classList.add('Bookmark-active');
 			let popupNotification = document.querySelector(`${bookmarkIcon.getAttribute('href')}`);
 
-			popupNotification.classList.add('PopupNotification-visible');
+			if (popupNotification) {
+				if (bookmark.classList.contains('Bookmark-active')) {
+					popupNotification.classList.add('PopupNotification-visible');
 
-			let timer = setTimeout(function () {
-				popupNotification.classList.remove('PopupNotification-visible');
-			}, 2500);
+					let timer = setTimeout(function () {
+						popupNotification.classList.remove('PopupNotification-visible');
+						bookmarkIcon.setAttribute('href', '#BookmarkSettingsPopup');
+						bookmarkIcon.dataset.action = 'openMobilePopup';
+					}, 2500);
 
-			document.addEventListener('click', function (e) {
-				let popupNotificationSwitch = e.target.closest('.NotificationSettingsItem_switch');
+					document.addEventListener('click', function (e) {
+						let bookmarkNotificationSwitch = e.target.closest('[data-action="bookmarkNotificationSwitch"]');
 
-				if (!popupNotificationSwitch) return;
+						if (!bookmarkNotificationSwitch) return;
 
-				clearTimeout(timer);
+						let bookmarkNotificationSwitches = document.querySelectorAll('[data-action="bookmarkNotificationSwitch"]');
 
-				setTimeout(function () {
-					popupNotification.classList.remove('PopupNotification-visible');
-				}, 1500);
-			});
+						if (bookmarkNotificationSwitch.checked) {
+							bookmarkIcon.innerHTML = '<svg class="SvgIco SvgIco-bellCheck" viewBox="0 0 17.812 17" width="18" data-name="Группа 1" xmlns="http://www.w3.org/2000/svg"><path class="SvgIco_path" data-name="Фигура 31 копия 2" d="M14.162 13h-.8l-.02-2.025a6.606 6.606 0 01-.98-.17V13h-10c0-.28-.036-6.362-.036-6.362a4.582 4.582 0 014.061-3.956 1.046 1.046 0 01-.07-.353 1.083 1.083 0 011-1.148.949.949 0 01.79.481 6.4 6.4 0 01.6-1A1.847 1.847 0 007.312 0a2.134 2.134 0 00-1.99 2 5.263 5.263 0 00-3.935 4.633L1.357 13H.496a.5.5 0 100 1h13.666a.5.5 0 000-1zm-6.83 4a2.033 2.033 0 001.95-2h-3.91a2.056 2.056 0 001.96 2z" fill-rule="evenodd" fill="#8396ac"/><path class="SvgIco_path SvgIco_path-check" data-name="Фигура 32 копия" d="M13.312.5a4.5 4.5 0 104.5 4.5 4.506 4.506 0 00-4.5-4.5zm2.28 3.546l-2.44 2.438a.368.368 0 01-.26.11.391.391 0 01-.27-.11l-1.36-1.366a.427.427 0 01.55-.618l1 1 2-2a.463.463 0 01.65-.017.432.432 0 01.13.563z" fill="#f89333" fill-rule="evenodd"/></svg>';
+							bookmark.classList.add('Bookmark-companyBellCheck');
+							bookmarkNotificationSwitches.forEach(notificationSwitch => notificationSwitch.checked = true);
+						} else {
+							bookmarkIcon.innerHTML = '<svg class="SvgIco" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 17"><path class="SvgIco_stroke" d="M11.87.5H2.12A1.614 1.614 0 00.5 2.1v14.4L7 12.842l6.5 3.658V2.1A1.616 1.616 0 0011.87.5z" fill="none" stroke="#8396ac"/></svg>';
+							bookmark.classList.remove('Bookmark-companyBellCheck');
+							bookmarkNotificationSwitches.forEach(notificationSwitch => notificationSwitch.checked = false);
+						}
+
+						clearTimeout(timer);
+
+						timer = setTimeout(function () {
+							popupNotification.classList.remove('PopupNotification-visible');
+							bookmarkIcon.setAttribute('href', '#BookmarkSettingsPopup');
+							bookmarkIcon.dataset.action = 'openMobilePopup';
+						}, 1500);
+					});
+				} else {
+					bookmarkIcon.setAttribute('href', '#CompanyPopupNotification');
+					delete bookmarkIcon.dataset.action;
+				}
+				
+			}
+			
 		}
 
 		let bookmarkNotification = document.querySelector('.StatIcon-bookmarkNotification');
@@ -1109,6 +1134,30 @@ document.addEventListener("DOMContentLoaded", function () {
 			notificationMenuIcon.innerHTML = '';
 			notificationMenuIcon.append(svgIcon);
 		}
+	});
+
+	document.addEventListener('click', function (e) {
+		let removeBookmark = e.target.closest('[data-action="removeBookmark"]');
+
+		if (!removeBookmark) return;
+
+		let bookmarkCompany = document.querySelector('.Bookmark-company');
+		bookmarkCompany.classList.remove('Bookmark-active');
+		bookmarkCompany.classList.remove('Bookmark-companyBellCheck');
+
+		let bookmarkCompanyIcon = bookmarkCompany.querySelector('.Bookmark_icon');
+		bookmarkCompanyIcon.innerHTML = '<svg class="SvgIco" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 17"><path class="SvgIco_stroke" d="M11.87.5H2.12A1.614 1.614 0 00.5 2.1v14.4L7 12.842l6.5 3.658V2.1A1.616 1.616 0 0011.87.5z" fill="none" stroke="#8396ac"/></svg>';
+		bookmarkCompanyIcon.setAttribute('href', '#CompanyPopupNotification');
+		delete bookmarkCompanyIcon.dataset.action;
+
+		let bookmarkNotificationSwitches = document.querySelectorAll('[data-action="bookmarkNotificationSwitch"]');
+		bookmarkNotificationSwitches.forEach(notificationSwitch => notificationSwitch.checked = false);
+
+		let mobilePopup = removeBookmark.closest('.MobilePopup');
+		if (!mobilePopup) return;
+
+		mobilePopup.classList.remove('MobilePopup-opened');
+		mobilePopup.querySelector('.Overlay').classList.remove('Overlay-visible');
 	});
 
 	// Notification menu

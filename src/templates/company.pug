@@ -16,7 +16,11 @@ block content
 					img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyInfo_logoImg
 				.CompanyInfo_wrapper
 					//- h4.CompanyInfo_name Sony Corporation / Сони Электроникс Корпораи ещё чего-то там
-					h4.CompanyInfo_name Sony Corporation
+					.CompanyInfo_nameWrapper
+						h4.CompanyInfo_name Sony Corporation
+						.Bookmark.Bookmark-company
+							a(href="#CompanyPopupNotification", title="Сохранить в закладки").Bookmark_icon
+								include /includes/svg/SvgIco/bookmark
 					.Rating.Rating-companyHeader
 						span.Rating_icon
 							include /includes/svg/SvgIco/icon_star
@@ -24,8 +28,10 @@ block content
 						span.Rating_max / 10
 						span.Rating_label (55 отзывов)
 			.Company_btnWrapper
-				a(href="#WriteMessagePopup", data-action="openMobilePopup").BtnBlue.BtnBlue-company.hidden-smPlus.Company_btn Написать
-				a(href="#CallPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-company.hidden-smPlus.Company_btn Позвонить
+				a(href="#WriteMessagePopup", data-action="openMobilePopup").BtnBlue.BtnBlue-companyHeader.hidden-smPlus.Company_btn Написать
+				a(href="#CallPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-companyHeader.hidden-smPlus.Company_btn Позвонить
+				a(href="#ExtraMenuPopup", data-action="openMobilePopup").BtnGrey.BtnGrey-dots.hidden-smPlus.Company_btn
+					include /includes/svg/SvgIco/dots
 			.Company_left.hidden-xs
 				.CompanyPhoto
 					img(src="/img/company_photo.jpg", alt="Company photo").CompanyPhoto_img
@@ -383,3 +389,8 @@ block content
 	include /includes/blocks/CallPopup
 	include /includes/blocks/RequestCallPopup
 	include /includes/blocks/CallWaitingPopup
+	include /includes/blocks/ExtraMenuPopup
+	include /includes/blocks/ComplaintPopup
+	include /includes/blocks/ChangeInfoPopup
+	include /includes/blocks/CompanyPopupNotification
+	include /includes/blocks/BookmarkSettingsPopup

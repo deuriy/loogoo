@@ -1,0 +1,31 @@
+.MobilePopup.MobilePopup-largeIndent#ComplaintPopup
+	.Overlay
+	.MobilePopup_wrapper
+		.MobilePopup_header.MobilePopup_header-center
+			a(href="#ExtraMenuPopup", data-action="openMobilePopup").BtnBack.BtnBack-noBack.MobileHeader_btnBack
+				include /includes/svg/SvgIco/arrow_left
+			h3.MobilePopup_title Пожаловаться
+			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+				include /includes/svg/icon_close
+		form(action="#", name="complaint_company").CompanySettings#CompleteArticleForm
+			.CompanySettings_fields
+				.CompanySettings_field
+					.CompanySettings_fieldContent
+						.CompanySettings_fieldItems
+							.CompanySettings_fieldItem
+								textarea(name="complaint_text", id="complaint_text").FormTextarea.FormTextarea-companySettings
+			.MobilePopup_btnWrapper
+				a(href="#ComplaintSubmitPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-mobilePopupLogin.MobilePopup_btn Отправить
+				a(href="javascript:;", data-action="closeMobilePopup").BtnGrey.BtnGrey-mobilePopup.MobilePopup_btn Отменить
+.MobilePopup.MobilePopup-submit#ComplaintSubmitPopup
+	.Overlay
+	.MobilePopup_wrapper
+		.MobilePopup_header.MobilePopup_header-center
+			.MobilePopup_icon
+				include /includes/svg/SvgIco/success
+			h3.MobilePopup_title Жалоба отправлена!
+			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+				include /includes/svg/icon_close
+		.MobilePopup_text.MobilePopup_text-smallIndent Ваше жалоба отправлена и будет просмотрена в самое ближайшее время.
+		.MobilePopup_btnWrapper
+			a(href="javascript:;", data-action="closeMobilePopup").BtnGrey.BtnGrey-mobilePopup Закрыть

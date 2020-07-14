@@ -1,6 +1,6 @@
 extends /layouts/main_layout
 block vars
-	- var title = "Sony Corporation - О компании";
+	- var title = "Sony Corporation";
 	- var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-companyPage";
 block content
@@ -9,19 +9,25 @@ block content
 			.MobileHeader.hidden-smPlus
 				a(href="#").BtnBack.MobileHeader_btnBack
 					include /includes/svg/SvgIco/arrow_left
-				h1.MobileHeader_title Sony Corporation
+				.MobileHeader_titleWrapper
+					h1.MobileHeader_title.MobileHeader_title-company Sony Corporation
+				a(href="#ContactPopupMenu").PopupMenuLink.MobileHeader_phoneIcon
+					include /includes/svg/contacts/phone
 			.CompanyInfo.CompanyInfo-company.Company_info.hidden-smPlus
 				.CompanyInfo_logo
 					img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyInfo_logoImg
 				.CompanyInfo_wrapper
-					h4.CompanyInfo_name Sony Corporation / Сони Электроникс Корпораи ещё чего-то там
+					.CompanyInfo_nameWrapper
+						h4.CompanyInfo_name Sony Corporation
+						.Bookmark.Bookmark-company
+							a(href="#CompanyPopupNotification", title="Сохранить в закладки").Bookmark_icon
+								include /includes/svg/SvgIco/bookmark
 					.Rating.Rating-companyHeader
 						span.Rating_icon
 							include /includes/svg/SvgIco/icon_star
 						span.Rating_number 7,5
 						span.Rating_max / 10
 						span.Rating_label (55 отзывов)
-			a(href="#").BtnBlue.BtnBlue-company.hidden-smPlus Написать сообщение
 			.Company_left.hidden-xs
 				.CompanyPhoto
 					img(src="img/company_photo.jpg", alt="Company photo").CompanyPhoto_img
@@ -81,5 +87,12 @@ block content
 					p Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 года. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская #[br]коммуникационно-промышленная компания) или сокращённо Тоцуко или TTK, но, как выяснил Акио Морита, это название тяжело произносить американцам. Нынешнее название «Сони» произошло от комбинации лат. sonus («звук») и англ. sunny boys («солнечные ребята»; в варианте англ. sonny-boys приобрело в японском значение «малолетние гении»); кроме того, Морита старался найти слово, которого нет ни в одном языке мира. Поскольку в японском языке звуки «сон-ни» напоминают слово, обозначающее неуспешный бизнес (буквально: «потерять деньги»), было решено убрать одну из букв n.
 					p Морита возглавлял компанию долгое время, отвечал за маркетинг и продажи и сумел привести её к огромному успеху на рынке. Sony сделала своё имя на хорошем и привлекательном дизайне и новшествах. Особенную роль компания уделяла уменьшению размеров своих изделий.
 					p В 1950 году компания, тогда ещё называвшаяся TTK, начала выпуск первого в Японии магнитофона. Над улучшением качества звука магнитофонов начал работать Норио Ога. В начале 1950-х годов компания за 25 000 $ купила у Western Electric лицензию на производство транзисторов и в 1955 году выпустила свой первый радиоприёмник — «TR-63», эта новинка положила начало успеху компании. Приёмник, хоть и назывался карманным и действительно был маленьким, в карман обычной мужской рубашки не влезал. Для коммивояжёров компания сшила специальные рубашки с увеличенными карманами, чтобы они могли при продаже продемонстрировать, как легко туда помещается приёмник.
+	include /includes/blocks/ContactPopupMenu
+	include /includes/blocks/WriteMessagePopup
+	include /includes/blocks/CallPopup
+	include /includes/blocks/RequestCallPopup
+	include /includes/blocks/CallWaitingPopup
+	include /includes/blocks/CompanyPopupNotification
+	include /includes/blocks/BookmarkSettingsPopup
 block page_bottom
 	script(src="/js/company.js")
