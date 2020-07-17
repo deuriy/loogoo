@@ -1,10 +1,3 @@
-function setAutoHeightTextarea (textarea) {
-  setTimeout(function() {
-    textarea.style.cssText = 'height:auto; padding:0';
-    textarea.style.cssText = 'height:' + textarea.scrollHeight + 'px';
-  }, 0);
-}
-
 function randomString(len, an) {
 	an = an && an.toLowerCase();
 	var str = "",
@@ -55,8 +48,8 @@ function copyInputText (targetElem) {
   document.execCommand("copy");
 }
 
-function hideBlockWithCookie (blockId) {
-	setCookie(`${blockId}`, true, 604800);
+function hideBlockWithCookie (blockId, time = 315360000) {
+	setCookie(`${blockId}`, true, time);
 }
 
 function checkBlockHidden (blockId) {

@@ -38,70 +38,59 @@ document.addEventListener("DOMContentLoaded", function () {
 		control.onchange = () => isEmpty(control);
 	}
 
-	// let lastHeight;
-	// document.addEventListener('keydown', function (e) {
-	// 	let textAreaComment = e.target.closest('.FormTextarea-commentForm');
-
-	// 	if (!textAreaComment) return;
-
-	// 	// window.scrollTop = 10;
-	// 	document.documentElement.scrollTop -= 10;
-	// });
-
 	// Textarea auto height
-	// let textarea = document.querySelectorAll('.FormTextarea-commentForm, .FormTextarea-commentFormCompany, .FormTextarea-companySettings');
+	let textarea = document.querySelectorAll('.FormTextarea-commentForm, .FormTextarea-commentFormCompany, .FormTextarea-companySettings');
 
-	// textarea.forEach(el => {
-	// 	let currentHeight = el.clientHeight;
+	textarea.forEach(el => {
+		let prevHeight = el.clientHeight;
 
-	// 	el.addEventListener('keydown', () => {
+		el.addEventListener('keydown', () => {
+			setTimeout(() => {
+				el.style.cssText = 'height:auto; padding:0';
+				el.style.cssText = 'height:' + (el.scrollHeight + 2) + 'px';
 
-	// 		setTimeout(() => {
-	// 			el.style.cssText = 'height:auto; padding:0';
-	// 			el.style.cssText = 'height:' + (el.scrollHeight + 2) + 'px';
-
-	// 			if (currentHeight < el.clientHeight) {
-	// 				console.log(el.clientHeight - currentHeight);
-	// 				document.documentElement.scrollTop += el.clientHeight - currentHeight;
-	// 				currentHeight = el.clientHeight;
-	// 			}
-	// 		}, 0);
-	// 	});
-	// });
-	let prevHeight;
-
-	document.addEventListener('keydown', function (e) {
-		let textarea = e.target.closest('[data-input-type="autoHeight"]');
-
-		if (!textarea) return;
-
-		// let prevHeight;
-		console.log(prevHeight);
-
-		setAutoHeightTextarea(textarea);
-
-		setTimeout(function () {
-			prevHeight = textarea.offsetHeight;
-			if (prevHeight < textarea.offsetHeight) {
-				console.log(`difference: ${textarea.offsetHeight - prevHeight}`);
-				document.documentElement.scrollTop += textarea.offsetHeight - prevHeight;
-				prevHeight = textarea.offsetHeight;
-			}
-		}, 0);
-
-		// setTimeout(function() {
-		// 	textarea.style.cssText = 'height:auto; padding:0';
-		// 	textarea.style.cssText = 'height:' + textarea.scrollHeight + 'px';
-
-		// 	if (prevHeight < textarea.offsetHeight) {
-		// 		console.log(`difference: ${textarea.offsetHeight - prevHeight}`);
-		// 		document.documentElement.scrollTop += textarea.offsetHeight - prevHeight;
-		// 		prevHeight = textarea.offsetHeight;
-		// 	}
-		// }, 0);
-
-		// e.preventDefault();
+				if (prevHeight < el.clientHeight) {
+					document.documentElement.scrollTop += el.clientHeight - prevHeight;
+					prevHeight = el.clientHeight;
+				}
+			}, 0);
+		});
 	});
+
+	// let prevHeight;
+
+	// document.addEventListener('keydown', function (e) {
+	// 	let textarea = e.target.closest('[data-input-type="autoHeight"]');
+
+	// 	if (!textarea) return;
+
+	// 	// let prevHeight;
+	// 	console.log(prevHeight);
+
+	// 	setAutoHeightTextarea(textarea);
+
+	// 	setTimeout(function () {
+	// 		prevHeight = textarea.offsetHeight;
+	// 		if (prevHeight < textarea.offsetHeight) {
+	// 			console.log(`difference: ${textarea.offsetHeight - prevHeight}`);
+	// 			document.documentElement.scrollTop += textarea.offsetHeight - prevHeight;
+	// 			prevHeight = textarea.offsetHeight;
+	// 		}
+	// 	}, 0);
+
+	// 	// setTimeout(function() {
+	// 	// 	textarea.style.cssText = 'height:auto; padding:0';
+	// 	// 	textarea.style.cssText = 'height:' + textarea.scrollHeight + 'px';
+
+	// 	// 	if (prevHeight < textarea.offsetHeight) {
+	// 	// 		console.log(`difference: ${textarea.offsetHeight - prevHeight}`);
+	// 	// 		document.documentElement.scrollTop += textarea.offsetHeight - prevHeight;
+	// 	// 		prevHeight = textarea.offsetHeight;
+	// 	// 	}
+	// 	// }, 0);
+
+	// 	// e.preventDefault();
+	// });
 
 	function isSpacesString (string) {
 		for (let i = 0; i < string.length; i++) {
@@ -269,6 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	setActiveMenuItem( document.querySelector('.SettingsMenu') );
 	setActiveMenuItem( document.querySelector('.SidebarMenu-profileMenu') );
 	setActiveMenuItem( document.querySelector('.CategoryMenu-companySettings') );
+	setActiveMenuItem( document.querySelector('.CategoryMenu-save') );
 	setActivePopupMenuItem( document.querySelector('#PopupMenu'), document.querySelector('.PopupMenuLink') );
 
 	// Sidebar Menu
@@ -308,9 +298,14 @@ document.addEventListener("DOMContentLoaded", function () {
 				elem.classList.remove('hidden');
 			}
 		});
+
+		if (elem && elem.classList.contains('hidden')) {
+			elem.remove();
+		}
 	}
 
 	showElementOnPages(document.querySelector('.Icons_item-search'), ['', 'posts']);
+	showElementOnPages(document.querySelector('.MenuSection-save .MenuSection_saveFilter'), ['my_save.html']);
 	
 	// Mobile search
 	let searchLink = document.querySelector('.Icons_link-search');
@@ -862,12 +857,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	let ratingLineFill = document.querySelectorAll('.ExtendedRating_lineFill');
 	ratingLineFill.forEach( el => el.style.width = (el.dataset.mark * 10) + '%');
 
-	let remarkBlock = document.querySelector('.Remark');
-	if (remarkBlock) {
-		if (!checkBlockHidden(remarkBlock.id)) {
-			remarkBlock.classList.remove('hidden');
+	let remark = document.querySelector('.Remark');
+	if (remark) {
+		if (!checkBlockHidden(remark.id)) {
+			remark.classList.remove('hidden');
 		} else {
-			remarkBlock.remove();
+			remark.remove();
 		}
 	}
 
@@ -876,8 +871,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (!closeRemark) return;
 
-		closeRemark.closest('.Remark').remove();
-		hideBlockWithCookie('Remark');
+		let remark = closeRemark.closest('.Remark');
+		hideBlockWithCookie(remark.id);
+		remark.remove();
 	});
 
 	// Open/close control dropdown
@@ -1110,9 +1106,11 @@ document.addEventListener("DOMContentLoaded", function () {
 					bookmarkIcon.setAttribute('href', '#CompanyPopupNotification');
 					delete bookmarkIcon.dataset.action;
 				}
-				
 			}
-			
+		}
+
+		if (!bookmark.classList.contains('Bookmark-company')) {
+			bookmark.classList.toggle('Bookmark-active');
 		}
 
 		let bookmarkNotification = document.querySelector('.StatIcon-bookmarkNotification');

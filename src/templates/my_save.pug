@@ -12,7 +12,11 @@ block content
 		.Main_columns
 			.Main_left
 				include /includes/blocks/MenuSectionSave
-				.QuestionsSection.QuestionsSection-saved.Main_questionsSection
+				.NoResults.NoResults-mySave
+					.NoResults_icon
+						include /includes/svg/no_save
+					.NoResults_text В этом разделе у вас пока нет #[br]сохранений
+				.QuestionsSection.QuestionsSection-saved.Main_questionsSection.hidden
 					.QuestionBlock.QuestionBlock-saved.QuestionsSection_item
 						.QuestionBlock_header
 							.QuestionBlock_headerLeft

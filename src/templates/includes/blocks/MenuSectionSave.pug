@@ -3,7 +3,7 @@
 		.CategoryMenu.CategoryMenu-save
 			ul.CategoryMenu_menu
 				li.CategoryMenu_item
-					a(href="/my_save.html").CategoryMenu_link.active Темы
+					a(href="/my_save.html").CategoryMenu_link Темы
 				li.CategoryMenu_item
 					a(href="#").CategoryMenu_link Работодатели
 				li.CategoryMenu_item
@@ -15,7 +15,7 @@
 			select.Select.Select-filterBlock(name="sorting")
 				option(value="new_first") Сначала новые
 				option(value="first_old") Сначала старые
-		.SaveFilter.MenuSection_saveFilter
+		.SaveFilter.MenuSection_saveFilter.hidden
 			a(href="javascript:;").SaveFilter_icon
 				include /includes/svg/SvgIco/flag
 			.SaveFilter_menu
@@ -29,7 +29,7 @@
 						include /includes/svg/SvgIco/bell_check
 						.
 							С уведомлениями
-.PopupMenuLinks.Main_popupMenuLinks.hidden-smPlus
+.PopupMenuLinks.Main_popupMenuLinks.hidden-smPlus.hidden
 	a(href="#PopupMenuSaveFilter").SelectionLink.PopupMenuLinks_link.PopupMenuLink Все темы
 	a(href="#PopupMenuSorting").SelectionLink.PopupMenuLinks_link.PopupMenuLink Новые
 .PopupMenu.PopupMenu-paddingLeft#PopupMenuSaveFilter

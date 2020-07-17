@@ -1,0 +1,65 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Кнопки связи";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-companySettings Main-contactBtns";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.MobileHeader-noBorder.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Sony Corporation
+				include /includes/blocks/MenuSectionCompanySettings
+				form(action="#", name="contact_buttons").CompanySettings.CompanySettings-contactBtns#CompanySettingsForm
+					.Remark.Remark-contactBtns.CompanySettings_remark#WriteBtnRemark
+						a(href="javascript:;").Remark_close
+							include /includes/svg/icon_close_remark
+						.Remark_text Кнопки #[span.Semibold Написать] и #[span.Semibold Позвонить] появятся автоматически на странице вашей компании после их заполнения.
+					h2.CompanySettings_title Кнопка написать
+					.CompanySettings_fields.CompanySettings_fields-writeBtn
+						.CompanySettings_field
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem.CompanySettings_fieldItem-writeBtn.CompanySettings_fieldItem-verticalCenter
+										.DropdownSelect.DropdownSelect-writeBtn.DropdownSelect-mobile.DropdownSelect-companySettings.CompanySettings_dropdownSelect.CompanySettings_dropdownSelect-contactBtn
+											select(name="write_button[0][messenger]").DropdownSelect_select
+												option(value="none") Мессенджер
+												option(value="viber") Viber
+												option(value="telegram") Telegram
+												option(value="whatsapp") Whatsapp
+										input(type="text", name="write_button[0][phone]", placeholder="Телефон").CompanySettings_formText.CompanySettings_formText-gutter.CompanySettings_formText-contactBtn
+										//- .Checkbox.Checkbox-publicAccount.Checkbox-largeCheck
+											input(type="checkbox", name="write_button[0][public_account]", value="yes", id="public_account").Checkbox_input
+											label(for="public_account").Checkbox_label паблик-аккаунт
+										//- .Checkbox.Checkbox-useLogin.Checkbox-largeCheck
+											input(type="checkbox", name="write_button[0][use_login]", value="yes", id="use_login").Checkbox_input
+											label(for="use_login").Checkbox_label использовать логин
+								a(href="javascript:;").AddFieldItem.AddFieldItem-writeBtn
+									include /includes/svg/icon_add
+									.
+										Добавить ещё телефон
+					h2.CompanySettings_title Кнопка позвонить
+					.CompanySettings_fields
+						.CompanySettings_field
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem.CompanySettings_fieldItem-verticalCenter
+										input(type="tel", name="call_button[0][public_account]", placeholder="Телефон").CompanySettings_formText.CompanySettings_formText-contactBtn
+								a(href="javascript:;").AddFieldItem.AddFieldItem-callButton
+									include /includes/svg/icon_add
+									.
+										Добавить ещё телефон
+					.CompanySettings_actions
+						button(type="submit").BtnOutline.BtnOutline-blue.BtnOutline-companySettings.hidden-xs Сохранить
+						button(type="submit").BtnBlue.BtnBlue-companySettings.hidden-smPlus Сохранить
+			.Aside.Main_aside.hidden-smMinus
+				a(href="/company.html", title="Sony Corporation").CompanyLink.Aside_companyLink
+					img(src="img/sony2.png", alt="Sony Corporation").CompanyLink_img
+					.CompanyLink_textWrap
+						.CompanyLink_title Sony Corporation
+						.CompanyLink_text на страницу компании
+				include /includes/blocks/SettingsMenu
+block page_bottom
+	script(src="/js/company_settings.js")

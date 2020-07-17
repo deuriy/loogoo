@@ -111,17 +111,23 @@ document.addEventListener('DOMContentLoaded', function () {
 	function checkExistingPosts() {
 		let companyPosts = document.querySelectorAll('.CompanySettings_fieldItem-post');
 		let companyMobilePosts = document.querySelectorAll('.CompanySettings_post');
+		let addFieldItemPost = document.querySelector('.AddFieldItem-post .AddFieldItem_text');
+		let addFieldItemPostMobile = document.querySelector('.AddFieldItem-postMobile .AddFieldItem_text');
 
-		if (companyPosts.length) {
-			document.querySelector('.AddFieldItem-post .AddFieldItem_text').textContent = 'Добавить ещё должность';
-		} else {
-			document.querySelector('.AddFieldItem-post .AddFieldItem_text').textContent = 'Добавить должность';
+		if (addFieldItemPost) {
+			if (companyPosts.length) {
+				addFieldItemPost.textContent = 'Добавить ещё должность';
+			} else {
+				addFieldItemPost.textContent = 'Добавить должность';
+			}
 		}
-
-		if (companyMobilePosts.length) {
-			document.querySelector('.AddFieldItem-postMobile .AddFieldItem_text').textContent = 'Добавить ещё должность';
-		} else {
-			document.querySelector('.AddFieldItem-postMobile .AddFieldItem_text').textContent = 'Добавить должность';
+		
+		if (addFieldItemPostMobile) {
+			if (companyMobilePosts.length) {
+				addFieldItemPostMobile.textContent = 'Добавить ещё должность';
+			} else {
+				addFieldItemPostMobile.textContent = 'Добавить должность';
+			}
 		}
 	}
 
@@ -278,6 +284,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		let companySettingsForm = document.getElementById('CompanySettingsForm');
 		let ownerAdditionFields = document.querySelector('#OwnerAddition .CompanySettings_fields');
 
+		if (!ownerAdditionFields) return;
+		// console.log(ownerAdditionFields);
+
 		if (windowWidth < 768) {
 			let ownerFormText = companySettingsForm.querySelectorAll('.CompanySettings_field-ownerAdditionDesktop .CompanySettings_formText');
 
@@ -364,6 +373,67 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 
+	function checkWriteBtnField () {
+		let writeBtnFieldItems = document.querySelectorAll('.CompanySettings_fieldItem-writeBtn');
+
+		writeBtnFieldItems.forEach(item => {
+			let selectedOption = item.querySelector('.DropdownSelect .fs-option.selected');
+			console.log(selectedOption);
+
+			let formText = item.querySelector('.CompanySettings_formText');
+			formText.disabled = selectedOption.dataset.value === 'none';
+
+			switch (selectedOption.dataset.value) {
+				case 'viber':
+					let publicAccount = item.querySelector('.Checkbox-publicAccount');
+
+					if (!publicAccount) {
+						publicAccount = document.createElement('div');
+						publicAccount.className = 'Checkbox Checkbox-publicAccount Checkbox-largeCheck';
+						publicAccount.insertAdjacentHTML('beforeend', '<input class="Checkbox_input" type="checkbox" name="write_button[0][public_account]" value="yes" id="public_account"><label class="Checkbox_label" for="public_account">паблик-аккаунт</label>');
+						item.append(publicAccount);
+					}
+					break;
+				case 'telegram':
+					let useLogin = item.querySelector('.Checkbox-useLogin');
+					
+					if (!useLogin) {
+						useLogin = document.createElement('div');
+						useLogin.className = 'Checkbox Checkbox-useLogin Checkbox-largeCheck';
+						useLogin.insertAdjacentHTML('beforeend', '<input class="Checkbox_input" type="checkbox" name="write_button[0][use_login]" value="yes" id="use_login"><label class="Checkbox_label" for="use_login">использовать логин</label>');
+						item.append(useLogin);
+					}
+					break;
+				default:
+					// statements_def
+					break;
+			}
+
+			// switch (selectedOption.dataset.value) {
+			// 	case 'none':
+			// 		item.querySelector('.CompanySettings_formText').disabled = true;
+			// 		break;
+			// 	case 'none':
+			// 		item.querySelector('.CompanySettings_formText').disabled = true;
+			// 		break;
+			// 	default:
+			// 		// statements_def
+			// 		break;
+			// }
+		});
+	}
+
+	checkWriteBtnField();
+
+	document.addEventListener('click', function (e) {
+		let writeBtnDropdownOption = e.target.closest('.DropdownSelect-writeBtn .fs-option');
+
+		if (!writeBtnDropdownOption) return;
+
+		// console.log(writeBtnDropdownOption);
+		checkWriteBtnField();
+	});
+
 	// Add office field
 	document.addEventListener('click', function (e) {
 		let addOfficeLink = e.target.closest('.AddFieldItem-office');
@@ -393,6 +463,39 @@ document.addEventListener('DOMContentLoaded', function () {
 		$(select).fSelect('reload');
 	});
 
+	// Add write button field
+	document.addEventListener('click', function (e) {
+		let addWriteBtn = e.target.closest('.AddFieldItem-writeBtn');
+
+		if (!addWriteBtn) return;
+
+		let fieldItems = addWriteBtn.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
+
+		let select = fieldItems.firstElementChild.querySelector('select').cloneNode(true);
+		select.classList.remove('hidden');
+
+		let dropdownSelect = document.createElement('div');
+		dropdownSelect.className = 'DropdownSelect DropdownSelect-mobile DropdownSelect DropdownSelect-companySettings CompanySettings_dropdownSelect CompanySettings_dropdownSelect-contactBtn';
+		dropdownSelect.append(select);
+
+		let formText = fieldItems.firstElementChild.querySelector('.CompanySettings_formText').cloneNode(true);
+		formText.classList.add('CompanySettings_formText-contactBtn');
+		formText.classList.add('CompanySettings_formText-gutter');
+
+		let checkbox = fieldItems.querySelector('.Checkbox').cloneNode(true);
+
+		let newFieldItem = document.createElement('div');
+		newFieldItem.className = 'CompanySettings_fieldItem CompanySettings_fieldItem-verticalCenter CompanySettings_fieldItem-additional';
+		newFieldItem.append(dropdownSelect, formText, checkbox);
+		newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem CompanySettings_removeFieldItem-writeBtn"></a>');
+
+		fieldItems.insertAdjacentElement('beforeend', newFieldItem);
+		newFieldItem.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_fieldError hidden"></div>');
+
+		clearFieldItemError(newFieldItem);
+		$(select).fSelect('reload');
+	});
+
 	// Add phone field
 	document.addEventListener('click', function (e) {
 		let addPhoneLink = e.target.closest('.AddFieldItem-phone');
@@ -405,6 +508,23 @@ document.addEventListener('DOMContentLoaded', function () {
 		fieldItems.append(newFieldItem);
 
 		newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem"></a>');
+		newFieldItem.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_fieldError hidden"></div>');
+
+		clearFieldItemError(newFieldItem);
+	});
+
+	// Add call button field
+	document.addEventListener('click', function (e) {
+		let addCallButton = e.target.closest('.AddFieldItem-callButton');
+
+		if (!addCallButton) return;
+
+		let fieldItems = addCallButton.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
+		let newFieldItem = fieldItems.firstElementChild.cloneNode(true);
+		newFieldItem.classList.add('CompanySettings_fieldItem-additional');
+		fieldItems.append(newFieldItem);
+
+		newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem CompanySettings_removeFieldItem-callBtn"></a>');
 		newFieldItem.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_fieldError hidden"></div>');
 
 		clearFieldItemError(newFieldItem);
