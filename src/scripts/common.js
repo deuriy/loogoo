@@ -64,32 +64,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// 	if (!textarea) return;
 
-	// 	// let prevHeight;
-	// 	console.log(prevHeight);
+	// 	prevHeight = textarea.offsetHeight;
 
-	// 	setAutoHeightTextarea(textarea);
+	// 	setTimeout(function() {
+	// 		textarea.style.cssText = 'height:auto; padding:0';
+	// 		textarea.style.cssText = 'height:' + textarea.scrollHeight + 'px';
 
-	// 	setTimeout(function () {
-	// 		prevHeight = textarea.offsetHeight;
 	// 		if (prevHeight < textarea.offsetHeight) {
 	// 			console.log(`difference: ${textarea.offsetHeight - prevHeight}`);
 	// 			document.documentElement.scrollTop += textarea.offsetHeight - prevHeight;
 	// 			prevHeight = textarea.offsetHeight;
 	// 		}
 	// 	}, 0);
-
-	// 	// setTimeout(function() {
-	// 	// 	textarea.style.cssText = 'height:auto; padding:0';
-	// 	// 	textarea.style.cssText = 'height:' + textarea.scrollHeight + 'px';
-
-	// 	// 	if (prevHeight < textarea.offsetHeight) {
-	// 	// 		console.log(`difference: ${textarea.offsetHeight - prevHeight}`);
-	// 	// 		document.documentElement.scrollTop += textarea.offsetHeight - prevHeight;
-	// 	// 		prevHeight = textarea.offsetHeight;
-	// 	// 	}
-	// 	// }, 0);
-
-	// 	// e.preventDefault();
 	// });
 
 	function isSpacesString (string) {
@@ -872,29 +858,33 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!closeRemark) return;
 
 		let remark = closeRemark.closest('.Remark');
-		hideBlockWithCookie(remark.id);
+
+		if (closeRemark.dataset.action == 'hideBlockWithCookie') {
+			hideBlockWithCookie(remark.id);
+		}
+
 		remark.remove();
 	});
 
-	// Open/close control dropdown
+	// Open/close context menu
 	document.addEventListener('click', function (e) {
-		let controlBtn = e.target.closest('.Control_btn');
+		let openContextMenu = e.target.closest('[data-action="openContextMenu"]');
 
-		if (!controlBtn) return;
+		if (!openContextMenu) return;
 
-		let controlMenu = controlBtn.parentNode.querySelector('.Control_menu');
-		controlMenu.classList.toggle('Control_menu-opened');
+		let contextMenu = openContextMenu.parentNode.querySelector('.ContextMenu_menu');
+		contextMenu.classList.toggle('ContextMenu_menu-opened');
 	});
 
 	document.addEventListener('click', function (e) {
-		let controlMenu = document.querySelector('.Control_menu');
+		let contextMenu = document.querySelector('.ContextMenu_menu');
 
-		if (!controlMenu) return;
+		if (!contextMenu) return;
 
-		let controlBtn = controlMenu.parentNode.querySelector('.Control_btn');
+		let openContextMenu = contextMenu.parentNode.querySelector('[data-action="openContextMenu"]');
 
-		if (controlMenu.classList.contains('Control_menu-opened') && !controlMenu.contains(e.target) && !controlBtn.contains(e.target)) {
-			controlMenu.classList.remove('Control_menu-opened');
+		if (contextMenu.classList.contains('ContextMenu_menu-opened') && !contextMenu.contains(e.target) && !openContextMenu.contains(e.target)) {
+			contextMenu.classList.remove('ContextMenu_menu-opened');
 		}
 	});
 
@@ -1065,7 +1055,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (bookmark.classList.contains('Bookmark-company') && !bookmark.classList.contains('Bookmark-active')) {
 			bookmark.classList.add('Bookmark-active');
-			let popupNotification = document.querySelector(`${bookmarkIcon.getAttribute('href')}`);
+			let popupNotification = document.querySelector(bookmarkIcon.getAttribute('href'));
 
 			if (popupNotification) {
 				if (bookmark.classList.contains('Bookmark-active')) {
@@ -1199,6 +1189,23 @@ document.addEventListener("DOMContentLoaded", function () {
 		notificationMenu.querySelector('.NotificationMenu_wrapper').classList.remove('NotificationMenu_wrapper-opened');
 
 		e.preventDefault();
+	});
+
+	document.addEventListener('focusin', function (e) {
+		let openSimilarTopics = e.target.closest('[data-action="openSimilarTopics"]');
+
+		if (!openSimilarTopics) return;
+
+		let topicCreationForm = openSimilarTopics.closest('.TopicCreationForm');
+		topicCreationForm.querySelector('.SimilarTopics').classList.remove('hidden');
+	});
+
+	document.addEventListener('click', function (e) {
+		let closeSimilarTopics = e.target.closest('[data-action="closeSimilarTopics"]');
+
+		if (!closeSimilarTopics) return;
+
+		closeSimilarTopics.closest('.SimilarTopics').classList.add('hidden');
 	});
 
 });

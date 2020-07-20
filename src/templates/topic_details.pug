@@ -162,7 +162,7 @@ block content
 													a(href="javascript:;").CopyLink_btnCopy Копировать
 							.StatIcons_right
 								ul.StatIcons_list
-									li.StatIcon.StatIcon-bookmarkNotification.StatIcons_item.StatIcons_item-bookmarkNotification(hidden)
+									li.StatIcon.StatIcon-bookmarkNotification.StatIcons_item.StatIcons_item-bookmarkNotification.StatIcons_item-gutter(hidden)
 										.NotificationMenu
 											a(href="javascript:;").NotificationMenu_icon
 												include /includes/svg/SvgIco/bell_thin
@@ -223,11 +223,16 @@ block content
 														span.Rating_number 17
 												.Comment_date сегодня в 7:05
 										.Comment_headerRight
-											.DotsMenu
+											.DotsMenu.DotsMenu-comment
 												a(href="javascript:;").DotsMenu_icon
 													include /includes/svg/SvgIco/dots
 												.DotsMenu_wrapper
 													ul.DotsMenu_menu
+														li.DotsMenu_item
+															a(href="#LinkCopiedNotification").DotsMenu_link.DotsMenu_link-copyURL
+																include /includes/svg/SvgIco/copy_reverse
+																.
+																	Скопировать URL
 														li.DotsMenu_item
 															a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
 																include /includes/svg/SvgIco/edit
@@ -425,5 +430,7 @@ block content
 		include /includes/blocks/ComplaintFormPopup
 		include /includes/blocks/PopupShare
 		include /includes/blocks/TopicLikePopup
+		.PopupNotification.PopupNotification-fixedBottom#LinkCopiedNotification
+			h4.PopupNotification_title Ссылка успешно скопирована!
 block page_bottom
 	script(src="/js/topic_details.js")

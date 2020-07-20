@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Post complaint
 	let postComplaintLink = document.querySelector('.PostComplaintLink');
-
 	if (postComplaintLink) {
 		postComplaintLink.onclick = function () {
 			entityId = this.closest('.QuestionBlock').dataset.entityId;
@@ -63,6 +62,24 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 		});
 	}
+
+	document.addEventListener('click', function (e) {
+		let copyURL = e.target.closest('.DotsMenu_link-copyURL');
+
+		if (!copyURL) return;
+
+		let popupNotification = document.querySelector(copyURL.getAttribute('href'));
+
+		if (popupNotification) {
+			popupNotification.classList.add('PopupNotification-visible');
+
+			let timer = setTimeout(function () {
+				popupNotification.classList.remove('PopupNotification-visible');
+			}, 2500);
+		}
+
+		e.preventDefault();
+	});
 
 	document.addEventListener('click', function (e) {
 		let editLink = e.target.closest('.DotsMenu_link-edit');

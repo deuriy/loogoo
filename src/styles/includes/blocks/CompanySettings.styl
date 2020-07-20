@@ -132,6 +132,15 @@
 			@media $xs
 				align-items stretch
 	
+	&_remark
+		&-explanation
+			margin-top -15px
+			margin-bottom 42px
+			margin-right -52px
+			
+			&:last-child
+				margin-bottom 0
+	
 	&_fieldError
 		margin-top 2px
 		margin-bottom 10px
@@ -246,6 +255,14 @@
 			margin-bottom 20px
 			margin-left -18px
 	
+	&_checkboxWrapper
+		display flex
+		align-items center
+		margin-right 16px
+		
+		&:empty
+			display none
+	
 	&_removeFieldItem, &_removePost, &_removeOwner
 		width 30px
 		height 30px
@@ -271,7 +288,6 @@
 		
 		&-writeBtn
 			margin-top 3px
-			margin-left 16px
 	
 	&_actions
 		display flex

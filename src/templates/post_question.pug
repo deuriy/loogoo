@@ -11,7 +11,105 @@ block content
 						include /includes/svg/SvgIco/arrow_left
 					h1.MobileHeader_title Создать тему
 				include /includes/blocks/MenuSectionProfile
-				include /includes/blocks/PostQuestion
+				.PostQuestion
+					.PostQuestion_dropdowns
+						.SelectWrapper.PostQuestion_selectWrapper
+							label(for="category").SelectWrapper_label Категория
+							select.Select.Select-small.Select-bordered.SelectWrapper_select(name="categories_select")
+								option(value="category1") Семья, Дом, Дети
+								option(value="category2") Семья, Дом, Дети
+								option(value="category3") Семья, Дом, Дети
+								option(value="category4") Семья, Дом, Дети
+								option(value="category5") Семья, Дом, Дети
+						.SelectWrapper.PostQuestion_selectWrapper
+							label(for="country").SelectWrapper_label Страна
+							select.Select.Select-small.Select-bordered.SelectWrapper_select(name="country_select")
+								option(value="none") Выберите страну
+								option(value="country2") Семья, Дом, Дети
+								option(value="country3") Семья, Дом, Дети
+								option(value="country4") Семья, Дом, Дети
+								option(value="country5") Семья, Дом, Дети
+						.SelectWrapper.SelectWrapper-hidden.PostQuestion_selectWrapper
+							label(for="cities").SelectWrapper_label Все города
+							select.Select.Select-small.Select-bordered.SelectWrapper_select(name="cities_select", disabled)
+								option(value="cities1") Семья, Дом, Дети 1
+								option(value="cities2") Семья, Дом, Дети 2
+								option(value="cities3") Семья, Дом, Дети 3
+								option(value="cities4") Семья, Дом, Дети 4
+								option(value="cities5") Семья, Дом, Дети 5
+					form(action="#").TopicCreationForm
+						.TopicCreationForm_item.TopicCreationForm_item-title
+							label(for="topic_title").TopicCreationForm_label.hidden-smPlus О чём вы хотите спросить?
+							input(type="text", name="topic_title", id="topic_title" placeholder="О чём хотите спросить?", data-action="openSimilarTopics").FormText.FormText-topicCreationForm
+							.SimilarTopics.TopicCreationForm_similarTopics.hidden
+								.SimilarTopics_header
+									h3.SimilarTopics_title Похожие темы:
+									a(href="javascript:;", data-action="closeSimilarTopics").SimilarTopics_close не подходят
+										include /includes/svg/SvgIco/close_thick
+								.SimilarTopics_body
+									.SimilarTopics_companies
+										.CompanyInfo.CompanyInfo-similarTopics.SimilarTopics_companyInfo
+											.CompanyInfo_logo
+												img(src="/img/companyblock_logo.png", alt="Sony").CompanyInfo_logoImg
+											.CompanyInfo_wrapper
+												h4.CompanyInfo_name #[span.Semibold Біометрії] з запрошенням
+												.Rating.Rating-similarTopics
+													span.Rating_icon
+														include /includes/svg/SvgIco/icon_star
+													span.Rating_number 7,5
+													span.Rating_max / 10
+													span.Rating_label (469)
+										.CompanyInfo.CompanyInfo-similarTopics.SimilarTopics_companyInfo
+											.CompanyInfo_logo
+												img(src="/img/companyblock_logo.png", alt="Sony").CompanyInfo_logoImg
+											.CompanyInfo_wrapper
+												h4.CompanyInfo_name #[span.Semibold Біометрії] з запрошенням
+												.Rating.Rating-similarTopics
+													span.Rating_icon
+														include /includes/svg/SvgIco/icon_star
+													span.Rating_number 7,5
+													span.Rating_max / 10
+													span.Rating_label (469)
+									.SimilarTopics_topics
+										.Topic.SimilarTopics_topic
+											.Topic_name По #[span.Semibold біометрії], без запрошення
+											.StatIcon.StatIcon-topicAnswer.Topic_icon
+												a(href="/topic_details.html").StatIcon_link
+													include /includes/svg/SvgIco/answer
+													span.StatIcon_count 2.5k
+										.Topic.SimilarTopics_topic
+											.Topic_name Перетин кордону по #[span.Semibold біометрії] із запрошенням
+											.StatIcon.StatIcon-topicAnswer.Topic_icon
+												a(href="/topic_details.html").StatIcon_link
+													include /includes/svg/SvgIco/answer
+													span.StatIcon_count 152
+										.Topic.SimilarTopics_topic
+											.Topic_name Чи можливо зараз по #[span.Semibold біометрії] перетнути кордон?
+											.StatIcon.StatIcon-topicAnswer.Topic_icon
+												a(href="/topic_details.html").StatIcon_link
+													include /includes/svg/SvgIco/answer
+													span.StatIcon_count 89
+										.Topic.SimilarTopics_topic
+											.Topic_name Скажіть будь ласка, маю сезонне запрошення на клубніку в Польщу, і чи пустять по #[span.Semibold біометрії] з запрошенням в Польщу?
+											.StatIcon.StatIcon-topicAnswer.Topic_icon
+												a(href="/topic_details.html").StatIcon_link
+													include /includes/svg/SvgIco/answer
+													span.StatIcon_count 123
+						.TopicCreationForm_item
+							label(for="answer").TopicCreationForm_label.hidden-smPlus Опишите подробно ваш вопрос
+							textarea(name="answer", id="answer" placeholder="Опишите подробно ваш вопрос…").FormTextarea.FormTextarea-topicCreationForm
+						.ImageUpload.ImageUpload-topicCreation
+							input(type="file", name="attach_img", id="attach_img", multiple).ImageUpload_input
+							label(for="attach_img").ImageUpload_label
+								span.hidden-xs
+									include /includes/svg/SvgIco/icon_camera
+								span.hidden-smPlus
+									include /includes/svg/SvgIco/icon_image
+							label(for="attach_img").ImageUpload_text.hidden-xs Добавить фото
+							label(for="attach_img").ImageUpload_text.hidden-smPlus Добавьте изображение
+						include /includes/blocks/QuestionTags
+						.TopicCreationForm_actions
+							button(type="submit").BtnOutline.hidden-xs Опубликовать вопрос
+							button(type="submit").BtnOrange.BtnOrange-topicCreationForm.hidden-smPlus Опубликовать вопрос
 			.Aside.Main_aside
-				include /includes/blocks/UserMenu
-				include /includes/blocks/ActionLinks-advanced
+				include /includes/blocks/ProfileMenu
