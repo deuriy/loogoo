@@ -1,0 +1,44 @@
+.ContextBlock
+	width 300px
+	padding 17px 20px 29px
+	box-shadow 0 0 5px 0 rgba(0, 0, 0, 0.1)
+	background $white
+	
+	&_title
+		display flex
+		align-items center
+		margin-bottom 15px
+		
+		& > .SvgIco
+			width 22px
+			margin-right 14px
+			opacity 0.8
+			color $blue2
+		
+	&_titleText
+		font-weight 600
+		font-size 16px
+	
+	&_content
+		font-size 14px
+		line-height 1.5714
+	
+	&-popup
+		width 100%
+		padding-top 21px
+		padding-bottom 26px
+	
+	&-company
+		position absolute
+		padding 17px 12px 14px 17px
+		
+		&:before
+			content ""
+			position absolute
+			top -10px
+			right 0
+			left 0
+			width 16px
+			height 10px
+			margin auto
+			background url('../img/corner_shadow.jpg') 0 0 no-repeat

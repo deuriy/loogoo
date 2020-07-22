@@ -144,12 +144,28 @@ block content
 										li.Activities_listItem 78.20 Деятельность агентств по временному трудоустройству
 										li.Activities_listItem 78.30 Деятельность прочих организаций по работе с персоналом
 								a(href="javascript:;").ToggleLink.ToggleLink-company.Activities_toggleLink показать все
-				.Characteristics.Characteristics-dossiers.Company_characteristics.Company_characteristics-dossier
+				.Characteristics.Characteristics-dossiers.Characteristics-noBorder.Company_characteristics.Company_characteristics-dossier.Company_characteristics-dossierLock
 					.Characteristic.Characteristic-dossier.Characteristics_item
 						.Characteristic_name Адрес владельца
-						.Characteristic_value 33016, Рівненська обл., місто Київ, ВУЛИЦЯ ЕВГЕНА #[br.hidden-xs]КОНОВАЛЬЦЯ, будинок 18, квартира 88
+						.Characteristic_value 33016, Рівненська обл., місто Київ, ВУЛИЦЯ ЕВГЕНА#[br.hidden-xs]КОНОВАЛЬЦЯ, будинок #[noindex #[a(href="#AuthContextBlock", data-action="openContextBlock").MaskedInfo.hidden-xs 18,] #[a(href="#AuthMobilePopup", data-action="openMobilePopup").MaskedInfo.hidden-smPlus 18,]] квартира #[noindex #[a(href="#AuthContextBlock", data-action="openContextBlock").MaskedInfo.hidden-xs 88] #[a(href="#AuthMobilePopup", data-action="openMobilePopup").MaskedInfo.hidden-smPlus 88]]
 					.Characteristic.Characteristic-dossier.Characteristics_item
 						.Characteristic_name Телефон владельца
-						.Characteristic_value +38 098 765 43 21
+						//- .Characteristic_value +38 098 765 43 21
+						.Characteristic_value +38 096 78 #[noindex #[a(href="#AuthContextBlock", data-action="openContextBlock").MaskedInfo.hidden-xs 5 43 21] #[a(href="#AuthMobilePopup", data-action="openMobilePopup").MaskedInfo.hidden-smPlus 5 43 21]]
+				.Notice.Notice-lock Чтобы получить доступ ко всем данным, пожалуйста, #[a(href="javascript:;", data-src="#LoginPopup").OpenPopupLink.Link.hidden-xs авторизуйтесь] #[a(href="/login.html").Link.hidden-smPlus авторизуйтесь] или #[a(href="javascript:;", data-src="#RegistrationPopup").OpenPopupLink.Link.hidden-xs зарегистрируйтесь] #[a(href="/register.html").Link.hidden-smPlus зарегистрируйтесь]
+	.ContextBlock.ContextBlock-company#AuthContextBlock.hidden
+		.ContextBlock_content Чтобы получить доступ ко всем данным пожалуйста #[a(href="javascript:;", data-src="#LoginPopup").OpenPopupLink.Link.hidden-xs авторизуйтесь] #[a(href="/login.html").Link.hidden-smPlus авторизуйтесь] или #[a(href="javascript:;", data-src="#RegistrationPopup").OpenPopupLink.Link.hidden-xs зарегистрируйтесь] #[a(href="/register.html").Link.hidden-smPlus зарегистрируйтесь]
+	.MobilePopup.MobilePopup-auth#AuthMobilePopup
+		.Overlay
+		.MobilePopup_wrapper
+			.MobilePopup_header.MobilePopup_header-center
+				.MobilePopup_icon
+					include /includes/svg/large_lock
+				a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+					include /includes/svg/icon_close
+			.MobilePopup_text.MobilePopup_text-smallIndent Полный доступ ко всем данным имеют только зарегистрированные пользователи
+			.MobilePopup_btnWrapper
+				a(href="/login.html").BtnBlue.BtnBlue-mobilePopupLogin.MobilePopup_btn Вход
+				a(href="/register.html").BtnGrey.BtnGrey-mobilePopup.MobilePopup_btn Регистрация
 block page_bottom
 	script(src="/js/company.js")

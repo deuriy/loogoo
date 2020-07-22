@@ -2,22 +2,24 @@ document.addEventListener("DOMContentLoaded", function () {
 	let entityId, entityType;
 
 	// Post complaint
-	let postComplaintLink = document.querySelector('.PostComplaintLink');
-	if (postComplaintLink) {
-		postComplaintLink.onclick = function () {
-			entityId = this.closest('.QuestionBlock').dataset.entityId;
-			entityType = 'post';
-		}
-	}
+	document.addEventListener('click', function (e) {
+		let postComplaintLink = e.target.closest('.PostComplaintLink');
+
+		if (!postComplaintLink) return;
+
+		entityId = postComplaintLink.closest('.QuestionBlock').dataset.entityId;
+		entityType = 'post';
+	});
 
 	// Comment complaint
-	let commentComplaintLinks = document.querySelectorAll('.CommentComplaintLink');
-	for (let link of commentComplaintLinks) {
-		link.onclick = function () {
-			entityId = this.closest('.Comment').dataset.entityId;
-			entityType = 'comment';
-		}
-	}
+	document.addEventListener('click', function (e) {
+		let commentComplaintLink = e.target.closest('.CommentComplaintLink');
+
+		if (!commentComplaintLink) return;
+
+		entityId = commentComplaintLink.closest('.Comment').dataset.entityId;
+		entityType = 'comment';
+	});
 
 	function isSpacesString (string) {
 		for (let i = 0; i < string.length; i++) {
@@ -134,23 +136,25 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	// Show all images
-	let linkOther = document.querySelector('.Images_link-other');
-	if (linkOther) {
-		linkOther.onclick = function (e) {
-			let imageItems = this.closest('.Images');
-			imageItems.classList.add('opened');
-			e.preventDefault();
-		};
-	}
+	document.addEventListener('click', function (e) {
+		let imagesLinkOther = e.target.closest('.Images_link-other');
 
-	let hideImagesLink = document.querySelector('.Images_hideLink');
-	if (hideImagesLink) {
-		hideImagesLink.onclick = function (e) {
-			let imageItems = this.closest('.Images');
-			imageItems.classList.remove('opened');
-			e.preventDefault();
-		};
-	}
+		if (!imagesLinkOther) return;
+
+		let images = imagesLinkOther.closest('.Images');
+		images.classList.add('opened');
+		e.preventDefault();
+	});
+
+	document.addEventListener('click', function (e) {
+		let hideImagesLink = e.target.closest('.Images_hideLink');
+
+		if (!hideImagesLink) return;
+
+		let images = hideImagesLink.closest('.Images');
+		images.classList.remove('opened');
+		e.preventDefault();
+	});
 
 	document.addEventListener('click', function (e) {
 		let commentTextLink = e.target.closest('.Comment_text a');

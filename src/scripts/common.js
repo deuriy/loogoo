@@ -888,6 +888,53 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
+	function getCoords(elem) {
+	  let coords = elem.getBoundingClientRect();
+
+	  return {
+	    top: coords.top + pageYOffset,
+	    left: coords.left + pageXOffset
+	  };
+	}
+
+	// Open/close context block
+	document.addEventListener('click', function (e) {
+		let openContextBlock = e.target.closest('[data-action="openContextBlock"]');
+
+		if (!openContextBlock) return;
+
+		let openedContextBlock = document.querySelector('.ContextBlock:not(.hidden)')
+
+		if (openedContextBlock) {
+			openedContextBlock.classList.remove('hidden');
+		}
+
+		let href = openContextBlock.getAttribute('href');
+		let contextBlock = document.querySelector(href);
+		console.log(contextBlock);
+
+		let coords = getCoords(openContextBlock);
+
+		contextBlock.classList.toggle('hidden');
+
+		contextBlock.style.left = coords.left - (contextBlock.offsetWidth / 2) + 9 + 'px';
+		contextBlock.style.top = coords.top + openContextBlock.offsetHeight + 13 + 'px';
+
+		e.preventDefault();
+	});
+
+	document.addEventListener('click', function (e) {
+		let contextBlock = document.querySelector('.ContextBlock:not(.hidden)');
+
+		if (!contextBlock) return;
+
+		let openContextBlock = e.target.closest('[data-action="openContextBlock"]');
+
+		if (!contextBlock.contains(e.target) && !openContextBlock) {
+			contextBlock.classList.add('hidden');
+		}
+	});
+
 	// Share
 	document.addEventListener('click', function (e) {
 		let shareIcon = e.target.closest('.Share_icon');
