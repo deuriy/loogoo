@@ -120,6 +120,9 @@
 	&_info
 		float right
 		margin-top -14px
+		
+		@media $xs
+			margin-top -18px
 	
 	&-highlighted
 		background #F2F4F6
@@ -140,6 +143,10 @@
 			margin-bottom 5px
 			padding 9px 11px 5px 16px
 			border-radius 9px
+			
+			@media $xs
+				padding 8px 18px 8px 14px
+				border-radius 16px
 			
 			&:last-child
 				margin-bottom 0
@@ -170,12 +177,15 @@
 				visibility hidden
 			
 			@media $xs
-				font-size 15px
-				line-height 1.34
+				font-size 16px
+				line-height 1.3125
 		
 		.Message_dateTime
 			margin-left 0
 			font-size 12px
+			
+			@media $xs
+				font-size 11px
 	
 	&-short
 		.Message_text
@@ -186,6 +196,11 @@
 		.Message_body
 			max-width 364px
 			background #EBF0F2
+			
+			@media $xs
+				max-width 214px
+				padding-right 11px
+				padding-left 16px
 			
 			&:first-child
 				border-top-left-radius 0				
@@ -201,12 +216,18 @@
 			max-width 405px
 			background #D9EBFC
 			
+			@media $xs
+				max-width 235px
+			
 			&:first-child
 				border-bottom-right-radius 0
 		
 		.Message_text
 			&:after
 				width 57px
+				
+				@media $xs
+					width 50px
 		
 		.Message_info
 			margin-bottom -1px

@@ -172,11 +172,12 @@ block content
 													.UserInfo_name Геннадий Трофимов
 													.UserInfo_verification
 														include /includes/svg/SvgIco/verification_icon
-													a(href="javascript:;").Rating.Rating-userInfo.UserInfo_rating
+													a(href="javascript:;").Rating.Rating-userInfo.UserInfo_rating.hidden-xs
 														span.Rating_icon
 															include /includes/svg/SvgIco/icon_star
 														span.Rating_number 12,4k
-												.UserInfo_status онлайн
+												.UserInfo_status.hidden онлайн
+												.UserInfo_status был в сети 14 июня в 17:47
 									.Dialogue_headerRight
 										.Dialogue_actionIcons
 											a(href="javascript:;").Dialogue_actionIcon.Dialogue_actionIcon-search.hidden-xs
@@ -238,7 +239,8 @@ block content
 											//- 		.Message_dateTime 7:05
 									.Message.Message-you.Message-full.Dialogue_message
 										.Message_body
-											.Message_text Не меняя концепции
+											//- .Message_text Не меняя концепции
+											.Message_text пул лояльных изданий версифицирован
 											.Message_info
 												.Message_dateTime 7:05
 												.Message_statusIcon
