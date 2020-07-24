@@ -1,13 +1,13 @@
 .SendMessage
 	position relative
+	display flex
+	align-items center
 	
 	@media $xs
 		padding-right 56px
 		padding-left 56px
 	
 	&_uploadFile, &_submit
-		position absolute
-		bottom 15px
 		display flex
 		border none
 		
@@ -15,13 +15,15 @@
 			bottom 10px
 	
 	&_uploadFile
-		right 52px
+		margin-right 15px
 		
 		@media $xs
 			right auto
 			left 20px
 	
 	&_submit
+		position absolute
+		bottom 15px
 		right 15px
 		background transparent
 		

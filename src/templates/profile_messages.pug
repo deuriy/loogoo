@@ -66,7 +66,7 @@ block content
 											.Message_dateTime 30 апр 2019
 										.Message_body
 											.Message_text Закон сохранения энергии
-											.Quantity.Quantity-message.Message_quantity 9
+											.Quantity.Quantity-message.Message_quantity.hidden-xs 9
 								a(href="#show_dialog").Message.Message-short.Messages_item
 									.UserPhoto.UserPhoto-shortMessage.Message_userPhoto
 										img(src="/img/kirill_fomichev.png", alt="Кирилл Фомичёв").UserPhoto_img
@@ -207,16 +207,38 @@ block content
 										include /includes/svg/messages_icon
 									.ConversationChoice_text Пожалуйста, выберите беседу
 								.Dialogue_messages.hidden
-									.Message.Message-interlocutor.Message-full.Dialogue_message
-										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
-											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
-										.Message_body
-											.Message_text Нестандартный подход, анализируя результаты рекламной кампании
-											.Message_info
-												.Message_dateTime 7:05
+									//- .Message.Message-interlocutor.Message-full.Dialogue_message
+									//- 	a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
+									//- 		img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+									//- 	.Message_body
+									//- 		.Message_text Нестандартный подход, анализируя результаты рекламной кампании
+									//- 		.Message_text Нестандартный подход, анализируя результаты рекламной кампании
+									//- 		.Message_info
+									//- 			.Message_dateTime 7:05
 									.Message.Message-you.Message-full.Dialogue_message
 										.Message_body
-											.Message_text диверсификация бизнеса ускоряет фирменный процесс стратегического планирования. Потребительский рынок искажает анализ зарубежного опыта, работая над проектом
+											//- .Message_text диверсификация бизнеса ускоряет фирменный процесс стратегического планирования. Потребительский рынок искажает анализ зарубежного опыта, работая над проектом
+											.Message_text Приветствую
+											.Message_info
+												.Message_dateTime 7:05
+												.Message_statusIcon
+													include /includes/svg/checkmarks
+									.Message.Message-interlocutor.Message-full.Dialogue_message
+										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto.hidden-xs
+											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+										.Message_wrapper
+											.Message_body
+												//- .Message_text Нестандартный подход, анализируя результаты рекламной кампании, изменяет рекламный блок, используя опыт
+												.Message_text Управление брендом конструктивно
+												.Message_info
+													.Message_dateTime 7:05
+											//- .Message_body
+											//- 	.Message_text реклама актаульна как никогда
+											//- 	.Message_info
+											//- 		.Message_dateTime 7:05
+									.Message.Message-you.Message-full.Dialogue_message
+										.Message_body
+											.Message_text Не меняя концепции
 											.Message_info
 												.Message_dateTime 7:05
 												.Message_statusIcon
@@ -224,70 +246,38 @@ block content
 									.Message.Message-interlocutor.Message-full.Dialogue_message
 										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
 											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+										.Message_body
+											.Message_text статус экономит маркетинг
+											.Message_info
+												.Message_dateTime 7:05
+									.Message.Message-you.Message-full.Dialogue_message
 										.Message_wrapper
 											.Message_body
-												.Message_text Нестандартный подход, анализируя результаты рекламной кампании, изменяет рекламный блок, используя опыт
-												.Message_dateTime 7:05
-											.Message_body
-												.Message_text реклама актаульна как никогда
+												.Message_text диверсификация бизнеса ускоряет фирменный процесс стратегического планирования. Потребительский рынок искажает анализ зарубежного опыта, работая над проектом
+												.Message_info
+													.Message_dateTime 7:05
+													.Message_statusIcon
+														include /includes/svg/checkmarks
+									.Message.Message-interlocutor.Message-full.Dialogue_message
+										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
+											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
+										.Message_body
+											.Message_text Нестандартный подход, анализируя результаты рекламной кампании, изменяет рекламный блок, используя опыт
+											.Message_info
 												.Message_dateTime 7:05
 									.Message.Message-you.Message-full.Dialogue_message
 										.Message_body
 											.Message_text Не меняя концепции
-											.Message_dateTime 7:05
-											.Message_statusIcon
-												include /includes/svg/checkmarks
-									.Message.Message-full.Dialogue_message
-										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
-											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
-										.Message_mainWrapper
-											.Message_header
-												.Message_nameWrapper
-													.Message_name Геннадий Трофимов
-													.Message_dateTime 7:05
-											.Message_body
-												.Message_text статус экономит маркетинг
-									.Message.Message-full.Dialogue_message
-										a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
-											img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
-										.Message_mainWrapper
-											.Message_header
-												.Message_nameWrapper
-													.Message_name Иван Иванов
-													.Message_dateTime 7:05
-													.Message_statusIcon
-														include /includes/svg/checkmarks
-											.Message_body
-												//- .Message_text Многочисленные расчеты предсказывают, а эксперименты подтверждают, что гравитирующая сфера индуцирует разрыв в полном соответствии с законом сохранения энергии. #[br]Сверхновая вертикально синхронизует векторный эксимер.
-												.Message_text В соответствии с принципом неопределенности осциллятора
-									.Message.Message-full.Dialogue_message
-										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
-											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
-										.Message_mainWrapper
-											.Message_header
-												.Message_nameWrapper
-													.Message_name Геннадий Трофимов
-													.Message_dateTime 7:05
-											.Message_body
-												.Message_text Возмущение плотности нейтрализует гидродинамический удар.
-									.Message.Message-full.Dialogue_message
-										a(href="javascript:;").UserPhoto.UserPhoto-fullMessage.Message_userPhoto
-											img(src="/img/ivan_ivanov.png", alt="Иван Иванов").UserPhoto_img
-										.Message_mainWrapper
-											.Message_header
-												.Message_nameWrapper
-													.Message_name Иван Иванов
-													.Message_dateTime 7:05
-													.Message_statusIcon
-														include /includes/svg/checkmark
-											.Message_body
-												.Message_text Очевидно, что гидродинамический удар отражает квазар. Идеальная тепловая машина вертикально синхронизует гидродинамический удар. Вещество зеркально восстанавливает эксимер без обмена зарядами или спинами.
+											.Message_info
+												.Message_dateTime 7:05
+												.Message_statusIcon
+													include /includes/svg/checkmark
 								form(action="#", name="send_message").SendMessage.Dialogue_sendMessage.hidden
-									textarea(name="message_text", placeholder="Введите сообщение", rows="1").FormTextarea.FormTextarea-sendMessage.SendMessage_textArea
 									.UploadFile.SendMessage_uploadFile
 										input(type="file", name="file", id="file").UploadFile_input
 										label(for="file").UploadFile_label
 											include /includes/svg/icon_add
+									textarea(name="message_text", placeholder="Сообщение", rows="1").FormTextarea.FormTextarea-sendMessage.SendMessage_textArea
 									button(type="submit").SendMessage_submit
 										include /includes/svg/send_icon
 			.Aside.Main_aside.hidden-smMinus
@@ -311,7 +301,7 @@ block content
 							a(href="/profile_settings.html").SidebarMenu_link Мои настройки
 						li.SidebarMenu_item
 							a(href="#").SidebarMenu_link Выход
-	.PopupMenu.PopupMenu-profileMessages#PopupMessagesFilter
+	.PopupMenu.PopupMenu-profileMessages.PopupMenu-paddingTop#PopupMessagesFilter
 		.PopupMenu_overlay
 		.PopupMenu_wrapper
 			ul.PopupMenu_menu

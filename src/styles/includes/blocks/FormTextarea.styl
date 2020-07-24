@@ -12,15 +12,10 @@
 	overflow hidden
 	
 	&:focus
-		border-color $blue2
+		border-color $blue3
 	
 	&-commentForm
-		// max-height 200px
 		min-height 72px
-		// overflow auto
-		
-		// @media $xs
-		// 	max-height 150px
 	
 	&-commentFormCompany
 		height 55px
@@ -48,12 +43,11 @@
 	
 	&-sendMessage
 		position relative
-		// height 50px
 		min-height 50px
 		max-height 200px
-		padding 15px 80px 15px 15px
+		padding 15px 50px 15px 20px
 		border-color #DFE2E6
-		border-radius 3px
+		border-radius 9px
 		font-size 14px
 		color $blue2
 		overflow-x hidden
@@ -63,18 +57,19 @@
 			max-height 145px
 		
 		&::-webkit-scrollbar
-			width 5px
-			right 2px
+			width 0
+			// width 5px
+			// right 2px
 			
-			@media $xs
-				width 0
+			// @media $xs
+			// 	width 0
 		
-		&::-webkit-scrollbar-track
-			border-radius 3px
+		// &::-webkit-scrollbar-track
+		// 	border-radius 3px
 		
-		&::-webkit-scrollbar-thumb
-			border-radius 3px
-			background-color #DFE4E6
+		// &::-webkit-scrollbar-thumb
+		// 	border-radius 3px
+		// 	background-color #DFE4E6
 		
 		@media $xs
 			height 40px
