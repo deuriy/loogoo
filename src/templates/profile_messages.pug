@@ -246,37 +246,42 @@ block content
 												.Message_statusIcon
 													include /includes/svg/checkmarks
 									.Message.Message-interlocutor.Message-full.Dialogue_message
-										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
+										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto.hidden-xs
 											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
 										.Message_body
-											.Message_text статус экономит маркетинг
+											//- .Message_text статус экономит маркетинг
+											.Message_text Системный анализ
 											.Message_info
 												.Message_dateTime 7:05
+									.Dialogue_date 12 июня 2019
 									.Message.Message-you.Message-full.Dialogue_message
 										.Message_wrapper
 											.Message_body
-												.Message_text диверсификация бизнеса ускоряет фирменный процесс стратегического планирования. Потребительский рынок искажает анализ зарубежного опыта, работая над проектом
+												//- .Message_text диверсификация бизнеса ускоряет фирменный процесс стратегического планирования. Потребительский рынок искажает анализ зарубежного опыта, работая над проектом
+												.Message_text Приветствую
 												.Message_info
 													.Message_dateTime 7:05
 													.Message_statusIcon
 														include /includes/svg/checkmarks
 									.Message.Message-interlocutor.Message-full.Dialogue_message
-										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto
+										a(href="javascript:;").UserPhoto.UserPhoto-online.UserPhoto-fullMessage.Message_userPhoto.hidden-xs
 											img(src="/img/gennadiy_trofimov.png", alt="Геннадий Трофимов").UserPhoto_img
 										.Message_body
-											.Message_text Нестандартный подход, анализируя результаты рекламной кампании, изменяет рекламный блок, используя опыт
+											//- .Message_text Нестандартный подход, анализируя результаты рекламной кампании, изменяет рекламный блок, используя опыт
+											.Message_text Управление брендом конструктивно
 											.Message_info
 												.Message_dateTime 7:05
 									.Message.Message-you.Message-full.Dialogue_message
 										.Message_body
-											.Message_text Не меняя концепции
+											//- .Message_text Не меняя концепции
+											.Message_text пул лояльных изданий версифицирован
 											.Message_info
 												.Message_dateTime 7:05
 												.Message_statusIcon
 													include /includes/svg/checkmark
 								form(action="#", name="send_message").SendMessage.Dialogue_sendMessage.hidden
 									.UploadFile.SendMessage_uploadFile
-										input(type="file", name="file", id="file").UploadFile_input
+										input(type="file", name="file", id="file").UploadFile_input.hidden
 										label(for="file").UploadFile_label
 											include /includes/svg/icon_add
 									textarea(name="message_text", placeholder="Сообщение", rows="1").FormTextarea.FormTextarea-sendMessage.SendMessage_textArea
