@@ -416,6 +416,20 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
+	function checkActivePopupMenuLink (popupMenu) {
+		let activePopupMenuLink = popupMenu.querySelector('.PopupMenu_link.active');
+
+		if (!activePopupMenuLink) return;
+
+		let openPopupMenuLink = document.querySelector(`a[href="#${popupMenu.id}"]`);
+
+		if (!openPopupMenuLink) return;
+
+		openPopupMenuLink.textContent = activePopupMenuLink.textContent;
+	}
+
+	document.querySelectorAll('.PopupMenu').forEach(popupMenu => checkActivePopupMenuLink(popupMenu));
+
 	document.addEventListener('click', function (e) {
 		let popupMenuWrapper = e.target.closest('.PopupMenu_wrapper');
 
@@ -423,7 +437,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		let popupMenu = popupMenuWrapper.closest('.PopupMenu');
 		let popupMenuId = popupMenu.getAttribute('id');
-		let popupMenuLink = document.querySelector(`a[href="#${popupMenuId}"`);
+		let popupMenuLink = document.querySelector(`a[href="#${popupMenuId}"]`);
 		popupMenu.classList.toggle('PopupMenu-opened');
 
 		if (e.target.nodeName != 'A' || e.target.closest('.PopupMenu_close')) return;
@@ -1168,6 +1182,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			notificationMenuIcon.innerHTML = '';
 			notificationMenuIcon.append(svgIcon);
+		} else {
+			bookmarkNotification.querySelector('.NotificationMenu_item:first-child .NotificationMenu_link').classList.add('NotificationMenu_link-active');
 		}
 	});
 
