@@ -33,77 +33,13 @@ block content
 						span.Rating_label (55 отзывов)
 					a(href="#").BtnBlue.BtnBlue-company.hidden Написать сообщение
 					a(href="#").BtnBlue.BtnBlue-company Свяжитесь с нами
-				.StatIcons.StatIcons-company
-					.StatIcons_left
-						.StatIcon.StatIcon-companyViews
-							include /includes/svg/SvgIco/eye
-							span.StatIcon_count 110 просмотров
-					.StatIcons_right
-						ul.StatIcons_list
-							li.StatIcon.StatIcon-bookmarkNotification.StatIcons_item.StatIcons_item-bookmarkNotification(hidden)
-								.NotificationMenu
-									a(href="javascript:;").NotificationMenu_icon.NotificationMenu_icon-small
-										include /includes/svg/SvgIco/bell_thin
-									ul.NotificationMenu_wrapper
-										li.NotificationMenu_item
-											a(href="#").NotificationMenu_link.NotificationMenu_link-active
-												include /includes/svg/SvgIco/bell_thin
-												.
-													Без уведомлений
-										li.NotificationMenu_item
-											a(href="#").NotificationMenu_link
-												include /includes/svg/SvgIco/bell_check
-												.
-													Новые ответы
-							li.StatIcon.StatIcon-bookmark.StatIcons_item.StatIcons_item-bookmark
-								.Bookmark
-									a(href="javascript:;", title="Сохранить в закладки").Bookmark_icon.Bookmark_icon-small
-										include /includes/svg/SvgIco/bookmark
-							li.StatIcon.StatIcons_item
-								.Share
-									a(href="javascript:;").Share_icon.Share_icon-small.hidden-xs
-										include /includes/svg/SvgIco/share
-									a(href="#PopupShare", data-action="openMobilePopup").Share_mobIcon.Share_mobIcon-small.hidden-smPlus
-										include /includes/svg/SvgIco/share
-									.Share_wrapper
-										.Share_title Поделиться:
-										ul.Share_socIcons.hidden
-											li.Share_socItem
-												a(href="http://fb.com", target="_blank").Share_socLink
-													include /includes/svg/socicons/fb
-											li.Share_socItem
-												a(href="http://viber.com", target="_blank").Share_socLink
-													include /includes/svg/socicons/viber
-											li.Share_socItem
-												a(href="http://whatsapp.com", target="_blank").Share_socLink
-													include /includes/svg/socicons/whatsapp
-											li.Share_socItem
-												a(href="http://telegram.com", target="_blank").Share_socLink
-													include /includes/svg/socicons/telegram
-											li.Share_socItem
-												a(href="http://vk.com", target="_blank").Share_socLink
-													include /includes/svg/socicons/vk
-										.CopyLink
-											input(type="text", name="copy_link", value="", readonly).CopyLink_input
-											a(href="javascript:;").CopyLink_btnCopy Копировать
-							li.StatIcon.StatIcon-dots.StatIcons_item
-								.ContextMenu
-									a(href="javascript:;", title="Настройки компании", data-action="openContextMenu").DotsLink
-										include /includes/svg/SvgIco/dots
-									ul.ContextMenu_menu
-										li.ContextMenu_item
-											a(href="#").ContextMenu_link
-												include /includes/svg/SvgIco/settings
-												.
-													Настройки
-										li.ContextMenu_item
-											a(href="#").ContextMenu_link
-												include /includes/svg/SvgIco/stat
-												.
-													Статистика
+				include /includes/blocks/StatIcons-company
 			.Company_right
 				h1.Company_title.hidden-xs Sony Corporation
 				include /includes/blocks/MenuSectionCompany
+				.Notice.Notice-fraud.Company_notice.Company_notice-fraud
+					h3.Notice_title Этот работодатель занимается мошенничеством!
+					h3.Notice_text.hidden-xs Предоставлены все необходимые доказательства и другие подтверждающие факты
 				.Characteristics.Characteristics-dossiers.Company_characteristics.Company_characteristics-dossier
 					h3.Characteristics_title Сведения о владельце
 					.Characteristic.Characteristic-dossier.Characteristics_item

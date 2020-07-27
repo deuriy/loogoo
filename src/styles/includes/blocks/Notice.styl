@@ -1,6 +1,6 @@
 .Notice
 	padding 12px 21px 14px
-	background #fef1e5
+	background $beige
 	font-size 13px
 	line-height 1.5384
 	
@@ -10,10 +10,24 @@
 		&:hover
 			text-decoration none
 	
+	&_title
+		margin-bottom 5px
+		font-weight 600
+		font-size 18px
+		line-height 1.12
+		
+		@media $xs
+			line-height 1.34
+	
+	&_text
+		font-weight 500
+		font-size 16px
+		line-height 1.4375
+	
 	&-lock
 		padding 21px 15px 19px 45px
 		border-radius 4px
-		background #fef1e5 url('../img/lock.svg') 21px 21px no-repeat
+		background $beige url('../img/lock.svg') 21px 21px no-repeat
 		font-size 15px
 		line-height 1.34
 		
@@ -21,3 +35,12 @@
 			padding 21px 10px 17px 20px
 			background-image none
 			line-height 1.6
+	
+	&-fraud
+		padding 21px 25px 18px
+		border-radius 4px
+		background $beige url('../img/warning_fraud_icon.svg') right bottom no-repeat
+		color $orange
+		
+		@media $xs
+			padding 17px 8px 10px 16px
