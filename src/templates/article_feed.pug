@@ -10,7 +10,17 @@ block content
 			a(href="javascript:;").DotsMenu_icon
 				include /includes/svg/SvgIco/dots
 			.DotsMenu_wrapper
-				a(href="#PopupShare", data-action="openMobilePopup").DotsMenu_link Поделиться
+				ul.DotsMenu_menu
+					li.DotsMenu_item
+						a(href="#PopupShare", data-action="openMobilePopup").DotsMenu_link
+							include /includes/svg/SvgIco/share_mob
+							.
+								Поделиться
+					li.DotsMenu_item
+						a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+							include /includes/svg/SvgIco/copy_reverse
+							.
+								Копировать
 	.Container.Main_container
 		.Main_columns
 			.Main_sidebar
@@ -144,6 +154,4 @@ block content
 				li.PopupMenu_item
 					a(href="javascript:;").PopupMenu_link Спорт и отдых
 	include /includes/blocks/PopupShare
-block page_bottom
-	include /includes/blocks/LeaveNote
-	script(src="/js/article.js")
+	include /includes/blocks/LinkCopiedNotification

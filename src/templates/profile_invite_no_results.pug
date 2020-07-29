@@ -11,6 +11,16 @@ block content
 					a(href="#").BtnBack.MobileHeader_btnBack
 						include /includes/svg/SvgIco/arrow_left
 					h1.MobileHeader_title Мои приглашения
+					.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
+						a(href="javascript:;").DotsMenu_icon
+							include /includes/svg/SvgIco/dots
+						.DotsMenu_wrapper
+							ul.DotsMenu_menu
+								li.DotsMenu_item
+									a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+										include /includes/svg/SvgIco/copy_reverse
+										.
+											Копировать
 				.ProfileInvite
 					h2.ProfileInvite_title Как это работает
 					.ProfileInvite_text
@@ -62,5 +72,6 @@ block content
 							a(href="#").SidebarMenu_link Настройки
 						li.SidebarMenu_item
 							a(href="#").SidebarMenu_link Выход
+	include /includes/blocks/LinkCopiedNotification
 block page_bottom
 	script(src="/js/profile_invite.js")

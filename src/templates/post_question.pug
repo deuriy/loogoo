@@ -10,6 +10,16 @@ block content
 					a(href="#").BtnBack.MobileHeader_btnBack
 						include /includes/svg/SvgIco/arrow_left
 					h1.MobileHeader_title Создать тему
+					.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
+						a(href="javascript:;").DotsMenu_icon
+							include /includes/svg/SvgIco/dots
+						.DotsMenu_wrapper
+							ul.DotsMenu_menu
+								li.DotsMenu_item
+									a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+										include /includes/svg/SvgIco/copy_reverse
+										.
+											Копировать
 				include /includes/blocks/MenuSectionProfile
 				.PostQuestion
 					.PostQuestion_dropdowns
@@ -113,3 +123,4 @@ block content
 							button(type="submit").BtnOrange.BtnOrange-topicCreationForm.hidden-smPlus Опубликовать вопрос
 			.Aside.Main_aside
 				include /includes/blocks/ProfileMenu
+	include /includes/blocks/LinkCopiedNotification

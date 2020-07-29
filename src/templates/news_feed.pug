@@ -6,6 +6,16 @@ block vars
 block content
 	.MobileHeader.hidden-smPlus
 		h1.MobileHeader_title #{title}
+		.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
+			a(href="javascript:;").DotsMenu_icon
+				include /includes/svg/SvgIco/dots
+			.DotsMenu_wrapper
+				ul.DotsMenu_menu
+					li.DotsMenu_item
+						a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+							include /includes/svg/SvgIco/copy_reverse
+							.
+								Копировать
 	.Container.Main_container
 		.Main_columns
 			.Main_sidebar
@@ -257,6 +267,4 @@ block content
 					a(href="javascript:;").PopupMenu_link Одежда, обувь и аксессуары
 				li.PopupMenu_item
 					a(href="javascript:;").PopupMenu_link Спорт и отдых
-block page_bottom
-	include /includes/blocks/LeaveNote
-	script(src="/js/article.js")
+	include /includes/blocks/LinkCopiedNotification

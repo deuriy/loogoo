@@ -999,14 +999,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (!copyLink) return;
 
-		let mobilePopupPageUrl = document.querySelector('.MobilePopup_pageUrl');
-		if (mobilePopupPageUrl) {
-			mobilePopupPageUrl.value = location.href;
+		let copyLinkInput = document.createElement('input');
+		copyLinkInput.type = 'text';
+
+		let newURL = new URL(window.location.href);
+
+		if (newURL.searchParams.has('share')) {
+			newURL.searchParams.delete('share');
 		}
 
-		mobilePopupPageUrl.classList.remove('hidden');
-		copyInputText(mobilePopupPageUrl);
-		mobilePopupPageUrl.classList.add('hidden');
+		copyLinkInput.value = newURL;
+		document.body.append(copyLinkInput);
+		copyInputText(copyLinkInput);
+		copyLinkInput.remove();
 
 		let copyLinkInner = copyLink.querySelector('.ActionMenu_linkInner');
 		copyLink.classList.add('ActionMenu_link-copied');
@@ -1020,6 +1025,39 @@ document.addEventListener("DOMContentLoaded", function () {
 			popupShare.classList.remove('MobilePopup-opened');
 			popupShare.querySelector('.Overlay').classList.remove('Overlay-visible');
 		}, 800);
+	});
+
+	// Copy URL
+	document.addEventListener('click', function (e) {
+		let copyURL = e.target.closest('[data-action="copyURL"]');
+
+		if (!copyURL) return;
+
+		let copyLinkInput = document.createElement('input');
+		copyLinkInput.type = 'text';
+
+		let newURL = new URL(window.location.href);
+
+		if (newURL.searchParams.has('share')) {
+			newURL.searchParams.delete('share');
+		}
+
+		copyLinkInput.value = newURL;
+		document.body.append(copyLinkInput);
+		copyInputText(copyLinkInput);
+		copyLinkInput.remove();
+
+		let popupNotification = document.querySelector(copyURL.getAttribute('href'));
+
+		if (popupNotification) {
+			popupNotification.classList.add('PopupNotification-visible');
+
+			let timer = setTimeout(function () {
+				popupNotification.classList.remove('PopupNotification-visible');
+			}, 2500);
+		}
+
+		e.preventDefault();
 	});
 
 	// Share for Android/IOS

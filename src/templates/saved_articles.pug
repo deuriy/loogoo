@@ -4,13 +4,23 @@ block vars
 	- var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-save";
 block content
-	.MobileHeader.MobileHeader-noBorder.hidden-smPlus
-		a(href="#").BtnBack.MobileHeader_btnBack
-			include /includes/svg/SvgIco/arrow_left
-		h1.MobileHeader_title #{title}
 	.Container.Main_container
 		.Main_columns
 			.Main_left
+				.MobileHeader.MobileHeader-noBorder.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title #{title}
+					.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
+						a(href="javascript:;").DotsMenu_icon
+							include /includes/svg/SvgIco/dots
+						.DotsMenu_wrapper
+							ul.DotsMenu_menu
+								li.DotsMenu_item
+									a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+										include /includes/svg/SvgIco/copy_reverse
+										.
+											Копировать
 				include /includes/blocks/MenuSectionSave
 				.ArticlesFeed
 					.NewsBlocks.NewsBlocks-column.ArticlesFeed_blocks
@@ -109,3 +119,4 @@ block content
 			.Aside.Main_aside.hidden-xs
 				include /includes/blocks/ProfileMenu
 	include /includes/blocks/LikePopup
+	include /includes/blocks/LinkCopiedNotification

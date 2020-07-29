@@ -11,6 +11,16 @@ block content
 					a(href="#").BtnBack.MobileHeader_btnBack
 						include /includes/svg/SvgIco/arrow_left
 					h1.MobileHeader_title Sony Corporation
+					.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
+						a(href="javascript:;").DotsMenu_icon
+							include /includes/svg/SvgIco/dots
+						.DotsMenu_wrapper
+							ul.DotsMenu_menu
+								li.DotsMenu_item
+									a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+										include /includes/svg/SvgIco/copy_reverse
+										.
+											Копировать
 				include /includes/blocks/MenuSectionCompanySettings
 				form(action="#", name="company_settings", novalidate).CompanySettings.CompanySettings-profileCover#CompanySettingsForm
 					h2.CompanySettings_title.hidden-xs Обложка
@@ -39,7 +49,4 @@ block content
 						.CompanyLink_title Sony Corporation
 						.CompanyLink_text на страницу компании
 				include /includes/blocks/SettingsMenu
-block page_bottom
-	//- include /includes/blocks/OwnerAddition
-	//- include /includes/blocks/PostAddition
-	//- script(src="/js/company_settings.js")
+				include /includes/blocks/LinkCopiedNotification

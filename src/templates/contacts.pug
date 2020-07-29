@@ -12,7 +12,17 @@ block content
 			a(href="javascript:;").DotsMenu_icon
 				include /includes/svg/SvgIco/dots
 			.DotsMenu_wrapper
-				a(href="#PopupShare", data-action="openMobilePopup").DotsMenu_link Поделиться
+				ul.DotsMenu_menu
+					li.DotsMenu_item
+						a(href="#PopupShare", data-action="openMobilePopup").DotsMenu_link
+							include /includes/svg/SvgIco/share_mob
+							.
+								Поделиться
+					li.DotsMenu_item
+						a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+							include /includes/svg/SvgIco/copy_reverse
+							.
+								Копировать
 	.Main_container
 		.WriteUs
 			.Container.WriteUs_container
@@ -32,3 +42,4 @@ block content
 								include /includes/svg/SvgIco/soclinks/email
 								span.Soclink_text info@infoza.top
 	include /includes/blocks/PopupShare
+	include /includes/blocks/LinkCopiedNotification

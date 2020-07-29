@@ -11,6 +11,16 @@ block content
 					a(href="#").BtnBack.MobileHeader_btnBack
 						include /includes/svg/SvgIco/arrow_left
 					h1.MobileHeader_title Мои настройки
+					.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
+						a(href="javascript:;").DotsMenu_icon
+							include /includes/svg/SvgIco/dots
+						.DotsMenu_wrapper
+							ul.DotsMenu_menu
+								li.DotsMenu_item
+									a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+										include /includes/svg/SvgIco/copy_reverse
+										.
+											Копировать
 				include /includes/blocks/MenuSectionProfileSettings
 				include /includes/blocks/ProfileVerification
 			.Aside.Main_aside
@@ -27,3 +37,4 @@ block content
 							a(href="#").SidebarMenu_link Настройки
 						li.SidebarMenu_item
 							a(href="#").SidebarMenu_link Выход
+	include /includes/blocks/LinkCopiedNotification

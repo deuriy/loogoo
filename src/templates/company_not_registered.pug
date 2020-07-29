@@ -9,19 +9,26 @@ block content
 			.MobileHeader.hidden-smPlus
 				a(href="#").BtnBack.MobileHeader_btnBack
 					include /includes/svg/SvgIco/arrow_left
-				h1.MobileHeader_title Sony Corporation
+				.MobileHeader_titleWrapper
+					h1.MobileHeader_title.MobileHeader_title-company Sony Corporation
+				a(href="#ContactPopupMenu").PopupMenuLink.MobileHeader_phoneIcon
+					include /includes/svg/contacts/phone
 			.CompanyInfo.CompanyInfo-company.Company_info.hidden-smPlus
 				.CompanyInfo_logo
 					img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyInfo_logoImg
 				.CompanyInfo_wrapper
-					h4.CompanyInfo_name Sony Corporation / Сони Электроникс Корпораи ещё чего-то там
+					.CompanyInfo_nameWrapper
+						h4.CompanyInfo_name Sony Corporation
+						.Bookmark.Bookmark-company
+							a(href="#CompanyPopupNotification", title="Сохранить в закладки").Bookmark_icon
+								include /includes/svg/SvgIco/bookmark
 					.Rating.Rating-companyHeader
 						span.Rating_icon
 							include /includes/svg/SvgIco/icon_star
 						span.Rating_number 7,5
 						span.Rating_max / 10
 						span.Rating_label (55 отзывов)
-			a(href="#").BtnBlue.BtnBlue-company.hidden-smPlus Написать сообщение
+			//- a(href="#").BtnBlue.BtnBlue-company.hidden-smPlus Написать сообщение
 			.Company_left.hidden-xs
 				.CompanyPhoto
 					img(src="/img/company_photo.jpg", alt="Company photo").CompanyPhoto_img
@@ -44,5 +51,7 @@ block content
 					.Characteristic.Characteristic-dossier.Characteristics_item
 						.Characteristic_name Форма регистрации
 						.Characteristic_value.Medium.Burgundy Официально не зарегистрирован
+	include /includes/blocks/CompanyPopupNotification
+	include /includes/blocks/BookmarkSettingsPopup
 block page_bottom
 	script(src="/js/company.js")

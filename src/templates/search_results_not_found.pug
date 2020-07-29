@@ -1,10 +1,30 @@
 extends /layouts/main_layout_profile
 block vars
 	- var title = "Результаты поиска (ничего не найдено)";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
 block content
 	.Container.Main_container
 		.Main_columns
 			.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="/").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Поиск
+					.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
+						a(href="javascript:;").DotsMenu_icon
+							include /includes/svg/SvgIco/dots
+						.DotsMenu_wrapper
+							ul.DotsMenu_menu
+								li.DotsMenu_item
+									a(href="#PopupShare", data-action="openMobilePopup").DotsMenu_link
+										include /includes/svg/SvgIco/share_mob
+										.
+											Поделиться
+								li.DotsMenu_item
+									a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+										include /includes/svg/SvgIco/copy_reverse
+										.
+											Копировать
 				.Main_topicsFilter
 					form(action="", name="topics_filter")#TopicsFilter.Filter.Filter-results
 						.Search.Search-results.Filter_search.hidden-xs
@@ -17,5 +37,7 @@ block content
 			.Aside.Main_aside
 				include /includes/blocks/TopicCreationBlock
 				include /includes/blocks/PopularTopics
+	include /includes/blocks/PopupShare
+	include /includes/blocks/LinkCopiedNotification
 block page_bottom
 	script(src="/js/filter.js")

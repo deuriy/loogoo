@@ -11,6 +11,16 @@ block content
 					a(href="#").BtnBack.MobileHeader_btnBack
 						include /includes/svg/SvgIco/arrow_left
 					h1.MobileHeader_title Баланс профиля
+					.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
+						a(href="javascript:;").DotsMenu_icon
+							include /includes/svg/SvgIco/dots
+						.DotsMenu_wrapper
+							ul.DotsMenu_menu
+								li.DotsMenu_item
+									a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+										include /includes/svg/SvgIco/copy_reverse
+										.
+											Копировать
 				.ProfileBalance
 					.CompaniesBalances.ProfileBalance_companiesBalances
 						.CompanyInfo.CompanyInfo-balance.CompaniesBalances_item.CompaniesBalances_item-first
@@ -164,5 +174,6 @@ block content
 												.Operation_balance 7000 UAH
 			.Aside.Main_aside
 				include /includes/blocks/ProfileMenu
+	include /includes/blocks/LinkCopiedNotification
 block page_bottom
 	script(src="/js/profile_balance.js")

@@ -16,9 +16,10 @@ block content
 						.DotsMenu_wrapper
 							ul.DotsMenu_menu
 								li.DotsMenu_item
-									a(href="#PopupShare", data-action="openMobilePopup").DotsMenu_link Поделиться
-								li.DotsMenu_item
-									a(href="#LinkCopiedNotification", data-action="openMobilePopup").DotsMenu_link.DotsMenu_link-copyURL Копировать
+									a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+										include /includes/svg/SvgIco/copy_reverse
+										.
+											Копировать
 				.MenuSection.MenuSection-companiesDossiers.Main_menuSection.hidden
 					.CategoryMenu.CategoryMenu-companiesDossiers
 						ul.CategoryMenu_menu

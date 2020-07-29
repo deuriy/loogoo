@@ -11,6 +11,16 @@ block content
 					include /includes/svg/SvgIco/arrow_left
 				.MobileHeader_titleWrapper
 					h1.MobileHeader_title.MobileHeader_title-company #{title}
+				.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
+					a(href="javascript:;").DotsMenu_icon
+						include /includes/svg/SvgIco/dots
+					.DotsMenu_wrapper
+						ul.DotsMenu_menu
+							li.DotsMenu_item
+								a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+									include /includes/svg/SvgIco/copy_reverse
+									.
+										Копировать
 			.CompanyInfo.CompanyInfo-company.Company_info.hidden-smPlus
 				.CompanyInfo_logo
 					img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyInfo_logoImg
@@ -394,3 +404,4 @@ block content
 	include /includes/blocks/ChangeInfoPopup
 	include /includes/blocks/CompanyPopupNotification
 	include /includes/blocks/BookmarkSettingsPopup
+	include /includes/blocks/LinkCopiedNotification

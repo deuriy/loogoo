@@ -1,144 +1,30 @@
 extends /layouts/main_layout_profile
 block vars
 	- var title = "Мои темы";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
 block content
 	.Container.Main_container
 		.Main_columns
 			.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Мои темы
+					.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
+						a(href="javascript:;").DotsMenu_icon
+							include /includes/svg/SvgIco/dots
+						.DotsMenu_wrapper
+							ul.DotsMenu_menu
+								li.DotsMenu_item
+									a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+										include /includes/svg/SvgIco/copy_reverse
+										.
+											Копировать
 				.Main_topicsHeader
 					include /includes/blocks/TopicsHeader
 				.Main_topicsFilter
 					include /includes/blocks/TopicsFilter
 				.QuestionsSection
-					//- .QuestionBlock.QuestionBlock-highlightedPost.WhiteSection.QuestionsSection_item
-					//- 	.QuestionBlock_header
-					//- 		.QuestionBlock_headerLeft
-					//- 			.UserPhoto.UserPhoto.UserPhoto-online.UserPhoto-glow.QuestionBlock_userPhoto
-					//- 				img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
-					//- 			.QuestionBlock_info
-					//- 				.QuestionBlock_infoTop
-					//- 					.QuestionBlock_userName Илья Вакуленко
-					//- 					a(href="javascript:;").Rating.QuestionBlock_rating
-					//- 						span.Rating_icon
-					//- 							include /includes/svg/user_icons/lightning_fill
-					//- 						span.Rating_number 30
-					//- 					.QuestionBlock_date ·  3 минуты назад
-					//- 				.Tags
-					//- 					ul.Tags_list
-					//- 						li.Tags_item
-					//- 							a(href="#").Tags_link # Семья, Дом, Дети
-					//- 						li.Tags_item
-					//- 							a(href="#").Tags_link # Он, она
-					//- 		.QuestionBlock_headerRight
-					//- 			.QuestionBlock_label Совет
-					//- 	h2.QuestionBlock_title
-					//- 		a(href="/topic_details_authorization.html") Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
-					//- 	.QuestionStatistics.QuestionStatistics-advanced
-					//- 		.QuestionStatistics_left
-					//- 			ul.QuestionStatistics_list
-					//- 				li.QuestionStatistics_item
-					//- 					include /includes/svg/SvgIco/icon_answer_large
-					//- 					.
-					//- 						(8)
-					//- 				li.QuestionStatistics_item
-					//- 					include /includes/svg/SvgIco/icon_readers
-					//- 					.
-					//- 						(30)
-					//- 				li.QuestionStatistics_item.QuestionStatistics_item-likes
-					//- 					include /includes/svg/SvgIco/icon_heart2
-					//- 					.
-					//- 						(30)
-					//- 		.QuestionStatistics_right
-					//- 			.QuestionStatistics_country
-					//- 				img(src="img/icon_pl.png", alt="")
-					//- 				.
-					//- 					Варшава
-					//- .QuestionBlock.QuestionBlock-highlightedPost.WhiteSection.QuestionsSection_item
-					//- 	.QuestionBlock_header
-					//- 		.QuestionBlock_headerLeft
-					//- 			.UserPhoto.UserPhoto.UserPhoto-online.UserPhoto-glow.QuestionBlock_userPhoto
-					//- 				img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
-					//- 			.QuestionBlock_info
-					//- 				.QuestionBlock_infoTop
-					//- 					.QuestionBlock_userName Илья Вакуленко
-					//- 					a(href="javascript:;").Rating.QuestionBlock_rating
-					//- 						span.Rating_icon
-					//- 							include /includes/svg/user_icons/lightning_fill
-					//- 						span.Rating_number 30
-					//- 					.QuestionBlock_date ·  3 минуты назад
-					//- 				.Tags
-					//- 					ul.Tags_list
-					//- 						li.Tags_item
-					//- 							a(href="#").Tags_link # Семья, Дом, Дети
-					//- 						li.Tags_item
-					//- 							a(href="#").Tags_link # Он, она
-					//- 		.QuestionBlock_headerRight
-					//- 			.QuestionBlock_label Совет
-					//- 	h2.QuestionBlock_title
-					//- 		a(href="/topic_details_authorization.html") Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
-					//- 	.QuestionStatistics.QuestionStatistics-advanced
-					//- 		.QuestionStatistics_left
-					//- 			ul.QuestionStatistics_list
-					//- 				li.QuestionStatistics_item
-					//- 					include /includes/svg/SvgIco/icon_answer_large
-					//- 					.
-					//- 						(8)
-					//- 				li.QuestionStatistics_item
-					//- 					include /includes/svg/SvgIco/icon_readers
-					//- 					.
-					//- 						(30)
-					//- 				li.QuestionStatistics_item.QuestionStatistics_item-likes
-					//- 					include /includes/svg/SvgIco/icon_heart2
-					//- 					.
-					//- 						(30)
-					//- 		.QuestionStatistics_right
-					//- 			.QuestionStatistics_country
-					//- 				img(src="img/icon_pl.png", alt="")
-					//- 				.
-					//- 					Варшава
-					//- .QuestionBlock.QuestionBlock-highlightedPost.WhiteSection.QuestionsSection_item
-					//- 	.QuestionBlock_header
-					//- 		.QuestionBlock_headerLeft
-					//- 			.UserPhoto.UserPhoto.UserPhoto-online.UserPhoto-glow.QuestionBlock_userPhoto
-					//- 				img(src="/img/avatar.png", alt="Илья Вакуленко").UserPhoto_img
-					//- 			.QuestionBlock_info
-					//- 				.QuestionBlock_infoTop
-					//- 					.QuestionBlock_userName Илья Вакуленко
-					//- 					a(href="javascript:;").Rating.QuestionBlock_rating
-					//- 						span.Rating_icon
-					//- 							include /includes/svg/user_icons/lightning_fill
-					//- 						span.Rating_number 30
-					//- 					.QuestionBlock_date ·  3 минуты назад
-					//- 				.Tags
-					//- 					ul.Tags_list
-					//- 						li.Tags_item
-					//- 							a(href="#").Tags_link # Семья, Дом, Дети
-					//- 						li.Tags_item
-					//- 							a(href="#").Tags_link # Он, она
-					//- 		.QuestionBlock_headerRight
-					//- 			.QuestionBlock_label Совет
-					//- 	h2.QuestionBlock_title
-					//- 		a(href="/topic_details_authorization.html") Брат встречается с девушкой, которую не одобряем я и мама. Как повлиять на него?
-					//- 	.QuestionStatistics.QuestionStatistics-advanced
-					//- 		.QuestionStatistics_left
-					//- 			ul.QuestionStatistics_list
-					//- 				li.QuestionStatistics_item
-					//- 					include /includes/svg/SvgIco/icon_answer_large
-					//- 					.
-					//- 						(8)
-					//- 				li.QuestionStatistics_item
-					//- 					include /includes/svg/SvgIco/icon_readers
-					//- 					.
-					//- 						(30)
-					//- 				li.QuestionStatistics_item.QuestionStatistics_item-likes
-					//- 					include /includes/svg/SvgIco/icon_heart2
-					//- 					.
-					//- 						(30)
-					//- 		.QuestionStatistics_right
-					//- 			.QuestionStatistics_country
-					//- 				img(src="img/icon_pl.png", alt="")
-					//- 				.
-					//- 					Варшава
 					.QuestionBlock.QuestionsSection_item
 						.QuestionBlock_header
 							.QuestionBlock_headerLeft
@@ -348,7 +234,6 @@ block content
 					h3.TopicCreationBlock_title Нужен ответ?
 					.TopicCreationBlock_text Просто создайте тему и вам ответят
 					a(href="#").BtnBlue.BtnBlue-light.BtnBlue-topicCreation Cоздать
-				//- include /includes/blocks/UserMenu
-				//- include /includes/blocks/ActionLinks-advanced
+	include /includes/blocks/LinkCopiedNotification
 block page_bottom
 	script(src="/js/topics_filter.js")

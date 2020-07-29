@@ -14,7 +14,17 @@ block content
 						a(href="javascript:;").DotsMenu_icon
 							include /includes/svg/SvgIco/dots
 						.DotsMenu_wrapper
-							a(href="#PopupShare", data-action="openMobilePopup").DotsMenu_link Поделиться
+							ul.DotsMenu_menu
+								li.DotsMenu_item
+									a(href="#PopupShare", data-action="openMobilePopup").DotsMenu_link
+										include /includes/svg/SvgIco/share_mob
+										.
+											Поделиться
+								li.DotsMenu_item
+									a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+										include /includes/svg/SvgIco/copy_reverse
+										.
+											Копировать
 				.Main_topicsFilter
 					form(action="", name="topics_filter")#TopicsFilter.Filter.Filter-results
 						.Search.Search-results.Filter_search
@@ -24,7 +34,6 @@ block content
 									include /includes/svg/SvgIco/close
 							button(type="submit").Search_icon.hidden-smPlus
 								include /includes/svg/SvgIco/search
-						//- .Filter_resultsText По запросу #[span.Black “lorem ipsum dolor sit amet”] найдено 4 записи
 						.Filter_resultsText По запросу #[span.Black “lorem ipsum dolor si”] найдено 4 записи
 						.Filter_main
 							.Filter_left
@@ -140,50 +149,10 @@ block content
 									li.StatIcon.StatIcons_item.StatIcons_item-country
 										img(src="/img/icon_pl.png", alt="Poland")
 										span.StatIcon_count.hidden-xs Warszawa
-					//- .QuestionBlock.QuestionBlock-search.QuestionsSection_item
-					//- 	.QuestionBlock_header
-					//- 		.QuestionBlock_headerLeft
-					//- 			.UserPhoto.UserPhoto-search.QuestionBlock_userPhoto
-					//- 				a(href="/topic_details.html")
-					//- 					img(src="/img/vladimir_petrov.png", alt="Владимир Петров").UserPhoto_img
-					//- 			.QuestionBlock_info
-					//- 				.QuestionBlock_nameAndRating
-					//- 					span.QuestionBlock_userName Владимир Петров
-					//- 					a(href="javascript:;").Rating.QuestionBlock_rating
-					//- 						span.Rating_icon
-					//- 							include /includes/svg/SvgIco/icon_star
-					//- 						span.Rating_number 17
-					//- 				.QuestionBlock_date сегодня в 7:05
-					//- 		.QuestionBlock_headerRight
-					//- 			.QuestionBlock_label Вопрос
-					//- 	h2.QuestionBlock_title.QuestionBlock_title-search
-					//- 		a(href="/topic_details_authorization.html") Lorem ipsum dolor sit amet
-					//- 	.QuestionBlock_description Dolor sit amet, consectetur adipisicing elit, sed do #[strong lorem ipsum] eiusmod tempor incididunt ut labore et dolor magna #[strong lorem ipsum] aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-					//- 	.StatIcons.QuestionBlock_statIcons
-					//- 		.StatIcons_left
-					//- 			ul.StatIcons_list
-					//- 				li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
-					//- 					a(href="javascript:;").Like.hidden-smMinus
-					//- 						include /includes/svg/SvgIco/like
-					//- 						span.Like_count 42
-					//- 					a(href="javascript:;", data-src="#LikePopup").OpenPopupLink.Like.hidden-md
-					//- 						include /includes/svg/SvgIco/like
-					//- 						span.Like_count 42
-					//- 				li.StatIcon.StatIcon-answer.StatIcons_item
-					//- 					a(href="/topic_details.html").StatIcon_link
-					//- 						include /includes/svg/SvgIco/answer
-					//- 						span.StatIcon_count 42
-					//- 		.StatIcons_right
-					//- 			ul.StatIcons_list
-					//- 				li.StatIcon.StatIcon-views.StatIcon-bordered.StatIcons_item.StatIcons_item-views
-					//- 					include /includes/svg/SvgIco/eye
-					//- 					span.StatIcon_count 110
-					//- 				li.StatIcon.StatIcons_item.StatIcons_item-country
-					//- 					img(src="/img/icon_pl.png", alt="Poland")
-					//- 					span.StatIcon_count Warszawa
 			.Aside.Main_aside
 				include /includes/blocks/TopicCreationBlock
 				include /includes/blocks/PopularTopics
 	include /includes/blocks/PopupShare
+	include /includes/blocks/LinkCopiedNotification
 block page_bottom
 	script(src="/js/filter.js")
