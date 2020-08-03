@@ -285,7 +285,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		let ownerAdditionFields = document.querySelector('#OwnerAddition .CompanySettings_fields');
 
 		if (!ownerAdditionFields) return;
-		// console.log(ownerAdditionFields);
 
 		if (windowWidth < 768) {
 			let ownerFormText = companySettingsForm.querySelectorAll('.CompanySettings_field-ownerAdditionDesktop .CompanySettings_formText');
@@ -384,55 +383,45 @@ document.addEventListener('DOMContentLoaded', function () {
 			let selectedOption = fieldItem.querySelector('.DropdownSelect .fs-option.selected');
 
 			let formText = fieldItem.querySelector('.CompanySettings_formText');
-			formText.disabled = selectedOption.dataset.value === 'none';
+			formText.disabled = selectedOption.dataset.value === '';
 
-			let fieldItemKey = fieldItem.dataset.fieldItemKey;
 			let checkboxWrapper = fieldItem.querySelector('.CompanySettings_checkboxWrapper');
+			let isLogin = checkboxWrapper.querySelector('[data-action="isLogin"]');
+			let isPublic = checkboxWrapper.querySelector('[data-action="isPublic"]');
 
 			switch (selectedOption.dataset.value) {
 				case 'viber':
 					checkPublicAccountUsage(fieldItem);
 
-					for (let child of checkboxWrapper.children) {
-						if (!child.classList.contains('Checkbox-publicAccount')) {
-							child.remove();
-						}
-					}
+					isLogin.checked = false;
+					isLogin.closest('.Checkbox-isLogin').classList.add('hidden');
+					isPublic.closest('.Checkbox-isPublic').classList.remove('hidden');
 
-					let usePublicAccount = checkboxWrapper.querySelector('[data-action="usePublicAccount"]');
-
-					if (!usePublicAccount) {
-						usePublicAccount = document.createElement('div');
-						usePublicAccount.className = 'Checkbox Checkbox-publicAccount Checkbox-largeCheck';
-						usePublicAccount.insertAdjacentHTML('beforeend', `<input class="Checkbox_input" type="checkbox" name="write_button[${fieldItemKey}][public_account]" value="yes" id="public_account${fieldItemKey}" data-action="usePublicAccount"><label class="Checkbox_label" for="public_account${fieldItemKey}">паблик-аккаунт</label>`);
-						checkboxWrapper.append(usePublicAccount);
-					}
-
+					document.getElementById('LoginExplanation').classList.add('hidden');
+					document.getElementById('URIExplanation').classList.add('hidden');
 					break;
 				case 'telegram':
 					checkLoginUsage(fieldItem);
 
-					for (let child of checkboxWrapper.children) {
-						if (!child.classList.contains('Checkbox-useLogin')) {
-							child.remove();
-						}
-					}
+					isPublic.checked = false;
+					isPublic.closest('.Checkbox-isPublic').classList.add('hidden');
+					isLogin.closest('.Checkbox-isLogin').classList.remove('hidden');
 
-					let useLogin = checkboxWrapper.querySelector('[data-action="useLogin"]');
-
-					if (!useLogin) {
-						useLogin = document.createElement('div');
-						useLogin.className = 'Checkbox Checkbox-useLogin Checkbox-largeCheck';
-						useLogin.insertAdjacentHTML('beforeend', `<input class="Checkbox_input" type="checkbox" name="write_button[${fieldItemKey}][use_login]" value="yes" id="use_login${fieldItemKey}" data-action="useLogin"><label class="Checkbox_label" for="use_login${fieldItemKey}">использовать логин</label>`);
-						checkboxWrapper.append(useLogin);
-					}
-
+					document.getElementById('URIExplanation').classList.add('hidden');
+					document.getElementById('LoginExplanation').classList.add('hidden');
 					break;
-				case 'none':
+				case '':
 				case 'whatsapp':
 					formText.placeholder = 'Телефон';
-					checkboxWrapper.innerHTML = '';
-					fieldItem.closest('.CompanySettings_field-writeBtn').querySelector('[data-src="explanation"]').classList.add('hidden');
+
+					isLogin.checked = false;
+					isLogin.closest('.Checkbox-isLogin').classList.add('hidden');
+
+					isPublic.checked = false;
+					isPublic.closest('.Checkbox-isPublic').classList.add('hidden');
+
+					document.getElementById('LoginExplanation').classList.add('hidden');
+					document.getElementById('URIExplanation').classList.add('hidden');
 					break;
 			}
 		});
@@ -440,57 +429,53 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function checkLoginUsage (fieldItem) {
 		let messengerValue = fieldItem.querySelector('[data-src="messengerValue"]');
-		let useLogin = fieldItem.querySelector('[data-action="useLogin"]');
+		let isLogin = fieldItem.querySelector('[data-action="isLogin"]');
 		let writeBtnField = fieldItem.closest('.CompanySettings_field-writeBtn');
-		let explanation = writeBtnField.querySelector('[data-src="explanation"]');
+		let loginExplanation = document.getElementById('LoginExplanation');
 
-		if (useLogin && useLogin.checked) {
+		if (isLogin && isLogin.checked) {
 			messengerValue.placeholder = 'Введите логин';
-			explanation.querySelector('.Remark_text').textContent = 'Логин - название вашего вашего public-аккаунта в системе Viber. Может состоять только из латиницы, цифр, тере и нижнего подчеркивания.';
-			explanation.classList.remove('hidden');
+			loginExplanation.classList.remove('hidden');
 		} else {
 			messengerValue.placeholder = 'Телефон';
-			explanation.classList.add('hidden');
+			loginExplanation.classList.add('hidden');
 		}
 	}
 
 	function checkPublicAccountUsage (fieldItem) {
 		let messengerValue = fieldItem.querySelector('[data-src="messengerValue"]');
-		let usePublicAccount = fieldItem.querySelector('[data-action="usePublicAccount"]');
+		let isPublic = fieldItem.querySelector('[data-action="isPublic"]');
 		let writeBtnField = fieldItem.closest('.CompanySettings_field-writeBtn');
-		let explanation = writeBtnField.querySelector('[data-src="explanation"]');
+		let uriExplanation = document.getElementById('URIExplanation');
 
-		if (usePublicAccount && usePublicAccount.checked) {
+		if (isPublic && isPublic.checked) {
 			messengerValue.placeholder = 'Введите URI';
-			explanation.querySelector('.Remark_text').textContent = 'URI - название (идентификатор) вашего вашего public-аккаунта в системе Viber. Может состоять только из латиницы, цифр, тере и нижнего подчеркивания.';
-			explanation.classList.remove('hidden');
+			uriExplanation.classList.remove('hidden');
 		} else {
 			messengerValue.placeholder = 'Телефон';
-			explanation.classList.add('hidden');
+			uriExplanation.classList.add('hidden');
 		}
 	}
 
 	// Use public account
 	document.addEventListener('change', function (e) {
-		let usePublicAccount = e.target.closest('[data-action="usePublicAccount"]');
+		let isPublic = e.target.closest('[data-action="isPublic"]');
 
-		if (!usePublicAccount) return;
+		if (!isPublic) return;
 
-		let fieldItem = usePublicAccount.closest('.CompanySettings_fieldItem');
+		let fieldItem = isPublic.closest('.CompanySettings_fieldItem');
 		checkPublicAccountUsage(fieldItem);
 	});
 
 	// Use login
 	document.addEventListener('change', function (e) {
-		let useLogin = e.target.closest('[data-action="useLogin"]');
+		let isLogin = e.target.closest('[data-action="isLogin"]');
 
-		if (!useLogin) return;
+		if (!isLogin) return;
 
-		let fieldItem = useLogin.closest('.CompanySettings_fieldItem');
+		let fieldItem = isLogin.closest('.CompanySettings_fieldItem');
 		checkLoginUsage(fieldItem);
 	});
-
-	checkWriteBtnField();
 
 	document.addEventListener('click', function (e) {
 		let writeBtnDropdownOption = e.target.closest('.DropdownSelect-writeBtn .fs-option');
@@ -540,7 +525,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let select = fieldItems.firstElementChild.querySelector('select').cloneNode(true);
 		select.classList.remove('hidden');
-		select.name = `write_button[${key}][messenger]`;
+		select.name = `write[${key}][messenger]`;
+		select.value = '';
 
 		let dropdownSelect = document.createElement('div');
 		dropdownSelect.className = 'DropdownSelect DropdownSelect-mobile DropdownSelect-writeBtn DropdownSelect DropdownSelect-companySettings CompanySettings_dropdownSelect CompanySettings_dropdownSelect-contactBtn';
@@ -549,9 +535,27 @@ document.addEventListener('DOMContentLoaded', function () {
 		let formText = fieldItems.firstElementChild.querySelector('.CompanySettings_formText').cloneNode(true);
 		formText.classList.add('CompanySettings_formText-contactBtn');
 		formText.classList.add('CompanySettings_formText-gutter');
-		formText.name = `write_button[${key}][messenger_value]`;
+		formText.name = `write[${key}][value]`;
+		formText.value = '';
 
 		let checkboxWrapper = fieldItems.querySelector('.CompanySettings_checkboxWrapper').cloneNode(true);
+
+		let isLogin = checkboxWrapper.querySelector('[data-action="isLogin"]');
+		isLogin.name = `write[${key}][is_login]`;
+		isLogin.id = `is_login${key}`;
+		isLogin.checked = false;
+
+		let isLoginLabel = isLogin.nextElementSibling;
+		isLoginLabel.htmlFor = `is_login${key}`;
+		
+		let isPublic = checkboxWrapper.querySelector('[data-action="isPublic"]');
+		isPublic.name = `write[${key}][is_public]`;
+		isPublic.id = `is_public${key}`;
+		isPublic.checked = false;
+
+		let isPublicLabel = isPublic.nextElementSibling;
+		console.log(isPublicLabel);
+		isPublicLabel.htmlFor = `is_public${key}`;
 
 		let newFieldItem = document.createElement('div');
 		newFieldItem.dataset.fieldItemKey = key;
@@ -578,10 +582,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!addCallBtn) return;
 
+		let key = randomString(4);
 		let fieldItems = addCallBtn.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
 		let newFieldItem = fieldItems.firstElementChild.cloneNode(true);
 		newFieldItem.classList.add('CompanySettings_fieldItem-additional');
 		fieldItems.append(newFieldItem);
+
+		let formText = newFieldItem.querySelector('.CompanySettings_formText-contactBtn');
+		formText.name = `call[${key}][phone]`;
+		formText.value = '';
 
 		newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem CompanySettings_removeFieldItem-callBtn"></a>');
 		newFieldItem.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_fieldError hidden"></div>');
@@ -974,6 +983,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	syncPostField();
 	checkExistingPosts();
 	changeDaysWeekDropdowns();
+	checkWriteBtnField();
 
 	window.addEventListener('resize', function () {
 		syncOwnerAdditionField();

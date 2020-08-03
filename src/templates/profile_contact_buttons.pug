@@ -34,23 +34,27 @@ block content
 								.CompanySettings_fieldItems
 									.CompanySettings_fieldItem.CompanySettings_fieldItem-writeBtn.CompanySettings_fieldItem-verticalCenter(data-field-item-key="0")
 										.DropdownSelect.DropdownSelect-writeBtn.DropdownSelect-mobile.DropdownSelect-companySettings.CompanySettings_dropdownSelect.CompanySettings_dropdownSelect-contactBtn
-											select(name="write_button[0][messenger]").DropdownSelect_select
-												option(value="none") Мессенджер
+											select(name="write[0][messenger]").DropdownSelect_select
+												option(value="") Мессенджер
 												option(value="viber") Viber
-												option(value="telegram") Telegram
+												option(value="telegram", selected) Telegram
 												option(value="whatsapp") Whatsapp
-										input(type="text", name="write_button[0][messenger_value]", placeholder="Телефон", data-src="messengerValue").CompanySettings_formText.CompanySettings_formText-gutter.CompanySettings_formText-contactBtn
+										input(type="text", name="write[0][value]", placeholder="Телефон", data-src="messengerValue").CompanySettings_formText.CompanySettings_formText-gutter.CompanySettings_formText-contactBtn
 										.CompanySettings_checkboxWrapper
-											//- .Checkbox.Checkbox-publicAccount.Checkbox-largeCheck
-											//- 	input(type="checkbox", name="write_button[0][public_account]", value="yes", id="public_account0").Checkbox_input
-											//- 	label(for="public_account0").Checkbox_label паблик-аккаунт
-											//- .Checkbox.Checkbox-useLogin.Checkbox-largeCheck
-											//- 	input(type="checkbox", name="write_button[0][use_login]", value="yes", id="use_login0").Checkbox_input
-											//- 	label(for="use_login0").Checkbox_label использовать логин
-								.Remark.Remark-explanation.CompanySettings_remark.CompanySettings_remark-explanation.hidden#Explanation(data-src="explanation")
+											.Checkbox.Checkbox-isPublic.Checkbox-largeCheck
+												input(type="checkbox", name="write[0][is_public]", value="1", id="is_public0", data-action="isPublic", checked).Checkbox_input
+												label(for="is_public0").Checkbox_label паблик-аккаунт
+											.Checkbox.Checkbox-isLogin.Checkbox-largeCheck
+												input(type="checkbox", name="write[0][is_login]", value="1", id="is_login0", data-action="isLogin", checked).Checkbox_input
+												label(for="is_login0").Checkbox_label использовать логин
+								.Remark.Remark-explanation.CompanySettings_remark.CompanySettings_remark-explanation.hidden#URIExplanation
 									a(href="javascript:;").Remark_close
 										include /includes/svg/icon_close_remark
 									.Remark_text URI - название (идентификатор) вашего вашего public-аккаунта в системе Viber. Может состоять только из латиницы, цифр, тере и нижнего подчеркивания.
+								.Remark.Remark-explanation.CompanySettings_remark.CompanySettings_remark-explanation.hidden#LoginExplanation
+									a(href="javascript:;").Remark_close
+										include /includes/svg/icon_close_remark
+									.Remark_text Логин - название вашего вашего public-аккаунта в системе Viber. Может состоять только из латиницы, цифр, тере и нижнего подчеркивания.
 								a(href="javascript:;").AddFieldItem.AddFieldItem-writeBtn
 									include /includes/svg/icon_add
 									.
@@ -61,7 +65,7 @@ block content
 							.CompanySettings_fieldContent
 								.CompanySettings_fieldItems
 									.CompanySettings_fieldItem.CompanySettings_fieldItem-verticalCenter
-										input(type="tel", name="call_button[0][public_account]", placeholder="Телефон").CompanySettings_formText.CompanySettings_formText-contactBtn
+										input(type="tel", name="call[0][phone]", placeholder="Телефон").CompanySettings_formText.CompanySettings_formText-contactBtn
 								a(href="javascript:;").AddFieldItem.AddFieldItem-callBtn
 									include /includes/svg/icon_add
 									.
