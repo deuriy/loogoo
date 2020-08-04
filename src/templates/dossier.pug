@@ -10,16 +10,8 @@ block content
 				a(href="#").BtnBack.MobileHeader_btnBack
 					include /includes/svg/SvgIco/arrow_left
 				h1.MobileHeader_title Досье
-				.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
-					a(href="javascript:;").DotsMenu_icon
-						include /includes/svg/SvgIco/dots
-					.DotsMenu_wrapper
-						ul.DotsMenu_menu
-							li.DotsMenu_item
-								a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
-									include /includes/svg/SvgIco/copy_reverse
-									.
-										Копировать
+				a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+					include /includes/svg/SvgIco/dots
 		.DossierSection
 			.Container.Container-dossierSection.DossierSection_container
 				.DossierSection_left
@@ -143,4 +135,5 @@ block content
 							p 15 апреля состоится официальный запуск раздела Досье, в котором уже будет находится информация о сотнях разных вакансиях и компаниях, которые работают в сфере трудоустройства. После официального открытия раздела Досье, вы сможете искать, просматривать, создавать и добавлять информацию о любой работе, компании, посреднике или работодателе в полностью автоматическом режиме.
 							p До этого момента (до 15 апреля) вся информация в разделе Досье будет добавляться вручную. Поэтому, если вы работали за границей или обращались за трудоустройством - поделитесь с нами вашим опытом!
 							p #[span.Semibold Присоединяйтесь к порталу INFOZA, приглашайте друзей, увеличивайте свой рейтинг и изменяйте мир к лучшему!]
+	include /includes/blocks/PopupShare
 	include /includes/blocks/LinkCopiedNotification

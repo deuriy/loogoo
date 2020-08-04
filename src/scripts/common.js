@@ -1021,9 +1021,9 @@ document.addEventListener("DOMContentLoaded", function () {
 			copyLink.classList.remove('ActionMenu_link-copied');
 			copyLinkInner.textContent = 'Скопировать ссылку';
 
-			let popupShare = document.getElementById('PopupShare');
-			popupShare.classList.remove('MobilePopup-opened');
-			popupShare.querySelector('.Overlay').classList.remove('Overlay-visible');
+			let openedPopup = document.querySelector('.MobilePopup-opened');
+			openedPopup.classList.remove('MobilePopup-opened');
+			openedPopup.querySelector('.Overlay').classList.remove('Overlay-visible');
 		}, 800);
 	});
 
@@ -1101,6 +1101,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		mobilePopup.classList.add('MobilePopup-opened');
 		mobilePopup.querySelector('.Overlay').classList.add('Overlay-visible');
+
+		let mobilePopupTitle = mobilePopupLink.dataset.mobilePopupTitle;
+		if (mobilePopupTitle !== undefined) {
+			mobilePopup.querySelector('.MobilePopup_title').textContent = mobilePopupTitle;
+		}
 
 		e.preventDefault();
 	});

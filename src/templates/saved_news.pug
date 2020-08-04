@@ -11,16 +11,8 @@ block content
 					a(href="#").BtnBack.MobileHeader_btnBack
 						include /includes/svg/SvgIco/arrow_left
 					h1.MobileHeader_title #{title}
-					.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
-						a(href="javascript:;").DotsMenu_icon
-							include /includes/svg/SvgIco/dots
-						.DotsMenu_wrapper
-							ul.DotsMenu_menu
-								li.DotsMenu_item
-									a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
-										include /includes/svg/SvgIco/copy_reverse
-										.
-											Копировать
+					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
 				include /includes/blocks/MenuSectionSave
 				.NewsBlocks.NewsBlocks-saved
 					.NewsBlock.NewsBlock-saved.NewsBlocks_item
@@ -110,4 +102,5 @@ block content
 			.Aside.Main_aside.hidden-xs
 				include /includes/blocks/ProfileMenu
 	include /includes/blocks/LikePopup
+	include /includes/blocks/PopupShare
 	include /includes/blocks/LinkCopiedNotification

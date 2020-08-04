@@ -8,21 +8,23 @@ block content
 		a(href="#").BtnBack.MobileHeader_btnBack
 			include /includes/svg/SvgIco/arrow_left
 		h1.MobileHeader_title О проекте
-		.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
-			a(href="javascript:;").DotsMenu_icon
-				include /includes/svg/SvgIco/dots
-			.DotsMenu_wrapper
-				ul.DotsMenu_menu
-					li.DotsMenu_item
-						a(href="#PopupShare", data-action="openMobilePopup").DotsMenu_link
-							include /includes/svg/SvgIco/share_mob
-							.
-								Поделиться
-					li.DotsMenu_item
-						a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
-							include /includes/svg/SvgIco/copy_reverse
-							.
-								Копировать
+		a(href="#PopupShare", data-action="openMobilePopup", data-mobile-popup-title="О проекте").DotsIcon.MobileHeader_dotsIcon
+			include /includes/svg/SvgIco/dots
+		//- .DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
+		//- 	a(href="javascript:;").DotsIcon.DotsMenu_icon
+		//- 		include /includes/svg/SvgIco/dots
+		//- 	.DotsMenu_wrapper
+		//- 		ul.DotsMenu_menu
+		//- 			li.DotsMenu_item
+		//- 				a(href="#PopupShare", data-action="openMobilePopup").DotsMenu_link
+		//- 					include /includes/svg/SvgIco/share_mob
+		//- 					.
+		//- 						Поделиться
+		//- 			li.DotsMenu_item
+		//- 				a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+		//- 					include /includes/svg/SvgIco/copy_reverse
+		//- 					.
+		//- 						Копировать
 	.Main_container
 		.SectionAbout
 			.Container.SectionAbout_container

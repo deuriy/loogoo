@@ -10,16 +10,8 @@ block content
 				.MobileHeader.MobileHeader-companiesDossiers.hidden-smPlus
 					a(href="#PopupMenu").SelectionLink.PopupMenuLink.hidden-smPlus Работодатели
 					h1.MobileHeader_title Досье
-					.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
-						a(href="javascript:;").DotsMenu_icon
-							include /includes/svg/SvgIco/dots
-						.DotsMenu_wrapper
-							ul.DotsMenu_menu
-								li.DotsMenu_item
-									a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
-										include /includes/svg/SvgIco/copy_reverse
-										.
-											Копировать
+					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
 				.MenuSection.MenuSection-companiesDossiers.Main_menuSection.hidden
 					.CategoryMenu.CategoryMenu-companiesDossiers
 						ul.CategoryMenu_menu
@@ -544,7 +536,8 @@ block content
 					a(href="javascript:;").PopupMenu_link.active Работодатели
 				li.PopupMenu_item
 					a(href="javascript:;").PopupMenu_link Вакансии
+	include /includes/blocks/CompanyAdding
+	include /includes/blocks/PopupShare
 	include /includes/blocks/LinkCopiedNotification
 block page_bottom
-	include /includes/blocks/CompanyAdding
 	script(src="/js/companies_dossiers.js")

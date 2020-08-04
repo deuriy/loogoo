@@ -11,16 +11,8 @@ block content
 					a(href="#").BtnBack.MobileHeader_btnBack
 						include /includes/svg/SvgIco/arrow_left
 					h1.MobileHeader_title Sony Corporation
-					.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
-						a(href="javascript:;").DotsMenu_icon
-							include /includes/svg/SvgIco/dots
-						.DotsMenu_wrapper
-							ul.DotsMenu_menu
-								li.DotsMenu_item
-									a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
-										include /includes/svg/SvgIco/copy_reverse
-										.
-											Копировать
+					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
 				include /includes/blocks/MenuSectionCompanySettings
 				form(action="#").CompanySettings
 					h2.CompanySettings_title.hidden-xs Основная информация
@@ -94,6 +86,7 @@ block content
 						.CompanyLink_text на страницу компании
 				include /includes/blocks/SettingsMenu
 	include /includes/blocks/LinkCopiedNotification
-block page_bottom
 	include /includes/blocks/AltAddressAddition
+	include /includes/blocks/PopupShare
+block page_bottom
 	script(src="/js/company_settings.js")

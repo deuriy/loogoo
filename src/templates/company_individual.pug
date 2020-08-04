@@ -13,6 +13,8 @@ block content
 					h1.MobileHeader_title.MobileHeader_title-company Sony Corporation
 				a(href="#ContactPopupMenu").PopupMenuLink.MobileHeader_phoneIcon
 					include /includes/svg/contacts/phone
+				a(href="#PopupShare", data-action="openMobilePopup", data-mobile-popup-title="Sony Corporation").DotsIcon.MobileHeader_dotsIcon
+					include /includes/svg/SvgIco/dots
 			.CompanyInfo.CompanyInfo-company.Company_info.hidden-smPlus
 				.CompanyInfo_logo
 					img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyInfo_logoImg
@@ -112,5 +114,6 @@ block content
 				a(href="/register.html").BtnGrey.BtnGrey-mobilePopup.MobilePopup_btn Регистрация
 	include /includes/blocks/CompanyPopupNotification
 	include /includes/blocks/BookmarkSettingsPopup
+	include /includes/blocks/PopupShare
 block page_bottom
 	script(src="/js/company.js")

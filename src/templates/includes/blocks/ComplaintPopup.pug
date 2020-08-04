@@ -8,12 +8,40 @@
 			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
 				include /includes/svg/icon_close
 		form(action="#", name="complaint_company").CompanySettings#CompleteArticleForm
-			.CompanySettings_fields
-				.CompanySettings_field
-					.CompanySettings_fieldContent
-						.CompanySettings_fieldItems
-							.CompanySettings_fieldItem
-								textarea(name="complaint_text", id="complaint_text").FormTextarea.FormTextarea-companySettings
+			.CheckboxList.CheckboxList-radio.CompanySettings_checkboxList
+				.Checkbox.Checkbox-radio.CheckboxList_item.hidden-xxs
+					input(type="radio", name="complaint_reason", id="spam2", value="spam2" checked).Checkbox_input
+					label(for="spam2").Checkbox_label Нежелательная реклама или спам
+				.Checkbox.Checkbox-radio.CheckboxList_item.hidden-xxsPlus
+					input(type="radio", name="complaint_reason", id="spam_mob2", value="spam2" checked).Checkbox_input
+					label(for="spam_mob2").Checkbox_label Реклама или спам
+				.Checkbox.Checkbox-radio.CheckboxList_item
+					input(type="radio", name="complaint_reason", id="insults_or_threats_mob", value="insults_or_threats_mob").Checkbox_input
+					label(for="insults_or_threats_mob").Checkbox_label Оскорбления или угрозы
+				.Checkbox.Checkbox-radio.CheckboxList_item
+					input(type="radio", name="complaint_reason", id="pornography_mob", value="pornography_mob").Checkbox_input
+					label(for="pornography_mob").Checkbox_label Порнография
+				.Checkbox.Checkbox-radio.CheckboxList_item
+					input(type="radio", name="complaint_reason", id="drug_propaganda_mob", value="drug_propaganda_mob").Checkbox_input
+					label(for="drug_propaganda_mob").Checkbox_label Пропаганда наркотиков
+				.Checkbox.Checkbox-radio.CheckboxList_item
+					input(type="radio", name="complaint_reason", id="weapons_sale_mob", value="weapons_sale_mob").Checkbox_input
+					label(for="weapons_sale_mob").Checkbox_label Продажа оружия
+				.Checkbox.Checkbox-radio.CheckboxList_item
+					input(type="radio", name="complaint_reason", id="violence_mob", value="violence_mob").Checkbox_input
+					label(for="violence_mob").Checkbox_label Насилие
+				.Checkbox.Checkbox-radio.CheckboxList_item
+					input(type="radio", name="complaint_reason", id="animal_abuse_mob", value="animal_abuse_mob").Checkbox_input
+					label(for="animal_abuse_mob").Checkbox_label Жестокое обращение с животными
+				.Checkbox.Checkbox-radio.CheckboxList_item
+					input(type="radio", name="complaint_reason", id="misleading_mob", value="misleading_mob").Checkbox_input
+					label(for="misleading_mob").Checkbox_label Введение в заблуждение
+				.Checkbox.Checkbox-radio.CheckboxList_item
+					input(type="radio", name="complaint_reason", id="fraud_mob", value="fraud_mob").Checkbox_input
+					label(for="fraud_mob").Checkbox_label Мошенничество
+				.Checkbox.Checkbox-radio.CheckboxList_item
+					input(type="radio", name="complaint_reason", id="extremism_mob", value="extremism_mob").Checkbox_input
+					label(for="extremism_mob").Checkbox_label Экстремизм
 			.MobilePopup_btnWrapper
 				a(href="#ComplaintSubmitPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-mobilePopupLogin.MobilePopup_btn Отправить
 				a(href="javascript:;", data-action="closeMobilePopup").BtnGrey.BtnGrey-mobilePopup.MobilePopup_btn Отменить

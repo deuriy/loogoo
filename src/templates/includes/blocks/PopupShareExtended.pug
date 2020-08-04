@@ -1,9 +1,9 @@
-.MobilePopup#ExtraMenuPopup
+.MobilePopup#PopupShare
 	.Overlay
 	.MobilePopup_wrapper
 		.MobilePopup_header
-			h3.MobilePopup_title Дополнительно
-			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+			h3.MobilePopup_title Поделиться
+			a(href="javascript:;").MobilePopup_close
 				include /includes/svg/icon_close
 		.ActionMenu
 			ul.ActionMenu_menu
@@ -15,10 +15,6 @@
 					a(href="javascript:;").ActionMenu_link.ActionMenu_link-copy
 						include /includes/svg/SvgIco/copy_reverse
 						span.ActionMenu_linkInner Скопировать ссылку
-				li.ActionMenu_item
-					a(href="#ChangeInfoPopup", data-action="openMobilePopup").ActionMenu_link
-						include /includes/svg/SvgIco/company_edit
-						span.ActionMenu_linkInner Изменить информацию
 				li.ActionMenu_item
 					a(href="#ComplaintPopup", data-action="openMobilePopup").ActionMenu_link
 						include /includes/svg/SvgIco/warning

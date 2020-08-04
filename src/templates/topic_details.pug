@@ -10,16 +10,8 @@ block content
 					a(href="#").BtnBack.MobileHeader_btnBack
 						include /includes/svg/SvgIco/arrow_left
 					h1.MobileHeader_title Просмотр темы
-					.DotsMenu.DotsMenu-share.MobileHeader_dotsMenu
-						a(href="javascript:;").DotsMenu_icon
-							include /includes/svg/SvgIco/dots
-						.DotsMenu_wrapper
-							ul.DotsMenu_menu
-								li.DotsMenu_item
-									a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
-										include /includes/svg/SvgIco/copy_reverse
-										.
-											Копировать
+					a(href="#PopupShare", data-action="openMobilePopup", data-mobile-popup-title="Просмотр темы").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
 				.TopicDetails
 					.QuestionBlock.QuestionBlock-full.TopicDetails_questionBlock
 						.QuestionBlock_header
@@ -44,9 +36,9 @@ block content
 												include /includes/svg/user_icons/lightning_fill
 											span.Rating_number 17
 									.QuestionBlock_date сегодня в 7:05
-							.QuestionBlock_headerRight
+							.QuestionBlock_headerRight.hidden-xs
 								.DotsMenu
-									a(href="javascript:;").DotsMenu_icon
+									a(href="javascript:;").DotsIcon.DotsMenu_icon
 										include /includes/svg/SvgIco/dots
 									.DotsMenu_wrapper
 										a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link
@@ -234,7 +226,7 @@ block content
 												.Comment_date сегодня в 7:05
 										.Comment_headerRight
 											.DotsMenu.DotsMenu-comment
-												a(href="javascript:;").DotsMenu_icon
+												a(href="javascript:;").DotsIcon.DotsMenu_icon
 													include /includes/svg/SvgIco/dots
 												.DotsMenu_wrapper
 													ul.DotsMenu_menu
@@ -293,7 +285,7 @@ block content
 																	Анна Сергеевна
 												.Comment_headerRight
 													.DotsMenu
-														a(href="javascript:;").DotsMenu_icon
+														a(href="javascript:;").DotsIcon.DotsMenu_icon
 															include /includes/svg/SvgIco/dots
 														.DotsMenu_wrapper.DotsMenu_wrapper-complaint
 															a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link.DotsMenu_link-complaint.CommentComplaintLink
@@ -333,7 +325,7 @@ block content
 																	Анна Сергеевна
 												.Comment_headerRight
 													.DotsMenu
-														a(href="javascript:;").DotsMenu_icon
+														a(href="javascript:;").DotsIcon.DotsMenu_icon
 															include /includes/svg/SvgIco/dots
 														.DotsMenu_wrapper
 															a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link.CommentComplaintLink
@@ -373,7 +365,7 @@ block content
 												.Comment_date.Comment_date-highlightedName сегодня в 7:05
 										.Comment_headerRight
 											.DotsMenu
-												a(href="javascript:;").DotsMenu_icon
+												a(href="javascript:;").DotsIcon.DotsMenu_icon
 													include /includes/svg/SvgIco/dots
 												.DotsMenu_wrapper
 													a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link.CommentComplaintLink
@@ -418,7 +410,7 @@ block content
 												.Comment_date сегодня в 7:05
 										.Comment_headerRight
 											.DotsMenu
-												a(href="javascript:;").DotsMenu_icon
+												a(href="javascript:;").DotsIcon.DotsMenu_icon
 													include /includes/svg/SvgIco/dots
 												.DotsMenu_wrapper
 													a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link.CommentComplaintLink
@@ -437,9 +429,10 @@ block content
 			.Aside.Main_aside
 				include /includes/blocks/TopicCreationBlock
 				include /includes/blocks/PopularTopics
-		include /includes/blocks/ComplaintFormPopup
-		include /includes/blocks/TopicLikePopup
-		include /includes/blocks/PopupShare
-		include /includes/blocks/LinkCopiedNotification
+	include /includes/blocks/ComplaintFormPopup
+	include /includes/blocks/TopicLikePopup
+	include /includes/blocks/PopupShareExtended
+	include /includes/blocks/LinkCopiedNotification
+	include /includes/blocks/ComplaintPopup
 block page_bottom
 	script(src="/js/topic_details.js")

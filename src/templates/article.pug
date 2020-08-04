@@ -35,7 +35,7 @@ block content
 								.Share
 									a(href="javascript:;").Share_icon.hidden-xs
 										include /includes/svg/SvgIco/share
-									a(href="#PopupShare", data-action="openMobilePopup").Share_mobIcon.hidden-smPlus
+									a(href="#PopupShare", data-action="openMobilePopup", data-mobile-popup-title="Статья").Share_mobIcon.hidden-smPlus
 										include /includes/svg/SvgIco/share
 									.Share_wrapper
 										.Share_title Поделиться:
@@ -66,8 +66,8 @@ block content
 											include /includes/svg/SvgIco/bookmark
 					.Article_btnWrapper.hidden-smPlus
 						a(href="#CompleteArticlePopup", data-action="openMobilePopup").BtnGrey.BtnGrey-completeArticle.Article_leaveNote Дополнить статью
+	include /includes/blocks/LeaveNote
 	include /includes/blocks/CompleteArticlePopup
 	include /includes/blocks/PopupShare
 block page_bottom
-	include /includes/blocks/LeaveNote
 	script(src="/js/article.js")
