@@ -1,13 +1,42 @@
 .JobSpec
 	display flex
 	align-items flex-start
-	color #404040
-	
-	&_icon
-		width 12px
-		margin-top 3px
-		margin-right 10px
+	color $black
 	
 	&_name
+		font-weight 600
+		font-size 15px
+		flex-basis 200px
+	
+	&_wrapper
+		display flex
+		align-items center
+		
+		@media $xs
+			align-items flex-start
+	
+	&_icon
+		flex-shrink 0
+		width 14px
+		margin-top 3px
+		margin-right 9px
+		
+		&-check
+			margin-top 0
+	
+	&_value
 		font-size 15px
 		line-height 1.467
+	
+	&_utilities
+		color #404040
+	
+	&-extended
+		align-items center
+		color $black
+		
+		.JobSpec_icon
+			@media $smPlus
+				width 14px
+				margin-top 0
+				margin-right 6px

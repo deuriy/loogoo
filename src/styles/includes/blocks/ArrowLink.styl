@@ -40,3 +40,29 @@
 		
 		&:after
 			transform rotate(90deg)
+	
+	&-left
+		&:before
+			content ""
+			display inline-block
+			margin-right 4px
+			margin-left -5px
+			border 4px solid transparent
+			border-right-color $blue
+			vertical-align middle
+			
+		&:after
+			display none
+	
+	&-vacancies
+		font-weight 500
+		font-size 13px
+		
+		&:after
+			content ""
+			display inline-block
+			border 3px solid transparent
+			border-top-color $blue
+			vertical-align middle
+			background none
+			margin-top 5px

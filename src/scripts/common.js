@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		closeExisting: true
 	});
 
+	$('[data-src="#ComplaintFormPopup"]').fancybox({
+		touch: false
+	});
+
 	// FSelect
 	$('.Select-filterBlock').fSelect({
 		showSearch: false
@@ -970,6 +974,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (shareWrapper.classList.contains('Share_wrapper-opened') && !shareWrapper.contains(e.target) && !shareIcon.contains(e.target)) {
 			shareWrapper.classList.remove('Share_wrapper-opened');
 		}
+
+		console.log(e.target);
 	});
 
 	document.addEventListener('click', function (e) {
@@ -989,10 +995,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		}, 3000);
 	});
 
-	let copyLinkInput = document.querySelector('.CopyLink_input');
-	if (copyLinkInput) {
-		copyLinkInput.value = location.href;
-	}
+	let copyLinkInput = document.querySelectorAll('.CopyLink_input');
+	copyLinkInput.forEach(input => input.value = location.href);
 
 	document.addEventListener('click', function (e) {
 		let copyLink = e.target.closest('.ActionMenu_link-copy');

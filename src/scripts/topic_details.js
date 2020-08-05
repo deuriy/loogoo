@@ -113,10 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
-	$('[data-src="#ComplaintFormPopup"]').fancybox({
-		touch: false
-	});
-
 	// Show all images
 	document.addEventListener('click', function (e) {
 		let imagesLinkOther = e.target.closest('.Images_link-other');

@@ -45,8 +45,11 @@ block content
 				h1.Company_title.hidden-xs Sony Corporation
 				include /includes/blocks/MenuSectionCompany
 				.JobList.Company_jobList
+					a(href="#").ArrowLink.ArrowLink-vacancies.JobList_allCountries.hidden-xs Все страны
+					a(href="#CountriesPopupMenu").SelectionLink.JobList_selectionLink.PopupMenuLink.hidden-smPlus Все страны
 					.Job.JobList_item
-						h2.Job_title Антикоррозийная обработка металлических деталей
+						h2.Job_title
+							a(href="/company_vacancy.html") Антикоррозийная обработка металлических деталей
 						.Job_basicInfo
 							.Job_basicInfoLeft
 								.Job_salaries.hidden-smPlus
@@ -54,27 +57,29 @@ block content
 										.Salary.Job_salary 33 000 – 40 000 PLN
 										.SalaryPerHour 128.5 PLN / час
 								.Job_imgWrapper
-									img(src="/img/vacancy_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-xs
-									img(src="/img/vacancy_mob_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-smPlus
+									a(href="/company_vacancy.html")
+										img(src="/img/vacancy_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-xs
+									a(href="/company_vacancy.html")
+										img(src="/img/vacancy_mob_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-smPlus
 							.Job_basicInfoRight
 								.Job_basicInfoWrap
 									.JobSpecs.Job_specs
-										.JobSpec.JobSpecs_item.Green2
-											.JobSpec_icon
-												include /includes/svg/vacancy/ok
-											.JobSpec_name Вакансия бесплатная
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon.JobSpec_icon-check.Green2
+												include /includes/svg/SvgIco/success
+											.JobSpec_value.Green2 Вакансия бесплатная
 										.JobSpec.JobSpecs_item
 											.JobSpec_icon
-												include /includes/svg/vacancy/location
-											.JobSpec_name Вроцлав, Рава-Мазовецка, Гожув, Катовице
+												img(src="/img/icon_poland.jpg", alt="Poland")
+											.JobSpec_value Вроцлав, Рава-Мазовецка, Гожув, Катовице
 										.JobSpec.JobSpecs_item
 											.JobSpec_icon
 												include /includes/svg/vacancy/clock
-											.JobSpec_name Пн-Сб, 10-12 ч в день.
+											.JobSpec_value Пн-Сб, 10-12 ч в день.
 										.JobSpec.JobSpecs_item
 											.JobSpec_icon
 												include /includes/svg/vacancy/house
-											.JobSpec_name Бесплатное, 100-250 зл/мес
+											.JobSpec_value Бесплатное, 100-250 зл/мес #[br] #[span.JobSpec_utilities коммунальные услуги]
 									.Job_salaries.hidden-xs
 										.Job_salariesWrapper
 											.Salary.Job_salary 33 000 – 40 000 PLN
@@ -82,9 +87,10 @@ block content
 						.Job_description
 							p Предприятие занимается антикоррозийной обработкой различного типа металлических деталей и конструкций. Работа заключается в очистке деталей и завешивания на траверсе.
 						.Job_viewBtnWrapper
-							a(href="#").BtnBlue.BtnBlue-vacancy.Job_viewBtn Посмотреть вакансию
+							a(href="/company_vacancy.html").BtnBlue.BtnBlue-job.Job_viewBtn Посмотреть вакансию
 					.Job.JobList_item
-						h2.Job_title Антикоррозийная обработка металлических деталей
+						h2.Job_title
+							a(href="/company_vacancy.html") Антикоррозийная обработка металлических деталей
 						.Job_basicInfo
 							.Job_basicInfoLeft
 								.Job_salaries.hidden-smPlus
@@ -92,27 +98,29 @@ block content
 										.Salary.Job_salary 33 000 – 40 000 PLN
 										.SalaryPerHour 128.5 PLN / час
 								.Job_imgWrapper
-									img(src="/img/vacancy_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-xs
-									img(src="/img/vacancy_mob_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-smPlus
+									a(href="/company_vacancy.html")
+										img(src="/img/vacancy_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-xs
+									a(href="/company_vacancy.html")
+										img(src="/img/vacancy_mob_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-smPlus
 							.Job_basicInfoRight
 								.Job_basicInfoWrap
 									.JobSpecs.Job_specs
-										.JobSpec.JobSpecs_item.Green2
-											.JobSpec_icon
-												include /includes/svg/vacancy/ok
-											.JobSpec_name Вакансия бесплатная
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon.JobSpec_icon-check.Green2
+												include /includes/svg/SvgIco/success
+											.JobSpec_value.Green2 Вакансия бесплатная
 										.JobSpec.JobSpecs_item
 											.JobSpec_icon
-												include /includes/svg/vacancy/location
-											.JobSpec_name Вроцлав, Рава-Мазовецка, Гожув, Катовице
+												img(src="/img/icon_poland.jpg", alt="Poland")
+											.JobSpec_value Вроцлав, Рава-Мазовецка, Гожув, Катовице
 										.JobSpec.JobSpecs_item
 											.JobSpec_icon
 												include /includes/svg/vacancy/clock
-											.JobSpec_name Пн-Сб, 10-12 ч в день.
+											.JobSpec_value Пн-Сб, 10-12 ч в день.
 										.JobSpec.JobSpecs_item
 											.JobSpec_icon
 												include /includes/svg/vacancy/house
-											.JobSpec_name Бесплатное, 100-250 зл/мес
+											.JobSpec_value Бесплатное, 100-250 зл/мес #[br] #[span.JobSpec_utilities коммунальные услуги]
 									.Job_salaries.hidden-xs
 										.Job_salariesWrapper
 											.Salary.Job_salary 33 000 – 40 000 PLN
@@ -120,9 +128,10 @@ block content
 						.Job_description
 							p Предприятие занимается антикоррозийной обработкой различного типа металлических деталей и конструкций. Работа заключается в очистке деталей и завешивания на траверсе.
 						.Job_viewBtnWrapper
-							a(href="#").BtnBlue.BtnBlue-vacancy.Job_viewBtn Посмотреть вакансию
+							a(href="/company_vacancy.html").BtnBlue.BtnBlue-job.Job_viewBtn Посмотреть вакансию
 					.Job.JobList_item
-						h2.Job_title Антикоррозийная обработка металлических деталей
+						h2.Job_title
+							a(href="/company_vacancy.html") Антикоррозийная обработка металлических деталей
 						.Job_basicInfo
 							.Job_basicInfoLeft
 								.Job_salaries.hidden-smPlus
@@ -130,27 +139,29 @@ block content
 										.Salary.Job_salary 33 000 – 40 000 PLN
 										.SalaryPerHour 128.5 PLN / час
 								.Job_imgWrapper
-									img(src="/img/vacancy_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-xs
-									img(src="/img/vacancy_mob_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-smPlus
+									a(href="/company_vacancy.html")
+										img(src="/img/vacancy_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-xs
+									a(href="/company_vacancy.html")
+										img(src="/img/vacancy_mob_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-smPlus
 							.Job_basicInfoRight
 								.Job_basicInfoWrap
 									.JobSpecs.Job_specs
-										.JobSpec.JobSpecs_item.Green2
-											.JobSpec_icon
-												include /includes/svg/vacancy/ok
-											.JobSpec_name Вакансия бесплатная
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon.JobSpec_icon-check.Green2
+												include /includes/svg/SvgIco/success
+											.JobSpec_value.Green2 Вакансия бесплатная
 										.JobSpec.JobSpecs_item
 											.JobSpec_icon
-												include /includes/svg/vacancy/location
-											.JobSpec_name Вроцлав, Рава-Мазовецка, Гожув, Катовице
+												img(src="/img/icon_poland.jpg", alt="Poland")
+											.JobSpec_value Вроцлав, Рава-Мазовецка, Гожув, Катовице
 										.JobSpec.JobSpecs_item
 											.JobSpec_icon
 												include /includes/svg/vacancy/clock
-											.JobSpec_name Пн-Сб, 10-12 ч в день.
+											.JobSpec_value Пн-Сб, 10-12 ч в день.
 										.JobSpec.JobSpecs_item
 											.JobSpec_icon
 												include /includes/svg/vacancy/house
-											.JobSpec_name Бесплатное, 100-250 зл/мес
+											.JobSpec_value Бесплатное, 100-250 зл/мес #[br] #[span.JobSpec_utilities коммунальные услуги]
 									.Job_salaries.hidden-xs
 										.Job_salariesWrapper
 											.Salary.Job_salary 33 000 – 40 000 PLN
@@ -158,7 +169,7 @@ block content
 						.Job_description
 							p Предприятие занимается антикоррозийной обработкой различного типа металлических деталей и конструкций. Работа заключается в очистке деталей и завешивания на траверсе.
 						.Job_viewBtnWrapper
-							a(href="#").BtnBlue.BtnBlue-vacancy.Job_viewBtn Посмотреть вакансию
+							a(href="/company_vacancy.html").BtnBlue.BtnBlue-job.Job_viewBtn Посмотреть вакансию
 	include /includes/blocks/ContactPopupMenu
 	include /includes/blocks/WriteMessagePopup
 	include /includes/blocks/CallPopup
@@ -167,5 +178,21 @@ block content
 	include /includes/blocks/CompanyPopupNotification
 	include /includes/blocks/BookmarkSettingsPopup
 	include /includes/blocks/PopupShare
+	.PopupMenu.PopupMenu-paddingLeft#CountriesPopupMenu
+		.PopupMenu_overlay
+		.PopupMenu_wrapper
+			ul.PopupMenu_menu
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link.active Все страны
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Украина
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Россия
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Польша
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Беларусь
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Казахстан
 block page_bottom
 	script(src="/js/company.js")

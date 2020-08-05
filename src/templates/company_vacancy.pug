@@ -31,7 +31,7 @@ block content
 						span.Rating_max / 10
 						span.Rating_label (55 отзывов)
 			.Company_left.hidden-xs
-				.CompanyPhoto
+				.CompanyPhoto.Company_photo
 					img(src="/img/company_photo.jpg", alt="Company photo").CompanyPhoto_img
 					.Rating.Rating-company.Rating-center.CompanyPhoto_rating
 						span.Rating_icon
@@ -44,121 +44,133 @@ block content
 			.Company_right
 				h1.Company_title.hidden-xs Sony Corporation
 				include /includes/blocks/MenuSectionCompany
-				.JobList.Company_jobList
-					.Job.JobList_item
-						h2.Job_title Антикоррозийная обработка металлических деталей
-						.Job_basicInfo
-							.Job_basicInfoLeft
-								.Job_salaries.hidden-smPlus
-									.Job_salariesWrapper
-										.Salary.Job_salary 33 000 – 40 000 PLN
-										.SalaryPerHour 128.5 PLN / час
-								.Job_imgWrapper
-									img(src="/img/vacancy_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-xs
-									img(src="/img/vacancy_mob_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-smPlus
-							.Job_basicInfoRight
-								.Job_basicInfoWrap
-									.JobSpecs.Job_specs
-										.JobSpec.JobSpecs_item.Green2
-											.JobSpec_icon
-												include /includes/svg/vacancy/ok
-											.JobSpec_name Вакансия бесплатная
-										.JobSpec.JobSpecs_item
-											.JobSpec_icon
-												include /includes/svg/vacancy/location
-											.JobSpec_name Вроцлав, Рава-Мазовецка, Гожув, Катовице
-										.JobSpec.JobSpecs_item
-											.JobSpec_icon
-												include /includes/svg/vacancy/clock
-											.JobSpec_name Пн-Сб, 10-12 ч в день.
-										.JobSpec.JobSpecs_item
-											.JobSpec_icon
-												include /includes/svg/vacancy/house
-											.JobSpec_name Бесплатное, 100-250 зл/мес
-									.Job_salaries.hidden-xs
-										.Job_salariesWrapper
-											.Salary.Job_salary 33 000 – 40 000 PLN
-											.SalaryPerHour 128.5 PLN / час
-						.Job_description
-							p Предприятие занимается антикоррозийной обработкой различного типа металлических деталей и конструкций. Работа заключается в очистке деталей и завешивания на траверсе.
-						.Job_viewBtnWrapper
-							a(href="#").BtnBlue.BtnBlue-vacancy.Job_viewBtn Посмотреть вакансию
-					.Job.JobList_item
-						h2.Job_title Антикоррозийная обработка металлических деталей
-						.Job_basicInfo
-							.Job_basicInfoLeft
-								.Job_salaries.hidden-smPlus
-									.Job_salariesWrapper
-										.Salary.Job_salary 33 000 – 40 000 PLN
-										.SalaryPerHour 128.5 PLN / час
-								.Job_imgWrapper
-									img(src="/img/vacancy_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-xs
-									img(src="/img/vacancy_mob_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-smPlus
-							.Job_basicInfoRight
-								.Job_basicInfoWrap
-									.JobSpecs.Job_specs
-										.JobSpec.JobSpecs_item.Green2
-											.JobSpec_icon
-												include /includes/svg/vacancy/ok
-											.JobSpec_name Вакансия бесплатная
-										.JobSpec.JobSpecs_item
-											.JobSpec_icon
-												include /includes/svg/vacancy/location
-											.JobSpec_name Вроцлав, Рава-Мазовецка, Гожув, Катовице
-										.JobSpec.JobSpecs_item
-											.JobSpec_icon
-												include /includes/svg/vacancy/clock
-											.JobSpec_name Пн-Сб, 10-12 ч в день.
-										.JobSpec.JobSpecs_item
-											.JobSpec_icon
-												include /includes/svg/vacancy/house
-											.JobSpec_name Бесплатное, 100-250 зл/мес
-									.Job_salaries.hidden-xs
-										.Job_salariesWrapper
-											.Salary.Job_salary 33 000 – 40 000 PLN
-											.SalaryPerHour 128.5 PLN / час
-						.Job_description
-							p Предприятие занимается антикоррозийной обработкой различного типа металлических деталей и конструкций. Работа заключается в очистке деталей и завешивания на траверсе.
-						.Job_viewBtnWrapper
-							a(href="#").BtnBlue.BtnBlue-vacancy.Job_viewBtn Посмотреть вакансию
-					.Job.JobList_item
-						h2.Job_title Антикоррозийная обработка металлических деталей
-						.Job_basicInfo
-							.Job_basicInfoLeft
-								.Job_salaries.hidden-smPlus
-									.Job_salariesWrapper
-										.Salary.Job_salary 33 000 – 40 000 PLN
-										.SalaryPerHour 128.5 PLN / час
-								.Job_imgWrapper
-									img(src="/img/vacancy_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-xs
-									img(src="/img/vacancy_mob_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-smPlus
-							.Job_basicInfoRight
-								.Job_basicInfoWrap
-									.JobSpecs.Job_specs
-										.JobSpec.JobSpecs_item.Green2
-											.JobSpec_icon
-												include /includes/svg/vacancy/ok
-											.JobSpec_name Вакансия бесплатная
-										.JobSpec.JobSpecs_item
-											.JobSpec_icon
-												include /includes/svg/vacancy/location
-											.JobSpec_name Вроцлав, Рава-Мазовецка, Гожув, Катовице
-										.JobSpec.JobSpecs_item
-											.JobSpec_icon
-												include /includes/svg/vacancy/clock
-											.JobSpec_name Пн-Сб, 10-12 ч в день.
-										.JobSpec.JobSpecs_item
-											.JobSpec_icon
-												include /includes/svg/vacancy/house
-											.JobSpec_name Бесплатное, 100-250 зл/мес
-									.Job_salaries.hidden-xs
-										.Job_salariesWrapper
-											.Salary.Job_salary 33 000 – 40 000 PLN
-											.SalaryPerHour 128.5 PLN / час
-						.Job_description
-							p Предприятие занимается антикоррозийной обработкой различного типа металлических деталей и конструкций. Работа заключается в очистке деталей и завешивания на траверсе.
-						.Job_viewBtnWrapper
-							a(href="#").BtnBlue.BtnBlue-vacancy.Job_viewBtn Посмотреть вакансию
+				.Job.Job-full
+					a(href="/company_vacancies.html").ArrowLink.ArrowLink-left.Job_viewAll Все вакансии
+					h2.Job_title Антикоррозийная обработка металлических деталей
+					.Job_salaries
+						.Salary.Job_salary 33 000 – 40 000 PLN
+						.SalaryPerHour 140–150 PLN / час
+					.JobSpecs.JobSpecs-extended.Job_specs
+						.JobSpec.JobSpec-extended.JobSpecs_item
+							.JobSpec_name.hidden-xs Вакансия
+							.JobSpec_wrapper.Green2.Medium
+								.JobSpec_icon.hidden-xs
+									include /includes/svg/SvgIco/success
+								.JobSpec_icon.hidden-smPlus
+									include /includes/svg/vacancy/ok
+								.JobSpec_value Бесплатная вакансия
+						.JobSpec.JobSpec-extended.JobSpecs_item
+							.JobSpec_name.hidden-xs Регион
+							.JobSpec_wrapper
+								.JobSpec_icon
+									img(src="/img/icon_poland.jpg", alt="Poland")
+								.JobSpec_value Вроцлав, Рава-Мазовецка, Гожув, Катовице
+						.JobSpec.JobSpec-extended.JobSpecs_item
+							.JobSpec_name.hidden-xs График работы
+							.JobSpec_wrapper
+								.JobSpec_icon.hidden-smPlus
+									include /includes/svg/vacancy/clock
+								.JobSpec_value Пн–Сб, 10–12 ч в день
+						.JobSpec.JobSpec-extended.JobSpecs_item
+							.JobSpec_name.hidden-xs Проживание
+							.JobSpec_wrapper
+								.JobSpec_icon.hidden-smPlus
+									include /includes/svg/vacancy/house
+								.JobSpec_value Бесплатное, 100-250 зл/мес коммунальные услуги
+					.Job_description
+						h3 Описание вакансии
+						ul
+							li Мужчины. Возраст от 20 до 50 лет.
+							li Заработная плата: 14-15 зл/час, за добросовестный труд премия - от 200 до 400 злотых.
+							li График работы: Работа в 3 смены, суббота рабочая, 10-12 ч в день. Есть возможность работать дополнительные часы. Воскресенье выходной.
+							li Проживание: За счет фирмы (3-4 человека/комн.). Коммунальные услуги - 100-250 злотых в месяц.
+							li Вид трудового договора: Umowa zlecenia
+							li Необходимые документы: Польская рабочая виза от 3 месяцев. Возможно трудоустройство по режиму "Без Виз".
+						h3 Дополнительная информация
+						ul
+							li Желание работать.
+							li Питание: За свой счет.
+							li Рабочая одежда: Предоставляется.
+							li Приезд в г. Свидница возле Вроцлава.
+						h3 Обязанности
+						ul
+							li Обработка металлических деталей.
+							li Завешивания и снятия на траверсе.
+							li Зачистка деталей.
+					.Images.Images-job.Job_images
+						ul.Images_list
+							li.Images_item
+								a(href="#").Images_link
+									img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+							li.Images_item
+								a(href="#").Images_link
+									img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+							li.Images_item
+								a(href="#").Images_link
+									img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+							li.Images_item.hidden-xs
+								a(href="#").Images_link
+									img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+							li.Images_item.hidden-xs
+								a(href="#").Images_link
+									img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+							li.Images_item.Images_item-other.hidden-smPlus
+								a(href="#").Images_link.Images_link-other
+									span.Images_number +2
+					.Job_bottom
+						a(href="#BookVacancyPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-fullJob.Job_viewBtn Забронировать бесплатно
+						.Job_additional
+							.Job_updated Обновлено 2 недели назад
+							.Job_icons
+								.Share.Share-job.Job_share
+									a(href="javascript:;").Share_icon.Share_icon-small.hidden-xs
+										include /includes/svg/SvgIco/share
+									a(href="#PopupShare", data-action="openMobilePopup").Share_mobIcon.hidden-smPlus
+										include /includes/svg/SvgIco/share
+									.Share_wrapper
+										.Share_title Поделиться:
+										ul.Share_socIcons.hidden
+											li.Share_socItem
+												a(href="http://fb.com", target="_blank").Share_socLink
+													include /includes/svg/socicons/fb
+											li.Share_socItem
+												a(href="http://viber.com", target="_blank").Share_socLink
+													include /includes/svg/socicons/viber
+											li.Share_socItem
+												a(href="http://whatsapp.com", target="_blank").Share_socLink
+													include /includes/svg/socicons/whatsapp
+											li.Share_socItem
+												a(href="http://telegram.com", target="_blank").Share_socLink
+													include /includes/svg/socicons/telegram
+											li.Share_socItem
+												a(href="http://vk.com", target="_blank").Share_socLink
+													include /includes/svg/socicons/vk
+										.CopyLink
+											input(type="text", name="copy_link", value="", readonly).CopyLink_input
+											a(href="javascript:;").CopyLink_btnCopy Копировать
+								a(href="#ExtraMenuPopup", data-action="openMobilePopup").DotsIcon.hidden-smPlus
+									include /includes/svg/SvgIco/dots
+								.DotsMenu.DotsMenu-job.Job_dotsMenu.hidden-xs
+									a(href="javascript:;").DotsIcon.DotsMenu_icon
+										include /includes/svg/SvgIco/dots
+									.DotsMenu_wrapper
+										ul.DotsMenu_menu
+											li.DotsMenu_item
+												a(href="#LinkCopiedNotification", data-action="copyURL").DotsMenu_link
+													include /includes/svg/SvgIco/copy_reverse
+													.
+														Скопировать URL
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
+													include /includes/svg/SvgIco/edit
+													.
+														Редактировать
+											li.DotsMenu_item
+												a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link
+													include /includes/svg/SvgIco/warning
+													.
+														Пожаловаться
+	include /includes/blocks/ComplaintFormPopup
 	include /includes/blocks/ContactPopupMenu
 	include /includes/blocks/WriteMessagePopup
 	include /includes/blocks/CallPopup
@@ -166,6 +178,10 @@ block content
 	include /includes/blocks/CallWaitingPopup
 	include /includes/blocks/CompanyPopupNotification
 	include /includes/blocks/BookmarkSettingsPopup
+	include /includes/blocks/ExtraMenuPopup
+	include /includes/blocks/ComplaintPopup
+	include /includes/blocks/ChangeInfoPopup
+	include /includes/blocks/BookVacancyPopup
 	include /includes/blocks/PopupShare
 block page_bottom
 	script(src="/js/company.js")

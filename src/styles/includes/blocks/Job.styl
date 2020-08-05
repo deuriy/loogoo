@@ -6,7 +6,7 @@
 		padding-bottom 26px
 	
 	&_title
-		margin-bottom 25px
+		margin-bottom 22px
 		font-weight 600
 		font-size 24px
 		line-height 1.34
@@ -23,7 +23,7 @@
 		
 		@media $xs
 			flex-direction column
-			margin-bottom 10px
+			margin-bottom 13px
 	
 	&_basicInfoLeft
 		@media $xs
@@ -84,7 +84,47 @@
 		margin-bottom 23px
 		font-size 15px
 		line-height 1.6
-		color #404040
+		color $black
+		
+		h2, h3
+			margin-bottom 12px
+			font-weight 600
+			font-size 18px
+			line-height 1.34
+			
+			@media $xs
+				margin-bottom 8px
+		
+		ul
+			margin-bottom 23px
+			
+			@media $xs
+				margin-bottom 18px
+				padding-left 11px
+			
+			&:last-child
+				margin-bottom 0
+			
+			li
+				list-style none
+				position relative
+				margin-bottom 11px
+				
+				@media $xs
+					margin-bottom 9px
+				
+				&:last-child
+					margin-bottom 0
+				
+				&:before
+					content ""
+					position absolute
+					top 11px
+					left -10px
+					width 4px
+					height 4px
+					border-radius 50%
+					background $green2
 		
 		@media $xs
 			margin-bottom 19px
@@ -93,3 +133,72 @@
 		display flex
 		justify-content flex-end
 		padding-right 3px
+	
+	&_viewAll
+		margin-bottom 16px
+	
+	&_images
+		margin-bottom 24px
+	
+	&_bottom, &_additional, &_icons
+		display flex
+		justify-content space-between
+		align-items center
+	
+	&_bottom
+		margin-right -3px
+		
+		@media $xs
+			flex-direction column-reverse
+			align-items stretch
+	
+	&_additional
+		@media $xs
+			margin-bottom 35px
+	
+	&_updated
+		margin-right 25px
+		font-weight 500
+		color $blue3
+	
+	&_share
+		margin-right 19px
+		margin-bottom 3px
+		
+		@media $xs
+			margin-right 27px
+			margin-bottom 0
+	
+	&-full
+		.Job_title
+			margin-bottom 5px
+			
+			@media $xs
+				margin-bottom 15px
+			
+		.Job_salaries
+			display block
+			min-height 0
+			margin-bottom 23px
+			padding-bottom 0
+			border-left none
+		
+		.Job_salary
+			margin-bottom 9px
+			
+			@media $xs
+				margin-bottom 0
+		
+		.Job_specs
+			flex-basis auto
+			margin-top 0
+			margin-bottom 25px
+			
+			@media $xs
+				margin-bottom 22px
+		
+		.Job_description
+			margin-bottom 33px
+			
+			@media $xs
+				margin-bottom 23px

@@ -1,9 +1,14 @@
 .JobSpecs
 	&_item
-		margin-bottom 17px
-		
-		@media $xs
-			margin-bottom 9px
+		margin-bottom 10px
 		
 		&:last-child
 			margin-bottom 0
+	
+	&-extended
+		.JobSpecs_item
+			@media $smPlus
+				margin-bottom 13px
+			
+				&:last-child
+					margin-bottom 0
