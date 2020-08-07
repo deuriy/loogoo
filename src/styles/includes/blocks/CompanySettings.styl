@@ -81,6 +81,12 @@
 			
 			@media $xs
 				margin-bottom 12px
+		
+		&-uploadArea
+			margin-top 29px
+			
+			@media $xs
+				margin-top 41px
 	
 	&_label
 		margin-top 13px
@@ -172,6 +178,14 @@
 	&_dropdownSelect
 		&-fullWidth
 			max-width none
+		
+		&-short
+			width 33.33%
+			max-width calc(33.33% - 23px)
+			
+			@media $xs
+				width auto
+				max-width 100%
 	
 	&_formText
 		flex 166px 1 1
@@ -337,6 +351,48 @@
 		overflow hidden
 		text-overflow ellipsis
 	
+	&_group
+		// margin-bottom 22px
+		margin-bottom 27px
+		
+		@media $xs
+			margin-bottom 16px
+	
+	&_groupTitle
+		margin-bottom 1px
+		font-weight 600
+		font-size 18px
+	
+	&_groupDescription
+		margin-bottom 12px
+		font-size 15px
+		line-height 1.734
+		
+		@media $xs
+			margin-bottom 18px
+			line-height 1.6
+	
+	&_covers
+		display flex
+		
+		@media $xs
+			display block
+	
+	&_cover
+		&-desktop
+			margin-right 38px
+			
+			@media $xs
+				margin-right 0
+				margin-bottom 16px
+	
+	&_tabs
+		&-languages
+			margin-top -5px
+			
+			@media $xs
+				margin-top -14px
+	
 	&_removePost, &_removeOwner
 		margin-right -10px
 	
@@ -448,6 +504,44 @@
 				border-bottom none
 				font-weight 500
 				font-size 18px
+		
+		.CompanySettings_actions
+			padding-left 0
+	
+	&-addVacancy
+		@media $xs
+			padding-top 16px
+			
+		.CompanySettings_title
+			margin-bottom 25px
+		
+		.CompanySettings_fields
+			margin-bottom 40px
+			padding-right 30px
+			padding-bottom 0
+			border-bottom none
+			
+			@media $xs
+				padding-right 4px
+			
+			&-allLanguages
+				margin-top 22px
+				margin-bottom 32px
+				
+				@media $xs
+					margin-top -3px
+					margin-bottom 40px
+		
+		.CompanySettings_label
+			@media $smPlus
+				flex-basis 174px
+		
+		.CompanySettings_dropdownSelect
+			@media $xs
+				margin-bottom 20px
+				
+				&:last-child
+					margin-bottom 0
 		
 		.CompanySettings_actions
 			padding-left 0

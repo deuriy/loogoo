@@ -16,21 +16,20 @@ block content
 				include /includes/blocks/MenuSectionCompanySettings
 				form(action="#", name="company_settings", novalidate).CompanySettings.CompanySettings-profileCover#CompanySettingsForm
 					h2.CompanySettings_title.hidden-xs Обложка
-					.CompanySettings_wrapper
-						.ProfileCover
-							.ProfileCover_main
-								.ProfileCover_current
-									img(src="img/current_profile_cover.jpg", alt="Current profile cover").ProfileCover_currentImg
-								.CoverSelection.ProfileCover_selection
-									.CoverSelection_header
-										h3.CoverSelection_title Текущая обложка
-										a(href="javascript:;").ArrowLink.ArrowLink-coverSelection Изменить изображение
-									.CoverSelection_imgWrapper.CoverSelection_imgWrapper-large.hidden-xxs
-										img(src="img/uploaded_profile_cover.jpg", alt="Uploaded profile cover").CoverSelection_img
-									.CoverSelection_imgWrapper.CoverSelection_imgWrapper-small.hidden-xxs
-										img(src="img/uploaded_small_profile_cover.jpg" alt="Uploaded preview").CoverSelection_img
-							.ProfileCover_description Выберите область изображения которая будет выводиться на странице компании
-							.ProfileCover_cropArea(style="background-image: url('img/cover_cropping.jpg');")
+					.ProfileCover
+						.ProfileCover_main
+							.ProfileCover_current
+								img(src="img/current_profile_cover.jpg", alt="Current profile cover").ProfileCover_currentImg
+							.CoverSelection.ProfileCover_selection
+								.CoverSelection_header
+									h3.CoverSelection_title Текущая обложка
+									a(href="javascript:;").ArrowLink.ArrowLink-coverSelection Изменить изображение
+								.CoverSelection_imgWrapper.CoverSelection_imgWrapper-large.hidden-xxs
+									img(src="img/uploaded_profile_cover.jpg", alt="Uploaded profile cover").CoverSelection_img
+								.CoverSelection_imgWrapper.CoverSelection_imgWrapper-small.hidden-xxs
+									img(src="img/uploaded_small_profile_cover.jpg" alt="Uploaded preview").CoverSelection_img
+						.ProfileCover_description Выберите область изображения которая будет выводиться на странице компании
+						.ProfileCover_cropArea(style="background-image: url('img/cover_cropping.jpg');")
 					.CompanySettings_actions
 						button(type="submit").BtnBlue.BtnBlue-profileCover.CompanySettings_submitBtn Сохранить изменения
 						button(type="reset").CompanySettings_resetBtn Отмена

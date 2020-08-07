@@ -42,3 +42,29 @@
 				width 22px
 				margin-bottom 0
 				color $blue
+
+.dropzone.dropzone
+	&-grey
+		display flex
+		justify-content center
+		align-items center
+		height 130px
+		padding-right 30px
+		padding-left 30px
+		border none
+		border-radius 2px
+		background #F8F9FA
+		text-align center
+		
+		@media $xs
+			height 190px
+			font-size 16px
+			line-height 1.5
+		
+		.dz-message
+			font-weight 500
+			color $blue3
+		
+			@media $xs
+				font-size 16px
+				line-height 1.5

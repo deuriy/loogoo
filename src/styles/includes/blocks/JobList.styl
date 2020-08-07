@@ -1,9 +1,36 @@
 .JobList
-	&_allCountries
+	&_companyLink
+		margin 0 auto 19px
+	
+	&_btnWrapper
+		position relative
+		margin 0 -15px 22px
+		padding 0 20px 24px
+		border-bottom 2px solid $grey
+		
+		&:after
+			content ""
+			position absolute
+			right 0
+			bottom 0
+			left 0
+			height 35px
+			background-image -webkit-linear-gradient(to top, #f8f9fa, #fff)
+			background-image -o-linear-gradient(to top, #f8f9fa, #fff)
+			background-image linear-gradient(to top, #f8f9fa, #fff)
+	
+	&_btn
+		position relative
+		z-index 10
+		
+	&_header
+		display flex
+		justify-content space-between
 		margin-bottom 16px
 	
-	&_selectionLink
-		margin-bottom 15px
+	&_title
+		font-weight 600
+		font-size 16px
 		
 	&_item
 		margin-bottom 27px
@@ -13,3 +40,25 @@
 		
 		&:last-child
 			margin-bottom 0
+	
+	&-my
+		padding-right 22px
+		padding-bottom 120px
+		
+		@media $xs
+			padding-top 16px
+			padding-right 0
+			padding-bottom 0
+		
+		.JobList_header			
+			@media $smPlus
+				margin-bottom 23px
+				padding-top 5px
+				padding-bottom 6px
+				border-bottom 1px solid #ebf0f2
+		
+		.JobList_item
+			margin-bottom 22px
+		
+		.JobList_bottom
+			margin-top 36px

@@ -75,8 +75,11 @@
 			&-active
 				font-weight 500
 			
-			&-user
-				padding-right 29px
+			&-gutterRight
+				padding-right 14px
+			
+			&-gutterLeft
+				padding-left 14px
 	
 	&-profileDropdownMenu
 		.Tabs_list
@@ -84,3 +87,57 @@
 			
 		.Tabs_companyBrief
 			margin-bottom 12px
+	
+	&-languages
+		.Tabs_list
+			position relative
+			margin-bottom 30px
+			
+			@media $xs
+				margin-bottom 26px
+			
+			&:after
+				content ""
+				position absolute
+				right 0
+				bottom 0
+				left 0
+				height 1px
+				background #EBF0F2
+			
+		.Tabs_item
+			position relative
+			margin-right 40px
+			border-bottom none
+			font-size 15px
+			
+			@media $xs
+				margin-right 0
+				flex-basis 0
+				flex-grow 1
+				padding-top 10px
+				padding-bottom 10px
+			
+			img
+				margin-right 8px
+			
+			&:after
+				content ""
+				position absolute
+				z-index 1
+				right 0
+				bottom 0
+				left 0
+				height 1px
+				background #EBF0F2
+				@extend .transition
+			
+			&:last-child
+				margin-right 0
+			
+			&:hover, &-active
+				border-bottom none
+			
+			&-active
+				&:after
+					background $blue

@@ -1,0 +1,26 @@
+.NumberField
+	display flex
+	align-items center
+	
+	&_formText
+		width 158px
+		
+		@media $xs
+			width 132px
+	
+	&_rangeSeparator, &_suffix
+		font-size 15px
+		color #404040
+	
+	&_rangeSeparator
+		margin 0 4px 3px
+		
+		@media $xs
+			margin-bottom -5px
+	
+	&_suffix
+		margin-left 9px
+		
+		&-rate
+			@media $smPlus
+				margin-left 13px

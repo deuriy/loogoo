@@ -45,8 +45,13 @@ block content
 				h1.Company_title.hidden-xs Sony Corporation
 				include /includes/blocks/MenuSectionCompany
 				.JobList.Company_jobList
-					a(href="#").ArrowLink.ArrowLink-vacancies.JobList_allCountries.hidden-xs Все страны
-					a(href="#CountriesPopupMenu").SelectionLink.JobList_selectionLink.PopupMenuLink.hidden-smPlus Все страны
+					.JobList_header
+						.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-vacancy.hidden-xs
+							select(name="countries").DropdownSelect_select
+								option(value="all") Все страны
+								option(value="poland") Польша
+								option(value="czech") Чехия
+						a(href="#CountriesPopupMenu").SelectionLink.PopupMenuLink.hidden-smPlus Все страны
 					.Job.JobList_item
 						h2.Job_title
 							a(href="/company_vacancy.html") Антикоррозийная обработка металлических деталей
@@ -185,14 +190,8 @@ block content
 				li.PopupMenu_item
 					a(href="javascript:;").PopupMenu_link.active Все страны
 				li.PopupMenu_item
-					a(href="javascript:;").PopupMenu_link Украина
-				li.PopupMenu_item
-					a(href="javascript:;").PopupMenu_link Россия
+					a(href="javascript:;").PopupMenu_link Чехия
 				li.PopupMenu_item
 					a(href="javascript:;").PopupMenu_link Польша
-				li.PopupMenu_item
-					a(href="javascript:;").PopupMenu_link Беларусь
-				li.PopupMenu_item
-					a(href="javascript:;").PopupMenu_link Казахстан
 block page_bottom
 	script(src="/js/company.js")

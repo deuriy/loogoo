@@ -1,0 +1,209 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Новая вакансия";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-companySettings";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title #{title}
+					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
+				.hidden-xs
+					include /includes/blocks/MenuSectionCompanySettings
+				form(action="#", name="add_vacancy").CompanySettings.CompanySettings-addVacancy#AddVacancyForm
+					h2.CompanySettings_title.hidden-xs Новая вакансия
+					.CompanySettings_group
+						h3.CompanySettings_groupTitle Обложка вакансии
+						.CompanySettings_groupDescription изображение которое будет #[br.hidden-smPlus]выводиться в списке вакансий
+						.CompanySettings_covers
+							.Cover.CompanySettings_cover.CompanySettings_cover-desktop
+								.Cover_imgWrap
+									//- img(src="/img/job_cover_desktop.jpg").Cover_img
+									img(src="/img/job_cover_desktop_dummy.jpg").Cover_img
+								h4.Cover_title На компьютере
+								a(href="#PopupChangeCover").ArrowLink.ArrowLink-cover.PopupMenuLink Изменить обложку
+							.Cover.CompanySettings_cover
+								.Cover_imgWrap
+									//- img(src="/img/job_cover_mobile.jpg").Cover_img
+									img(src="/img/job_cover_mobile_dummy.jpg").Cover_img
+								h4.Cover_title На мобильном устройстве
+								a(href="#PopupChangeCover").ArrowLink.ArrowLink-cover.PopupMenuLink Изменить обложку
+					.CompanySettings_group
+						h3.CompanySettings_groupTitle Описание вакансии
+						.CompanySettings_groupDescription заполните все поля описания вакансии на русском и украинском языках
+						.CompanySettings_fields.CompanySettings_fields-allLanguages
+							.CompanySettings_field
+								label.CompanySettings_label Страна
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.CompanySettings_dropdownSelect.CompanySettings_dropdownSelect-short
+												select(name="country_ru").DropdownSelect_select
+													option(value="uk") Украина
+													option(value="ru") Россия
+													option(value="by") Беларусь
+													option(value="pl", selected) Польша
+													option(value="kz") Казахстан
+										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно #[br]Введите адрес
+							.CompanySettings_field
+								label.CompanySettings_label Заработная плата
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.DropdownSelect-daysWeek.CompanySettings_dropdownSelect
+												select(name="salary_type_ru").DropdownSelect_select
+													option(value="flexible") Гибкая
+													option(value="fixed") Фиксированная
+											.NumberField
+												input(type="number", name="salary_from", placeholder="от", min="0").CompanySettings_formText.NumberField_formText
+												span.NumberField_rangeSeparator –
+												input(type="number", name="salary_to", placeholder="до", min="0").CompanySettings_formText.NumberField_formText
+												span.NumberField_suffix PLN
+										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+							.CompanySettings_field
+								label(for="rate_per_hour_ru").CompanySettings_label Ставка в час
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.NumberField
+												input(type="number", name="rate_per_hour_ru", id="rate_per_hour_ru" min="0").CompanySettings_formText.NumberField_formText
+												span.NumberField_suffix.NumberField_suffix-rate PLN
+												.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+							.CompanySettings_field
+								label.CompanySettings_label Кому видна вакансия
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.CompanySettings_dropdownSelect.CompanySettings_dropdownSelect-short
+												select(name="vacancy_visibility_ru").DropdownSelect_select
+													option(value="all") Всем
+													option(value="only_me") Только мне
+										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+							.CompanySettings_field.CompanySettings_field-uploadArea
+								.CompanySettings_fieldContent
+									.UploadArea Нажмите, или переместите изображения для загрузки
+						.Tabs.Tabs-profileMenu.Tabs-languages.CompanySettings_tabs.CompanySettings_tabs-languages
+							ul.Tabs_list
+								li.Tabs_item.Tabs_item-active
+									img(src="/img/flag_uk_small.jpg", alt="")
+									span Украинский #[span.hidden-xs язык]
+								li.Tabs_item
+									img(src="/img/flag_ru_small.jpg", alt="")
+									span Русский #[span.hidden-xs язык]
+							.Tabs_container
+								.Tabs_content(style="display:block;")
+									.CompanySettings_fields
+										.CompanySettings_field
+											label(for="vacancy_title").CompanySettings_label Назва вакансії
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														input(type="text", name="vacancy_title", id="vacancy_title").CompanySettings_formText
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заповнене правильно
+										.CompanySettings_field
+											label(for="city").CompanySettings_label Місто
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														input(type="text", name="city", id="city").CompanySettings_formText
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заповнене правильно
+										.CompanySettings_field
+											label(for="schedule").CompanySettings_label Графік роботи
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														input(type="text", name="schedule", id="schedule").CompanySettings_formText
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заповнене правильно
+										.CompanySettings_field
+											label(for="accomodation").CompanySettings_label Житло
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														input(type="text", name="accomodation", id="accomodation").CompanySettings_formText
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заповнене правильно
+										.CompanySettings_field
+											label(for="short_description").CompanySettings_label Короткий опис
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														textarea(name="short_description", id="short_description").FormTextarea.FormTextarea-jobDescription
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заповнене правильно
+										.CompanySettings_field
+											label(for="full_description").CompanySettings_label Повний опис
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														textarea(name="full_description", id="full_description").FormTextarea.FormTextarea-jobDescription
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заповнене правильно			
+								.Tabs_content
+									.CompanySettings_fields
+										.CompanySettings_field
+											label(for="vacancy_title_ru").CompanySettings_label Название вакансии
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														input(type="text", name="vacancy_title_ru", id="vacancy_title_ru").CompanySettings_formText
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+										.CompanySettings_field
+											label(for="city_ru").CompanySettings_label Город
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														input(type="text", name="city_ru", id="city_ru").CompanySettings_formText
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+										
+										.CompanySettings_field
+											label(for="schedule_ru").CompanySettings_label График работы
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														input(type="text", name="schedule_ru", id="schedule_ru").CompanySettings_formText
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+										.CompanySettings_field
+											label(for="accomodation_ru").CompanySettings_label Жильё
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														input(type="text", name="accomodation_ru", id="accomodation_ru").CompanySettings_formText
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+										.CompanySettings_field
+											label(for="short_description_ru").CompanySettings_label Краткое описание
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														textarea(name="short_description_ru", id="short_description_ru").FormTextarea.FormTextarea-jobDescription
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+										.CompanySettings_field
+											label(for="full_description_ru").CompanySettings_label Полное описание
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														textarea(name="full_description_ru", id="full_description_ru").FormTextarea.FormTextarea-jobDescription
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+					.CompanySettings_actions
+						button(type="submit").BtnBlue.BtnBlue-profileCover Сохранить изменения
+			.Aside.Main_aside.hidden-smMinus
+				a(href="/company.html", title="Sony Corporation").CompanyLink.Aside_companyLink
+					img(src="img/sony2.png", alt="Sony Corporation").CompanyLink_img
+					.CompanyLink_textWrap
+						.CompanyLink_title Sony Corporation
+						.CompanyLink_text на страницу компании
+				include /includes/blocks/SettingsMenu
+	include /includes/blocks/PopupShare
+	include /includes/blocks/LinkCopiedNotification
+	.PopupMenu.PopupMenu-paddingLeft#PopupChangeCover
+		.PopupMenu_overlay
+		.PopupMenu_wrapper
+			h3.PopupMenu_title Изменить обложку
+			ul.PopupMenu_menu
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Загрузить фото
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Удалить фото
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Отменить

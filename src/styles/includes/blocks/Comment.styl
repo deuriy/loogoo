@@ -238,6 +238,7 @@
 			padding 4px 16px 7px 16px
 			border-radius 10px
 			background rgba($blue, 5%)
+			animation fade-out 3s linear forwards
 	
 	&-reply
 		& > .Comment_wrapper
@@ -317,3 +318,13 @@
 			
 			@media $xs
 				margin-bottom 12px
+
+@keyframes fade-out {
+	from {
+		background rgba($blue, 5%)
+	}
+	
+	to {
+		background rgba($blue, 0)
+	}
+}

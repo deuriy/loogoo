@@ -54,6 +54,8 @@
 		&:after
 			display none
 	
+	&-countries,
+	&-cover,
 	&-vacancies
 		font-weight 500
 		font-size 13px
@@ -66,3 +68,15 @@
 			vertical-align middle
 			background none
 			margin-top 5px
+	
+	&-cover
+		font-size 14px
+		
+		@media $xs
+			font-size 16px
+			
+			&:after
+				display none
+	
+	&-vacancies
+		font-size 14px

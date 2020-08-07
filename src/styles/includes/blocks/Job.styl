@@ -26,6 +26,8 @@
 			margin-bottom 13px
 	
 	&_basicInfoLeft
+		flex-shrink 0
+		
 		@media $xs
 			margin-bottom 24px
 	
@@ -169,6 +171,10 @@
 			margin-right 27px
 			margin-bottom 0
 	
+	&_status
+		@media $xs
+			margin-bottom 23px
+	
 	&-full
 		.Job_title
 			margin-bottom 5px
@@ -202,3 +208,32 @@
 			
 			@media $xs
 				margin-bottom 23px
+	
+	&-my
+		padding-bottom 23px
+		
+		.Job_specs
+			@media $smPlus
+				flex-basis 321px
+				padding-right 10px
+		
+		.Job_basicInfo
+			margin-bottom 12px
+		
+		.Job_basicInfoLeft
+			@media $xs
+				margin-bottom 26px
+		
+		.Job_description
+			margin-bottom 13px
+		
+		.Job_bottom
+			margin-right 0
+			padding-right 1px
+		
+		.Job_updated
+			font-weight normal
+			color #999
+			
+			@media $xs
+				margin-right 0

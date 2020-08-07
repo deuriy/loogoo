@@ -1,0 +1,29 @@
+.JobStatus
+	display flex
+	align-items center
+	padding-top 8px
+	padding-bottom 7px
+	
+	@media $xs
+		justify-content space-between
+		padding-right 12px
+		padding-left 11px
+		background #F8F9FA
+	
+	&_text
+		margin-right 10px
+		font-weight 500
+		font-size 14px
+		color $blue2
+		
+		@media $xs
+			font-size 15px
+	
+	&-hidden
+		padding-right 14px
+		padding-left 38px
+		border-radius 4px
+		background #FEEBD9 url('../img/exclamation.svg') 14px center no-repeat
+		
+		.JobStatus_text
+			color $orange

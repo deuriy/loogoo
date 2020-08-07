@@ -1,0 +1,265 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Вакансии";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-companySettings";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title #{title}
+					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
+				.JobList.JobList-my
+					a(href="/company.html", title="Sony Corporation").CompanyLink.CompanyLink-vacancies.JobList_companyLink.hidden-smPlus
+						img(src="img/companyblock_logo.png", alt="Sony Corporation").CompanyLink_img
+						.CompanyLink_textWrap
+							.CompanyLink_title Sony Corporation
+							.CompanyLink_text на страницу компании
+					.JobList_btnWrapper.hidden-smPlus
+						a(href="/add_vacancy.html").BtnBlue.BtnBlue-addJob.JobList_btn Добавить вакансию
+					.JobList_header
+						h2.JobList_title.hidden-xs Вакансии
+						.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-vacancy.hidden-xs
+							select(name="vacancy_types").DropdownSelect_select
+								option(value="all") Все вакансии
+								option(value="published") Опубликованные
+								option(value="hidden") Скрытые
+						a(href="#VacancyTypesPopup").SelectionLink.PopupMenuLink.hidden-smPlus Все вакансии
+					.Job.Job-my.JobList_item
+						h2.Job_title
+							a(href="/company_vacancy.html") Антикоррозийная обработка металлических деталей
+						.Job_basicInfo
+							.Job_basicInfoLeft
+								.Job_salaries.hidden-smPlus
+									.Job_salariesWrapper
+										.Salary.Salary-small.Job_salary 33 000 – 40 000 PLN
+										.SalaryPerHour 128.5 PLN / час
+								.JobStatus.Job_status.hidden-smPlus
+									.JobStatus_text Вакансия опубликована
+									.DotsMenu.DotsMenu-jobStatus.JobStatus_dotsMenu
+										a(href="javascript:;").DotsIcon.DotsIcon-jobStatus.DotsMenu_icon
+											include /includes/svg/SvgIco/dots
+										.DotsMenu_wrapper
+											ul.DotsMenu_menu
+												li.DotsMenu_item
+													a(href="javascript:;").DotsMenu_link Скрыть вакансию
+												li.DotsMenu_item
+													a(href="/company_vacancy.html").DotsMenu_link Посмотреть
+												li.DotsMenu_item
+													a(href="javascript:;").DotsMenu_link Редактировать
+												li.DotsMenu_item
+													a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
+								.Job_imgWrapper
+									a(href="/company_vacancy.html")
+										img(src="/img/vacancy_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-xs
+									a(href="/company_vacancy.html")
+										img(src="/img/vacancy_mob_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-smPlus
+							.Job_basicInfoRight
+								.Job_basicInfoWrap
+									.JobSpecs.Job_specs
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon.JobSpec_icon-check.Green2
+												include /includes/svg/SvgIco/success
+											.JobSpec_value.Green2 Вакансия бесплатная
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon
+												img(src="/img/icon_poland.jpg", alt="Poland")
+											.JobSpec_value Вроцлав, Рава-Мазовецка, Гожув, Катовице
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon
+												include /includes/svg/vacancy/clock
+											.JobSpec_value Пн-Сб, 10-12 ч в день.
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon
+												include /includes/svg/vacancy/house
+											.JobSpec_value Бесплатное, 100-250 зл/мес #[br] #[span.JobSpec_utilities коммунальные услуги]
+									.Job_salaries.hidden-xs
+										.Job_salariesWrapper
+											.Salary.Salary-small.Job_salary 33 000 – 40 000 PLN
+											.SalaryPerHour 128.5 PLN / час
+						.Job_description
+							p Предприятие занимается антикоррозийной обработкой различного типа металлических деталей и конструкций. Работа заключается в очистке деталей и завешивания на траверсе.
+						.Job_bottom
+							.Job_updated Обновлено 2 дня назад
+							.JobStatus.Job_status.hidden-xs
+								.JobStatus_text Вакансия опубликована
+								.DotsMenu.DotsMenu-jobStatus.JobStatus_dotsMenu
+									a(href="javascript:;").DotsIcon.DotsIcon-jobStatus.DotsMenu_icon
+										include /includes/svg/SvgIco/dots
+									.DotsMenu_wrapper
+										ul.DotsMenu_menu
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link Скрыть вакансию
+											li.DotsMenu_item
+												a(href="/company_vacancy.html").DotsMenu_link Посмотреть
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link Редактировать
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
+					.Job.Job-my.JobList_item
+						h2.Job_title
+							a(href="/company_vacancy.html") Антикоррозийная обработка металлических деталей
+						.Job_basicInfo
+							.Job_basicInfoLeft
+								.Job_salaries.hidden-smPlus
+									.Job_salariesWrapper
+										.Salary.Salary-small.Job_salary 33 000 – 40 000 PLN
+										.SalaryPerHour 128.5 PLN / час
+								.JobStatus.Job_status.JobStatus-hidden.hidden-smPlus
+									.JobStatus_text Вакансия скрыта
+									.DotsMenu.DotsMenu-jobStatus.DotsMenu-jobStatusHidden.JobStatus_dotsMenu
+										a(href="javascript:;").DotsIcon.DotsIcon-jobStatus.DotsIcon-jobStatusHidden.DotsMenu_icon
+											include /includes/svg/SvgIco/dots
+										.DotsMenu_wrapper
+											ul.DotsMenu_menu
+												li.DotsMenu_item
+													a(href="javascript:;").DotsMenu_link Скрыть вакансию
+												li.DotsMenu_item
+													a(href="/company_vacancy.html").DotsMenu_link Посмотреть
+												li.DotsMenu_item
+													a(href="javascript:;").DotsMenu_link Редактировать
+												li.DotsMenu_item
+													a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
+								.Job_imgWrapper
+									a(href="/company_vacancy.html")
+										img(src="/img/vacancy_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-xs
+									a(href="/company_vacancy.html")
+										img(src="/img/vacancy_mob_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-smPlus
+							.Job_basicInfoRight
+								.Job_basicInfoWrap
+									.JobSpecs.Job_specs
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon.JobSpec_icon-check.Green2
+												include /includes/svg/SvgIco/success
+											.JobSpec_value.Green2 Вакансия бесплатная
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon
+												img(src="/img/icon_poland.jpg", alt="Poland")
+											.JobSpec_value Вроцлав, Рава-Мазовецка, Гожув, Катовице
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon
+												include /includes/svg/vacancy/clock
+											.JobSpec_value Пн-Сб, 10-12 ч в день.
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon
+												include /includes/svg/vacancy/house
+											.JobSpec_value Бесплатное, 100-250 зл/мес #[br] #[span.JobSpec_utilities коммунальные услуги]
+									.Job_salaries.hidden-xs
+										.Job_salariesWrapper
+											.Salary.Salary-small.Job_salary 33 000 – 40 000 PLN
+											.SalaryPerHour 128.5 PLN / час
+						.Job_description
+							p Предприятие занимается антикоррозийной обработкой различного типа металлических деталей и конструкций. Работа заключается в очистке деталей и завешивания на траверсе.
+						.Job_bottom
+							.Job_updated Обновлено 2 дня назад
+							.JobStatus.Job_status.JobStatus-hidden.hidden-xs
+								.JobStatus_text Вакансия скрыта
+								.DotsMenu.DotsMenu-jobStatus.DotsMenu-jobStatusHidden.JobStatus_dotsMenu
+									a(href="javascript:;").DotsIcon.DotsIcon-jobStatus.DotsIcon-jobStatusHidden.DotsMenu_icon
+										include /includes/svg/SvgIco/dots
+									.DotsMenu_wrapper
+										ul.DotsMenu_menu
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link Скрыть вакансию
+											li.DotsMenu_item
+												a(href="/company_vacancy.html").DotsMenu_link Посмотреть
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link Редактировать
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
+					.Job.Job-my.JobList_item
+						h2.Job_title
+							a(href="/company_vacancy.html") Антикоррозийная обработка металлических деталей
+						.Job_basicInfo
+							.Job_basicInfoLeft
+								.Job_salaries.hidden-smPlus
+									.Job_salariesWrapper
+										.Salary.Salary-small.Job_salary 33 000 – 40 000 PLN
+										.SalaryPerHour 128.5 PLN / час
+								.JobStatus.Job_status.hidden-smPlus
+									.JobStatus_text Вакансия опубликована
+									.DotsMenu.DotsMenu-jobStatus.JobStatus_dotsMenu
+										a(href="javascript:;").DotsIcon.DotsIcon-jobStatus.DotsMenu_icon
+											include /includes/svg/SvgIco/dots
+										.DotsMenu_wrapper
+											ul.DotsMenu_menu
+												li.DotsMenu_item
+													a(href="javascript:;").DotsMenu_link Скрыть вакансию
+												li.DotsMenu_item
+													a(href="/company_vacancy.html").DotsMenu_link Посмотреть
+												li.DotsMenu_item
+													a(href="javascript:;").DotsMenu_link Редактировать
+												li.DotsMenu_item
+													a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
+								.Job_imgWrapper
+									a(href="/company_vacancy.html")
+										img(src="/img/vacancy_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-xs
+									a(href="/company_vacancy.html")
+										img(src="/img/vacancy_mob_img.jpg", alt="Антикоррозийная обработка металлических деталей").Job_img.hidden-smPlus
+							.Job_basicInfoRight
+								.Job_basicInfoWrap
+									.JobSpecs.Job_specs
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon.JobSpec_icon-check.Green2
+												include /includes/svg/SvgIco/success
+											.JobSpec_value.Green2 Вакансия бесплатная
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon
+												img(src="/img/icon_poland.jpg", alt="Poland")
+											.JobSpec_value Вроцлав, Рава-Мазовецка, Гожув, Катовице
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon
+												include /includes/svg/vacancy/clock
+											.JobSpec_value Пн-Сб, 10-12 ч в день.
+										.JobSpec.JobSpecs_item
+											.JobSpec_icon
+												include /includes/svg/vacancy/house
+											.JobSpec_value Бесплатное, 100-250 зл/мес #[br] #[span.JobSpec_utilities коммунальные услуги]
+									.Job_salaries.hidden-xs
+										.Job_salariesWrapper
+											.Salary.Salary-small.Job_salary 33 000 – 40 000 PLN
+											.SalaryPerHour 128.5 PLN / час
+						.Job_description
+							p Предприятие занимается антикоррозийной обработкой различного типа металлических деталей и конструкций. Работа заключается в очистке деталей и завешивания на траверсе.
+						.Job_bottom
+							.Job_updated Обновлено 2 дня назад
+							.JobStatus.Job_status.hidden-xs
+								.JobStatus_text Вакансия опубликована
+								.DotsMenu.DotsMenu-jobStatus.JobStatus_dotsMenu
+									a(href="javascript:;").DotsIcon.DotsIcon-jobStatus.DotsMenu_icon
+										include /includes/svg/SvgIco/dots
+									.DotsMenu_wrapper
+										ul.DotsMenu_menu
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link Скрыть вакансию
+											li.DotsMenu_item
+												a(href="/company_vacancy.html").DotsMenu_link Посмотреть
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link Редактировать
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
+					.JobList_bottom.hidden-xs
+						a(href="/add_vacancy.html").BtnBlue.BtnBlue-addJob.JobList_btn Добавить вакансию
+			.Aside.Main_aside.hidden-xs
+				a(href="/company.html", title="Sony Corporation").CompanyLink.Aside_companyLink
+					img(src="img/sony2.png", alt="Sony Corporation").CompanyLink_img
+					.CompanyLink_textWrap
+						.CompanyLink_title Sony Corporation
+						.CompanyLink_text на страницу компании
+				include /includes/blocks/SettingsMenu
+	include /includes/blocks/PopupShare
+	include /includes/blocks/LinkCopiedNotification
+	.PopupMenu.PopupMenu-paddingLeft#VacancyTypesPopup
+		.PopupMenu_overlay
+		.PopupMenu_wrapper
+			ul.PopupMenu_menu
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link.active Все вакансии
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Опубликованные
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Скрытые
