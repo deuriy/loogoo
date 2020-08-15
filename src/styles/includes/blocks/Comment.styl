@@ -2,6 +2,8 @@
 	&_wrapper
 		padding 3px 4px 10px
 		border-bottom 1px solid #ebf0f2
+		background #FFF
+		transition all 3s linear
 		
 		.CommentForm
 			margin-bottom 15px
@@ -235,10 +237,13 @@
 		& > .Comment_wrapper
 			margin-right -12px
 			margin-left -12px
-			padding 4px 16px 7px 16px
+			// padding 4px 16px 7px 16px
+			padding-right 16px
+			padding-left 16px
 			border-radius 10px
 			background rgba($blue, 5%)
-			animation fade-out 3s linear forwards
+			transition none
+			// animation fade-out 3s linear forwards
 	
 	&-reply
 		& > .Comment_wrapper
@@ -319,12 +324,12 @@
 			@media $xs
 				margin-bottom 12px
 
-@keyframes fade-out {
-	from {
-		background rgba($blue, 5%)
-	}
+// @keyframes fade-out {
+// 	from {
+// 		background rgba($blue, 5%)
+// 	}
 	
-	to {
-		background rgba($blue, 0)
-	}
-}
+// 	to {
+// 		background rgba($blue, 0)
+// 	}
+// }

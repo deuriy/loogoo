@@ -43,7 +43,7 @@ block content
 									.CompanySettings_fieldItems
 										.CompanySettings_fieldItem
 											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.CompanySettings_dropdownSelect.CompanySettings_dropdownSelect-short
-												select(name="country_ru").DropdownSelect_select
+												select(name="country").DropdownSelect_select
 													option(value="uk") Украина
 													option(value="ru") Россия
 													option(value="by") Беларусь
@@ -55,23 +55,24 @@ block content
 								.CompanySettings_fieldContent
 									.CompanySettings_fieldItems
 										.CompanySettings_fieldItem
-											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.DropdownSelect-daysWeek.CompanySettings_dropdownSelect
-												select(name="salary_type_ru").DropdownSelect_select
+											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.DropdownSelect-salaryType.CompanySettings_dropdownSelect.CompanySettings_dropdownSelect-short
+												select(name="salary_type").DropdownSelect_select
 													option(value="flexible") Гибкая
 													option(value="fixed") Фиксированная
-											.NumberField
-												input(type="number", name="salary_from", placeholder="от", min="0").CompanySettings_formText.NumberField_formText
+											.NumberField.NumberField-salaryRange
+												input(type="number", name="salary_from", placeholder="от", min="0").CompanySettings_formText.NumberField_formText.NumberField_formText.NumberField_formText-from
 												span.NumberField_rangeSeparator –
-												input(type="number", name="salary_to", placeholder="до", min="0").CompanySettings_formText.NumberField_formText
+												input(type="number", name="salary_to", placeholder="до", min="0").CompanySettings_formText.NumberField_formText.NumberField_formText-to
+												input(type="number", name="salary", min="0").CompanySettings_formText.NumberField_formText.NumberField_formText-fixedSalary
 												span.NumberField_suffix PLN
 										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
 							.CompanySettings_field
-								label(for="rate_per_hour_ru").CompanySettings_label Ставка в час
+								label(for="rate_per_hour").CompanySettings_label Ставка в час
 								.CompanySettings_fieldContent
 									.CompanySettings_fieldItems
 										.CompanySettings_fieldItem
 											.NumberField
-												input(type="number", name="rate_per_hour_ru", id="rate_per_hour_ru" min="0").CompanySettings_formText.NumberField_formText
+												input(type="number", name="rate_per_hour", id="rate_per_hour" min="0").CompanySettings_formText.NumberField_formText
 												span.NumberField_suffix.NumberField_suffix-rate PLN
 												.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
 							.CompanySettings_field
@@ -80,7 +81,7 @@ block content
 									.CompanySettings_fieldItems
 										.CompanySettings_fieldItem
 											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.CompanySettings_dropdownSelect.CompanySettings_dropdownSelect-short
-												select(name="vacancy_visibility_ru").DropdownSelect_select
+												select(name="vacancy_visibility").DropdownSelect_select
 													option(value="all") Всем
 													option(value="only_me") Только мне
 										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
@@ -196,14 +197,6 @@ block content
 				include /includes/blocks/SettingsMenu
 	include /includes/blocks/PopupShare
 	include /includes/blocks/LinkCopiedNotification
-	.PopupMenu.PopupMenu-paddingLeft#PopupChangeCover
-		.PopupMenu_overlay
-		.PopupMenu_wrapper
-			h3.PopupMenu_title Изменить обложку
-			ul.PopupMenu_menu
-				li.PopupMenu_item
-					a(href="javascript:;").PopupMenu_link Загрузить фото
-				li.PopupMenu_item
-					a(href="javascript:;").PopupMenu_link Удалить фото
-				li.PopupMenu_item
-					a(href="javascript:;").PopupMenu_link Отменить
+	include /includes/blocks/PopupChangeCover
+block page_bottom
+	script(src="/js/add_vacancy.js")

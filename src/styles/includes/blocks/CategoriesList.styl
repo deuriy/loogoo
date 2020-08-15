@@ -1,0 +1,58 @@
+.CategoriesList
+	display flex
+	align-items center
+	padding-left 2px
+	
+	&_item
+		margin-right 38px
+		
+		&:last-child
+			margin-right 0
+	
+	&_link
+		font-size 15px
+		color #404040
+		@extend .transition
+		
+		&-active, &:hover
+			color $blue
+		
+		&-active
+			font-weight 600
+	
+	&-bordered
+		border-bottom 1px solid #ebf0f2
+		
+		.CategoriesList_item
+			margin-right 52px
+			
+			&:last-child
+				margin-right 0
+			
+		.CategoriesList_link
+			position relative
+			display block
+			padding-bottom 10px
+			font-weight 500
+			font-size 14px
+			color $blue3
+			@extend .transition
+			
+			&:after
+				content ""
+				position absolute
+				right 0
+				bottom -1px
+				left 0
+				height 1px
+				background transparent
+				@extend .transition
+			
+			&-active, &:hover
+				color $blue
+				
+				&:after
+					background $blue
+	
+	&-dossiers
+		margin-bottom 30px

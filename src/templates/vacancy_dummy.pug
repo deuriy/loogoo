@@ -1,0 +1,55 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Запуск раздела вакансий";
+block content
+	.Container.Main_container
+		.VacancyDummy
+			ul.CategoriesList.CategoriesList-bordered.VacancyDummy_categoriesList
+				li.CategoriesList_item
+					a(href="javascript:;").CategoriesList_link Работодатели
+				li.CategoriesList_item
+					a(href="javascript:;").CategoriesList_link.CategoriesList_link-active Вакансии
+			.TextSection
+				.TextSection_textWrap
+					h1.TextSection_title Раздел «Вакансии» будет официально запущен 25 сентября! 
+					.TextSection_text.TextSection_text-large
+						p Благодаря неравнодушным людям, которые решили поделиться своими фото- и видеоматериалами в этом разделе, вы сможете посмотреть, как выглядит работа за границей, на которую вы собираетесь поехать. 
+				.TextSection_imgWrap
+					img(src="img/vacancy_dummy1.png", alt="").TextSection_img
+			.TextSection
+				.TextSection_imgWrap
+					img(src="img/vacancy_dummy2.png", alt="").TextSection_img
+				.TextSection_textWrap
+					ul.List
+						li.List_item
+							h3.List_itemTitle Отзывы работников
+							.List_itemContent В раздел «Вакансии» вы сможете прочесть отзывы о той или иной вакансии от людей, которые лично там работали и решить, подходит ли вам такая вакансия.
+						li.List_item
+							h3.List_itemTitle Реальные фото
+							.List_itemContent Только реальные (а не маркетинговые) материалы непосредственно с мест работы, которые будут снимать рабочие. Вы увидите в каких условиях будете работать и что вам придется делать на том или ином процессе.
+						li.List_item
+							h3.List_itemTitle Анонимно
+							.List_itemContent Все фото- и видеоматериалы, которые нам прислали люди, работающие на разных вакансиях будут опубликованы с размытием лиц и с другими средствами информационной безопасности, а так же, при желании, полностью анонимно.
+			.TextSection
+				.TextSection_textWrap
+					h2.TextSection_subTitle Как помочь разделу?
+					.TextSection_text
+						p Если у вас остались фотографии или видео с работы или жилья – поделитесь ими. Они очень пригодятся другим людям, ведь, как известно, лучше один раз увидеть, чем сто раз услышать. Особенно, учитывая тот факт, что многие работодатели не разрешают снимать, публиковать и распространять информацию, в которой показана любая работа изнутри.
+						p Именно поэтому, фотографии и видео из рабочих моментов очень важны. Они могут быть в плохом качестве, сняты с плохого ракурса, но зато они будут, и они очень помогут другим людям понять, подходит ли им эта работа или нет. Не обязательно, чтобы в кадре были другие сотрудники или чтобы процесс был показан до мелких деталей. Нам всем достаточно будет увидеть работу хотя бы в общих чертах, чтобы понять, как там все происходит на самом деле.
+						p.Medium Пришлите нам фото- или видеоматериалы и получите за это награду в виде значительного повышения вашего рейтинга!
+						.Soclinks
+							ul.Soclinks_list
+								li.Soclinks_item
+									a(href="tg://resolve?domain=infoza.top").Soclink
+										include /includes/svg/SvgIco/soclinks/telegram
+										span.Soclink_text @infoza.top
+								li.Soclinks_item
+									a(href="viber://chat?number=+380680220201").Soclink
+										include /includes/svg/SvgIco/soclinks/viber
+										span.Soclink_text +38 068 022 02 01
+								li.Soclinks_item
+									a(href="mailto:info@infoza.top").Soclink
+										include /includes/svg/SvgIco/soclinks/email
+										span.Soclink_text info@infoza.top
+				.TextSection_imgWrap
+					img(src="img/vacancy_dummy3.png", alt="").TextSection_img

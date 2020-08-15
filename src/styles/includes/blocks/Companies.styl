@@ -2,27 +2,7 @@
 	padding-top 6px
 	
 	&_categories
-		display flex
-		align-items center
 		margin-bottom 14px
-		padding-left 2px
-	
-	&_category
-		margin-right 38px
-		
-		&:last-child
-			margin-right 0
-	
-	&_categoryLink
-		font-size 15px
-		color #404040
-		@extend .transition
-		
-		&-active, &:hover
-			color $blue
-		
-		&-active
-			font-weight 600
 	
 	&_searchForm
 		margin-bottom 35px
@@ -41,41 +21,6 @@
 		
 		@media $xs
 			padding-top 19px
-		
-		.Companies_categories
-			margin-bottom 30px
-			border-bottom 1px solid #ebf0f2
-		
-		.Companies_category
-			margin-right 52px
-			
-			&:last-child
-				margin-right 0
-			
-		.Companies_categoryLink
-			position relative
-			display block
-			padding-bottom 10px
-			font-weight 500
-			font-size 14px
-			color $blue3
-			@extend .transition
-			
-			&:after
-				content ""
-				position absolute
-				right 0
-				bottom -1px
-				left 0
-				height 1px
-				background transparent
-				@extend .transition
-			
-			&-active, &:hover
-				color $blue
-				
-				&:after
-					background $blue
 		
 		.Companies_item
 			margin-bottom 35px

@@ -10,7 +10,7 @@ block content
 					a(href="#").BtnBack.MobileHeader_btnBack
 						include /includes/svg/SvgIco/arrow_left
 					h1.MobileHeader_title Просмотр темы
-					a(href="#PopupShare", data-action="openMobilePopup", data-mobile-popup-title="Просмотр темы").DotsIcon.MobileHeader_dotsIcon
+					a(href="#PopupShareExtended", data-action="openMobilePopup", data-mobile-popup-title="Просмотр темы").DotsIcon.MobileHeader_dotsIcon
 						include /includes/svg/SvgIco/dots
 				.TopicDetails
 					.QuestionBlock.QuestionBlock-full.TopicDetails_questionBlock
@@ -225,7 +225,9 @@ block content
 														span.Rating_number 17
 												.Comment_date сегодня в 7:05
 										.Comment_headerRight
-											.DotsMenu.DotsMenu-comment
+											a(href="#PopupOwnCommentSettings", data-action="openMobilePopup", data-mobile-popup-title="Просмотр комментария").DotsIcon.hidden-smPlus
+												include /includes/svg/SvgIco/dots
+											.DotsMenu.DotsMenu-comment.hidden-xs
 												a(href="javascript:;").DotsIcon.DotsMenu_icon
 													include /includes/svg/SvgIco/dots
 												.DotsMenu_wrapper
@@ -284,14 +286,23 @@ block content
 																.
 																	Анна Сергеевна
 												.Comment_headerRight
-													.DotsMenu
+													a(href="#PopupCommentSettings", data-action="openMobilePopup", data-mobile-popup-title="Просмотр комментария").DotsIcon.hidden-smPlus
+														include /includes/svg/SvgIco/dots
+													.DotsMenu.DotsMenu-comment.hidden-xs
 														a(href="javascript:;").DotsIcon.DotsMenu_icon
 															include /includes/svg/SvgIco/dots
-														.DotsMenu_wrapper.DotsMenu_wrapper-complaint
-															a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link.DotsMenu_link-complaint.CommentComplaintLink
-																include /includes/svg/SvgIco/warning
-																.
-																	Пожаловаться
+														.DotsMenu_wrapper
+															ul.DotsMenu_menu
+																li.DotsMenu_item
+																	a(href="#LinkCopiedNotification").DotsMenu_link.DotsMenu_link-copyURL
+																		include /includes/svg/SvgIco/copy_reverse
+																		.
+																			Скопировать URL
+																li.DotsMenu_item
+																	a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link.DotsMenu_link-complaint.CommentComplaintLink
+																		include /includes/svg/SvgIco/warning
+																		.
+																			Пожаловаться
 											.Comment_text
 												//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
 												p Lorem ipsum dolor sit amet, cons ectetur adipisicing elit, sed doeis mod
@@ -431,8 +442,13 @@ block content
 				include /includes/blocks/PopularTopics
 	include /includes/blocks/ComplaintFormPopup
 	include /includes/blocks/TopicLikePopup
+	include /includes/blocks/PopupShare
 	include /includes/blocks/PopupShareExtended
+	include /includes/blocks/PopupCommentSettings
+	include /includes/blocks/PopupOwnCommentSettings
 	include /includes/blocks/LinkCopiedNotification
 	include /includes/blocks/ComplaintPopup
+	include /includes/blocks/ComplaintTopicPopup
+	include /includes/blocks/BookmarkTopicPopupGuest
 block page_bottom
 	script(src="/js/topic_details.js")

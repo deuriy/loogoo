@@ -15,8 +15,10 @@
 		background rgba($black, 40%)
 	
 	&_title
-		margin 0 -10px 10px
-		padding 0 20px 10px
+		// margin 0 -10px 10px
+		// padding 0 20px 10px
+		margin 0 0 10px
+		padding 0 10px 10px
 		border-bottom 1px solid $grey
 		font-weight 600
 		font-size 16px
@@ -38,8 +40,10 @@
 		@extend .transition
 		
 		&:hover, &.active
-			font-weight 600
 			color $blue
+		
+		&.active
+			font-weight 600
 	
 	&_link
 		&-iconWrapper

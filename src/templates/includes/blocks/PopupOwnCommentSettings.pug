@@ -1,4 +1,4 @@
-.MobilePopup#PopupShare
+.MobilePopup#PopupOwnCommentSettings
 	.Overlay
 	.MobilePopup_wrapper
 		.MobilePopup_header
@@ -15,3 +15,11 @@
 					a(href="javascript:;").ActionMenu_link.ActionMenu_link-copy
 						include /includes/svg/SvgIco/copy_reverse
 						span.ActionMenu_linkInner Скопировать ссылку
+				li.ActionMenu_item
+					a(href="#ChangeInfoPopup", data-action="openMobilePopup").ActionMenu_link
+						include /includes/svg/SvgIco/company_edit
+						span.ActionMenu_linkInner Редактировать
+				li.ActionMenu_item
+					a(href="javascript:;").ActionMenu_link
+						include /includes/svg/SvgIco/remove
+						span.ActionMenu_linkInner Удалить

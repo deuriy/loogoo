@@ -72,10 +72,15 @@
 			
 		.CompanyBlock_header
 			display flex
-			align-items flex-start
+			// align-items flex-start
+			align-items center
 			
 			@media $xs
 				margin-bottom 4px
+		
+		.CompanyBlock_headerRight
+			@media $xs
+				margin-top -5px
 			
 		.CompanyBlock_logo
 			width 90px
@@ -89,7 +94,8 @@
 			margin-top -6px
 			
 			@media $xs
-				margin-top -2px
+				// margin-top -2px
+				margin-top 0
 			
 			&:after
 				@media $xs

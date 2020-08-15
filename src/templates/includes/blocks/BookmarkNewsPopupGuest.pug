@@ -1,0 +1,13 @@
+.MobilePopup.MobilePopup-bookmark#BookmarkNewsPopupGuest
+	.Overlay
+	.MobilePopup_wrapper
+		.MobilePopup_header.MobilePopup_header-center
+			.MobilePopup_icon.MobilePopup_icon-bookmark
+				include /includes/svg/SvgIco/bookmark
+			h3.MobilePopup_title Добавить в закладки?
+			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+				include /includes/svg/icon_close
+		.MobilePopup_text Сохранять новости могут только зарегистрированные пользователи
+		.MobilePopup_btnWrapper
+			a(href="/login.html").BtnBlue.BtnBlue-mobilePopupLogin.MobilePopup_btn Вход
+			a(href="/register.html").BtnGrey.BtnGrey-mobilePopup.MobilePopup_btn Регистрация

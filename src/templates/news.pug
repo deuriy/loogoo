@@ -60,13 +60,17 @@ block content
 						.StatIcons.hidden-smPlus
 							ul.StatIcons_list
 								li.StatIcon.StatIcon-bookmark.StatIcons_item.StatIcons_item-bookmark
-									.Bookmark
+									.Bookmark.hidden
 										a(href="javascript:;", title="Сохранить в закладки").Bookmark_icon
+											include /includes/svg/SvgIco/bookmark
+									.Bookmark
+										a(href="#BookmarkNewsPopupGuest", title="Сохранить в закладки", data-action="openMobilePopup", data-bookmark-guest).Bookmark_icon
 											include /includes/svg/SvgIco/bookmark
 					.Article_btnWrapper.hidden-smPlus
 						a(href="#CompleteArticlePopup", data-action="openMobilePopup").BtnGrey.BtnGrey-completeArticle.Article_leaveNote Дополнить статью
+block page_bottom
 	include /includes/blocks/CompleteArticlePopup
 	include /includes/blocks/PopupShare
-block page_bottom
 	include /includes/blocks/LeaveNote
+	include /includes/blocks/BookmarkNewsPopupGuest
 	script(src="/js/article.js")

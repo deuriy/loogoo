@@ -9,7 +9,6 @@ block content
 			.Main_left
 				.MobileHeader.MobileHeader-companiesDossiers.hidden-smPlus
 					a(href="#PopupMenu").SelectionLink.PopupMenuLink.hidden-smPlus Работодатели
-					h1.MobileHeader_title Досье
 					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
 						include /includes/svg/SvgIco/dots
 				.MenuSection.MenuSection-companiesDossiers.Main_menuSection.hidden
@@ -20,11 +19,11 @@ block content
 							li.CategoryMenu_item
 								a(href="/profile_company_settings.html").CategoryMenu_link Вакансии
 				.Companies.Companies-dossiers
-					ul.Companies_categories.hidden-xs
-						li.Companies_category
-							a(href="javascript:;").Companies_categoryLink.Companies_categoryLink-active Работодатели
-						li.Companies_category
-							a(href="javascript:;").Companies_categoryLink Вакансии
+					ul.CategoriesList.CategoriesList-bordered.CategoriesList-dossiers.Companies_categories.hidden-xs
+						li.CategoriesList_item
+							a(href="javascript:;").CategoriesList_link.CategoriesList_link-active Работодатели
+						li.CategoriesList_item
+							a(href="javascript:;").CategoriesList_link Вакансии
 					form(action="", name="companies_search").Filter.Companies_searchForm
 						.Search.Search-companies.Search-companiesDossiers
 							.Search_item
@@ -33,12 +32,12 @@ block content
 									include /includes/svg/SvgIco/close
 							button(type="submit").Search_icon.hidden-smPlus
 								include /includes/svg/SvgIco/search
-					.NoResults.NoResults-companies
+					.NoResults.NoResults-companies.hidden
 						.NoResults_icon
 							include /includes/svg/not_found
 						.NoResults_text По вашему запросу ничего не найдено
 						a(href="javascript:;", data-src="#CompanyAdding").BtnBlue.BtnBlue-company.BtnBlue-addCompany.OpenPopupLink Добавить компанию
-					.Companies_items.hidden
+					.Companies_items
 						.CompanyBlock.CompanyBlock-dossiers.Companies_item
 							.CompanyBlock_logo.hidden-xs
 								a(href="/company.html", title="Sony Corporation")
@@ -51,12 +50,18 @@ block content
 									.CompanyBlock_headerRight
 										h3.CompanyBlock_name
 											a(href="/company.html") Sony Corporation
-										.Rating.Rating-companyHeader.hidden-smPlus
-											span.Rating_icon
-												include /includes/svg/SvgIco/icon_star
-											span.Rating_number 7,3
-											span.Rating_max / 10
-											span.Rating_label (55 отзывов)
+										.Rating.Rating-companyHeader.Rating-dropdown.hidden-smPlus
+											a(href="javascript:;").Rating_wrapperLink
+												span.Rating_icon
+													include /includes/svg/SvgIco/icon_star
+												span.Rating_number 7,3
+												span.Rating_max / 10
+												span.Rating_label (55 отзывов)
+											.Rating_dropdown
+												a(href="javascript:;").Rating_closeDropdown.hidden-smPlus
+													include /includes/svg/icon_close
+												include /includes/blocks/AdvantagesRating
+											.Overlay.Overlay-rating
 								.CompanyBlock_activity трудоустройство и визовая поддержка
 								//- .CompanyBlock_description Корпорация Sony была основана Акио Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась «Токё цусин когё кабусики-гайся»
 								.CompanyBlock_description Корпорация Sony была основана Аки Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась ТТК
@@ -64,37 +69,11 @@ block content
 									.Rating.Rating-companyHeader.Rating-dropdown.hidden-xs
 										span.Rating_icon
 											include /includes/svg/SvgIco/icon_star
-										span.Rating_number 7,3
+										span.Rating_number 0.0
 										span.Rating_max / 10
-										span.Rating_label (55 отзывов)
+										span.Rating_label (0 отзывов)
 										.Rating_dropdown
-											.AdvantagesRating
-												ul.AdvantagesRating_list
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 6
-														span.AdvantagesRating_text качество обслуживания и поддержки
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 7
-														span.AdvantagesRating_text достоверность информации о работе
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 8
-														span.AdvantagesRating_text достоверность информации о жилье
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 9
-														span.AdvantagesRating_text соблюдение сроков изготовления документов
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 10
-														span.AdvantagesRating_text качество полученных документов или услуг
+											include /includes/blocks/AdvantagesRating
 									.CompanyBlock_country
 										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
 										.
@@ -127,33 +106,7 @@ block content
 										span.Rating_max / 10
 										span.Rating_label (55 отзывов)
 										.Rating_dropdown
-											.AdvantagesRating
-												ul.AdvantagesRating_list
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 6
-														span.AdvantagesRating_text качество обслуживания и поддержки
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 7
-														span.AdvantagesRating_text достоверность информации о работе
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 8
-														span.AdvantagesRating_text достоверность информации о жилье
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 9
-														span.AdvantagesRating_text соблюдение сроков изготовления документов
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 10
-														span.AdvantagesRating_text качество полученных документов или услуг
+											include /includes/blocks/AdvantagesRating
 									.CompanyBlock_country
 										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
 										.
@@ -186,33 +139,7 @@ block content
 										span.Rating_max / 10
 										span.Rating_label (55 отзывов)
 										.Rating_dropdown
-											.AdvantagesRating
-												ul.AdvantagesRating_list
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 6
-														span.AdvantagesRating_text качество обслуживания и поддержки
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 7
-														span.AdvantagesRating_text достоверность информации о работе
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 8
-														span.AdvantagesRating_text достоверность информации о жилье
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 9
-														span.AdvantagesRating_text соблюдение сроков изготовления документов
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 10
-														span.AdvantagesRating_text качество полученных документов или услуг
+											include /includes/blocks/AdvantagesRating
 									.CompanyBlock_country
 										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
 										.
@@ -245,33 +172,7 @@ block content
 										span.Rating_max / 10
 										span.Rating_label (55 отзывов)
 										.Rating_dropdown
-											.AdvantagesRating
-												ul.AdvantagesRating_list
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 6
-														span.AdvantagesRating_text качество обслуживания и поддержки
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 7
-														span.AdvantagesRating_text достоверность информации о работе
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 8
-														span.AdvantagesRating_text достоверность информации о жилье
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 9
-														span.AdvantagesRating_text соблюдение сроков изготовления документов
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 10
-														span.AdvantagesRating_text качество полученных документов или услуг
+											include /includes/blocks/AdvantagesRating
 									.CompanyBlock_country
 										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
 										.
@@ -304,33 +205,7 @@ block content
 										span.Rating_max / 10
 										span.Rating_label (55 отзывов)
 										.Rating_dropdown
-											.AdvantagesRating
-												ul.AdvantagesRating_list
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 6
-														span.AdvantagesRating_text качество обслуживания и поддержки
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 7
-														span.AdvantagesRating_text достоверность информации о работе
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 8
-														span.AdvantagesRating_text достоверность информации о жилье
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 9
-														span.AdvantagesRating_text соблюдение сроков изготовления документов
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 10
-														span.AdvantagesRating_text качество полученных документов или услуг
+											include /includes/blocks/AdvantagesRating
 									.CompanyBlock_country
 										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
 										.
@@ -363,33 +238,7 @@ block content
 										span.Rating_max / 10
 										span.Rating_label (55 отзывов)
 										.Rating_dropdown
-											.AdvantagesRating
-												ul.AdvantagesRating_list
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 6
-														span.AdvantagesRating_text качество обслуживания и поддержки
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 7
-														span.AdvantagesRating_text достоверность информации о работе
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 8
-														span.AdvantagesRating_text достоверность информации о жилье
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 9
-														span.AdvantagesRating_text соблюдение сроков изготовления документов
-													li.AdvantagesRating_item
-														span.AdvantagesRating_icon
-															include /includes/svg/SvgIco/icon_star
-														span.AdvantagesRating_number 10
-														span.AdvantagesRating_text качество полученных документов или услуг
+											include /includes/blocks/AdvantagesRating
 									.CompanyBlock_country
 										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
 										.

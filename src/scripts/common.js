@@ -26,6 +26,14 @@ document.addEventListener("DOMContentLoaded", function () {
 		showSearch: false
 	});
 
+	const checkboxList = document.querySelectorAll('.CompanySettings_checkboxList');
+	checkboxList.forEach(item => {
+		const psItem = new PerfectScrollbar(item, {
+		  wheelPropagation: false,
+			minScrollbarLength: 20
+		});
+	});
+
 	// Check if input is empty
 	function isEmpty(selector) {
 		if (selector.value) {
@@ -929,7 +937,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		let href = openContextBlock.getAttribute('href');
 		let contextBlock = document.querySelector(href);
-		console.log(contextBlock);
 
 		let coords = getCoords(openContextBlock);
 
@@ -974,8 +981,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (shareWrapper.classList.contains('Share_wrapper-opened') && !shareWrapper.contains(e.target) && !shareIcon.contains(e.target)) {
 			shareWrapper.classList.remove('Share_wrapper-opened');
 		}
-
-		console.log(e.target);
 	});
 
 	document.addEventListener('click', function (e) {
@@ -1155,7 +1160,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	document.addEventListener('click', function (e) {
 		let bookmarkIcon = e.target.closest('.Bookmark_icon');
 
-		if (!bookmarkIcon) return;
+		if (!bookmarkIcon || bookmarkIcon.dataset.bookmarkGuest !== undefined) return;
 		
 		e.preventDefault();
 

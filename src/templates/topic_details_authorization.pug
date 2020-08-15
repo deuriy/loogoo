@@ -128,18 +128,61 @@ block content
 									a(href="#").Images_link.Images_link-other
 										span.Images_number +12
 							a(href="#").Images_hideLink скрыть
+						//- .StatIcons.QuestionBlock_statIcons
+						//- 	.StatIcons_left
+						//- 		.ContextBlock.StatIcons_contextBlock
+						//- 			h3.ContextBlock_title
+						//- 				include /includes/svg/SvgIco/like
+						//- 				span.ContextBlock_titleText Понравилось?
+						//- 			.ContextBlock_content Чтобы поставить отметку, #[a(href="javascript:;", data-src="#LoginPopup").OpenPopupLink.Link войдите] или #[a(href="javascript:;", data-src="#RegistrationPopup").OpenPopupLink.Link зарегистрируйтесь]
+						//- 	.StatIcons_right
+						//- 		ul.StatIcons_list
+						//- 			li.StatIcon.StatIcons_item.StatIcons_item-views
+						//- 				include /includes/svg/SvgIco/eye
+						//- 				span.StatIcon_count 110
 						.StatIcons.QuestionBlock_statIcons
 							.StatIcons_left
-								.ContextBlock.StatIcons_contextBlock
-									h3.ContextBlock_title
-										include /includes/svg/SvgIco/like
-										span.ContextBlock_titleText Понравилось?
-									.ContextBlock_content Чтобы поставить отметку, #[a(href="javascript:;", data-src="#LoginPopup").OpenPopupLink.Link войдите] или #[a(href="javascript:;", data-src="#RegistrationPopup").OpenPopupLink.Link зарегистрируйтесь]
+								ul.StatIcons_list
+									li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+										a(href="#TopicLikePopup", data-action="openMobilePopup").Like.Like-post
+											include /includes/svg/SvgIco/like
+											span.Like_count 0
+									li.StatIcon.StatIcons_item
+										.Share
+											a(href="javascript:;").Share_icon.hidden-xs
+												include /includes/svg/SvgIco/share
+											a(href="#PopupShare", data-action="openMobilePopup").Share_mobIcon.hidden-smPlus
+												include /includes/svg/SvgIco/share
+											.Share_wrapper
+												.Share_title Поделиться:
+												ul.Share_socIcons.hidden
+													li.Share_socItem
+														a(href="http://fb.com", target="_blank").Share_socLink
+															include /includes/svg/socicons/fb
+													li.Share_socItem
+														a(href="http://viber.com", target="_blank").Share_socLink
+															include /includes/svg/socicons/viber
+													li.Share_socItem
+														a(href="http://whatsapp.com", target="_blank").Share_socLink
+															include /includes/svg/socicons/whatsapp
+													li.Share_socItem
+														a(href="http://telegram.com", target="_blank").Share_socLink
+															include /includes/svg/socicons/telegram
+													li.Share_socItem
+														a(href="http://vk.com", target="_blank").Share_socLink
+															include /includes/svg/socicons/vk
+												.CopyLink
+													input(type="text", name="copy_link", value="", readonly).CopyLink_input
+													a(href="javascript:;").CopyLink_btnCopy Копировать
 							.StatIcons_right
 								ul.StatIcons_list
-									li.StatIcon.StatIcons_item.StatIcons_item-views
+									li.StatIcon.StatIcon-bookmark.StatIcons_item.StatIcons_item-bookmark
+										.Bookmark
+											a(href="#BookmarkTopicPopupGuest", title="Сохранить в закладки", data-action="openMobilePopup", data-bookmark-guest).Bookmark_icon
+												include /includes/svg/SvgIco/bookmark
+									li.StatIcon.StatIcon-views.StatIcons_item.StatIcons_item-views
 										include /includes/svg/SvgIco/eye
-										span.StatIcon_count 110
+										span.StatIcon_count 9.8K
 					.CommentsBlock
 						.CommentsBlock_header
 							h3.CommentsBlock_title 3 комментария
@@ -190,5 +233,6 @@ block content
 	include /includes/blocks/LinkCopiedNotification
 	include /includes/blocks/SubmitComplaint
 	include /includes/blocks/ComplaintPopup
+	include /includes/blocks/BookmarkTopicPopupGuest
 block page_bottom
 	script(src="/js/topic_details.js")
