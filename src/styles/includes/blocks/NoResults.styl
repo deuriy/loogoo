@@ -34,6 +34,14 @@
 		font-size 21px
 		line-height 1.23809
 		
+		a
+			color $blue
+			border-bottom 1px solid $blue
+			@extend .transition
+			
+			&:hover
+				border-bottom-color transparent
+		
 		@media $xs
 			margin-bottom 23px
 			font-size 18px
