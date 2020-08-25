@@ -1,1 +1,35 @@
-// .List
+.List
+	&_item
+		position relative
+		margin-bottom 22px
+		padding-left 33px
+		
+		@media $xs
+			margin-bottom 16px
+			padding-left 32px
+		
+		&:before
+			content ""
+			position absolute
+			top 2px
+			left 0
+			width 20px
+			height 20px
+			background url('../img/list_check.svg') 0 0 no-repeat
+		
+		&:last-child
+			margin-bottom 0
+			
+	&_title
+		margin-bottom 0.278em
+		font-weight 600
+		font-size 18px
+		line-height 1.389
+	
+	&_text
+		font-size 15px
+		line-height 1.6
+		
+		@media $smMinus
+			font-size 16px
+			line-height 1.5625

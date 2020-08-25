@@ -775,6 +775,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!timeRangeDropdown) return;
 
 		let timeRangeOverlay = timeRangeDropdown.querySelector('.Overlay');
+
+		if (!timeRangeOverlay) return;
+
 		if (!timeRangeDropdown.classList.contains('TimeRangeDropdown-opened')) {
 			timeRangeOverlay.classList.add('Overlay-visible');
 		}

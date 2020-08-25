@@ -61,7 +61,8 @@ gulp.task("styles", function() {
 
 			.pipe(
 				prefixer({
-					browsers: TARGET_BROWSERS,
+					// browsers: TARGET_BROWSERS,
+					overrideBrowserslist: TARGET_BROWSERS,
 					cascade: false,
 					grid: true,
 				})

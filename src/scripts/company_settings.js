@@ -131,6 +131,22 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
+	function checkExisitingDaysWeek () {
+		let daysWeekField = document.querySelector('.CompanySettings_field-daysWeek');
+		let daysWeekFieldItems = daysWeekField.querySelector('.CompanySettings_field-daysWeek .CompanySettings_fieldItem');
+		let addDaysWeek = document.querySelector('.AddFieldItem-daysWeek .AddFieldItem_text');
+
+		if (addDaysWeek) {
+			if (daysWeekFieldItems) {
+				daysWeekField.querySelector('.CompanySettings_fieldItems').classList.remove('CompanySettings_fieldItems-empty');
+				addDaysWeek.textContent = 'Добавить ещё дни';
+			} else {
+				daysWeekField.querySelector('.CompanySettings_fieldItems').classList.add('CompanySettings_fieldItems-empty');
+				addDaysWeek.textContent = 'Добавить дни';
+			}
+		}
+	}
+
 	function saveMobileOwner () {
 		let ownerAddition = document.getElementById('OwnerAddition');
 		let ownerWrapper = document.querySelector('.CompanySettings_ownerWrapper');
@@ -628,44 +644,86 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let fieldItems = addDaysWeekLink.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
 		let fieldItemsNumber = fieldItems.children.length;
-
-		let select = fieldItems.firstElementChild.querySelector('select').cloneNode(true);
-		select.classList.remove('hidden');
-
-		let dropdownSelect = document.createElement('div');
-		dropdownSelect.className = 'DropdownSelect DropdownSelect-mobile DropdownSelect-companySettings DropdownSelect-daysWeek CompanySettings_dropdownSelect';
-		dropdownSelect.append(select);
-
-		select.name = 'days_week_' + (fieldItemsNumber + 1) + '[]';
-
-		let timeRangeDropdowns = fieldItems.firstElementChild.querySelectorAll('.TimeRangeDropdown');
-		let timeRangeDropdownsCloned = [];
-
-		for (let timeRangeDropdown of timeRangeDropdowns) {
-			let clonedTimeRangeDropdown = timeRangeDropdown.cloneNode(true);
-			let timeRangeFrom = clonedTimeRangeDropdown.querySelector('.TimeRangeDropdown_time-from');
-			let timeRangeTo = clonedTimeRangeDropdown.querySelector('.TimeRangeDropdown_time-to');
-			let timeRangeCheckboxInput = clonedTimeRangeDropdown.querySelector('.Checkbox_input');
-			let timeRangeCheckboxLabel = clonedTimeRangeDropdown.querySelector('.Checkbox_label');
-
-			timeRangeFrom.name += '_' + (fieldItemsNumber + 1);
-			timeRangeTo.name += '_' + (fieldItemsNumber + 1);
-			timeRangeCheckboxInput.name += '_' + (fieldItemsNumber + 1);
-			timeRangeCheckboxInput.id += '_' + (fieldItemsNumber + 1);
-			timeRangeCheckboxLabel.htmlFor += '_' + (fieldItemsNumber + 1);
-
-			timeRangeDropdownsCloned.push(clonedTimeRangeDropdown);
-		}
-
 		let newFieldItem = document.createElement('div');
-		newFieldItem.className = 'CompanySettings_fieldItem CompanySettings_fieldItem-additional';
-		newFieldItem.append(dropdownSelect, ...timeRangeDropdownsCloned);
-		newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem"></a>');
+		newFieldItem.className = 'CompanySettings_fieldItem';
+		newFieldItem.insertAdjacentHTML('beforeend', `<div class="DropdownSelect DropdownSelect-mobile DropdownSelect-companySettings DropdownSelect-daysWeek CompanySettings_dropdownSelect">
+                            <select class="DropdownSelect_select" name="days_week[]" multiple="multiple">
+                              <option value="monday">Понедельник</option>
+                              <option value="tuesday">Вторник</option>
+                              <option value="wednesday">Среда</option>
+                              <option value="thursday">Четверг</option>
+                              <option value="friday">Пятница</option>
+                              <option value="saturday">Суббота</option>
+                              <option value="sunday">Воскресенье</option>
+                            </select>
+                          </div>
+                          <div class="TimeRangeDropdown CompanySettings_timeRangeDropdown CompanySettings_timeRangeDropdown-workingHours">
+                            <div class="TimeRangeDropdown_label" data-label="Время работы">Время работы</div>
+                            <div class="TimeRangeDropdown_dropdown">
+                              <div class="TimeRangeDropdown_wrapper">
+                                <input class="TimeRangeDropdown_time TimeRangeDropdown_time-from" type="time" name="working_hours_from" min="08:00" max="10:00" data-placeholder="с" value="10:00">
+                                <input class="TimeRangeDropdown_time TimeRangeDropdown_time-to" type="time" name="working_hours_to" min="07:00" max="20:00" data-placeholder="до" value="18:00">
+                              </div>
+                              <div class="Checkbox Checkbox-square Checkbox-timeRangeDropdown Checkbox-aroundClock">
+                                <input class="Checkbox_input" type="checkbox" name="around_clock" value="yes" id="around_clock">
+                                <label class="Checkbox_label" for="around_clock">Круглосуточно</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="TimeRangeDropdown CompanySettings_timeRangeDropdown CompanySettings_timeRangeDropdown-noMargin">
+                            <div class="TimeRangeDropdown_label" data-label="Перерыв">Перерыв</div>
+                            <div class="TimeRangeDropdown_dropdown">
+                              <div class="TimeRangeDropdown_wrapper">
+                                <input class="TimeRangeDropdown_time TimeRangeDropdown_time-from" type="time" name="break_from" min="08:00" max="10:00" data-placeholder="с" value="10:00">
+                                <input class="TimeRangeDropdown_time TimeRangeDropdown_time-to" type="time" name="break_to" min="07:00" max="20:00" data-placeholder="до" value="16:00">
+                              </div>
+                              <div class="Checkbox Checkbox-square Checkbox-timeRangeDropdown Checkbox-nonStop">
+                                <input class="Checkbox_input" type="checkbox" name="break" value="yes" id="break">
+                                <label class="Checkbox_label" for="break">Без перерыва</label>
+                              </div>
+                            </div>
+                          </div>
+                          <a href="javascript:;" class="CompanySettings_removeFieldItem"></a>`);
 
-		fieldItems.insertAdjacentElement('beforeend', newFieldItem);
+		let select = newFieldItem.querySelector('.DropdownSelect_select');
+		// let select = fieldItems.firstElementChild.querySelector('select').cloneNode(true);
+		// select.classList.remove('hidden');
+
+		// let dropdownSelect = document.createElement('div');
+		// dropdownSelect.className = 'DropdownSelect DropdownSelect-mobile DropdownSelect-companySettings DropdownSelect-daysWeek CompanySettings_dropdownSelect';
+		// dropdownSelect.append(select);
+
+		// select.name = 'days_week_' + (fieldItemsNumber + 1) + '[]';
+
+		// let timeRangeDropdowns = fieldItems.firstElementChild.querySelectorAll('.TimeRangeDropdown');
+		// let timeRangeDropdownsCloned = [];
+
+		// for (let timeRangeDropdown of timeRangeDropdowns) {
+		// 	let clonedTimeRangeDropdown = timeRangeDropdown.cloneNode(true);
+		// 	let timeRangeFrom = clonedTimeRangeDropdown.querySelector('.TimeRangeDropdown_time-from');
+		// 	let timeRangeTo = clonedTimeRangeDropdown.querySelector('.TimeRangeDropdown_time-to');
+		// 	let timeRangeCheckboxInput = clonedTimeRangeDropdown.querySelector('.Checkbox_input');
+		// 	let timeRangeCheckboxLabel = clonedTimeRangeDropdown.querySelector('.Checkbox_label');
+
+		// 	timeRangeFrom.name += '_' + (fieldItemsNumber + 1);
+		// 	timeRangeTo.name += '_' + (fieldItemsNumber + 1);
+		// 	timeRangeCheckboxInput.name += '_' + (fieldItemsNumber + 1);
+		// 	timeRangeCheckboxInput.id += '_' + (fieldItemsNumber + 1);
+		// 	timeRangeCheckboxLabel.htmlFor += '_' + (fieldItemsNumber + 1);
+
+		// 	timeRangeDropdownsCloned.push(clonedTimeRangeDropdown);
+		// }
+
+		// let newFieldItem = document.createElement('div');
+		// newFieldItem.className = 'CompanySettings_fieldItem CompanySettings_fieldItem-additional';
+		// newFieldItem.append(dropdownSelect, ...timeRangeDropdownsCloned);
+		// newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem"></a>');
+
+		// fieldItems.insertAdjacentElement('beforeend', newFieldItem);
+		fieldItems.append(newFieldItem);
 		newFieldItem.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_fieldError hidden"></div>');
 
-		clearFieldItemError(newFieldItem);
+		// clearFieldItemError(newFieldItem);
 
 		$(select).fSelect({
 			placeholder: 'Дни недели',
@@ -674,6 +732,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 
 		changeDaysWeekDropdowns();
+		checkExisitingDaysWeek();
 	});
 
 	// Add post field
@@ -735,6 +794,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		removeFieldAndError(fieldItem);
 		checkExistingPosts();
+		checkExisitingDaysWeek();
 	});
 
 	// Hide address creation block
@@ -984,6 +1044,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	checkExistingPosts();
 	changeDaysWeekDropdowns();
 	checkWriteBtnField();
+	checkExisitingDaysWeek();
 
 	window.addEventListener('resize', function () {
 		syncOwnerAdditionField();

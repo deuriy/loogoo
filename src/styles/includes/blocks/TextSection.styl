@@ -1,32 +1,325 @@
 .TextSection
 	display flex
-	// align-items center
-	// overflow hidden
+	padding-right 20px
+	padding-left 20px
 	
-	// &_textWrap,
-	// &_imgWrap
-	// 	flex 50% 0 0
+	@media $smMinus
+		flex-direction column
+	
+	&_container
+		display flex
+		
+		@media $smMinus
+			flex-direction column
+			align-items center
+	
+	&_container
+		width 1140px
+		max-width 100%
+		margin-right auto
+		margin-left auto
+	
+	&_left, &_right
+		display flex
+		width 50%
+		max-width 100%
+		
+		@media $smMinus
+			width auto
+		
+	&_left
+		justify-content flex-end
+		
+		&-paddingLeft
+			padding-left 20px
+	
+	&_right		
+		&-paddingRight
+			padding-right 17px
 	
 	&_textWrap
-		flex-basis 570px
-		padding-top 136px
+		width 570px
+		max-width 100%
+		
+		@media $smMinus
+			width auto
 	
 	&_imgWrap
-		flex-basis 694px
+		img
+			display block
+	
+	&_titleAndImg
+		@media $smMinus
+			display flex
+			flex-direction column
+			align-items center
+			text-align center
+			
+			&-heroReviews
+				padding-top 32px
+				padding-right 20px
+				padding-left 20px
+				background #f0f1f3
 	
 	&_title
-		margin-bottom 21px
+		margin-bottom 0.4375em
 		font-weight 600
 		font-size 48px
 		line-height 1.25
+		
+		@media $mdMinus
+			font-size 40px
+		
+		@media $smMinus
+			font-size 32px
+		
+		@media $xs
+			font-size 24px
+			line-height 1.34
+	
+	&_subTitle
+		margin-bottom 0.722em
+		font-weight 600
+		font-size 36px
+		line-height normal
+		
+		@media $mdMinus
+			font-size 32px
+		
+		@media $smMinus
+			font-size 28px
+		
+		@media $xs
+			margin-bottom 0.38em
+			font-size 24px
 	
 	&_text
 		font-size 15px
 		line-height 1.6
 		
+		@media $xs
+			font-size 16px
+			line-height 1.625
+		
+		& > p
+			margin-bottom 9px
+			
+			& > a
+				font-weight 500
+				color $blue
+				text-decoration underline
+				
+				&:hover
+					text-decoration none
+			
+			&:last-child
+				margin-bottom 0
+		
 		&-large
 			font-size 16px
 			line-height 1.5625
+		
+		&-largeLineHeight
+			line-height 1.75
+			
+			@media $smMinus
+				line-height 1.5625
 	
-	// &_img
-	// 	max-width none
+	&-hero
+		.TextSection_left
+			padding-top 1%
+			
+			@media $smMinus
+				padding-top 0
+			
+		.TextSection_textWrap
+			margin-top 10%
+			margin-bottom 25%
+			
+			@media $smMinus
+				margin-top 0
+				margin-bottom 80px
+			
+		.TextSection_imgWrap
+			align-self flex-end
+			margin-left -7%
+			
+			@media $mdMinus
+				margin-left -4%
+			
+			@media $smMinus
+				margin-left 0
+	
+	&-advantages
+		padding-right 0
+		padding-left 0
+		
+		.TextSection_container
+			background #F5F8FA
+			
+			@media $smMinus
+				padding-right 20px
+				padding-bottom 30px
+				padding-left 20px
+		
+		.TextSection_left
+			justify-content flex-start
+		
+		.TextSection_imgWrap
+			margin-top -14.6%
+			margin-bottom -7.6%
+			margin-left -2%
+			
+			@media $smMinus
+				margin-top -42px
+				margin-bottom 0
+				margin-left 0
+			
+			@media $xs
+				width 280px
+				margin-top -61px
+		
+		.TextSection_textWrap
+			margin-top 15.8%
+			margin-right 14%
+			margin-left -5%
+			
+			@media $smMinus
+				margin-top 17px
+				margin-right 0
+				margin-left 0
+	
+	&-help
+		padding-top 7%
+		
+		.TextSection_container		
+			@media $smMinus
+				flex-direction column-reverse
+		
+		.TextSection_textWrap
+			margin-top 40px
+			
+			@media $smMinus
+				margin-top 32px
+			
+			@media $xs
+				margin-top 25px
+		
+		.TextSection_text
+			margin-right -3px
+			margin-bottom 15px
+			
+			@media $xs
+				margin-bottom 17px
+				margin-left 6px
+			
+			& > p
+				margin-bottom 12px
+				
+				@media $xs
+					margin-bottom 5px
+				
+				&:last-child
+					margin-bottom 0
+		
+		.TextSection_right
+			justify-content flex-end
+		
+		.TextSection_imgWrap
+			margin-right -2%
+		
+			@media $xs
+				margin-right 23px
+				margin-left -7px
+	
+	&-lightGrey
+		background $lightGrey
+	
+	&-heroReviews
+		align-items flex-end
+		padding-top 2%
+		padding-right 0
+		padding-left 0
+		
+		@media $smMinus
+			padding-top 0
+			background transparent
+		
+		.TextSection_title
+			@media $md
+				line-height 1.125
+		
+		.TextSection_textWrap
+			width 640px
+			margin-top 14%
+			margin-right -70px
+			margin-bottom 12%
+			
+			@media $mdMinus
+				margin-right 0
+			
+			@media $smMinus
+				width auto
+				margin-top 0
+				margin-bottom 0
+		
+		.TextSection_text
+			@media $smMinus
+				padding-top 23px
+				padding-right 20px
+				padding-left 20px
+		
+		.TextSection_imgWrap
+			margin-left 16.5%
+			
+			@media $mdMinus
+				margin-left 13%
+			
+			@media $smMinus
+				margin-right -80px
+				margin-left 0
+				padding-right 12px
+				padding-left 23px
+	
+	&-reviews
+		padding-top 6.4%
+		padding-bottom 7.3%
+		
+		.TextSection_container
+			align-items center
+		
+		.TextSection_left
+			justify-content flex-start
+		
+		.TextSection_right
+			justify-content flex-end
+		
+		.TextSection_textWrap
+			width 523px
+			margin-top 15px
+		
+		.TextSection_subTitle
+			margin-bottom 0.611em
+	
+	&-allInOne
+		padding-top 4.3%
+		padding-bottom 4.3%
+	
+	&-verification
+		padding-top 5.5%
+		padding-bottom 6.4%
+	
+	&-anonymity
+		padding-top 4.3%
+		padding-bottom 4.8%
+	
+	&-infoza
+		padding-top 3.7%
+		padding-bottom 3%
+		
+		.TextSection_textWrap
+			margin-top 0
+			margin-bottom 11px
+		
+		.TextSection_imgWrap
+			margin-right -3%
