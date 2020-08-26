@@ -1078,19 +1078,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (!shareLink) return;
 
-		let titleElem = document.querySelector('.QuestionBlock_title');
-		let url = location.href;
-		let title = '';
-		let text = '';
+		let text = document.querySelector('title').textContent;
 
-		if (titleElem) {
-			title = titleElem.textContent;
-		} else {
-			title = document.querySelector('title').textContent;
-		}
-		text = title;
-
-		navigator.share({title, text, url});
+		navigator.share({
+			title: '',
+			text,
+			url: location.href
+		});
 	});
 
 	// Mobile popup

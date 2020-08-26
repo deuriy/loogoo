@@ -147,6 +147,38 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
+	function checkExistingPhones () {
+		let phoneField = document.querySelector('.CompanySettings_field-phone');
+		let phoneFieldItems = phoneField.querySelector('.CompanySettings_field-phone .CompanySettings_fieldItem');
+		let addPhone = document.querySelector('.AddFieldItem-phone .AddFieldItem_text');
+
+		if (addPhone) {
+			if (phoneFieldItems) {
+				phoneField.querySelector('.CompanySettings_fieldItems').classList.remove('CompanySettings_fieldItems-empty');
+				addPhone.textContent = 'Добавить ещё телефон';
+			} else {
+				phoneField.querySelector('.CompanySettings_fieldItems').classList.add('CompanySettings_fieldItems-empty');
+				addPhone.textContent = 'Добавить телефон';
+			}
+		}
+	}
+
+	function checkExistingOffices () {
+		let officeField = document.querySelector('.CompanySettings_field-office');
+		let officeFieldItems = officeField.querySelector('.CompanySettings_field-office .CompanySettings_fieldItem');
+		let addOffice = document.querySelector('.AddFieldItem-office .AddFieldItem_text');
+
+		if (addOffice) {
+			if (officeFieldItems) {
+				officeField.querySelector('.CompanySettings_fieldItems').classList.remove('CompanySettings_fieldItems-empty');
+				addOffice.textContent = 'Добавить ещё офис';
+			} else {
+				officeField.querySelector('.CompanySettings_fieldItems').classList.add('CompanySettings_fieldItems-empty');
+				addOffice.textContent = 'Добавить офис';
+			}
+		}
+	}
+
 	function saveMobileOwner () {
 		let ownerAddition = document.getElementById('OwnerAddition');
 		let ownerWrapper = document.querySelector('.CompanySettings_ownerWrapper');
@@ -507,27 +539,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!addOfficeLink) return;
 
-		let fieldItems = addOfficeLink.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
+		let fieldItemsWrapper = addOfficeLink.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
+		let officeTmpl = document.getElementById('OfficeTmpl').content.cloneNode(true);
+		let fieldErrorTmpl = document.getElementById('FieldErrorTmpl').content.cloneNode(true);
 
-		let select = fieldItems.firstElementChild.querySelector('select').cloneNode(true);
-		select.classList.remove('hidden');
-
-		let dropdownSelect = document.createElement('div');
-		dropdownSelect.className = 'DropdownSelect DropdownSelect-mobile DropdownSelect DropdownSelect-companySettings CompanySettings_dropdownSelect';
-		dropdownSelect.append(select);
-
-		let formText = fieldItems.firstElementChild.querySelector('.CompanySettings_formText').cloneNode(true);
+		let key = randomString(4);
 
 		let newFieldItem = document.createElement('div');
-		newFieldItem.className = 'CompanySettings_fieldItem CompanySettings_fieldItem-additional';
-		newFieldItem.append(dropdownSelect, formText);
-		newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem"></a>');
+		newFieldItem.append(officeTmpl);
 
-		fieldItems.insertAdjacentElement('beforeend', newFieldItem);
-		newFieldItem.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_fieldError hidden"></div>');
+		let select = newFieldItem.querySelector('select');
+		select.name = select.name.replace(/0/g, key);
+		select.id = select.id.replace(/0/g, key);
 
-		clearFieldItemError(newFieldItem);
+		let formText = newFieldItem.querySelector('.CompanySettings_formText');
+		formText.name = formText.name.replace(/0/g, key);
+		formText.id = formText.id.replace(/0/g, key);
+
+		newFieldItem.classList.add('CompanySettings_fieldItem');
+		let fieldItems = fieldItemsWrapper.querySelectorAll('.CompanySettings_fieldItem');
+		if (!fieldItems) {
+			newFieldItem.classList.add('CompanySettings_fieldItem-additional');
+		}
+		
+		fieldItemsWrapper.append(newFieldItem, fieldErrorTmpl);
 		$(select).fSelect('reload');
+
+		checkExistingOffices();
 	});
 
 	// Add write button field
@@ -625,15 +663,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!addPhoneLink) return;
 
-		let fieldItems = addPhoneLink.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
-		let newFieldItem = fieldItems.firstElementChild.cloneNode(true);
-		newFieldItem.classList.add('CompanySettings_fieldItem-additional');
-		fieldItems.append(newFieldItem);
+		let fieldItemsWrapper = addPhoneLink.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
+		let phoneTmpl = document.getElementById('PhoneTmpl').content.cloneNode(true);
+		let fieldErrorTmpl = document.getElementById('FieldErrorTmpl').content.cloneNode(true);
 
-		newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem"></a>');
-		newFieldItem.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_fieldError hidden"></div>');
+		let newFieldItem = document.createElement('div');
+		let key = randomString(4);
 
-		clearFieldItemError(newFieldItem);
+		newFieldItem.classList.add('CompanySettings_fieldItem');
+		fieldItemsWrapper.append(newFieldItem);
+		newFieldItem.append(phoneTmpl);
+		newFieldItem.querySelector('input').name = 'phone['+key+']';
+
+		let fieldItems = fieldItemsWrapper.querySelectorAll('.CompanySettings_fieldItem');
+		if (!fieldItems) {
+			newFieldItem.classList.add('CompanySettings_fieldItem-additional');
+		}
+		
+		fieldItemsWrapper.append(newFieldItem, fieldErrorTmpl);
+
+		checkExistingPhones();
 	});
 
 	// Add days week field
@@ -642,88 +691,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!addDaysWeekLink) return;
 
-		let fieldItems = addDaysWeekLink.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
-		let fieldItemsNumber = fieldItems.children.length;
+		let fieldItemsWrapper = addDaysWeekLink.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
+		let daysWeekTmpl = document.getElementById('DaysWeekTmpl').content.cloneNode(true);
+		let fieldErrorTmpl = document.getElementById('FieldErrorTmpl').content.cloneNode(true);
+
 		let newFieldItem = document.createElement('div');
 		newFieldItem.className = 'CompanySettings_fieldItem';
-		newFieldItem.insertAdjacentHTML('beforeend', `<div class="DropdownSelect DropdownSelect-mobile DropdownSelect-companySettings DropdownSelect-daysWeek CompanySettings_dropdownSelect">
-                            <select class="DropdownSelect_select" name="days_week[]" multiple="multiple">
-                              <option value="monday">Понедельник</option>
-                              <option value="tuesday">Вторник</option>
-                              <option value="wednesday">Среда</option>
-                              <option value="thursday">Четверг</option>
-                              <option value="friday">Пятница</option>
-                              <option value="saturday">Суббота</option>
-                              <option value="sunday">Воскресенье</option>
-                            </select>
-                          </div>
-                          <div class="TimeRangeDropdown CompanySettings_timeRangeDropdown CompanySettings_timeRangeDropdown-workingHours">
-                            <div class="TimeRangeDropdown_label" data-label="Время работы">Время работы</div>
-                            <div class="TimeRangeDropdown_dropdown">
-                              <div class="TimeRangeDropdown_wrapper">
-                                <input class="TimeRangeDropdown_time TimeRangeDropdown_time-from" type="time" name="working_hours_from" min="08:00" max="10:00" data-placeholder="с" value="10:00">
-                                <input class="TimeRangeDropdown_time TimeRangeDropdown_time-to" type="time" name="working_hours_to" min="07:00" max="20:00" data-placeholder="до" value="18:00">
-                              </div>
-                              <div class="Checkbox Checkbox-square Checkbox-timeRangeDropdown Checkbox-aroundClock">
-                                <input class="Checkbox_input" type="checkbox" name="around_clock" value="yes" id="around_clock">
-                                <label class="Checkbox_label" for="around_clock">Круглосуточно</label>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="TimeRangeDropdown CompanySettings_timeRangeDropdown CompanySettings_timeRangeDropdown-noMargin">
-                            <div class="TimeRangeDropdown_label" data-label="Перерыв">Перерыв</div>
-                            <div class="TimeRangeDropdown_dropdown">
-                              <div class="TimeRangeDropdown_wrapper">
-                                <input class="TimeRangeDropdown_time TimeRangeDropdown_time-from" type="time" name="break_from" min="08:00" max="10:00" data-placeholder="с" value="10:00">
-                                <input class="TimeRangeDropdown_time TimeRangeDropdown_time-to" type="time" name="break_to" min="07:00" max="20:00" data-placeholder="до" value="16:00">
-                              </div>
-                              <div class="Checkbox Checkbox-square Checkbox-timeRangeDropdown Checkbox-nonStop">
-                                <input class="Checkbox_input" type="checkbox" name="break" value="yes" id="break">
-                                <label class="Checkbox_label" for="break">Без перерыва</label>
-                              </div>
-                            </div>
-                          </div>
-                          <a href="javascript:;" class="CompanySettings_removeFieldItem"></a>`);
+		newFieldItem.append(daysWeekTmpl);
 
-		let select = newFieldItem.querySelector('.DropdownSelect_select');
-		// let select = fieldItems.firstElementChild.querySelector('select').cloneNode(true);
-		// select.classList.remove('hidden');
+		let select = newFieldItem.querySelector('select');
+		let key = randomString(4);
 
-		// let dropdownSelect = document.createElement('div');
-		// dropdownSelect.className = 'DropdownSelect DropdownSelect-mobile DropdownSelect-companySettings DropdownSelect-daysWeek CompanySettings_dropdownSelect';
-		// dropdownSelect.append(select);
+		select.name = 'schedule['+key+'][days_week][]';
 
-		// select.name = 'days_week_' + (fieldItemsNumber + 1) + '[]';
+		let timeRangeDropdowns = newFieldItem.querySelectorAll('.TimeRangeDropdown');
 
-		// let timeRangeDropdowns = fieldItems.firstElementChild.querySelectorAll('.TimeRangeDropdown');
-		// let timeRangeDropdownsCloned = [];
+		timeRangeDropdowns.forEach(timeRangeDropdown => {
+			let timeRangeFrom = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-from');
+			let timeRangeTo = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-to');
+			let timeRangeCheckboxInput = timeRangeDropdown.querySelector('.Checkbox_input');
+			let timeRangeCheckboxLabel = timeRangeDropdown.querySelector('.Checkbox_label');
 
-		// for (let timeRangeDropdown of timeRangeDropdowns) {
-		// 	let clonedTimeRangeDropdown = timeRangeDropdown.cloneNode(true);
-		// 	let timeRangeFrom = clonedTimeRangeDropdown.querySelector('.TimeRangeDropdown_time-from');
-		// 	let timeRangeTo = clonedTimeRangeDropdown.querySelector('.TimeRangeDropdown_time-to');
-		// 	let timeRangeCheckboxInput = clonedTimeRangeDropdown.querySelector('.Checkbox_input');
-		// 	let timeRangeCheckboxLabel = clonedTimeRangeDropdown.querySelector('.Checkbox_label');
+			timeRangeFrom.name = timeRangeFrom.name.replace(/0/g, key);
+			timeRangeTo.name = timeRangeTo.name.replace(/0/g, key);
+			timeRangeCheckboxInput.name = timeRangeCheckboxInput.name.replace(/0/g, key);
+			timeRangeCheckboxInput.id = timeRangeCheckboxInput.id.replace(/0/g, key);
+			timeRangeCheckboxLabel.htmlFor = timeRangeCheckboxLabel.htmlFor.replace(/0/g, key);
+		});
 
-		// 	timeRangeFrom.name += '_' + (fieldItemsNumber + 1);
-		// 	timeRangeTo.name += '_' + (fieldItemsNumber + 1);
-		// 	timeRangeCheckboxInput.name += '_' + (fieldItemsNumber + 1);
-		// 	timeRangeCheckboxInput.id += '_' + (fieldItemsNumber + 1);
-		// 	timeRangeCheckboxLabel.htmlFor += '_' + (fieldItemsNumber + 1);
-
-		// 	timeRangeDropdownsCloned.push(clonedTimeRangeDropdown);
-		// }
-
-		// let newFieldItem = document.createElement('div');
-		// newFieldItem.className = 'CompanySettings_fieldItem CompanySettings_fieldItem-additional';
-		// newFieldItem.append(dropdownSelect, ...timeRangeDropdownsCloned);
-		// newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem"></a>');
-
-		// fieldItems.insertAdjacentElement('beforeend', newFieldItem);
-		fieldItems.append(newFieldItem);
-		newFieldItem.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_fieldError hidden"></div>');
-
-		// clearFieldItemError(newFieldItem);
+		fieldItemsWrapper.append(newFieldItem, fieldErrorTmpl);
 
 		$(select).fSelect({
 			placeholder: 'Дни недели',
@@ -795,6 +791,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		removeFieldAndError(fieldItem);
 		checkExistingPosts();
 		checkExisitingDaysWeek();
+		checkExistingPhones();
+		checkExistingOffices();
 	});
 
 	// Hide address creation block
@@ -1045,6 +1043,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	changeDaysWeekDropdowns();
 	checkWriteBtnField();
 	checkExisitingDaysWeek();
+	checkExistingPhones();
+	checkExistingOffices();
 
 	window.addEventListener('resize', function () {
 		syncOwnerAdditionField();
