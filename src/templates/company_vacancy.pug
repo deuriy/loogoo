@@ -108,15 +108,9 @@ block content
 							li.Images_item
 								a(href="#").Images_link
 									img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
-							li.Images_item.hidden-xs
+							li.Images_item
 								a(href="#").Images_link
 									img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
-							li.Images_item.hidden-xs
-								a(href="#").Images_link
-									img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
-							li.Images_item.Images_item-other.hidden-smPlus
-								a(href="#").Images_link.Images_link-other
-									span.Images_number +2
 					.Job_bottom
 						a(href="#BookVacancyPopup", data-action="openMobilePopup").BtnBlue.BtnBlue-fullJob.Job_viewBtn Забронировать бесплатно
 						.Job_additional
@@ -183,5 +177,6 @@ block content
 	include /includes/blocks/ChangeInfoPopup
 	include /includes/blocks/BookVacancyPopup
 	include /includes/blocks/PopupShare
+	include /includes/chunks/images_template
 block page_bottom
 	script(src="/js/company.js")

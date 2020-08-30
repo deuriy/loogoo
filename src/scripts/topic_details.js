@@ -113,27 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
-	// Show all images
-	document.addEventListener('click', function (e) {
-		let imagesLinkOther = e.target.closest('.Images_link-other');
-
-		if (!imagesLinkOther) return;
-
-		let images = imagesLinkOther.closest('.Images');
-		images.classList.add('opened');
-		e.preventDefault();
-	});
-
-	document.addEventListener('click', function (e) {
-		let hideImagesLink = e.target.closest('.Images_hideLink');
-
-		if (!hideImagesLink) return;
-
-		let images = hideImagesLink.closest('.Images');
-		images.classList.remove('opened');
-		e.preventDefault();
-	});
-
 	document.addEventListener('click', function (e) {
 		let commentTextLink = e.target.closest('.Comment_text a');
 

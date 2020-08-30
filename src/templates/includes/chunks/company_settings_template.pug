@@ -40,5 +40,21 @@ template#OfficeTmpl
 			option(value="almaata") Алма-ата
 	input(type="text", name="location[0][address]", placeholder="адрес").CompanySettings_formText
 	a(href="javascript:;").CompanySettings_removeFieldItem
+template#OwnerTmpl
+	.CompanySettings_owner
+		.CompanySettings_ownerHeader
+			.CompanySettings_ownerFullName Владелец
+			a(href="javascript:;").CompanySettings_removeFieldItem
+		a(href="#owner_edit").CompanySettings_link.CompanySettings_link-ownerFullNameEdit
+template#PostFieldTmpl
+	.CompanySettings_field.CompanySettings_field-post.hidden-xs
+		.CompanySettings_fieldContent
+			.CompanySettings_fieldItems
+template#PostFieldItemTmpl
+	input(type="text", name="person[0][post]", placeholder="должность").CompanySettings_formText.CompanySettings_formText-col4.CompanySettings_formText-gutter
+	input(type="text", name="person[0][last_name]", placeholder="Фамилия").CompanySettings_formText.CompanySettings_formText-col4.CompanySettings_formText-gutter
+	input(type="text", name="person[0][first_name]", placeholder="Имя").CompanySettings_formText.CompanySettings_formText-col4.CompanySettings_formText-gutter
+	input(type="text", name="person[0][patronymic]", placeholder="Отчество").CompanySettings_formText.CompanySettings_formText-col4
+	a(href="javascript:;").CompanySettings_removeFieldItem
 template#FieldErrorTmpl
 	.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно

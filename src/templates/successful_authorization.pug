@@ -1,0 +1,12 @@
+extends /layouts/empty_header_layout
+block vars
+	- var title = "Успешная авторизация";
+	- var mainModifiers = "Main-successfulAuth";
+block content
+	.Container.Main_container
+		.SuccessfulAuth
+			.SuccessfulAuth_imgWrap
+				img(src="img/successful_auth.png").SuccessfulAuth_img
+			.SuccessfulAuth_text
+				p Отлично!#[br] Вы успешно авторизовались!
+				p Теперь вы можете закрыть это окно.

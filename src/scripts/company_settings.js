@@ -29,14 +29,25 @@ document.addEventListener('DOMContentLoaded', function () {
 	function createDesktopPostFields (postKey) {
 		let postAdditionField = document.querySelector('.CompanySettings_field-postAddition');
 		let postFieldItems = document.querySelectorAll('.CompanySettings_fieldItem-post');
-		let postsNumber = postFieldItems.length;
 
-		if (!postsNumber) {
-			postAdditionField.insertAdjacentHTML('beforebegin', `<div class="CompanySettings_field CompanySettings_field-post hidden-xs"><div class="CompanySettings_fieldContent"><div class="CompanySettings_fieldItems"></div></div></div>`);
+		if (!postFieldItems.length) {
+			let postFieldTmpl = document.getElementById('PostFieldTmpl').content.cloneNode(true);
+			postAdditionField.before(postFieldTmpl);
 		}
 
 		let postFieldItemsWrapper = document.querySelector('.CompanySettings_field-post .CompanySettings_fieldItems');
-		postFieldItemsWrapper.insertAdjacentHTML('beforeend', `<div class="CompanySettings_fieldItem CompanySettings_fieldItem-post" data-post-key="${postKey}"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="person[${postKey}][post]" placeholder="должность"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="person[${postKey}][last_name]" placeholder="Фамилия"><input class="CompanySettings_formText CompanySettings_formText-col4 CompanySettings_formText-gutter" type="text" name="person[${postKey}][first_name]" placeholder="Имя"><input class="CompanySettings_formText CompanySettings_formText-col4" type="text" name="person[${postKey}][patronymic]" placeholder="Отчество"><a class="CompanySettings_removeFieldItem" href="javascript:;"></a></div><div class="Error Error-small CompanySettings_fieldError hidden"></div>`);
+		let postFieldItemsTmpl = document.getElementById('PostFieldItemTmpl').content.cloneNode(true);
+		let fieldErrorTmpl = document.getElementById('FieldErrorTmpl').content.cloneNode(true);
+		let newFieldItem = document.createElement('div');
+
+		newFieldItem.className = 'CompanySettings_fieldItem CompanySettings_fieldItem-post';
+		newFieldItem.dataset.postKey = postKey;
+		newFieldItem.append(postFieldItemsTmpl);
+		postFieldItemsWrapper.append(newFieldItem, fieldErrorTmpl);
+
+		newFieldItem.querySelectorAll('input').forEach(input => {
+			input.name = input.name.replace(/0/g, postKey);
+		});
 
 		checkExistingPosts();
 	}
@@ -133,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function checkExisitingDaysWeek () {
 		let daysWeekField = document.querySelector('.CompanySettings_field-daysWeek');
-		let daysWeekFieldItems = daysWeekField.querySelector('.CompanySettings_field-daysWeek .CompanySettings_fieldItem');
+		let daysWeekFieldItems = document.querySelector('.CompanySettings_field-daysWeek .CompanySettings_fieldItem');
 		let addDaysWeek = document.querySelector('.AddFieldItem-daysWeek .AddFieldItem_text');
 
 		if (addDaysWeek) {
@@ -149,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function checkExistingPhones () {
 		let phoneField = document.querySelector('.CompanySettings_field-phone');
-		let phoneFieldItems = phoneField.querySelector('.CompanySettings_field-phone .CompanySettings_fieldItem');
+		let phoneFieldItems = document.querySelector('.CompanySettings_field-phone .CompanySettings_fieldItem');
 		let addPhone = document.querySelector('.AddFieldItem-phone .AddFieldItem_text');
 
 		if (addPhone) {
@@ -165,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function checkExistingOffices () {
 		let officeField = document.querySelector('.CompanySettings_field-office');
-		let officeFieldItems = officeField.querySelector('.CompanySettings_field-office .CompanySettings_fieldItem');
+		let officeFieldItems = document.querySelector('.CompanySettings_field-office .CompanySettings_fieldItem');
 		let addOffice = document.querySelector('.AddFieldItem-office .AddFieldItem_text');
 
 		if (addOffice) {
@@ -185,6 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		let owner = document.querySelector('.CompanySettings_owner');
 		let ownerAdditionFormText = ownerAddition.querySelectorAll('.CompanySettings_formText');
 		let ownerFullName = (ownerAdditionFormText[0].value + ' ' + ownerAdditionFormText[1].value + ' ' + ownerAdditionFormText[2].value).trim();
+		let ownerTmpl = document.getElementById('OwnerTmpl').content.cloneNode(true);
 
 		if (!owner) {
 			ownerWrapper.insertAdjacentHTML('beforeend', `<div class="CompanySettings_owner"><div class="CompanySettings_ownerHeader"><div class="CompanySettings_ownerFullName">Владелец</div><a href="javascript:;"class="CompanySettings_removeOwner"></a></div><a href="#owner_edit" class="CompanySettings_link CompanySettings_link-ownerFullNameEdit">${ownerFullName}</a></div><div class="Error Error-small CompanySettings_ownerError hidden"></div>`);
@@ -608,7 +620,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		isPublic.checked = false;
 
 		let isPublicLabel = isPublic.nextElementSibling;
-		console.log(isPublicLabel);
 		isPublicLabel.htmlFor = `is_public${key}`;
 
 		let newFieldItem = document.createElement('div');
