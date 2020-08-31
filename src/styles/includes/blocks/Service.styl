@@ -1,0 +1,64 @@
+.Service
+	padding-bottom 31px
+	border-bottom 1px solid #ebf0f2
+	
+	@media $xs
+		padding-bottom 27px
+	
+	&_title
+		margin-bottom 10px
+		font-weight 600
+		font-size 21px
+		line-height 1.42857
+		
+		@media $xs
+			line-height 1.24
+	
+	&_prices
+		display flex
+		align-items baseline
+		margin-bottom 9px
+		
+		@media $xs
+			margin-bottom 5px
+	
+	&_price
+		color $blue
+		font-weight 600
+		font-size 21px
+	
+	&_oldPrice
+		margin-left 10px
+		color #999
+		font-weight 500
+		font-size 13px
+		text-decoration line-through
+		
+		@media $xs
+			font-size 14px
+	
+	&_text
+		margin-bottom 20px
+		font-size 15px
+		line-height 1.6
+		color #404040
+	
+	&_bottom
+		display flex
+		justify-content space-between
+		align-items center
+		margin-right -5px
+		
+		@media $xs
+			-webkit-justify-content center
+			justify-content center
+	
+	&_country
+		display flex
+		align-items center
+		color #999
+		font-size 14px
+		line-height 1.71428
+	
+	&_countryImg
+		margin-right 8px

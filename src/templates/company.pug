@@ -155,18 +155,92 @@ block content
 									.ExtendedRating_lineFill(data-mark="9.2")
 							.ExtendedRating_ratingsNumber.hidden-xs 55 оценок
 					.RatingSection_reviewsNumber 55 отзывов
-				.Remark.Company_remark.hidden#Remark(data-action="hideBlockWithCookie")
-					a(href="javascript:;").Remark_close
-						include /includes/svg/icon_close_remark
-					h3.Remark_title Здесь только реальные отзывы, которым вы действительно можете доверять! #[a(href="#").ArrowLink.ArrowLink-remark.Remark_arrowLink.hidden-smPlus Подробнее]
-					.Remark_text.hidden-xs INFOZA – первый и единственный портал, который публикует только те отзывы, которые прошли тщательную проверку и обязательно были документально подтверждены! Благодаря этому, только у нас вы можете узнать всю правду о любой компании! #[a(href="#").ArrowLink Подробнее]
+				//- .Remark.Company_remark.hidden#Remark(data-action="hideBlockWithCookie")
+				//- 	a(href="javascript:;").Remark_close
+				//- 		include /includes/svg/icon_close_remark
+				//- 	h3.Remark_title Здесь только реальные отзывы, которым вы действительно можете доверять! #[a(href="#").ArrowLink.ArrowLink-remark.Remark_arrowLink.hidden-smPlus Подробнее]
+				//- 	.Remark_text.hidden-xs INFOZA – первый и единственный портал, который публикует только те отзывы, которые прошли тщательную проверку и обязательно были документально подтверждены! Благодаря этому, только у нас вы можете узнать всю правду о любой компании! #[a(href="#").ArrowLink Подробнее]
 				.CommentsBlock.CommentsBlock-company.Company_commentsBlock
-					form(action="#").CommentForm.CommentForm-company.CommentsBlock_commentForm
-						textarea(name="comment_text", placeholder="Оставьте отзыв").FormTextarea.FormTextarea-commentFormCompany.FormTextarea-commentFormCompany.CommentForm_textArea
-						.CommentForm_actions
-							button(type="reset").CommentForm_resetBtn Отмена
-							button(type="submit").BtnBlue.BtnBlue-light.BtnBlue-commentForm Отправить
+					//- form(action="#").CommentForm.CommentForm-company.CommentsBlock_commentForm
+					//- 	textarea(name="comment_text", placeholder="Оставьте отзыв").FormTextarea.FormTextarea-commentFormCompany.FormTextarea-commentFormCompany.CommentForm_textArea
+					//- 	.CommentForm_actions
+					//- 		button(type="reset").CommentForm_resetBtn Отмена
+					//- 		button(type="submit").BtnBlue.BtnBlue-light.BtnBlue-commentForm Отправить
+					.Notice.Notice-rejected.CommentsBlock_notice.CommentsBlock_notice-rejected
+						h3.Notice_title Ваш отзыв отклонён!
+						h3.Notice_text Побочный эффект существенно нейтрализует конкурента, расширяя долю рынка. Распределение бюджета искажает типичный маркетинг. Пожалуйста, #[a(href="#") отредактируйте] или #[a(href="#") удалите] отзыв.
 					.CommentsBlock_items
+						.Comment.Comment-company.Comment-rejected.CommentsBlock_item.CommentsBlock_item-rejected
+							.Comment_wrapper
+								.Comment_header
+									.Comment_headerLeft
+										.UserPhoto.UserPhoto-commentCompany.Comment_userPhoto
+											img(src="/img/vladimir_petrov.png", alt="Владимир Петров").UserPhoto_img
+										.Comment_info
+											.Comment_nameAndRating
+												.Comment_userName Владимир Петров
+												.UserIcons.UserIcons-companyComment.Comment_userIcons
+													ul.UserIcons_list
+														li.UserIcons_item.UserIcons_item-check
+															include /includes/svg/user_icons/check
+														li.UserIcons_item.UserIcons_item-lightningFill
+															include /includes/svg/user_icons/lightning_fill
+												a(href="javascript:;").Rating.Comment_rating
+													span.Rating_number 528
+											.Comment_date сегодня в 7:05
+									.Comment_headerRight
+										.DotsMenu.DotsMenu-comment.DotsMenu-commentRejected
+											a(href="javascript:;").DotsIcon.DotsMenu_icon
+												include /includes/svg/SvgIco/dots
+											.DotsMenu_wrapper
+												ul.DotsMenu_menu
+													li.DotsMenu_item
+														a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
+															include /includes/svg/SvgIco/edit
+															.
+																Редактировать
+													li.DotsMenu_item
+														a(href="javascript:;").DotsMenu_link
+															include /includes/svg/SvgIco/remove
+															.
+																Удалить
+								.Comment_ratingWrapper
+									.Rating.Rating-companyComment.Rating-dropdown.Comment_companyRating
+										a(href="javascript:;").Rating_wrapperLink
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,3
+											span.Rating_max / 10
+										.Rating_dropdown
+											a(href="javascript:;").Rating_closeDropdown.hidden-smPlus
+												include /includes/svg/icon_close
+											include /includes/blocks/AdvantagesRating
+										.Overlay.Overlay-rating
+								.Comment_text
+									p Маркетингово-ориентированное издание синхронизирует продвигаемый фактор коммуникации. Эластичность спроса изоморфна времени. Медиаплан, следовательно, нейтрализует инвестиционный продукт. Косвенная реклама экономит типичный метод изучения рынка. Выставка индуцирует продвигаемый презентационный материал.
+								.Images.Images-comment.Comment_images
+									.Images_header
+										h3.Images_title 5 файлов
+										.Comment_country
+											img(src="/img/icon_poland.png", alt="Poland").Comment_countryIcon
+											.
+												Польша
+									ul.Images_list
+										li.Images_item
+											a(href="#").Images_link
+												img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+										li.Images_item
+											a(href="#").Images_link
+												img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+										li.Images_item
+											a(href="#").Images_link
+												img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+										li.Images_item
+											a(href="#").Images_link
+												img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
+										li.Images_item
+											a(href="#").Images_link
+												img(src="/img/post_img.jpg", alt="Картинка записи").Images_img
 						.Comment.Comment-company.Comment-hasChild.CommentsBlock_item
 							.Comment_wrapper
 								.Comment_header
@@ -186,7 +260,7 @@ block content
 													span.Rating_number 528
 											.Comment_date сегодня в 7:05
 									.Comment_headerRight
-										.DotsMenu
+										.DotsMenu.DotsMenu-comment
 											a(href="javascript:;").DotsIcon.DotsMenu_icon
 												include /includes/svg/SvgIco/dots
 											.DotsMenu_wrapper
@@ -273,7 +347,7 @@ block content
 															.
 																Анна Сергеевна
 											.Comment_headerRight
-												.DotsMenu
+												.DotsMenu.DotsMenu-comment
 													a(href="javascript:;").DotsIcon.DotsMenu_icon
 														include /includes/svg/SvgIco/dots
 													.DotsMenu_wrapper
@@ -300,7 +374,7 @@ block content
 															include /includes/svg/user_icons/lightning_fill
 											.Comment_date сегодня в 7:05
 									.Comment_headerRight
-										.DotsMenu
+										.DotsMenu.DotsMenu-comment
 											a(href="javascript:;").DotsIcon.DotsMenu_icon
 												include /includes/svg/SvgIco/dots
 											.DotsMenu_wrapper
@@ -325,39 +399,6 @@ block content
 										.Rating_dropdown
 											a(href="javascript:;").Rating_closeDropdown.hidden-smPlus
 												include /includes/svg/icon_close
-											//- .AdvantagesRating
-											//- 	.AdvantagesRating_header.hidden-smPlus
-											//- 		.UserPhoto.UserPhoto-ratingDropdown.AdvantagesRating_userPhoto
-											//- 			img(src="img/anna_sergeevna.png", alt="Анна Сергеевна").UserPhoto_img
-											//- 		.AdvantagesRating_headerRight
-											//- 			h3.AdvantagesRating_title Детальная оценка
-											//- 			.AdvantagesRating_userName Анна Сергеевна
-											//- 	ul.AdvantagesRating_list
-											//- 		li.AdvantagesRating_item
-											//- 			span.AdvantagesRating_icon
-											//- 				include /includes/svg/SvgIco/icon_star
-											//- 			span.AdvantagesRating_mark 6
-											//- 			span.AdvantagesRating_text качество обслуживания и поддержки
-											//- 		li.AdvantagesRating_item
-											//- 			span.AdvantagesRating_icon
-											//- 				include /includes/svg/SvgIco/icon_star
-											//- 			span.AdvantagesRating_mark 7
-											//- 			span.AdvantagesRating_text достоверность информации о работе
-											//- 		li.AdvantagesRating_item
-											//- 			span.AdvantagesRating_icon
-											//- 				include /includes/svg/SvgIco/icon_star
-											//- 			span.AdvantagesRating_mark 8
-											//- 			span.AdvantagesRating_text достоверность информации о жилье
-											//- 		li.AdvantagesRating_item
-											//- 			span.AdvantagesRating_icon
-											//- 				include /includes/svg/SvgIco/icon_star
-											//- 			span.AdvantagesRating_mark 9
-											//- 			span.AdvantagesRating_text соблюдение сроков изготовления документов
-											//- 		li.AdvantagesRating_item
-											//- 			span.AdvantagesRating_icon
-											//- 				include /includes/svg/SvgIco/icon_star
-											//- 			span.AdvantagesRating_mark 10
-											//- 			span.AdvantagesRating_text качество полученных документов или услуг
 											include /includes/blocks/AdvantagesRating
 										.Overlay.Overlay-rating
 									.ConfirmLabel.Comment_confirmLabel Подтвержден

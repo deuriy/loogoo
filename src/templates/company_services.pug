@@ -1,0 +1,103 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Sony Corporation";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-companyPage";
+block content
+	.Container.Container-company.Main_container
+		.Company
+			.MobileHeader.hidden-smPlus
+				a(href="#").BtnBack.MobileHeader_btnBack
+					include /includes/svg/SvgIco/arrow_left
+				.MobileHeader_titleWrapper
+					h1.MobileHeader_title.MobileHeader_title-company Sony Corporation
+				a(href="#ContactPopupMenu").PopupMenuLink.MobileHeader_phoneIcon
+					include /includes/svg/contacts/phone
+				a(href="#PopupShare", data-action="openMobilePopup", data-mobile-popup-title="Sony Corporation").DotsIcon.MobileHeader_dotsIcon
+					include /includes/svg/SvgIco/dots
+			.CompanyInfo.CompanyInfo-company.Company_info.hidden-smPlus
+				.CompanyInfo_logo
+					img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyInfo_logoImg
+				.CompanyInfo_wrapper
+					.CompanyInfo_nameWrapper
+						h4.CompanyInfo_name Sony Corporation
+						.Bookmark.Bookmark-company
+							a(href="#CompanyPopupNotification", title="Сохранить в закладки").Bookmark_icon
+								include /includes/svg/SvgIco/bookmark
+					.Rating.Rating-companyHeader
+						span.Rating_icon
+							include /includes/svg/SvgIco/icon_star
+						span.Rating_number 7,5
+						span.Rating_max / 10
+						span.Rating_label (55 отзывов)
+			.Company_left.hidden-xs
+				.CompanyPhoto.Company_photo
+					img(src="/img/company_photo.jpg", alt="Company photo").CompanyPhoto_img
+					.Rating.Rating-company.Rating-center.CompanyPhoto_rating
+						span.Rating_icon
+							include /includes/svg/SvgIco/icon_star
+						span.Rating_number 7,5
+						span.Rating_max / 10
+						span.Rating_label (55 отзывов)
+					a(href="#").BtnBlue.BtnBlue-company Написать сообщение
+				include /includes/blocks/StatIcons-company
+			.Company_right
+				h1.Company_title.hidden-xs Sony Corporation
+				include /includes/blocks/MenuSectionCompany
+				.Services
+					.Service.Services_item
+						h2.Service_title Пакет документов для открытия польской национальной визы типа D на 180 дней + Работа
+						.Service_prices
+							.Service_price 2900 ГРН
+							.Service_oldPrice 3850 ГРН
+						.Service_text При нахождении на территории Шенген зоны вам нужно иметь лицензированный страховой полис на весь период пребывания, который отвечает всем требованиям. Этот документ нужно иметь каждому кто путешествует в страны Шенгенской зоны, для подтверждения защищенности в случае несчастного случая или другой необходимости. Полис имеет покрытие всех важнейших аспектов страхования жизни и здоровья, в том числе и новых требований всех стран. Подходит для туристических и рабочих поездок, а также для поездок на учебу.
+						.Service_bottom
+							a(href="#").BtnBlue.BtnBlue-service Заказать
+							.Service_country.hidden-xs
+								img(src="img/icon_poland.png", alt="Poland").Service_countryImg
+								.
+									Польша
+					.Service.Services_item
+						h2.Service_title Пакет документов для пересечения границы
+						.Service_prices
+							.Service_price 200 ГРН
+							.Service_oldPrice 300 ГРН
+						.Service_text Если вы будете пересекать границу по биометрическому паспорту, то при прохождении контроля вы должны сказать, что едете в другую страну в туристических целях, потому что все другие цели поездки (например, трудоустройства) не подходят для въезда по биометрии. По просьбе пограничника доказать цель поездки вы покажете вот этот пакет документов, состоящий из лицензированного страхового полиса на весь период пребывания (90 дней), активного бронирования гостиницы и мобильного оператора с деньгами на счету и быстрым интернетом.
+						.Service_bottom
+							a(href="#").BtnBlue.BtnBlue-service Заказать
+							.Service_country.hidden-xs
+								img(src="img/icon_poland.png", alt="Poland").Service_countryImg
+								.
+									Польша
+					.Service.Services_item
+						h2.Service_title Пакет документов для пересечения границы
+						.Service_prices
+							.Service_price 200 ГРН
+							.Service_oldPrice 300 ГРН
+						.Service_text Если вы будете пересекать границу по биометрическому паспорту, то при прохождении контроля вы должны сказать, что едете в другую страну в туристических целях, потому что все другие цели поездки (например, трудоустройства) не подходят для въезда по биометрии. По просьбе пограничника доказать цель поездки вы покажете вот этот пакет документов, состоящий из лицензированного страхового полиса на весь период пребывания (90 дней), активного бронирования гостиницы и мобильного оператора с деньгами на счету и быстрым интернетом.
+						.Service_bottom
+							a(href="#").BtnBlue.BtnBlue-service Заказать
+							.Service_country.hidden-xs
+								img(src="img/icon_poland.png", alt="Poland").Service_countryImg
+								.
+									Польша
+	include /includes/blocks/ContactPopupMenu
+	include /includes/blocks/WriteMessagePopup
+	include /includes/blocks/CallPopup
+	include /includes/blocks/RequestCallPopup
+	include /includes/blocks/CallWaitingPopup
+	include /includes/blocks/CompanyPopupNotification
+	include /includes/blocks/BookmarkSettingsPopup
+	include /includes/blocks/PopupShare
+	.PopupMenu.PopupMenu-paddingLeft#CountriesPopupMenu
+		.PopupMenu_overlay
+		.PopupMenu_wrapper
+			ul.PopupMenu_menu
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link.active Все страны
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Чехия
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Польша
+block page_bottom
+	script(src="/js/company.js")
