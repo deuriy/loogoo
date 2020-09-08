@@ -1,0 +1,166 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Услуги";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-companySettings";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title #{title}
+					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
+				.EntityList.EntityList-my
+					a(href="/company.html", title="Sony Corporation").CompanyLink.CompanyLink-vacancies.EntityList_companyLink.hidden-smPlus
+						img(src="img/companyblock_logo.png", alt="Sony Corporation").CompanyLink_img
+						.CompanyLink_textWrap
+							.CompanyLink_title Sony Corporation
+							.CompanyLink_text на страницу компании
+					.EntityList_btnWrapper.hidden-smPlus
+						a(href="/add_service.html").BtnBlue.BtnBlue-addEntity.EntityList_btn Добавить услугу
+					.EntityList_header
+						h2.EntityList_title.hidden-xs Услуги
+						.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-vacancy.hidden-xs
+							select(name="vacancy_types").DropdownSelect_select
+								option(value="all") Все услуги
+								option(value="published") Опубликованные
+								option(value="hidden") Скрытые
+						a(href="#VacancyTypesPopup").SelectionLink.PopupMenuLink.hidden-smPlus Все услуги
+					.Service.EntityList_item#Service1
+						h2.Service_title Пакет документов для открытия польской национальной визы типа D на 180 дней + Работа
+						.Service_prices
+							.Service_price 2900 ГРН
+							.Service_oldPrice 3850 ГРН
+						.EntityStatus.Service_status.hidden-smPlus
+							.EntityStatus_text Услуга опубликована
+							.DotsMenu.DotsMenu-entityStatus.EntityStatus_dotsMenu
+								a(href="javascript:;").DotsIcon.DotsIcon-entityStatus.DotsMenu_icon
+									include /includes/svg/SvgIco/dots
+								.DotsMenu_wrapper
+									ul.DotsMenu_menu
+										li.DotsMenu_item
+											a(href="javascript:;").DotsMenu_link Скрыть услугу
+										li.DotsMenu_item
+											a(href="/company_services.html#Service1").DotsMenu_link Посмотреть
+										li.DotsMenu_item
+											a(href="javascript:;").DotsMenu_link Редактировать
+										li.DotsMenu_item
+											a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
+						.Service_text При нахождении на территории Шенген зоны вам нужно иметь лицензированный страховой полис на весь период пребывания, который отвечает всем требованиям. Этот документ нужно иметь каждому кто путешествует в страны Шенгенской зоны, для подтверждения защищенности в случае несчастного случая или другой необходимости. Полис имеет покрытие всех важнейших аспектов страхования жизни и здоровья, в том числе и новых требований всех стран. Подходит для туристических и рабочих поездок, а также для поездок на учебу.
+						.EntityInfo
+							.EntityInfo_updated Обновлено 2 дня назад
+							.EntityStatus.EntityInfo_status.hidden-xs
+								.EntityStatus_text Услуга опубликована
+								.DotsMenu.DotsMenu-entityStatus.EntityStatus_dotsMenu
+									a(href="javascript:;").DotsIcon.DotsIcon-entityStatus.DotsMenu_icon
+										include /includes/svg/SvgIco/dots
+									.DotsMenu_wrapper
+										ul.DotsMenu_menu
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link Скрыть услугу
+											li.DotsMenu_item
+												a(href="/company_services.html#Service1").DotsMenu_link Посмотреть
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link Редактировать
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
+					.Service.EntityList_item#Service2
+						h2.Service_title Пакет документов для пересечения границы
+						.Service_prices
+							.Service_price 200 ГРН
+							.Service_oldPrice 300 ГРН
+						.EntityStatus.Service_status.EntityStatus-hidden.hidden-smPlus
+							.EntityStatus_text Услуга скрыта
+							.DotsMenu.DotsMenu-entityStatus.DotsMenu-entityStatusHidden.EntityStatus_dotsMenu
+								a(href="javascript:;").DotsIcon.DotsIcon-entityStatus.DotsIcon-entityStatusHidden.DotsMenu_icon
+									include /includes/svg/SvgIco/dots
+								.DotsMenu_wrapper
+									ul.DotsMenu_menu
+										li.DotsMenu_item
+											a(href="javascript:;").DotsMenu_link Скрыть услугу
+										li.DotsMenu_item
+											a(href="/company_services.html#Service2").DotsMenu_link Посмотреть
+										li.DotsMenu_item
+											a(href="javascript:;").DotsMenu_link Редактировать
+										li.DotsMenu_item
+											a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
+						.Service_text Если вы будете пересекать границу по биометрическому паспорту, то при прохождении контроля вы должны сказать, что едете в другую страну в туристических целях, потому что все другие цели поездки (например, трудоустройства) не подходят для въезда по биометрии. По просьбе пограничника доказать цель поездки вы покажете вот этот пакет документов, состоящий из лицензированного страхового полиса на весь период пребывания (90 дней), активного бронирования гостиницы и мобильного оператора с деньгами на счету и быстрым интернетом.
+						.EntityInfo
+							.EntityInfo_updated Обновлено 2 дня назад
+							.EntityStatus.EntityInfo_status.EntityStatus-hidden.hidden-xs
+								.EntityStatus_text Услуга скрыта
+								.DotsMenu.DotsMenu-entityStatus.DotsMenu-entityStatusHidden.EntityStatus_dotsMenu
+									a(href="javascript:;").DotsIcon.DotsIcon-entityStatus.DotsIcon-entityStatusHidden.DotsMenu_icon
+										include /includes/svg/SvgIco/dots
+									.DotsMenu_wrapper
+										ul.DotsMenu_menu
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link Скрыть услугу
+											li.DotsMenu_item
+												a(href="/company_services.html#Service2").DotsMenu_link Посмотреть
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link Редактировать
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
+					.Service.EntityList_item#Service3
+						h2.Service_title Пакет документов для пересечения границы
+						.Service_prices
+							.Service_price 200 ГРН
+							.Service_oldPrice 300 ГРН
+						.EntityStatus.Service_status.hidden-smPlus
+							.EntityStatus_text Услуга опубликована
+							.DotsMenu.DotsMenu-entityStatus.EntityStatus_dotsMenu
+								a(href="javascript:;").DotsIcon.DotsIcon-entityStatus.DotsMenu_icon
+									include /includes/svg/SvgIco/dots
+								.DotsMenu_wrapper
+									ul.DotsMenu_menu
+										li.DotsMenu_item
+											a(href="javascript:;").DotsMenu_link Скрыть услугу
+										li.DotsMenu_item
+											a(href="/company_services.html#Service3").DotsMenu_link Посмотреть
+										li.DotsMenu_item
+											a(href="javascript:;").DotsMenu_link Редактировать
+										li.DotsMenu_item
+											a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
+						.Service_text Если вы будете пересекать границу по биометрическому паспорту, то при прохождении контроля вы должны сказать, что едете в другую страну в туристических целях, потому что все другие цели поездки (например, трудоустройства) не подходят для въезда по биометрии. По просьбе пограничника доказать цель поездки вы покажете вот этот пакет документов, состоящий из лицензированного страхового полиса на весь период пребывания (90 дней), активного бронирования гостиницы и мобильного оператора с деньгами на счету и быстрым интернетом.
+						.EntityInfo
+							.EntityInfo_updated Обновлено 2 дня назад
+							.EntityStatus.EntityInfo_status.hidden-xs
+								.EntityStatus_text Услуга опубликована
+								.DotsMenu.DotsMenu-entityStatus.EntityStatus_dotsMenu
+									a(href="javascript:;").DotsIcon.DotsIcon-entityStatus.DotsMenu_icon
+										include /includes/svg/SvgIco/dots
+									.DotsMenu_wrapper
+										ul.DotsMenu_menu
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link Скрыть услугу
+											li.DotsMenu_item
+												a(href="/company_services.html#Service3").DotsMenu_link Посмотреть
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link Редактировать
+											li.DotsMenu_item
+												a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
+					.EntityList_bottom.hidden-xs
+						a(href="/add_service.html").BtnBlue.BtnBlue-addEntity.EntityList_btn Добавить услугу
+			.Aside.Main_aside.hidden-xs
+				a(href="/company.html", title="Sony Corporation").CompanyLink.Aside_companyLink
+					img(src="img/sony2.png", alt="Sony Corporation").CompanyLink_img
+					.CompanyLink_textWrap
+						.CompanyLink_title Sony Corporation
+						.CompanyLink_text на страницу компании
+				include /includes/blocks/SettingsMenu
+	include /includes/blocks/PopupShare
+	include /includes/blocks/LinkCopiedNotification
+	.PopupMenu.PopupMenu-paddingLeft#VacancyTypesPopup
+		.PopupMenu_overlay
+		.PopupMenu_wrapper
+			ul.PopupMenu_menu
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link.active Все услуги
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Опубликованные
+				li.PopupMenu_item
+					a(href="javascript:;").PopupMenu_link Скрытые

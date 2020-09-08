@@ -44,20 +44,19 @@ block content
 			.Company_right
 				h1.Company_title.hidden-xs Sony Corporation
 				include /includes/blocks/MenuSectionCompany
-				.NoResults.NoResults-vacancies
+				.NoResults.NoResults-entities.hidden
 					.NoResults_icon
 						include /includes/svg/post2
 					.NoResults_text Перед тем как начать размещать вакансии вы должны #[a(href="/profile_contact_buttons.html") добавить] хотя бы один вариант связи.
-					//- a(href="#").BtnBlue.BtnBlue-light.BtnBlue-noResults Создать
-				.JobList.Company_jobList
-					.JobList_header
+				.EntityList.Company_entityList
+					.EntityList_header
 						.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-vacancy.hidden-xs
 							select(name="countries").DropdownSelect_select
 								option(value="all") Все страны
 								option(value="poland") Польша
 								option(value="czech") Чехия
 						a(href="#CountriesPopupMenu").SelectionLink.PopupMenuLink.hidden-smPlus Все страны
-					.Job.JobList_item
+					.Job.EntityList_item
 						h2.Job_title
 							a(href="/company_vacancy.html") Антикоррозийная обработка металлических деталей
 						.Job_basicInfo
@@ -98,7 +97,7 @@ block content
 							p Предприятие занимается антикоррозийной обработкой различного типа металлических деталей и конструкций. Работа заключается в очистке деталей и завешивания на траверсе.
 						.Job_viewBtnWrapper
 							a(href="/company_vacancy.html").BtnBlue.BtnBlue-job.Job_viewBtn Посмотреть вакансию
-					.Job.JobList_item
+					.Job.EntityList_item
 						h2.Job_title
 							a(href="/company_vacancy.html") Антикоррозийная обработка металлических деталей
 						.Job_basicInfo
@@ -139,7 +138,7 @@ block content
 							p Предприятие занимается антикоррозийной обработкой различного типа металлических деталей и конструкций. Работа заключается в очистке деталей и завешивания на траверсе.
 						.Job_viewBtnWrapper
 							a(href="/company_vacancy.html").BtnBlue.BtnBlue-job.Job_viewBtn Посмотреть вакансию
-					.Job.JobList_item
+					.Job.EntityList_item
 						h2.Job_title
 							a(href="/company_vacancy.html") Антикоррозийная обработка металлических деталей
 						.Job_basicInfo

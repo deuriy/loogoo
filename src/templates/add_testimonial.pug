@@ -1,0 +1,173 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Мой отзыв о Sony Corporation";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-addTestimonial";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title #{title}
+					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
+				form(action="#", name="add_testimonial").AddTestimonial#FormAddingTestimonial
+					h2.AddTestimonial_title.hidden-xs Мой отзыв о Sony Corporation
+					.Remark.Remark-addTestimonial.AddTestimonial_remark
+						a(href="javascript:;", data-action="hideBlockWithCookie").Remark_close
+							include /includes/svg/icon_close_remark
+						.Remark_text Обратите внимание, что пройдя один раз бесплатную онлайн верификацию, вы сможете добавлять неограниченное количество отзывов без подтверждений.#[a(href="#").ArrowLink Пройти верификацию]
+					h3.AddTestimonial_subTitle Какими услугами вы воспользовались?
+					.AddTestimonial_field
+						.AddTestimonial_fieldItems
+							.AddTestimonial_fieldItem
+								.AddTestimonial_fieldRow
+									.Checkbox.Checkbox-largeCheck.Checkbox-addTestimonial.Checkbox-fieldVisibility.Checkbox-employment
+										input(type="checkbox", name="employment", value="yes", id="employment", checked).Checkbox_input
+										label(for="employment").Checkbox_label Трудоустройство
+								.AddTestimonial_fieldRow.AddTestimonial_fieldRow-gutterLeft.AddTestimonial_fieldRow-dependent
+									.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.AddTestimonial_dropdownSelect
+										select(name="country").DropdownSelect_select
+											option(value="none") Выберите страну
+											option(value="uk") Украина
+											option(value="ru") Россия
+											option(value="by") Беларусь
+											option(value="pl") Польша
+											option(value="kz") Казахстан
+					.AddTestimonial_field.AddTestimonial_field-documentsPreparation
+						.AddTestimonial_fieldItems
+							.AddTestimonial_fieldItem
+								.AddTestimonial_fieldRow
+									.Checkbox.Checkbox-largeCheck.Checkbox-addTestimonial.Checkbox-fieldVisibility.Checkbox-documentsPreparation
+										input(type="checkbox", name="documents_preparation", value="yes", id="documents_preparation", checked).Checkbox_input
+										label(for="documents_preparation").Checkbox_label Изготовление документов
+								.AddTestimonial_fieldRow.AddTestimonial_fieldRow-gutterLeft.AddTestimonial_fieldRow-dependent
+									.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.AddTestimonial_dropdownSelect
+										select(name="documents_type").DropdownSelect_select
+											option(value="none") Выберите тип документов
+											option(value="type1") Тип 1
+											option(value="type2") Тип 2
+											option(value="type3") Тип 3
+						a(href="javascript:;").AddFieldItem.AddFieldItem-documentType.AddTestimonial_addFieldItem.hidden
+							include /includes/svg/icon_add
+							span.AddFieldItem_text Добавить ещё тип документов
+					.Ratings.AddTestimonial_ratings
+						h3.Ratings_title Оцените по параметрам
+						.Ratings_items
+							.RatingItem.Ratings_item
+								.RatingItem_title Качество обслуживания и поддержки
+								.RatingItem_wrapper
+									ul.RatingItem_stars
+										li.RatingItem_star.RatingItem_star-fill
+										li.RatingItem_star.RatingItem_star-fill
+										li.RatingItem_star.RatingItem_star-fill
+										li.RatingItem_star.RatingItem_star-fill
+										li.RatingItem_star.RatingItem_star-fill
+										li.RatingItem_star.RatingItem_star-fill
+										li.RatingItem_star.RatingItem_star-fill
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+									.RatingItem_number.hidden-xs 7
+							.RatingItem.Ratings_item
+								.RatingItem_title Достоверность информации о работе
+								.RatingItem_wrapper
+									ul.RatingItem_stars
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+									.RatingItem_number.hidden-xs -
+							.RatingItem.Ratings_item
+								.RatingItem_title Достоверность информации о жилье
+								.RatingItem_wrapper
+									ul.RatingItem_stars
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+									.RatingItem_number.hidden-xs -
+							.RatingItem.Ratings_item
+								.RatingItem_title Соблюдение сроков изготовления документов
+								.RatingItem_wrapper
+									ul.RatingItem_stars
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+									.RatingItem_number.hidden-xs -
+							.RatingItem.Ratings_item
+								.RatingItem_title Качество полученных документов или услуг
+								.RatingItem_wrapper
+									ul.RatingItem_stars
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+										li.RatingItem_star
+									.RatingItem_number.hidden-xs -
+					h3.AddTestimonial_subTitle.AddTestimonial_subTitle-reviewText Расскажите подробнее
+					.AddTestimonial_field.AddTestimonial_field-reviewText
+						.CompanySettings_fieldItems
+							.CompanySettings_fieldItem
+								textarea(name="review_text", id="review_text", placeholder="Ваши впечатления о компании").FormTextarea.FormTextarea-addTestimonial
+					h3.AddTestimonial_subTitle.AddTestimonial_subTitle-documentaryEvidance Документальные подтверждения
+					.AddTestimonial_text Добавьте изображения или любые другие файлы, которые подтвердят, что вы действительно обращались к работодателю за вышеуказанными услугами.
+					.AddTestimonial_field
+						.Tabs.Tabs-profileMenu.Tabs-companySettings.Tabs-addTestimonial.AddTestimonial_tabs
+							ul.Tabs_list
+								li.Tabs_item.Tabs_item-gutterRight.Tabs_item-active Публичные файлы (доступны всем) #[span.Tabs_count 0]
+								li.Tabs_item.Tabs_item-gutterLeft Конфиденциальные файлы (скрыты от всех) #[span.Tabs_count 15]
+							.Tabs_container
+								.Tabs_content(style="display:block;")
+									h4.Tabs_subTitle.hidden-smPlus Публичные файлы (доступны всем)
+									.AddTestimonial_note Файлы, которые будут доступны всем пользователям для просмотра. Этот раздел не обязателен к заполнению, но пользователи особенно внимательно прислушиваются к тем отзывам, которые документально подтверждены фото или другими материалами. Поэтому, рекомендуем добавить изображения или любые другие материалы, которые подтвердят подлинность ваших слов.
+									.UploadArea Нажмите, или переместите файлы для загрузки	
+								.Tabs_content
+									h4.Tabs_subTitle.hidden-smPlus Конфиденциальные файлы (скрыты от всех)
+									.AddTestimonial_note Файлы, которые будут доступны только для администрации портала INFOZA и навсегда останутся скрытыми от других пользователей. Этот пункт обязателен к заполнению! Обратите внимание, если доказательства будут несущественными или вызовут сомнения в подтверждении ваших слов – отзыв опубликован не будет.
+									.UploadArea Нажмите, или переместите файлы для загрузки
+					.AddTestimonial_field.AddTestimonial_field-anonymousReview
+						.Checkbox.Checkbox-largeCheck.Checkbox-addTestimonial
+							input(type="checkbox", name="anonymous_review", value="yes", id="anonymous_review").Checkbox_input
+							label(for="anonymous_review").Checkbox_label Оставить отзыв анонимно (без указания вашего имени)
+					.AddTestimonial_actions
+						button(type="submit").BtnBlue.BtnBlue-addTestimonial Опубликовать отзыв
+						a(href="#").AddTestimonial_link.AddTestimonial_link-cancel Отмена
+			.Aside.Main_aside.hidden-smMinus
+				a(href="/company.html", title="Sony Corporation").CompanyLink.Aside_companyLink
+					img(src="img/sony2.png", alt="Sony Corporation").CompanyLink_img
+					.CompanyLink_textWrap
+						.CompanyLink_title Sony Corporation
+						.CompanyLink_text на страницу компании
+				include /includes/blocks/SettingsMenu
+	include /includes/blocks/PopupShare
+	include /includes/blocks/LinkCopiedNotification
+	include /includes/blocks/PopupChangeCover
+block page_bottom
+	script(src="/js/add_testimonial.js")

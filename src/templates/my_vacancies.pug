@@ -13,23 +13,23 @@ block content
 					h1.MobileHeader_title #{title}
 					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
 						include /includes/svg/SvgIco/dots
-				.JobList.JobList-my
-					a(href="/company.html", title="Sony Corporation").CompanyLink.CompanyLink-vacancies.JobList_companyLink.hidden-smPlus
+				.EntityList.EntityList-myVacancies
+					a(href="/company.html", title="Sony Corporation").CompanyLink.CompanyLink-vacancies.EntityList_companyLink.hidden-smPlus
 						img(src="img/companyblock_logo.png", alt="Sony Corporation").CompanyLink_img
 						.CompanyLink_textWrap
 							.CompanyLink_title Sony Corporation
 							.CompanyLink_text на страницу компании
-					.JobList_btnWrapper.hidden-smPlus
-						a(href="/add_vacancy.html").BtnBlue.BtnBlue-addJob.JobList_btn Добавить вакансию
-					.JobList_header
-						h2.JobList_title.hidden-xs Вакансии
+					.EntityList_btnWrapper.hidden-smPlus
+						a(href="/add_vacancy.html").BtnBlue.BtnBlue-addEntity.EntityList_btn Добавить вакансию
+					.EntityList_header
+						h2.EntityList_title.hidden-xs Вакансии
 						.DropdownSelect.DropdownSelect-autoWidth.DropdownSelect-vacancy.hidden-xs
 							select(name="vacancy_types").DropdownSelect_select
 								option(value="all") Все вакансии
 								option(value="published") Опубликованные
 								option(value="hidden") Скрытые
 						a(href="#VacancyTypesPopup").SelectionLink.PopupMenuLink.hidden-smPlus Все вакансии
-					.Job.Job-my.JobList_item
+					.Job.Job-my.EntityList_item
 						h2.Job_title
 							a(href="/company_vacancy.html") Антикоррозийная обработка металлических деталей
 						.Job_basicInfo
@@ -38,10 +38,10 @@ block content
 									.Job_salariesWrapper
 										.Salary.Salary-small.Job_salary 33 000 – 40 000 PLN
 										.SalaryPerHour 128.5 PLN / час
-								.JobStatus.Job_status.hidden-smPlus
-									.JobStatus_text Вакансия опубликована
-									.DotsMenu.DotsMenu-jobStatus.JobStatus_dotsMenu
-										a(href="javascript:;").DotsIcon.DotsIcon-jobStatus.DotsMenu_icon
+								.EntityStatus.Job_status.hidden-smPlus
+									.EntityStatus_text Вакансия опубликована
+									.DotsMenu.DotsMenu-entityStatus.EntityStatus_dotsMenu
+										a(href="javascript:;").DotsIcon.DotsIcon-entityStatus.DotsMenu_icon
 											include /includes/svg/SvgIco/dots
 										.DotsMenu_wrapper
 											ul.DotsMenu_menu
@@ -83,12 +83,12 @@ block content
 											.SalaryPerHour 128.5 PLN / час
 						.Job_description
 							p Предприятие занимается антикоррозийной обработкой различного типа металлических деталей и конструкций. Работа заключается в очистке деталей и завешивания на траверсе.
-						.Job_bottom
-							.Job_updated Обновлено 2 дня назад
-							.JobStatus.Job_status.hidden-xs
-								.JobStatus_text Вакансия опубликована
-								.DotsMenu.DotsMenu-jobStatus.JobStatus_dotsMenu
-									a(href="javascript:;").DotsIcon.DotsIcon-jobStatus.DotsMenu_icon
+						.EntityInfo
+							.EntityInfo_updated Обновлено 2 дня назад
+							.EntityStatus.EntityInfo_status.hidden-xs
+								.EntityStatus_text Вакансия опубликована
+								.DotsMenu.DotsMenu-entityStatus.EntityStatus_dotsMenu
+									a(href="javascript:;").DotsIcon.DotsIcon-entityStatus.DotsMenu_icon
 										include /includes/svg/SvgIco/dots
 									.DotsMenu_wrapper
 										ul.DotsMenu_menu
@@ -100,7 +100,7 @@ block content
 												a(href="javascript:;").DotsMenu_link Редактировать
 											li.DotsMenu_item
 												a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
-					.Job.Job-my.JobList_item
+					.Job.Job-my.EntityList_item
 						h2.Job_title
 							a(href="/company_vacancy.html") Антикоррозийная обработка металлических деталей
 						.Job_basicInfo
@@ -109,10 +109,10 @@ block content
 									.Job_salariesWrapper
 										.Salary.Salary-small.Job_salary 33 000 – 40 000 PLN
 										.SalaryPerHour 128.5 PLN / час
-								.JobStatus.Job_status.JobStatus-hidden.hidden-smPlus
-									.JobStatus_text Вакансия скрыта
-									.DotsMenu.DotsMenu-jobStatus.DotsMenu-jobStatusHidden.JobStatus_dotsMenu
-										a(href="javascript:;").DotsIcon.DotsIcon-jobStatus.DotsIcon-jobStatusHidden.DotsMenu_icon
+								.EntityStatus.Job_status.EntityStatus-hidden.hidden-smPlus
+									.EntityStatus_text Вакансия скрыта
+									.DotsMenu.DotsMenu-entityStatus.DotsMenu-entityStatusHidden.EntityStatus_dotsMenu
+										a(href="javascript:;").DotsIcon.DotsIcon-entityStatus.DotsIcon-entityStatusHidden.DotsMenu_icon
 											include /includes/svg/SvgIco/dots
 										.DotsMenu_wrapper
 											ul.DotsMenu_menu
@@ -154,12 +154,12 @@ block content
 											.SalaryPerHour 128.5 PLN / час
 						.Job_description
 							p Предприятие занимается антикоррозийной обработкой различного типа металлических деталей и конструкций. Работа заключается в очистке деталей и завешивания на траверсе.
-						.Job_bottom
-							.Job_updated Обновлено 2 дня назад
-							.JobStatus.Job_status.JobStatus-hidden.hidden-xs
-								.JobStatus_text Вакансия скрыта
-								.DotsMenu.DotsMenu-jobStatus.DotsMenu-jobStatusHidden.JobStatus_dotsMenu
-									a(href="javascript:;").DotsIcon.DotsIcon-jobStatus.DotsIcon-jobStatusHidden.DotsMenu_icon
+						.EntityInfo
+							.EntityInfo_updated Обновлено 2 дня назад
+							.EntityStatus.EntityInfo_status.EntityStatus-hidden.hidden-xs
+								.EntityStatus_text Вакансия скрыта
+								.DotsMenu.DotsMenu-entityStatus.DotsMenu-entityStatusHidden.EntityStatus_dotsMenu
+									a(href="javascript:;").DotsIcon.DotsIcon-entityStatus.DotsIcon-entityStatusHidden.DotsMenu_icon
 										include /includes/svg/SvgIco/dots
 									.DotsMenu_wrapper
 										ul.DotsMenu_menu
@@ -171,7 +171,7 @@ block content
 												a(href="javascript:;").DotsMenu_link Редактировать
 											li.DotsMenu_item
 												a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
-					.Job.Job-my.JobList_item
+					.Job.Job-my.EntityList_item
 						h2.Job_title
 							a(href="/company_vacancy.html") Антикоррозийная обработка металлических деталей
 						.Job_basicInfo
@@ -180,10 +180,10 @@ block content
 									.Job_salariesWrapper
 										.Salary.Salary-small.Job_salary 33 000 – 40 000 PLN
 										.SalaryPerHour 128.5 PLN / час
-								.JobStatus.Job_status.hidden-smPlus
-									.JobStatus_text Вакансия опубликована
-									.DotsMenu.DotsMenu-jobStatus.JobStatus_dotsMenu
-										a(href="javascript:;").DotsIcon.DotsIcon-jobStatus.DotsMenu_icon
+								.EntityStatus.Job_status.hidden-smPlus
+									.EntityStatus_text Вакансия опубликована
+									.DotsMenu.DotsMenu-entityStatus.EntityStatus_dotsMenu
+										a(href="javascript:;").DotsIcon.DotsIcon-entityStatus.DotsMenu_icon
 											include /includes/svg/SvgIco/dots
 										.DotsMenu_wrapper
 											ul.DotsMenu_menu
@@ -225,12 +225,12 @@ block content
 											.SalaryPerHour 128.5 PLN / час
 						.Job_description
 							p Предприятие занимается антикоррозийной обработкой различного типа металлических деталей и конструкций. Работа заключается в очистке деталей и завешивания на траверсе.
-						.Job_bottom
-							.Job_updated Обновлено 2 дня назад
-							.JobStatus.Job_status.hidden-xs
-								.JobStatus_text Вакансия опубликована
-								.DotsMenu.DotsMenu-jobStatus.JobStatus_dotsMenu
-									a(href="javascript:;").DotsIcon.DotsIcon-jobStatus.DotsMenu_icon
+						.EntityInfo
+							.EntityInfo_updated Обновлено 2 дня назад
+							.EntityStatus.EntityInfo_status.hidden-xs
+								.EntityStatus_text Вакансия опубликована
+								.DotsMenu.DotsMenu-entityStatus.EntityStatus_dotsMenu
+									a(href="javascript:;").DotsIcon.DotsIcon-entityStatus.DotsMenu_icon
 										include /includes/svg/SvgIco/dots
 									.DotsMenu_wrapper
 										ul.DotsMenu_menu
@@ -242,8 +242,8 @@ block content
 												a(href="javascript:;").DotsMenu_link Редактировать
 											li.DotsMenu_item
 												a(href="javascript:;").DotsMenu_link.DotsMenu_link-orange Удалить
-					.JobList_bottom.hidden-xs
-						a(href="/add_vacancy.html").BtnBlue.BtnBlue-addJob.JobList_btn Добавить вакансию
+					.EntityList_bottom.hidden-xs
+						a(href="/add_vacancy.html").BtnBlue.BtnBlue-addEntity.EntityList_btn Добавить вакансию
 			.Aside.Main_aside.hidden-xs
 				a(href="/company.html", title="Sony Corporation").CompanyLink.Aside_companyLink
 					img(src="img/sony2.png", alt="Sony Corporation").CompanyLink_img

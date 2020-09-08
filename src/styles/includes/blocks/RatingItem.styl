@@ -1,0 +1,51 @@
+.RatingItem
+	display flex
+	justify-content space-between
+	align-items center
+	padding-right 3px
+	
+	@media $xs
+		flex-direction column
+		align-items flex-start
+	
+	&_title
+		font-size 15px
+		
+		@media $xs
+			max-width 250px
+			margin-bottom 7px
+			line-height 1.6
+	
+	&_wrapper, &_stars
+		display flex
+		align-items center
+	
+	&_stars
+		margin-right 10px
+		
+		@media $xs
+			margin-right 0
+	
+	&_star
+		width 20px
+		height 20px
+		margin-right 8px
+		background url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20.031' height='20.031'%3E%3Cpath data-name='Фигура 3 копия 39' d='M16.049 20.031a.627.627 0 01-.254-.054l-5.783-2.573-5.782 2.573a.627.627 0 01-.869-.695l1.276-6.387L.178 8.431a.628.628 0 01.32-1.058l6.39-1.28L9.44.345a.652.652 0 011.145 0l2.551 5.748 6.391 1.28a.627.627 0 01.319 1.058l-4.458 4.464 1.275 6.387a.627.627 0 01-.614.749z' fill='%23e1e6e8' fill-rule='evenodd'/%3E%3C/svg%3E") 0 0 no-repeat
+		cursor pointer
+		
+		@media $xs
+			margin-right 13px
+		
+		&:last-child
+			margin-right 0
+		
+		&-hover
+			opacity 0.7
+		
+		&-fill
+			background-image url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20.031' height='20.031'%3E%3Cpath data-name='Фигура 3 копия 39' d='M16.049 20.031a.627.627 0 01-.254-.054l-5.783-2.573-5.782 2.573a.627.627 0 01-.869-.695l1.276-6.387L.178 8.431a.628.628 0 01.32-1.058l6.39-1.28L9.44.345a.652.652 0 011.145 0l2.551 5.748 6.391 1.28a.627.627 0 01.319 1.058l-4.458 4.464 1.275 6.387a.627.627 0 01-.614.749z' fill='%23f89333' fill-rule='evenodd'/%3E%3C/svg%3E")
+	
+	&_number
+		width 20px
+		font-size 15px
+		text-align right

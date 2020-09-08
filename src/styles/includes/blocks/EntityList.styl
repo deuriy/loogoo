@@ -1,4 +1,4 @@
-.JobList
+.EntityList
 	&_companyLink
 		margin 0 auto 19px
 	
@@ -43,7 +43,7 @@
 		&:last-child
 			margin-bottom 0
 	
-	&-my
+	&-myVacancies
 		padding-right 22px
 		padding-bottom 120px
 		
@@ -52,14 +52,26 @@
 			padding-right 0
 			padding-bottom 0
 		
-		.JobList_header			
+		.EntityList_header			
 			@media $smPlus
 				margin-bottom 23px
 				padding-top 5px
 				padding-bottom 6px
 		
-		.JobList_item
+		.EntityList_item
 			margin-bottom 22px
 		
-		.JobList_bottom
+		.EntityList_bottom
 			margin-top 36px
+	
+	&-services
+		padding-bottom 25px
+		
+		.EntityList_item
+			margin-bottom 21px
+			
+			@media $xs
+				margin-bottom 19px
+			
+			&:last-child
+				margin-bottom 0

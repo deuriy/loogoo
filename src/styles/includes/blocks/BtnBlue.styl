@@ -136,7 +136,8 @@
 		border-radius 20px
 		background $blue
 	
-	&-profileCover
+	&-profileCover,
+	&-addService
 		padding 11px 28px 11px 26px
 		border-radius 22px
 		background $blue
@@ -172,7 +173,7 @@
 	
 	&-job,
 	&-fullJob,
-	&-addJob
+	&-addEntity
 		padding 8px 19px 8px 25px
 		border-radius 20px
 		background $blue
@@ -191,7 +192,7 @@
 			padding-right 25px
 			padding-left 25px
 	
-	&-addJob
+	&-addEntity
 		padding-right 31px
 		padding-left 31px
 	
@@ -199,6 +200,14 @@
 		padding 7px 42px
 		background $blue
 		text-align center
+		
+		@media $xs
+			width 320px
+			max-width 100%
+	
+	&-addTestimonial
+		padding 11px 24px
+		background $blue
 		
 		@media $xs
 			width 320px

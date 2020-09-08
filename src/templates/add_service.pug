@@ -1,0 +1,136 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Новая услуга";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-companySettings";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title #{title}
+					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
+				.hidden-xs
+					include /includes/blocks/MenuSectionCompanySettings
+				form(action="#", name="add_service").CompanySettings.CompanySettings-addService#AddServiceForm
+					h2.CompanySettings_title.hidden-xs Новая услуга
+					.CompanySettings_group
+						h3.CompanySettings_groupTitle Описание услуги
+						.CompanySettings_groupDescription заполните все поля описания услуги на русском и украинском языках
+						.CompanySettings_fields.CompanySettings_fields-allLanguages
+							.CompanySettings_field
+								label.CompanySettings_label Страна
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.CompanySettings_dropdownSelect.CompanySettings_dropdownSelect-short
+												select(name="country").DropdownSelect_select
+													option(value="uk") Украина
+													option(value="ru") Россия
+													option(value="by") Беларусь
+													option(value="pl", selected) Польша
+													option(value="kz") Казахстан
+										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно #[br]Введите адрес
+							.CompanySettings_field
+								label(for="price").CompanySettings_label Цена
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.NumberField
+												input(type="number", name="price", id="price" min="0").CompanySettings_formText.NumberField_formText
+												.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.NumberField_currencySelect
+													select(name="currency").DropdownSelect_select
+														option(value="uah") UAH
+														option(value="usd") USD
+												.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+							.CompanySettings_field
+								label(for="old_price").CompanySettings_label Старая цена
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.DropdownSelect-oldPriceDisplay.CompanySettings_dropdownSelect.CompanySettings_dropdownSelect-short
+												select(name="old_price_display").DropdownSelect_select
+													option(value="no") Отсутствует
+													option(value="yes") Отображается
+											.NumberField.NumberField-oldPrice
+												input(type="number", name="old_price", id="old_price" min="0").CompanySettings_formText.NumberField_formText
+												.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.NumberField_currencySelect
+													select(name="old_price_currency").DropdownSelect_select
+														option(value="uah") UAH
+														option(value="usd") USD
+												.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+							.CompanySettings_field
+								label.CompanySettings_label Кому видна услуга
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.CompanySettings_dropdownSelect.CompanySettings_dropdownSelect-short
+												select(name="service_visibility").DropdownSelect_select
+													option(value="all") Всем
+													option(value="only_me") Только мне
+										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+							.CompanySettings_field
+								label(for="position").CompanySettings_label Уровень важности
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.NumberField
+												input(type="number", name="position", id="position" min="0").CompanySettings_formText.NumberField_formText
+												.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+						.Tabs.Tabs-profileMenu.Tabs-companySettings.CompanySettings_tabs.CompanySettings_tabs-languages
+							ul.Tabs_list
+								li.Tabs_item.Tabs_item-active
+									img(src="/img/flag_uk_small.jpg", alt="")
+									span Украинский #[span.hidden-xs язык]
+								li.Tabs_item
+									img(src="/img/flag_ru_small.jpg", alt="")
+									span Русский #[span.hidden-xs язык]
+							.Tabs_container
+								.Tabs_content(style="display:block;")
+									.CompanySettings_fields
+										.CompanySettings_field
+											label(for="title").CompanySettings_label Заголовок
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														input(type="text", name="title", id="title").CompanySettings_formText
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заповнене правильно
+										.CompanySettings_field
+											label(for="description").CompanySettings_label Опис послуги
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														textarea(name="description", id="description").FormTextarea.FormTextarea-serviceDescription
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заповнене правильно			
+								.Tabs_content
+									.CompanySettings_fields
+										.CompanySettings_field
+											label(for="title_ru").CompanySettings_label Заголовок
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														input(type="text", name="title_ru", id="title_ru").CompanySettings_formText
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+										.CompanySettings_field
+											label(for="description_ru").CompanySettings_label Описание услуги
+											.CompanySettings_fieldContent
+												.CompanySettings_fieldItems
+													.CompanySettings_fieldItem
+														textarea(name="description_ru", id="description_ru").FormTextarea.FormTextarea-serviceDescription
+													.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+					.CompanySettings_actions
+						button(type="submit").BtnBlue.BtnBlue-addService Опубликовать услугу
+			.Aside.Main_aside.hidden-smMinus
+				a(href="/company.html", title="Sony Corporation").CompanyLink.Aside_companyLink
+					img(src="img/sony2.png", alt="Sony Corporation").CompanyLink_img
+					.CompanyLink_textWrap
+						.CompanyLink_title Sony Corporation
+						.CompanyLink_text на страницу компании
+				include /includes/blocks/SettingsMenu
+	include /includes/blocks/PopupShare
+	include /includes/blocks/LinkCopiedNotification
+block page_bottom
+	script(src="/js/add_service.js")

@@ -2,6 +2,7 @@ extends /layouts/main_layout
 block vars
 	- var title = "Только настоящие отзывы";
 	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-realReviews";
 block content
 	.MobileHeader.MobileHeader-reviews.hidden-smPlus
 		a(href="#").BtnBack.MobileHeader_btnBack
@@ -36,33 +37,42 @@ block content
 						img(src="img/only_real_reviews_2.png", alt="").TextSection_img
 		.TextSection.TextSection-reviews.TextSection-lightGrey.TextSection-allInOne
 			.TextSection_container
-				.TextSection_left.TextSection_left-paddingLeft
+				.TextSection_left.TextSection_left-paddingLeft.hidden-smMinus
 					.TextSection_imgWrap
 						img(src="img/only_real_reviews_3.png", alt="").TextSection_img
 				.TextSection_right
 					.TextSection_textWrap
-						h2.TextSection_subTitle Все отзывы в одном месте
+						.TextSection_titleAndImg
+							h2.TextSection_subTitle Все отзывы в одном месте
+							.TextSection_imgWrap.hidden-md
+								img(src="img/only_real_reviews_3.png", alt="").TextSection_img
 						.TextSection_text.TextSection_text-large.TextSection_text-largeLineHeight
 							p Забудьте о ситуациях, в которых вы изучали десятки интернет ресурсов, выискивая на каждом из них отзыв об интересующем вас работодателе, посреднике или компании. Тем более, что даже тогда не понятно – писали их реальные люди или фрилансеры на заказ. Благодаря INFOZA теперь все отзывы, не зависимо от их типа (видео, фото, текст и т.д.), будут опубликованы в одном месте, и вы всегда будете уверенными в том, что все они настоящие! 
 		.TextSection.TextSection-reviews.TextSection-verification
 			.TextSection_container
 				.TextSection_left
 					.TextSection_textWrap
-						h2.TextSection_subTitle Верификация аккаунта
+						.TextSection_titleAndImg
+							h2.TextSection_subTitle Верификация аккаунта
+							.TextSection_imgWrap.hidden-md
+								img(src="img/only_real_reviews_4.png", alt="").TextSection_img
 						.TextSection_text.TextSection_text-large.TextSection_text-largeLineHeight
 							p Работа сервиса INFOZA построена так, что для того, чтобы опубликовать отзыв необходимо представить доказательства, которые будут подтверждать ваши слова. Но, вы можете этого не делать, если всего лишь один раз пройдете #[a(href="/profile_verification.html") верификацию]. После этого, вы сможете писать неограниченное количество отзывов, в которых представлять подтверждения уже будет необязательно.
 							p Но, не забывайте о честности. Если вы напишите отзыв и не представите доказательств, а вторая сторона сообщит о том, что такого не было, и вы не сможете это опровергнуть – ваш верифицирован аккаунт будет заблокирован, а комментарий мгновенно удален! Согласитесь, это справедливо!
-				.TextSection_right
+				.TextSection_right.hidden-smMinus
 					.TextSection_imgWrap
 						img(src="img/only_real_reviews_4.png", alt="").TextSection_img
 		.TextSection.TextSection-reviews.TextSection-lightGrey.TextSection-anonymity
 			.TextSection_container
-				.TextSection_left
+				.TextSection_left.hidden-smMinus
 					.TextSection_imgWrap
 						img(src="img/only_real_reviews_5.png", alt="").TextSection_img
 				.TextSection_right
 					.TextSection_textWrap
-						h2.TextSection_subTitle Идеальное сочетание честности и анонимности
+						.TextSection_titleAndImg
+							h2.TextSection_subTitle Идеальное сочетание честности и анонимности
+							.TextSection_imgWrap.hidden-md
+								img(src="img/only_real_reviews_5.png", alt="").TextSection_img
 						.TextSection_text.TextSection_text-large.TextSection_text-largeLineHeight
 							p Мы понимаем, что некоторые пользователи не хотят, чтобы их личные данные видели другие посетители, поэтому на INFOZA вы сможете самостоятельно указывать, какие данные в вашем отзыве опубликовать открыто, а какие запретить просматривать всем, кроме администрации INFOZA.
 							p При этом все ваши отзывы точно также будут проходить проверку нашей специальной командой перед публикацией. Таким образом, вы сможете не беспокоится о том, что документы, скриншоты переписки или любые другие подтверждения, которые вы представите, нарушат вашу конфиденциальность. 
@@ -70,10 +80,13 @@ block content
 			.TextSection_container
 				.TextSection_left
 					.TextSection_textWrap
-						h2.TextSection_subTitle Простота, удобство, практичность
+						.TextSection_titleAndImg
+							h2.TextSection_subTitle Простота, удобство, практичность
+							.TextSection_imgWrap.hidden-md
+								img(src="img/only_real_reviews_6.png", alt="").TextSection_img
 						.TextSection_text.TextSection_text-large.TextSection_text-largeLineHeight
 							p Мы понимаем, насколько важно при выборе работы за границей не ошибиться, ведь от этого, без преувеличения, зависят человеческие судьбы. Поэтому, создали портал, который поможет вам всё сразу сделать правильно.
 							p Мы хотим стать не просто обычным сайтом, о котором иногда вспоминают, а именно частью каждого из вас, поэтому наша команда постоянно делает всё возможное, чтобы вы чувствовали себя здесь как дома. Мы знаем, что нет пределу совершенству, поэтому всегда прислушиваемся к идеям и советам наших пользователей и каждый день что-то улучшаем, начиная с дизайна и удобства, заканчивая новым функционалом и практичностью.
-				.TextSection_right
+				.TextSection_right.hidden-smMinus
 					.TextSection_imgWrap
 						img(src="img/only_real_reviews_6.png", alt="").TextSection_img

@@ -44,8 +44,12 @@ block content
 			.Company_right
 				h1.Company_title.hidden-xs Sony Corporation
 				include /includes/blocks/MenuSectionCompany
-				.Services
-					.Service.Services_item
+				.EntityList.EntityList-services
+					.NoResults.NoResults-entities.hidden
+						.NoResults_icon
+							include /includes/svg/post2
+						.NoResults_text Перед тем как начать размещать услуги вы должны #[a(href="/profile_contact_buttons.html") добавить] хотя бы один вариант связи.
+					.Service.EntityList_item#Service1
 						h2.Service_title Пакет документов для открытия польской национальной визы типа D на 180 дней + Работа
 						.Service_prices
 							.Service_price 2900 ГРН
@@ -57,7 +61,7 @@ block content
 								img(src="img/icon_poland.png", alt="Poland").Service_countryImg
 								.
 									Польша
-					.Service.Services_item
+					.Service.EntityList_item#Service2
 						h2.Service_title Пакет документов для пересечения границы
 						.Service_prices
 							.Service_price 200 ГРН
@@ -69,7 +73,7 @@ block content
 								img(src="img/icon_poland.png", alt="Poland").Service_countryImg
 								.
 									Польша
-					.Service.Services_item
+					.Service.EntityList_item#Service3
 						h2.Service_title Пакет документов для пересечения границы
 						.Service_prices
 							.Service_price 200 ГРН
@@ -89,15 +93,6 @@ block content
 	include /includes/blocks/CompanyPopupNotification
 	include /includes/blocks/BookmarkSettingsPopup
 	include /includes/blocks/PopupShare
-	.PopupMenu.PopupMenu-paddingLeft#CountriesPopupMenu
-		.PopupMenu_overlay
-		.PopupMenu_wrapper
-			ul.PopupMenu_menu
-				li.PopupMenu_item
-					a(href="javascript:;").PopupMenu_link.active Все страны
-				li.PopupMenu_item
-					a(href="javascript:;").PopupMenu_link Чехия
-				li.PopupMenu_item
-					a(href="javascript:;").PopupMenu_link Польша
+	include /includes/blocks/CountriesPopupMenu
 block page_bottom
 	script(src="/js/company.js")

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 	function changeSalaryType () {
-		let salaryType = document.querySelector('.DropdownSelect-salaryType select');
+		let salaryType = document.querySelector('select[name="salary_type"]');
 		let salaryRange = document.querySelector('.NumberField-salaryRange');
 		let salaryRangeFrom = salaryRange.querySelector('.NumberField_formText-from');
 		let salaryRangeTo = salaryRange.querySelector('.NumberField_formText-to');
