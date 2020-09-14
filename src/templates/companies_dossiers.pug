@@ -19,11 +19,15 @@ block content
 							li.CategoryMenu_item
 								a(href="/profile_company_settings.html").CategoryMenu_link Вакансии
 				.Companies.Companies-dossiers
-					ul.CategoriesList.CategoriesList-bordered.CategoriesList-dossiers.Companies_categories.hidden-xs
-						li.CategoriesList_item
-							a(href="javascript:;").CategoriesList_link.CategoriesList_link-active Работодатели
-						li.CategoriesList_item
-							a(href="javascript:;").CategoriesList_link Вакансии
+					.Companies_header
+						.Companies_headerLeft
+							ul.CategoriesList.CategoriesList-bordered.Companies_categories.hidden-xs
+								li.CategoriesList_item
+									a(href="javascript:;").CategoriesList_link.CategoriesList_link-active Работодатели
+								li.CategoriesList_item
+									a(href="javascript:;").CategoriesList_link Вакансии
+						.Companies_headerRight
+							a(href="javascript:;", data-src="#CompanyAdding").BtnBlue.BtnBlue-company.BtnBlue-addCompany.OpenPopupLink.hidden-xs Добавить компанию
 					form(action="", name="companies_search").Filter.Companies_searchForm
 						.Search.Search-companies.Search-companiesDossiers
 							.Search_item
@@ -32,12 +36,14 @@ block content
 									include /includes/svg/SvgIco/close
 							button(type="submit").Search_icon.hidden-smPlus
 								include /includes/svg/SvgIco/search
-					.NoResults.NoResults-companies.hidden
+					.NoResults.NoResults-companies
 						.NoResults_icon
 							include /includes/svg/not_found
 						.NoResults_text По вашему запросу ничего не найдено
 						a(href="javascript:;", data-src="#CompanyAdding").BtnBlue.BtnBlue-company.BtnBlue-addCompany.OpenPopupLink Добавить компанию
-					.Companies_items
+						.NoResults_linkWrapper
+							a(href="/companies_dossiers.html").NoResults_link Вернуться в досье
+					.Companies_items.hidden
 						.CompanyBlock.CompanyBlock-dossiers.Companies_item
 							.CompanyBlock_logo.hidden-xs
 								a(href="/company.html", title="Sony Corporation")

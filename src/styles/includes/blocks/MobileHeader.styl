@@ -10,7 +10,7 @@
 	
 	&_btnBack
 		position absolute
-		top 16px
+		top 15px
 		left 20px
 	
 	&_titleWrapper
@@ -29,12 +29,16 @@
 			background url('../img/arrow_black_bottom.png') right center no-repeat
 		
 		&-company
-			display inline-flex
-			align-items center
+			-ms-text-overflow ellipsis
+			text-overflow ellipsis
+			overflow hidden
+			white-space nowrap
+			margin-right 10px
+			margin-left 10px
 			
 			&:after
 				content ""
-				flex-shrink 0
+				display inline-block
 				width 12px
 				height 12px
 				margin-left 6px
