@@ -1416,4 +1416,17 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.querySelector('.Wrapper').classList.remove('Wrapper-blurred');
 	});
 
+	function setPositionActiveTab (tabs) {
+		if (!tabs) return;
+
+		let activeTab = tabs.querySelector('.active');
+		let diff = document.documentElement.clientWidth - activeTab.offsetLeft - activeTab.offsetWidth;
+		console.log(diff);
+
+		if (diff < 0) {
+			tabs.scrollLeft -= diff;
+		}
+	}
+
+	setPositionActiveTab(document.querySelector('.CategoryMenu-company'));
 });
