@@ -1401,4 +1401,19 @@ document.addEventListener("DOMContentLoaded", function () {
 		number.textContent = ratingItem.querySelectorAll('.RatingItem_star-fill').length;
 	});
 
+	// Close modal
+	document.addEventListener('click', function (e) {
+		let closeModalLink = e.target.closest('[data-action="closeModal"]');
+
+		if (!closeModalLink) return;
+
+		let modal = closeModalLink.closest('.Modal');
+
+		if (modal) {
+			modal.classList.add('hidden');
+		}
+
+		document.querySelector('.Wrapper').classList.remove('Wrapper-blurred');
+	});
+
 });

@@ -25,11 +25,16 @@ html(lang="ru")
 		.Modal.Modal-welcome
 			.Modal_inner
 				.SiteName.SiteName-modal.Modal_siteName INFOZA
-				h2.Modal_title Завершується фінальне тестування
-				.Modal_text Через декілька годин ми покажемо вам оновлену та покращену версію нашого порталу. Залишилось ще недовго...
-				//- .Modal_linkWrapper
-				//- 	a(href="https://play.google.com/store/apps/details?id=application.infoza&hl=ru", target="_blank")
-				//- 		img(src="/img/google_play.png", alt="Google Play")
+				h2.Modal_title Завершуємо фінальне тестування...
+				.Modal_text Більше ніж 6 місяців ми розробляли для вас розділ, в якому ви дізнаєтесь всю правду про будь-якого роботодавця, агенцію чи посередника, а також побачите, як зсередини виглядає робота за кордоном! Офіційний запуск розділу відбудеться 10 жовтня!
+				.Modal_linkWrapper
+					a(href="javascript:;", data-action="closeModal").Modal_link Перейти в Досьє
+
+		include /includes/blocks/RegistrationPopup
+		include /includes/blocks/LoginPopup
+		include /includes/blocks/LoginPopupMenu
+		include /includes/blocks/LikePopup
+		include /includes/blocks/MobileNavigation
 
 		script(src='./js/vendor.js')
 		script(src='./js/common.js')
