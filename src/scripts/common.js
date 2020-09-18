@@ -1398,7 +1398,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		let ratingItem = star.closest('.RatingItem');
 		let number = ratingItem.querySelector('.RatingItem_number');
-		number.textContent = ratingItem.querySelectorAll('.RatingItem_star-fill').length;
+		let ratingInput = ratingItem.querySelector('.RatingItem_input');
+		number.textContent = ratingInput.value = ratingItem.querySelectorAll('.RatingItem_star-fill').length;
 	});
 
 	// Close modal

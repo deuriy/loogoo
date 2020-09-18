@@ -1,0 +1,232 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Мои сохранения";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-save";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.MobileHeader-noBorder.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title #{title}
+					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
+				include /includes/blocks/MenuSectionSave
+				.Companies.Companies-dossiers
+					.NoResults.NoResults-mySave.hidden
+						.NoResults_icon
+							include /includes/svg/no_save
+						.NoResults_text В этом разделе у вас пока нет #[br]сохранений
+					.Companies_items
+						.CompanyBlock.CompanyBlock-dossiers.Companies_item
+							.CompanyBlock_logo.hidden-xs
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+							.CompanyBlock_mainWrapper
+								.CompanyBlock_header
+									.CompanyBlock_logo.hidden-smPlus
+										a(href="/company.html", title="Sony Corporation")
+											img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+									.CompanyBlock_headerRight
+										h3.CompanyBlock_name
+											a(href="/company.html") Sony Corporation
+										.Rating.Rating-companyHeader.Rating-dropdown.hidden-smPlus
+											a(href="javascript:;").Rating_wrapperLink
+												span.Rating_icon
+													include /includes/svg/SvgIco/icon_star
+												span.Rating_number 7,3
+												span.Rating_max / 10
+												span.Rating_label (55 отзывов)
+											.Rating_dropdown
+												a(href="javascript:;").Rating_closeDropdown.hidden-smPlus
+													include /includes/svg/icon_close
+												include /includes/blocks/AdvantagesRating
+											.Overlay.Overlay-rating
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								//- .CompanyBlock_description Корпорация Sony была основана Акио Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась «Токё цусин когё кабусики-гайся»
+								.CompanyBlock_description Корпорация Sony была основана Аки Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась ТТК
+								.CompanyBlock_footer
+									.Rating.Rating-companyHeader.Rating-dropdown.hidden-xs
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 0.0
+										span.Rating_max / 10
+										span.Rating_label (0 отзывов)
+										.Rating_dropdown
+											include /includes/blocks/AdvantagesRating
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+						.CompanyBlock.CompanyBlock-dossiers.Companies_item
+							.CompanyBlock_logo.hidden-xs
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+							.CompanyBlock_mainWrapper
+								.CompanyBlock_header
+									.CompanyBlock_logo.hidden-smPlus
+										a(href="/company.html", title="Sony Corporation")
+											img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+									.CompanyBlock_headerRight
+										h3.CompanyBlock_name
+											a(href="/company.html") Sony Corporation
+										.Rating.Rating-companyHeader.hidden-smPlus
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,3
+											span.Rating_max / 10
+											span.Rating_label (55 отзывов)
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Аки Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась ТТК
+								.CompanyBlock_footer
+									.Rating.Rating-companyHeader.Rating-dropdown.hidden-xs
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											include /includes/blocks/AdvantagesRating
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+						.CompanyBlock.CompanyBlock-dossiers.Companies_item
+							.CompanyBlock_logo.hidden-xs
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+							.CompanyBlock_mainWrapper
+								.CompanyBlock_header
+									.CompanyBlock_logo.hidden-smPlus
+										a(href="/company.html", title="Sony Corporation")
+											img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+									.CompanyBlock_headerRight
+										h3.CompanyBlock_name
+											a(href="/company.html") Sony Corporation
+										.Rating.Rating-companyHeader.hidden-smPlus
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,3
+											span.Rating_max / 10
+											span.Rating_label (55 отзывов)
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Аки Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась ТТК
+								.CompanyBlock_footer
+									.Rating.Rating-companyHeader.Rating-dropdown.hidden-xs
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											include /includes/blocks/AdvantagesRating
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+						.CompanyBlock.CompanyBlock-dossiers.Companies_item
+							.CompanyBlock_logo.hidden-xs
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+							.CompanyBlock_mainWrapper
+								.CompanyBlock_header
+									.CompanyBlock_logo.hidden-smPlus
+										a(href="/company.html", title="Sony Corporation")
+											img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+									.CompanyBlock_headerRight
+										h3.CompanyBlock_name
+											a(href="/company.html") Sony Corporation
+										.Rating.Rating-companyHeader.hidden-smPlus
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,3
+											span.Rating_max / 10
+											span.Rating_label (55 отзывов)
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Аки Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась ТТК
+								.CompanyBlock_footer
+									.Rating.Rating-companyHeader.Rating-dropdown.hidden-xs
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											include /includes/blocks/AdvantagesRating
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+						.CompanyBlock.CompanyBlock-dossiers.Companies_item
+							.CompanyBlock_logo.hidden-xs
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+							.CompanyBlock_mainWrapper
+								.CompanyBlock_header
+									.CompanyBlock_logo.hidden-smPlus
+										a(href="/company.html", title="Sony Corporation")
+											img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+									.CompanyBlock_headerRight
+										h3.CompanyBlock_name
+											a(href="/company.html") Sony Corporation
+										.Rating.Rating-companyHeader.hidden-smPlus
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,3
+											span.Rating_max / 10
+											span.Rating_label (55 отзывов)
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Аки Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась ТТК
+								.CompanyBlock_footer
+									.Rating.Rating-companyHeader.Rating-dropdown.hidden-xs
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											include /includes/blocks/AdvantagesRating
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+						.CompanyBlock.CompanyBlock-dossiers.Companies_item
+							.CompanyBlock_logo.hidden-xs
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+							.CompanyBlock_mainWrapper
+								.CompanyBlock_header
+									.CompanyBlock_logo.hidden-smPlus
+										a(href="/company.html", title="Sony Corporation")
+											img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+									.CompanyBlock_headerRight
+										h3.CompanyBlock_name
+											a(href="/company.html") Sony Corporation
+										.Rating.Rating-companyHeader.hidden-smPlus
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,3
+											span.Rating_max / 10
+											span.Rating_label (55 отзывов)
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Аки Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась ТТК
+								.CompanyBlock_footer
+									.Rating.Rating-companyHeader.Rating-dropdown.hidden-xs
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											include /includes/blocks/AdvantagesRating
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+			.Aside.Main_aside.hidden-xs
+				include /includes/blocks/ProfileMenu
+	include /includes/blocks/LikePopup
+	include /includes/blocks/PopupShare
+	include /includes/blocks/LinkCopiedNotification

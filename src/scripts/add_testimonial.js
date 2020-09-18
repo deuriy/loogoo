@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		let countryIdSelect = document.querySelector('.DropdownSelect-countryId .DropdownSelect_select');
 		let otherFields = document.querySelector('.AddTestimonial_otherFields');
 
-		// otherFields.hidden = !(employmentCheckbox.checked && countryIdSelect.value !== 'none');
 		otherFields.hidden = !employmentCheckbox.checked && !docsPreparationCheckbox.checked;
 		countryIdSelect.disabled = !employmentCheckbox.checked;
 	}
@@ -42,9 +41,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function showRatingItems () {
 		let checkboxes = document.querySelectorAll('.Checkbox-fieldVisibility');
+		let ratingItemsIds = [
+			["Checkbox-employment", "Checkbox-documentsPreparation"],
+			["Checkbox-employment"],
+			["Checkbox-employment"],
+			["Checkbox-documentsPreparation"],
+			["Checkbox-documentsPreparation"],
+		];
 
 		document.querySelectorAll('.RatingItem').forEach( ratingItem => {
-			let checkboxIds = JSON.parse(ratingItem.dataset.checkboxIds);
+			let checkboxIds = ratingItemsIds[ratingItem.dataset.ratingItemId - 1];
 
 			checkboxes.forEach( checkbox => {
 				ratingItem.hidden = true;

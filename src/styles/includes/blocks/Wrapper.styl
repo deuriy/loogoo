@@ -2,6 +2,7 @@
 	display flex
 	flex-direction column
 	min-height 100%
+	overflow hidden
 	
 	&-noMobileHeader
 		@media $xs
@@ -15,7 +16,6 @@
 	
 	&-blurred
 		filter blur(7px)
-		overflow hidden
 		
 		&:after
 			content ""

@@ -18,6 +18,9 @@
 		
 		@media $xs
 			line-height 1.34
+		
+		&:last-child
+			margin-bottom 0
 	
 	&_text
 		font-weight 500
@@ -45,16 +48,15 @@
 		@media $xs
 			padding 17px 8px 10px 16px
 	
-	&-rejected
+	&-rejected,
+	&-onCheck
 		padding 19px 31px 20px
 		border-radius 4px
-		background #FFE9DE
 		
 		@media $xs
 			padding 22px 28px 23px
 		
 		.Notice_title
-			color $orange
 			font-size 15px
 			line-height 1.533
 			
@@ -73,4 +75,23 @@
 			
 			a
 				font-weight 600
+	
+	&-rejected
+		background #FFE9DE
+		
+		.Notice_title
+			color $orange
+		
+		.Notice_text
+			a
 				color $orange
+	
+	&-onCheck
+		background #ebf0f2
+		
+		.Notice_title
+			color $blue2
+		
+		.Notice_text
+			a
+				color $blue2

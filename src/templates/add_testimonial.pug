@@ -7,10 +7,11 @@ block content
 	.Container.Main_container
 		.Main_columns
 			.Main_left
-				.MobileHeader.hidden-smPlus
+				.MobileHeader.MobileHeader-addTestimonial.hidden-smPlus
 					a(href="#").BtnBack.MobileHeader_btnBack
 						include /includes/svg/SvgIco/arrow_left
-					h1.MobileHeader_title #{title}
+					.MobileHeader_titleWrapper
+						h1.MobileHeader_title #{title}
 					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
 						include /includes/svg/SvgIco/dots
 				form(action="#", name="add_testimonial").AddTestimonial#FormAddingTestimonial
@@ -57,7 +58,7 @@ block content
 						.Ratings.AddTestimonial_ratings
 							h3.Ratings_title Оцените по параметрам
 							.Ratings_items
-								.RatingItem.Ratings_item(data-checkbox-ids='["Checkbox-employment", "Checkbox-documentsPreparation"]')
+								.RatingItem.Ratings_item(data-rating-item-id='1')
 									.RatingItem_title Качество обслуживания и поддержки
 									.RatingItem_wrapper
 										ul.RatingItem_stars
@@ -73,7 +74,7 @@ block content
 											li.RatingItem_star
 										.RatingItem_number.hidden-xs
 									input(type="hidden", name="rating[1]", id="rating[1]" value="7").RatingItem_input
-								.RatingItem.Ratings_item(data-checkbox-ids='["Checkbox-employment"]')
+								.RatingItem.Ratings_item(data-rating-item-id='2')
 									.RatingItem_title Достоверность информации о работе
 									.RatingItem_wrapper
 										ul.RatingItem_stars
@@ -89,7 +90,7 @@ block content
 											li.RatingItem_star
 										.RatingItem_number.hidden-xs
 									input(type="hidden", name="rating[2]", id="rating[2]" value="").RatingItem_input
-								.RatingItem.Ratings_item(data-checkbox-ids='["Checkbox-employment"]')
+								.RatingItem.Ratings_item(data-rating-item-id='3')
 									.RatingItem_title Достоверность информации о жилье
 									.RatingItem_wrapper
 										ul.RatingItem_stars
@@ -105,7 +106,7 @@ block content
 											li.RatingItem_star
 										.RatingItem_number.hidden-xs
 									input(type="hidden", name="rating[3]", id="rating[3]" value="3").RatingItem_input
-								.RatingItem.Ratings_item(data-checkbox-ids='["Checkbox-documentsPreparation"]')
+								.RatingItem.Ratings_item(data-rating-item-id='4')
 									.RatingItem_title Соблюдение сроков изготовления документов
 									.RatingItem_wrapper
 										ul.RatingItem_stars
@@ -121,7 +122,7 @@ block content
 											li.RatingItem_star
 										.RatingItem_number.hidden-xs
 									input(type="hidden", name="rating[4]", id="rating[4]" value="").RatingItem_input
-								.RatingItem.Ratings_item(data-checkbox-ids='["Checkbox-documentsPreparation"]')
+								.RatingItem.Ratings_item(data-rating-item-id='5')
 									.RatingItem_title Качество полученных документов или услуг
 									.RatingItem_wrapper
 										ul.RatingItem_stars
