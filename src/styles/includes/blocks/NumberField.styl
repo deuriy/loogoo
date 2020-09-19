@@ -4,11 +4,17 @@
 	
 	&_formText
 		width 158px
+		min-width 0
 		
 		@media $xs
 			width 132px
+		
+		&-from,
+		&-to
+			width 134px
 	
-	&_rangeSeparator, &_suffix
+	&_rangeSeparator,
+	&_suffix
 		font-size 15px
 		color #404040
 	
@@ -30,3 +36,6 @@
 	
 	&_currencySelect
 		margin-left 10px
+		
+		&-rate
+			margin-left 15px

@@ -33,16 +33,26 @@ block content
 									img(src="/img/job_cover_mobile_dummy.jpg").Cover_img
 								h4.Cover_title На мобильном устройстве
 								a(href="#PopupChangeCover").ArrowLink.ArrowLink-cover.PopupMenuLink Изменить обложку
-						.ProfileCover.CompanySettings_profileCover
+						.ProfileCover.CompanySettings_profileCover.hidden
 							.ProfileCover_description Выберите область изображения которая будет выводиться на странице компании
 							.ProfileCover_cropArea(style="background-image: url('img/cover_cropping.jpg');")
-						.CompanySettings_actions
+						.CompanySettings_actions.hidden
 							button(type="submit").BtnBlue.BtnBlue-profileCover.CompanySettings_submitBtn Сохранить изменения
 							button(type="reset").CompanySettings_resetBtn Отмена
 					.CompanySettings_group
 						h3.CompanySettings_groupTitle Описание вакансии
 						.CompanySettings_groupDescription заполните все поля описания вакансии на русском и украинском языках
 						.CompanySettings_fields.CompanySettings_fields-allLanguages
+							.CompanySettings_field
+								label.CompanySettings_label Тип вакансии
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.DropdownSelect-vacancyType.CompanySettings_dropdownSelect.CompanySettings_dropdownSelect-short
+												select(name="vacancy_type").DropdownSelect_select
+													option(value="free") Бесплатная
+													option(value="paid") Платная
+										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно #[br]Введите адрес
 							.CompanySettings_field
 								label.CompanySettings_label Страна
 								.CompanySettings_fieldContent
@@ -56,7 +66,7 @@ block content
 													option(value="pl", selected) Польша
 													option(value="kz") Казахстан
 										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно #[br]Введите адрес
-							.CompanySettings_field
+							.CompanySettings_field.CompanySettings_field-salary
 								label.CompanySettings_label Заработная плата
 								.CompanySettings_fieldContent
 									.CompanySettings_fieldItems
@@ -70,7 +80,12 @@ block content
 												span.NumberField_rangeSeparator –
 												input(type="number", name="salary_to", placeholder="до", min="0").CompanySettings_formText.NumberField_formText.NumberField_formText-to
 												input(type="number", name="salary", min="0").CompanySettings_formText.NumberField_formText.NumberField_formText-fixedSalary
-												span.NumberField_suffix PLN
+												//- span.NumberField_suffix PLN
+												.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.NumberField_currencySelect
+													select(name="currency").DropdownSelect_select
+														option(value="uah") UAH
+														option(value="pln") PLN
+														option(value="usd") USD
 										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
 							.CompanySettings_field
 								label(for="rate_per_hour").CompanySettings_label Ставка в час
@@ -79,7 +94,12 @@ block content
 										.CompanySettings_fieldItem
 											.NumberField
 												input(type="number", name="rate_per_hour", id="rate_per_hour" min="0").CompanySettings_formText.NumberField_formText
-												span.NumberField_suffix.NumberField_suffix-rate PLN
+												//- span.NumberField_suffix.NumberField_suffix-rate PLN
+												.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.NumberField_currencySelect.NumberField_currencySelect-rate
+													select(name="currency").DropdownSelect_select
+														option(value="uah") UAH
+														option(value="pln") PLN
+														option(value="usd") USD
 												.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
 							.CompanySettings_field
 								label.CompanySettings_label Кому видна вакансия
@@ -90,6 +110,15 @@ block content
 												select(name="vacancy_visibility").DropdownSelect_select
 													option(value="all") Всем
 													option(value="only_me") Только мне
+										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+							.CompanySettings_field
+								label(for="position").CompanySettings_label Уровень важности
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.NumberField
+												input(type="number", name="position", id="position" min="0").CompanySettings_formText.NumberField_formText
+												.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
 										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
 							.CompanySettings_field.CompanySettings_field-uploadArea
 								.CompanySettings_fieldContent

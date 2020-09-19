@@ -157,7 +157,8 @@
 		&:last-child
 			margin-bottom 0
 	
-	&_dropdownSelect, &_timeRangeDropdown
+	&_dropdownSelect,
+	&_timeRangeDropdown
 		flex 166px 0 1
 		max-width 166px
 		margin-right 15px
@@ -168,13 +169,16 @@
 			margin-right 0
 			margin-bottom 25px
 		
-		&:last-child, &-noMargin
+		&:last-child,
+		&-noMargin
 			margin-right 0
 
 			@media $xs
 				margin-bottom 0
 	
-	&_formText, &_textarea, &_dropdownSelect
+	&_formText,
+	&_textarea,
+	&_dropdownSelect
 		&-fullWidth
 			width 100%
 	
@@ -185,6 +189,7 @@
 		&-short
 			width 33.33%
 			max-width calc(33.33% - 23px)
+			flex-shrink 0
 			
 			@media $xs
 				width auto
