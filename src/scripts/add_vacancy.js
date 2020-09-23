@@ -1,5 +1,27 @@
-document.addEventListener('DOMContentLoaded', function () {
-	function changeSalaryType () {
+let Vacancy = {
+	init() {
+		document.addEventListener('click', function (e) {
+			let salaryTypeDropdown = e.target.closest('.DropdownSelect-salaryType');
+
+			if (!salaryTypeDropdown) return;
+
+			changeSalaryType();
+		});
+
+		document.addEventListener('click', function (e) {
+			let vacancyTypeDropdown = e.target.closest('.DropdownSelect-vacancyType');
+
+			if (!vacancyTypeDropdown) return;
+
+			Vacancy.changeVacancyType();
+			Vacancy.changeSalaryType();
+		});
+
+		Vacancy.changeVacancyType();
+		Vacancy.changeSalaryType();
+	},
+
+	changeSalaryType() {
 		let salaryType = document.querySelector('select[name="salary_type"]');
 		let salaryField = document.querySelector('.CompanySettings_field-salary');
 		let salaryRange = document.querySelector('.NumberField-salaryRange');
@@ -30,9 +52,9 @@ document.addEventListener('DOMContentLoaded', function () {
 				salaryRangeFixed.disabled = true;
 				break;
 		}
-	}
+	},
 
-	function changeVacancyType () {
+	changeVacancyType() {
 		let vacancyType = document.querySelector('select[name="vacancy_type"]');
 		let salaryField = document.querySelector('.CompanySettings_field-salary');
 
@@ -45,37 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
 				break;
 		}
 	}
+};
 
-	document.addEventListener('click', function (e) {
-		let salaryTypeDropdown = e.target.closest('.DropdownSelect-salaryType');
-
-		if (!salaryTypeDropdown) return;
-
-		changeSalaryType();
-	});
-
-	document.addEventListener('click', function (e) {
-		let vacancyTypeDropdown = e.target.closest('.DropdownSelect-vacancyType');
-
-		if (!vacancyTypeDropdown) return;
-
-		changeVacancyType();
-		changeSalaryType();
-	});
-
-	// document.addEventListener('click', function (e) {
-	// 	let dropdownSelect = e.target.closest('.DropdownSelect');
-
-	// 	if (!dropdownSelect) return;
-		
-	// 	dropdownSelect.querySelector('.DropdownSelect_select').dispatchEvent(new Event('change'));
-	// });
-
-	// document.querySelector('select[name="vacancy_type"]').addEventListener('change', function () {
-	// 	console.log('Change!!!');
-	// });
-
-	changeVacancyType();
-	changeSalaryType();
-	
+document.addEventListener('DOMContentLoaded', function () {
+	Vacancy.init();
 });

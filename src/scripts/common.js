@@ -26,6 +26,18 @@ document.addEventListener("DOMContentLoaded", function () {
 		showSearch: false
 	});
 
+	// document.addEventListener('click', function (e) {
+	// 	let dropdownSelect = e.target.closest('.DropdownSelect');
+
+	// 	if (!dropdownSelect) return;
+
+	// 	dropdownSelect.querySelector('.DropdownSelect_select').dispatchEvent(new Event('change'));
+	// });
+
+	// document.querySelector('.DropdownSelect_select').addEventListener('change', function () {
+	// 	console.log('Change!!!');
+	// });
+
 	const checkboxList = document.querySelectorAll('.CompanySettings_checkboxList');
 	checkboxList.forEach(item => {
 		const psItem = new PerfectScrollbar(item, {
@@ -1421,6 +1433,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!tabs) return;
 
 		let activeTab = tabs.querySelector('.active');
+
+		if (!activeTab) return;
+
 		let diff = document.documentElement.clientWidth - activeTab.offsetLeft - activeTab.offsetWidth;
 		console.log(diff);
 
