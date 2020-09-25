@@ -106,7 +106,8 @@
 		margin-left 15px
 		color #C4C4C4
 	
-	&_text
+	&_text,
+	&_additionText
 		margin-bottom 19px
 		font-size 15px
 		line-height 1.67
@@ -150,6 +151,19 @@
 		&:hover
 			color $blue
 	
+	&_addition
+		margin-top 19px
+	
+	&_additionTitle
+		margin-bottom 14px
+		font-weight 700
+	
+	&_additionText
+		margin-bottom 13px
+		
+		p:last-child
+			margin-bottom 0
+	
 	&_footer
 		display flex
 		justify-content space-between
@@ -158,6 +172,9 @@
 		
 		@media $xs
 			padding-right 0
+	
+	&_actions
+		margin-top 20px
 	
 	&_actionLinks
 		display flex
