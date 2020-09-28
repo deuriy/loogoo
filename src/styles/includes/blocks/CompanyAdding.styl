@@ -1,31 +1,42 @@
+.fancybox-content
+	vertical-align top
+	
 .CompanyAdding
-	width 500px
+	width 480px
 	padding 0
+	border-top 7px solid $blue
+	
+	@media $xs
+		height 100%
+		width 100%
+		padding-top 51px
 	
 	&_title
-		padding 23px 30px 23px 52px
-		background $blue
-		color $lightGrey
+		padding 32px 60px 30px 38px
 		font-weight 600
-		font-size 18px
+		font-size 22px
 	
 	&_main
-		padding 35px 50px 40px 45px
+		padding 0 40px 40px 34px
 		
 		@media $xs
-			padding 26px 20px 26px 16px
+			padding 22px 20px 26px 16px
 	
-	&-popup
-		@media $xs
-			height 100%
-			width 100%
-			padding-top 51px
+	&_profileTypes
+		margin-bottom 26px
+	
+	&-default
+		.CompanyAdding_main
+			padding-bottom 32px
 
 .fancybox-slide--html .CompanyAdding .fancybox-close-small
 	top 9px
 	right 9px
-	color rgba(254, 254, 255, .5)
+	color rgba($blue2, .5)
+	
+	@media $xs
+		display none
 	
 	&:hover
 		opacity 1
-		color $white
+		color rgba($blue2, .5)

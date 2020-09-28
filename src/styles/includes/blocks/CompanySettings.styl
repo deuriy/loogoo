@@ -435,13 +435,15 @@
 	&_profileCover
 		margin-top 20px
 	
-	&-popup
+	&-addingCompany
 		.CompanySettings_fields
-			margin-bottom 28px
+			margin-bottom 40px
 			padding-right 0
+			padding-bottom 0
+			border-bottom none
 			
 			@media $xs
-				margin-bottom 34px
+				margin-bottom 45px
 			
 		.CompanySettings_field
 			position relative
@@ -476,11 +478,17 @@
 			padding-left 0
 		
 		.CompanySettings_addButton
-			margin-right 34px
+			margin-right 28px
 			
 			@media $xs
 				margin-right 0
 				flex-grow 1
+	
+	&-addingCompanyDefault
+		.CompanySettings_actions
+			justify-content center
+			padding-top 32px
+			padding-right 14px
 	
 	&-fieldAddition
 		padding-left 0

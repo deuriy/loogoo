@@ -56,4 +56,48 @@ document.addEventListener('DOMContentLoaded', function () {
 		touch: false,
 		baseClass: 'fancybox-container--no-padding'
 	});
+
+	// Profile Types
+	document.addEventListener('click', function (e) {
+		let profileType = e.target.closest('.ProfileType');
+
+		if (!profileType) return;
+
+		let activeProfileType = document.querySelector('.ProfileType-active');
+		if (activeProfileType) {
+			activeProfileType.classList.remove('ProfileType-active');
+		}
+		profileType.classList.add('ProfileType-active');
+
+		let addingCompany = document.querySelector('.CompanySettings-addingCompany');
+		let agencyNameField = addingCompany.querySelector('.CompanySettings_field-agencyName');
+		let fioField = addingCompany.querySelector('.CompanySettings_field-fio');
+
+		switch (profileType.dataset.value) {
+			case 'agency':
+				agencyNameField.hidden = false;
+				addingCompany.company_name.disabled = false;
+				fioField.hidden = true;
+				addingCompany.fio.disabled = true;
+				break;
+			case 'flp':
+				agencyNameField.hidden = true;
+				addingCompany.company_name.disabled = true;
+				fioField.hidden = false;
+				addingCompany.fio.disabled = false;
+				break;
+		}
+
+		let profileTypeInput = addingCompany.profile_type;
+		if (profileTypeInput) {
+			profileTypeInput.value = profileType.dataset.value;
+		}
+
+		addingCompany.classList.remove('CompanySettings-addingCompanyDefault');
+		addingCompany.querySelector('.CompanySettings_fields').hidden = false;
+		addingCompany.querySelector('.CompanySettings_addButton').hidden = false;
+
+		e.preventDefault();
+	});
+
 });

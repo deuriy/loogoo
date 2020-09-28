@@ -1,0 +1,48 @@
+.ProfileType
+	display flex
+	-webkit-align-items center
+	align-items center
+	width 191px
+	padding 16px 20px 17px
+	border 1px solid #ebf0f2
+	border-radius 4px
+	color $blue
+	@extend .transition
+	
+	@media $xs
+		width 150px
+		padding 12px 16px 12px
+	
+	&_icon
+		margin-right 29px
+		
+		@media $xs
+			margin-right 12px
+		
+		& > .SvgIco
+			@media $xs
+				width 36px
+	
+	&_title
+		font-weight 500
+		font-size 15px
+		line-height 1.2
+	
+	&:hover,
+	&-active
+		border-color $blue
+	
+	&-active
+		background $blue
+		color $white
+	
+	&-flp
+		.ProfileType_icon
+			margin-right 50px
+			
+			@media $xs
+				margin-right 31px
+			
+			& > .SvgIco
+				@media $xs
+					width 32px
