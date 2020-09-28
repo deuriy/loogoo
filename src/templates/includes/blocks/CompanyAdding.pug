@@ -7,17 +7,17 @@
 	.CompanyAdding_main
 		form(action="#").CompanySettings.CompanySettings-addingCompany.CompanySettings-addingCompanyDefault
 			.ProfileTypes.CompanyAdding_profileTypes
-				a(href="javascript:;" data-profile-type="agency").ProfileType.ProfileTypes_item
+				a(href="javascript:;" data-value="agency").ProfileType.ProfileTypes_item
 					.ProfileType_icon
 						include /includes/svg/SvgIco/profile_types/agency
 					.ProfileType_title Агенцию
-				a(href="javascript:;" data-profile-type="flp").ProfileType.ProfileType-flp.ProfileTypes_item
+				a(href="javascript:;" data-value="flp").ProfileType.ProfileType-flp.ProfileTypes_item
 					.ProfileType_icon
 						include /includes/svg/SvgIco/profile_types/flp
 					.ProfileType_title ФЛП
 			input(type="hidden" name="profile_type")
-			.CompanySettings_fields
-				.CompanySettings_field
+			.CompanySettings_fields(hidden)
+				.CompanySettings_field.CompanySettings_field-agencyName
 					label(for="company_name").CompanySettings_label Название
 					.CompanySettings_fieldContent
 						input(type="text", name="company_name", id="company_name", value="Sony Corporation", minlength="2", maxlength="45", required).CompanySettings_formText.CompanySettings_formText-fullWidth
@@ -31,6 +31,10 @@
 									include /includes/svg/SvgIco/icon_star
 								span.Rating_number 7,5
 								span.Rating_max / 10
+				.CompanySettings_field.CompanySettings_field-fio
+					label(for="fio").CompanySettings_label Фамилия Имя Отчество
+					.CompanySettings_fieldContent
+						input(type="text", name="fio", id="fio", minlength="2", maxlength="45", required).CompanySettings_formText.CompanySettings_formText-fullWidth
 				.CompanySettings_field
 					label.CompanySettings_label Страна
 					.CompanySettings_fieldContent
@@ -46,5 +50,5 @@
 					.CompanySettings_fieldContent
 						input(type="text", name="company_website", id="company_website").CompanySettings_formText.CompanySettings_formText-fullWidth
 			.CompanySettings_actions
-				button(type="submit").BtnBlue.BtnBlue-addCompanyPopup.CompanySettings_addButton Добавить
+				button(type="submit").BtnBlue.BtnBlue-addCompanyPopup.CompanySettings_addButton(hidden) Добавить
 				a(href="javascript:;", data-fancybox-close).CompanySettings_link.CompanySettings_link-cancel.hidden-xs Отмена

@@ -17,6 +17,11 @@
 		font-size 15px
 		line-height 1.534
 		color $blue2
+		
+		@media $xs
+			font-size 16px
+			line-height 1.4375
+			letter-spacing 0.03em
 	
 	&_body
 		padding 18px 28px 25px
@@ -31,7 +36,8 @@
 		line-height 1.643
 		
 		@media $xs
-			margin-bottom 17px
+			margin-bottom 19px
+			font-size 15px
 		
 		&:last-child
 			margin-bottom 0
@@ -43,7 +49,7 @@
 		@media $xs
 			flex-direction column
 			align-items stretch
-			margin-bottom -25px
+			padding-right 4px
 	
 	&_link
 		font-weight 500
@@ -58,28 +64,25 @@
 			position relative
 			
 			@media $xs
-				margin 0 -20px
-				padding 14px 21px
-				border-top 1px solid #dfe4e6
-				font-size 15px
+				padding 17px 13px 15px 47px
+				border 1px solid #dfe4e5
+				font-size 16px
 				text-decoration none
-				
-				&:after
-					content ""
-					position absolute
-					top 0
-					right 25px
-					bottom 0
-					width 6px
-					height 9px
-					margin auto
-					background url('../img/arrow_blue.png') 0 0 / cover no-repeat			
+				background-position 16px 17px
+				background-repeat no-repeat
 		
 		&-provideEvidence
 			margin-right 30px
+			margin-bottom 16px
 			
 			@media $xs
-				margin-right -20px
+				margin-right 0
+				border-radius 4px
+				background-image url('../img/review_note/doc.svg')
+		
+		&-verification
+			@media $xs
+				background-image url('../img/review_note/ok.svg')
 	
 	&-pink
 		.ReviewNote_header
