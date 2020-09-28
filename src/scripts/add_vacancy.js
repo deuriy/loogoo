@@ -5,7 +5,7 @@ let Vacancy = {
 
 			if (!salaryTypeDropdown) return;
 
-			changeSalaryType();
+			Vacancy.changeSalaryType();
 		});
 
 		document.addEventListener('click', function (e) {
@@ -29,14 +29,13 @@ let Vacancy = {
 		let salaryRangeTo = salaryRange.querySelector('.NumberField_formText-to');
 		let salaryRangeFixed = salaryRange.querySelector('.NumberField_formText-fixedSalary');
 		let salaryRangeSeparator = salaryRange.querySelector('.NumberField_rangeSeparator');
-		let currencySelect = salaryRange.querySelector('.NumberField_currencySelect select');
 
 		if (salaryField.hidden) {
-			salaryType.disabled = salaryRangeFrom.disabled = salaryRangeTo.disabled = salaryRangeFixed.disabled = currencySelect.disabled = true;
+			salaryType.disabled = salaryRangeFrom.disabled = salaryRangeTo.disabled = salaryRangeFixed.disabled = true;
 			return;
 		}
 
-		salaryType.disabled = currencySelect.disabled = false;
+		salaryType.disabled = false;
 
 		switch (salaryType.value) {
 			case 'fixed':
@@ -56,14 +55,16 @@ let Vacancy = {
 
 	changeVacancyType() {
 		let vacancyType = document.querySelector('select[name="vacancy_type"]');
-		let salaryField = document.querySelector('.CompanySettings_field-salary');
+		let priceField = document.querySelector('.CompanySettings_field-price');
+		let priceFieldInput = priceField.querySelector('input[name="is_paid"]');
+		let currencySelect = priceField.querySelector('.NumberField_currencySelect select');
 
 		switch (vacancyType.value) {
 			case 'free':
-				salaryField.hidden = true;
+				priceField.hidden = priceFieldInput.disabled = currencySelect.disabled = true;
 				break;
 			case 'paid':
-				salaryField.hidden = false;
+				priceField.hidden = priceFieldInput.disabled = currencySelect.disabled = false;
 				break;
 		}
 	}

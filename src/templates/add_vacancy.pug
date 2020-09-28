@@ -53,6 +53,19 @@ block content
 													option(value="free") Бесплатная
 													option(value="paid") Платная
 										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно #[br]Введите адрес
+							.CompanySettings_field.CompanySettings_field-price
+								label(for="is_paid").CompanySettings_label Цена
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.NumberField
+												input(type="number", name="is_paid", id="is_paid" min="0").CompanySettings_formText.NumberField_formText
+												.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.NumberField_currencySelect
+													select(name="currency").DropdownSelect_select
+														option(value="uah") UAH
+														option(value="pln") PLN
+														option(value="usd") USD
+												.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
 							.CompanySettings_field
 								label.CompanySettings_label Страна
 								.CompanySettings_fieldContent
@@ -80,12 +93,12 @@ block content
 												span.NumberField_rangeSeparator –
 												input(type="number", name="salary_to", placeholder="до", min="0").CompanySettings_formText.NumberField_formText.NumberField_formText-to
 												input(type="number", name="salary", min="0").CompanySettings_formText.NumberField_formText.NumberField_formText-fixedSalary
-												//- span.NumberField_suffix PLN
-												.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.NumberField_currencySelect
-													select(name="currency").DropdownSelect_select
-														option(value="uah") UAH
-														option(value="pln") PLN
-														option(value="usd") USD
+												span.NumberField_suffix PLN
+												//- .DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.NumberField_currencySelect
+												//- 	select(name="salary_currency").DropdownSelect_select
+												//- 		option(value="uah") UAH
+												//- 		option(value="pln") PLN
+												//- 		option(value="usd") USD
 										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
 							.CompanySettings_field
 								label(for="rate_per_hour").CompanySettings_label Ставка в час
@@ -94,12 +107,12 @@ block content
 										.CompanySettings_fieldItem
 											.NumberField
 												input(type="number", name="rate_per_hour", id="rate_per_hour" min="0").CompanySettings_formText.NumberField_formText
-												//- span.NumberField_suffix.NumberField_suffix-rate PLN
-												.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.NumberField_currencySelect.NumberField_currencySelect-rate
-													select(name="currency").DropdownSelect_select
-														option(value="uah") UAH
-														option(value="pln") PLN
-														option(value="usd") USD
+												span.NumberField_suffix.NumberField_suffix-rate PLN
+												//- .DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.NumberField_currencySelect.NumberField_currencySelect-rate
+												//- 	select(name="rate_currency").DropdownSelect_select
+												//- 		option(value="uah") UAH
+												//- 		option(value="pln") PLN
+												//- 		option(value="usd") USD
 												.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
 							.CompanySettings_field
 								label.CompanySettings_label Кому видна вакансия
