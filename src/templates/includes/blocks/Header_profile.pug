@@ -4,12 +4,10 @@ header.Header.Header-profile
 			a(href="#").MenuHamburger#MenuHamburger.Header_menuHamburger.hidden-smPlus
 				include /includes/svg/SvgIco/menu_hamburger
 			a(href="/").SiteName.Header_siteName infoza
-			.PrimaryMenu.Header_primaryMenu
+			.PrimaryMenu.Header_primaryMenu#PrimaryMenu
 				ul.PrimaryMenu_list
 					li.PrimaryMenu_item.active
 						a(href="#").PrimaryMenu_link Общение
-					//- li.PrimaryMenu_item
-					//- 	a(href="/dossier.html").PrimaryMenu_link Досье
 					li.PrimaryMenu_item
 						a(href="/companies_dossiers.html").PrimaryMenu_link Работодатели
 					li.PrimaryMenu_item
@@ -19,7 +17,7 @@ header.Header.Header-profile
 					li.PrimaryMenu_item
 						a(href="/news_feed.html").PrimaryMenu_link Новости
 					li.PrimaryMenu_item
-						a(href="#").PrimaryMenu_link О проекте
+						a(href="/about.html").PrimaryMenu_link О проекте
 		.Header_right
 			form.Search.Search-header
 				.Search_item

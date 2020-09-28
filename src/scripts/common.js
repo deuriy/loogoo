@@ -246,6 +246,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	setActiveMenuItem( document.querySelector('#UserMenu') );
 	setActiveMenuItem( document.querySelector('#ActionsMenu') );
 	setActiveMenuItem( document.querySelector('#PrimaryMenu') );
+	setActiveMenuItem( document.querySelector('#PrimaryMenuFooter') );
+	setActiveMenuItem( document.querySelector('#MobileMenu') );
 	setActiveMenuItem( document.querySelector('#SidebarMenu') );
 	setActiveMenuItem( document.querySelector('.MenuSection-company') );
 	setActiveMenuItem( document.querySelector('.SettingsMenu') );
