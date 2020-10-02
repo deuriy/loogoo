@@ -11,9 +11,9 @@
 					.NotificationSettingsItem_infoWrapper
 						.NotificationSettingsItem_description Уведомления о записях
 						label.Switch.NotificationSettingsItem_switch
-							input(type="checkbox" name="company_notifications" id="on" value="on", data-action="bookmarkNotificationSwitch").Switch_checkbox
+							input(type="checkbox" name="company_notifications" id="on" value="on", data-action="bookmarkNotificationSwitch", data-target="#MobileCompanyBookmark").Switch_checkbox
 							span.Switch_slider
-			a(href="javascript:;", data-action="removeBookmark").NotificationSettingsItem.NotificationSettingsItem-company.MobilePopup_notificationSettingsItem
+			a(href="javascript:;", data-action="removeBookmark", data-target="#MobileCompanyBookmark").NotificationSettingsItem.NotificationSettingsItem-company.MobilePopup_notificationSettingsItem
 				.NotificationSettingsItem_description Удалить из закладок
 		.MobilePopup_btnWrapper
 			a(href="javascript:;", data-action="closeMobilePopup").BtnGrey.BtnGrey-mobilePopupWrite.MobilePopup_btn Закрыть

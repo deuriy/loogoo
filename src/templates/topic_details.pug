@@ -161,23 +161,22 @@ block content
 													a(href="javascript:;").CopyLink_btnCopy Копировать
 							.StatIcons_right
 								ul.StatIcons_list
-									li.StatIcon.StatIcon-bookmarkNotification.StatIcons_item.StatIcons_item-bookmarkNotification.StatIcons_item-gutter(hidden)
-										.NotificationMenu
-											a(href="javascript:;").NotificationMenu_icon
-												include /includes/svg/SvgIco/bell_thin
-											ul.NotificationMenu_wrapper
-												li.NotificationMenu_item
-													a(href="#").NotificationMenu_link
-														include /includes/svg/SvgIco/bell_thin
-														.
-															Без уведомлений
-												li.NotificationMenu_item
-													a(href="#").NotificationMenu_link
-														include /includes/svg/SvgIco/bell_check
-														.
-															Новые ответы
-									li.StatIcon.StatIcon-bookmark.StatIcons_item.StatIcons_item-bookmark
-										.Bookmark
+									li.StatIcon.StatIcons_item
+										.Bookmark.Bookmark-active
+											.NotificationMenu.Bookmark_notificationMenu
+												a(href="javascript:;").NotificationMenu_icon
+													include /includes/svg/SvgIco/bell_thin
+												ul.NotificationMenu_wrapper
+													li.NotificationMenu_item
+														a(href="#").NotificationMenu_link
+															include /includes/svg/SvgIco/bell_thin
+															.
+																Без уведомлений
+													li.NotificationMenu_item
+														a(href="#").NotificationMenu_link.NotificationMenu_link-active
+															include /includes/svg/SvgIco/bell_check
+															.
+																Новые ответы
 											a(href="javascript:;", title="Сохранить в закладки").Bookmark_icon
 												include /includes/svg/SvgIco/bookmark
 									li.StatIcon.StatIcon-views.StatIcons_item.StatIcons_item-views

@@ -596,33 +596,72 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	// Tabs
-	let tabsList = document.querySelectorAll('.Tabs_list');
+	document.querySelectorAll('.Tabs_list').forEach(tabList => {
+		tabList.querySelectorAll('.Tabs_item').forEach((tab, tabIndex) => {
+			tab.onclick = () => {
+				let activeTab = tab.parentNode.querySelector('.Tabs_item-active');
 
-	tabsList.forEach(function (tabList) {
-		let tabItems = tabList.querySelectorAll('.Tabs_item');
-
-		tabItems.forEach(function (tabItem, tabItemIndex) {
-			tabItem.onclick = function () {
-				let activeTabItem = tabItem.parentNode.querySelector('.Tabs_item-active');
-
-				if (activeTabItem) {
-					activeTabItem.classList.remove('Tabs_item-active');
+				if (activeTab) {
+					activeTab.classList.remove('Tabs_item-active');
 				}
 
-				tabItem.classList.add('Tabs_item-active');
+				tab.classList.add('Tabs_item-active');
 
-				let parent = tabItem.closest('.Tabs');
+				let parent = tab.closest('.Tabs');
 				let tabsContent = parent.querySelectorAll('.Tabs_content');
 
 				tabsContent.forEach(function (tabContent, tabContentIndex) {
 					tabContent.style.display = 'none';
 				});
 
-				tabsContent[tabItemIndex].style.display = 'block';
-				setCookie('activeTabIndex', tabItemIndex, {'max-age': 31536000});
-			};
+				tabsContent[tabIndex].style.display = 'block';
+				setCookie('activeTabIndex', tabIndex, {'max-age': 31536000});
+			}
 		});
-	});	
+	});
+
+	function getNodeIndex (nodeList, elem) {
+		let i = 0;
+
+		while (i < nodeList.length) {
+			if (nodeList[i] === elem) break;
+			i++;
+		}
+
+		return i;
+	}
+
+	function isCurrentTab (tabs, tabName) {
+		let tab = tabs.querySelector(`[data-name=${tabName}]`);
+
+		if (tab && tab.classList.contains('Tabs_item-active')) return true;
+
+		return false;
+	}
+
+	function setCurrentTab (tabs, tabName) {
+		let activeTab = tabs.querySelector('.Tabs_item-active');
+
+		if (activeTab) {
+			activeTab.classList.remove('Tabs_item-active');
+		}
+
+		let tab = tabs.querySelector(`[data-name=${tabName}]`);
+		let tabsContent = tabs.querySelectorAll('.Tabs_content');
+
+		tab.classList.add('Tabs_item-active');
+
+		tabsContent.forEach(function (tabContent, tabContentIndex) {
+			tabContent.style.display = 'none';
+		});
+
+		let tabIndex = getNodeIndex(tabs.querySelectorAll('.Tabs_item'), tab);
+		tabsContent[tabIndex].style.display = 'block';
+		setCookie('activeTabIndex', tabIndex, {'max-age': 31536000});
+	}
+
+	// console.log(isCurrentTab(document.querySelector('.Tabs-companySettings'), 'uk'));
+	// setCurrentTab(document.querySelector('.Tabs-companySettings'), 'uk');
 
 	// Tooltip
 	document.addEventListener('click', function (e) {
@@ -1154,6 +1193,14 @@ document.addEventListener("DOMContentLoaded", function () {
 		e.preventDefault();
 	});
 
+	document.addEventListener('click', function (e) {
+		let bookmarkNotificationSwitch = e.target.closest('[data-action="bookmarkNotificationSwitch"]');
+
+		if (!bookmarkNotificationSwitch) return;
+
+		checkCompanyBookmarkNotification(bookmarkNotificationSwitch);
+	});
+
 	// Bookmark icon
 	document.addEventListener('click', function (e) {
 		let bookmarkIcon = e.target.closest('.Bookmark_icon');
@@ -1183,18 +1230,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 						if (!bookmarkNotificationSwitch) return;
 
-						let bookmarkNotificationSwitches = document.querySelectorAll('[data-action="bookmarkNotificationSwitch"]');
-
-						if (bookmarkNotificationSwitch.checked) {
-							bookmarkIcon.innerHTML = '<svg class="SvgIco SvgIco-bellCheck" viewBox="0 0 17.812 17" width="18" data-name="Группа 1" xmlns="http://www.w3.org/2000/svg"><path class="SvgIco_path" data-name="Фигура 31 копия 2" d="M14.162 13h-.8l-.02-2.025a6.606 6.606 0 01-.98-.17V13h-10c0-.28-.036-6.362-.036-6.362a4.582 4.582 0 014.061-3.956 1.046 1.046 0 01-.07-.353 1.083 1.083 0 011-1.148.949.949 0 01.79.481 6.4 6.4 0 01.6-1A1.847 1.847 0 007.312 0a2.134 2.134 0 00-1.99 2 5.263 5.263 0 00-3.935 4.633L1.357 13H.496a.5.5 0 100 1h13.666a.5.5 0 000-1zm-6.83 4a2.033 2.033 0 001.95-2h-3.91a2.056 2.056 0 001.96 2z" fill-rule="evenodd" fill="#8396ac"/><path class="SvgIco_path SvgIco_path-check" data-name="Фигура 32 копия" d="M13.312.5a4.5 4.5 0 104.5 4.5 4.506 4.506 0 00-4.5-4.5zm2.28 3.546l-2.44 2.438a.368.368 0 01-.26.11.391.391 0 01-.27-.11l-1.36-1.366a.427.427 0 01.55-.618l1 1 2-2a.463.463 0 01.65-.017.432.432 0 01.13.563z" fill="#f89333" fill-rule="evenodd"/></svg>';
-							bookmark.classList.add('Bookmark-companyBellCheck');
-							bookmarkNotificationSwitches.forEach(notificationSwitch => notificationSwitch.checked = true);
-						} else {
-							bookmarkIcon.innerHTML = '<svg class="SvgIco" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 17"><path class="SvgIco_stroke" d="M11.87.5H2.12A1.614 1.614 0 00.5 2.1v14.4L7 12.842l6.5 3.658V2.1A1.616 1.616 0 0011.87.5z" fill="none" stroke="#8396ac"/></svg>';
-							bookmark.classList.remove('Bookmark-companyBellCheck');
-							bookmarkNotificationSwitches.forEach(notificationSwitch => notificationSwitch.checked = false);
-						}
-
 						clearTimeout(timer);
 
 						timer = setTimeout(function () {
@@ -1214,11 +1249,11 @@ document.addEventListener("DOMContentLoaded", function () {
 			bookmark.classList.toggle('Bookmark-active');
 		}
 
-		let bookmarkNotification = document.querySelector('.StatIcon-bookmarkNotification');
+		let bookmarkNotification = bookmark.querySelector('.Bookmark_notificationMenu');
 		
 		if (!bookmarkNotification) return;
 
-		bookmarkNotification.hidden = !bookmarkNotification.hidden;
+		checkActiveBookmark(bookmark, bookmarkNotification);
 
 		if (bookmarkNotification.hidden) {
 			let activeNotificationLink = bookmarkNotification.querySelector('.NotificationMenu_link-active');
@@ -1237,19 +1272,84 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
+	function checkActiveBookmark (bookmark, bookmarkNotification) {
+		if (!bookmark || !bookmarkNotification) return;
+
+		bookmarkNotification.hidden = !bookmark.classList.contains('Bookmark-active');
+	}
+
+	function checkBookmarkNotification (notificationMenu) {
+		if (!notificationMenu) return;
+
+		let activeNotificationLink = notificationMenu.querySelector('.NotificationMenu_link-active');
+
+		if (!activeNotificationLink) return;
+
+		let notificationMenuIcon = notificationMenu.querySelector('.NotificationMenu_icon');
+		let activeSvgIcon = activeNotificationLink.querySelector('svg').cloneNode(true);
+
+		notificationMenuIcon.innerHTML = '';
+		notificationMenuIcon.append(activeSvgIcon);
+	}
+
+	function checkActiveCompanyBookmark (bookmark) {
+		if (bookmark.classList.contains('Bookmark-company') && bookmark.classList.contains('Bookmark-active')) {
+			let bookmarkIcon = bookmark.querySelector('.Bookmark_icon');
+			bookmarkIcon.setAttribute('href', '#BookmarkSettingsPopup');
+			bookmarkIcon.dataset.action = 'openMobilePopup';
+		}
+	}
+
+	function checkCompanyBookmarkNotification (bookmarkNotificationSwitch) {
+		if (!bookmarkNotificationSwitch) return;
+
+		let target = bookmarkNotificationSwitch.dataset.target;
+
+		if (!target) return;
+
+		let bookmark = document.querySelector(target);
+
+		if (!bookmark) return;
+
+		let bookmarkIcon = bookmark.querySelector('.Bookmark_icon');
+		let bookmarkNotificationSwitches = document.querySelectorAll(`.Switch_checkbox[data-target="${target}"]`);
+
+		if (bookmarkNotificationSwitch.checked) {
+			bookmarkIcon.innerHTML = '<svg class="SvgIco SvgIco-bellCheck" viewBox="0 0 17.812 17" width="18" data-name="Группа 1" xmlns="http://www.w3.org/2000/svg"><path class="SvgIco_path" data-name="Фигура 31 копия 2" d="M14.162 13h-.8l-.02-2.025a6.606 6.606 0 01-.98-.17V13h-10c0-.28-.036-6.362-.036-6.362a4.582 4.582 0 014.061-3.956 1.046 1.046 0 01-.07-.353 1.083 1.083 0 011-1.148.949.949 0 01.79.481 6.4 6.4 0 01.6-1A1.847 1.847 0 007.312 0a2.134 2.134 0 00-1.99 2 5.263 5.263 0 00-3.935 4.633L1.357 13H.496a.5.5 0 100 1h13.666a.5.5 0 000-1zm-6.83 4a2.033 2.033 0 001.95-2h-3.91a2.056 2.056 0 001.96 2z" fill-rule="evenodd" fill="#8396ac"/><path class="SvgIco_path SvgIco_path-check" data-name="Фигура 32 копия" d="M13.312.5a4.5 4.5 0 104.5 4.5 4.506 4.506 0 00-4.5-4.5zm2.28 3.546l-2.44 2.438a.368.368 0 01-.26.11.391.391 0 01-.27-.11l-1.36-1.366a.427.427 0 01.55-.618l1 1 2-2a.463.463 0 01.65-.017.432.432 0 01.13.563z" fill="#f89333" fill-rule="evenodd"/></svg>';
+			bookmark.classList.add('Bookmark-companyBellCheck');
+			bookmarkNotificationSwitches.forEach(notificationSwitch => notificationSwitch.checked = true);
+		} else {
+			bookmarkIcon.innerHTML = '<svg class="SvgIco" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 17"><path class="SvgIco_stroke" d="M11.87.5H2.12A1.614 1.614 0 00.5 2.1v14.4L7 12.842l6.5 3.658V2.1A1.616 1.616 0 0011.87.5z" fill="none" stroke="#8396ac"/></svg>';
+			bookmark.classList.remove('Bookmark-companyBellCheck');
+			bookmarkNotificationSwitches.forEach(notificationSwitch => notificationSwitch.checked = false);
+		}
+	}
+
+	document.querySelectorAll('.Bookmark').forEach( bookmark => {
+		checkActiveBookmark(bookmark, bookmark.querySelector('.Bookmark_notificationMenu'));
+		checkBookmarkNotification(bookmark.querySelector('.Bookmark_notificationMenu'));
+		checkActiveCompanyBookmark(bookmark);
+	});
+
+	checkCompanyBookmarkNotification(document.querySelector('#BookmarkSettingsPopup .Switch_checkbox'));
+
 	document.addEventListener('click', function (e) {
 		let removeBookmark = e.target.closest('[data-action="removeBookmark"]');
 
 		if (!removeBookmark) return;
 
-		let bookmarkCompany = document.querySelector('.Bookmark-company');
-		bookmarkCompany.classList.remove('Bookmark-active');
-		bookmarkCompany.classList.remove('Bookmark-companyBellCheck');
+		let target = removeBookmark.dataset.target;
 
-		let bookmarkCompanyIcon = bookmarkCompany.querySelector('.Bookmark_icon');
-		bookmarkCompanyIcon.innerHTML = '<svg class="SvgIco" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 17"><path class="SvgIco_stroke" d="M11.87.5H2.12A1.614 1.614 0 00.5 2.1v14.4L7 12.842l6.5 3.658V2.1A1.616 1.616 0 0011.87.5z" fill="none" stroke="#8396ac"/></svg>';
-		bookmarkCompanyIcon.setAttribute('href', '#CompanyPopupNotification');
-		delete bookmarkCompanyIcon.dataset.action;
+		if (!target) return;
+
+		let bookmark = document.querySelector(target);
+		bookmark.classList.remove('Bookmark-active');
+		bookmark.classList.remove('Bookmark-companyBellCheck');
+
+		let bookmarkIcon = bookmark.querySelector('.Bookmark_icon');
+		bookmarkIcon.innerHTML = '<svg class="SvgIco" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 17"><path class="SvgIco_stroke" d="M11.87.5H2.12A1.614 1.614 0 00.5 2.1v14.4L7 12.842l6.5 3.658V2.1A1.616 1.616 0 0011.87.5z" fill="none" stroke="#8396ac"/></svg>';
+		bookmarkIcon.setAttribute('href', '#CompanyPopupNotification');
+		delete bookmarkIcon.dataset.action;
 
 		let bookmarkNotificationSwitches = document.querySelectorAll('[data-action="bookmarkNotificationSwitch"]');
 		bookmarkNotificationSwitches.forEach(notificationSwitch => notificationSwitch.checked = false);
@@ -1290,15 +1390,15 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!notificationMenuLink) return;
 
 		let notificationMenu = notificationMenuLink.closest('.NotificationMenu');
-		let notificationMenuIcon = notificationMenu.querySelector('.NotificationMenu_icon');
 		let activeNotificationLink = notificationMenu.querySelector('.NotificationMenu_link-active');
-		let activeSvgIcon = notificationMenuLink.querySelector('svg').cloneNode(true);
 
-		activeNotificationLink.classList.remove('NotificationMenu_link-active');
+		if (activeNotificationLink) {
+			activeNotificationLink.classList.remove('NotificationMenu_link-active');
+		}
+		
 		notificationMenuLink.classList.add('NotificationMenu_link-active');
 
-		notificationMenuIcon.innerHTML = '';
-		notificationMenuIcon.append(activeSvgIcon);
+		checkBookmarkNotification(notificationMenu);
 
 		notificationMenu.querySelector('.NotificationMenu_wrapper').classList.remove('NotificationMenu_wrapper-opened');
 
@@ -1439,7 +1539,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!activeTab) return;
 
 		let diff = document.documentElement.clientWidth - activeTab.offsetLeft - activeTab.offsetWidth;
-		console.log(diff);
 
 		if (diff < 0) {
 			tabs.scrollLeft -= diff;

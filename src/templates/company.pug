@@ -20,7 +20,7 @@ block content
 					//- h4.CompanyInfo_name Sony Corporation / Сони Электроникс Корпораи ещё чего-то там
 					.CompanyInfo_nameWrapper
 						h4.CompanyInfo_name Sony Corporation
-						.Bookmark.Bookmark-company
+						.Bookmark.Bookmark-active.Bookmark-company#MobileCompanyBookmark
 							a(href="#CompanyPopupNotification", title="Сохранить в закладки").Bookmark_icon
 								include /includes/svg/SvgIco/bookmark
 					.Rating.Rating-companyHeader.Rating-dropdown
@@ -41,7 +41,7 @@ block content
 				a(href="#ExtraMenuPopup", data-action="openMobilePopup").BtnGrey.BtnGrey-dots.hidden-smPlus.Company_btn
 					include /includes/svg/SvgIco/dots
 			.Company_left.hidden-xs
-				.CompanyPhoto
+				.CompanyPhoto.Company_photo
 					img(src="/img/company_photo.jpg", alt="Company photo").CompanyPhoto_img
 					.Rating.Rating-company.Rating-center.CompanyPhoto_rating
 						span.Rating_icon
@@ -63,6 +63,7 @@ block content
 									include /includes/svg/SvgIco/stat
 									.
 										Статистика
+				include /includes/blocks/StatIcons-company
 			.Company_right
 				h1.Company_title.hidden-xs Sony Corporation
 				include /includes/blocks/MenuSectionCompany

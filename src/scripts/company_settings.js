@@ -668,6 +668,33 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
+	// Add email button field
+	document.addEventListener('click', function (e) {
+		let addEmailBtn = e.target.closest('.AddFieldItem-emailBtn');
+
+		if (!addEmailBtn) return;
+
+		let key = randomString(4);
+		let fieldItems = addEmailBtn.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
+		let newFieldItem = fieldItems.firstElementChild.cloneNode(true);
+		newFieldItem.classList.add('CompanySettings_fieldItem-additional');
+		fieldItems.append(newFieldItem);
+
+		let formText = newFieldItem.querySelector('.CompanySettings_formText-contactBtn');
+		formText.name = `call[${key}][back_call]`;
+		formText.value = '';
+
+		newFieldItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="CompanySettings_removeFieldItem CompanySettings_removeFieldItem-emailBtn"></a>');
+		newFieldItem.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_fieldError hidden"></div>');
+
+		clearFieldItemError(newFieldItem);
+
+		let fieldCallBtn = addEmailBtn.closest('.CompanySettings_field-emailBtn');
+		if (countFieldItems(fieldCallBtn) == 2) {
+			addEmailBtn.remove();
+		}
+	});
+
 	// Add phone field
 	document.addEventListener('click', function (e) {
 		let addPhoneLink = e.target.closest('.AddFieldItem-phone');
@@ -796,6 +823,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (parentField.classList.contains('CompanySettings_field-callBtn')) {
 			if (countFieldItems(parentField) == 7) {
 				parentField.querySelector('.CompanySettings_fieldContent').insertAdjacentHTML('beforeend', '<a class="AddFieldItem AddFieldItem-callBtn" href="javascript:;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20"><path data-name="Фигура 40" d="M10 20a10 10 0 1110-10 10.014 10.014 0 01-10 10zm0-18.75A8.75 8.75 0 1018.75 10 8.756 8.756 0 0010 1.25zm4.37 9.375H5.62a.625.625 0 010-1.25h8.75a.625.625 0 110 1.25zM10 15a.626.626 0 01-.63-.625v-8.75a.625.625 0 111.25 0v8.75A.624.624 0 0110 15z" fill="#4b97f9" fill-rule="evenodd"/></svg>Добавить ещё телефон</a>');
+			}
+		}
+
+		if (parentField.classList.contains('CompanySettings_field-emailBtn')) {
+			if (countFieldItems(parentField) == 2) {
+				parentField.querySelector('.CompanySettings_fieldContent').insertAdjacentHTML('beforeend', '<a class="AddFieldItem AddFieldItem-emailBtn" href="javascript:;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20"><path data-name="Фигура 40" d="M10 20a10 10 0 1110-10 10.014 10.014 0 01-10 10zm0-18.75A8.75 8.75 0 1018.75 10 8.756 8.756 0 0010 1.25zm4.37 9.375H5.62a.625.625 0 010-1.25h8.75a.625.625 0 110 1.25zM10 15a.626.626 0 01-.63-.625v-8.75a.625.625 0 111.25 0v8.75A.624.624 0 0110 15z" fill="#4b97f9" fill-rule="evenodd"/></svg>Добавить ещё E-mail</a>');
 			}
 		}
 

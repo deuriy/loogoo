@@ -5,23 +5,22 @@
 			span.StatIcon_count 110 просмотров
 	.StatIcons_right
 		ul.StatIcons_list
-			li.StatIcon.StatIcon-bookmarkNotification.StatIcons_item.StatIcons_item-bookmarkNotification(hidden)
-				.NotificationMenu
-					a(href="javascript:;").NotificationMenu_icon.NotificationMenu_icon-small
-						include /includes/svg/SvgIco/bell_thin
-					ul.NotificationMenu_wrapper
-						li.NotificationMenu_item
-							a(href="#").NotificationMenu_link.NotificationMenu_link-active
-								include /includes/svg/SvgIco/bell_thin
-								.
-									Без уведомлений
-						li.NotificationMenu_item
-							a(href="#").NotificationMenu_link
-								include /includes/svg/SvgIco/bell_check
-								.
-									Новые ответы
-			li.StatIcon.StatIcon-bookmark.StatIcons_item.StatIcons_item-bookmark
-				.Bookmark
+			li.StatIcon.StatIcons_item
+				.Bookmark.Bookmark-active
+					.NotificationMenu.Bookmark_notificationMenu
+						a(href="javascript:;").NotificationMenu_icon.NotificationMenu_icon-small
+							include /includes/svg/SvgIco/bell_thin
+						ul.NotificationMenu_wrapper
+							li.NotificationMenu_item
+								a(href="#").NotificationMenu_link
+									include /includes/svg/SvgIco/bell_thin
+									.
+										Без уведомлений
+							li.NotificationMenu_item
+								a(href="#").NotificationMenu_link.NotificationMenu_link-active
+									include /includes/svg/SvgIco/bell_check
+									.
+										Новые ответы
 					a(href="javascript:;", title="Сохранить в закладки").Bookmark_icon.Bookmark_icon-small
 						include /includes/svg/SvgIco/bookmark
 			li.StatIcon.StatIcons_item

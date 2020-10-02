@@ -18,7 +18,7 @@ block content
 					.Remark.Remark-contactBtns.CompanySettings_remark#WriteBtnRemark
 						a(href="javascript:;", data-action="hideBlockWithCookie").Remark_close
 							include /includes/svg/icon_close_remark
-						.Remark_text Кнопки #[span.Semibold Написать] и #[span.Semibold Позвонить] появятся автоматически на странице вашей компании после их заполнения.
+						.Remark_text Кнопки #[span.Semibold Написать], #[span.Semibold Позвонить] и #[span.Semibold Заказать звонок] появятся автоматически на странице вашей компании после их заполнения.
 					h2.CompanySettings_title Кнопка написать
 					.CompanySettings_fields.CompanySettings_fields-writeBtn
 						.CompanySettings_field.CompanySettings_field-writeBtn
@@ -62,6 +62,17 @@ block content
 									include /includes/svg/icon_add
 									.
 										Добавить ещё телефон
+					h2.CompanySettings_title Кнопка обратного звонка
+					.CompanySettings_fields
+						.CompanySettings_field.CompanySettings_field-emailBtn
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem.CompanySettings_fieldItem-verticalCenter
+										input(type="email", name="call[0][back_call]", placeholder="E-mail").CompanySettings_formText.CompanySettings_formText-contactBtn
+								a(href="javascript:;").AddFieldItem.AddFieldItem-emailBtn
+									include /includes/svg/icon_add
+									.
+										Добавить ещё E-mail
 					.CompanySettings_actions
 						button(type="submit").BtnOutline.BtnOutline-blue.BtnOutline-companySettings.hidden-xs Сохранить
 						button(type="submit").BtnBlue.BtnBlue-companySettings.hidden-smPlus Сохранить
