@@ -11,7 +11,8 @@ block content
 					include /includes/svg/SvgIco/arrow_left
 				.MobileHeader_titleWrapper
 					h1.MobileHeader_title #{title}
-				a(href="#PopupShare", data-action="openMobilePopup", data-mobile-popup-title="Sony Corporation").DotsIcon.MobileHeader_dotsIcon
+				//- a(href="#PopupShare", data-action="openMobilePopup", data-mobile-popup-title="Sony Corporation").DotsIcon.MobileHeader_dotsIcon
+				a(href="#ExtraMenuPopup", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
 					include /includes/svg/SvgIco/dots
 			.CompanyInfo.CompanyInfo-company.Company_info.hidden-smPlus
 				.CompanyInfo_logo
@@ -92,7 +93,7 @@ block content
 						.Characteristic_name Сайт:
 						.Characteristic_value
 							a(href="http://www.sony.com", target="_blank").Characteristic_link www.sony.com
-				.Company_description Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 года. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская промышленная коммуникационная компания) или сокращённо Тоцуко или TTK, но, как выяснил Акио Морита, это название тяжело произносить американцам.
+				.Company_description.hidden Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 года. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская промышленная коммуникационная компания) или сокращённо Тоцуко или TTK, но, как выяснил Акио Морита, это название тяжело произносить американцам.
 				a(href="/company_about.html").ArrowLink.Company_infoLink Информация о компании
 				.RatingSection.Company_ratingSection
 					.RatingSection_header
@@ -538,7 +539,7 @@ block content
 					.CommentsBlock_footer
 						a(href="/company_reviews.html").BtnBlue.BtnBlue-companyArrow.hidden-xs Посмотреть все отзывы
 						a(href="/company_reviews.html").ArrowLink.ArrowLink-company.hidden-smPlus Посмотреть все отзывы
-				include /includes/blocks/Contacts
+				//- include /includes/blocks/Contacts
 	include /includes/blocks/WriteMessagePopup
 	include /includes/blocks/CallPopup
 	include /includes/blocks/RequestCallPopup

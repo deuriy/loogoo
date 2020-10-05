@@ -60,7 +60,31 @@ block content
 			.Company_right
 				h1.Company_title.hidden-xs Sony Corporation
 				include /includes/blocks/MenuSectionCompany
-				.Characteristics.Company_characteristics
+				.Contacts.Contacts-bordered.Company_contacts.Company_contacts-bordered.hidden-smPlus
+					ul.Contacts_list
+						li.Contacts_item
+							span.Contacts_icon
+								include /includes/svg/contacts/flag_ua
+							span.Contacts_text Украина
+						li.Contacts_item
+							span.Contacts_icon
+								include /includes/svg/contacts/license
+							span.Contacts_text
+								a(href="http://google.com", target="_blank").Contacts_link лицензия
+						li.Contacts_item
+							span.Contacts_icon
+								include /includes/svg/contacts/location
+							span.Contacts_text г. Киев, ул. Крещатик 117, оф. 17 Б #[br]г. Харьков, Харьковская наб., 16
+						li.Contacts_item
+							span.Contacts_icon
+								include /includes/svg/contacts/clock
+							span.Contacts_text Пн–Пт: 9:00–18:00, без перерыва #[br]Сб–Вс: 10:00–17:00, без перерыва
+						li.Contacts_item
+							span.Contacts_icon
+								include /includes/svg/contacts/link
+							span.Contacts_text
+								a(href="http://www.sony.com", target="_blank").Contacts_link www.sony.com
+				.Characteristics.Company_characteristics.hidden-xs
 					.Characteristic.Characteristics_item
 						.Characteristic_name Страна:
 						.Characteristic_value Украина
@@ -85,11 +109,11 @@ block content
 						.Characteristic_name Сайт:
 						.Characteristic_value
 							a(href="http://www.sony.com", target="_blank").Characteristic_link www.sony.com
-				.Company_description Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 года. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская промышленная коммуникационная компания) или сокращённо Тоцуко или TTK, но, как выяснил Акио Морита, это название тяжело произносить американцам.
+				.Company_description.hidden Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 года. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская промышленная коммуникационная компания) или сокращённо Тоцуко или TTK, но, как выяснил Акио Морита, это название тяжело произносить американцам.
 				a(href="/company_about.html").ArrowLink.Company_infoLink Информация о компании
 				.RatingSection.Company_ratingSection
 					.RatingSection_header
-						h3.RatingSection_title Рейтинг#[span.hidden-xs  и отзывы]
+						h3.RatingSection_title Оценка#[span.hidden-xs  и отзывы]
 						.DropdownSelect.DropdownSelect-companyProfile.RatingSection_dropdownSelect.hidden-smPlus
 							select(name="categories").DropdownSelect_select
 								option(value="all") по всем категориям
@@ -360,7 +384,7 @@ block content
 					.CommentsBlock_footer
 						a(href="/company_reviews.html").BtnBlue.BtnBlue-companyArrow.hidden-xs Посмотреть все отзывы
 						a(href="/company_reviews.html").ArrowLink.ArrowLink-company.hidden-smPlus Посмотреть все отзывы
-				include /includes/blocks/Contacts
+				//- include /includes/blocks/Contacts
 	include /includes/blocks/WriteMessagePopup
 	include /includes/blocks/CallPopup
 	include /includes/blocks/RequestCallPopup
