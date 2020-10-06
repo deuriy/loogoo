@@ -1216,8 +1216,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (!mobilePopupLink) return;
 
-		let mobilePopupId = mobilePopupLink.getAttribute('href').slice(1);
-		openMobilePopup(mobilePopupId);
+		let mobilePopupID = mobilePopupLink.getAttribute('href').slice(1);
+		let mobilePopup = document.getElementById(mobilePopupID);
+		openMobilePopup(mobilePopupID);
 
 		let mobilePopupTitle = mobilePopupLink.dataset.mobilePopupTitle;
 		if (mobilePopupTitle !== undefined) {
@@ -1226,10 +1227,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		e.preventDefault();
 	});
-
-	// openMobilePopup('BookmarkSettingsPopup');
-	// closeMobilePopup('BookmarkSettingsPopup');
-	// setTimeout(() => closeMobilePopup('BookmarkSettingsPopup'), 3000);
 
 	document.addEventListener('click', function (e) {
 		let closePopup = e.target.closest('[data-action="closeMobilePopup"]');
