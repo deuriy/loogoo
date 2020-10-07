@@ -1407,6 +1407,18 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!notificationMenuLink) return;
 
 		let notificationMenu = notificationMenuLink.closest('.NotificationMenu');
+
+		if (notificationMenu && notificationMenu.classList.contains('NotificationMenu-bookmark')) {
+			checkBookmarkNotification(notificationMenu);
+		}
+	});
+
+	document.addEventListener('click', function (e) {
+		let notificationMenuLink = e.target.closest('.NotificationMenu_link');
+
+		if (!notificationMenuLink) return;
+
+		let notificationMenu = notificationMenuLink.closest('.NotificationMenu');
 		let activeNotificationLink = notificationMenu.querySelector('.NotificationMenu_link-active');
 
 		if (activeNotificationLink) {
@@ -1414,9 +1426,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 		
 		notificationMenuLink.classList.add('NotificationMenu_link-active');
-
-		checkBookmarkNotification(notificationMenu);
-
 		notificationMenu.querySelector('.NotificationMenu_wrapper').classList.remove('NotificationMenu_wrapper-opened');
 
 		e.preventDefault();

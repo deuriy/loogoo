@@ -4,22 +4,20 @@ block vars
 	- var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-infoPages Main-article";
 block content
+	.MobileHeader.MobileHeader-withLogo.hidden-smPlus
+		a(href="#").BtnBack.MobileHeader_btnBack
+			include /includes/svg/SvgIco/arrow_left
+		h1.MobileHeader_title #{title}
+		a(href="/").SiteName.SiteName-mobileHeader.MobileHeader_siteName infoza
 	.Container.Container-article.Main_container
 		.Main_columns
-			.Main_sidebar
-				.MobileHeader.MobileHeader-withLogo.hidden-smPlus
-					a(href="#").BtnBack.MobileHeader_btnBack
-						include /includes/svg/SvgIco/arrow_left
-					h1.MobileHeader_title #{title}
-					a(href="/").SiteName.SiteName-mobileHeader.MobileHeader_siteName infoza
 			.Main_content
 				.Article
-					h1.Article_title Lorem ipsum dolor sit amet
+					h1.Article_title Жителям «красной» зоны не стоит переживать – выборы состоятся
 					.Article_text
-						p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
-						p Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-						p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
-						p Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+						p Пандемия пандемией, а выборы - по расписанию. Так выборы уже состоялись в соседних государствах. В Польше были президентские выборы, какие с мая сместились из-за коронавируса. В Белоруси - тоже президентские выборы, эхо которых сегодня тоже очень активно. Ведь на улицах традиционно в воскресенье немало протестующих. Сообщается о задержании более 300 человек. Чехия активно готовится к выборам и разрабатывает правила. Настал черед и Украины войти в избирательный процесс.
+						p Министерство здравоохранения нашего государства предоставило рекомендации по планированию местных выборов. Однако Центральная избирательная комиссия решила играть по своим правилам. Так было отказано в предложении изменить голосование для избирателей с признаками ОРВИ или повышенной температурой. Для членов ЦИК такие явления не выдаются проблематичными. Также нечего бояться жителям, которые на момент выборов окажутся в «красной» зоне - выборы состоятся. Даже несмотря на то, что в Интернете раздавались высказывания о возможности отмены для таких населенных пунктов.
+						p Во время шестого «Донбасс Медиа Форума» прокомментировал ситуацию с подготовкой к выборам член ЦИК Сергей Постивий: «Для людей с признаками респираторного заболевания предлагаем выделить отдельную кабинку для голосования, которую будут дезинфицировать после каждого избирателя. На сегодня говорить, что будут какие-то отмены, у нас пока нет оснований. Наличие «красной зоны» не является основанием для того, чтобы признавать выборы такими, которые там нельзя провести».
 					.Article_footer
 						ul.Statistics.Article_statistics
 							li.Statistics_item
@@ -65,6 +63,7 @@ block content
 											include /includes/svg/SvgIco/bookmark
 					.Article_btnWrapper.hidden-smPlus
 						a(href="#CompleteArticlePopup", data-action="openMobilePopup").BtnGrey.BtnGrey-completeArticle.Article_leaveNote Дополнить статью
+			.Main_sidebar
 block page_bottom
 	include /includes/blocks/CompleteArticlePopup
 	include /includes/blocks/PopupShare
