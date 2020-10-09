@@ -48,7 +48,7 @@ function copyInputText (targetElem) {
   document.execCommand("copy");
 }
 
-function hideBlockWithCookie (blockId, time = 315360000) {
+function hideBlockWithCookie (blockId, time = 5184000) {
 	setCookie(`${blockId}`, true, time);
 }
 

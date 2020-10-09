@@ -40,11 +40,11 @@ block content
 												input(type="checkbox", name="write[0][is_login]", value="1", id="is_login0", data-action="isLogin", checked).Checkbox_input
 												label(for="is_login0").Checkbox_label использовать логин
 								.Remark.Remark-explanation.CompanySettings_remark.CompanySettings_remark-explanation.hidden#URIExplanation
-									a(href="javascript:;").Remark_close
+									a(href="javascript:;", data-action="hideBlockWithCookie").Remark_close
 										include /includes/svg/icon_close_remark
 									.Remark_text URI - название (идентификатор) вашего вашего public-аккаунта в системе Viber. Может состоять только из латиницы, цифр, тере и нижнего подчеркивания.
 								.Remark.Remark-explanation.CompanySettings_remark.CompanySettings_remark-explanation.hidden#LoginExplanation
-									a(href="javascript:;").Remark_close
+									a(href="javascript:;", data-action="hideBlockWithCookie").Remark_close
 										include /includes/svg/icon_close_remark
 									.Remark_text Логин - название вашего вашего public-аккаунта в системе Viber. Может состоять только из латиницы, цифр, тере и нижнего подчеркивания.
 								a(href="javascript:;").AddFieldItem.AddFieldItem-writeBtn
