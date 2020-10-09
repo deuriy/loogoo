@@ -12,18 +12,31 @@ block content
 	.Container.Container-article.Main_container
 		.Main_columns
 			.Main_content
-				.Article
+				.Article.Article-full
+					.Article_header.hidden-xs
+						a(href="/news_feed.html").ArrowLink.ArrowLink-news Все новости
 					h1.Article_title Жителям «красной» зоны не стоит переживать – выборы состоятся
+					.Article_statIconsWrapper
+						.StatIcons.StatIcons-article.Article_statIcons
+							ul.StatIcons_list
+								li.StatIcon.StatIcons_item
+									span.Date 3 часа назад
+								li.StatIcon.StatIcon-fullArticleViews.StatIcons_item
+									include /includes/svg/SvgIco/eye
+									span.StatIcon_count 110
+						a(href="javascript:;").Article_link.Article_link-langSwitcher Читать на русском
 					.Article_text
+						//- p Пандемия пандемией, а выборы - по расписанию. Так выборы уже состоялись в соседних государствах. В Польше были президентские выборы, какие с мая сместились из-за коронавируса. В Белоруси - тоже президентские выборы, эхо которых сегодня тоже очень активно. Ведь на улицах традиционно в воскресенье немало протестующих. Сообщается о задержании более 300 человек. Чехия активно готовится к выборам и разрабатывает правила. Настал черед и Украины войти в избирательный процесс.
+						//- p Министерство здравоохранения нашего государства предоставило рекомендации по планированию местных выборов. Однако Центральная избирательная комиссия решила играть по своим правилам. Так было отказано в предложении изменить голосование для избирателей с признаками ОРВИ или повышенной температурой. Для членов ЦИК такие явления не выдаются проблематичными. Также нечего бояться жителям, которые на момент выборов окажутся в «красной» зоне - выборы состоятся. Даже несмотря на то, что в Интернете раздавались высказывания о возможности отмены для таких населенных пунктов.
+						//- p Во время шестого «Донбасс Медиа Форума» прокомментировал ситуацию с подготовкой к выборам член ЦИК Сергей Постивий: «Для людей с признаками респираторного заболевания предлагаем выделить отдельную кабинку для голосования, которую будут дезинфицировать после каждого избирателя. На сегодня говорить, что будут какие-то отмены, у нас пока нет оснований. Наличие «красной зоны» не является основанием для того, чтобы признавать выборы такими, которые там нельзя провести».
 						p Пандемия пандемией, а выборы - по расписанию. Так выборы уже состоялись в соседних государствах. В Польше были президентские выборы, какие с мая сместились из-за коронавируса. В Белоруси - тоже президентские выборы, эхо которых сегодня тоже очень активно. Ведь на улицах традиционно в воскресенье немало протестующих. Сообщается о задержании более 300 человек. Чехия активно готовится к выборам и разрабатывает правила. Настал черед и Украины войти в избирательный процесс.
 						p Министерство здравоохранения нашего государства предоставило рекомендации по планированию местных выборов. Однако Центральная избирательная комиссия решила играть по своим правилам. Так было отказано в предложении изменить голосование для избирателей с признаками ОРВИ или повышенной температурой. Для членов ЦИК такие явления не выдаются проблематичными. Также нечего бояться жителям, которые на момент выборов окажутся в «красной» зоне - выборы состоятся. Даже несмотря на то, что в Интернете раздавались высказывания о возможности отмены для таких населенных пунктов.
-						p Во время шестого «Донбасс Медиа Форума» прокомментировал ситуацию с подготовкой к выборам член ЦИК Сергей Постивий: «Для людей с признаками респираторного заболевания предлагаем выделить отдельную кабинку для голосования, которую будут дезинфицировать после каждого избирателя. На сегодня говорить, что будут какие-то отмены, у нас пока нет оснований. Наличие «красной зоны» не является основанием для того, чтобы признавать выборы такими, которые там нельзя провести».
 					.Article_footer
 						ul.Statistics.Article_statistics
 							li.Statistics_item
 								a(href="javascript:;").Like.Like-post
 									include /includes/svg/SvgIco/like
-									span.Like_count 746
+									span.Like_count 1
 							li.StatIcon.StatIcon-articleViews.StatIcons_item.StatIcons_item-views.hidden
 								include /includes/svg/SvgIco/eye
 								span.StatIcon_count 16.8K
@@ -54,16 +67,77 @@ block content
 										.CopyLink
 											input(type="text", name="copy_link", value="", readonly).CopyLink_input
 											a(href="javascript:;").CopyLink_btnCopy Копировать
-						a(href="javascript:;", data-src="#LeaveNote").BtnGreen.OpenPopupLink.Article_leaveNote.hidden-xs Дополнить статью
-						.StatIcons.hidden-smPlus
+						.StatIcons
 							ul.StatIcons_list
 								li.StatIcon.StatIcons_item
-									.Bookmark
-										a(href="#BookmarkNewsPopupGuest", title="Сохранить в закладки", data-action="openMobilePopup", data-bookmark-guest).Bookmark_icon
+									.Bookmark.Bookmark-article
+										a(href="javascript:;", title="Сохранить в закладки").Bookmark_icon
 											include /includes/svg/SvgIco/bookmark
-					.Article_btnWrapper.hidden-smPlus
-						a(href="#CompleteArticlePopup", data-action="openMobilePopup").BtnGrey.BtnGrey-completeArticle.Article_leaveNote Дополнить статью
+					//- .Article_btnWrapper.hidden-smPlus
+					//- 	a(href="#CompleteArticlePopup", data-action="openMobilePopup").BtnGrey.BtnGrey-completeArticle.Article_leaveNote Дополнить статью
 			.Main_sidebar
+				.NewsSidebar.Main_newsSidebar
+					.NewsSidebar_header
+						h3.NewsSidebar_title Новости
+						a(href="javascript:;").NewsSidebar_otherNewsLink Другие новости
+							include /includes/svg/reload
+					.NewsSidebar_body
+						.NewsBlock.NewsBlock-sidebar.NewsSidebar_item
+							.NewsBlock_imgWrap
+								a(href="/news.html")
+									img(src="/img/news_sidebar/1.jpg", alt="News sidebar 1").NewsBlock_img
+							.NewsBlock_textContent
+								h3.NewsBlock_title
+									a(href="/news.html").NewsBlock_titleLink Украинец утверждает, что машину приобрел в дилерском центре. А она в розыске
+								.StatIcons.StatIcons-article.StatIcons-articleSidebar.NewsBlock_statIcons
+									ul.StatIcons_list
+										li.StatIcon.StatIcons_item
+											span.Date 3 часа назад
+										li.StatIcon.StatIcon-fullArticleViews.StatIcons_item
+											include /includes/svg/SvgIco/eye
+											span.StatIcon_count 110
+						.NewsBlock.NewsBlock-sidebar.NewsSidebar_item
+							.NewsBlock_imgWrap
+								a(href="/news.html")
+									img(src="/img/news_sidebar/2.jpg", alt="News sidebar 2").NewsBlock_img
+							.NewsBlock_textContent
+								h3.NewsBlock_title
+									a(href="/news.html").NewsBlock_titleLink Визовые центры Киева, которые принимали документы на открытие чешской визы, пока прекратили регистрацию
+								.StatIcons.StatIcons-article.StatIcons-articleSidebar.NewsBlock_statIcons
+									ul.StatIcons_list
+										li.StatIcon.StatIcons_item
+											span.Date 3 часа назад
+										li.StatIcon.StatIcon-fullArticleViews.StatIcons_item
+											include /includes/svg/SvgIco/eye
+											span.StatIcon_count 110
+						.NewsBlock.NewsBlock-sidebar.NewsSidebar_item
+							.NewsBlock_imgWrap
+								a(href="/news.html")
+									img(src="/img/news_sidebar/1.jpg", alt="News sidebar 3").NewsBlock_img
+							.NewsBlock_textContent
+								h3.NewsBlock_title
+									a(href="/news.html").NewsBlock_titleLink Дуда прибудет в Киев в октябре
+								.StatIcons.StatIcons-article.StatIcons-articleSidebar.NewsBlock_statIcons
+									ul.StatIcons_list
+										li.StatIcon.StatIcons_item
+											span.Date 3 часа назад
+										li.StatIcon.StatIcon-fullArticleViews.StatIcons_item
+											include /includes/svg/SvgIco/eye
+											span.StatIcon_count 110
+						.NewsBlock.NewsBlock-sidebar.NewsSidebar_item
+							.NewsBlock_imgWrap
+								a(href="/news.html")
+									img(src="/img/news_sidebar/2.jpg", alt="News sidebar 4").NewsBlock_img
+							.NewsBlock_textContent
+								h3.NewsBlock_title
+									a(href="/news.html").NewsBlock_titleLink Чиновник рассказал о важных нюансах в приложении «Дій вдома»
+								.StatIcons.StatIcons-article.StatIcons-articleSidebar.NewsBlock_statIcons
+									ul.StatIcons_list
+										li.StatIcon.StatIcons_item
+											span.Date 3 часа назад
+										li.StatIcon.StatIcon-fullArticleViews.StatIcons_item
+											include /includes/svg/SvgIco/eye
+											span.StatIcon_count 110
 block page_bottom
 	include /includes/blocks/CompleteArticlePopup
 	include /includes/blocks/PopupShare

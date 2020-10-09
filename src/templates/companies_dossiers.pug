@@ -4,13 +4,13 @@ block vars
 	- var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-companiesDossiers";
 block content
+	.MobileHeader.MobileHeader-companiesDossiers.hidden-smPlus
+		a(href="#PopupMenu").SelectionLink.PopupMenuLink.hidden-smPlus Работодатели
+		a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+			include /includes/svg/SvgIco/dots
 	.Container.Main_container
 		.Main_columns
 			.Main_left
-				.MobileHeader.MobileHeader-companiesDossiers.hidden-smPlus
-					a(href="#PopupMenu").SelectionLink.PopupMenuLink.hidden-smPlus Работодатели
-					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
-						include /includes/svg/SvgIco/dots
 				.MenuSection.MenuSection-companiesDossiers.Main_menuSection.hidden
 					.CategoryMenu.CategoryMenu-companiesDossiers
 						ul.CategoryMenu_menu
@@ -36,14 +36,14 @@ block content
 									include /includes/svg/SvgIco/close
 							button(type="submit").Search_icon.hidden-smPlus
 								include /includes/svg/SvgIco/search
-					.NoResults.NoResults-companies
+					.NoResults.NoResults-companies(hidden)
 						.NoResults_icon
 							include /includes/svg/not_found
 						.NoResults_text По вашему запросу ничего не найдено
 						a(href="javascript:;", data-src="#CompanyAdding").BtnBlue.BtnBlue-company.BtnBlue-addCompany.OpenPopupLink Добавить компанию
 						.NoResults_linkWrapper
-							a(href="/companies_dossiers.html").NoResults_link Вернуться в досье
-					.Companies_items.hidden
+							a(href="/companies_dossiers.html").NoResults_link Вернуться
+					.Companies_items
 						.CompanyBlock.CompanyBlock-dossiers.Companies_item
 							.CompanyBlock_logo.hidden-xs
 								a(href="/company.html", title="Sony Corporation")
@@ -388,9 +388,9 @@ block content
 		.PopupMenu_wrapper
 			ul.PopupMenu_menu
 				li.PopupMenu_item
-					a(href="javascript:;").PopupMenu_link.active Работодатели
+					a(href="/companies_dossiers.html").PopupMenu_link.active Работодатели
 				li.PopupMenu_item
-					a(href="javascript:;").PopupMenu_link Вакансии
+					a(href="/vacancy_dummy.html").PopupMenu_link Вакансии
 	include /includes/blocks/CompanyAdding
 	include /includes/blocks/PopupShare
 	include /includes/blocks/LinkCopiedNotification

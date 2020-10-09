@@ -84,3 +84,41 @@
 	&-saved
 		@media $smPlus
 			width 345px
+	
+	&-sidebar
+		display flex
+		width auto
+		padding-bottom 26px
+		border-bottom 1px solid #ebf0f2
+		
+		@media $xs
+			display block
+			padding-bottom 0
+			border-bottom none
+		
+		.NewsBlock_imgWrap
+			flex-shrink 0
+			margin-right 26px
+			margin-bottom 0
+			
+			@media $xs
+				margin-right 0
+				margin-bottom 19px
+		
+		.NewsBlock_img
+			display block
+			
+			@media $smPlus
+				width 100px
+		
+		.NewsBlock_textContent
+			margin-top -5px
+		
+		.NewsBlock_title
+			margin-bottom 8px
+			font-size 15px
+			line-height 1.4
+			
+			@media $xs
+				font-size 18px
+				line-height 1.45

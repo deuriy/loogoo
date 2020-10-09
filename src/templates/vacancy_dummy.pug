@@ -4,10 +4,14 @@ block vars
 	- var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-vacancyDummy";
 block content
-	.MobileHeader.hidden-smPlus
-		a(href="#").BtnBack.MobileHeader_btnBack
-			include /includes/svg/SvgIco/arrow_left
-		h1.MobileHeader_title Вакансии
+	//- .MobileHeader.hidden-smPlus
+	//- 	a(href="#").BtnBack.MobileHeader_btnBack
+	//- 		include /includes/svg/SvgIco/arrow_left
+	//- 	h1.MobileHeader_title Вакансии
+	.MobileHeader.MobileHeader-companiesDossiers.hidden-smPlus
+		a(href="#PopupMenu").SelectionLink.PopupMenuLink.hidden-smPlus Работодатели
+		a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+			include /includes/svg/SvgIco/dots
 	.VacancyDummy
 		.Container
 			ul.CategoriesList.CategoriesList-bordered.VacancyDummy_categoriesList.hidden-xs
@@ -67,3 +71,12 @@ block content
 				.TextSection_right
 					.TextSection_imgWrap
 						img(src="img/vacancy_dummy3.png", alt="").TextSection_img
+	.PopupMenu.PopupMenu-paddingTop.PopupMenu-paddingLeft#PopupMenu
+		.PopupMenu_overlay
+		.PopupMenu_wrapper
+			ul.PopupMenu_menu
+				li.PopupMenu_item
+					a(href="/companies_dossiers.html").PopupMenu_link Работодатели
+				li.PopupMenu_item
+					a(href="/vacancy_dummy.html").PopupMenu_link.active Вакансии
+	include /includes/blocks/PopupShare

@@ -48,7 +48,6 @@
 	
 	&-newsBlock
 		.StatIcons_item
-			// margin-right 4px
 			margin-right 11px
 			
 			&:last-child
@@ -70,3 +69,23 @@
 			
 			&:last-child
 				margin-right 0
+	
+	&-article
+		.StatIcons_item
+			position relative
+			margin-right 17px
+			
+			&:after
+				content "·"
+				position absolute
+				top 0
+				right -11px
+				color #999
+	
+	&-articleSidebar
+		.StatIcons_item
+			&:last-child
+				margin-right 0
+				
+				&:after
+					display none

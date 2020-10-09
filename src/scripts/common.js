@@ -371,23 +371,13 @@ document.addEventListener("DOMContentLoaded", function () {
 		showSearch: false
 	});
 
-	// document.addEventListener('click', function (e) {
-	// 	let dropdownSelect = e.target.closest('.DropdownSelect');
-
-	// 	if (!dropdownSelect) return;
-
-	// 	dropdownSelect.querySelector('.DropdownSelect_select').dispatchEvent(new Event('change'));
-	// });
-
-	// document.querySelector('.DropdownSelect_select').addEventListener('change', function () {
-	// 	console.log('Change!!!');
-	// });
+	const psConfig = {
+		wheelPropagation: false,
+		minScrollbarLength: 20
+	};
 
 	document.querySelectorAll('.CompanySettings_checkboxList').forEach(item => {
-		const psItem = new PerfectScrollbar(item, {
-			wheelPropagation: false,
-			minScrollbarLength: 20
-		});
+		const psItem = new PerfectScrollbar(item, psConfig);
 	});
 
 	// Form controls
@@ -440,18 +430,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});	
 
-	setActiveMenuItem( document.querySelector('#ProfileSettingsMenu') );
-	setActiveMenuItem( document.querySelector('#UserMenu') );
-	setActiveMenuItem( document.querySelector('#ActionsMenu') );
-	setActiveMenuItem( document.querySelector('#PrimaryMenu') );
-	setActiveMenuItem( document.querySelector('#PrimaryMenuFooter') );
-	setActiveMenuItem( document.querySelector('#MobileMenu') );
-	setActiveMenuItem( document.querySelector('#SidebarMenu') );
-	setActiveMenuItem( document.querySelector('.MenuSection-company') );
-	setActiveMenuItem( document.querySelector('.SettingsMenu') );
-	setActiveMenuItem( document.querySelector('.SidebarMenu-profileMenu') );
-	setActiveMenuItem( document.querySelector('.CategoryMenu-companySettings') );
-	setActiveMenuItem( document.querySelector('.CategoryMenu-save') );
+	const menus = ['#ProfileSettingsMenu', '#UserMenu', '#ActionsMenu', '#PrimaryMenu', '#PrimaryMenuFooter', '#MobileMenu', '#SidebarMenu', '.MenuSection-company', '.SettingsMenu', '.SidebarMenu-profileMenu', '.CategoryMenu-companySettings', '.CategoryMenu-save', '.IconMenu'];
+
+	menus.forEach(menu => setActiveMenuItem(document.querySelector(menu)));
 	setActivePopupMenuItem( document.querySelector('#PopupMenu'), document.querySelector('.PopupMenuLink') );
 
 	// Sidebar Menu
@@ -676,10 +657,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	if (document.querySelector('.Notifications_body')) {
-		const notificationsPs = new PerfectScrollbar('.Notifications_body', {
-			wheelPropagation: false,
-			minScrollbarLength: 20
-		});
+		const notificationsPs = new PerfectScrollbar('.Notifications_body', psConfig);
 
 		let clientHeight = document.querySelector('.Notifications_body').clientHeight;
 		let scrollHeight = document.querySelector('.Notifications_body').scrollHeight;
@@ -788,9 +766,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 		});
 	});
-
-	// console.log(isCurrentTab(document.querySelector('.Tabs-companySettings'), 'uk'));
-	// setCurrentTab(document.querySelector('.Tabs-companySettings'), 'uk');
 
 	// Tooltip
 	document.addEventListener('click', function (e) {
