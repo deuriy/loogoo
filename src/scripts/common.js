@@ -193,9 +193,7 @@ function setCurrentTab (tabs, tabName) {
 
 	tab.classList.add('Tabs_item-active');
 
-	tabsContent.forEach(function (tabContent, tabContentIndex) {
-		tabContent.style.display = 'none';
-	});
+	tabsContent.forEach(tabContent => tabContent.style.display = 'none');
 
 	let tabIndex = getNodeIndex(tabs.querySelectorAll('.Tabs_item'), tab);
 	tabsContent[tabIndex].style.display = 'block';
@@ -204,9 +202,7 @@ function setCurrentTab (tabs, tabName) {
 
 function addMobileOverlay (selectors) {
 	selectors.forEach(item => {
-		let overlay = item.querySelector('.Overlay');
-
-		if (!overlay) {
+		if (!item.querySelector('.Overlay')) {
 			item.insertAdjacentHTML('beforeend', '<div class="Overlay Overlay-mobile"></div>');
 		}
 	});
@@ -223,9 +219,7 @@ function removeMobileOverlay (selectors) {
 }
 
 function toggleMobileOverlay (selectors) {
-	let windowWidth = document.documentElement.clientWidth;
-
-	if (windowWidth < 768) {
+	if (document.documentElement.clientWidth < 768) {
 		addMobileOverlay(selectors);
 	} else {
 		removeMobileOverlay(selectors);
@@ -553,7 +547,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		e.preventDefault();
 
 		let popupMenuId = popupMenuLink.getAttribute('href');
-		let popupMenu = document.querySelector(`${popupMenuId}`);
+		let popupMenu = document.querySelector(popupMenuId);
 
 		if (!popupMenu) return;
 

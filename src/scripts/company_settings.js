@@ -1,522 +1,533 @@
 /*=require ./includes/blocks/*.js*/
+let fancyboxOpts = {
+	touch: false,
+	smallBtn: false,
+	toolbar: false,
+	animationEffect: false,
+	baseClass: "fancybox-container--no-padding"
+};
+
+const MAX_WRITE_FIELD_ITEMS = 7;
+const MAX_CALL_FIELD_ITEMS = 7;
+const MAX_EMAIL_FIELD_ITEMS = 2;
+
+function clearFieldItemError (fieldItem) {
+	let elemsWithErrors = fieldItem.querySelectorAll('.HasError');
+	elemsWithErrors.forEach(elemWithErors => elemWithErors.classList.remove('HasError'));
+}
+
+function removeFieldAndError (field) {
+	if (field) {
+		let fieldError = field.nextElementSibling;
+
+		if (fieldError && fieldError.classList.contains('Error')) {
+			fieldError.remove();
+		}
+
+		field.remove();
+	}
+}
+
+function createDesktopPostFields (postKey) {
+	let postAdditionField = document.querySelector('.CompanySettings_field-postAddition');
+	let postFieldItems = document.querySelectorAll('.CompanySettings_fieldItem-post');
+
+	if (!postFieldItems.length) {
+		let postFieldTmpl = document.getElementById('PostFieldTmpl').content.cloneNode(true);
+		postAdditionField.before(postFieldTmpl);
+	}
+
+	let postFieldItemsWrapper = document.querySelector('.CompanySettings_field-post .CompanySettings_fieldItems');
+	let postFieldItemsTmpl = document.getElementById('PostFieldItemTmpl').content.cloneNode(true);
+	let fieldErrorTmpl = document.getElementById('FieldErrorTmpl').content.cloneNode(true);
+	let newFieldItem = document.createElement('div');
+
+	newFieldItem.className = 'CompanySettings_fieldItem CompanySettings_fieldItem-post';
+	newFieldItem.dataset.postKey = postKey;
+	newFieldItem.append(postFieldItemsTmpl);
+	postFieldItemsWrapper.append(newFieldItem, fieldErrorTmpl);
+
+	newFieldItem.querySelectorAll('input').forEach(input => {
+		input.name = input.name.replace(/0/g, postKey);
+	});
+
+	checkExistingPosts();
+}
+
+function updateDesktopPostFieldItem (postKey) {
+	let posts = document.querySelectorAll('.CompanySettings_post');
+
+	if (postKey === undefined) {
+		postKey = posts[posts.length - 1].dataset.postKey;
+	}
+
+	let currentPost = document.querySelector(`.CompanySettings_post[data-post-key="${postKey}"]`);
+	let currentPostFullName = currentPost.querySelector('.CompanySettings_link-fullNameEdit');
+
+	let [lastName, firstName, patronym] = currentPostFullName.textContent.split(' ');
+	let jobTitle = currentPost.querySelector('.CompanySettings_jobTitle').textContent;
+
+	let currentPostFieldItem = document.querySelector(`.CompanySettings_fieldItem-post[data-post-key="${postKey}"]`);
+	let postAdditionFormText = currentPostFieldItem.querySelectorAll('.CompanySettings_formText');
+
+	postAdditionFormText[0].value = jobTitle;
+	postAdditionFormText[1].value = lastName;
+	postAdditionFormText[2].value = firstName;
+	postAdditionFormText[3].value = patronym;
+}
+
+function syncTimeField (timeRangeDropdown, className, from, to) {
+	let timeFieldLabel = timeRangeDropdown.querySelector('.TimeRangeDropdown_label');
+	let timeRangeInputFrom = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-from');
+	let timeRangeInputTo = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-to');
+	let checkboxTimeRange = timeRangeDropdown.querySelector('.Checkbox-timeRangeDropdown');
+	let checkboxTimeRangeInput = checkboxTimeRange.querySelector('.Checkbox_input');
+	let checkboxTimeRangeLabel = checkboxTimeRange.querySelector('.Checkbox_label');
+
+	if (checkboxTimeRange.classList.contains(className)) {
+		if (timeRangeInputFrom.value != from || timeRangeInputTo.value != to) {
+			checkboxTimeRangeInput.checked = false;
+		} else {
+			checkboxTimeRangeInput.checked = true;
+			timeFieldLabel.textContent = checkboxTimeRangeLabel.textContent;
+		}
+	}
+}
+
+function checkTimeFieldState (timeField) {
+	let timeRangeDropdown = timeField.closest('.TimeRangeDropdown');
+	let timeFieldLabel = timeRangeDropdown.querySelector('.TimeRangeDropdown_label');
+	let timeRangeInputFrom = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-from');
+	let timeRangeInputTo = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-to');
+
+	if (timeField.value) {
+		timeField.classList.add('TimeRangeDropdown_time-notEmpty');
+	} else {
+		timeField.classList.remove('TimeRangeDropdown_time-notEmpty');
+	}
+
+	if (timeRangeInputFrom.value && timeRangeInputTo.value) {
+		timeFieldLabel.textContent = timeRangeInputFrom.value + '-' + timeRangeInputTo.value;
+
+		syncTimeField(timeRangeDropdown, 'Checkbox-nonStop', '00:00', '00:00');
+		syncTimeField(timeRangeDropdown, 'Checkbox-aroundClock', '00:00', '23:59');
+	} else {
+		timeFieldLabel.textContent = timeFieldLabel.dataset.label;
+	}
+}
+
+function checkTimeFieldsState () {
+	let timeFields = document.querySelectorAll('.TimeRangeDropdown_time');
+	timeFields.forEach(timeField => checkTimeFieldState(timeField));
+}
+
+function checkExistingPosts() {
+	let companyPosts = document.querySelectorAll('.CompanySettings_fieldItem-post');
+	let companyMobilePosts = document.querySelectorAll('.CompanySettings_post');
+	let addFieldItemPost = document.querySelector('.AddFieldItem-post .AddFieldItem_text');
+	let addFieldItemPostMobile = document.querySelector('.AddFieldItem-postMobile .AddFieldItem_text');
+
+	if (addFieldItemPost) {
+		if (companyPosts.length) {
+			addFieldItemPost.textContent = 'Добавить ещё должность';
+		} else {
+			addFieldItemPost.textContent = 'Добавить должность';
+		}
+	}
+	
+	if (addFieldItemPostMobile) {
+		if (companyMobilePosts.length) {
+			addFieldItemPostMobile.textContent = 'Добавить ещё должность';
+		} else {
+			addFieldItemPostMobile.textContent = 'Добавить должность';
+		}
+	}
+}
+
+function checkExisitingDaysWeek () {
+	let daysWeekField = document.querySelector('.CompanySettings_field-daysWeek');
+	let daysWeekFieldItems = document.querySelector('.CompanySettings_field-daysWeek .CompanySettings_fieldItem');
+	let addDaysWeek = document.querySelector('.AddFieldItem-daysWeek .AddFieldItem_text');
+
+	if (addDaysWeek) {
+		if (daysWeekFieldItems) {
+			daysWeekField.querySelector('.CompanySettings_fieldItems').classList.remove('CompanySettings_fieldItems-empty');
+			addDaysWeek.textContent = 'Добавить ещё дни';
+		} else {
+			daysWeekField.querySelector('.CompanySettings_fieldItems').classList.add('CompanySettings_fieldItems-empty');
+			addDaysWeek.textContent = 'Добавить дни';
+		}
+	}
+}
+
+function checkExistingPhones () {
+	let phoneField = document.querySelector('.CompanySettings_field-phone');
+	let phoneFieldItems = document.querySelector('.CompanySettings_field-phone .CompanySettings_fieldItem');
+	let addPhone = document.querySelector('.AddFieldItem-phone .AddFieldItem_text');
+
+	if (addPhone) {
+		if (phoneFieldItems) {
+			phoneField.querySelector('.CompanySettings_fieldItems').classList.remove('CompanySettings_fieldItems-empty');
+			addPhone.textContent = 'Добавить ещё телефон';
+		} else {
+			phoneField.querySelector('.CompanySettings_fieldItems').classList.add('CompanySettings_fieldItems-empty');
+			addPhone.textContent = 'Добавить телефон';
+		}
+	}
+}
+
+function checkExistingOffices () {
+	let officeField = document.querySelector('.CompanySettings_field-office');
+	let officeFieldItems = document.querySelector('.CompanySettings_field-office .CompanySettings_fieldItem');
+	let addOffice = document.querySelector('.AddFieldItem-office .AddFieldItem_text');
+
+	if (addOffice) {
+		if (officeFieldItems) {
+			officeField.querySelector('.CompanySettings_fieldItems').classList.remove('CompanySettings_fieldItems-empty');
+			addOffice.textContent = 'Добавить ещё офис';
+		} else {
+			officeField.querySelector('.CompanySettings_fieldItems').classList.add('CompanySettings_fieldItems-empty');
+			addOffice.textContent = 'Добавить офис';
+		}
+	}
+}
+
+function saveMobileOwner () {
+	let ownerAddition = document.getElementById('OwnerAddition');
+	let ownerWrapper = document.querySelector('.CompanySettings_ownerWrapper');
+	let owner = document.querySelector('.CompanySettings_owner');
+	let ownerAdditionFormText = ownerAddition.querySelectorAll('.CompanySettings_formText');
+	let ownerFullName = (ownerAdditionFormText[0].value + ' ' + ownerAdditionFormText[1].value + ' ' + ownerAdditionFormText[2].value).trim();
+	let ownerTmpl = document.getElementById('OwnerTmpl').content.cloneNode(true);
+
+	if (!owner) {
+		ownerWrapper.insertAdjacentHTML('beforeend', `<div class="CompanySettings_owner"><div class="CompanySettings_ownerHeader"><div class="CompanySettings_ownerFullName">Владелец</div><a href="javascript:;"class="CompanySettings_removeOwner"></a></div><a href="#owner_edit" class="CompanySettings_link CompanySettings_link-ownerFullNameEdit">${ownerFullName}</a></div><div class="Error Error-small CompanySettings_ownerError hidden"></div>`);
+		document.querySelector('.AddFieldItem-ownerMobile').classList.add('hidden');
+	} else {
+		owner.querySelector('.CompanySettings_link-ownerFullNameEdit').textContent = ownerFullName;
+	}
+}
+
+function saveMobilePost () {
+	let actionType = document.querySelector('#PostAddition').dataset.actionType;
+	let postKey = document.querySelector('#PostAddition').dataset.postKey;
+
+	if (actionType === 'create') {
+		createMobilePost(postKey);
+		createDesktopPostFields(postKey);
+		updateDesktopPostFieldItem();
+	} else if (actionType === 'edit') {
+		updateMobilePost(postKey);
+		updateDesktopPostFieldItem(postKey);
+	}
+}
+
+function createMobilePost (postKey) {
+	let formText = document.querySelectorAll('#PostAddition .CompanySettings_formText');
+	let posts = document.querySelector('.CompanySettings_posts');
+	let fullName = formText[1].value + ' ' + formText[2].value + ' ' + formText[3].value;
+
+	posts.insertAdjacentHTML('beforeend', `<div class="CompanySettings_post" data-post-key="${postKey}"><div class="CompanySettings_postHeader"><div class="CompanySettings_jobTitle">${formText[0].value}</div><a href="javascript:;" class="CompanySettings_removePost"></a></div><a href="javascript:;"  class="CompanySettings_link CompanySettings_link-fullNameEdit">${fullName}</a></div><div class="Error Error-small CompanySettings_postError hidden"></div>`);
+
+	checkExistingPosts();
+}
+
+function updateMobilePost (postKey, context) {
+	if (context === undefined) {
+		context = document.querySelector('#PostAddition');
+	}
+
+	let formText = context.querySelectorAll('.CompanySettings_formText');
+	let fullName = formText[1].value + ' ' + formText[2].value + ' ' + formText[3].value;
+
+	let currentPost = document.querySelector(`.CompanySettings_post[data-post-key="${postKey}"]`);
+	let currentPostJobTitle = currentPost.querySelector('.CompanySettings_jobTitle');
+	let currentPostFullName = currentPost.querySelector('.CompanySettings_link-fullNameEdit');
+
+	currentPostJobTitle.textContent = formText[0].value;
+	currentPostFullName.textContent = fullName;
+}
+
+function setAttributes (el, attrs) {
+	for (let key in attrs) {
+		if (key === 'value') {
+			el.value = attrs[key];
+		} else {
+			el.setAttribute(key, attrs[key]);
+		}
+	}
+}
+
+function isOrderedSequence(arr) {
+	for (let i = 0; i < arr.length - 1; i++) {
+		if (arr[i] + 1 != arr[i + 1]) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+function changeDaysWeekDropdown (dropdownSelect) {
+	let abbreviatedNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+	let selectedOptions = dropdownSelect.querySelectorAll('.fs-option.selected');
+	let selectedIndexes = Array.from(selectedOptions).map(item => item.dataset.index * 1);
+	let fSelectLabel = dropdownSelect.querySelector('.fs-label');
+	let resultArray = [];
+
+	if (!selectedIndexes.length) {
+		fSelectLabel.textContent = 'Дни недели';
+	} else if (selectedIndexes.length == 1) {
+		fSelectLabel.textContent = selectedOptions[0].querySelector('.fs-option-label').textContent;
+	} else if (isOrderedSequence(selectedIndexes)) {
+		let firstOptionIndex = selectedIndexes[0];
+		let lastOptionIndex = selectedIndexes[selectedIndexes.length - 1];
+		fSelectLabel.textContent = abbreviatedNames[firstOptionIndex] + '-' + abbreviatedNames[lastOptionIndex];
+	} else {
+		resultArray = selectedIndexes.map(item => abbreviatedNames[item]);
+		fSelectLabel.textContent = resultArray.join(', ');
+	}
+
+	resultArray = selectedIndexes.map(item => abbreviatedNames[item]);
+}
+
+function changeDaysWeekDropdowns () {
+	let daysWeekDropdowns = document.querySelectorAll('.DropdownSelect-daysWeek');
+	daysWeekDropdowns.forEach(daysWeekDropdown => changeDaysWeekDropdown(daysWeekDropdown));
+}
+
+function wrapElement (elem, wrapperClassName) {
+	let newElement = document.createElement('div');
+	newElement.className = wrapperClassName;
+
+	newElement.append(elem);
+	return newElement;
+}
+
+function wrapElements (arr, wrapperClassName) {
+	let newArr = [];
+
+	arr.forEach(item => newArr.push(wrapElement(item, wrapperClassName)));
+
+	return newArr;
+}
+
+function updateMobileOwner () {
+	let windowWidth = document.documentElement.clientWidth;
+	let context = (windowWidth < 768) ? document.getElementById('OwnerAddition') : document.querySelector('.CompanySettings_field-ownerAdditionDesktop');
+	let ownerFormText = context.querySelectorAll('.CompanySettings_formText');
+	let ownerFullName = (ownerFormText[0].value + ' ' + ownerFormText[1].value + ' ' + ownerFormText[2].value).trim();
+	let ownerWrapper = document.querySelector('.CompanySettings_ownerWrapper');
+	let owner = ownerWrapper.querySelector('.CompanySettings_owner');
+	let addOwnerMobileLink = document.querySelector('.AddFieldItem-ownerMobile');
+
+	if (ownerFullName.length) {
+		if (!owner) {
+			owner = document.createElement('div');
+			owner.className = 'CompanySettings_owner';
+			ownerWrapper.append(owner);
+
+			owner.insertAdjacentHTML('beforeend', `<div class="CompanySettings_ownerHeader"><div class="CompanySettings_ownerFullName">Владелец</div><a href="javascript:;"class="CompanySettings_removeOwner"></a></div><a href="javascript:;" class="CompanySettings_link CompanySettings_link-ownerFullNameEdit">${ownerFullName}</a>`);
+			owner.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_ownerError hidden"></div>');
+		} else {
+			let ownerFullNameEditLink = document.querySelector('.CompanySettings_link-ownerFullNameEdit');
+			ownerFullNameEditLink.textContent = ownerFullName;
+		}
+
+		addOwnerMobileLink.classList.add('hidden');
+	} else {
+		if (owner) owner.remove();
+		addOwnerMobileLink.classList.remove('hidden');
+	}
+}
+
+function syncOwnerAdditionField () {
+	let windowWidth = document.documentElement.clientWidth;
+	let companySettingsForm = document.getElementById('CompanySettingsForm');
+	let ownerAdditionFields = document.querySelector('#OwnerAddition .CompanySettings_fields');
+
+	if (!ownerAdditionFields) return;
+
+	if (windowWidth < 768) {
+		let ownerFormText = companySettingsForm.querySelectorAll('.CompanySettings_field-ownerAdditionDesktop .CompanySettings_formText');
+
+		let labels = Array.from(ownerFormText).map(item => {
+			let label = document.createElement('label');
+			label.className = 'CompanySettings_label';
+			label.htmlFor = item.name;
+			label.textContent = item.placeholder;
+			return label;
+		});
+
+		ownerFormText.forEach( item => {
+			item.className = 'CompanySettings_formText CompanySettings_formText-fullWidth';
+			item.id = item.name;
+			item.setAttribute('form', 'CompanySettingsForm');
+			item.removeAttribute('placeholder');
+
+			if (item.name !== 'owner[patronymic]') {
+				item.required = true;
+			}
+		});
+
+		let wrappedFields = wrapElements(ownerFormText, 'CompanySettings_field').map((item, index) => {
+			item.prepend(labels[index]);
+			return item;
+		});
+
+		ownerAdditionFields.append(...wrappedFields);
+		updateMobileOwner();
+	} else {
+		let ownerFormTextMob = ownerAdditionFields.querySelectorAll('.CompanySettings_formText');
+		let labels = ownerAdditionFields.querySelectorAll('.CompanySettings_label');
+		let ownerAdditionItemDesktop = document.querySelector('.CompanySettings_field-ownerAdditionDesktop .CompanySettings_fieldItem');
+
+		let labelsText = Array.from(labels).map(item => {
+			let text = item.textContent;
+			item.parentNode.remove();
+			return text;
+		});
+
+		ownerFormTextMob.forEach( (item, index) => {
+			item.className = 'CompanySettings_formText CompanySettings_formText-col3 CompanySettings_formText-gutter';
+			item.placeholder = labelsText[index];
+			item.required = false;
+			item.removeAttribute('id');
+			item.removeAttribute('form');
+		});
+
+		ownerAdditionItemDesktop.append(...ownerFormTextMob);
+		$.fancybox.close();
+	}
+}
+
+function changePopupOptions (popupId, popupTitle, buttonText, clearFields = false) {
+	let popup = document.querySelector(popupId);
+  let mobileHeaderTitle = popup.querySelector('.MobileHeader_title');
+  mobileHeaderTitle.textContent = popupTitle;
+
+  let addButton = popup.querySelector('.CompanySettings_addButton');
+  addButton.textContent = buttonText;
+
+	let popupFormText = popup.querySelectorAll('.CompanySettings_formText');
+	popupFormText.forEach(formText => formText.classList.remove('HasError'));
+
+  if (clearFields) {
+  	popupFormText.forEach(formText => formText.value = '');
+  }
+}
+
+function syncPostField () {
+	let postFieldItems = document.querySelectorAll('.CompanySettings_fieldItem-post');
+	postFieldItems.forEach( (fieldItem, index) => {
+		let formText = fieldItem.querySelectorAll('.CompanySettings_formText');
+		let fullName = (formText[1].value + ' ' + formText[2].value + ' ' + formText[3].value).trim();
+		let postKey = fieldItem.dataset.postKey;
+		let currentPost = document.querySelector(`.CompanySettings_post[data-post-key="${postKey}"]`);
+
+		if (fullName.length || formText[0].value.length) {
+			if (!currentPost) createMobilePost(postKey);
+			updateMobilePost(postKey, fieldItem);
+		} else {
+			removeFieldAndError(currentPost);
+		}
+	});
+}
+
+function countFieldItems (field) {
+	return field.querySelectorAll('.CompanySettings_fieldItem').length;
+}
+
+function checkWriteBtnField () {
+	let writeBtnFieldItems = document.querySelectorAll('.CompanySettings_fieldItem-writeBtn');
+
+	writeBtnFieldItems.forEach(fieldItem => {
+		let selectedOption = fieldItem.querySelector('.DropdownSelect .fs-option.selected');
+
+		let formText = fieldItem.querySelector('.CompanySettings_formText');
+		formText.disabled = selectedOption.dataset.value === '';
+
+		let checkboxWrapper = fieldItem.querySelector('.CompanySettings_checkboxWrapper');
+		let isLogin = checkboxWrapper.querySelector('[data-action="isLogin"]');
+		let isPublic = checkboxWrapper.querySelector('[data-action="isPublic"]');
+
+		switch (selectedOption.dataset.value) {
+			case 'viber':
+				checkPublicAccountUsage(fieldItem);
+
+				isLogin.checked = false;
+				isLogin.closest('.Checkbox-isLogin').classList.add('hidden');
+				isPublic.closest('.Checkbox-isPublic').classList.remove('hidden');
+
+				document.getElementById('LoginExplanation').classList.add('hidden');
+				document.getElementById('URIExplanation').classList.add('hidden');
+				break;
+			case 'telegram':
+				checkLoginUsage(fieldItem);
+
+				isPublic.checked = false;
+				isPublic.closest('.Checkbox-isPublic').classList.add('hidden');
+				isLogin.closest('.Checkbox-isLogin').classList.remove('hidden');
+
+				document.getElementById('URIExplanation').classList.add('hidden');
+				document.getElementById('LoginExplanation').classList.add('hidden');
+				break;
+			case '':
+			case 'whatsapp':
+				formText.placeholder = 'Телефон';
+
+				isLogin.checked = false;
+				isLogin.closest('.Checkbox-isLogin').classList.add('hidden');
+
+				isPublic.checked = false;
+				isPublic.closest('.Checkbox-isPublic').classList.add('hidden');
+
+				document.getElementById('LoginExplanation').classList.add('hidden');
+				document.getElementById('URIExplanation').classList.add('hidden');
+				break;
+		}
+	});
+}
+
+function checkLoginUsage (fieldItem) {
+	let messengerValue = fieldItem.querySelector('[data-src="messengerValue"]');
+	let isLogin = fieldItem.querySelector('[data-action="isLogin"]');
+	let writeBtnField = fieldItem.closest('.CompanySettings_field-writeBtn');
+	let loginExplanation = document.getElementById('LoginExplanation');
+
+	if (isLogin && isLogin.checked) {
+		messengerValue.placeholder = 'Введите логин';
+		loginExplanation.classList.remove('hidden');
+	} else {
+		messengerValue.placeholder = 'Телефон';
+		loginExplanation.classList.add('hidden');
+	}
+}
+
+function checkPublicAccountUsage (fieldItem) {
+	let messengerValue = fieldItem.querySelector('[data-src="messengerValue"]');
+	let isPublic = fieldItem.querySelector('[data-action="isPublic"]');
+	let writeBtnField = fieldItem.closest('.CompanySettings_field-writeBtn');
+	let uriExplanation = document.getElementById('URIExplanation');
+
+	if (isPublic && isPublic.checked) {
+		messengerValue.placeholder = 'Введите URI';
+		uriExplanation.classList.remove('hidden');
+	} else {
+		messengerValue.placeholder = 'Телефон';
+		uriExplanation.classList.add('hidden');
+	}
+}
+
+function checkMaxFieldItemsCount (field, max) {
+	if (!field) return;
+
+	if (countFieldItems(field) >= max) {
+		field.querySelector('.AddFieldItem').remove();
+	}
+}
 
 document.addEventListener('DOMContentLoaded', function () {
-	let fancyboxOpts = {
-		touch: false,
-		smallBtn: false,
-		toolbar: false,
-		animationEffect: false,
-		baseClass: "fancybox-container--no-padding"
-	};
-
-	function clearFieldItemError (fieldItem) {
-		let elemsWithErrors = fieldItem.querySelectorAll('.HasError');
-		elemsWithErrors.forEach(elemWithErors => elemWithErors.classList.remove('HasError'));
-	}
-
-	function removeFieldAndError (field) {
-		if (field) {
-			let fieldError = field.nextElementSibling;
-
-			if (fieldError && fieldError.classList.contains('Error')) {
-				fieldError.remove();
-			}
-
-			field.remove();
-		}
-	}
-
-	function createDesktopPostFields (postKey) {
-		let postAdditionField = document.querySelector('.CompanySettings_field-postAddition');
-		let postFieldItems = document.querySelectorAll('.CompanySettings_fieldItem-post');
-
-		if (!postFieldItems.length) {
-			let postFieldTmpl = document.getElementById('PostFieldTmpl').content.cloneNode(true);
-			postAdditionField.before(postFieldTmpl);
-		}
-
-		let postFieldItemsWrapper = document.querySelector('.CompanySettings_field-post .CompanySettings_fieldItems');
-		let postFieldItemsTmpl = document.getElementById('PostFieldItemTmpl').content.cloneNode(true);
-		let fieldErrorTmpl = document.getElementById('FieldErrorTmpl').content.cloneNode(true);
-		let newFieldItem = document.createElement('div');
-
-		newFieldItem.className = 'CompanySettings_fieldItem CompanySettings_fieldItem-post';
-		newFieldItem.dataset.postKey = postKey;
-		newFieldItem.append(postFieldItemsTmpl);
-		postFieldItemsWrapper.append(newFieldItem, fieldErrorTmpl);
-
-		newFieldItem.querySelectorAll('input').forEach(input => {
-			input.name = input.name.replace(/0/g, postKey);
-		});
-
-		checkExistingPosts();
-	}
-
-	function updateDesktopPostFieldItem (postKey) {
-		let posts = document.querySelectorAll('.CompanySettings_post');
-
-		if (postKey === undefined) {
-			postKey = posts[posts.length - 1].dataset.postKey;
-		}
-
-		let currentPost = document.querySelector(`.CompanySettings_post[data-post-key="${postKey}"]`);
-		let currentPostFullName = currentPost.querySelector('.CompanySettings_link-fullNameEdit');
-
-		let [lastName, firstName, patronym] = currentPostFullName.textContent.split(' ');
-		let jobTitle = currentPost.querySelector('.CompanySettings_jobTitle').textContent;
-
-		let currentPostFieldItem = document.querySelector(`.CompanySettings_fieldItem-post[data-post-key="${postKey}"]`);
-		let postAdditionFormText = currentPostFieldItem.querySelectorAll('.CompanySettings_formText');
-
-		postAdditionFormText[0].value = jobTitle;
-		postAdditionFormText[1].value = lastName;
-		postAdditionFormText[2].value = firstName;
-		postAdditionFormText[3].value = patronym;
-	}
-
-	function syncTimeField (timeRangeDropdown, className, from, to) {
-		let timeFieldLabel = timeRangeDropdown.querySelector('.TimeRangeDropdown_label');
-		let timeRangeInputFrom = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-from');
-		let timeRangeInputTo = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-to');
-		let checkboxTimeRange = timeRangeDropdown.querySelector('.Checkbox-timeRangeDropdown');
-		let checkboxTimeRangeInput = checkboxTimeRange.querySelector('.Checkbox_input');
-		let checkboxTimeRangeLabel = checkboxTimeRange.querySelector('.Checkbox_label');
-
-		if (checkboxTimeRange.classList.contains(className)) {
-			if (timeRangeInputFrom.value != from || timeRangeInputTo.value != to) {
-				checkboxTimeRangeInput.checked = false;
-			} else {
-				checkboxTimeRangeInput.checked = true;
-				timeFieldLabel.textContent = checkboxTimeRangeLabel.textContent;
-			}
-		}
-	}
-
-	function checkTimeFieldState (timeField) {
-		let timeRangeDropdown = timeField.closest('.TimeRangeDropdown');
-		let timeFieldLabel = timeRangeDropdown.querySelector('.TimeRangeDropdown_label');
-		let timeRangeInputFrom = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-from');
-		let timeRangeInputTo = timeRangeDropdown.querySelector('.TimeRangeDropdown_time-to');
-
-		if (timeField.value) {
-			timeField.classList.add('TimeRangeDropdown_time-notEmpty');
-		} else {
-			timeField.classList.remove('TimeRangeDropdown_time-notEmpty');
-		}
-
-		if (timeRangeInputFrom.value && timeRangeInputTo.value) {
-			timeFieldLabel.textContent = timeRangeInputFrom.value + '-' + timeRangeInputTo.value;
-
-			syncTimeField(timeRangeDropdown, 'Checkbox-nonStop', '00:00', '00:00');
-			syncTimeField(timeRangeDropdown, 'Checkbox-aroundClock', '00:00', '23:59');
-		} else {
-			timeFieldLabel.textContent = timeFieldLabel.dataset.label;
-		}
-	}
-
-	function checkTimeFieldsState () {
-		let timeFields = document.querySelectorAll('.TimeRangeDropdown_time');
-		timeFields.forEach(timeField => checkTimeFieldState(timeField));
-	}
-
-	function checkExistingPosts() {
-		let companyPosts = document.querySelectorAll('.CompanySettings_fieldItem-post');
-		let companyMobilePosts = document.querySelectorAll('.CompanySettings_post');
-		let addFieldItemPost = document.querySelector('.AddFieldItem-post .AddFieldItem_text');
-		let addFieldItemPostMobile = document.querySelector('.AddFieldItem-postMobile .AddFieldItem_text');
-
-		if (addFieldItemPost) {
-			if (companyPosts.length) {
-				addFieldItemPost.textContent = 'Добавить ещё должность';
-			} else {
-				addFieldItemPost.textContent = 'Добавить должность';
-			}
-		}
-		
-		if (addFieldItemPostMobile) {
-			if (companyMobilePosts.length) {
-				addFieldItemPostMobile.textContent = 'Добавить ещё должность';
-			} else {
-				addFieldItemPostMobile.textContent = 'Добавить должность';
-			}
-		}
-	}
-
-	function checkExisitingDaysWeek () {
-		let daysWeekField = document.querySelector('.CompanySettings_field-daysWeek');
-		let daysWeekFieldItems = document.querySelector('.CompanySettings_field-daysWeek .CompanySettings_fieldItem');
-		let addDaysWeek = document.querySelector('.AddFieldItem-daysWeek .AddFieldItem_text');
-
-		if (addDaysWeek) {
-			if (daysWeekFieldItems) {
-				daysWeekField.querySelector('.CompanySettings_fieldItems').classList.remove('CompanySettings_fieldItems-empty');
-				addDaysWeek.textContent = 'Добавить ещё дни';
-			} else {
-				daysWeekField.querySelector('.CompanySettings_fieldItems').classList.add('CompanySettings_fieldItems-empty');
-				addDaysWeek.textContent = 'Добавить дни';
-			}
-		}
-	}
-
-	function checkExistingPhones () {
-		let phoneField = document.querySelector('.CompanySettings_field-phone');
-		let phoneFieldItems = document.querySelector('.CompanySettings_field-phone .CompanySettings_fieldItem');
-		let addPhone = document.querySelector('.AddFieldItem-phone .AddFieldItem_text');
-
-		if (addPhone) {
-			if (phoneFieldItems) {
-				phoneField.querySelector('.CompanySettings_fieldItems').classList.remove('CompanySettings_fieldItems-empty');
-				addPhone.textContent = 'Добавить ещё телефон';
-			} else {
-				phoneField.querySelector('.CompanySettings_fieldItems').classList.add('CompanySettings_fieldItems-empty');
-				addPhone.textContent = 'Добавить телефон';
-			}
-		}
-	}
-
-	function checkExistingOffices () {
-		let officeField = document.querySelector('.CompanySettings_field-office');
-		let officeFieldItems = document.querySelector('.CompanySettings_field-office .CompanySettings_fieldItem');
-		let addOffice = document.querySelector('.AddFieldItem-office .AddFieldItem_text');
-
-		if (addOffice) {
-			if (officeFieldItems) {
-				officeField.querySelector('.CompanySettings_fieldItems').classList.remove('CompanySettings_fieldItems-empty');
-				addOffice.textContent = 'Добавить ещё офис';
-			} else {
-				officeField.querySelector('.CompanySettings_fieldItems').classList.add('CompanySettings_fieldItems-empty');
-				addOffice.textContent = 'Добавить офис';
-			}
-		}
-	}
-
-	function saveMobileOwner () {
-		let ownerAddition = document.getElementById('OwnerAddition');
-		let ownerWrapper = document.querySelector('.CompanySettings_ownerWrapper');
-		let owner = document.querySelector('.CompanySettings_owner');
-		let ownerAdditionFormText = ownerAddition.querySelectorAll('.CompanySettings_formText');
-		let ownerFullName = (ownerAdditionFormText[0].value + ' ' + ownerAdditionFormText[1].value + ' ' + ownerAdditionFormText[2].value).trim();
-		let ownerTmpl = document.getElementById('OwnerTmpl').content.cloneNode(true);
-
-		if (!owner) {
-			ownerWrapper.insertAdjacentHTML('beforeend', `<div class="CompanySettings_owner"><div class="CompanySettings_ownerHeader"><div class="CompanySettings_ownerFullName">Владелец</div><a href="javascript:;"class="CompanySettings_removeOwner"></a></div><a href="#owner_edit" class="CompanySettings_link CompanySettings_link-ownerFullNameEdit">${ownerFullName}</a></div><div class="Error Error-small CompanySettings_ownerError hidden"></div>`);
-			document.querySelector('.AddFieldItem-ownerMobile').classList.add('hidden');
-		} else {
-			owner.querySelector('.CompanySettings_link-ownerFullNameEdit').textContent = ownerFullName;
-		}
-	}
-
-	function saveMobilePost () {
-		let actionType = document.querySelector('#PostAddition').dataset.actionType;
-		let postKey = document.querySelector('#PostAddition').dataset.postKey;
-
-		if (actionType === 'create') {
-			createMobilePost(postKey);
-			createDesktopPostFields(postKey);
-			updateDesktopPostFieldItem();
-		} else if (actionType === 'edit') {
-			updateMobilePost(postKey);
-			updateDesktopPostFieldItem(postKey);
-		}
-	}
-
-	function createMobilePost (postKey) {
-		let formText = document.querySelectorAll('#PostAddition .CompanySettings_formText');
-		let posts = document.querySelector('.CompanySettings_posts');
-		let fullName = formText[1].value + ' ' + formText[2].value + ' ' + formText[3].value;
-
-		posts.insertAdjacentHTML('beforeend', `<div class="CompanySettings_post" data-post-key="${postKey}"><div class="CompanySettings_postHeader"><div class="CompanySettings_jobTitle">${formText[0].value}</div><a href="javascript:;" class="CompanySettings_removePost"></a></div><a href="javascript:;"  class="CompanySettings_link CompanySettings_link-fullNameEdit">${fullName}</a></div><div class="Error Error-small CompanySettings_postError hidden"></div>`);
-
-		checkExistingPosts();
-	}
-
-	function updateMobilePost (postKey, context) {
-		if (context === undefined) {
-			context = document.querySelector('#PostAddition');
-		}
-
-		let formText = context.querySelectorAll('.CompanySettings_formText');
-		let fullName = formText[1].value + ' ' + formText[2].value + ' ' + formText[3].value;
-
-		let currentPost = document.querySelector(`.CompanySettings_post[data-post-key="${postKey}"]`);
-		let currentPostJobTitle = currentPost.querySelector('.CompanySettings_jobTitle');
-		let currentPostFullName = currentPost.querySelector('.CompanySettings_link-fullNameEdit');
-
-		currentPostJobTitle.textContent = formText[0].value;
-		currentPostFullName.textContent = fullName;
-	}
-
-	function setAttributes (el, attrs) {
-		for (let key in attrs) {
-			if (key === 'value') {
-				el.value = attrs[key];
-			} else {
-				el.setAttribute(key, attrs[key]);
-			}
-		}
-	}
-
-	function isOrderedSequence(arr) {
-		for (let i = 0; i < arr.length - 1; i++) {
-			if (arr[i] + 1 != arr[i + 1]) {
-				return false;
-			}
-		}
-
-		return true;
-	}
-
-	function changeDaysWeekDropdown (dropdownSelect) {
-		let abbreviatedNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
-		let selectedOptions = dropdownSelect.querySelectorAll('.fs-option.selected');
-		let selectedIndexes = Array.from(selectedOptions).map(item => item.dataset.index * 1);
-		let fSelectLabel = dropdownSelect.querySelector('.fs-label');
-		let resultArray = [];
-
-		if (!selectedIndexes.length) {
-			fSelectLabel.textContent = 'Дни недели';
-		} else if (selectedIndexes.length == 1) {
-			fSelectLabel.textContent = selectedOptions[0].querySelector('.fs-option-label').textContent;
-		} else if (isOrderedSequence(selectedIndexes)) {
-			let firstOptionIndex = selectedIndexes[0];
-			let lastOptionIndex = selectedIndexes[selectedIndexes.length - 1];
-			fSelectLabel.textContent = abbreviatedNames[firstOptionIndex] + '-' + abbreviatedNames[lastOptionIndex];
-		} else {
-			resultArray = selectedIndexes.map(item => abbreviatedNames[item]);
-			fSelectLabel.textContent = resultArray.join(', ');
-		}
-
-		resultArray = selectedIndexes.map(item => abbreviatedNames[item]);
-	}
-
-	function changeDaysWeekDropdowns () {
-		let daysWeekDropdowns = document.querySelectorAll('.DropdownSelect-daysWeek');
-		daysWeekDropdowns.forEach(daysWeekDropdown => changeDaysWeekDropdown(daysWeekDropdown));
-	}
-
-	function wrapElement (elem, wrapperClassName) {
-		let newElement = document.createElement('div');
-		newElement.className = wrapperClassName;
-
-		newElement.append(elem);
-		return newElement;
-	}
-
-	function wrapElements (arr, wrapperClassName) {
-		let newArr = [];
-
-		arr.forEach(item => newArr.push(wrapElement(item, wrapperClassName)));
-
-		return newArr;
-	}
-
-	function updateMobileOwner () {
-		let windowWidth = document.documentElement.clientWidth;
-		let context = (windowWidth < 768) ? document.getElementById('OwnerAddition') : document.querySelector('.CompanySettings_field-ownerAdditionDesktop');
-		let ownerFormText = context.querySelectorAll('.CompanySettings_formText');
-		let ownerFullName = (ownerFormText[0].value + ' ' + ownerFormText[1].value + ' ' + ownerFormText[2].value).trim();
-		let ownerWrapper = document.querySelector('.CompanySettings_ownerWrapper');
-		let owner = ownerWrapper.querySelector('.CompanySettings_owner');
-		let addOwnerMobileLink = document.querySelector('.AddFieldItem-ownerMobile');
-
-		if (ownerFullName.length) {
-			if (!owner) {
-				owner = document.createElement('div');
-				owner.className = 'CompanySettings_owner';
-				ownerWrapper.append(owner);
-
-				owner.insertAdjacentHTML('beforeend', `<div class="CompanySettings_ownerHeader"><div class="CompanySettings_ownerFullName">Владелец</div><a href="javascript:;"class="CompanySettings_removeOwner"></a></div><a href="javascript:;" class="CompanySettings_link CompanySettings_link-ownerFullNameEdit">${ownerFullName}</a>`);
-				owner.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_ownerError hidden"></div>');
-			} else {
-				let ownerFullNameEditLink = document.querySelector('.CompanySettings_link-ownerFullNameEdit');
-				ownerFullNameEditLink.textContent = ownerFullName;
-			}
-
-			addOwnerMobileLink.classList.add('hidden');
-		} else {
-			if (owner) owner.remove();
-			addOwnerMobileLink.classList.remove('hidden');
-		}
-	}
-
-	function syncOwnerAdditionField () {
-		let windowWidth = document.documentElement.clientWidth;
-		let companySettingsForm = document.getElementById('CompanySettingsForm');
-		let ownerAdditionFields = document.querySelector('#OwnerAddition .CompanySettings_fields');
-
-		if (!ownerAdditionFields) return;
-
-		if (windowWidth < 768) {
-			let ownerFormText = companySettingsForm.querySelectorAll('.CompanySettings_field-ownerAdditionDesktop .CompanySettings_formText');
-
-			let labels = Array.from(ownerFormText).map(item => {
-				let label = document.createElement('label');
-				label.className = 'CompanySettings_label';
-				label.htmlFor = item.name;
-				label.textContent = item.placeholder;
-				return label;
-			});
-
-			ownerFormText.forEach( item => {
-				item.className = 'CompanySettings_formText CompanySettings_formText-fullWidth';
-				item.id = item.name;
-				item.setAttribute('form', 'CompanySettingsForm');
-				item.removeAttribute('placeholder');
-
-				if (item.name !== 'owner[patronymic]') {
-					item.required = true;
-				}
-			});
-
-			let wrappedFields = wrapElements(ownerFormText, 'CompanySettings_field').map((item, index) => {
-				item.prepend(labels[index]);
-				return item;
-			});
-
-			ownerAdditionFields.append(...wrappedFields);
-			updateMobileOwner();
-		} else {
-			let ownerFormTextMob = ownerAdditionFields.querySelectorAll('.CompanySettings_formText');
-			let labels = ownerAdditionFields.querySelectorAll('.CompanySettings_label');
-			let ownerAdditionItemDesktop = document.querySelector('.CompanySettings_field-ownerAdditionDesktop .CompanySettings_fieldItem');
-
-			let labelsText = Array.from(labels).map(item => {
-				let text = item.textContent;
-				item.parentNode.remove();
-				return text;
-			});
-
-			ownerFormTextMob.forEach( (item, index) => {
-				item.className = 'CompanySettings_formText CompanySettings_formText-col3 CompanySettings_formText-gutter';
-				item.placeholder = labelsText[index];
-				item.required = false;
-				item.removeAttribute('id');
-				item.removeAttribute('form');
-			});
-
-			ownerAdditionItemDesktop.append(...ownerFormTextMob);
-			$.fancybox.close();
-		}
-	}
-
-	function changePopupOptions (popupId, popupTitle, buttonText, clearFields = false) {
-		let popup = document.querySelector(popupId);
-    let mobileHeaderTitle = popup.querySelector('.MobileHeader_title');
-    mobileHeaderTitle.textContent = popupTitle;
-
-    let addButton = popup.querySelector('.CompanySettings_addButton');
-    addButton.textContent = buttonText;
-
-  	let popupFormText = popup.querySelectorAll('.CompanySettings_formText');
-  	popupFormText.forEach(formText => formText.classList.remove('HasError'));
-
-    if (clearFields) {
-    	popupFormText.forEach(formText => formText.value = '');
-    }
-	}
-
-	function syncPostField () {
-		let postFieldItems = document.querySelectorAll('.CompanySettings_fieldItem-post');
-		postFieldItems.forEach( (fieldItem, index) => {
-			let formText = fieldItem.querySelectorAll('.CompanySettings_formText');
-			let fullName = (formText[1].value + ' ' + formText[2].value + ' ' + formText[3].value).trim();
-			let postKey = fieldItem.dataset.postKey;
-			let currentPost = document.querySelector(`.CompanySettings_post[data-post-key="${postKey}"]`);
-
-			if (fullName.length || formText[0].value.length) {
-				if (!currentPost) createMobilePost(postKey);
-				updateMobilePost(postKey, fieldItem);
-			} else {
-				removeFieldAndError(currentPost);
-			}
-		});
-	}
-
-	function countFieldItems (field) {
-		return field.querySelectorAll('.CompanySettings_fieldItem').length;
-	}
-
-	function checkWriteBtnField () {
-		let writeBtnFieldItems = document.querySelectorAll('.CompanySettings_fieldItem-writeBtn');
-
-		writeBtnFieldItems.forEach(fieldItem => {
-			let selectedOption = fieldItem.querySelector('.DropdownSelect .fs-option.selected');
-
-			let formText = fieldItem.querySelector('.CompanySettings_formText');
-			formText.disabled = selectedOption.dataset.value === '';
-
-			let checkboxWrapper = fieldItem.querySelector('.CompanySettings_checkboxWrapper');
-			let isLogin = checkboxWrapper.querySelector('[data-action="isLogin"]');
-			let isPublic = checkboxWrapper.querySelector('[data-action="isPublic"]');
-
-			switch (selectedOption.dataset.value) {
-				case 'viber':
-					checkPublicAccountUsage(fieldItem);
-
-					isLogin.checked = false;
-					isLogin.closest('.Checkbox-isLogin').classList.add('hidden');
-					isPublic.closest('.Checkbox-isPublic').classList.remove('hidden');
-
-					document.getElementById('LoginExplanation').classList.add('hidden');
-					document.getElementById('URIExplanation').classList.add('hidden');
-					break;
-				case 'telegram':
-					checkLoginUsage(fieldItem);
-
-					isPublic.checked = false;
-					isPublic.closest('.Checkbox-isPublic').classList.add('hidden');
-					isLogin.closest('.Checkbox-isLogin').classList.remove('hidden');
-
-					document.getElementById('URIExplanation').classList.add('hidden');
-					document.getElementById('LoginExplanation').classList.add('hidden');
-					break;
-				case '':
-				case 'whatsapp':
-					formText.placeholder = 'Телефон';
-
-					isLogin.checked = false;
-					isLogin.closest('.Checkbox-isLogin').classList.add('hidden');
-
-					isPublic.checked = false;
-					isPublic.closest('.Checkbox-isPublic').classList.add('hidden');
-
-					document.getElementById('LoginExplanation').classList.add('hidden');
-					document.getElementById('URIExplanation').classList.add('hidden');
-					break;
-			}
-		});
-	}
-
-	function checkLoginUsage (fieldItem) {
-		let messengerValue = fieldItem.querySelector('[data-src="messengerValue"]');
-		let isLogin = fieldItem.querySelector('[data-action="isLogin"]');
-		let writeBtnField = fieldItem.closest('.CompanySettings_field-writeBtn');
-		let loginExplanation = document.getElementById('LoginExplanation');
-
-		if (isLogin && isLogin.checked) {
-			messengerValue.placeholder = 'Введите логин';
-			loginExplanation.classList.remove('hidden');
-		} else {
-			messengerValue.placeholder = 'Телефон';
-			loginExplanation.classList.add('hidden');
-		}
-	}
-
-	function checkPublicAccountUsage (fieldItem) {
-		let messengerValue = fieldItem.querySelector('[data-src="messengerValue"]');
-		let isPublic = fieldItem.querySelector('[data-action="isPublic"]');
-		let writeBtnField = fieldItem.closest('.CompanySettings_field-writeBtn');
-		let uriExplanation = document.getElementById('URIExplanation');
-
-		if (isPublic && isPublic.checked) {
-			messengerValue.placeholder = 'Введите URI';
-			uriExplanation.classList.remove('hidden');
-		} else {
-			messengerValue.placeholder = 'Телефон';
-			uriExplanation.classList.add('hidden');
-		}
-	}
-
 	// Use public account
 	document.addEventListener('change', function (e) {
 		let isPublic = e.target.closest('[data-action="isPublic"]');
@@ -633,12 +644,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		clearFieldItemError(newFieldItem);
 		$(select).fSelect('reload');
-		checkWriteBtnField();
 
-		let fieldWriteBtn = addWriteBtn.closest('.CompanySettings_field-writeBtn');
-		if (countFieldItems(fieldWriteBtn) == 7) {
-			addWriteBtn.remove();
-		}
+		checkWriteBtnField();
+		checkMaxFieldItemsCount(addWriteBtn.closest('.CompanySettings_field-writeBtn'), MAX_WRITE_FIELD_ITEMS);
 	});
 
 	// Add call button field
@@ -648,6 +656,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (!addCallBtn) return;
 
 		let key = randomString(4);
+
 		let fieldItems = addCallBtn.closest('.CompanySettings_fieldContent').querySelector('.CompanySettings_fieldItems');
 		let newFieldItem = fieldItems.firstElementChild.cloneNode(true);
 		newFieldItem.classList.add('CompanySettings_fieldItem-additional');
@@ -661,11 +670,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		newFieldItem.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_fieldError hidden"></div>');
 
 		clearFieldItemError(newFieldItem);
-
-		let fieldCallBtn = addCallBtn.closest('.CompanySettings_field-callBtn');
-		if (countFieldItems(fieldCallBtn) == 7) {
-			addCallBtn.remove();
-		}
+		checkMaxFieldItemsCount(addCallBtn.closest('.CompanySettings_field-callBtn'), MAX_CALL_FIELD_ITEMS);
 	});
 
 	// Add email button field
@@ -688,11 +693,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		newFieldItem.insertAdjacentHTML('afterend', '<div class="Error Error-small CompanySettings_fieldError hidden"></div>');
 
 		clearFieldItemError(newFieldItem);
-
-		let fieldCallBtn = addEmailBtn.closest('.CompanySettings_field-emailBtn');
-		if (countFieldItems(fieldCallBtn) == 2) {
-			addEmailBtn.remove();
-		}
+		checkMaxFieldItemsCount(addEmailBtn.closest('.CompanySettings_field-emailBtn'), MAX_EMAIL_FIELD_ITEMS);
 	});
 
 	// Add phone field
@@ -1089,6 +1090,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	checkExisitingDaysWeek();
 	checkExistingPhones();
 	checkExistingOffices();
+
+	checkMaxFieldItemsCount(document.querySelector('.CompanySettings_field-writeBtn'), MAX_WRITE_FIELD_ITEMS);
+	checkMaxFieldItemsCount(document.querySelector('.CompanySettings_field-callBtn'), MAX_CALL_FIELD_ITEMS);
+	checkMaxFieldItemsCount(document.querySelector('.CompanySettings_field-emailBtn'), MAX_EMAIL_FIELD_ITEMS);
 
 	window.addEventListener('resize', function () {
 		syncOwnerAdditionField();

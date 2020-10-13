@@ -21,50 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		entityType = 'comment';
 	});
 
-	function isSpacesString (string) {
-		for (let i = 0; i < string.length; i++) {
-			if (string[i] != ' ') {
-				return false;
-			}
-		}
-
-		return true;
-	}
-
-	function changeTextareaField (commentForm) {
-		let commentFormTextarea = commentForm.querySelector('.CommentForm_textArea');
-		let resetBtn = commentFormTextarea.closest('.CommentForm').querySelector('.CommentForm_resetBtn');
-		let submitBtn = commentFormTextarea.closest('.CommentForm').querySelector('button[type="submit"]');
-
-		if (commentFormTextarea.value.length && !isSpacesString(commentFormTextarea.value)) {
-			submitBtn.removeAttribute('disabled');
-		} else {
-			submitBtn.setAttribute('disabled', 'disabled');
-		}
-
-		commentFormTextarea.addEventListener('focus', function () {
-			this.parentNode.classList.add('CommentForm-expanded');
-		});
-
-		commentFormTextarea.addEventListener('blur', function (e) {
-			setTimeout(() => {
-				let clickedElement = document.activeElement;
-
-				if (clickedElement != resetBtn && clickedElement != submitBtn) {
-					this.parentNode.classList.remove('CommentForm-expanded');
-				}
-			}, 0);
-		});
-
-		commentFormTextarea.addEventListener('input', function () {
-			if (this.value.length && !isSpacesString(this.value)) {
-				submitBtn.removeAttribute('disabled');
-			} else {
-				submitBtn.setAttribute('disabled', 'disabled');
-			}
-		});
-	}
-
 	document.addEventListener('click', function (e) {
 		let editLink = e.target.closest('.DotsMenu_link-edit');
 
