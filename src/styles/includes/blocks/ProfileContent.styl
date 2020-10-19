@@ -5,7 +5,8 @@
 		padding-top 17px
 		padding-right 0
 	
-	&_title, &_text
+	&_title,
+	&_text
 		padding-left 5px
 	
 	&_title
@@ -16,6 +17,13 @@
 		
 		@media $xs
 			font-size 21px
+	
+	&_description
+		padding-left 5px
+		font-size 13px
+		
+		@media $smPlus
+			margin-bottom 30px
 	
 	&_text
 		padding-right 5px
@@ -132,3 +140,10 @@
 			@media $xs
 				margin-top 12px
 				margin-bottom 11px
+	
+	&-applications
+		.ProfileContent_title
+			margin-bottom 0
+			
+			@media $xs
+				margin-bottom 10px

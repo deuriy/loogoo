@@ -1,0 +1,48 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Мои заявки";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-profileContent";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title Мои заявки
+					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
+				.ProfileContent.ProfileContent-applications
+					//- h2.ProfileContent_title Заявки на обратную связь
+					h2.ProfileContent_title Заявки на зворотній зв'язок
+					.ProfileContent_description
+						//- p В этом разделе отображены все заявки с просьбой перезвонить
+						p В цьому розділі відображені всі заявки з проханням перетелефонувати.
+					table.TeamTable.TeamTable-applications.ProfileContent_teamTable
+						thead
+							tr
+								th(colspan="4").TeamTable_th Ваші заявки #[span.Number.TeamTable_count 1]
+						tbody
+							tr
+								td.TeamTable_td.TeamTable_td-date
+									.TeamTable_date 27.02.2020
+								td.TeamTable_td
+									.TeamTable_time 20:14
+								td.TeamTable_td.TeamTable_td-user
+									.TeamTable_user
+										img(src="/img/default_avatar.png", alt="Игорь").TeamTable_userPhoto
+										.TeamTable_nameAndDate
+											.TeamTable_userName Игорь
+								td.TeamTable_td.TeamTable_td-phone +380961500100
+			.Aside.Main_aside.hidden-smMinus
+				a(href="/company.html", title="Sony Corporation").CompanyLink.Aside_companyLink
+					img(src="img/sony2.png", alt="Sony Corporation").CompanyLink_img
+					.CompanyLink_textWrap
+						.CompanyLink_title Sony Corporation
+						.CompanyLink_text на страницу компании
+				include /includes/blocks/SettingsMenu
+	include /includes/blocks/PopupShare
+	include /includes/blocks/LinkCopiedNotification
+block page_bottom
+	script(src="/js/profile_invite.js")
