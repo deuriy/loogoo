@@ -381,7 +381,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	// Textarea auto height
-	document.querySelectorAll('.FormTextarea-commentForm, .FormTextarea-commentFormCompany, .FormTextarea-companySettings').forEach(el => {
+	document.querySelectorAll('.FormTextarea-commentForm, .FormTextarea-commentFormCompany, .FormTextarea-companySettings, .FormTextarea-addTestimonial').forEach(el => {
 		let prevHeight = el.clientHeight;
 
 		el.addEventListener('keydown', () => {
