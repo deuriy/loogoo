@@ -37,7 +37,7 @@
 	
 	&_siteName
 		position relative
-		top 3px
+		top 1px
 	
 	&_dotsMenu, &_dotsIcon
 		position absolute
@@ -77,15 +77,28 @@
 		.MobileHeader_title
 			margin-top 2px
 	
-	&-withLogo
+	&-news,
+	&-article,
+	&-feed
 		display flex
-		justify-content space-between
 		align-items center
+	
+	&-news,
+	&-article
+		justify-content space-between
 		padding-right 28px
 		padding-left 60px
 		
 		.MobileHeader_btnBack
 			top 15px
+	
+	&-feed
+		justify-content center
+		
+		.MobileHeader_siteName
+			position absolute
+			top 17px
+			left 20px
 	
 	&-reviews
 		background #F8F9FA
@@ -123,7 +136,7 @@
 	// 			margin-left 6px
 	// 			background url('../img/checkbox_green.svg') 0 0 / cover no-repeat
 	
-	// &-hasPhoneIcon
-	// 	.MobileHeader_title
-	// 		margin-right 35px
-	// 		margin-left 20px
+	&-hasPhoneIcon
+		.MobileHeader_title
+			margin-right 35px
+			margin-left 20px

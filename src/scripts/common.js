@@ -1102,14 +1102,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (!copyLink) return;
 
-		let copyLinkInput = document.createElement('input');
-		copyLinkInput.type = 'text';
-
 		let newURL = new URL(window.location.href);
 
 		if (newURL.searchParams.has('share')) {
 			newURL.searchParams.delete('share');
 		}
+
+		let copyLinkInput = document.createElement('input');
+		copyLinkInput.type = 'text';
 
 		copyLinkInput.value = newURL;
 		document.body.append(copyLinkInput);
@@ -1137,14 +1137,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (!copyURL) return;
 
-		let copyLinkInput = document.createElement('input');
-		copyLinkInput.type = 'text';
-
 		let newURL = new URL(window.location.href);
 
 		if (newURL.searchParams.has('share')) {
 			newURL.searchParams.delete('share');
 		}
+
+		let copyLinkInput = document.createElement('input');
+		copyLinkInput.type = 'text';
 
 		copyLinkInput.value = newURL;
 		document.body.append(copyLinkInput);

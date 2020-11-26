@@ -87,6 +87,10 @@
 			
 			@media $xs
 				margin-top 41px
+		
+		&-rightIndent
+			@media $smPlus
+				padding-right 10px
 	
 	&_label
 		margin-top 13px
@@ -235,6 +239,12 @@
 			@media $xs
 				width auto
 				max-width none
+		
+		&-rightIndent
+			margin-right 5px
+			
+			@media $xs
+				width calc(100% - 22px)
 	
 	&_formText, &_dropdownSelect
 		&-contactBtn

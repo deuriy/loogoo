@@ -100,4 +100,16 @@ document.addEventListener('DOMContentLoaded', function () {
 		e.preventDefault();
 	});
 
+	document.addEventListener('click', function (e) {
+		let removeFieldItem = e.target.closest('.CompanySettings_removeFieldItem');
+
+		if (!removeFieldItem) return;
+
+		let parentField = removeFieldItem.closest('.CompanySettings_field');
+
+		if (!parentField) return;
+
+		parentField.remove();
+	});
+
 });

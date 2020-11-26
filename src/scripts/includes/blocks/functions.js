@@ -53,5 +53,5 @@ function hideBlockWithCookie (blockId, time = 5184000) {
 }
 
 function checkBlockHidden (blockId) {
-  return !!getCookie(`${blockId}`);
+  return !!getCookie(blockId);
 }

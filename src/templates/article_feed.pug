@@ -4,7 +4,8 @@ block vars
 	- var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-infoPages Main-newsFeed";
 block content
-	.MobileHeader.hidden-smPlus
+	.MobileHeader.MobileHeader-feed.hidden-smPlus
+		a(href="/").SiteName.SiteName-feed.MobileHeader_siteName infoza
 		h1.MobileHeader_title #{title}
 		a(href="#PopupShare", data-action="openMobilePopup", data-mobile-popup-title="База знаний").DotsIcon.MobileHeader_dotsIcon
 			include /includes/svg/SvgIco/dots
