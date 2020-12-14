@@ -276,6 +276,8 @@ function checkBookmarkNotification (notificationMenu) {
 	let notificationMenuIcon = notificationMenu.querySelector('.NotificationMenu_icon');
 	let activeSvgIcon = activeNotificationLink.querySelector('svg').cloneNode(true);
 
+	console.log(`activeNotificationLink: ${activeNotificationLink}`);
+
 	notificationMenuIcon.innerHTML = '';
 	notificationMenuIcon.append(activeSvgIcon);
 }
@@ -1309,6 +1311,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		} else {
 			bookmarkNotification.querySelector('.NotificationMenu_item:first-child .NotificationMenu_link').classList.add('NotificationMenu_link-active');
 		}
+
+		let clonedBookmark = bookmark.cloneNode(true);
+		bookmark.before(clonedBookmark);
+		bookmark.remove();
+
+		clonedBookmark.classList.add('Bookmark-animated');
 	});
 
 	document.querySelectorAll('.Bookmark').forEach( bookmark => {
@@ -1376,18 +1384,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!notificationMenuLink) return;
 
 		let notificationMenu = notificationMenuLink.closest('.NotificationMenu');
-
-		if (notificationMenu && notificationMenu.classList.contains('NotificationMenu-bookmark')) {
-			checkBookmarkNotification(notificationMenu);
-		}
-	});
-
-	document.addEventListener('click', function (e) {
-		let notificationMenuLink = e.target.closest('.NotificationMenu_link');
-
-		if (!notificationMenuLink) return;
-
-		let notificationMenu = notificationMenuLink.closest('.NotificationMenu');
 		let activeNotificationLink = notificationMenu.querySelector('.NotificationMenu_link-active');
 
 		if (activeNotificationLink) {
@@ -1395,6 +1391,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 		
 		notificationMenuLink.classList.add('NotificationMenu_link-active');
+
+		if (notificationMenu && notificationMenu.classList.contains('NotificationMenu-bookmark')) {
+			checkBookmarkNotification(notificationMenu);
+		}
+
 		notificationMenu.querySelector('.NotificationMenu_wrapper').classList.remove('NotificationMenu_wrapper-opened');
 
 		e.preventDefault();
@@ -1515,4 +1516,21 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	setPositionActiveTab(document.querySelector('.CategoryMenu-company'));
+
+	// Like animation
+	document.addEventListener('click', function (e) {
+		let like = e.target.closest('.Like');
+
+		if (!like) return;
+
+		let clonedLike = like.cloneNode(true);
+		like.before(clonedLike);
+		like.remove();
+
+		if (like.getAttribute('href') != '#LikePopup') {
+			clonedLike.classList.toggle('Like-liked');
+		}
+		
+		clonedLike.classList.add('Like-animated');
+	});
 });

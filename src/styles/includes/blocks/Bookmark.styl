@@ -46,3 +46,16 @@
 					
 					&-check
 						fill $orange
+	
+	&-animated
+		.Bookmark_icon
+			animation pulsating-animation .45s ease-in-out
+
+@keyframes pulsating-animation
+	from,
+	to
+		transform scale(1)
+	25%
+		transform scale(1.2)
+	50%
+		transform scale(0.95)
