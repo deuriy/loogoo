@@ -276,8 +276,6 @@ function checkBookmarkNotification (notificationMenu) {
 	let notificationMenuIcon = notificationMenu.querySelector('.NotificationMenu_icon');
 	let activeSvgIcon = activeNotificationLink.querySelector('svg').cloneNode(true);
 
-	console.log(`activeNotificationLink: ${activeNotificationLink}`);
-
 	notificationMenuIcon.innerHTML = '';
 	notificationMenuIcon.append(activeSvgIcon);
 }

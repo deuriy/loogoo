@@ -8,7 +8,10 @@ block content
 		a(href="#").BtnBack.MobileHeader_btnBack
 			include /includes/svg/SvgIco/arrow_left
 		h1.MobileHeader_title #{title}
-		a(href="/").SiteName.SiteName-news.MobileHeader_siteName infoza
+		//- a(href="/").SiteName.SiteName-news.MobileHeader_siteName infoza
+		.Share
+			a(href="#PopupShare", data-action="openMobilePopup").Share_mobIcon.hidden-smPlus
+				include /includes/svg/SvgIco/share
 	.Container.Container-article.Main_container
 		.Main_columns
 			.Main_content
