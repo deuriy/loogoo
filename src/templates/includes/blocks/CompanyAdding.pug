@@ -45,10 +45,18 @@
 								option(value="ru") Россия
 								option(value="by") Беларусь
 								option(value="kz") Казахстан
-				.CompanySettings_field
+				.CompanySettings_field.CompanySettings_field-rightIndent
 					label(for="company_website").CompanySettings_label Веб-сайт
 					.CompanySettings_fieldContent
-						input(type="text", name="company_website", id="company_website").CompanySettings_formText.CompanySettings_formText-fullWidth
+						.CompanySettings_fieldItem
+							input(type="text", name="company_website", id="company_website").CompanySettings_formText.CompanySettings_formText-rightIndent.CompanySettings_formText-fullWidth
+							a(href="javascript:;").CompanySettings_removeFieldItem
+				.CompanySettings_field.CompanySettings_field-rightIndent
+					label(for="company_phone").CompanySettings_label Телефон
+					.CompanySettings_fieldContent
+						.CompanySettings_fieldItem
+							input(type="text", name="company_phone", id="company_phone").CompanySettings_formText.CompanySettings_formText-rightIndent.CompanySettings_formText-fullWidth
+							a(href="javascript:;").CompanySettings_removeFieldItem
 			.CompanySettings_actions
 				button(type="submit", hidden).BtnBlue.BtnBlue-addCompanyPopup.CompanySettings_addButton Добавить
 				a(href="javascript:;", data-fancybox-close).CompanySettings_link.CompanySettings_link-cancel.hidden-xs Отмена

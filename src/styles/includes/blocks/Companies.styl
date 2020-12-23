@@ -3,13 +3,20 @@
 	
 	&_header
 		display flex
-		// justify-content space-between
 		justify-content flex-end
 		align-items center
 		margin-bottom 14px
 	
 	&_headerLeft
 		flex-grow 1
+	
+	&_filterLinks
+		display flex
+		justify-content space-between
+		align-items center
+		margin 0 -20px 25px
+		padding 10px 18px 8px
+		background $lightGrey
 	
 	&_searchForm
 		margin-bottom 35px
@@ -37,3 +44,18 @@
 			
 			&:last-child
 				margin-bottom 0
+	
+	&-search
+		padding-top 13px
+		
+		.Companies_searchForm
+			margin-bottom 18px
+		
+		.Companies_item
+			margin-right -20px
+			margin-left -20px
+			margin-bottom 22px
+			
+			&:last-child
+				margin-bottom 0
+				border-bottom none
