@@ -236,20 +236,30 @@ function getCoords(elem) {
 }
 
 function openMobilePopup (mobilePopupID) {
-	let openedMobilePopup = document.querySelector('.MobilePopup-opened');
-
-	if (openedMobilePopup) {
-		openedMobilePopup.classList.remove('MobilePopup-opened');
-		openedMobilePopup.querySelector('.Overlay').classList.remove('Overlay-visible');
-	}
-
 	let mobilePopup = document.getElementById(mobilePopupID);
 
 	if (!mobilePopup) return;
 
+	let openedMobilePopup = document.querySelector('.MobilePopup-opened');
+
+	if (openedMobilePopup) {
+		closeMobilePopup(openedMobilePopup.id);
+	}
+
 	mobilePopup.classList.add('MobilePopup-opened');
 	mobilePopup.querySelector('.Overlay').classList.add('Overlay-visible');
 	document.body.style.overflow = 'hidden';
+}
+
+function locationHashChanged () {
+	document.querySelectorAll('[data-action="openMobilePopup"]').forEach( link => {
+		if (link.getAttribute('href') === location.hash) {
+			openMobilePopup(link.getAttribute('href').slice(1));
+			// console.log(link.getAttribute('href'));
+		} else {
+			closeMobilePopup(link.getAttribute('href').slice(1));
+		}
+	});
 }
 
 function closeMobilePopup (mobilePopupID) {
@@ -1186,15 +1196,13 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!mobilePopupLink) return;
 
 		let mobilePopupID = mobilePopupLink.getAttribute('href').slice(1);
-		let mobilePopup = document.getElementById(mobilePopupID);
 		openMobilePopup(mobilePopupID);
 
 		let mobilePopupTitle = mobilePopupLink.dataset.mobilePopupTitle;
 		if (mobilePopupTitle !== undefined) {
+			let mobilePopup = document.getElementById(mobilePopupID);
 			mobilePopup.querySelector('.MobilePopup_title').textContent = mobilePopupTitle;
 		}
-
-		e.preventDefault();
 	});
 
 	document.addEventListener('click', function (e) {
@@ -1531,4 +1539,26 @@ document.addEventListener("DOMContentLoaded", function () {
 		
 		clonedLike.classList.add('Like-animated');
 	});
+
+	document.addEventListener('click', function (e) {
+		popupClicks++;
+	});
 });
+
+let popupClicks = 0, popupSteps = 0;
+
+window.onhashchange = locationHashChanged;
+
+window.onpopstate = state => {
+	popupSteps++;
+	if (popupClicks != popupSteps) {
+		let mobilePopupID = location.hash.slice(1);
+
+		if (document.getElementById(mobilePopupID)) {
+			setTimeout(() => {
+				closeMobilePopup(mobilePopupID);
+				popupClicks = popupSteps = 0;
+			}, 0);
+		}
+	}
+};
