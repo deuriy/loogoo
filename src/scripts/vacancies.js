@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-	let swipers;
+	let swipers = [];
 
 	document.querySelectorAll('.Swiper').forEach((item, index) => {
-		swipers[index] = new Swiper(`#${item.id}`, {
+		swipers.push(new Swiper(`#${item.id}`, {
 			slidesPerView: 'auto',
-			spaceBetween: 1,
+			spaceBetween: 4,
 			loop: true
-		});
+		}));
 	});
 });
