@@ -30,6 +30,12 @@
 	&_logoImg
 		border-radius 2px
 	
+	&_photoWrapper
+		margin-right 26px
+	
+	&_photo
+		border-radius 8px
+	
 	&_mainWrapper
 		flex auto 1 1
 	
@@ -47,7 +53,8 @@
 	&_mark
 		font-size 13px
 	
-	&_activity, &_description
+	&_activity,
+	&_description
 		font-size 14px
 		line-height 1.6
 	
@@ -98,6 +105,9 @@
 	
 	&_activities
 		margin-left -2px
+		
+		@media $smPlus
+			display flex
 	
 	&-dossiers
 		@media $xs
@@ -150,15 +160,24 @@
 				margin-right 5px
 
 	&-vacancy
-		padding-right 20px
-		padding-left 20px
-		border-bottom 8px solid $lightGrey
+		border-bottom 1px solid #ebf0f2
+		
+		@media $xs
+			border-bottom 8px solid $lightGrey
+		
+		@media $smPlus
+			padding-right 0
+			padding-left 0
 		
 		.CompanyBlock_header
 			justify-content space-between
 			
 			@media $xs
 				margin-bottom 16px
+			
+			@media $smPlus
+				margin-top -6px
+				margin-bottom 14px
 		
 		.CompanyBlock_headerRight
 			@media $xs
@@ -182,17 +201,38 @@
 		.CompanyBlock_mark
 			margin-right 2px
 		
+		.CompanyBlock_activity
+			@media $smPlus
+				flex-shrink 1
+				flex-grow 1
+				
+				&:first-child
+					flex-basis 34%
+		
 		.CompanyBlock_statIcons
-			margin-top 12px
 			margin-right 0
+			
+			@media $xs
+				margin-top 25px
 		
 		.CompanyBlock_country
 			margin-right 0
-			margin-bottom 10px
 			line-height 20px
+			
+			@media $xs
+				display flex
+				align-items baseline
+				margin-bottom 20px
 			
 			&:last-child
 				margin-bottom 0
 		
 		.CompanyBlock_countryIcon
 			margin-right 5px
+			
+			@media $smPlus
+				margin-right 10px
+		
+		.CompanyBlock_footer
+			@media $smPlus
+				margin-top 30px

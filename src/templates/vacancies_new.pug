@@ -2,18 +2,25 @@ extends /layouts/main_layout_profile
 block vars
 	- var title = "Вакансии компаний";
 	- var wrapperModifiers = "Wrapper-noMobileHeader";
-	- var mainModifiers = "Main-vacancies";
+	- var mainModifiers = "Main-companiesDossiers";
 block content
-	.MobileHeader.MobileHeader-search.hidden-smPlus
-		a(href="#PopupMenu").SelectionLink.PopupMenuLink.hidden-smPlus Роботодавці
+	.MobileHeader.MobileHeader-companiesDossiers.hidden-smPlus
+		a(href="#PopupMenu").SelectionLink.PopupMenuLink.hidden-smPlus Работодатели
 		a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
 			include /includes/svg/SvgIco/dots
 	.Container.Main_container
 		.Main_columns
 			.Main_left
-				.Companies.Companies-vacancies
-					form(action="", name="topics_filter")#TopicsFilter.Filter.Filter-vacancies
-						.Filter_main.hidden-xs
+				.MenuSection.MenuSection-companiesDossiers.Main_menuSection.hidden
+					.CategoryMenu.CategoryMenu-companiesDossiers
+						ul.CategoryMenu_menu
+							li.CategoryMenu_item
+								a(href="/basic_company_settings.html").CategoryMenu_link.active Работодатели
+							li.CategoryMenu_item
+								a(href="/profile_company_settings.html").CategoryMenu_link Вакансии
+				.Companies.Companies-dossiers
+					form(action="", name="topics_filter")#TopicsFilter.Filter.Filter-results
+						.Filter_main
 							.Filter_left
 								a(href="javascript:;").FilterIcon.FilterIcon-zero.Filter_toggleLink.hidden-smPlus
 									include /includes/svg/SvgIco/filter
@@ -25,8 +32,25 @@ block content
 										h1.MobileHeader_title Фильтр
 									.Filter_items
 										.Filter_item.Filter_item-staticDropdownxs
+											select.Select.Select-filterBlock(name="type")
+												option(value="all") Предупреждения
+												option(value="cat1", hidden) Новое
+												option(value="cat2") Вопросы
+												option(value="cat3") Советы
+												option(value="cat4") Рассказы
+										.Filter_item.Filter_item-staticDropdownxs
+											select.Select.Select-filterBlock(name="categories")
+												option(value="all") Категория
+												option(value="cat1") Товары для дома, отдыха, праздника
+												option(value="cat2") Животные, растения, аксессуары
+												option(value="cat3") Совместные покупки и заказы
+												option(value="cat4") Детские товары
+												option(value="cat5") Канцтовары, книги, арт
+												option(value="cat5") Куплю, обмен, отдам, спрос
+												option(value="cat5") Мужская одежда и обувь
+										.Filter_item.Filter_item-staticDropdownxs
 											select.Select.Select-filterBlock(name="country")
-												option(value="all") Польша
+												option(value="all") Страна
 												option(value="country1", hidden) Страна 1
 												option(value="country2", hidden) Страна 2
 												option(value="country3").hidden Страна 3
@@ -51,23 +75,6 @@ block content
 												option(value="city3", hidden) Город 3
 												option(value="city4") Город 4
 												option(value="city5") Город 5
-										.Filter_item.Filter_item-staticDropdownxs
-											select.Select.Select-filterBlock(name="company")
-												option(value="all") Компания
-												option(value="company1", hidden) Компания 2
-												option(value="company2") Компания 3
-												option(value="company3") Компания 4
-												option(value="company4") Компания 5
-										.Filter_item.Filter_item-staticDropdownxs
-											select.Select.Select-filterBlock(name="enterprise")
-												option(value="all") Предприятие
-												option(value="enterprise1") Предприятие 1
-												option(value="enterprise2") Предприятие 2
-												option(value="enterprise3") Предприятие 3
-												option(value="enterprise4") Предприятие 4
-												option(value="enterprise5") Предприятие 5
-												option(value="enterprise6") Предприятие 6
-												option(value="enterprise7") Предприятие 7
 										.Filter_item.Filter_item-apply
 											button(type="submit", data-action="closeFilter").BtnOrange.BtnOrange-applySelected.Filter_applyBtn.hidden-smPlus Показать результаты #[span.Filter_resultsCount (18)]
 										.Filter_item.Filter_item-clearBtn
@@ -77,7 +84,7 @@ block content
 							.Filter_right
 								.Filter_item.Filter_item-mobile
 									select.Select.Select-filterBlock(name="city")
-										option(value="all") Популярные
+										option(value="all") По популярности
 										option(value="city1") Город 1
 										option(value="city2") Город 2
 										option(value="city3") Город 3
@@ -90,220 +97,214 @@ block content
 									include /includes/svg/SvgIco/close
 							button(type="submit").Search_icon.hidden-smPlus
 								include /includes/svg/SvgIco/search
-					.Companies_filterLinks.hidden-smPlus
-						a(href="javascript:;").SelectionLink.SelectionLink-small Параметры
-						a(href="javascript:;").SelectionLink.SelectionLink-small Новые
 					.Companies_items
-						.CompanyBlock.CompanyBlock-vacancy.Companies_item
-							.CompanyBlock_photoWrapper.hidden-xs
-								img(src="/img/vacancy/vacancy_image2.png").CompanyBlock_photo
+						.CompanyBlock.CompanyBlock-dossiers.Companies_item
+							.CompanyBlock_logo.hidden-xs
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
 							.CompanyBlock_mainWrapper
 								.CompanyBlock_header
-									.CompanyBlock_headerLeft
-										h3.CompanyBlock_name
-											a(href="/vacancy.html") Inpost
-										h4.CompanyBlock_subtitle Почтовый склад
+									.CompanyBlock_logo.hidden-smPlus
+										a(href="/company.html", title="Sony Corporation")
+											img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
 									.CompanyBlock_headerRight
-										.Rating.Rating-vacancy.Rating-dropdown.CompanyBlock_rating
+										h3.CompanyBlock_name
+											a(href="/company.html") Sony Corporation
+										.Rating.Rating-companyHeader.Rating-dropdown.hidden-smPlus
+											a(href="javascript:;").Rating_wrapperLink
+												span.Rating_icon
+													include /includes/svg/SvgIco/icon_star
+												span.Rating_number 7,3
+												span.Rating_max / 10
+												span.Rating_label (55 отзывов)
+											.Rating_dropdown
+												a(href="javascript:;").Rating_closeDropdown.hidden-smPlus
+													include /includes/svg/icon_close
+												include /includes/blocks/AdvantagesRating
+											.Overlay.Overlay-rating
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								//- .CompanyBlock_description Корпорация Sony была основана Акио Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась «Токё цусин когё кабусики-гайся»
+								.CompanyBlock_description Корпорация Sony была основана Аки Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась ТТК
+								.CompanyBlock_footer
+									.Rating.Rating-companyHeader.Rating-dropdown.hidden-xs
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 0.0
+										span.Rating_max / 10
+										span.Rating_label (0 отзывов)
+										.Rating_dropdown
+											include /includes/blocks/AdvantagesRating
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
+						.CompanyBlock.CompanyBlock-dossiers.Companies_item
+							.CompanyBlock_logo.hidden-xs
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+							.CompanyBlock_mainWrapper
+								.CompanyBlock_header
+									.CompanyBlock_logo.hidden-smPlus
+										a(href="/company.html", title="Sony Corporation")
+											img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+									.CompanyBlock_headerRight
+										h3.CompanyBlock_name
+											a(href="/company.html") Sony Corporation
+										.Rating.Rating-companyHeader.hidden-smPlus
 											span.Rating_icon
 												include /includes/svg/SvgIco/icon_star
 											span.Rating_number 7,3
 											span.Rating_max / 10
-										.CompanyBlock_mark 182 оценки
-								.Swiper.swiper-container.CompanyBlock_swiper#Swiper1.hidden-smPlus
-									.Swiper_wrapper.swiper-wrapper
-										.Swiper_slide.swiper-slide
-											img(src="/img/vacancy_new1.png" alt="Vacancy image 1")
-										.Swiper_slide.swiper-slide
-											img(src="/img/vacancy_new2.png" alt="Vacancy image 2")
-								.CompanyBlock_country.hidden-smPlus
-									img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
-									.
-										Польша, Варшава Nowowiejska 5-147
-								.CompanyBlock_activities
-									.Activity.CompanyBlock_activity
-										.Activity_name Разнорабочие
-										.Activity_salary 26 400 – 28 000 CZK
-									.Activity.CompanyBlock_activity
-										.Activity_name Специалисты
-										.Activity_salary 26 400 – 28 000 CZK
+											span.Rating_label (55 отзывов)
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Аки Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась ТТК
 								.CompanyBlock_footer
-									.CompanyBlock_country.hidden-xs
+									.Rating.Rating-companyHeader.Rating-dropdown.hidden-xs
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											include /includes/blocks/AdvantagesRating
+									.CompanyBlock_country
 										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
 										.
-											Польша, Варшава Nowowiejska 5-147
-									.StatIcons.CompanyBlock_statIcons
-										.StatIcons_left
-											ul.StatIcons_list
-												li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
-													a(href="javascript:;").Like.hidden-smMinus
-														include /includes/svg/SvgIco/like
-														span.Like_count 10
-													a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
-														include /includes/svg/SvgIco/like
-														span.Like_count 10
-												li.StatIcon.StatIcon-answer.StatIcons_item
-													a(href="/topic_details.html").StatIcon_link
-														include /includes/svg/SvgIco/answer
-														span.StatIcon_count 0
-						.CompanyBlock.CompanyBlock-vacancy.Companies_item
-							.CompanyBlock_photoWrapper.hidden-xs
-								img(src="/img/vacancy/vacancy_image2.png").CompanyBlock_photo
+											Польша, Вроцлав
+						.CompanyBlock.CompanyBlock-dossiers.Companies_item
+							.CompanyBlock_logo.hidden-xs
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
 							.CompanyBlock_mainWrapper
 								.CompanyBlock_header
-									.CompanyBlock_headerLeft
-										h3.CompanyBlock_name
-											a(href="/vacancy.html") Inpost
-										h4.CompanyBlock_subtitle Почтовый склад
+									.CompanyBlock_logo.hidden-smPlus
+										a(href="/company.html", title="Sony Corporation")
+											img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
 									.CompanyBlock_headerRight
-										.Rating.Rating-vacancy.Rating-dropdown.CompanyBlock_rating
+										h3.CompanyBlock_name
+											a(href="/company.html") Sony Corporation
+										.Rating.Rating-companyHeader.hidden-smPlus
 											span.Rating_icon
 												include /includes/svg/SvgIco/icon_star
 											span.Rating_number 7,3
 											span.Rating_max / 10
-										.CompanyBlock_mark 182 оценки
-								.Swiper.swiper-container.CompanyBlock_swiper#Swiper2.hidden-smPlus
-									.Swiper_wrapper.swiper-wrapper
-										.Swiper_slide.swiper-slide
-											img(src="/img/vacancy_new1.png" alt="Vacancy image 1")
-										.Swiper_slide.swiper-slide
-											img(src="/img/vacancy_new2.png" alt="Vacancy image 2")
-								.CompanyBlock_country.hidden-smPlus
-									img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
-									.
-										Польша, Варшава Nowowiejska 5-147
-								.CompanyBlock_activities
-									.Activity.CompanyBlock_activity
-										.Activity_name Разнорабочие
-										.Activity_salary 26 400 – 28 000 CZK
-									.Activity.CompanyBlock_activity
-										.Activity_name Специалисты
-										.Activity_salary 26 400 – 28 000 CZK
+											span.Rating_label (55 отзывов)
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Аки Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась ТТК
 								.CompanyBlock_footer
-									.CompanyBlock_country.hidden-xs
+									.Rating.Rating-companyHeader.Rating-dropdown.hidden-xs
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											include /includes/blocks/AdvantagesRating
+									.CompanyBlock_country
 										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
 										.
-											Польша, Варшава Nowowiejska 5-147
-									.StatIcons.CompanyBlock_statIcons
-										.StatIcons_left
-											ul.StatIcons_list
-												li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
-													a(href="javascript:;").Like.hidden-smMinus
-														include /includes/svg/SvgIco/like
-														span.Like_count 10
-													a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
-														include /includes/svg/SvgIco/like
-														span.Like_count 10
-												li.StatIcon.StatIcon-answer.StatIcons_item
-													a(href="/topic_details.html").StatIcon_link
-														include /includes/svg/SvgIco/answer
-														span.StatIcon_count 0
-						.CompanyBlock.CompanyBlock-vacancy.Companies_item
-							.CompanyBlock_photoWrapper.hidden-xs
-								img(src="/img/vacancy/vacancy_image2.png").CompanyBlock_photo
+											Польша, Вроцлав
+						.CompanyBlock.CompanyBlock-dossiers.Companies_item
+							.CompanyBlock_logo.hidden-xs
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
 							.CompanyBlock_mainWrapper
 								.CompanyBlock_header
-									.CompanyBlock_headerLeft
-										h3.CompanyBlock_name
-											a(href="/vacancy.html") Inpost
-										h4.CompanyBlock_subtitle Почтовый склад
+									.CompanyBlock_logo.hidden-smPlus
+										a(href="/company.html", title="Sony Corporation")
+											img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
 									.CompanyBlock_headerRight
-										.Rating.Rating-vacancy.Rating-dropdown.CompanyBlock_rating
+										h3.CompanyBlock_name
+											a(href="/company.html") Sony Corporation
+										.Rating.Rating-companyHeader.hidden-smPlus
 											span.Rating_icon
 												include /includes/svg/SvgIco/icon_star
 											span.Rating_number 7,3
 											span.Rating_max / 10
-										.CompanyBlock_mark 182 оценки
-								.Swiper.swiper-container.CompanyBlock_swiper#Swiper3.hidden-smPlus
-									.Swiper_wrapper.swiper-wrapper
-										.Swiper_slide.swiper-slide
-											img(src="/img/vacancy_new1.png" alt="Vacancy image 1")
-										.Swiper_slide.swiper-slide
-											img(src="/img/vacancy_new2.png" alt="Vacancy image 2")
-								.CompanyBlock_country.hidden-smPlus
-									img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
-									.
-										Польша, Варшава Nowowiejska 5-147
-								.CompanyBlock_activities
-									.Activity.CompanyBlock_activity
-										.Activity_name Разнорабочие
-										.Activity_salary 26 400 – 28 000 CZK
-									.Activity.CompanyBlock_activity
-										.Activity_name Специалисты
-										.Activity_salary 26 400 – 28 000 CZK
+											span.Rating_label (55 отзывов)
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Аки Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась ТТК
 								.CompanyBlock_footer
-									.CompanyBlock_country.hidden-xs
+									.Rating.Rating-companyHeader.Rating-dropdown.hidden-xs
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											include /includes/blocks/AdvantagesRating
+									.CompanyBlock_country
 										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
 										.
-											Польша, Варшава Nowowiejska 5-147
-									.StatIcons.CompanyBlock_statIcons
-										.StatIcons_left
-											ul.StatIcons_list
-												li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
-													a(href="javascript:;").Like.hidden-smMinus
-														include /includes/svg/SvgIco/like
-														span.Like_count 10
-													a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
-														include /includes/svg/SvgIco/like
-														span.Like_count 10
-												li.StatIcon.StatIcon-answer.StatIcons_item
-													a(href="/topic_details.html").StatIcon_link
-														include /includes/svg/SvgIco/answer
-														span.StatIcon_count 0
-						.CompanyBlock.CompanyBlock-vacancy.Companies_item
-							.CompanyBlock_photoWrapper.hidden-xs
-								img(src="/img/vacancy/vacancy_image2.png").CompanyBlock_photo
+											Польша, Вроцлав
+						.CompanyBlock.CompanyBlock-dossiers.Companies_item
+							.CompanyBlock_logo.hidden-xs
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
 							.CompanyBlock_mainWrapper
 								.CompanyBlock_header
-									.CompanyBlock_headerLeft
-										h3.CompanyBlock_name
-											a(href="/vacancy.html") Inpost
-										h4.CompanyBlock_subtitle Почтовый склад
+									.CompanyBlock_logo.hidden-smPlus
+										a(href="/company.html", title="Sony Corporation")
+											img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
 									.CompanyBlock_headerRight
-										.Rating.Rating-vacancy.Rating-dropdown.CompanyBlock_rating
+										h3.CompanyBlock_name
+											a(href="/company.html") Sony Corporation
+										.Rating.Rating-companyHeader.hidden-smPlus
 											span.Rating_icon
 												include /includes/svg/SvgIco/icon_star
 											span.Rating_number 7,3
 											span.Rating_max / 10
-										.CompanyBlock_mark 182 оценки
-								.Swiper.swiper-container.CompanyBlock_swiper#Swiper4.hidden-smPlus
-									.Swiper_wrapper.swiper-wrapper
-										.Swiper_slide.swiper-slide
-											img(src="/img/vacancy_new1.png" alt="Vacancy image 1")
-										.Swiper_slide.swiper-slide
-											img(src="/img/vacancy_new2.png" alt="Vacancy image 2")
-								.CompanyBlock_country.hidden-smPlus
-									img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
-									.
-										Польша, Варшава Nowowiejska 5-147
-								.CompanyBlock_activities
-									.Activity.CompanyBlock_activity
-										.Activity_name Разнорабочие
-										.Activity_salary 26 400 – 28 000 CZK
-									.Activity.CompanyBlock_activity
-										.Activity_name Специалисты
-										.Activity_salary 26 400 – 28 000 CZK
+											span.Rating_label (55 отзывов)
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Аки Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась ТТК
 								.CompanyBlock_footer
-									.CompanyBlock_country.hidden-xs
+									.Rating.Rating-companyHeader.Rating-dropdown.hidden-xs
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											include /includes/blocks/AdvantagesRating
+									.CompanyBlock_country
 										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
 										.
-											Польша, Варшава Nowowiejska 5-147
-									.StatIcons.CompanyBlock_statIcons
-										.StatIcons_left
-											ul.StatIcons_list
-												li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
-													a(href="javascript:;").Like.hidden-smMinus
-														include /includes/svg/SvgIco/like
-														span.Like_count 10
-													a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
-														include /includes/svg/SvgIco/like
-														span.Like_count 10
-												li.StatIcon.StatIcon-answer.StatIcons_item
-													a(href="/topic_details.html").StatIcon_link
-														include /includes/svg/SvgIco/answer
-														span.StatIcon_count 0
+											Польша, Вроцлав
+						.CompanyBlock.CompanyBlock-dossiers.Companies_item
+							.CompanyBlock_logo.hidden-xs
+								a(href="/company.html", title="Sony Corporation")
+									img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+							.CompanyBlock_mainWrapper
+								.CompanyBlock_header
+									.CompanyBlock_logo.hidden-smPlus
+										a(href="/company.html", title="Sony Corporation")
+											img(src="/img/companyblock_logo.png", alt="Sony Corporation").CompanyBlock_logoImg
+									.CompanyBlock_headerRight
+										h3.CompanyBlock_name
+											a(href="/company.html") Sony Corporation
+										.Rating.Rating-companyHeader.hidden-smPlus
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,3
+											span.Rating_max / 10
+											span.Rating_label (55 отзывов)
+								.CompanyBlock_activity трудоустройство и визовая поддержка
+								.CompanyBlock_description Корпорация Sony была основана Аки Моритой и Масару Ибуко 7 мая 1946. В самом начале она называлась ТТК
+								.CompanyBlock_footer
+									.Rating.Rating-companyHeader.Rating-dropdown.hidden-xs
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 7,3
+										span.Rating_max / 10
+										span.Rating_label (55 отзывов)
+										.Rating_dropdown
+											include /includes/blocks/AdvantagesRating
+									.CompanyBlock_country
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Вроцлав
 			.Aside.Main_aside
-				.Application#Application.hidden-xs
+				.Application#Application.hidden.hidden-xs
 					a(href="javascript:;").Application_close
 						include /includes/svg/SvgIco/close
 					h3.Application_title В приложении удобнее
@@ -441,11 +442,11 @@ block content
 		.PopupMenu_wrapper
 			ul.PopupMenu_menu
 				li.PopupMenu_item
-					a(href="/companies_dossiers.html").PopupMenu_link.active Роботодавці
+					a(href="/companies_dossiers.html").PopupMenu_link.active Работодатели
 				li.PopupMenu_item
-					a(href="/vacancy_dummy.html").PopupMenu_link Вакансії
+					a(href="/vacancy_dummy.html").PopupMenu_link Вакансии
 	include /includes/blocks/CompanyAdding
 	include /includes/blocks/PopupShare
 	include /includes/blocks/LinkCopiedNotification
 block page_bottom
-	script(src="/js/vacancies.js")
+	script(src="/js/companies_dossiers.js")

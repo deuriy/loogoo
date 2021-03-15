@@ -265,6 +265,8 @@ function locationHashChanged () {
 function closeMobilePopup (mobilePopupID) {
 	let mobilePopup = document.getElementById(mobilePopupID);
 
+	if (!mobilePopup) return;
+
 	mobilePopup.classList.remove('MobilePopup-opened');
 	mobilePopup.querySelector('.Overlay').classList.remove('Overlay-visible');
 	document.body.style.cssText = '';

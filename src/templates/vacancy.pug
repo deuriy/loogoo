@@ -1,277 +1,359 @@
-extends /layouts/main_layout_profile
+extends /layouts/main_layout
 block vars
-	- var title = "Досье компаний";
+	- var title = "Вакансия компании";
 	- var wrapperModifiers = "Wrapper-noMobileHeader";
-	- var mainModifiers = "Main-companiesDossiers";
+	- var mainModifiers = "Main-vacancyFull";
 block content
-	.MobileHeader.MobileHeader-search.hidden-smPlus
-		a(href="#PopupMenu").SelectionLink.PopupMenuLink.hidden-smPlus Роботодавці
-		a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
-			include /includes/svg/SvgIco/dots
 	.Container.Main_container
 		.Main_columns
 			.Main_left
-				.MenuSection.MenuSection-companiesDossiers.Main_menuSection.hidden
-					.CategoryMenu.CategoryMenu-companiesDossiers
-						ul.CategoryMenu_menu
-							li.CategoryMenu_item
-								a(href="/basic_company_settings.html").CategoryMenu_link.active Роботодавці
-							li.CategoryMenu_item
-								a(href="/profile_company_settings.html").CategoryMenu_link Вакансії
-				.Companies.Companies-search
-					form(action="", name="companies_search").Filter.Companies_searchForm
-						.Search.Search-companies.Search-vacancies
-							.Search_item
-								input(type="text", name="search_query", placeholder="Введите ваш запрос").Search_text
-								a(href="javascript:;").Search_closeBtn.hidden.hidden
-									include /includes/svg/SvgIco/close
-							button(type="submit").Search_icon.hidden-smPlus
-								include /includes/svg/SvgIco/search
-					.Companies_filterLinks
-						a(href="javascript:;").SelectionLink.SelectionLink-small.hidden-smPlus Параметры
-						a(href="javascript:;").SelectionLink.SelectionLink-small.hidden-smPlus Новые
-					.NoResults.NoResults-companies(hidden)
-						.NoResults_icon
-							include /includes/svg/not_found
-						.NoResults_text По вашему запросу ничего не найдено
-						a(href="javascript:;", data-src="#CompanyAdding").BtnBlue.BtnBlue-company.BtnBlue-addCompany.OpenPopupLink Добавить компанию
-						.NoResults_linkWrapper
-							a(href="/companies_dossiers.html").NoResults_link Вернуться
-					.Companies_items
-						.CompanyBlock.CompanyBlock-vacancy.Companies_item
-							.CompanyBlock_mainWrapper
-								.CompanyBlock_header
-									.CompanyBlock_headerLeft
-										h3.CompanyBlock_name
-											a(href="/company.html") Inpost
-										h4.CompanyBlock_subtitle Почтовый склад
-									.CompanyBlock_headerRight
-										.Rating.Rating-vacancy.Rating-dropdown.CompanyBlock_rating
-											span.Rating_icon
-												include /includes/svg/SvgIco/icon_star
-											span.Rating_number 7,3
-											span.Rating_max / 10
-										.CompanyBlock_mark 182 оценки
-								.Swiper.swiper-container.CompanyBlock_swiper#Swiper1
-									.Swiper_wrapper.swiper-wrapper
-										.Swiper_slide.swiper-slide
-											img(src="/img/vacancy_new1.png" alt="Vacancy image 1")
-										.Swiper_slide.swiper-slide
-											img(src="/img/vacancy_new2.png" alt="Vacancy image 2")
-								.CompanyBlock_country
-									img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
-									.
-										Польша, Варшава Nowowiejska 5-147
-								.CompanyBlock_activities
-									.Activity.CompanyBlock_activity
-										.Activity_name Разнорабочие
-										.Activity_salary 26 400 – 28 000 CZK
-									.Activity.CompanyBlock_activity
-										.Activity_name Специалисты
-										.Activity_salary 26 400 – 28 000 CZK
-								.StatIcons.CompanyBlock_statIcons
-									.StatIcons_left
-										ul.StatIcons_list
-											li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
-												a(href="javascript:;").Like.hidden-smMinus
-													include /includes/svg/SvgIco/like
-													span.Like_count 10
-												a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
-													include /includes/svg/SvgIco/like
-													span.Like_count 10
-											li.StatIcon.StatIcon-answer.StatIcons_item
-												a(href="/topic_details.html").StatIcon_link
-													include /includes/svg/SvgIco/answer
-													span.StatIcon_count 0
-						.CompanyBlock.CompanyBlock-vacancy.Companies_item
-							.CompanyBlock_mainWrapper
-								.CompanyBlock_header
-									.CompanyBlock_headerLeft
-										h3.CompanyBlock_name
-											a(href="/company.html") Inpost
-										h4.CompanyBlock_subtitle Почтовый склад
-									.CompanyBlock_headerRight
-										.Rating.Rating-vacancy.Rating-dropdown.CompanyBlock_rating
-											span.Rating_icon
-												include /includes/svg/SvgIco/icon_star
-											span.Rating_number 7,3
-											span.Rating_max / 10
-										.CompanyBlock_mark 182 оценки
-								.Swiper.swiper-container.CompanyBlock_swiper#Swiper1
-									.Swiper_wrapper.swiper-wrapper
-										.Swiper_slide.swiper-slide
-											img(src="/img/vacancy_new1.png" alt="Vacancy image 1")
-										.Swiper_slide.swiper-slide
-											img(src="/img/vacancy_new2.png" alt="Vacancy image 2")
-								.CompanyBlock_country
-									img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
-									.
-										Польша, Варшава Nowowiejska 5-147 lorem ipsum dolor sit amet, consectetur
-								.CompanyBlock_activities
-									.Activity.CompanyBlock_activity
-										.Activity_name Разнорабочие
-										.Activity_salary 26 400 – 28 000 CZK
-									.Activity.CompanyBlock_activity
-										.Activity_name Специалисты
-										.Activity_salary 26 400 – 28 000 CZK
-								.StatIcons.CompanyBlock_statIcons
-									.StatIcons_left
-										ul.StatIcons_list
-											li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
-												a(href="javascript:;").Like.hidden-smMinus
-													include /includes/svg/SvgIco/like
-													span.Like_count 10
-												a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
-													include /includes/svg/SvgIco/like
-													span.Like_count 10
-											li.StatIcon.StatIcon-answer.StatIcons_item
-												a(href="/topic_details.html").StatIcon_link
-													include /includes/svg/SvgIco/answer
-													span.StatIcon_count 0
-			.Aside.Main_aside
-				.Application#Application.hidden.hidden-xs
-					a(href="javascript:;").Application_close
-						include /includes/svg/SvgIco/close
-					h3.Application_title В приложении удобнее
-					.Application_text Проверяйте компании в любое время благодаря бесплатному приложению!
-					.Application_links
-						a(href="https://play.google.com/store/apps/details?id=application.infoza&hl=ru", target="_blank").Application_link
-							img(src="/img/google_play_transparent.png", alt="Google Play")
-						a(href="#", target="_blank").Application_link.hidden
-							img(src="/img/apple_store_grey.png", alt="App Store")
-				.CompanyReviews.hidden-smMinus
-					h3.CompanyReviews_title Новые отзывы
-					.CompanyReviews_items
-						.QuestionBlock.QuestionBlock-companyReviews.CompanyReviews_item
-							.QuestionBlock_header
-								.QuestionBlock_headerLeft
-									.UserPhoto.UserPhoto-sidebarBlock.QuestionBlock_userPhoto
-										img(src="/img/anna_sergeevna.png", alt="Анна Сергеевна").UserPhoto_img
-									.QuestionBlock_info
-										.QuestionBlock_nameAndRating
-											span.QuestionBlock_userName Анна Сергеевна
-											a(href="javascript:;").Rating.QuestionBlock_rating
-												span.Rating_icon
-													include /includes/svg/user_icons/lightning_fill
-												span.Rating_number 123
-										.QuestionBlock_date сегодня в 7:05
-							.QuestionBlock_companyInfo
-								.Rating.Rating-companyReviews.QuestionBlock_companyRating
-									span.Rating_icon
-										include /includes/svg/SvgIco/icon_star
-									span.Rating_number 7,3
-									span.Rating_max / 10
-								a(href="#").ReplyName.ReplyName-companyReviews.QuestionBlock_companyReply
-									include /includes/svg/SvgIco/reply
-									.
-										Sony Corporation
-							.QuestionBlock_text Концепцей развития традиционно притягивается и тактический имидж. Формат события невзирая на…
-						.QuestionBlock.QuestionBlock-companyReviews.CompanyReviews_item
-							.QuestionBlock_header
-								.QuestionBlock_headerLeft
-									.UserPhoto.UserPhoto-sidebarBlock.QuestionBlock_userPhoto
-										img(src="/img/anna_sergeevna.png", alt="Анна Сергеевна").UserPhoto_img
-									.QuestionBlock_info
-										.QuestionBlock_nameAndRating
-											span.QuestionBlock_userName Анна Сергеевна
-											a(href="javascript:;").Rating.QuestionBlock_rating
-												span.Rating_icon
-													include /includes/svg/user_icons/lightning_fill
-												span.Rating_number 123
-										.QuestionBlock_date сегодня в 7:05
-							.QuestionBlock_companyInfo
-								.Rating.Rating-companyReviews.QuestionBlock_companyRating
-									span.Rating_icon
-										include /includes/svg/SvgIco/icon_star
-									span.Rating_number 7,3
-									span.Rating_max / 10
-								a(href="#").ReplyName.ReplyName-companyReviews.QuestionBlock_companyReply
-									include /includes/svg/SvgIco/reply
-									.
-										Sony Corporation
-							.QuestionBlock_text Концепцей развития традиционно притягивается и тактический имидж. Формат события невзирая на…
-						.QuestionBlock.QuestionBlock-companyReviews.CompanyReviews_item
-							.QuestionBlock_header
-								.QuestionBlock_headerLeft
-									.UserPhoto.UserPhoto-sidebarBlock.QuestionBlock_userPhoto
-										img(src="/img/anna_sergeevna.png", alt="Анна Сергеевна").UserPhoto_img
-									.QuestionBlock_info
-										.QuestionBlock_nameAndRating
-											span.QuestionBlock_userName Анна Сергеевна
-											a(href="javascript:;").Rating.QuestionBlock_rating
-												span.Rating_icon
-													include /includes/svg/user_icons/lightning_fill
-												span.Rating_number 123
-										.QuestionBlock_date сегодня в 7:05
-							.QuestionBlock_companyInfo
-								.Rating.Rating-companyReviews.QuestionBlock_companyRating
-									span.Rating_icon
-										include /includes/svg/SvgIco/icon_star
-									span.Rating_number 7,3
-									span.Rating_max / 10
-								a(href="#").ReplyName.ReplyName-companyReviews.QuestionBlock_companyReply
-									include /includes/svg/SvgIco/reply
-									.
-										Sony Corporation
-							.QuestionBlock_text Концепцей развития традиционно притягивается и тактический имидж. Формат события невзирая на…
-						.QuestionBlock.QuestionBlock-companyReviews.CompanyReviews_item
-							.QuestionBlock_header
-								.QuestionBlock_headerLeft
-									.UserPhoto.UserPhoto-sidebarBlock.QuestionBlock_userPhoto
-										img(src="/img/anna_sergeevna.png", alt="Анна Сергеевна").UserPhoto_img
-									.QuestionBlock_info
-										.QuestionBlock_nameAndRating
-											span.QuestionBlock_userName Анна Сергеевна
-											a(href="javascript:;").Rating.QuestionBlock_rating
-												span.Rating_icon
-													include /includes/svg/user_icons/lightning_fill
-												span.Rating_number 123
-										.QuestionBlock_date сегодня в 7:05
-							.QuestionBlock_companyInfo
-								.Rating.Rating-companyReviews.QuestionBlock_companyRating
-									span.Rating_icon
-										include /includes/svg/SvgIco/icon_star
-									span.Rating_number 7,3
-									span.Rating_max / 10
-								a(href="#").ReplyName.ReplyName-companyReviews.QuestionBlock_companyReply
-									include /includes/svg/SvgIco/reply
-									.
-										Sony Corporation
-							.QuestionBlock_text Концепцей развития традиционно притягивается и тактический имидж. Формат события невзирая на…
-						.QuestionBlock.QuestionBlock-companyReviews.CompanyReviews_item
-							.QuestionBlock_header
-								.QuestionBlock_headerLeft
-									.UserPhoto.UserPhoto-sidebarBlock.QuestionBlock_userPhoto
-										img(src="/img/anna_sergeevna.png", alt="Анна Сергеевна").UserPhoto_img
-									.QuestionBlock_info
-										.QuestionBlock_nameAndRating
-											span.QuestionBlock_userName Анна Сергеевна
-											a(href="javascript:;").Rating.QuestionBlock_rating
-												span.Rating_icon
-													include /includes/svg/user_icons/lightning_fill
-												span.Rating_number 123
-										.QuestionBlock_date сегодня в 7:05
-							.QuestionBlock_companyInfo
-								.Rating.Rating-companyReviews.QuestionBlock_companyRating
-									span.Rating_icon
-										include /includes/svg/SvgIco/icon_star
-									span.Rating_number 7,3
-									span.Rating_max / 10
-								a(href="#").ReplyName.ReplyName-companyReviews.QuestionBlock_companyReply
-									include /includes/svg/SvgIco/reply
-									.
-										Sony Corporation
-							.QuestionBlock_text Концепцей развития традиционно притягивается и тактический имидж. Формат события невзирая на…
-	.PopupMenu.PopupMenu-paddingTop.PopupMenu-paddingLeft#PopupMenu
-		.PopupMenu_overlay
-		.PopupMenu_wrapper
-			ul.PopupMenu_menu
-				li.PopupMenu_item
-					a(href="/companies_dossiers.html").PopupMenu_link.active Роботодавці
-				li.PopupMenu_item
-					a(href="/vacancy_dummy.html").PopupMenu_link Вакансії
-	include /includes/blocks/CompanyAdding
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title International Work
+					a(href="#PopupShareExtended", data-action="openMobilePopup", data-mobile-popup-title="Досье компании").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
+				.Vacancy
+					.Vacancy_header
+						a(href="/vacancies.html").ArrowLink.ArrowLink-vacancyFull.Vacancy_viewAll.hidden-xs Все вакансии
+						.Vacancy_headerLeft
+							h2.Vacancy_title International Work
+							.Vacancy_workplace.hidden-xs Почтовый склад • Польша, Варшава, Nowowiejska 5
+							.Vacancy_workplace.hidden-smPlus Почтовый склад
+						.Vacancy_headerRight.hidden-smPlus
+							.Rating.Rating-vacancy.Rating-dropdown.CompanyBlock_rating
+								span.Rating_icon
+									include /includes/svg/SvgIco/icon_star
+								span.Rating_number 7,3
+								span.Rating_max / 10
+							.Vacancy_mark 182 оценки
+					.MenuSection.MenuSection-vacancyFull.MenuSection-sticky.Vacancy_menuSection
+						.CategoryMenu.CategoryMenu-vacancyFull
+							ul.CategoryMenu_menu
+								li.CategoryMenu_item
+									a(href="/vacancy.html").CategoryMenu_link.active Все
+								li.CategoryMenu_item
+									a(href="/vacancy_reviews.html").CategoryMenu_link Отзывы
+								li.CategoryMenu_item
+									a(href="/vacancy_photos.html").CategoryMenu_link Фотографии
+								li.CategoryMenu_item
+									a(href="/vacancy_video.html").CategoryMenu_link Видео
+					.VacancyImages.Vacancy_swiper
+						.swiper-container.VacancyImages_gallery
+							.swiper-wrapper
+								.swiper-slide.VacancyImages_gallerySlide
+									.VacancyImages_galleryImg(style="background-image: url('/img/vacancy/vacancy_image.png')")
+								.swiper-slide.VacancyImages_gallerySlide
+									.VacancyImages_galleryImg(style="background-image: url('/img/vacancy/vacancy_image.png')")
+								.swiper-slide.VacancyImages_gallerySlide
+									.VacancyImages_galleryImg(style="background-image: url('/img/vacancy/vacancy_image.png')")
+								.swiper-slide.VacancyImages_gallerySlide
+									.VacancyImages_galleryImg(style="background-image: url('/img/vacancy/vacancy_image.png')")
+								.swiper-slide.VacancyImages_gallerySlide
+									.VacancyImages_galleryImg(style="background-image: url('/img/vacancy/vacancy_image.png')")
+								.swiper-slide.VacancyImages_gallerySlide
+									.VacancyImages_galleryImg(style="background-image: url('/img/vacancy/vacancy_image.png')")
+								.swiper-slide.VacancyImages_gallerySlide
+									.VacancyImages_galleryImg(style="background-image: url('/img/vacancy/vacancy_image.png')")
+								.swiper-slide.VacancyImages_gallerySlide
+									.VacancyImages_galleryImg(style="background-image: url('/img/vacancy/vacancy_image.png')")
+							button(type="button").swiper-button-next.VacancyImages_next.hidden-xs
+							button(type="button").swiper-button-prev.VacancyImages_prev.hidden-xs
+						.swiper-container.VacancyImages_thumbs.hidden-xs
+							.swiper-wrapper
+								.swiper-slide.VacancyImages_thumbSlide
+									.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
+								.swiper-slide.VacancyImages_thumbSlide
+									.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
+								.swiper-slide.VacancyImages_thumbSlide
+									.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
+								.swiper-slide.VacancyImages_thumbSlide
+									.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
+								.swiper-slide.VacancyImages_thumbSlide
+									.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
+								.swiper-slide.VacancyImages_thumbSlide
+									.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
+								.swiper-slide.VacancyImages_thumbSlide
+									.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
+								.swiper-slide.VacancyImages_thumbSlide
+									.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
+							button(type="button").swiper-button-next.VacancyImages_next
+							button(type="button").swiper-button-prev.VacancyImages_prev
+					.Vacancy_text
+						//- p Ретроконверсия национального наследия, как принято считать, отражает медийный канал, опираясь на опыт западных коллег. Медиапланирование исключительно программирует институциональный сегмент рынка. Надо сказать, что потребление отталкивает эмпирический направленный маркетинг, полагаясь на инсайдерскую информацию. Пул лояльных изданий существенно притягивает охват.…  Подробнее
+						p Lorem ipsum dolor sit amet, consectet adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis occaecat cupidatat nоsut…  #[a(href="#") Подробнее]
+					.StatIcons.Vacancy_statIcons
+						.StatIcons_left
+							ul.StatIcons_list
+								li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+									a(href="#TopicLikePopup", data-action="openMobilePopup").Like.Like-post
+										include /includes/svg/SvgIco/like
+										span.Like_count 0
+								li.StatIcon.StatIcons_item
+									.Share
+										a(href="javascript:;").Share_icon.hidden-xs
+											include /includes/svg/SvgIco/share
+										a(href="#PopupShare", data-action="openMobilePopup").Share_mobIcon.hidden-smPlus
+											include /includes/svg/SvgIco/share
+										.Share_wrapper
+											.Share_title Поделиться:
+											ul.Share_socIcons.hidden
+												li.Share_socItem
+													a(href="http://fb.com", target="_blank").Share_socLink
+														include /includes/svg/socicons/fb
+												li.Share_socItem
+													a(href="http://viber.com", target="_blank").Share_socLink
+														include /includes/svg/socicons/viber
+												li.Share_socItem
+													a(href="http://whatsapp.com", target="_blank").Share_socLink
+														include /includes/svg/socicons/whatsapp
+												li.Share_socItem
+													a(href="http://telegram.com", target="_blank").Share_socLink
+														include /includes/svg/socicons/telegram
+												li.Share_socItem
+													a(href="http://vk.com", target="_blank").Share_socLink
+														include /includes/svg/socicons/vk
+											.CopyLink
+												input(type="text", name="copy_link", value="", readonly).CopyLink_input
+												a(href="javascript:;").CopyLink_btnCopy Копировать
+						.StatIcons_right
+							ul.StatIcons_list
+								li.StatIcon.StatIcons_item
+									.Bookmark.Bookmark-active
+										.NotificationMenu.NotificationMenu-bookmark.Bookmark_notificationMenu
+											a(href="javascript:;").NotificationMenu_icon
+												include /includes/svg/SvgIco/bell_thin
+											ul.NotificationMenu_wrapper
+												li.NotificationMenu_item
+													a(href="#").NotificationMenu_link
+														include /includes/svg/SvgIco/bell_thin
+														.
+															Без уведомлений
+												li.NotificationMenu_item
+													a(href="#").NotificationMenu_link.NotificationMenu_link-active
+														include /includes/svg/SvgIco/bell_check
+														.
+															Новые ответы
+										a(href="javascript:;", title="Сохранить в закладки").Bookmark_icon
+											include /includes/svg/SvgIco/bookmark
+					.RatingSection.RatingSection-short.Vacancy_ratingSection.hidden-smPlus
+						h3.RatingSection_title Оцінка
+						.RatingSection_ratingWrapper
+							.Rating.Rating-vacancyFull.RatingSection_rating
+								span.Rating_icon
+									include /includes/svg/SvgIco/icon_star
+								span.Rating_number 7,5
+								span.Rating_max / 10
+								span.Rating_label 55 отзывов
+						.ExtendedRatings.ExtendedRatings-short.RatingSection_extendedRatings
+							.ExtendedRating.ExtendedRating-short.ExtendedRatings_item
+								.ExtendedRating_markAndNumber
+									.ExtendedRating_mark 8,2
+									.ExtendedRating_ratingsNumber 45 оценок
+								.ExtendedRating_wrapper
+									.ExtendedRating_label cкорость рабочего процесса
+									.ExtendedRating_line
+										.ExtendedRating_lineFill(data-mark="8.2")
+							.ExtendedRating.ExtendedRating-short.ExtendedRatings_item
+								.ExtendedRating_markAndNumber
+									.ExtendedRating_mark 8,2
+									.ExtendedRating_ratingsNumber 45 оценок
+								.ExtendedRating_wrapper
+									.ExtendedRating_label cкорость рабочего процесса
+									.ExtendedRating_line
+										.ExtendedRating_lineFill(data-mark="8.2")
+							.ExtendedRating.ExtendedRating-short.ExtendedRatings_item
+								.ExtendedRating_markAndNumber
+									.ExtendedRating_mark 8,2
+									.ExtendedRating_ratingsNumber 45 оценок
+								.ExtendedRating_wrapper
+									.ExtendedRating_label cкорость рабочего процесса
+									.ExtendedRating_line
+										.ExtendedRating_lineFill(data-mark="8.2")
+							.ExtendedRating.ExtendedRating-short.ExtendedRatings_item
+								.ExtendedRating_markAndNumber
+									.ExtendedRating_mark 8,2
+									.ExtendedRating_ratingsNumber 45 оценок
+								.ExtendedRating_wrapper
+									.ExtendedRating_label cкорость рабочего процесса
+									.ExtendedRating_line
+										.ExtendedRating_lineFill(data-mark="8.2")
+						a(href="#").BtnGrey.BtnGrey-mobilePopup.BtnGrey-ratingSection.RatingSection_testimonialBtn Проголосовать
+					.CommentsBlock.CommentsBlock-vacancyFull
+						.CommentsBlock_header
+							h3.CommentsBlock_title 1 отзыв
+							.DropdownSelect.DropdownSelect-commentsSorting.CommentsBlock_dropdownSelect
+								select(name="sorting").DropdownSelect_select
+									option(value="popular") Популярные
+									option(value="new_first") Сначала новые
+									option(value="first_old") Сначала старые
+						form(action="#").CommentForm.CommentsBlock_commentForm
+							textarea(name="comment_text", placeholder="Напишите комментарий", data-input-type="autoHeight").FormTextarea.FormTextarea-commentForm.CommentForm_textArea
+							.CommentForm_actions
+								button(type="reset").CommentForm_resetBtn Отмена
+								button(type="submit").BtnBlue.BtnBlue-light.BtnBlue-commentForm Отправить
+						.CommentsBlock_items
+							.Comment.Comment-hasChild.CommentsBlock_item
+								.Comment_wrapper
+									.Comment_header
+										.Comment_headerLeft
+											.UserPhoto.UserPhoto-parentComment.Comment_userPhoto
+												img(src="/img/vladimir_petrov.png", alt="Владимир Петров").UserPhoto_img
+											.Comment_info
+												.Comment_nameAndRating
+													.Comment_userName Владимир Петров
+													a(href="javascript:;").Rating.Comment_rating
+														span.Rating_icon
+															include /includes/svg/user_icons/lightning_fill
+														span.Rating_number 528
+												.Comment_date сегодня в 7:05
+										.Comment_headerRight
+											a(href="#PopupOwnCommentSettings", data-action="openMobilePopup", data-mobile-popup-title="Просмотр комментария").DotsIcon.hidden-smPlus
+												include /includes/svg/SvgIco/dots
+											.DotsMenu.DotsMenu-comment.hidden-xs
+												a(href="javascript:;").DotsIcon.DotsMenu_icon
+													include /includes/svg/SvgIco/dots
+												.DotsMenu_wrapper
+													ul.DotsMenu_menu
+														li.DotsMenu_item
+															a(href="#LinkCopiedNotification").DotsMenu_link.DotsMenu_link-copyURL
+																include /includes/svg/SvgIco/copy_reverse
+																.
+																	Скопировать URL
+														li.DotsMenu_item
+															a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
+																include /includes/svg/SvgIco/edit
+																.
+																	Редактировать
+														li.DotsMenu_item
+															a(href="javascript:;").DotsMenu_link
+																include /includes/svg/SvgIco/remove
+																.
+																	Удалить
+									.Comment_text
+										p Маркетингово-ориентированное издание синхронизирует продвигаемый фактор коммуникации. Эластичность спроса изоморфна времени. Медиаплан, следовательно, нейтрализует инвестиционный продукт. Косвенная реклама экономит типичный метод изучения рынка. Выставка индуцирует продвигаемый презентационный материал.
+									.Comment_footer
+										.Comment_actionLinks
+											a(href="#").Comment_actionLink Ответить
+										a(href="javascript:;").Like.Like-comment
+											include /includes/svg/SvgIco/like
+											span.Like_count 2
+			.Aside.Main_aside.hidden-xs
+				.RatingSection.RatingSection-short.Aside_ratingSection
+					.RatingSection_ratingWrapper
+						.Rating.Rating-vacancyFull.RatingSection_rating
+							span.Rating_icon
+								include /includes/svg/SvgIco/icon_star
+							span.Rating_number 7,3
+							span.Rating_max / 10
+							span.Rating_label 182 оценки
+					.ExtendedRatings.ExtendedRatings-short.RatingSection_extendedRatings
+						.ExtendedRating.ExtendedRating-short.ExtendedRatings_item
+							.ExtendedRating_markAndNumber
+								.ExtendedRating_mark 8,2
+								.ExtendedRating_ratingsNumber 45 оценок
+							.ExtendedRating_wrapper
+								.ExtendedRating_label cкорость рабочего процесса
+								.ExtendedRating_line
+									.ExtendedRating_lineFill(data-mark="8.2")
+						.ExtendedRating.ExtendedRating-short.ExtendedRatings_item
+							.ExtendedRating_markAndNumber
+								.ExtendedRating_mark 8,2
+								.ExtendedRating_ratingsNumber 45 оценок
+							.ExtendedRating_wrapper
+								.ExtendedRating_label cкорость рабочего процесса
+								.ExtendedRating_line
+									.ExtendedRating_lineFill(data-mark="8.2")
+						.ExtendedRating.ExtendedRating-short.ExtendedRatings_item
+							.ExtendedRating_markAndNumber
+								.ExtendedRating_mark 8,2
+								.ExtendedRating_ratingsNumber 45 оценок
+							.ExtendedRating_wrapper
+								.ExtendedRating_label cкорость рабочего процесса
+								.ExtendedRating_line
+									.ExtendedRating_lineFill(data-mark="8.2")
+						.ExtendedRating.ExtendedRating-short.ExtendedRatings_item
+							.ExtendedRating_markAndNumber
+								.ExtendedRating_mark 8,2
+								.ExtendedRating_ratingsNumber 45 оценок
+							.ExtendedRating_wrapper
+								.ExtendedRating_label cкорость рабочего процесса
+								.ExtendedRating_line
+									.ExtendedRating_lineFill(data-mark="8.2")
+					a(href="#").BtnBlue.BtnBlue-testimonial.BtnBlue-ratingSection.RatingSection_testimonialBtn Проголосовать
+				.VacanciesBlock
+					h3.SidebarTitle.VacanciesBlock_title Другие вакансии
+					.VacanciesBlock_items
+						.VacancyBlock.VacanciesBlock_item
+							.VacancyBlock_left
+								h4.VacancyBlock_title Gremi Personal
+								h4.VacancyBlock_workplace Почтовый склад
+							.VacancyBlock_right
+								.Rating.Rating-vacancyFull.Rating-vacancyBlock
+									span.Rating_wrapper
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 6,8
+										span.Rating_max / 10
+									span.Rating_label 182 оценки
+						.VacancyBlock.VacanciesBlock_item
+							.VacancyBlock_left
+								h4.VacancyBlock_title Gremi Personal
+								h4.VacancyBlock_workplace Почтовый склад
+							.VacancyBlock_right
+								.Rating.Rating-vacancyFull.Rating-vacancyBlock
+									span.Rating_wrapper
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 6,8
+										span.Rating_max / 10
+									span.Rating_label 182 оценки
+						.VacancyBlock.VacanciesBlock_item
+							.VacancyBlock_left
+								h4.VacancyBlock_title Gremi Personal
+								h4.VacancyBlock_workplace Почтовый склад
+							.VacancyBlock_right
+								.Rating.Rating-vacancyFull.Rating-vacancyBlock
+									span.Rating_wrapper
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 6,8
+										span.Rating_max / 10
+									span.Rating_label 182 оценки
+						.VacancyBlock.VacanciesBlock_item
+							.VacancyBlock_left
+								h4.VacancyBlock_title Gremi Personal
+								h4.VacancyBlock_workplace Почтовый склад
+							.VacancyBlock_right
+								.Rating.Rating-vacancyFull.Rating-vacancyBlock
+									span.Rating_wrapper
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 6,8
+										span.Rating_max / 10
+									span.Rating_label 182 оценки
+						.VacancyBlock.VacanciesBlock_item
+							.VacancyBlock_left
+								h4.VacancyBlock_title Gremi Personal
+								h4.VacancyBlock_workplace Почтовый склад
+							.VacancyBlock_right
+								.Rating.Rating-vacancyFull.Rating-vacancyBlock
+									span.Rating_wrapper
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 6,8
+										span.Rating_max / 10
+									span.Rating_label 182 оценки
+	include /includes/blocks/ComplaintFormPopup
+	include /includes/blocks/TopicLikePopup
 	include /includes/blocks/PopupShare
+	include /includes/blocks/PopupShareExtended
+	include /includes/blocks/PopupCommentSettings
+	include /includes/blocks/PopupOwnCommentSettings
 	include /includes/blocks/LinkCopiedNotification
+	include /includes/blocks/ComplaintPopup
+	include /includes/blocks/ComplaintTopicPopup
+	include /includes/blocks/BookmarkTopicPopupGuest
+	include /includes/chunks/images_template
 block page_bottom
-	script(src="/js/vacancies.js")
+	script(src="/js/vacancy.js")

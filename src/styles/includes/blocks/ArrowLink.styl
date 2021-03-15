@@ -6,7 +6,7 @@
 	line-height 1.857
 	white-space nowrap
 	
-	&:after
+	&::after
 		content ""
 		display inline-block
 		width 4px
@@ -18,7 +18,7 @@
 	&-companyInfoName
 		font-size 21px
 		
-		&:after
+		&::after
 			margin-left 6px
 			transform rotate(90deg)
 	
@@ -38,11 +38,11 @@
 		@media $xxs
 			font-size 16px
 		
-		&:after
+		&::after
 			transform rotate(90deg)
 	
 	&-left
-		&:before
+		&::before
 			content ""
 			display inline-block
 			margin-right 4px
@@ -51,7 +51,7 @@
 			border-right-color $blue
 			vertical-align middle
 			
-		&:after
+		&::after
 			display none
 	
 	&-countries,
@@ -60,7 +60,7 @@
 		font-weight 500
 		font-size 13px
 		
-		&:after
+		&::after
 			content ""
 			display inline-block
 			border 3px solid transparent
@@ -75,7 +75,7 @@
 		@media $xs
 			font-size 16px
 			
-			&:after
+			&::after
 				display none
 	
 	&-vacancies
@@ -84,7 +84,7 @@
 	&-news
 		font-size 13px
 		
-		&:before
+		&::before
 			content ""
 			display inline-block
 			width 14px
@@ -93,5 +93,20 @@
 			margin-right 7px
 			background url('../img/arrow_left.svg') 0 0 no-repeat
 		
-		&:after
+		&::after
 			display none
+	
+	&-vacancyFull
+		display inline-flex
+		align-items center
+		font-size 13px
+		
+		&::after
+			display none
+		
+		&::before
+			content ""
+			width 14px
+			height 9px
+			margin-right 7px
+			background-image url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cstyle%3E%3C/style%3E%3Cg id='Заголовок'%3E%3Cpath id='Фигура 1' d='M5.23 8.85c.22.18.58.18.8 0 .22-.17.22-.46 0-.63L1.94 4.94 13 5c1 0 1-1 0-1l-11.06.03L6.03.77c.22-.18.22-.47 0-.65a.66.66 0 00-.8 0L.17 4.17c-.23.17-.23.46 0 .64l5.06 4.04z' fill='%234b97f9'/%3E%3C/g%3E%3C/svg%3E")

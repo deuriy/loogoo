@@ -25,21 +25,6 @@
 		&:last-child
 			margin-right 0
 	
-	&-fixed
-		position fixed
-		z-index 10
-		top 67px
-		right 0
-		left 0
-		height 34px
-		padding-right 10px
-		padding-left 10px
-		background $white
-		@extend .transition
-	
-	&-fixedTop
-		top 0
-	
 	&-profile
 		@media $xs
 			padding-bottom 20px
@@ -47,7 +32,9 @@
 	&-notifications
 		overflow visible
 	
-	&-company, &-companySettings
+	&-company,
+	&-companySettings,
+	&-vacancyFull
 		overflow hidden
 		
 		@media $xs
@@ -66,7 +53,7 @@
 				right 0
 				width 32px
 				height 10px
-				background url('../img/menu_section_blur.png') 0 0 / cover no-repeat
+				background url('../img/menu_section_blur.png') 0 0 / 100% 100% no-repeat
 				pointer-events none
 	
 	&-save
@@ -90,3 +77,43 @@
 		
 		.MenuSection_saveFilter
 			margin-top -1px
+	
+	&-vacancyFull
+		@media $xs
+			background-image none
+			
+			&::after
+				top 19px
+				height 14px
+	
+	&-fixed,
+	&-sticky
+		@media $xs
+			position fixed
+			z-index 10
+			right 0
+			left 0
+	
+	&-fixed
+		top 67px
+		height 34px
+		padding-right 10px
+		padding-left 10px
+		background $white
+		@extend .transition
+	
+	&-fixedTop
+		top 0
+	
+	&-sticky
+		@media $xs
+			position fixed
+			z-index 10
+			top 51px
+			background $white
+	
+	&-small
+		@media $xs
+			&::after
+				top 9px
+				width 18px

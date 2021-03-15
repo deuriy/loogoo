@@ -71,3 +71,34 @@
 	&-noBorderTop
 		padding-top 0
 		border-top none
+	
+	&-short
+		padding 28px 28px 33px 31px
+		border none
+		background $white
+		border-radius 12px
+		filter drop-shadow(0 0 6px rgba(0,0,0,0.05))
+		
+		@media $xs
+			padding 0
+			filter none
+			border-radius 0
+		
+		.RatingSection_title
+			@media $xs
+				margin-bottom 19px
+		
+		.RatingSection_ratingWrapper
+			margin-bottom 12px
+			
+			@media $xs
+				margin-bottom 17px
+		
+		.RatingSection_extendedRatings
+			margin-bottom 29px
+		
+		.RatingSection_rating
+			margin-left -4px
+		
+		.RatingSection_testimonialBtn
+			margin-bottom 0

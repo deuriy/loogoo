@@ -2,7 +2,8 @@
 	display flex
 	align-items center
 	
-	&_wrapperLink
+	&_wrapperLink,
+	&_wrapper
 		display flex
 		align-items baseline
 	
@@ -34,7 +35,6 @@
 		z-index 10
 		top calc(100% + 9px)
 		left -21px
-		// width 412px
 		width 440px
 		padding 14px 22px
 		border-radius 3px
@@ -104,7 +104,8 @@
 	
 	&-company,
 	&-companyComment,
-	&-companyBlock
+	&-companyBlock,
+	&-vacancyFull
 		.Rating_icon
 			align-self center
 			margin-right 5px
@@ -115,7 +116,8 @@
 			color $black
 			line-height 1
 	
-	&-company
+	&-company,
+	&-vacancyFull
 		align-items flex-end
 		font-weight 500
 		
@@ -356,3 +358,58 @@
 		.Rating_dropdown
 			@media $xs
 				padding 22px 22px 19px
+	
+	&-vacancyFull
+		width 100%
+		
+		.Rating_icon
+			transform scale(0.556)
+			margin-top 2px
+			margin-right 0
+			
+			@media $xs
+				margin-right 4px
+				transform scale(0.6665)
+		
+		.Rating_number
+			font-size 28px
+			
+			@media $xs
+				font-size 32px
+		
+		.Rating_label
+			position relative
+			right -4px
+			align-self flex-start
+			margin-left auto
+			color #999
+			font-weight normal
+			font-size 13px
+			
+			@media $xs
+				align-self flex-end
+				right 0
+				margin-left 0
+				color $blue3
+				font-weight 500
+				font-size 15px
+	
+	&-vacancyBlock
+		flex-direction column
+		
+		.Rating_wrapper
+			margin-bottom 6px
+		
+		.Rating_icon
+			margin-top -2px
+		
+		.Rating_max
+			margin-right 0
+			font-size 13px
+		
+		.Rating_label
+			align-self initial
+		
+		.Rating_number
+			margin-right 2px
+			font-size 16px

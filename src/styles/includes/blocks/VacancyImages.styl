@@ -1,0 +1,71 @@
+.VacancyImages
+	width 720px
+	max-width 100%
+	
+	@media $xs
+		width auto
+		max-width none
+	
+	&_gallery
+		margin-bottom 12px
+	
+	&_gallerySlide
+		@media $xs
+			width 300px
+		
+	&_galleryImg
+		border-radius 8px
+		background-size cover
+		
+		&::after
+			content ""
+			display block
+			padding-top 66.4%
+			
+			@media $xs
+				padding-top 66.5%
+	
+	&_thumbSlide
+		width 120px
+	
+	&_thumbImg
+		border-radius 8px
+		background-size cover
+		cursor pointer
+		
+		&::after
+			content ""
+			display block
+			padding-top 65.2%
+	
+	&_prev,
+	&_next
+		top 0
+		bottom 0
+		width 50px
+		height auto
+		margin-top 0
+		border none
+		outline none
+		background-color transparent
+		background-position center center
+		background-repeat no-repeat
+		@extend .transition
+		
+		&::after
+			display none
+		
+		&:hover
+			background-color rgba(0, 0, 0, .3)
+	
+	&_prev
+		left 0
+		border-top-left-radius 8px
+		border-bottom-left-radius 8px
+		background-image url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cstyle%3E%3C/style%3E%3Cg id='Фото'%3E%3Cg id='Scroll icon копия'%3E%3Cpath id='Фигура 42 копия' d='M3.38 8.01l4.66 4.72L6.81 14 0 6.99l6.81-7 1.23 1.27L3.35 6H14v2l-10.62.01z' fill='%23fff'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+	
+	&_next
+		right 0
+		border-top-right-radius 8px
+		border-bottom-right-radius 8px
+		background-image url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cstyle%3E%3C/style%3E%3Cg id='Фото'%3E%3Cg id='Scroll icon копия'%3E%3Cpath id='Фигура 42' d='M10.62 5.99L5.96 1.27 7.19 0 14 7.01l-6.81 7-1.23-1.27L10.65 8H0V6l10.62-.01z' fill='%23fff'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")

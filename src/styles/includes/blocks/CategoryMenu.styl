@@ -47,7 +47,8 @@
 			color $blue
 			font-size 11px
 	
-	&-company
+	&-company,
+	&-vacancyFull
 		.CategoryMenu_menu
 			margin-left 0
 		
@@ -59,7 +60,8 @@
 	
 	&-company,
 	&-companySettings,
-	&-companiesDossiers
+	&-companiesDossiers,
+	&-vacancyFull
 		overflow auto
 		
 		@media $xs
@@ -106,3 +108,17 @@
 				padding-right 14px
 				padding-bottom 14px
 				padding-left 20px
+	
+	&-vacancyFull
+		@media $xs
+			.CategoryMenu_item
+				font-weight 600
+				font-size 14px
+	
+	&-small
+		@media $xs
+			.CategoryMenu_item
+				font-size 10px
+			
+			.CategoryMenu_link
+				padding 10px 15px

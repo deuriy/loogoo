@@ -1,0 +1,88 @@
+.Vacancy
+	@media $xs
+		display flex
+		flex-direction column
+		padding-top 64px
+		
+	&_viewAll
+		margin-bottom .8em
+	
+	&_header
+		@media $xs
+			display flex
+			justify-content space-between
+			margin-bottom 17px
+		
+	&_title
+		margin-bottom .2em
+		font-weight 500
+		font-size 24px
+		
+		@media $xs
+			margin-bottom 0
+			font-weight 600
+			font-size 20px
+	
+	&_workplace
+		margin-bottom .9em
+		margin-left .12em
+		font-size 13px
+		line-height 1.5384
+		color #999
+		
+		@media $xs
+			margin-bottom 0
+			margin-left 0
+	
+	&_menuSection
+		margin-bottom 1.7em
+		margin-left .21em
+		
+		// @media $xs
+		// 	order -1
+		// 	margin 0 -20px 13px
+		
+		@media $xs
+			margin-bottom 0
+			margin-left 0
+	
+	&_swiper
+		margin-bottom 36px
+		
+		@media $xs
+			margin-right -20px
+			margin-bottom 9px
+	
+	&_mark
+		color #999
+		font-size 13px
+	
+	&_text
+		margin-bottom 2.5em
+		margin-left .2em
+		font-size 16px
+		line-height 1.625
+		
+		a
+			color $blue
+			font-weight 500
+			text-decoration underline
+			
+			&:hover
+				text-decoration none
+		
+		@media $xs
+			margin-left 0
+			margin-bottom 18px
+			font-size 14px
+	
+	&_statIcons
+		margin-bottom 28px
+		padding-right 31px
+		
+		@media $xs
+			margin-bottom 21px
+			padding-right 0
+	
+	&_ratingSection
+		margin-bottom 22px
