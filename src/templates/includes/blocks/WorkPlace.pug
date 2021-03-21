@@ -1,0 +1,9 @@
+.Popup.Popup-workPlace#WorkPlace(style="display: none;")
+	.SeparateText.Popup_separateText
+		h3.Popup_title.Popup_title-separate Добавьте информацию о работе в Samsung
+	form(action="#").Form
+		.Form_item
+			label(for="note_text").Form_label Что вы хотите добавить?
+			textarea(name="note_text", id="note_text", placeholder="Что вы хотите добавить?").FormTextarea.FormTextarea-workPlace
+		.Form_actions
+			button(type="submit").BtnOrange.BtnOrange-large Дополнить информацию

@@ -1,0 +1,50 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Страница дополнения места работы (добавляя фото и видео)";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-addTestimonial";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.MobileHeader-addTestimonial.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					.MobileHeader_titleWrapper
+						h1.MobileHeader_title #{title}
+					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
+				form(action="#", name="add_testimonial").AddTestimonial
+					h2.AddTestimonial_title.hidden-xs Добавьте фото и видео о работе в Samsung
+					.AddTestimonial_otherFields
+						.AddTestimonial_field
+							.Tabs.Tabs-profileMenu.Tabs-companySettings.Tabs-addTestimonial.AddTestimonial_tabs
+								ul.Tabs_list
+									li.Tabs_item.Tabs_item-gutterRight.Tabs_item-active Публичные файлы (доступны всем) #[span.Tabs_count 0]
+									//- li.Tabs_item.Tabs_item-gutterLeft Конфиденциальные файлы (скрыты от всех) #[span.Tabs_count 15]
+								.Tabs_container
+									.Tabs_content.Tabs_content-publicFiles(style="display:block;")
+										h4.Tabs_subTitle.hidden-smPlus Публичные файлы (доступны всем)
+										.AddTestimonial_note.hidden Файлы, которые будут доступны всем пользователям для просмотра. Этот раздел не обязателен к заполнению, но пользователи особенно внимательно прислушиваются к тем отзывам, которые документально подтверждены фото или другими материалами. Поэтому, рекомендуем добавить изображения или любые другие материалы, которые подтвердят подлинность ваших слов.
+										.UploadArea Нажмите, или переместите файлы для загрузки	
+									//- .Tabs_content.Tabs_content-privateFiles
+									//- 	h4.Tabs_subTitle.hidden-smPlus Конфиденциальные файлы (скрыты от всех)
+									//- 	.AddTestimonial_note Файлы, которые будут доступны только для администрации портала INFOZA и навсегда останутся скрытыми от других пользователей. Этот пункт обязателен к заполнению! Обратите внимание, если доказательства будут несущественными или вызовут сомнения в подтверждении ваших слов – отзыв опубликован не будет.
+									//- 	.UploadArea Нажмите, или переместите файлы для загрузки
+						.AddTestimonial_actions
+							button(type="submit").BtnBlue.BtnBlue-addTestimonial Добавить
+							a(href="/company_reviews.html").AddTestimonial_link.AddTestimonial_link-cancel Отмена
+							a(href="javascript:;", data-src="#WorkPlace" style="margin-left: 30px;").OpenPopupLink.AddTestimonial_link Дополнить информацию о работе
+			.Aside.Main_aside.hidden-smMinus
+				a(href="/company.html", title="Sony Corporation").CompanyLink.Aside_companyLink
+					img(src="img/sony2.png", alt="Sony Corporation").CompanyLink_img
+					.CompanyLink_textWrap
+						.CompanyLink_title Sony Corporation
+						.CompanyLink_text на страницу компании
+				include /includes/blocks/SettingsMenu
+	include /includes/blocks/WorkPlace
+	include /includes/blocks/PopupShare
+	include /includes/blocks/LinkCopiedNotification
+	include /includes/blocks/PopupChangeCover
+block page_bottom
+	//- script(src="/js/add_testimonial.js")

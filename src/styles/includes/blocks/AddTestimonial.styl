@@ -123,15 +123,18 @@
 			line-height 1.6
 	
 	&_note
-		margin-bottom 18px
 		color $blue3
 		font-size 13px
 		line-height 1.616
 		
 		@media $xs
+			margin-bottom 18px
 			font-size 15px
 			line-height 1.6
 			color $black
+		
+		@media $smPlus
+			padding 30px 30px
 	
 	&_actions
 		@media $xs
@@ -144,3 +147,7 @@
 		@media $xs
 			margin-right -20px
 			margin-left -20px
+	
+	&-evaluation
+		@media $xs
+			padding-top 15px

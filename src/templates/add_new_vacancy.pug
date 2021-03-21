@@ -1,0 +1,67 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Добавить вакансию";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title #{title}
+					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
+				include /includes/blocks/MenuSectionProfile
+				.VacancyCreation
+					.VacancyCreation_dropdowns
+						.SelectWrapper.VacancyCreation_selectWrapper
+							label(for="enterprise_type").SelectWrapper_label Тип предприятия
+							select.Select.Select-small.Select-bordered.SelectWrapper_select(name="enterprise_type_select" required)
+								option(value="enterprise_type1") Тип предприятия 1
+								option(value="enterprise_type2") Тип предприятия 2
+								option(value="enterprise_type3") Тип предприятия 3
+								option(value="enterprise_type4") Тип предприятия 4
+								option(value="enterprise_type5") Тип предприятия 5
+						.SelectWrapper.VacancyCreation_selectWrapper
+							label(for="country").SelectWrapper_label Страна
+							select.Select.Select-small.Select-bordered.SelectWrapper_select(name="country_select" required)
+								option(value="none") Выберите страну
+								option(value="country2") Страна 1
+								option(value="country3") Страна 2
+								option(value="country4") Страна 3
+								option(value="country5") Страна 4
+						.SelectWrapper.hidden.VacancyCreation_selectWrapper
+							label(for="cities").SelectWrapper_label Все города
+							select.Select.Select-small.Select-bordered.SelectWrapper_select(name="cities_select", disabled)
+								option(value="cities1") Город 1
+								option(value="cities2") Город 2
+								option(value="cities3") Город 3
+								option(value="cities4") Город 4
+								option(value="cities5") Город 5
+					form(action="#").VacancyCreationForm
+						.VacancyCreationForm_item.hidden
+							label(for="address").VacancyCreationForm_label.hidden-smPlus Адрес
+							input(type="text", name="address", id="address" placeholder="Адрес" required).FormText.FormText-vacancyCreationForm
+						.VacancyCreationForm_item.VacancyCreationForm_item-title
+							label(for="company_name").VacancyCreationForm_label.hidden-smPlus Название предприятия
+							input(type="text", name="company_name", id="company_name" placeholder="Название предприятия" required).FormText.FormText-vacancyCreationForm
+						.VacancyCreationForm_item
+							label(for="answer").VacancyCreationForm_label.hidden-smPlus Краткое описание
+							textarea(name="answer", id="answer" placeholder="Краткое описание…").FormTextarea.FormTextarea-vacancyCreationForm
+						.ImageUpload.ImageUpload-vacancyCreation
+							input(type="file", name="attach_photo_video", id="attach_photo_video", multiple).ImageUpload_input
+							label(for="attach_photo_video").ImageUpload_label
+								span.hidden-xs
+									include /includes/svg/SvgIco/icon_camera
+								span.hidden-smPlus
+									include /includes/svg/SvgIco/icon_image
+							label(for="attach_photo_video").ImageUpload_text.hidden-xs Добавить фото/видео
+							label(for="attach_photo_video").ImageUpload_text.hidden-smPlus Добавьте фото/видео
+						.VacancyCreationForm_actions
+							button(type="submit").BtnOutline.hidden-xs Опубликовать
+							button(type="submit").BtnOrange.BtnOrange-vacancyCreationForm.hidden-smPlus Опубликовать
+			.Aside.Main_aside.hidden-smMinus
+				include /includes/blocks/ProfileMenu
+	include /includes/blocks/PopupShare
+	include /includes/blocks/LinkCopiedNotification

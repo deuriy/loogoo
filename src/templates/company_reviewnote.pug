@@ -66,7 +66,7 @@ block content
 							span.Contacts_icon
 								include /includes/svg/contacts/flag_ua
 							span.Contacts_text Украина
-						li.Contacts_item
+						li.Contacts_item.Contacts_item-link
 							span.Contacts_icon
 								include /includes/svg/contacts/license
 							span.Contacts_text
@@ -79,7 +79,7 @@ block content
 							span.Contacts_icon
 								include /includes/svg/contacts/clock
 							span.Contacts_text Пн–Пт: 9:00–18:00, без перерыва #[br]Сб–Вс: 10:00–17:00, без перерыва
-						li.Contacts_item
+						li.Contacts_item.Contacts_item-link
 							span.Contacts_icon.Contacts_icon-link
 								include /includes/svg/contacts/link
 							span.Contacts_text
@@ -185,7 +185,7 @@ block content
 							h4.ReviewNote_title Как вы хотите оставить отзыв?
 							a(href="#").ReviewNote_link.hidden-xs Подробнее
 						.ReviewNote_body
-							.ReviewNote_text Здесь только реальные отзывы, которым вы действительно можете доверять! #[br.hidden-xs]Чтобы добавить отзыв вам нужно пройти онлайн верификацию или предоставить доказательства, которые подтверждали бы ваш отзыв. #[a(href="#").ReviewNote_link.hidden-smPlus Подробнее]
+							.ReviewNote_text Здесь только реальные отзывы, которым вы действительно можете доверять! #[br.hidden-xs]Чтобы добавить отзыв вам нужно пройти онлайн верификацию или предоставить доказательства, которые подтверждали бы ваш отзыв. #[a(href="#").ReviewNote_link.ReviewNote_link-more.hidden-smPlus Подробнее]
 							.ReviewNote_links
 								a(href="#").ReviewNote_link.ReviewNote_link-provideEvidence Предоставить доказательства
 								a(href="#").ReviewNote_link.ReviewNote_link-verification Пройти верификацию

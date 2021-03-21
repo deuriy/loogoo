@@ -255,7 +255,6 @@ function locationHashChanged () {
 	document.querySelectorAll('[data-action="openMobilePopup"]').forEach( link => {
 		if (link.getAttribute('href') === location.hash) {
 			openMobilePopup(link.getAttribute('href').slice(1));
-			// console.log(link.getAttribute('href'));
 		} else {
 			closeMobilePopup(link.getAttribute('href').slice(1));
 		}
@@ -350,6 +349,15 @@ function setPositionActiveTab (tabs) {
 		tabs.scrollLeft -= diff;
 	}
 }
+
+// function cropText (text, limit) {
+// 	text = text.trim();
+//   if( text.length <= limit) return text;
+
+//   text = text.slice(0, limit);
+
+//   return text.trim() + "...";
+// }
 
 document.addEventListener("DOMContentLoaded", function () {
 	// Fancybox
@@ -1544,6 +1552,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	document.addEventListener('click', function (e) {
 		popupClicks++;
+	});
+
+	// Trimming text in comments
+	document.querySelectorAll('.Comment-company .Comment_text').forEach(comment => {
+		// let text = comment.innerHTML.trim();
+		let text = comment.innerHTML;
+		console.log(text);
+
+		// if (text.length > 40) {
+		// 	text = text.slice(0, 40) + '...';
+		// 	comment.textContent = text;
+		// }
 	});
 });
 

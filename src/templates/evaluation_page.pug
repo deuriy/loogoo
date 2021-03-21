@@ -1,0 +1,117 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Страница для оценки";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-addTestimonial";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.MobileHeader-addTestimonial.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					.MobileHeader_titleWrapper
+						h1.MobileHeader_title #{title}
+					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
+				form(action="#", name="evaluation").AddTestimonial
+					h2.AddTestimonial_title.hidden-xs Мой отзыв о работе в компании
+					h3.AddTestimonial_subTitle Какими услугами вы воспользовались?
+					.AddTestimonial_otherFields
+						.Ratings.AddTestimonial_ratings
+							h3.Ratings_title Оцените по параметрам
+							.Ratings_items
+								.RatingItem.Ratings_item(data-rating-item-id='1')
+									.RatingItem_title Качество обслуживания и поддержки
+									.RatingItem_wrapper
+										ul.RatingItem_stars
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+										.RatingItem_number.hidden-xs
+									input(type="hidden", name="rating[1]", id="rating[1]" value="7").RatingItem_input
+								.RatingItem.Ratings_item(data-rating-item-id='2')
+									.RatingItem_title Достоверность информации о работе
+									.RatingItem_wrapper
+										ul.RatingItem_stars
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+										.RatingItem_number.hidden-xs
+									input(type="hidden", name="rating[2]", id="rating[2]" value="").RatingItem_input
+								.RatingItem.Ratings_item(data-rating-item-id='3')
+									.RatingItem_title Достоверность информации о жилье
+									.RatingItem_wrapper
+										ul.RatingItem_stars
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+										.RatingItem_number.hidden-xs
+									input(type="hidden", name="rating[3]", id="rating[3]" value="3").RatingItem_input
+								.RatingItem.Ratings_item(data-rating-item-id='4')
+									.RatingItem_title Соблюдение сроков изготовления документов
+									.RatingItem_wrapper
+										ul.RatingItem_stars
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+										.RatingItem_number.hidden-xs
+									input(type="hidden", name="rating[4]", id="rating[4]" value="").RatingItem_input
+								.RatingItem.Ratings_item(data-rating-item-id='5')
+									.RatingItem_title Качество полученных документов или услуг
+									.RatingItem_wrapper
+										ul.RatingItem_stars
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+											li.RatingItem_star
+										.RatingItem_number.hidden-xs
+									input(type="hidden", name="rating[5]", id="rating[5]" value="").RatingItem_input
+						.AddTestimonial_actions
+							button(type="submit").BtnBlue.BtnBlue-addTestimonial Оценить
+			.Aside.Main_aside.hidden-smMinus
+				a(href="/company.html", title="Sony Corporation").CompanyLink.Aside_companyLink
+					img(src="img/sony2.png", alt="Sony Corporation").CompanyLink_img
+					.CompanyLink_textWrap
+						.CompanyLink_title Sony Corporation
+						.CompanyLink_text на страницу компании
+				include /includes/blocks/SettingsMenu
+	include /includes/blocks/PopupShare
+	include /includes/blocks/LinkCopiedNotification
+	include /includes/blocks/PopupChangeCover
+block page_bottom
+	//- script(src="/js/add_testimonial.js")
