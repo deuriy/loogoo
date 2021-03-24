@@ -91,6 +91,18 @@
 		&-rightIndent
 			@media $smPlus
 				padding-right 10px
+		
+		&-column
+			flex-direction column
+			align-items stretch
+			
+			.CompanySettings_label
+				flex-basis auto
+				margin-top 0
+				margin-bottom 3px
+				
+				@media $xs
+					margin-bottom 5px
 	
 	&_label
 		margin-top 13px
@@ -102,6 +114,10 @@
 			margin-top 0
 			margin-bottom 5px
 			flex auto 0 0
+		
+		&-enterpriseAddition
+			@media $smPlus
+				font-size 12px
 	
 	&_fieldContent
 		flex auto 1 1
@@ -144,6 +160,27 @@
 			
 			@media $xs
 				align-items stretch
+	
+	&_fieldGroup
+		display flex
+		
+		@media $xs
+			flex-direction column
+		
+		.CompanySettings_field
+			flex calc(33.33% - 32px) 1 1
+			margin-right 16px
+			
+			@media $xs
+				flex-basis 100%
+				margin-right 0
+			
+			&:last-child
+				margin-right 0
+		
+		.CompanySettings_dropdownSelect
+			max-width 100%
+			flex-basis 100%
 	
 	&_remark
 		&-explanation
@@ -246,7 +283,8 @@
 			@media $xs
 				width calc(100% - 22px)
 	
-	&_formText, &_dropdownSelect
+	&_formText,
+	&_dropdownSelect
 		&-contactBtn
 			flex 200px 0 1
 			max-width 200px
@@ -342,10 +380,13 @@
 	&_link
 		color $blue
 		
-		&-cancel, &-fullNameEdit, &-ownerFullNameEdit
+		&-cancel,
+		&-fullNameEdit,
+		&-ownerFullNameEdit
 			font-weight 500
 		
-		&-fullNameEdit, &-ownerFullNameEdit
+		&-fullNameEdit,
+		&-ownerFullNameEdit
 			font-size 16px
 			line-height 1.5625
 	
@@ -359,13 +400,15 @@
 	&_ownerError
 		margin-top 4px
 	
-	&_postHeader, &_ownerHeader
+	&_postHeader,
+	&_ownerHeader
 		display flex
 		justify-content space-between
 		align-items center
 		margin-bottom 4px
 	
-	&_jobTitle, &_ownerFullName
+	&_jobTitle,
+	&_ownerFullName
 		font-weight 500
 		font-size 14px
 		color $blue2
@@ -374,7 +417,6 @@
 		text-overflow ellipsis
 	
 	&_group
-		// margin-bottom 22px
 		margin-bottom 27px
 		
 		@media $xs
@@ -415,7 +457,8 @@
 			@media $xs
 				margin-top -14px
 	
-	&_removePost, &_removeOwner
+	&_removePost,
+	&_removeOwner
 		margin-right -10px
 	
 	&_notice
@@ -446,6 +489,14 @@
 	
 	&_profileCover
 		margin-top 20px
+	
+	&_uploadArea
+		margin-bottom 31px
+	
+	&_uploadedImages
+		@media $xs
+			margin-right -20px
+			margin-bottom 30px
 	
 	&-addingCompany
 		.CompanySettings_fields
@@ -578,4 +629,32 @@
 					margin-bottom 0
 		
 		.CompanySettings_actions
+			padding-left 0
+	
+	&-enterpriseAddition
+		@media $xs
+			padding-top 20px
+			padding-bottom 24px
+			
+		.CompanySettings_title
+			margin-bottom 38px
+		
+		.CompanySettings_fields
+			margin-bottom 72px
+			padding-bottom 0
+			padding-right 29px
+			border-bottom none
+			
+			@media $smMinus
+				margin-bottom 30px
+				padding-right 5px
+		
+		.CompanySettings_field
+			margin-bottom 36px
+			
+			@media $xs
+				margin-bottom 26px
+		
+		.CompanySettings_actions
+			padding-right 6px
 			padding-left 0

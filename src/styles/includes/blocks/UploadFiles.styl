@@ -1,0 +1,37 @@
+.UploadFiles
+	@media $smPlus
+		max-width 382px
+		
+	&_items
+		@media $xs
+			max-height calc(100vh - 220px)
+			overflow auto
+		
+	&_item
+		position relative
+		padding-right 30px
+		margin-bottom 20px
+	
+	&_input
+		flex 166px 1 1
+		height 44px
+		padding-right 12px
+		padding-left 12px
+		border 1px solid #EBF0F2
+		border-radius 3px
+		outline none
+		font-size 15px
+		color $black
+		
+		+placeholder()
+			color $blue3
+	
+	&_removeItem
+		position absolute
+		top 0
+		right 0
+		bottom 0
+		width 25px
+		height 25px
+		margin auto
+		background url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11.97 11.97'%3E%3Cpath data-name='Фигура 11' d='M6.64 5.97L11.83.78a.467.467 0 00-.66-.66l-5.2 5.19L.78.12a.467.467 0 00-.66.66l5.19 5.19-5.19 5.2a.453.453 0 000 .66.459.459 0 00.66 0l5.19-5.19 5.2 5.19a.459.459 0 00.66 0 .453.453 0 000-.66z' fill='%23647c97' fill-rule='evenodd' opacity='.5'/%3E%3C/svg%3E") center center / 12px auto no-repeat

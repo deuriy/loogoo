@@ -60,30 +60,25 @@
 		
 		&::-webkit-scrollbar
 			width 0
-			// width 5px
-			// right 2px
-			
-			// @media $xs
-			// 	width 0
-		
-		// &::-webkit-scrollbar-track
-		// 	border-radius 3px
-		
-		// &::-webkit-scrollbar-thumb
-		// 	border-radius 3px
-		// 	background-color #DFE4E6
 		
 		@media $xs
 			height 40px
 			padding 10px 9px
 	
-	&-companySettings
+	&-companySettings,
+	&-enterpriseAddition
 		min-height 90px
 		padding 10px 12px
 		border-radius 3px
 		
 		@media $xs
 			min-height 160px
+	
+	&-enterpriseAddition
+		min-height 180px
+		
+		@media $xs
+			min-height 159px
 	
 	&-addTestimonial
 		min-height 150px

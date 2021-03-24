@@ -1213,6 +1213,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			let mobilePopup = document.getElementById(mobilePopupID);
 			mobilePopup.querySelector('.MobilePopup_title').textContent = mobilePopupTitle;
 		}
+
+		e.preventDefault();
 	});
 
 	document.addEventListener('click', function (e) {
@@ -1555,16 +1557,16 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	// Trimming text in comments
-	document.querySelectorAll('.Comment-company .Comment_text').forEach(comment => {
-		// let text = comment.innerHTML.trim();
-		let text = comment.innerHTML;
-		console.log(text);
+	// document.querySelectorAll('.Comment-company .Comment_text').forEach(comment => {
+	// 	// let text = comment.innerHTML.trim();
+	// 	let text = comment.innerHTML;
+	// 	console.log(text);
 
-		// if (text.length > 40) {
-		// 	text = text.slice(0, 40) + '...';
-		// 	comment.textContent = text;
-		// }
-	});
+	// 	// if (text.length > 40) {
+	// 	// 	text = text.slice(0, 40) + '...';
+	// 	// 	comment.textContent = text;
+	// 	// }
+	// });
 });
 
 let popupClicks = 0, popupSteps = 0;

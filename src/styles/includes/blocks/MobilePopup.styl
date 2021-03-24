@@ -5,9 +5,9 @@
 	right 0
 	bottom 0
 	left 0
-	@extend .transition
 	visibility hidden
 	opacity 0
+	@extend .transition
 	
 	&_wrapper
 		position absolute
@@ -30,11 +30,15 @@
 			padding-right 30px
 			padding-left 30px
 			text-align center
+		
+		&-left
+			padding-left 35px
 	
 	&_icon
 		margin-bottom 14px
 		
-		&-like, &-bookmark
+		&-like,
+		&-bookmark
 			margin-bottom 19px
 			
 			& > .SvgIco
@@ -51,7 +55,6 @@
 		font-size 18px
 		white-space nowrap
 		overflow hidden
-		-ms-text-overflow ellipsis
 		text-overflow ellipsis
 	
 	&_close
@@ -93,6 +96,12 @@
 		&:last-child
 			margin-bottom 0
 	
+	&_menu
+		margin-bottom 41px
+	
+	&_uploadFiles
+		margin-bottom 20px
+	
 	&_btnWrapper
 		display flex
 		justify-content center
@@ -127,7 +136,8 @@
 				max-width 38px
 				color $blue
 	
-	&-like, &-bookmark
+	&-like,
+	&-bookmark
 		.MobilePopup_wrapper
 			padding-top 28px
 			padding-bottom 24px
@@ -145,3 +155,16 @@
 		
 		.MobilePopup_icon
 			margin-bottom 10px
+	
+	&-uploadFiles
+		.MobilePopup_header
+			margin-bottom 34px
+			
+		.MobileHeader_btnBack
+			top 18px
+		
+		.MobilePopup_close
+			top 12px
+			
+		.MobilePopup_btn
+			flex-grow 1

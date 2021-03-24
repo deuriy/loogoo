@@ -31,18 +31,18 @@ let vacancyThumbs = new Swiper('.VacancyImages_thumbs', {
 vacancyGallery.controller.control = vacancyThumbs;
 vacancyThumbs.controller.control = vacancyGallery;
 
-let categoryMenuSticky = document.querySelector('.MenuSection-sticky .CategoryMenu');
+// let categoryMenuSticky = document.querySelector('.MenuSection-sticky .CategoryMenu');
 
-if (categoryMenuSticky) {
-  window.addEventListener('scroll', function (e) {
-    let scrollTop = document.documentElement.scrollTop;
+// if (categoryMenuSticky) {
+//   window.addEventListener('scroll', function (e) {
+//     let scrollTop = document.documentElement.scrollTop;
 
-    if (scrollTop >= 20) {
-      categoryMenuSticky.classList.add('CategoryMenu-small');
-      categoryMenuSticky.parentNode.classList.add('MenuSection-small');
-    } else {
-      categoryMenuSticky.classList.remove('CategoryMenu-small');
-      categoryMenuSticky.parentNode.classList.remove('MenuSection-small');
-    }
-  });
-}
+//     if (scrollTop >= 20) {
+//       categoryMenuSticky.classList.add('CategoryMenu-small');
+//       categoryMenuSticky.parentNode.classList.add('MenuSection-small');
+//     } else {
+//       categoryMenuSticky.classList.remove('CategoryMenu-small');
+//       categoryMenuSticky.parentNode.classList.remove('MenuSection-small');
+//     }
+//   });
+// }

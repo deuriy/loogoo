@@ -1,0 +1,165 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Добавить предприятие";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.MobileHeader-noBorder.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title #{title}
+					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
+				form(action="#", name="add_enterprise", novalidate).CompanySettings.CompanySettings-enterpriseAddition#EnterpriseAdditionForm
+					h2.CompanySettings_title.hidden-xs Добавить предприятие
+					.CompanySettings_fields
+						.CompanySettings_field.CompanySettings_field-column
+							label(for="enterprise_name").CompanySettings_label.CompanySettings_label-enterpriseAddition Название предприятия
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem
+										input(type="text", name="enterprise_name", id="enterprise_name").CompanySettings_formText.CompanySettings_formText-fullWidth
+									.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+						.CompanySettings_fieldGroup
+							.CompanySettings_field.CompanySettings_field-column
+								label.CompanySettings_label.CompanySettings_label-enterpriseAddition Тип предприятия
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.DropdownSelect-enterpriseAddition.CompanySettings_dropdownSelect
+												select(name="enterprise_type", id="enterprise_type").DropdownSelect_select
+													option(value="none") Выберите
+													option(value="enterprise_type_1") Тип предприятия 1
+													option(value="enterprise_type_2") Тип предприятия 2
+													option(value="enterprise_type_3") Тип предприятия 3
+										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно #[br]Введите адрес
+							.CompanySettings_field.CompanySettings_field-column
+								label.CompanySettings_label.CompanySettings_label-enterpriseAddition Страна
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.DropdownSelect-enterpriseAddition.CompanySettings_dropdownSelect
+												select(name="country", id="country").DropdownSelect_select
+													option(value="none") Выберите страну
+													option(value="uk") Украина
+													option(value="ru") Россия
+													option(value="by") Беларусь
+													option(value="pl") Польша
+													option(value="kz") Казахстан
+										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно #[br]Введите адрес
+							.CompanySettings_field.CompanySettings_field-column
+								label.CompanySettings_label.CompanySettings_label-enterpriseAddition Город
+								.CompanySettings_fieldContent
+									.CompanySettings_fieldItems
+										.CompanySettings_fieldItem
+											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-companySettings.DropdownSelect-enterpriseAddition.CompanySettings_dropdownSelect
+												select(name="city", id="city").DropdownSelect_select
+													option(value="none") Выберите город
+													option(value="city1") Город 1
+													option(value="city2") Город 2
+													option(value="city3") Город 3
+													option(value="city4") Город 4
+										.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно #[br]Введите адрес
+						.CompanySettings_field.CompanySettings_field-column
+							label(for="short_description").CompanySettings_label.CompanySettings_label-enterpriseAddition Краткое описание:
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem
+										textarea(name="short_description", id="short_description").FormTextarea.FormTextarea-enterpriseAddition
+									.Error.Error-small.CompanySettings_fieldError.hidden Поле заполнено неправильно
+						.UploadArea.UploadArea-whiteBg.CompanySettings_uploadArea.hidden-xs Нажмите, или переместите изображения и видео для загрузки	
+						.CompanySettings_field.CompanySettings_field-enterpriseFiles.CompanySettings_field-column.hidden-xs
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem
+										a(href="javascript:;").UploadLink.UploadLink-enterpriseFiles Загрузить по ссылке
+							.UploadFiles.CompanySettings_uploadFiles.hidden
+								.UploadFiles_items
+									.UploadFiles_item
+										input(type="text" name="enter_file_link[]" placeholder="Введите ссылку: https://…" form="EnterpriseAdditionForm").FormText.FormText-uploadFiles.UploadFiles_input
+								a(href="javascript:;").AddFieldItem.AddFieldItem-fileLink
+									include /includes/svg/icon_add
+									span.AddFieldItem_text Добавить поле
+						.UploadedImages.CompanySettings_uploadedImages
+							.UploadedImages_wrapper
+								.UploadedImages_item
+									img(src="/img/enterprise_img.png" alt="Enterprise image").UploadedImages_img
+									a(href="javascript:;").UploadedImages_removeItem
+								.UploadedImages_item
+									img(src="/img/enterprise_img.png" alt="Enterprise image").UploadedImages_img
+									a(href="javascript:;").UploadedImages_removeItem
+								.UploadedImages_item
+									img(src="/img/enterprise_img.png" alt="Enterprise image").UploadedImages_img
+									a(href="javascript:;").UploadedImages_removeItem
+								.UploadedImages_item
+									img(src="/img/enterprise_img.png" alt="Enterprise image").UploadedImages_img
+									a(href="javascript:;").UploadedImages_removeItem
+								.UploadedImages_item
+									img(src="/img/enterprise_img.png" alt="Enterprise image").UploadedImages_img
+									a(href="javascript:;").UploadedImages_removeItem
+								.UploadedImages_item
+									img(src="/img/enterprise_img.png" alt="Enterprise image").UploadedImages_img
+									a(href="javascript:;").UploadedImages_removeItem
+						.CompanySettings_field.CompanySettings_field-column.hidden-smPlus
+							.CompanySettings_fieldContent
+								.CompanySettings_fieldItems
+									.CompanySettings_fieldItem
+										a(href="#UploadFilesPopup" data-action="openMobilePopup").AddFieldItem.AddFieldItem-photoVideo
+											include /includes/svg/icon_add
+											span.AddFieldItem_text Добавить фото или видео
+					.CompanySettings_actions
+						button(type="submit").BtnBlue.BtnBlue-enterpriseAddition Опубликовать
+			.Aside.Main_aside.hidden-smMinus
+				include /includes/blocks/ProfileMenu
+	include /includes/blocks/LinkCopiedNotification
+	include /includes/blocks/PopupShare
+	.MobilePopup.MobilePopup-uploadFiles#UploadFilesPopup
+		.Overlay
+		.MobilePopup_wrapper
+			.MobilePopup_header.MobilePopup_header-center
+				h3.MobilePopup_title Добавление файлов
+				a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+					include /includes/svg/icon_close
+			.MobilePopupMenu.MobilePopup_menu
+				ul.MobilePopupMenu_list
+					li.MobilePopupMenu_item
+						a(href="#UploadFilePopup" data-action="openMobilePopup").MobilePopupMenu_link Фото или видео уже в интернете
+					li.MobilePopupMenu_item
+						a(href="#" data-action="openMobilePopup").MobilePopupMenu_link Прикрепить файл
+			.MobilePopup_btnWrapper
+				a(href="javascript:;" data-action="closeMobilePopup").BtnGrey.BtnGrey-mobilePopup.MobilePopup_btn Отмена
+	.MobilePopup.MobilePopup-uploadFiles#UploadFilePopup
+		.Overlay
+		.MobilePopup_wrapper
+			.MobilePopup_header.MobilePopup_header-center
+				a(href="#UploadFilesPopup", data-action="openMobilePopup").BtnBack.BtnBack-noBack.MobileHeader_btnBack
+					include /includes/svg/SvgIco/arrow_left
+				h3.MobilePopup_title Добавление файлов
+				a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+					include /includes/svg/icon_close
+			.UploadFiles.MobilePopup_uploadFiles
+				.UploadFiles_items
+					.UploadFiles_item
+						input(type="text" name="enter_file_link[]" placeholder="Введите ссылку: https://…" form="EnterpriseAdditionForm").FormText.FormText-uploadFiles.UploadFiles_input
+				a(href="javascript:;").AddFieldItem.AddFieldItem-fileLink
+					include /includes/svg/icon_add
+					span.AddFieldItem_text Добавить поле
+			.MobilePopup_btnWrapper
+				a(href="#UploadFileResultPopup" data-action="openMobilePopup").BtnBlue.BtnBlue-mobilePopupLogin.MobilePopup_btn Добавить
+				a(href="javascript:;" data-action="closeMobilePopup").BtnGrey.BtnGrey-mobilePopup.MobilePopup_btn Отмена
+	.MobilePopup.MobilePopup-uploadFiles#UploadFileResultPopup
+		.Overlay
+		.MobilePopup_wrapper
+			.MobilePopup_header.MobilePopup_header-center
+				.MobilePopup_icon.MobilePopup_icon-like
+					include /includes/svg/SvgIco/like_big
+				h3.MobilePopup_title Добавление файлов
+				a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+					include /includes/svg/icon_close
+			.MobilePopup_text.MobilePopup_text-smallIndent Файлы успешно загружены
+			.MobilePopup_btnWrapper
+				a(href="/register.html").BtnGrey.BtnGrey-mobilePopup.MobilePopup_btn Закрыть
+block page_bottom
+	script(src="/js/add_enterprise.js")
