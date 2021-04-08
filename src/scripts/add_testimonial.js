@@ -66,27 +66,27 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 
-	function setRatingItemValue (ratingItem) {
-		let ratingItemInput = ratingItem.querySelector('.RatingItem_input');
-		let ratingItemNumber = ratingItem.querySelector('.RatingItem_number');
-		let ratingItemStars = ratingItem.querySelectorAll('.RatingItem_star');
+	// function setRatingItemValue (ratingItem) {
+	// 	let ratingItemInput = ratingItem.querySelector('.RatingItem_input');
+	// 	let ratingItemNumber = ratingItem.querySelector('.RatingItem_number');
+	// 	let ratingItemStars = ratingItem.querySelectorAll('.RatingItem_star');
 
-		if (ratingItemInput.value) {
-			ratingItemNumber.textContent = ratingItemInput.value;
-			ratingItemStars[ratingItemInput.value - 1].click();
-		} else {
-			ratingItemNumber.textContent = ' -';
-			ratingItemInput.disabled = true;
-		}
-	}
+	// 	if (ratingItemInput.value) {
+	// 		ratingItemNumber.textContent = ratingItemInput.value;
+	// 		ratingItemStars[ratingItemInput.value - 1].click();
+	// 	} else {
+	// 		ratingItemNumber.textContent = ' -';
+	// 		ratingItemInput.disabled = true;
+	// 	}
+	// }
 
 	document.querySelectorAll('.Checkbox-fieldVisibility .Checkbox_input').forEach( checkbox => {
 		setDropdownVisibility(checkbox);
 	});
 
-	document.querySelectorAll('.RatingItem').forEach( ratingItem => {
-		setRatingItemValue(ratingItem);
-	});
+	// document.querySelectorAll('.RatingItem').forEach( ratingItem => {
+	// 	setRatingItemValue(ratingItem);
+	// });
 
 	setVisibilityOtherFields();
 	showRatingItems();

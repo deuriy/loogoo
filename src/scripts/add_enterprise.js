@@ -19,8 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (uploadFilesItem.length > 6) return;
 
 		let newItem = uploadFiles.querySelector('.UploadFiles_item').cloneNode(true);
+		newItem.querySelector('.FormText').value = '';
 		newItem.insertAdjacentHTML('beforeend', '<a href="javascript:;" class="UploadFiles_removeItem"></a>');
 		uploadFilesItems.append(newItem);
+		newItem.querySelector('.FormText').focus();
 	});
 
 	document.addEventListener('click', function (e) {

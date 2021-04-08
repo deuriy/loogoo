@@ -14,7 +14,7 @@ block content
 						h1.MobileHeader_title #{title}
 					a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
 						include /includes/svg/SvgIco/dots
-				form(action="#", name="evaluation").AddTestimonial
+				form(action="#", name="evaluation").AddTestimonial.AddTestimonial-evaluation
 					h2.AddTestimonial_title.hidden-xs Мой отзыв о работе в компании
 					h3.AddTestimonial_subTitle Какими услугами вы воспользовались?
 					.AddTestimonial_otherFields
@@ -113,5 +113,3 @@ block content
 	include /includes/blocks/PopupShare
 	include /includes/blocks/LinkCopiedNotification
 	include /includes/blocks/PopupChangeCover
-block page_bottom
-	//- script(src="/js/add_testimonial.js")

@@ -251,16 +251,6 @@ function openMobilePopup (mobilePopupID) {
 	document.body.style.overflow = 'hidden';
 }
 
-function locationHashChanged () {
-	document.querySelectorAll('[data-action="openMobilePopup"]').forEach( link => {
-		if (link.getAttribute('href') === location.hash) {
-			openMobilePopup(link.getAttribute('href').slice(1));
-		} else {
-			closeMobilePopup(link.getAttribute('href').slice(1));
-		}
-	});
-}
-
 function closeMobilePopup (mobilePopupID) {
 	let mobilePopup = document.getElementById(mobilePopupID);
 
@@ -269,6 +259,16 @@ function closeMobilePopup (mobilePopupID) {
 	mobilePopup.classList.remove('MobilePopup-opened');
 	mobilePopup.querySelector('.Overlay').classList.remove('Overlay-visible');
 	document.body.style.cssText = '';
+}
+
+function locationHashChanged () {
+	document.querySelectorAll('[data-action="openMobilePopup"]').forEach( link => {
+		if (link.getAttribute('href') === location.hash) {
+			openMobilePopup(link.getAttribute('href').slice(1));
+		} else {
+			closeMobilePopup(link.getAttribute('href').slice(1));
+		}
+	});
 }
 
 function checkActiveBookmark (bookmark, bookmarkNotification) {
@@ -347,6 +347,20 @@ function setPositionActiveTab (tabs) {
 
 	if (diff < 0) {
 		tabs.scrollLeft -= diff;
+	}
+}
+
+function setRatingItemValue (ratingItem) {
+	let ratingItemInput = ratingItem.querySelector('.RatingItem_input');
+	let ratingItemNumber = ratingItem.querySelector('.RatingItem_number');
+	let ratingItemStars = ratingItem.querySelectorAll('.RatingItem_star');
+
+	if (ratingItemInput.value) {
+		ratingItemNumber.textContent = ratingItemInput.value;
+		ratingItemStars[ratingItemInput.value - 1].click();
+	} else {
+		ratingItemNumber.textContent = ' -';
+		ratingItemInput.disabled = true;
 	}
 }
 
@@ -444,7 +458,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});	
 
-	const menus = ['#ProfileSettingsMenu', '#UserMenu', '#ActionsMenu', '#PrimaryMenu', '#PrimaryMenuFooter', '#MobileMenu', '#SidebarMenu', '.MenuSection-company', '.SettingsMenu', '.SidebarMenu-profileMenu', '.CategoryMenu-companySettings', '.CategoryMenu-save', '.IconMenu'];
+	const menus = ['#ProfileSettingsMenu', '#UserMenu', '#ActionsMenu', '#PrimaryMenu', '#PrimaryMenuFooter', '#MobileMenu', '#SidebarMenu', '.MenuSection-company', '.SettingsMenu', '.SidebarMenu-profileMenu', '.CategoryMenu-companySettings', '.CategoryMenu-save', '.IconMenu', '.CategoryMenu-vacancyFull'];
 
 	menus.forEach(menu => setActiveMenuItem(document.querySelector(menu)));
 	setActivePopupMenuItem( document.querySelector('#PopupMenu'), document.querySelector('.PopupMenuLink') );
@@ -527,10 +541,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	};
 
-	// keep an eye on viewport size changes
 	breakpointMd.addListener(breakpointCheckerMd);
-
-	// kickstart
 	breakpointCheckerMd();
 
 	let oldScrollY = 0;
@@ -1516,6 +1527,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		let number = ratingItem.querySelector('.RatingItem_number');
 		let ratingInput = ratingItem.querySelector('.RatingItem_input');
 		number.textContent = ratingInput.value = ratingItem.querySelectorAll('.RatingItem_star-fill').length;
+	});
+
+	document.querySelectorAll('.RatingItem').forEach( ratingItem => {
+		setRatingItemValue(ratingItem);
 	});
 
 	// Close modal

@@ -28,8 +28,10 @@ let vacancyThumbs = new Swiper('.VacancyImages_thumbs', {
   }
 });
 
-vacancyGallery.controller.control = vacancyThumbs;
-vacancyThumbs.controller.control = vacancyGallery;
+if (vacancyGallery && vacancyThumbs) {
+  vacancyGallery.controller.control = vacancyThumbs;
+  vacancyThumbs.controller.control = vacancyGallery;
+}
 
 // let categoryMenuSticky = document.querySelector('.MenuSection-sticky .CategoryMenu');
 
