@@ -384,6 +384,18 @@ document.addEventListener("DOMContentLoaded", function () {
 		touch: false
 	});
 
+	$('.VacancyImages_gallerySlide').fancybox({
+		touch: false,
+		baseClass: 'fancybox-container--no-padding'
+	});
+
+	$('.VacancyImages_gallerySlide-video').fancybox({
+		touch: false,
+		baseClass: 'fancybox-container--video fancybox-container--no-padding'
+	});
+
+	$.fancybox.defaults.backFocus = false;
+
 	// FSelect
 	$('.Select-filterBlock').fSelect({
 		showSearch: false
@@ -1526,6 +1538,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		let ratingItem = star.closest('.RatingItem');
 		let number = ratingItem.querySelector('.RatingItem_number');
 		let ratingInput = ratingItem.querySelector('.RatingItem_input');
+		ratingInput.disabled = false;
 		number.textContent = ratingInput.value = ratingItem.querySelectorAll('.RatingItem_star-fill').length;
 	});
 

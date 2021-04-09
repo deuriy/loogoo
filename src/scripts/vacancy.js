@@ -2,7 +2,7 @@ let vacancyGallery = new Swiper('.VacancyImages_gallery', {
   spaceBetween: 4,
   slidesPerView: 'auto',
 	loop: true,
-	loopedSlides: 4,
+	loopedSlides: 6,
   breakpoints: {
     768: {
       slidesPerView: 1,
@@ -21,7 +21,7 @@ let vacancyThumbs = new Swiper('.VacancyImages_thumbs', {
   touchRatio: 0.2,
   slideToClickedSlide: true,
 	loop: true,
-	loopedSlides: 4,
+	loopedSlides: 6,
   navigation: {
     nextEl: '.VacancyImages_thumbs .VacancyImages_next',
     prevEl: '.VacancyImages_thumbs .VacancyImages_prev',

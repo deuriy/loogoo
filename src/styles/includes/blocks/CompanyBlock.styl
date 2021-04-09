@@ -162,22 +162,27 @@
 	&-vacancy
 		border-bottom 1px solid #ebf0f2
 		
+		@media $smMinus
+			padding-right 15px
+			padding-left 15px
+		
 		@media $xs
 			border-bottom 8px solid $lightGrey
-		
-		@media $smPlus
-			padding-right 0
-			padding-left 0
 		
 		.CompanyBlock_header
 			justify-content space-between
 			
 			@media $xs
+				max-width calc(100vw - 30px)
 				margin-bottom 16px
 			
 			@media $smPlus
 				margin-top -6px
 				margin-bottom 14px
+		
+		.CompanyBlock_headerLeft
+			@media $xs
+				overflow hidden
 		
 		.CompanyBlock_headerRight
 			@media $xs
@@ -191,6 +196,12 @@
 			font-weight 600
 			font-size 20px
 			line-height 1.2
+			
+			@media $xs
+				overflow hidden
+				text-overflow ellipsis
+				white-space nowrap
+				margin-right 15px
 			
 			a:hover
 				text-decoration none

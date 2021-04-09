@@ -19,8 +19,9 @@
 .fancybox-bg
 	background $black
 
-.fancybox-is-open .fancybox-bg
-	opacity 0.5
+.fancybox-is-open
+	.fancybox-bg
+		opacity 0.5
 
 .fancybox-container
 	&--no-padding
@@ -31,3 +32,8 @@
 			@media $xs
 				padding-right 0
 				padding-left 0
+	
+	&--video
+		&.fancybox-is-open
+			.fancybox-bg
+				opacity 0.9
