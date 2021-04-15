@@ -16,17 +16,30 @@ block content
 				.Vacancy
 					.Vacancy_header
 						a(href="/vacancies.html").ArrowLink.ArrowLink-vacancyFull.Vacancy_viewAll.hidden-xs Все вакансии
-						.Vacancy_headerLeft
-							h2.Vacancy_title International Work
-							.Vacancy_workplace.hidden-xs Почтовый склад • Польша, Варшава, Nowowiejska 5
-							.Vacancy_workplace.hidden-smPlus Почтовый склад
-						.Vacancy_headerRight.hidden-smPlus
-							.Rating.Rating-vacancy.Rating-dropdown.CompanyBlock_rating
-								span.Rating_icon
-									include /includes/svg/SvgIco/icon_star
-								span.Rating_number 7,3
-								span.Rating_max / 10
-							.Vacancy_mark 182 оценки
+						.Vacancy_headerWrapper
+							.Vacancy_headerLeft
+								h2.Vacancy_title International Work
+								.Vacancy_workplace.hidden-xs Почтовый склад • Польша, Варшава, Nowowiejska 5
+								.Vacancy_workplace.hidden-smPlus Почтовый склад
+							.Vacancy_headerRight
+								.DotsMenu.Vacancy_dotsMenu.hidden-xs
+									a(href="javascript:;").DotsIcon.DotsMenu_icon
+										include /includes/svg/SvgIco/dots
+									.DotsMenu_wrapper
+										a(href="javascript:;").DotsMenu_link
+											include /includes/svg/SvgIco/edit
+											.
+												Редактировать
+										a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link
+											include /includes/svg/SvgIco/warning
+											.
+												Пожаловаться
+								.Rating.Rating-vacancy.Rating-dropdown.CompanyBlock_rating.hidden-smPlus
+									span.Rating_icon
+										include /includes/svg/SvgIco/icon_star
+									span.Rating_number 7,3
+									span.Rating_max / 10
+								.Vacancy_mark.hidden-smPlus 182 оценки
 					.MenuSection.MenuSection-vacancyFull.MenuSection-sticky.Vacancy_menuSection
 						.CategoryMenu.CategoryMenu-vacancyFull
 							ul.CategoryMenu_menu
@@ -47,16 +60,16 @@ block content
 									.VacancyImages_galleryImg(style="background-image: url('https://dev.infoza.top/storage/626/1616770935_33101_DMDLD.jpg')")
 								a(data-fancybox="vacancyGallery" href="https://dev.infoza.top/storage/624/1616770934_33101_NBWYe.jpg").swiper-slide.VacancyImages_gallerySlide
 									.VacancyImages_galleryImg(style="background-image: url('https://dev.infoza.top/storage/624/1616770934_33101_NBWYe.jpg')")
-								a(data-fancybox="vacancyGallery" href="https://dev.infoza.top/storage/625/1616770934_33101_WrdqM.jpg").swiper-slide.VacancyImages_gallerySlide
-									.VacancyImages_galleryImg(style="background-image: url('https://dev.infoza.top/storage/625/1616770934_33101_WrdqM.jpg')")
-								a(data-fancybox="vacancyGallery" href="https://dev.infoza.top/storage/625/1616770934_33101_WrdqM.jpg").swiper-slide.VacancyImages_gallerySlide
-									.VacancyImages_galleryImg(style="background-image: url('https://dev.infoza.top/storage/625/1616770934_33101_WrdqM.jpg')")
-								a(data-fancybox="vacancyGallery" href="/img/vacancy/vacancy_image.png").swiper-slide.VacancyImages_gallerySlide
-									.VacancyImages_galleryImg(style="background-image: url('/img/vacancy/vacancy_image.png')")
-								a(data-fancybox="vacancyGallery" href="/img/vacancy/vacancy_image.png").swiper-slide.VacancyImages_gallerySlide
-									.VacancyImages_galleryImg(style="background-image: url('/img/vacancy/vacancy_image.png')")
-								a(data-fancybox="vacancyGallery" href="/img/vacancy/vacancy_image.png").swiper-slide.VacancyImages_gallerySlide
-									.VacancyImages_galleryImg(style="background-image: url('/img/vacancy/vacancy_image.png')")
+								//- a(data-fancybox="vacancyGallery" href="https://dev.infoza.top/storage/625/1616770934_33101_WrdqM.jpg").swiper-slide.VacancyImages_gallerySlide
+								//- 	.VacancyImages_galleryImg(style="background-image: url('https://dev.infoza.top/storage/625/1616770934_33101_WrdqM.jpg')")
+								//- a(data-fancybox="vacancyGallery" href="https://dev.infoza.top/storage/625/1616770934_33101_WrdqM.jpg").swiper-slide.VacancyImages_gallerySlide
+								//- 	.VacancyImages_galleryImg(style="background-image: url('https://dev.infoza.top/storage/625/1616770934_33101_WrdqM.jpg')")
+								//- a(data-fancybox="vacancyGallery" href="/img/vacancy/vacancy_image.png").swiper-slide.VacancyImages_gallerySlide
+								//- 	.VacancyImages_galleryImg(style="background-image: url('/img/vacancy/vacancy_image.png')")
+								//- a(data-fancybox="vacancyGallery" href="/img/vacancy/vacancy_image.png").swiper-slide.VacancyImages_gallerySlide
+								//- 	.VacancyImages_galleryImg(style="background-image: url('/img/vacancy/vacancy_image.png')")
+								//- a(data-fancybox="vacancyGallery" href="/img/vacancy/vacancy_image.png").swiper-slide.VacancyImages_gallerySlide
+								//- 	.VacancyImages_galleryImg(style="background-image: url('/img/vacancy/vacancy_image.png')")
 							button(type="button").swiper-button-next.VacancyImages_next.hidden-xs
 							button(type="button").swiper-button-prev.VacancyImages_prev.hidden-xs
 						.swiper-container.VacancyImages_thumbs.hidden-xs
@@ -67,16 +80,16 @@ block content
 									.VacancyImages_thumbImg(style="background-image: url('https://dev.infoza.top/storage/626/1616770935_33101_DMDLD.jpg')")
 								.swiper-slide.VacancyImages_thumbSlide
 									.VacancyImages_thumbImg(style="background-image: url('https://dev.infoza.top/storage/624/1616770934_33101_NBWYe.jpg')")
-								.swiper-slide.VacancyImages_thumbSlide
-									.VacancyImages_thumbImg(style="background-image: url('https://dev.infoza.top/storage/625/1616770934_33101_WrdqM.jpg')")
-								.swiper-slide.VacancyImages_thumbSlide
-									.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
-								.swiper-slide.VacancyImages_thumbSlide
-									.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
-								.swiper-slide.VacancyImages_thumbSlide
-									.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
-								.swiper-slide.VacancyImages_thumbSlide
-									.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
+								//- .swiper-slide.VacancyImages_thumbSlide
+								//- 	.VacancyImages_thumbImg(style="background-image: url('https://dev.infoza.top/storage/625/1616770934_33101_WrdqM.jpg')")
+								//- .swiper-slide.VacancyImages_thumbSlide
+								//- 	.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
+								//- .swiper-slide.VacancyImages_thumbSlide
+								//- 	.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
+								//- .swiper-slide.VacancyImages_thumbSlide
+								//- 	.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
+								//- .swiper-slide.VacancyImages_thumbSlide
+								//- 	.VacancyImages_thumbImg(style="background-image: url('/img/vacancy/vacancy_thumb.png')")
 							button(type="button").swiper-button-next.VacancyImages_next
 							button(type="button").swiper-button-prev.VacancyImages_prev
 					.Vacancy_text
