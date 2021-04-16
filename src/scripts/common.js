@@ -386,7 +386,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	$('.VacancyImages_gallerySlide').fancybox({
 		touch: false,
-		baseClass: 'fancybox-container--no-padding'
+		baseClass: 'fancybox-container--image fancybox-container--no-padding'
 	});
 
 	$('.VacancyImages_gallerySlide-video').fancybox({
