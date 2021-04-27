@@ -1,0 +1,17 @@
+.VacancyPhotos
+	&_list
+		display flex
+		flex-wrap wrap
+		margin-right -8px
+		margin-left -8px
+	
+	&_item
+		flex calc(25% - 8px) 0 0
+		margin 0 4px 8px
+		text-align center
+		
+		@media $xs
+			flex-basis calc(33% - 8px)
+		
+		@media $xxs
+			flex-basis calc(50% - 8px)

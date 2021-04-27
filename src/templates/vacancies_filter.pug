@@ -1,0 +1,651 @@
+extends /layouts/main_layout_profile
+block vars
+	- var title = "Вакансии компаний (фильтр)";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-vacanciesFilter";
+block content
+	.MobileHeader.MobileHeader-search.hidden-smPlus
+		a(href="#PopupMenu").SelectionLink.PopupMenuLink.hidden-smPlus Роботодавці
+		a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+			include /includes/svg/SvgIco/dots
+	.Container.Container-vacancyFilter.Main_container
+		.Main_columns
+			.Main_left
+				.Companies.Companies-vacancies
+					form(action="", name="topics_filter")#TopicsFilter.Filter.Filter-vacanciesResults
+						.Filter_main
+							.Filter_left
+								.Filter_titleWrapper
+									h3.Filter_resultsTitle Вакансии
+									.Filter_results 1256
+							.Filter_right
+								.Filter_item.Filter_item-mobile
+									select.Select.Select-filterBlock(name="city[]")
+										option(value="all") Популярные
+										option(value="city1") Город 1
+										option(value="city2") Город 2
+										option(value="city3") Город 3
+										option(value="city4") Город 4
+										option(value="city5") Город 5
+								a(href="#JobFilter" data-action="openJobFilter").FilterIcon.FilterIcon-zero.Filter_toggleLink.hidden-smPlus
+									include /includes/svg/SvgIco/filter
+									span.FilterIcon_number
+						.Search.Search-results.Filter_search
+							.Search_item
+								input(type="text", name="search_query2", placeholder="Поиск").Search_text
+								a(href="javascript:;").Search_closeBtn.hidden-smPlus.hidden
+									include /includes/svg/SvgIco/close
+							button(type="submit").Search_icon.hidden-smPlus
+								include /includes/svg/SvgIco/search
+					.Companies_items
+						.CompanyBlock.CompanyBlock-vacancy.Companies_item
+							.CompanyBlock_photoWrapper.hidden-xs
+								a(href="/vacancy.html")
+									img(src="/img/vacancy/vacancy_image2.png").CompanyBlock_photo
+							.CompanyBlock_mainWrapper
+								.CompanyBlock_header
+									.CompanyBlock_headerLeft
+										h3.CompanyBlock_name
+											a(href="/vacancy.html") Inpost
+										h4.CompanyBlock_subtitle Почтовый склад
+									.CompanyBlock_headerRight
+										.Rating.Rating-vacancy.Rating-dropdown.CompanyBlock_rating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,3
+											span.Rating_max / 10
+										.CompanyBlock_mark 182 оценки
+								.Swiper.swiper-container.CompanyBlock_swiper#Swiper1.hidden-smPlus
+									.Swiper_wrapper.swiper-wrapper
+										a(href="/vacancy.html").Swiper_slide.swiper-slide
+											img(src="/img/vacancy_new1.png" alt="Vacancy image 1")
+										a(href="/vacancy.html").Swiper_slide.Swiper_slide-video.swiper-slide
+											img(src="/img/vacancy_new2.png" alt="Vacancy image 2")
+								.CompanyBlock_country.hidden-smPlus
+									img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+									.
+										Польша, Варшава Nowowiejska 5-147
+								.CompanyBlock_activities
+									.Activity.CompanyBlock_activity
+										.Activity_name Разнорабочие
+										.Activity_salary 26 400 – 28 000 CZK
+									.Activity.CompanyBlock_activity
+										.Activity_name Специалисты
+										.Activity_salary 26 400 – 28 000 CZK
+								.CompanyBlock_footer
+									.CompanyBlock_country.hidden-xs
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Варшава Nowowiejska 5-147
+									.StatIcons.CompanyBlock_statIcons
+										.StatIcons_left
+											ul.StatIcons_list
+												li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+													a(href="javascript:;").Like.hidden-smMinus
+														include /includes/svg/SvgIco/like
+														span.Like_count 10
+													a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
+														include /includes/svg/SvgIco/like
+														span.Like_count 10
+												li.StatIcon.StatIcon-answer.StatIcons_item
+													a(href="/topic_details.html").StatIcon_link
+														include /includes/svg/SvgIco/answer
+														span.StatIcon_count 0
+						.CompanyBlock.CompanyBlock-vacancy.Companies_item
+							.CompanyBlock_photoWrapper.hidden-xs
+								a(href="/vacancy.html")
+									img(src="/img/vacancy/vacancy_image2.png").CompanyBlock_photo
+							.CompanyBlock_mainWrapper
+								.CompanyBlock_header
+									.CompanyBlock_headerLeft
+										h3.CompanyBlock_name
+											a(href="/vacancy.html") Inpost
+										h4.CompanyBlock_subtitle Почтовый склад
+									.CompanyBlock_headerRight
+										.Rating.Rating-vacancy.Rating-dropdown.CompanyBlock_rating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,3
+											span.Rating_max / 10
+										.CompanyBlock_mark 182 оценки
+								.Swiper.swiper-container.CompanyBlock_swiper#Swiper2.hidden-smPlus
+									.Swiper_wrapper.swiper-wrapper
+										a(href="/vacancy.html").Swiper_slide.swiper-slide
+											img(src="/img/vacancy_new1.png" alt="Vacancy image 1")
+										a(href="/vacancy.html").Swiper_slide.Swiper_slide-video.swiper-slide
+											img(src="/img/vacancy_new2.png" alt="Vacancy image 2")
+								.CompanyBlock_country.hidden-smPlus
+									img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+									.
+										Польша, Варшава Nowowiejska 5-147
+								.CompanyBlock_activities
+									.Activity.CompanyBlock_activity
+										.Activity_name Разнорабочие
+										.Activity_salary 26 400 – 28 000 CZK
+									.Activity.CompanyBlock_activity
+										.Activity_name Специалисты
+										.Activity_salary 26 400 – 28 000 CZK
+								.CompanyBlock_footer
+									.CompanyBlock_country.hidden-xs
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Варшава Nowowiejska 5-147
+									.StatIcons.CompanyBlock_statIcons
+										.StatIcons_left
+											ul.StatIcons_list
+												li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+													a(href="javascript:;").Like.hidden-smMinus
+														include /includes/svg/SvgIco/like
+														span.Like_count 10
+													a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
+														include /includes/svg/SvgIco/like
+														span.Like_count 10
+												li.StatIcon.StatIcon-answer.StatIcons_item
+													a(href="/topic_details.html").StatIcon_link
+														include /includes/svg/SvgIco/answer
+														span.StatIcon_count 0
+						.CompanyBlock.CompanyBlock-vacancy.Companies_item
+							.CompanyBlock_photoWrapper.hidden-xs
+								a(href="/vacancy.html")
+									img(src="/img/vacancy/vacancy_image2.png").CompanyBlock_photo
+							.CompanyBlock_mainWrapper
+								.CompanyBlock_header
+									.CompanyBlock_headerLeft
+										h3.CompanyBlock_name
+											a(href="/vacancy.html") ООО Компания СервисЛенСеверМашина
+										h4.CompanyBlock_subtitle Почтовый склад
+									.CompanyBlock_headerRight
+										.Rating.Rating-vacancy.Rating-dropdown.CompanyBlock_rating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,3
+											span.Rating_max / 10
+										.CompanyBlock_mark 182 оценки
+								.Swiper.swiper-container.CompanyBlock_swiper#Swiper3.hidden-smPlus
+									.Swiper_wrapper.swiper-wrapper
+										a(href="/vacancy.html").Swiper_slide.swiper-slide
+											img(src="/img/vacancy_new1.png" alt="Vacancy image 1")
+										a(href="/vacancy.html").Swiper_slide.Swiper_slide-video.swiper-slide
+											img(src="/img/vacancy_new2.png" alt="Vacancy image 2")
+								.CompanyBlock_country.hidden-smPlus
+									img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+									.
+										Польша, Варшава Nowowiejska 5-147
+								.CompanyBlock_activities
+									.Activity.CompanyBlock_activity
+										.Activity_name Разнорабочие
+										.Activity_salary 26 400 – 28 000 CZK
+									.Activity.CompanyBlock_activity
+										.Activity_name Специалисты
+										.Activity_salary 26 400 – 28 000 CZK
+								.CompanyBlock_footer
+									.CompanyBlock_country.hidden-xs
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Варшава Nowowiejska 5-147
+									.StatIcons.CompanyBlock_statIcons
+										.StatIcons_left
+											ul.StatIcons_list
+												li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+													a(href="javascript:;").Like.hidden-smMinus
+														include /includes/svg/SvgIco/like
+														span.Like_count 10
+													a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
+														include /includes/svg/SvgIco/like
+														span.Like_count 10
+												li.StatIcon.StatIcon-answer.StatIcons_item
+													a(href="/topic_details.html").StatIcon_link
+														include /includes/svg/SvgIco/answer
+														span.StatIcon_count 0
+						.CompanyBlock.CompanyBlock-vacancy.Companies_item
+							.CompanyBlock_photoWrapper.hidden-xs
+								a(href="/vacancy.html")
+									img(src="/img/vacancy/vacancy_image2.png").CompanyBlock_photo
+							.CompanyBlock_mainWrapper
+								.CompanyBlock_header
+									.CompanyBlock_headerLeft
+										h3.CompanyBlock_name
+											a(href="/vacancy.html") Inpost
+										h4.CompanyBlock_subtitle Почтовый склад
+									.CompanyBlock_headerRight
+										.Rating.Rating-vacancy.Rating-dropdown.CompanyBlock_rating
+											span.Rating_icon
+												include /includes/svg/SvgIco/icon_star
+											span.Rating_number 7,3
+											span.Rating_max / 10
+										.CompanyBlock_mark 182 оценки
+								.Swiper.swiper-container.CompanyBlock_swiper#Swiper4.hidden-smPlus
+									.Swiper_wrapper.swiper-wrapper
+										a(href="/vacancy.html").Swiper_slide.swiper-slide
+											img(src="/img/vacancy_new1.png" alt="Vacancy image 1")
+										a(href="/vacancy.html").Swiper_slide.Swiper_slide-video.swiper-slide
+											img(src="/img/vacancy_new2.png" alt="Vacancy image 2")
+								.CompanyBlock_country.hidden-smPlus
+									img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+									.
+										Польша, Варшава Nowowiejska 5-147
+								.CompanyBlock_activities
+									.Activity.CompanyBlock_activity
+										.Activity_name Разнорабочие
+										.Activity_salary 26 400 – 28 000 CZK
+									.Activity.CompanyBlock_activity
+										.Activity_name Специалисты
+										.Activity_salary 26 400 – 28 000 CZK
+								.CompanyBlock_footer
+									.CompanyBlock_country.hidden-xs
+										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
+										.
+											Польша, Варшава Nowowiejska 5-147
+									.StatIcons.CompanyBlock_statIcons
+										.StatIcons_left
+											ul.StatIcons_list
+												li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
+													a(href="javascript:;").Like.hidden-smMinus
+														include /includes/svg/SvgIco/like
+														span.Like_count 10
+													a(href="#LikePopup", data-action="openMobilePopup").Like.hidden-md
+														include /includes/svg/SvgIco/like
+														span.Like_count 10
+												li.StatIcon.StatIcon-answer.StatIcons_item
+													a(href="/topic_details.html").StatIcon_link
+														include /includes/svg/SvgIco/answer
+														span.StatIcon_count 0
+			form(action="#").JobFilter#JobFilter
+				.JobFilter_wrapper
+					.JobFilter_header
+						.JobFilter_headerLeft
+							a(href="javascript:;" data-action="closeFilter").BtnBack.BtnBack-noBack.JobFilter_closeLink
+								include /includes/svg/SvgIco/arrow_left
+							h3.JobFilter_title Фильтр
+						.JobFilter_headerRight
+							a(href="javascript:;" data-action="clearFilter").JobFilter_clearLink Очистить
+					.JobFilter_content
+						.FilterElement.FilterElement-salary.JobFilter_item.JobFilter_item-salary(data-element-type="range").hidden
+							a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
+								.FilterElement_mobTitle Зарплата
+							.FilterElement_wrapper
+								.FilterElement_header
+									.FilterElement_headerLeft
+										a(href="javascript:;" data-action="closeFilterElement").BtnBack.BtnBack-noBack.FilterElement_closeLink
+											include /includes/svg/SvgIco/arrow_left
+										h3.FilterElement_title Зарплата
+									.FilterElement_headerRight
+										a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
+								.FilterElement_content
+									.FilterElement_controls
+										input(type="number" name="min_salary" value="0" min="0" max="6000").FormText.FormText-jobFilter.FilterElement_control#MinSalary
+										input(type="number" name="max_salary" value="3000" min="0" max="6000").FormText.FormText-jobFilter.FilterElement_control#MaxSalary
+									.RangeSlider#SalaryRange
+						.FilterElementGroup.JobFilter_itemGroup
+							.FilterElementGroup_items
+								.FilterElement.FilterElement-hasNestedElements.FilterElementGroup_item(data-element-type="checkboxList")
+									a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
+										.FilterElement_mobTitle Страна
+									.FilterElement_wrapper
+										.FilterElement_header
+											.FilterElement_headerLeft
+												a(href="javascript:;" data-action="closeFilterElement").BtnBack.BtnBack-noBack.FilterElement_closeLink
+													include /includes/svg/SvgIco/arrow_left
+												h3.FilterElement_title Страна
+											.FilterElement_headerRight
+												a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
+										.FilterElement_content
+											.CheckboxList.CheckboxList-jobFilter.hidden-smPlus(data-parent-checkbox-list)
+												.CheckboxList_content
+													.Checkbox.Checkbox-jobFilter.CheckboxList_item
+														input(type="checkbox" name="country[]" value="poland" id="poland").Checkbox_input
+														label(for="poland").Checkbox_label Польша
+													.Checkbox.Checkbox-jobFilter.CheckboxList_item
+														input(type="checkbox" name="country[]" value="czech" id="czech").Checkbox_input
+														label(for="czech").Checkbox_label Чехия
+													.Checkbox.Checkbox-jobFilter.CheckboxList_item
+														input(type="checkbox" name="country[]" value="germany" id="germany").Checkbox_input
+														label(for="germany").Checkbox_label Германия
+											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect.hidden-xs(data-parent-dropdown)
+												select(name="country[]", id="country_select").DropdownSelect_select
+													option(value="poland") Польша
+													option(value="czech") Чехия
+													option(value="germany") Германия
+										.FilterElement_footer
+											button(type="button" data-action="saveFilterElement").BtnBlue.BtnBlue-jobFilter Применить
+								.FilterElement.FilterElement-hasNestedElements.FilterElementGroup_item.hidden(data-element-type="checkboxList" data-dependent-element)
+									a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
+										.FilterElement_mobTitle Город
+									.FilterElement_wrapper
+										.FilterElement_header
+											.FilterElement_headerLeft
+												a(href="javascript:;" data-action="closeFilterElement").BtnBack.BtnBack-noBack.FilterElement_closeLink
+													include /includes/svg/SvgIco/arrow_left
+												h3.FilterElement_title Город
+											.FilterElement_headerRight
+												a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
+										.FilterElement_content
+											input(type="text" name="city_search" placeholder="Я ищу…" data-action="liveCheckboxSearch" data-checkbox-list=".CheckboxList-cities").FilterElement_formText.FormText.FormText-jobFilter.hidden-smPlus
+											.CheckboxList.CheckboxList-jobFilter.CheckboxList-cities.hidden-smPlus
+												.CheckboxList_content
+													.Checkbox.Checkbox-jobFilter.CheckboxList_item
+														input(type="checkbox" name="city[]" value="belsko_byala" id="belsko_byala").Checkbox_input
+														label(for="belsko_byala").Checkbox_label Бельсько-Бяла
+													.Checkbox.Checkbox-jobFilter.CheckboxList_item
+														input(type="checkbox" name="city[]" value="bidgosch" id="bidgosch").Checkbox_input
+														label(for="bidgosch").Checkbox_label Бидгощ
+													.Checkbox.Checkbox-jobFilter.CheckboxList_item
+														input(type="checkbox" name="city[]" value="bilostok" id="bilostok").Checkbox_input
+														label(for="bilostok").Checkbox_label Білосток
+													.Checkbox.Checkbox-jobFilter.CheckboxList_item
+														input(type="checkbox" name="city[]" value="valbzhih" id="valbzhih").Checkbox_input
+														label(for="valbzhih").Checkbox_label Валбжих
+													.Checkbox.Checkbox-jobFilter.CheckboxList_item
+														input(type="checkbox" name="city[]" value="varsawa" id="varsawa").Checkbox_input
+														label(for="varsawa").Checkbox_label Варшава
+													.Checkbox.Checkbox-jobFilter.CheckboxList_item
+														input(type="checkbox" name="city[]" value="vlozlavek" id="vlozlavek").Checkbox_input
+														label(for="vlozlavek").Checkbox_label Влоцлавек
+													.Checkbox.Checkbox-jobFilter.CheckboxList_item
+														input(type="checkbox" name="city[]" value="wrozlaw" id="wrozlaw").Checkbox_input
+														label(for="wrozlaw").Checkbox_label Вроцлав
+													.Checkbox.Checkbox-jobFilter.CheckboxList_item
+														input(type="checkbox" name="city[]" value="valbzhih2" id="valbzhih2").Checkbox_input
+														label(for="valbzhih2").Checkbox_label Валбжих
+													.Checkbox.Checkbox-jobFilter.CheckboxList_item
+														input(type="checkbox" name="city[]" value="varsawa2" id="varsawa2").Checkbox_input
+														label(for="varsawa2").Checkbox_label Варшава
+													.Checkbox.Checkbox-jobFilter.CheckboxList_item
+														input(type="checkbox" name="city[]" value="vlozlavek2" id="vlozlavek2").Checkbox_input
+														label(for="vlozlavek2").Checkbox_label Влоцлавек
+													.Checkbox.Checkbox-jobFilter.CheckboxList_item
+														input(type="checkbox" name="city[]" value="wrozlaw2" id="wrozlaw2").Checkbox_input
+														label(for="wrozlaw2").Checkbox_label Вроцлав
+												.CheckboxList_noResults По вашему запросу ничего не найдено
+											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect.hidden-xs
+												select(name="city[]" multiple="multiple").DropdownSelect_select
+													option(value="belsko_byala") Бельсько-Бяла
+													option(value="bidgosch") Бидгощ
+													option(value="bilostok") Білосток
+													option(value="valbzhih") Валбжих
+													option(value="varsawa") Варшава
+													option(value="vlozlavek") Влоцлавек
+													option(value="wrozlaw") Вроцлав
+													option(value="valbzhih2") Валбжих
+													option(value="varsawa2") Варшава
+													option(value="vlozlavek2") Влоцлавек
+													option(value="wrozlaw2") Вроцлав
+										.FilterElement_footer
+											button(type="button" data-action="saveFilterElement").BtnBlue.BtnBlue-jobFilter Применить
+							a(href="javascript:;").AddFieldItem.AddFieldItem-country.FilterElementGroup_addFieldItem
+								include /includes/svg/icon_add
+								span.AddFieldItem_text Добавить ещё страну
+						//- .FilterElementGroup.JobFilter_itemGroup
+						//- 	.FilterElementGroup_items.hidden-xs
+						//- 		.FilterElement.FilterElementGroup_item.hidden-xs(data-element-type="checkboxList")
+						//- 			a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
+						//- 				.FilterElement_mobTitle Страна
+						//- 			.FilterElement_wrapper
+						//- 				.FilterElement_header
+						//- 					.FilterElement_headerLeft
+						//- 						a(href="javascript:;" data-action="closeFilterElement").BtnBack.BtnBack-noBack.FilterElement_closeLink
+						//- 							include /includes/svg/SvgIco/arrow_left
+						//- 						h3.FilterElement_title Страна
+						//- 					.FilterElement_headerRight
+						//- 						a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
+						//- 				.FilterElement_content
+						//- 					.DropdownSelect.DropdownSelect-mobile.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect(data-parent-dropdown)
+						//- 						select(name="country[]", id="country_select").DropdownSelect_select
+						//- 							option(value="all") Все
+						//- 							option(value="poland") Польша
+						//- 							option(value="czech") Чехия
+						//- 							option(value="germany") Германия
+						//- 				.FilterElement_footer
+						//- 					button(type="button" data-action="saveFilterElement").BtnBlue.BtnBlue-jobFilter Применить
+						//- 		.FilterElement.FilterElementGroup_item.hidden-xs.hidden(data-element-type="checkboxList" data-dependent-element)
+						//- 			a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
+						//- 				.FilterElement_mobTitle Город
+						//- 			.FilterElement_wrapper
+						//- 				.FilterElement_header
+						//- 					.FilterElement_headerLeft
+						//- 						a(href="javascript:;" data-action="closeFilterElement").BtnBack.BtnBack-noBack.FilterElement_closeLink
+						//- 							include /includes/svg/SvgIco/arrow_left
+						//- 						h3.FilterElement_title Город
+						//- 					.FilterElement_headerRight
+						//- 						a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
+						//- 				.FilterElement_content
+						//- 					.DropdownSelect.DropdownSelect-mobile.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect
+						//- 						select(name="city[]").DropdownSelect_select
+						//- 							option(value="all") Все
+						//- 							option(value="belsko_byala") Бельсько-Бяла
+						//- 							option(value="bidgosch") Бидгощ
+						//- 							option(value="bilostok") Білосток
+						//- 							option(value="valbzhih") Валбжих
+						//- 							option(value="varsawa") Варшава
+						//- 							option(value="vlozlavek") Влоцлавек
+						//- 							option(value="wrozlaw") Вроцлав
+						//- 							option(value="valbzhih2") Валбжих
+						//- 							option(value="varsawa2") Варшава
+						//- 							option(value="vlozlavek2") Влоцлавек
+						//- 							option(value="wrozlaw2") Вроцлав
+						//- 				.FilterElement_footer
+						//- 					button(type="button" data-action="saveFilterElement").BtnBlue.BtnBlue-jobFilter Применить
+						//- 	a(href="javascript:;").AddFieldItem.AddFieldItem-country.FilterElementGroup_addFieldItem
+						//- 		include /includes/svg/icon_add
+						//- 		span.AddFieldItem_text Добавить ещё страну
+						.FilterElement.FilterElement-hasNestedElements.JobFilter_item(data-element-type="checkboxList")
+							a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
+								.FilterElement_mobTitle Для кого
+							.FilterElement_wrapper
+								.FilterElement_header
+									.FilterElement_headerLeft
+										a(href="javascript:;" data-action="closeFilterElement").BtnBack.BtnBack-noBack.FilterElement_closeLink
+											include /includes/svg/SvgIco/arrow_left
+										h3.FilterElement_title Для кого
+									.FilterElement_headerRight
+										a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
+								.FilterElement_content
+									.CheckboxList.CheckboxList-jobFilter
+										.CheckboxList_content
+											.Checkbox.Checkbox-jobFilter.CheckboxList_item
+												input(type="checkbox" name="sex" value="man" id="man").Checkbox_input
+												label(for="man").Checkbox_label Мужчины
+											.Checkbox.Checkbox-jobFilter.CheckboxList_item
+												input(type="checkbox" name="sex" value="woman" id="woman").Checkbox_input
+												label(for="woman").Checkbox_label Женщины
+											.Checkbox.Checkbox-jobFilter.CheckboxList_item
+												input(type="checkbox" name="sex" value="couples" id="couples").Checkbox_input
+												label(for="couples").Checkbox_label Семейные пары
+								.FilterElement_footer
+									button(type="button" data-action="saveFilterElement").BtnBlue.BtnBlue-jobFilter Применить
+						.FilterElement.FilterElement-hasNestedElements.JobFilter_item(data-element-type="radioBtnsList")
+							a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
+								.FilterElement_mobTitle Знание языка
+							.FilterElement_wrapper
+								.FilterElement_header
+									.FilterElement_headerLeft
+										a(href="javascript:;" data-action="closeFilterElement").BtnBack.BtnBack-noBack.FilterElement_closeLink
+											include /includes/svg/SvgIco/arrow_left
+										h3.FilterElement_title Знание языка
+									.FilterElement_headerRight
+										a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
+								.FilterElement_content
+									.RadioBtnsList
+										.RadioBtnsList_content
+											.RadioBtn.RadioBtnsList_item
+												input(type="radio" name="language_knowledge" value="all_options" id="all_options").RadioBtn_input
+												label(for="all_options").RadioBtn_label Все варианты
+											.RadioBtn.RadioBtnsList_item
+												input(type="radio" name="language_knowledge" value="need" id="need").RadioBtn_input
+												label(for="need").RadioBtn_label Нужно
+											.RadioBtn.RadioBtnsList_item
+												input(type="radio" name="language_knowledge" value="not_necessary" id="not_necessary").RadioBtn_input
+												label(for="not_necessary").RadioBtn_label Не нужно
+								.FilterElement_footer
+									button(type="button" data-action="saveFilterElement").BtnBlue.BtnBlue-jobFilter Применить
+						.FilterElement.FilterElement-hasNestedElements.JobFilter_item(data-element-type="radioBtnsList")
+							a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
+								.FilterElement_mobTitle Опыт работы
+							.FilterElement_wrapper
+								.FilterElement_header
+									.FilterElement_headerLeft
+										a(href="javascript:;" data-action="closeFilterElement").BtnBack.BtnBack-noBack.FilterElement_closeLink
+											include /includes/svg/SvgIco/arrow_left
+										h3.FilterElement_title Опыт работы
+									.FilterElement_headerRight
+										a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
+								.FilterElement_content
+									.RadioBtnsList
+										.RadioBtnsList_content
+											.RadioBtn.RadioBtnsList_item
+												input(type="radio" name="work_experience" value="work_all_options" id="work_all_options").RadioBtn_input
+												label(for="work_all_options").RadioBtn_label Все варианты
+											.RadioBtn.RadioBtnsList_item
+												input(type="radio" name="work_experience" value="work_need" id="work_need").RadioBtn_input
+												label(for="work_need").RadioBtn_label Нужен
+											.RadioBtn.RadioBtnsList_item
+												input(type="radio" name="work_experience" value="work_not_necessary" id="work_not_necessary").RadioBtn_input
+												label(for="work_not_necessary").RadioBtn_label Не нужен
+								.FilterElement_footer
+									button(type="button" data-action="saveFilterElement").BtnBlue.BtnBlue-jobFilter Применить
+						.FilterElement.FilterElement-hasNestedElements.JobFilter_item(data-element-type="checkboxList")
+							a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
+								.FilterElement_mobTitle Сезон
+							.FilterElement_wrapper
+								.FilterElement_header
+									.FilterElement_headerLeft
+										a(href="javascript:;" data-action="closeFilterElement").BtnBack.BtnBack-noBack.FilterElement_closeLink
+											include /includes/svg/SvgIco/arrow_left
+										h3.FilterElement_title Сезон
+									.FilterElement_headerRight
+										a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
+								.FilterElement_content
+									.CheckboxList.CheckboxList-jobFilter
+										.CheckboxList_content
+											.Checkbox.Checkbox-jobFilter.CheckboxList_item
+												input(type="checkbox" name="season" value="always" id="always").Checkbox_input
+												label(for="always").Checkbox_label Постоянная работа
+											.Checkbox.Checkbox-jobFilter.CheckboxList_item
+												input(type="checkbox" name="season" value="spring" id="spring").Checkbox_input
+												label(for="spring").Checkbox_label Весна
+											.Checkbox.Checkbox-jobFilter.CheckboxList_item
+												input(type="checkbox" name="season" value="summer" id="summer").Checkbox_input
+												label(for="summer").Checkbox_label Лето
+											.Checkbox.Checkbox-jobFilter.CheckboxList_item
+												input(type="checkbox" name="season" value="autumn" id="autumn").Checkbox_input
+												label(for="autumn").Checkbox_label Осень
+											.Checkbox.Checkbox-jobFilter.CheckboxList_item
+												input(type="checkbox" name="season" value="winter" id="winter").Checkbox_input
+												label(for="winter").Checkbox_label Зима
+											.Checkbox.Checkbox-jobFilter.CheckboxList_item
+												input(type="checkbox" name="season" value="season" id="season").Checkbox_input
+												label(for="season").Checkbox_label Сезонная
+								.FilterElement_footer
+									button(type="button" data-action="saveFilterElement").BtnBlue.BtnBlue-jobFilter Применить
+					.JobFilter_footer
+						button(type="button" data-action="saveFilter").BtnBlue.BtnBlue-jobFilter Показать 1256 вакансий
+	.PopupMenu.PopupMenu-paddingTop.PopupMenu-paddingLeft#PopupMenu
+		.PopupMenu_overlay
+		.PopupMenu_wrapper
+			ul.PopupMenu_menu
+				li.PopupMenu_item
+					a(href="/companies_dossiers.html").PopupMenu_link Роботодавці
+				li.PopupMenu_item
+					a(href="/vacancies.html").PopupMenu_link.active Вакансії
+	template#FilterElementsCountryTmpl
+		.FilterElementGroup_items
+			.FilterElement.FilterElement-hasNestedElements.FilterElementGroup_item(data-element-type="checkboxList" data-removable-element)
+				a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
+					.FilterElement_mobTitle Страна
+				.FilterElement_wrapper
+					.FilterElement_header
+						.FilterElement_headerLeft
+							a(href="javascript:;" data-action="closeFilterElement").BtnBack.BtnBack-noBack.FilterElement_closeLink
+								include /includes/svg/SvgIco/arrow_left
+							h3.FilterElement_title Страна
+						a(href="javascript:;").FilterElementGroup_removeLink.hidden-xs Удалить
+						.FilterElement_headerRight
+							a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
+					.FilterElement_content
+						.CheckboxList.CheckboxList-jobFilter.hidden-smPlus(data-parent-checkbox-list)
+							.CheckboxList_content
+								.Checkbox.Checkbox-jobFilter.CheckboxList_item
+									input(type="checkbox" name="country[]" value="poland" id="poland").Checkbox_input
+									label(for="poland").Checkbox_label Польша
+								.Checkbox.Checkbox-jobFilter.CheckboxList_item
+									input(type="checkbox" name="country[]" value="czech" id="czech").Checkbox_input
+									label(for="czech").Checkbox_label Чехия
+								.Checkbox.Checkbox-jobFilter.CheckboxList_item
+									input(type="checkbox" name="country[]" value="germany" id="germany").Checkbox_input
+									label(for="germany").Checkbox_label Германия
+						.DropdownSelect.DropdownSelect-mobile.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect.hidden-xs(data-parent-dropdown)
+							select(name="country[]", id="country_select").DropdownSelect_select
+								option(value="poland") Польша
+								option(value="czech") Чехия
+								option(value="germany") Германия
+					.FilterElement_footer
+						button(type="button" data-action="saveFilterElement").BtnBlue.BtnBlue-jobFilter Применить
+			.FilterElement.FilterElement-hasNestedElements.FilterElementGroup_item.hidden(data-element-type="checkboxList" data-dependent-element data-removable-element)
+				a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
+					.FilterElement_mobTitle Город
+				.FilterElement_wrapper
+					.FilterElement_header
+						.FilterElement_headerLeft
+							a(href="javascript:;" data-action="closeFilterElement").BtnBack.BtnBack-noBack.FilterElement_closeLink
+								include /includes/svg/SvgIco/arrow_left
+							h3.FilterElement_title Город
+						.FilterElement_headerRight
+							a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
+					.FilterElement_content
+						input(type="text" name="city_search" placeholder="Я ищу…" data-action="liveCheckboxSearch" data-checkbox-list=".CheckboxList-cities").FilterElement_formText.FormText.FormText-jobFilter.hidden-smPlus
+						.CheckboxList.CheckboxList-jobFilter.CheckboxList-cities.hidden-smPlus
+							.CheckboxList_content
+								.Checkbox.Checkbox-jobFilter.CheckboxList_item
+									input(type="checkbox" name="city[]" value="belsko_byala" id="belsko_byala").Checkbox_input
+									label(for="belsko_byala").Checkbox_label Бельсько-Бяла
+								.Checkbox.Checkbox-jobFilter.CheckboxList_item
+									input(type="checkbox" name="city[]" value="bidgosch" id="bidgosch").Checkbox_input
+									label(for="bidgosch").Checkbox_label Бидгощ
+								.Checkbox.Checkbox-jobFilter.CheckboxList_item
+									input(type="checkbox" name="city[]" value="bilostok" id="bilostok").Checkbox_input
+									label(for="bilostok").Checkbox_label Білосток
+								.Checkbox.Checkbox-jobFilter.CheckboxList_item
+									input(type="checkbox" name="city[]" value="valbzhih" id="valbzhih").Checkbox_input
+									label(for="valbzhih").Checkbox_label Валбжих
+								.Checkbox.Checkbox-jobFilter.CheckboxList_item
+									input(type="checkbox" name="city[]" value="varsawa" id="varsawa").Checkbox_input
+									label(for="varsawa").Checkbox_label Варшава
+								.Checkbox.Checkbox-jobFilter.CheckboxList_item
+									input(type="checkbox" name="city[]" value="vlozlavek" id="vlozlavek").Checkbox_input
+									label(for="vlozlavek").Checkbox_label Влоцлавек
+								.Checkbox.Checkbox-jobFilter.CheckboxList_item
+									input(type="checkbox" name="city[]" value="wrozlaw" id="wrozlaw").Checkbox_input
+									label(for="wrozlaw").Checkbox_label Вроцлав
+								.Checkbox.Checkbox-jobFilter.CheckboxList_item
+									input(type="checkbox" name="city[]" value="valbzhih2" id="valbzhih2").Checkbox_input
+									label(for="valbzhih2").Checkbox_label Валбжих
+								.Checkbox.Checkbox-jobFilter.CheckboxList_item
+									input(type="checkbox" name="city[]" value="varsawa2" id="varsawa2").Checkbox_input
+									label(for="varsawa2").Checkbox_label Варшава
+								.Checkbox.Checkbox-jobFilter.CheckboxList_item
+									input(type="checkbox" name="city[]" value="vlozlavek2" id="vlozlavek2").Checkbox_input
+									label(for="vlozlavek2").Checkbox_label Влоцлавек
+								.Checkbox.Checkbox-jobFilter.CheckboxList_item
+									input(type="checkbox" name="city[]" value="wrozlaw2" id="wrozlaw2").Checkbox_input
+									label(for="wrozlaw2").Checkbox_label Вроцлав
+							.CheckboxList_noResults По вашему запросу ничего не найдено
+						.DropdownSelect.DropdownSelect-mobile.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect.hidden-xs
+							select(name="city[]" multiple="multiple").DropdownSelect_select
+								option(value="belsko_byala") Бельсько-Бяла
+								option(value="bidgosch") Бидгощ
+								option(value="bilostok") Білосток
+								option(value="valbzhih") Валбжих
+								option(value="varsawa") Варшава
+								option(value="vlozlavek") Влоцлавек
+								option(value="wrozlaw") Вроцлав
+								option(value="valbzhih2") Валбжих
+								option(value="varsawa2") Варшава
+								option(value="vlozlavek2") Влоцлавек
+								option(value="wrozlaw2") Вроцлав
+					.FilterElement_footer
+						button(type="button" data-action="saveFilterElement").BtnBlue.BtnBlue-jobFilter Применить
+	include /includes/blocks/CompanyAdding
+	include /includes/blocks/PopupShare
+	include /includes/blocks/LinkCopiedNotification
+block page_bottom
+	script(src="/js/vacancies.js")

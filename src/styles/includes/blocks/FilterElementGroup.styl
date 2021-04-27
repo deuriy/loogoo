@@ -1,0 +1,35 @@
+.FilterElementGroup
+	@media $xs
+		// padding-bottom 10px
+		border-top 8px solid #F8F9FA
+		border-bottom 8px solid #F8F9FA
+
+	&_items
+		margin-bottom 25px
+
+		@media $xs
+			margin-bottom 0
+			border-bottom 8px solid #F8F9FA
+
+	&_item
+		margin-bottom 12px
+
+		@media $xs
+			margin-bottom 0
+
+		&:last-child
+			margin-bottom 0
+	
+	&_addFieldItem
+		margin-left 16px
+
+		@media $xs
+			display flex
+			margin-left 0
+			padding-top 16px
+			padding-bottom 16px
+			padding-left 16px
+	
+	&_removeLink
+		font-size 13px
+		color $blue

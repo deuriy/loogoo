@@ -103,6 +103,19 @@
 			@media $smPlus
 				margin-left 4px
 	
+	&_titleWrapper
+		display flex
+		align-items baseline
+	
+	&_resultsTitle
+		margin-right 14px
+		font-weight 600
+		font-size 26px
+	
+	&_results
+		font-size 18px
+		color $blue2
+	
 	&_title
 		font-weight 500
 	
@@ -150,7 +163,8 @@
 				font-size 14px
 				line-height 1.4286
 	
-	&-vacancies
+	&-vacancies,
+	&-vacanciesResults
 		@media $smMinus
 			padding-right 15px
 			padding-left 15px
@@ -173,3 +187,37 @@
 		
 			.fs-label-wrap .fs-label
 				font-size 14px
+	
+	&-vacanciesResults
+		@media $smPlus
+			.Filter_main
+				align-items baseline
+				min-height 0
+				padding-top 3px
+				padding-bottom 10px
+			
+			.fs-label-wrap .fs-label
+				font-size 13px
+
+			.Filter_item:nth-last-child(2)
+				margin-right 0
+		
+		@media $xs
+			display flex
+			flex-direction column-reverse
+
+			.Filter_main
+				flex-direction column
+				align-items stretch
+				margin 0 -20px 20px
+				padding-right 20px
+				padding-left 20px
+			
+			.Filter_right
+				display flex
+				justify-content space-between
+				padding-left 0
+			
+			.Filter_toggleLink
+				margin-top 5px
+				margin-right 5px

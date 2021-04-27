@@ -3,14 +3,14 @@
 	display block
 	
 	&:hover
-		.Checkbox_label:before
+		.Checkbox_label::before
 			border-color $orange
 	
 	&_input
 		position absolute
 		clip rect(0, 0, 0, 0)
 		
-		&:checked ~ .Checkbox_label:before
+		&:checked ~ .Checkbox_label::before
 			border-color $orange
 			background-color $orange
 			background-image url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZGIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTExIDFMNC4xMjUgOC41NjMgMSA1LjEyNCIvPjwvc3ZnPg==')
@@ -21,7 +21,7 @@
 		font-size 13px
 		line-height 1
 		
-		&:before
+		&::before
 			content ""
 			flex-shrink 0
 			width 20px
@@ -35,13 +35,15 @@
 			background-repeat no-repeat
 			@extend .transition
 	
-	&-square, &-largeCheck
+	&-square,
+	&-largeCheck,
+	&-jobFilter
 		&:hover
-			.Checkbox_label:before
+			.Checkbox_label::before
 				border-color #DFE2E6
 				
 		.Checkbox_input
-			&:checked ~ .Checkbox_label:before
+			&:checked ~ .Checkbox_label::before
 				border-color #DFE2E6
 				background-color $white
 				background-image url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNEI5N0Y5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTExIDFMNC4xMjUgOC41NjMgMSA1LjEyNCIvPjwvc3ZnPg==')
@@ -49,16 +51,36 @@
 		.Checkbox_label
 			font-size 14px
 			
-			&:before
+			&::before
 				width 12px
 				height 12px
 				margin-top 0
 				border-radius 0
 				border-color #DFE2E6
 	
+	&-jobFilter
+		.Checkbox_input
+			&:checked ~ .Checkbox_label::before
+				background-image url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='12'%3E%3Cstyle%3E%3C/style%3E%3Cg id='Фильтры'%3E%3Cpath id='Фигура 25 копия 4' d='M13.3.01C9.13 2.54 6.12 5.73 4.9 7.14L1.76 4.72C1.68 4.66-.05 6.17 0 6.21l5.71 5.74c.05.04.1.06.17.06h.04c.07-.02.14-.07.17-.14.92-2.32 3.96-7.18 7.84-10.71.07-.06.09-.16.05-.25 0 0-.62-.93-.68-.9z' fill='%234b97f9'/%3E%3C/g%3E%3C/svg%3E")
+
+		.Checkbox_label
+			align-items flex-end
+
+			@media $xs
+				font-size 16px
+			
+			&::before
+				width 16px
+				height 16px
+
+				@media $xs
+					width 18px
+					height 18px
+					margin-right 12px
+	
 	&-radio
 		&:hover
-			.Checkbox_label:before
+			.Checkbox_label::before
 				border-color $blue
 				
 		.Checkbox_label
@@ -66,7 +88,7 @@
 			font-size 16px
 			line-height 1.625
 			
-			&:before
+			&::before
 				width 14px
 				height 14px
 				margin-top 6px
@@ -76,7 +98,7 @@
 		
 		.Checkbox_input
 			&:checked ~ .Checkbox_label
-				&:before
+				&::before
 					border-color $grey
 					background-image none
 					background-color $blue
@@ -85,12 +107,12 @@
 				color #999
 			
 			&:checked:disabled ~ .Checkbox_label
-				&:before
+				&::before
 					background-color #d9d9d9
 	
 	&-timeRangeDropdown
 		.Checkbox_input
-			&:checked ~ .Checkbox_label:before
+			&:checked ~ .Checkbox_label::before
 				border-color #DFE2E6
 				background-color $white
 				background-image url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNEI5N0Y5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTExIDFMNC4xMjUgOC41NjMgMSA1LjEyNCIvPjwvc3ZnPg==')
@@ -102,7 +124,7 @@
 	&-largeCheck
 		.Checkbox_input
 			&:checked ~ .Checkbox_label
-				&:before
+				&::before
 					background-image none
 				
 				&:after
@@ -112,7 +134,7 @@
 			font-weight 500
 			color $blue2
 			
-			&:before
+			&::before
 				margin-right 9px
 			
 			&:after
@@ -138,7 +160,7 @@
 				font-size 16px
 				line-height 1.5625
 			
-			&:before
+			&::before
 				margin-top 7px
 				border-color #EBF0F2
 				margin-right 15px

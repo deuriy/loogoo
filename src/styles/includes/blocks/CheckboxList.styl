@@ -5,6 +5,9 @@
 		&:last-child
 			margin-bottom 0
 	
+	&_noResults
+		display none
+	
 	&-radio
 		.CheckboxList_item
 			margin-bottom 10px
@@ -14,3 +17,41 @@
 				
 				&:last-child
 					margin-bottom 0
+	
+	&-jobFilter
+		.CheckboxList_content
+			position relative
+			max-height 210px
+
+			@media $xs
+				max-height none
+
+			&.ps
+				// &::after
+				// 	content ""
+				// 	position absolute
+				// 	bottom 0
+				// 	right 0
+				// 	left 25px
+				// 	height 20px
+				// 	background rgba(255, 255, 255, .8)
+
+				.CheckboxList_item:nth-last-child(3)
+					margin-bottom 0
+			
+		.CheckboxList_item
+			margin-bottom 16px
+
+			@media $xs
+				margin-bottom 24px
+
+			&:last-child
+				margin-bottom 0
+		
+		.ps__thumb-y
+			width 4px
+		
+		.ps__thumb-x,
+		.ps__thumb-y
+			background-color rgba(235, 240, 242, .8)
+			border-radius 2px

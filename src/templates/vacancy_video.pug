@@ -1,0 +1,210 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Видео вакансии компании";
+	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-vacancyFull";
+block content
+	.Container.Main_container
+		.Main_columns
+			.Main_left
+				.MobileHeader.hidden-smPlus
+					a(href="#").BtnBack.MobileHeader_btnBack
+						include /includes/svg/SvgIco/arrow_left
+					h1.MobileHeader_title International Work
+					a(href="#PopupShareExtended", data-action="openMobilePopup", data-mobile-popup-title="Досье компании").DotsIcon.MobileHeader_dotsIcon
+						include /includes/svg/SvgIco/dots
+				.Vacancy
+					.Vacancy_header
+						a(href="/vacancies.html").ArrowLink.ArrowLink-vacancyFull.Vacancy_viewAll.hidden-xs Все вакансии
+						.Vacancy_headerWrapper
+							.Vacancy_headerLeft
+								h2.Vacancy_title International Work
+								.Vacancy_workplace.hidden-xs Почтовый склад • Польша, Варшава, Nowowiejska 5
+								.Vacancy_workplace.hidden-smPlus Почтовый склад
+							.Vacancy_headerRight
+								.DotsMenu.Vacancy_dotsMenu.hidden-xs
+									a(href="javascript:;").DotsIcon.DotsMenu_icon
+										include /includes/svg/SvgIco/dots
+									.DotsMenu_wrapper
+										a(href="javascript:;").DotsMenu_link
+											include /includes/svg/SvgIco/edit
+											.
+												Редактировать
+										a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link
+											include /includes/svg/SvgIco/warning
+											.
+												Пожаловаться
+								.Rating.Rating-vacancy.Rating-dropdown.CompanyBlock_rating.hidden-smPlus
+									span.Rating_icon
+										include /includes/svg/SvgIco/icon_star
+									span.Rating_number 7,3
+									span.Rating_max / 10
+								.Vacancy_mark.hidden-smPlus 182 оценки
+					.MenuSection.MenuSection-vacancyFull.MenuSection-sticky.Vacancy_menuSection
+						.CategoryMenu.CategoryMenu-vacancyFull
+							ul.CategoryMenu_menu
+								li.CategoryMenu_item
+									a(href="/vacancy.html").CategoryMenu_link Все
+								li.CategoryMenu_item
+									a(href="/vacancy_reviews.html").CategoryMenu_link Отзывы
+								li.CategoryMenu_item
+									a(href="/vacancy_photos.html").CategoryMenu_link Фотографии
+								li.CategoryMenu_item
+									a(href="/vacancy_video.html").CategoryMenu_link Видео
+					.VacancyVideo
+						ul.VacancyVideo_list
+							li.VacancyVideo_item
+								.VideoContainer
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/LpnhUhHkGGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							li.VacancyVideo_item
+								.VideoContainer
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/LpnhUhHkGGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							li.VacancyVideo_item
+								.VideoContainer
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/LpnhUhHkGGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							li.VacancyVideo_item
+								.VideoContainer
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/LpnhUhHkGGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							li.VacancyVideo_item
+								.VideoContainer
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/LpnhUhHkGGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							li.VacancyVideo_item
+								.VideoContainer
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/LpnhUhHkGGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							li.VacancyVideo_item
+								.VideoContainer
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/LpnhUhHkGGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							li.VacancyVideo_item
+								.VideoContainer
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/LpnhUhHkGGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							li.VacancyVideo_item
+								.VideoContainer
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/LpnhUhHkGGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							li.VacancyVideo_item
+								.VideoContainer
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/LpnhUhHkGGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							li.VacancyVideo_item
+								.VideoContainer
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/LpnhUhHkGGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							li.VacancyVideo_item
+								.VideoContainer
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/LpnhUhHkGGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			.Aside.Main_aside.hidden-xs
+				.RatingSection.RatingSection-short.Aside_ratingSection
+					.RatingSection_ratingWrapper
+						.Rating.Rating-vacancyFull.RatingSection_rating
+							span.Rating_icon
+								include /includes/svg/SvgIco/icon_star
+							span.Rating_number 7,3
+							span.Rating_max / 10
+							span.Rating_label 182 оценки
+					.ExtendedRatings.ExtendedRatings-short.RatingSection_extendedRatings
+						.ExtendedRating.ExtendedRating-short.ExtendedRatings_item
+							.ExtendedRating_markAndNumber
+								.ExtendedRating_mark 8,2
+								.ExtendedRating_ratingsNumber 45 оценок
+							.ExtendedRating_wrapper
+								.ExtendedRating_label cкорость рабочего процесса
+								.ExtendedRating_line
+									.ExtendedRating_lineFill(data-mark="8.2")
+						.ExtendedRating.ExtendedRating-short.ExtendedRatings_item
+							.ExtendedRating_markAndNumber
+								.ExtendedRating_mark 8,2
+								.ExtendedRating_ratingsNumber 45 оценок
+							.ExtendedRating_wrapper
+								.ExtendedRating_label cкорость рабочего процесса
+								.ExtendedRating_line
+									.ExtendedRating_lineFill(data-mark="8.2")
+						.ExtendedRating.ExtendedRating-short.ExtendedRatings_item
+							.ExtendedRating_markAndNumber
+								.ExtendedRating_mark 8,2
+								.ExtendedRating_ratingsNumber 45 оценок
+							.ExtendedRating_wrapper
+								.ExtendedRating_label cкорость рабочего процесса
+								.ExtendedRating_line
+									.ExtendedRating_lineFill(data-mark="8.2")
+						.ExtendedRating.ExtendedRating-short.ExtendedRatings_item
+							.ExtendedRating_markAndNumber
+								.ExtendedRating_mark 8,2
+								.ExtendedRating_ratingsNumber 45 оценок
+							.ExtendedRating_wrapper
+								.ExtendedRating_label cкорость рабочего процесса
+								.ExtendedRating_line
+									.ExtendedRating_lineFill(data-mark="8.2")
+					a(href="#").BtnBlue.BtnBlue-testimonial.BtnBlue-ratingSection.RatingSection_testimonialBtn Проголосовать
+				.VacanciesBlock
+					h3.SidebarTitle.VacanciesBlock_title Другие вакансии
+					.VacanciesBlock_items
+						.VacancyBlock.VacanciesBlock_item
+							.VacancyBlock_left
+								h4.VacancyBlock_title Gremi Personal
+								h4.VacancyBlock_workplace Почтовый склад
+							.VacancyBlock_right
+								.Rating.Rating-vacancyFull.Rating-vacancyBlock
+									span.Rating_wrapper
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 6,8
+										span.Rating_max / 10
+									span.Rating_label 182 оценки
+						.VacancyBlock.VacanciesBlock_item
+							.VacancyBlock_left
+								h4.VacancyBlock_title Gremi Personal
+								h4.VacancyBlock_workplace Почтовый склад
+							.VacancyBlock_right
+								.Rating.Rating-vacancyFull.Rating-vacancyBlock
+									span.Rating_wrapper
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 6,8
+										span.Rating_max / 10
+									span.Rating_label 182 оценки
+						.VacancyBlock.VacanciesBlock_item
+							.VacancyBlock_left
+								h4.VacancyBlock_title Gremi Personal
+								h4.VacancyBlock_workplace Почтовый склад
+							.VacancyBlock_right
+								.Rating.Rating-vacancyFull.Rating-vacancyBlock
+									span.Rating_wrapper
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 6,8
+										span.Rating_max / 10
+									span.Rating_label 182 оценки
+						.VacancyBlock.VacanciesBlock_item
+							.VacancyBlock_left
+								h4.VacancyBlock_title Gremi Personal
+								h4.VacancyBlock_workplace Почтовый склад
+							.VacancyBlock_right
+								.Rating.Rating-vacancyFull.Rating-vacancyBlock
+									span.Rating_wrapper
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 6,8
+										span.Rating_max / 10
+									span.Rating_label 182 оценки
+						.VacancyBlock.VacanciesBlock_item
+							.VacancyBlock_left
+								h4.VacancyBlock_title Gremi Personal
+								h4.VacancyBlock_workplace Почтовый склад
+							.VacancyBlock_right
+								.Rating.Rating-vacancyFull.Rating-vacancyBlock
+									span.Rating_wrapper
+										span.Rating_icon
+											include /includes/svg/SvgIco/icon_star
+										span.Rating_number 6,8
+										span.Rating_max / 10
+									span.Rating_label 182 оценки
+	include /includes/blocks/ComplaintFormPopup
+	include /includes/blocks/TopicLikePopup
+	include /includes/blocks/PopupShare
+	include /includes/blocks/PopupShareExtended
+	include /includes/blocks/PopupCommentSettings
+	include /includes/blocks/PopupOwnCommentSettings
+	include /includes/blocks/LinkCopiedNotification
+	include /includes/blocks/ComplaintPopup
+	include /includes/blocks/ComplaintTopicPopup
+	include /includes/blocks/BookmarkTopicPopupGuest
+	include /includes/chunks/images_template
+block page_bottom
+	script(src="/js/vacancy.js")

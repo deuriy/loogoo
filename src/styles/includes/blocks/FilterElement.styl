@@ -1,0 +1,169 @@
+.FilterElement
+  padding-right 15px
+  padding-left 17px
+
+  @media $xs
+    padding-bottom 42px
+    padding-right 0
+    padding-left 0
+    border-bottom 1px solid #EBF0F2
+
+  &_mobLink,
+  &_closeLink,
+  &_headerRight,
+  &_footer
+    display none
+
+  &_mobValue
+    margin-top 7px
+    font-weight 500
+    color $black
+  
+  &_header
+    display flex
+    align-items center
+    justify-content space-between
+
+    @media $xs
+      padding 26px 20px 9px
+  
+  &_headerLeft
+    display flex
+    align-items flex-start
+  
+  &_closeLink
+    margin-right 10px
+
+  &_title
+    margin-bottom 10px
+    font-weight 600
+    
+    @media $xs
+      margin-bottom 0
+      font-weight normal
+      font-size 16px
+  
+  &_clearLink
+    color $blue
+    font-weight 500
+    font-size 15px
+  
+  &_removeLink
+    position absolute
+    top 30px
+    right 20px
+    width 14px
+    height 14px
+    background url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13.842' height='13.842'%3E%3Cg data-name='Сгруппировать 1' fill='none' stroke='%238396ac'%3E%3Cpath data-name='Линия 1' d='M.354.354l13.134 13.13z'/%3E%3Cpath data-name='Линия 1 копия' d='M.354 13.484L13.489.349z'/%3E%3C/g%3E%3C/svg%3E") 0 0 no-repeat
+  
+  &_content
+    @media $xs
+      padding-right 20px
+      padding-left 20px
+  
+  &_controls
+    display flex
+    align-items center
+    margin-bottom 26px
+
+    @media $xs
+      margin-bottom 35px
+  
+  &_control
+    min-width 0
+    margin-right 12px
+
+    &:last-child
+      margin-right 0
+  
+  &_formText
+    margin-bottom 16px
+
+    @media $xs
+      margin-bottom 24px
+  
+  &_footer
+    @media $xs
+      margin-top auto
+      padding-top 12px
+  
+  &_dropdownSelect
+    margin-left -2px
+  
+  &-hasNestedElements
+    @media $xs
+      padding-bottom 0
+      
+    .FilterElement_mobLink
+      @media $xs
+        position relative
+        display flex
+        padding 16px 19px 17px 21px
+        color #666
+        font-size 16px
+
+      &::after
+        content ''
+        position absolute
+        top 21px
+        right 19px
+        width 8px
+        height 15px
+        background url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8.073' height='14.718'%3E%3Cpath data-name='Прямоугольник 5' d='M.351.357l7.012 7.005-7.012 7.005' fill='none' stroke='%238396ac'/%3E%3C/svg%3E") center center no-repeat
+
+    .FilterElement_wrapper
+      @media $xs
+        position absolute
+        z-index 1000
+        top 0
+        left 0
+        display flex
+        flex-direction column
+        width 100%
+        height 100%
+        background $white
+        overflow-y auto
+        transform translateX(100%)
+        @extend .transition
+    
+    .FilterElement_header
+      @media $xs
+        padding 17px 20px 14px
+        border-bottom 1px solid #EBF0F2
+    
+    .FilterElement_title
+      @media $xs
+        font-weight 600
+    
+    .FilterElement_content
+      @media $xs
+        padding-top 23px
+        padding-bottom 23px
+
+    &.FilterElement-opened
+      .FilterElement_wrapper
+        @media $xs
+          transform translateX(0)
+      
+      .FilterElement_closeLink,
+      .FilterElement_headerRight,
+      .FilterElement_footer
+        display block
+  
+  &-selected
+    .FilterElement_mobLink
+      @media $xs
+        flex-direction column
+        // background-color #F8F9FA
+    
+    .FilterElement_mobTitle
+      @media $xs
+        margin-bottom -5px
+        font-size 14px
+    
+    // .FilterElement_mobLink::after
+    //   display none
+  
+  &-removable
+    .FilterElement_mobLink::after
+      display none

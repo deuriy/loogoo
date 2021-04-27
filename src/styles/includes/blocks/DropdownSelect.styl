@@ -143,7 +143,8 @@
 				font-size 14px
 	
 	&-companySettings,
-	&-profileSettings
+	&-profileSettings,
+	&-vacanciesFilter
 		.fs-wrap
 			display block
 			width auto
@@ -198,6 +199,24 @@
 				@media $xs
 					padding 8px 12px
 					font-size 16px
+	
+	&-vacanciesFilter
+		.fs-search
+			margin-right 20px
+			margin-left 20px
+			padding 0
+			border-bottom-color #EBF0F2
+
+			input
+				padding-top 14px
+				padding-bottom 12px
+				padding-left 30px
+				background url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15.999' height='16'%3E%3Cpath data-name='Фигура 12' d='M15.861 15.184l-3.889-3.888a6.832 6.832 0 10-.674.674l3.889 3.888a.481.481 0 00.337.142.467.467 0 00.337-.142.48.48 0 000-.674zM.955 6.822A5.865 5.865 0 116.82 12.69 5.871 5.871 0 01.954 6.823z' fill='%238396ac'/%3E%3C/svg%3E") 0 58% no-repeat
+
+		.fs-label-wrap
+			.fs-label
+				padding-top 10px
+				padding-bottom 9px
 	
 	&-enterpriseAddition
 		.fs-label-wrap .fs-label
@@ -326,4 +345,39 @@
 				
 				.fs-checkbox i
 					left 8px
-					background url('../img/dropdown_checkbox.svg') 0 0 no-repeat
+					background url('../img/dropdown_checkbox.svg') 0 0 no-repeat	
+	
+	&-vacanciesFilter
+		.fs-label-wrap
+			.fs-label
+				align-items flex-start
+				white-space normal
+				font-size 14px
+				line-height 1.71428em
+				color $black
+
+				&::after
+					flex-shrink 0
+					width 12px
+					height 8px
+					margin-top 8px
+					background url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12.45' height='7.861'%3E%3Cpath data-name='Прямоугольник 5 копия 4' d='M11.729.693l-5.5 5.725L.729.693' fill='none' stroke='%23d9d9d9' stroke-width='2'/%3E%3C/svg%3E") 0 0 no-repeat
+
+		.fs-wrap.multiple
+			.fs-dropdown
+				margin-top 6px
+			
+			.fs-option
+				padding-bottom 7px
+				padding-left 48px
+
+				.fs-checkbox i
+					left 20px
+					width 16px
+					height 16px
+					border 1px solid #DFE2E5
+					border-radius 2px
+
+				&.selected
+					.fs-checkbox i
+						left 20px

@@ -407,9 +407,21 @@ document.addEventListener("DOMContentLoaded", function () {
 		showSearch: false
 	});
 
+	$('.DropdownSelect-vacanciesFilter .DropdownSelect_select').fSelect({
+		placeholder: 'Все',
+		overflowText: '{n} выбрано',
+    noResultsText: 'По вашему запросу ничего не найдено',
+		showSearch: true,
+		searchText: 'Поиск…',
+	});
+
 	$('.DropdownSelect_select').fSelect({
 		showSearch: false
 	});
+
+	// $('.DropdownSelect-vacanciesFilter .DropdownSelect_select').fSelect({
+	// 	showSearch: true
+	// });
 
 	const psConfig = {
 		wheelPropagation: false,

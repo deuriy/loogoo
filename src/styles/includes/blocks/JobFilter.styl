@@ -1,0 +1,113 @@
+.JobFilter
+  width 330px
+  background $white
+  @extend .transition
+
+  @media $xs
+    display none
+    position fixed
+    z-index 1000
+    top 0
+    left 0
+    // transform translateX(100%)
+    width 100%
+    height 100%
+    overflow-y auto
+    overflow-x hidden
+  
+  &_wrapper
+    @media $xs
+      display flex
+      flex-direction column
+      height 100%
+  
+  &_header
+    display flex
+    justify-content space-between
+    align-items center
+    padding 20px 15px 14px
+    border-bottom 1px solid $grey
+
+    @media $xs
+      padding 17px 20px 14px
+
+    @media $smPlus
+      margin-bottom 24px
+  
+  &_headerLeft
+    display flex
+    align-items flex-start
+  
+  &_closeLink
+    margin-right 10px
+
+    @media $smPlus
+      display none
+  
+  &_title
+    font-weight 600
+    font-size 16px
+  
+  &_clearLink
+    color $blue
+    font-size 13px
+
+    @media $xs
+      font-weight 500
+      font-size 15px
+  
+  &_itemGroup,
+  &_item
+    @media $smPlus
+      position relative
+
+      &::after
+        content ''
+        position absolute
+        right 15px
+        bottom 0
+        left 15px
+        height 1px
+        background $grey
+      
+      &:last-child
+        padding-bottom 0
+
+        &::after
+          display none
+  
+  &_itemGroup
+    @media $smPlus
+      margin-bottom 36px
+      padding-bottom 36px
+  
+  &_item
+    margin-bottom 42px
+    padding-bottom 46px
+
+    @media $xs
+      margin-bottom 0
+      padding-bottom 0
+    
+    &-salary
+      margin-bottom 36px
+
+    &:last-child
+      margin-bottom 0
+  
+  &_footer
+    margin-top auto
+    padding-top 32px
+
+    @media $smPlus
+      display none
+  
+  &-opened
+    @media $xs
+      // transform translateX(0)
+      display block
+  
+  &-noScroll
+    .JobFilter_wrapper
+      height 0
+      overflow hidden
