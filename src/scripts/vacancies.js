@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	let checkboxList = document.querySelectorAll('.CheckboxList_content'),
 			radioBtnsList = document.querySelectorAll('.RadioBtnsList_content');
 
-	if (window.innerWidth > 767) {
+	if (document.documentElement.clientWidth > 767) {
 		for (let i = 0; i < checkboxList.length; i++) {
 			if (checkboxList[i].querySelectorAll('.Checkbox').length > 6) {
 				psCheckboxArr.push(new PerfectScrollbar(checkboxList[i], {
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			noResults.style.display = 'block';
 		}
 
-		if (window.innerWidth > 767) {
+		if (document.documentElement.clientWidth > 767) {
 			for (let ps of psCheckboxArr) {
 				ps.update();
 			}
@@ -80,20 +80,33 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (!checkboxList) return;
 
 		let checkedCheckboxes = checkboxList.querySelectorAll('.Checkbox_input:checked');
-		
 		for (let checkboxInput of checkedCheckboxes) {
 			checkboxInput.checked = false;
 		}
+		
+		let allSelect = checkboxList.querySelectorAll('select');
+		clearDropdownList(allSelect);
 	}
 
 	function clearRadioBtnsList(radioBtnsList) {
 		if (!radioBtnsList) return;
 
 		let checkedRadioInput = radioBtnsList.querySelector('.RadioBtn_input:checked');
+		if (checkedRadioInput) {
+			checkedRadioInput.checked = false;
+		}
 
-		if (!checkedRadioInput) return;
+		let allSelect = radioBtnsList.querySelectorAll('select');
+		clearDropdownList(allSelect);
+	}
 
-		checkedRadioInput.checked = false;
+	function clearDropdownList (dropdownList) {
+		for (const dropdown of dropdownList) {
+			for (const option of dropdown.options) {
+				option.selected = false;
+			}
+			$(dropdown).fSelect('reload');
+		}
 	}
 
 	function clearRangeItem(rangeItem) {
@@ -223,6 +236,19 @@ document.addEventListener('DOMContentLoaded', function () {
 		for (const elem of filterElements) {
 			clearFilterElement(elem);
 		}
+
+		let additionalGroups = filter.querySelectorAll('.FilterElementGroup_items[data-additional-group]');
+		for (const group of additionalGroups) {
+			group.remove();
+		}
+
+		let dependentElements = filter.querySelectorAll('.FilterElement[data-dependent-element]');
+		for (const elem of dependentElements) {
+			elem.classList.add('hidden');
+		}
+
+		let addFieldItemCountry = filter.querySelector('.AddFieldItem-country');
+		addFieldItemCountry.classList.add('hidden');
 	});
 
 	document.addEventListener('click', function (e) {
@@ -349,19 +375,34 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 
 		// let filter
-		let isParentCheckboxList = filterElement.querySelector('[data-parent-checkbox-list]');
+		let isParentRadioBtnsList = filterElement.querySelector('[data-parent-radiobtns-list]');
 		let filterElementItemsWrapper = filterElement.closest('.FilterElementGroup_items');
 
 		if (filterElementItemsWrapper) {
+			let filterElementGroup = filterElementItemsWrapper.closest('.FilterElementGroup');
 			let dependentElement = filterElementItemsWrapper.querySelector('[data-dependent-element]');
 
-			if (isParentCheckboxList && dependentElement) {
+			if (isParentRadioBtnsList && dependentElement) {
+				let addFieldItem = filterElementGroup.querySelector('.AddFieldItem');
+
 				if (isFilled) {
+					addFieldItem.classList.remove('hidden');
 					dependentElement.classList.remove('hidden');
-					setTimeout(() => {
-						dependentElement.querySelector('.FilterElement_mobLink').click();
-					}, );
+					dependentElement.classList.add('FilterElement-selected');
+					dependentElement.dataset.saved = '';
+
+					let mobValue = dependentElement.querySelector('.FilterElement_mobValue');
+					if (mobValue) {
+						mobValue.textContent = 'Все города';
+					} else {
+						dependentElement.querySelector('.FilterElement_mobLink').insertAdjacentHTML('beforeend', '<div class="FilterElement_mobValue">Все города</div>');
+					}
+					
+					// setTimeout(() => {
+					// 	dependentElement.querySelector('.FilterElement_mobLink').click();
+					// }, 0);
 				} else {
+					addFieldItem.classList.add('hidden');
 					dependentElement.classList.add('hidden');
 				}
 			}
@@ -377,16 +418,30 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (!fsOption) return;
 
 		let filterElementGroupItems = fsOption.closest('.FilterElementGroup_items');
+		let filterElementGroup = filterElementGroupItems.closest('.FilterElementGroup');
 		let dependentElement = filterElementGroupItems.querySelector('[data-dependent-element]');
+		let addFieldItem = filterElementGroup.querySelector('.AddFieldItem');
 
 		if (!dependentElement) return;
 
 		if (fsOption.dataset.value !== 'all') {
 			dependentElement.classList.remove('hidden');
+			addFieldItem.classList.remove('hidden');
 		} else {
 			dependentElement.classList.add('hidden');
+			addFieldItem.classList.add('hidden');
 		}
 	});
+
+	function createNewFieldsID (fields, key) {
+		for (const field of fields) {
+			let input = field.querySelector('input');
+			let label = field.querySelector('label');
+
+			input.id += `_${key}`;
+			label.htmlFor += `_${key}`;
+		}
+	}
 
 	document.addEventListener('click', function(e) {
 		let addFieldItemCountry = e.target.closest('.AddFieldItem-country');
@@ -403,17 +458,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let filterElementGroupItemWrappers = filterElementGroup.querySelectorAll('.FilterElementGroup_items');
 		let itemsWrapperLength = filterElementGroupItemWrappers.length;
-
 		let filterElementLastGroupItemsWrapper = filterElementGroupItemWrappers[itemsWrapperLength - 1];
+
 		let checkboxes = filterElementLastGroupItemsWrapper.querySelectorAll('.Checkbox');
+		let radioBtns = filterElementLastGroupItemsWrapper.querySelectorAll('.RadioBtn');
 
-		for (const checkbox of checkboxes) {
-			let checkboxInput = checkbox.querySelector('.Checkbox_input');
-			let checkboxLabel = checkbox.querySelector('.Checkbox_label');
-
-			checkboxInput.id += `_${itemsWrapperLength}`;
-			checkboxLabel.htmlFor += `_${itemsWrapperLength}`;
-		}
+		createNewFieldsID(checkboxes, itemsWrapperLength);
+		createNewFieldsID(radioBtns, itemsWrapperLength);
 
 		$('.DropdownSelect-vacanciesFilter .DropdownSelect_select').fSelect({
 			placeholder: 'Все',

@@ -278,7 +278,7 @@ block content
 									.RangeSlider#SalaryRange
 						.FilterElementGroup.JobFilter_itemGroup
 							.FilterElementGroup_items
-								.FilterElement.FilterElement-hasNestedElements.FilterElementGroup_item(data-element-type="checkboxList")
+								.FilterElement.FilterElement-hasNestedElements.FilterElementGroup_item(data-element-type="radioBtnsList")
 									a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
 										.FilterElement_mobTitle Страна
 									.FilterElement_wrapper
@@ -290,19 +290,20 @@ block content
 											.FilterElement_headerRight
 												a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
 										.FilterElement_content
-											.CheckboxList.CheckboxList-jobFilter.hidden-smPlus(data-parent-checkbox-list)
-												.CheckboxList_content
-													.Checkbox.Checkbox-jobFilter.CheckboxList_item
-														input(type="checkbox" name="country[]" value="poland" id="poland").Checkbox_input
-														label(for="poland").Checkbox_label Польша
-													.Checkbox.Checkbox-jobFilter.CheckboxList_item
-														input(type="checkbox" name="country[]" value="czech" id="czech").Checkbox_input
-														label(for="czech").Checkbox_label Чехия
-													.Checkbox.Checkbox-jobFilter.CheckboxList_item
-														input(type="checkbox" name="country[]" value="germany" id="germany").Checkbox_input
-														label(for="germany").Checkbox_label Германия
-											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect.hidden-xs(data-parent-dropdown)
-												select(name="country[]", id="country_select").DropdownSelect_select
+											.RadioBtnsList.RadioBtnsList-jobFilter.hidden-smPlus(data-parent-radiobtns-list)
+												.RadioBtnsList_content
+													.RadioBtn.RadioBtn-jobFilter.RadioBtnsList_item
+														input(type="radio" name="country" value="poland" id="poland").RadioBtn_input
+														label(for="poland").RadioBtn_label Польша
+													.RadioBtn.RadioBtn-jobFilter.RadioBtnsList_item
+														input(type="radio" name="country" value="czech" id="czech").RadioBtn_input
+														label(for="czech").RadioBtn_label Чехия
+													.RadioBtn.RadioBtn-jobFilter.RadioBtnsList_item
+														input(type="radio" name="country" value="germany" id="germany").RadioBtn_input
+														label(for="germany").RadioBtn_label Германия
+											.DropdownSelect.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect.hidden-xs(data-parent-dropdown)
+												select(name="country", id="country_select").DropdownSelect_select
+													option(value="all") Все
 													option(value="poland") Польша
 													option(value="czech") Чехия
 													option(value="germany") Германия
@@ -357,7 +358,7 @@ block content
 														input(type="checkbox" name="city[]" value="wrozlaw2" id="wrozlaw2").Checkbox_input
 														label(for="wrozlaw2").Checkbox_label Вроцлав
 												.CheckboxList_noResults По вашему запросу ничего не найдено
-											.DropdownSelect.DropdownSelect-mobile.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect.hidden-xs
+											.DropdownSelect.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect.hidden-xs
 												select(name="city[]" multiple="multiple").DropdownSelect_select
 													option(value="belsko_byala") Бельсько-Бяла
 													option(value="bidgosch") Бидгощ
@@ -372,62 +373,9 @@ block content
 													option(value="wrozlaw2") Вроцлав
 										.FilterElement_footer
 											button(type="button" data-action="saveFilterElement").BtnBlue.BtnBlue-jobFilter Применить
-							a(href="javascript:;").AddFieldItem.AddFieldItem-country.FilterElementGroup_addFieldItem
+							a(href="javascript:;").AddFieldItem.AddFieldItem-country.FilterElementGroup_addFieldItem.hidden
 								include /includes/svg/icon_add
 								span.AddFieldItem_text Добавить ещё страну
-						//- .FilterElementGroup.JobFilter_itemGroup
-						//- 	.FilterElementGroup_items.hidden-xs
-						//- 		.FilterElement.FilterElementGroup_item.hidden-xs(data-element-type="checkboxList")
-						//- 			a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
-						//- 				.FilterElement_mobTitle Страна
-						//- 			.FilterElement_wrapper
-						//- 				.FilterElement_header
-						//- 					.FilterElement_headerLeft
-						//- 						a(href="javascript:;" data-action="closeFilterElement").BtnBack.BtnBack-noBack.FilterElement_closeLink
-						//- 							include /includes/svg/SvgIco/arrow_left
-						//- 						h3.FilterElement_title Страна
-						//- 					.FilterElement_headerRight
-						//- 						a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
-						//- 				.FilterElement_content
-						//- 					.DropdownSelect.DropdownSelect-mobile.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect(data-parent-dropdown)
-						//- 						select(name="country[]", id="country_select").DropdownSelect_select
-						//- 							option(value="all") Все
-						//- 							option(value="poland") Польша
-						//- 							option(value="czech") Чехия
-						//- 							option(value="germany") Германия
-						//- 				.FilterElement_footer
-						//- 					button(type="button" data-action="saveFilterElement").BtnBlue.BtnBlue-jobFilter Применить
-						//- 		.FilterElement.FilterElementGroup_item.hidden-xs.hidden(data-element-type="checkboxList" data-dependent-element)
-						//- 			a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
-						//- 				.FilterElement_mobTitle Город
-						//- 			.FilterElement_wrapper
-						//- 				.FilterElement_header
-						//- 					.FilterElement_headerLeft
-						//- 						a(href="javascript:;" data-action="closeFilterElement").BtnBack.BtnBack-noBack.FilterElement_closeLink
-						//- 							include /includes/svg/SvgIco/arrow_left
-						//- 						h3.FilterElement_title Город
-						//- 					.FilterElement_headerRight
-						//- 						a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
-						//- 				.FilterElement_content
-						//- 					.DropdownSelect.DropdownSelect-mobile.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect
-						//- 						select(name="city[]").DropdownSelect_select
-						//- 							option(value="all") Все
-						//- 							option(value="belsko_byala") Бельсько-Бяла
-						//- 							option(value="bidgosch") Бидгощ
-						//- 							option(value="bilostok") Білосток
-						//- 							option(value="valbzhih") Валбжих
-						//- 							option(value="varsawa") Варшава
-						//- 							option(value="vlozlavek") Влоцлавек
-						//- 							option(value="wrozlaw") Вроцлав
-						//- 							option(value="valbzhih2") Валбжих
-						//- 							option(value="varsawa2") Варшава
-						//- 							option(value="vlozlavek2") Влоцлавек
-						//- 							option(value="wrozlaw2") Вроцлав
-						//- 				.FilterElement_footer
-						//- 					button(type="button" data-action="saveFilterElement").BtnBlue.BtnBlue-jobFilter Применить
-						//- 	a(href="javascript:;").AddFieldItem.AddFieldItem-country.FilterElementGroup_addFieldItem
-						//- 		include /includes/svg/icon_add
-						//- 		span.AddFieldItem_text Добавить ещё страну
 						.FilterElement.FilterElement-hasNestedElements.JobFilter_item(data-element-type="checkboxList")
 							a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
 								.FilterElement_mobTitle Для кого
@@ -548,8 +496,8 @@ block content
 				li.PopupMenu_item
 					a(href="/vacancies.html").PopupMenu_link.active Вакансії
 	template#FilterElementsCountryTmpl
-		.FilterElementGroup_items
-			.FilterElement.FilterElement-hasNestedElements.FilterElementGroup_item(data-element-type="checkboxList" data-removable-element)
+		.FilterElementGroup_items(data-additional-group)
+			.FilterElement.FilterElement-hasNestedElements.FilterElementGroup_item(data-element-type="radioBtnsList" data-removable-element)
 				a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
 					.FilterElement_mobTitle Страна
 				.FilterElement_wrapper
@@ -562,19 +510,20 @@ block content
 						.FilterElement_headerRight
 							a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
 					.FilterElement_content
-						.CheckboxList.CheckboxList-jobFilter.hidden-smPlus(data-parent-checkbox-list)
-							.CheckboxList_content
-								.Checkbox.Checkbox-jobFilter.CheckboxList_item
-									input(type="checkbox" name="country[]" value="poland" id="poland").Checkbox_input
-									label(for="poland").Checkbox_label Польша
-								.Checkbox.Checkbox-jobFilter.CheckboxList_item
-									input(type="checkbox" name="country[]" value="czech" id="czech").Checkbox_input
-									label(for="czech").Checkbox_label Чехия
-								.Checkbox.Checkbox-jobFilter.CheckboxList_item
-									input(type="checkbox" name="country[]" value="germany" id="germany").Checkbox_input
-									label(for="germany").Checkbox_label Германия
-						.DropdownSelect.DropdownSelect-mobile.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect.hidden-xs(data-parent-dropdown)
-							select(name="country[]", id="country_select").DropdownSelect_select
+						.RadioBtnsList.RadioBtnsList-jobFilter.hidden-smPlus(data-parent-radiobtns-list)
+							.RadioBtnsList_content
+								.RadioBtn.RadioBtn-jobFilter.RadioBtnsList_item
+									input(type="radio" name="country" value="poland" id="poland").RadioBtn_input
+									label(for="poland").RadioBtn_label Польша
+								.RadioBtn.RadioBtn-jobFilter.RadioBtnsList_item
+									input(type="radio" name="country" value="czech" id="czech").RadioBtn_input
+									label(for="czech").RadioBtn_label Чехия
+								.RadioBtn.RadioBtn-jobFilter.RadioBtnsList_item
+									input(type="radio" name="country" value="germany" id="germany").RadioBtn_input
+									label(for="germany").RadioBtn_label Германия
+						.DropdownSelect.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect.hidden-xs(data-parent-dropdown)
+							select(name="country", id="country_select").DropdownSelect_select
+								option(value="all") Все
 								option(value="poland") Польша
 								option(value="czech") Чехия
 								option(value="germany") Германия
@@ -629,7 +578,7 @@ block content
 									input(type="checkbox" name="city[]" value="wrozlaw2" id="wrozlaw2").Checkbox_input
 									label(for="wrozlaw2").Checkbox_label Вроцлав
 							.CheckboxList_noResults По вашему запросу ничего не найдено
-						.DropdownSelect.DropdownSelect-mobile.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect.hidden-xs
+						.DropdownSelect.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect.hidden-xs
 							select(name="city[]" multiple="multiple").DropdownSelect_select
 								option(value="belsko_byala") Бельсько-Бяла
 								option(value="bidgosch") Бидгощ
