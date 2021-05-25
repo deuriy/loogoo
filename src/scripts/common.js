@@ -235,6 +235,22 @@ function getCoords(elem) {
 	};
 }
 
+let mobilePopupState = {
+	visibility: false
+};
+
+function toggleMobilePopup(state, mobilePopup) {
+	if (mobilePopupState.visibility) {
+		mobilePopup.classList.add('MobilePopup-opened');
+		mobilePopup.querySelector('.Overlay').classList.add('Overlay-visible');
+		document.body.style.overflow = 'hidden';
+	} else {
+		mobilePopup.classList.remove('MobilePopup-opened');
+		mobilePopup.querySelector('.Overlay').classList.remove('Overlay-visible');
+		document.body.style.cssText = '';
+	}
+}
+
 function openMobilePopup (mobilePopupID) {
 	let mobilePopup = document.getElementById(mobilePopupID);
 
@@ -246,9 +262,9 @@ function openMobilePopup (mobilePopupID) {
 		closeMobilePopup(openedMobilePopup.id);
 	}
 
-	mobilePopup.classList.add('MobilePopup-opened');
-	mobilePopup.querySelector('.Overlay').classList.add('Overlay-visible');
-	document.body.style.overflow = 'hidden';
+	mobilePopupState.visibility = true;
+	window.history.pushState(mobilePopupState, null, "");
+	toggleMobilePopup(mobilePopupState, mobilePopup);
 }
 
 function closeMobilePopup (mobilePopupID) {
@@ -256,9 +272,7 @@ function closeMobilePopup (mobilePopupID) {
 
 	if (!mobilePopup) return;
 
-	mobilePopup.classList.remove('MobilePopup-opened');
-	mobilePopup.querySelector('.Overlay').classList.remove('Overlay-visible');
-	document.body.style.cssText = '';
+	toggleMobilePopup(mobilePopupState, mobilePopup);
 }
 
 function locationHashChanged () {
@@ -1257,7 +1271,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (!closePopup) return;
 
-		closeMobilePopup(closePopup.closest('.MobilePopup').id);
+		let mobilePopupID;
+
+		if (closePopup.hasAttribute('href')) {
+			mobilePopupID = closePopup.getAttribute('href').slice(1);
+		}
+		if (closePopup.closest('.MobilePopup')) {
+			mobilePopupID = closePopup.closest('.MobilePopup').id;
+		}
+
+		window.history.back();
+		e.preventDefault();
 	});
 
 	document.addEventListener('click', function (e) {
@@ -1596,17 +1620,41 @@ document.addEventListener("DOMContentLoaded", function () {
 		popupClicks++;
 	});
 
-	// Trimming text in comments
-	// document.querySelectorAll('.Comment-company .Comment_text').forEach(comment => {
-	// 	// let text = comment.innerHTML.trim();
-	// 	let text = comment.innerHTML;
-	// 	console.log(text);
+	document.addEventListener('click', function(e) {
+		let iconMenuLink = e.target.closest('.IconMenu_link');
+		
+		if (!iconMenuLink || iconMenuLink.dataset.action === undefined) return;
+		
+		if (iconMenuLink.dataset.action === 'openMobilePopup') {
+			iconMenuLink.dataset.action = 'closeMobilePopup';
+		} else {
+			iconMenuLink.dataset.action = 'openMobilePopup';
+		}
+	});
 
-	// 	// if (text.length > 40) {
-	// 	// 	text = text.slice(0, 40) + '...';
-	// 	// 	comment.textContent = text;
-	// 	// }
-	// });
+	document.addEventListener('click', function(e) {
+		if (!e.target.matches('[data-action="closeBanner"]')) return;
+
+		e.target.closest('.Banner').style.display = 'none';
+	});
+
+	(function setDefaultMobilePopupState() {
+		window.history.replaceState(mobilePopupState, null, "");
+		toggleMobilePopup(mobilePopupState, document.querySelector('.MobilePopup'));
+	})();
+
+	window.addEventListener('popstate', function (e) {
+		if (e.state) mobilePopupState = e.state;
+
+		let openedMobilePopup = document.querySelector('.MobilePopup-opened');
+
+		if (openedMobilePopup.id === 'ServicesPopup') {
+			let popupLink = document.querySelector(`a[href="#ServicesPopup"]`);
+			popupLink.dataset.action = 'openMobilePopup';
+		}
+
+		toggleMobilePopup(mobilePopupState, openedMobilePopup);
+	});
 });
 
 let popupClicks = 0, popupSteps = 0;

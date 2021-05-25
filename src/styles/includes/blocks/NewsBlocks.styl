@@ -10,6 +10,17 @@
 		margin-right 0
 		margin-left 0
 	
+	&_title
+		margin-bottom 10px
+		padding-bottom 10px
+		border-bottom 1px solid #ebf0f2
+		color $blue2
+		font-weight 500
+		font-size 15px
+	
+	&_items
+		margin-bottom 10px
+	
 	&_item
 		flex 0 0 auto
 		margin-right 15px
@@ -22,6 +33,10 @@
 		@media $xxs
 			margin-right 0
 			margin-left 0
+	
+	&_link
+		color $blue
+		font-weight 500
 	
 	&-column
 		flex-direction column
@@ -50,3 +65,17 @@
 		
 		@media $xs
 			padding-top 16px
+	
+	&-mobilePopup
+		display block
+		margin-right 0
+		margin-left 0
+
+		.NewsBlocks_title
+			margin-bottom 15px
+
+		.NewsBlocks_item
+			margin-bottom 15px
+
+			&:last-child
+				margin-bottom 0

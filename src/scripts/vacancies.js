@@ -175,8 +175,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	(function setDefaultFilterState() {
-		window.history.replaceState(state, null, "");
-		toggleFilterVisibility(state, document.querySelector('.JobFilter'));
+		let jobFilter = document.querySelector('.JobFilter');
+		if (jobFilter) {
+			window.history.replaceState(state, null, "");
+			toggleFilterVisibility(state, jobFilter);
+		}
 	})();
 
 	window.addEventListener('popstate', function (e) {
@@ -209,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 		state.filterVisibility = true;
 		window.history.pushState(state, null, "");
-		toggleFilterVisibility(state, document.querySelector('.JobFilter'));
+		toggleFilterVisibility(state, jobFilter);
 
 		e.preventDefault();
 	});
@@ -302,6 +305,16 @@ document.addEventListener('DOMContentLoaded', function () {
 		clearFilterElement(filterElement);
 	});
 
+	document.addEventListener('change', function(e) {
+		let radioBtnInput = e.target.closest('.RadioBtn_input');
+
+		if (!radioBtnInput) return;
+
+		let filterElement = radioBtnInput.closest('.FilterElement');
+		let saveFilterElementBtn = filterElement.querySelector('[data-action="saveFilterElement"]');
+		saveFilterElementBtn.click();
+	});
+
 	document.addEventListener('click', function (e) {
 		let saveFilterElement = e.target.closest('[data-action="saveFilterElement"]');
 	
@@ -316,8 +329,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (!elementType) return;
 
-		let checkedCheckboxes = [], checkedRadioInput = null, textInput = [];
-		let results = [];
+		let checkedCheckboxes = [],
+				checkedRadioInput = null,
+				textInput = [],
+				results = [];
 
 		switch (elementType) {
 			case 'checkboxList':

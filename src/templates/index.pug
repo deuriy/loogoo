@@ -6,6 +6,15 @@ block content
 		.Main_columns
 			.Main_left
 				include /includes/blocks/MenuSection
+				.Banner.Banner-companies.Main_banner
+					button(type="button" data-action="closeBanner").Banner_closeBtn
+					.Banner_label Общение
+					h2.Banner_title Всё, что вы хотели узнать о работе за границей 
+					.Banner_text
+						p Добро пожаловать в Infoza – крупнейшую социальную сеть о работе за границей. Здесь люди общаются между собой, отвечают на вопросы, делятся опытом и #[br]помогают друг другу
+					//- button(type="button" data-action="closeBanner").BtnWhite.BtnWhite-communicationBanner.Banner_btn Понятно
+					//- button(type="button" data-action="closeBanner").BtnWhite.BtnWhite-vacanciesBanner.Banner_btn Понятно
+					button(type="button" data-action="closeBanner").BtnWhite.BtnWhite-companiesBanner.Banner_btn Понятно
 				.QuestionsSection.Main_questionsSection.Loader
 					.QuestionBlock.QuestionBlock-frontPage.QuestionsSection_item
 						.QuestionBlock_header

@@ -32,16 +32,87 @@
 	ul.IconMenu_menu
 		li.IconMenu_item
 			a(href="/").IconMenu_link
-				include /includes/svg/SvgIco/chat2
+				.IconMenu_linkIcon
+					include /includes/svg/SvgIco/iconmenu/communication
+				span.IconMenu_linkTitle Общение
 		li.IconMenu_item
-			a(href="/companies_dossiers.html").IconMenu_link
-				include /includes/svg/SvgIco/checked
+			a(href="/vacancies.html").IconMenu_link
+				.IconMenu_linkIcon
+					include /includes/svg/SvgIco/iconmenu/vacancies
+				span.IconMenu_linkTitle Вакансии
 		li.IconMenu_item
-			a(href="/my_notifications.html").IconMenu_link.IconMenu_link-dot
-				include /includes/svg/SvgIco/bell
-		li.IconMenu_item
-			a(href="/article_feed.html").IconMenu_link
-				include /includes/svg/SvgIco/planet2
+			a(href="/companies.html").IconMenu_link
+				.IconMenu_linkIcon
+					include /includes/svg/SvgIco/iconmenu/companies
+				span.IconMenu_linkTitle Компании
 		li.IconMenu_item
 			a(href="/news_feed.html").IconMenu_link
-				include /includes/svg/SvgIco/news
+				.IconMenu_linkIcon
+					include /includes/svg/SvgIco/iconmenu/news
+				span.IconMenu_linkTitle Новости
+		li.IconMenu_item.IconMenu_item-more
+			a(href="#ServicesPopup" data-action="openMobilePopup").IconMenu_link
+				.IconMenu_linkIcon
+					include /includes/svg/SvgIco/iconmenu/dots
+				span.IconMenu_linkTitle Ещё
+		//- li.IconMenu_item
+		//- 	a(href="#ServicesPopup" data-action="openMobilePopup").IconMenu_link
+		//- 		include /includes/svg/SvgIco/news
+		//- li.IconMenu_item
+		//- 	a(href="/").IconMenu_link
+		//- 		include /includes/svg/SvgIco/chat2
+		//- li.IconMenu_item
+		//- 	a(href="/companies_dossiers.html").IconMenu_link
+		//- 		include /includes/svg/SvgIco/checked
+		//- li.IconMenu_item
+		//- 	a(href="/my_notifications.html").IconMenu_link.IconMenu_link-dot
+		//- 		include /includes/svg/SvgIco/bell
+		//- li.IconMenu_item
+		//- 	a(href="/article_feed.html").IconMenu_link
+		//- 		include /includes/svg/SvgIco/planet2
+		//- li.IconMenu_item
+		//- 	a(href="/news_feed.html").IconMenu_link
+		//- 		include /includes/svg/SvgIco/news
+
+.MobilePopup.MobilePopup-services#ServicesPopup
+	.Overlay
+	.MobilePopup_wrapper
+		.MobilePopup_header
+			h3.MobilePopup_title Сервисы
+			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+				include /includes/svg/icon_close
+		.ServicesIcons.MobilePopup_servicesIcons
+			ul.ServicesIcons_list
+				li.ServicesIcon.ServicesIcons_item
+					.ServicesIcon_imgWrapper
+						img(src="/img/services/mobile.svg" alt="Пополнение мобильного").ServicesIcon_img
+					h4.ServicesIcon_title Пополнение мобильного
+				li.ServicesIcon.ServicesIcons_item
+					.ServicesIcon_imgWrapper
+						img(src="/img/services/remmitance.svg" alt="Денежный перевод").ServicesIcon_img
+					h4.ServicesIcon_title Денежный перевод
+				li.ServicesIcon.ServicesIcons_item
+					.ServicesIcon_imgWrapper
+						img(src="/img/services/book.svg" alt="База знаний").ServicesIcon_img
+					h4.ServicesIcon_title База знаний
+		.NewsBlocks.NewsBlocks-mobilePopup
+			h3.NewsBlocks_title Последние новости
+			.NewsBlocks_items
+				.NewsBlock.NewsBlock-mobilePopup.NewsBlocks_item
+					.NewsBlock_imgWrap
+						a(href="/article.html")
+							img(src="/img/article1.jpg", alt="Размораживание экономики Польши: известны планы прав").NewsBlock_img
+					.NewsBlock_textContent
+						h3.NewsBlock_title
+							a(href="/article.html").NewsBlock_titleLink Размораживание экономики Польши: известны планы прав
+						.NewsBlock_country 2 дня назад
+				.NewsBlock.NewsBlock-mobilePopup.NewsBlocks_item
+					.NewsBlock_imgWrap
+						a(href="/article.html")
+							img(src="/img/article2.jpg", alt="Дорогая «помощь»: какая из сетей визовых центров выигр").NewsBlock_img
+					.NewsBlock_textContent
+						h3.NewsBlock_title
+							a(href="/article.html").NewsBlock_titleLink Дорогая «помощь»: какая из сетей визовых центров выигр
+						.NewsBlock_country 4 дня назад
+			.NewsBlocks_footer
+				a(href="/news_feed.html").NewsBlocks_link Все новости

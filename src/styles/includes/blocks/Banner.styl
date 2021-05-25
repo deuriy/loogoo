@@ -1,0 +1,52 @@
+.Banner
+	position relative
+	// margin-right 12px
+	// margin-bottom 12px
+	// margin-left 12px
+	padding 18px 20px 24px 18px
+	background-image linear-gradient(225deg, #00bdfc 0%, #0072dd 100%)
+	color $white
+	border-radius 8px
+	
+	&_closeBtn
+		position absolute
+		top 4px
+		right 4px
+		width 40px
+		height 40px
+		border none
+		background: url("data:image/svg+xml,%3Csvg version='1.2' baseProfile='tiny-ps' xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cstyle%3E%3C/style%3E%3Cg id='Общение'%3E%3Cpath id='ciose' d='M9.12 8l6.64-6.64c.31-.31.31-.82 0-1.13a.803.803 0 00-1.13 0L7.99 6.87 1.35.23a.803.803 0 00-1.13 0c-.31.31-.31.82 0 1.13L6.86 8 .22 14.64a.803.803 0 00.57 1.37c.2 0 .41-.08.56-.24l6.64-6.64 6.64 6.64c.15.16.36.24.56.24a.803.803 0 00.57-1.37L9.12 8z' opacity='.702' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E") center center no-repeat
+	
+	&_label,
+	&_title
+		font-weight 600
+	
+	&_label
+		margin-bottom 10px
+		font-size 13px
+		line-height 22px
+		text-transform uppercase
+	
+	&_title
+		margin-bottom 8px
+		font-size 20px
+		line-height 28px
+	
+	&_text
+		margin-bottom 22px
+		margin-left 3px
+		font-weight 500
+		font-size 14px
+		line-height 22px
+	
+	&_btn
+		margin-left 2px
+	
+	&-communication
+		background url('../img/Chat.png') calc(100% - 24px) calc(100% - 11px) no-repeat, linear-gradient(225deg, #00bdfc 0%, #0072dd 100%)
+	
+	&-vacancies
+		background url('../img/briefcase.png') calc(100% - 24px) calc(100% - 11px) no-repeat, linear-gradient(225deg, #00cd29 0%, #00917b 100%)
+	
+	&-companies
+		background url('../img/company.png') calc(100% - 24px) calc(100% - 11px) no-repeat, linear-gradient(225deg, #fdb800 0%, #ea753c 100%)

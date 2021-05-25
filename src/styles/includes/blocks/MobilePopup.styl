@@ -1,5 +1,6 @@
 .MobilePopup
-	z-index 101
+	// z-index 101
+	z-index 1000
 	position fixed
 	top 0
 	right 0
@@ -15,10 +16,12 @@
 		right 0
 		bottom 0
 		left 0
+		max-height 100%
 		padding 16px 19px
 		border-top-right-radius 10px
 		border-top-left-radius 10px
 		background $white
+		overflow-y auto
 		transform translateY(100%)
 		transition all .3s ease-in-out
 	
@@ -113,6 +116,10 @@
 		&:last-child
 			margin-right 0
 	
+	&_servicesIcons
+		// margin-bottom 20px
+		margin-bottom 34px
+	
 	&-opened
 		visibility visible
 		opacity 1
@@ -168,3 +175,18 @@
 			
 		.MobilePopup_btn
 			flex-grow 1
+	
+	&-services
+		.MobilePopup_header
+			margin-bottom 31px
+			
+		.MobilePopup_title
+			font-size 22px
+		
+		.MobilePopup_close
+			right 17px
+
+		.MobilePopup_wrapper
+			// min-height 480px
+			// padding-bottom 80px
+			padding-bottom 110px
