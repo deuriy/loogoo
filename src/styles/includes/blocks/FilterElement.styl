@@ -114,16 +114,24 @@
     .FilterElement_wrapper
       @media $xs
         position absolute
-        z-index 1000
-        top 0
-        left 0
+        // z-index 1000
+        // top 0
+        // right 0
+        // bottom 0
+        // left 0
+        top 30px
+        right 30px
+        bottom 30px
+        left 30px
         display flex
         flex-direction column
-        width 100%
-        height 100%
+        // width 100%
+        // height 100%
         background $white
         overflow-y auto
-        transform translateX(100%)
+        // transform translateX(100%)
+        visibility hidden
+        opacity 0
         @extend .transition
     
     .FilterElement_header
@@ -139,16 +147,44 @@
       @media $xs
         padding-top 23px
         padding-bottom 23px
+    
+    // &.FilterElement-overlay
+    //   .FilterElement_wrapper
+    //     top 30px
+    //     right 30px
+    //     bottom 30px
+    //     left 30px
+    //     z-index 0
+    //     transform none
+    //     visibility hidden
+    //     opacity 0
 
     &.FilterElement-opened
-      .FilterElement_wrapper
-        @media $xs
-          transform translateX(0)
+      // .FilterElement_wrapper
+      //   @media $xs
+      //     transform translateX(0)
       
       .FilterElement_closeLink,
       .FilterElement_headerRight,
       .FilterElement_footer
         display block
+      
+      // &.FilterElement-overlay
+      @media $xs
+        &::before
+          content ""
+          position absolute
+          top 0
+          right 0
+          bottom 0
+          left 0
+          background rgba($black, .5)
+          
+        .FilterElement_wrapper
+          z-index 1000
+          visibility visible
+          opacity 1
+          // background #FAFAFA
   
   &-selected
     .FilterElement_mobLink

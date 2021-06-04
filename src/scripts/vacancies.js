@@ -167,10 +167,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (state.filterElementVisibility) {
 			filterElement.classList.add('FilterElement-opened');
-			jobFilter.classList.add('JobFilter-noScroll');
+
+			// if (!filterElement.classList.contains('FilterElement-overlay')) {
+			// 	jobFilter.classList.add('JobFilter-noScroll');
+			// }
 		} else {
 			filterElement.classList.remove('FilterElement-opened');
-			jobFilter.classList.remove('JobFilter-noScroll');
+			// jobFilter.classList.remove('JobFilter-noScroll');
 		}
 	}
 

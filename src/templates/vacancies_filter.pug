@@ -11,6 +11,13 @@ block content
 	.Container.Container-vacancyFilter.Main_container
 		.Main_columns
 			.Main_left
+				.Banner.Banner-vacancies.Main_banner
+					button(type="button" data-action="closeBanner").Banner_closeBtn
+					.Banner_label Вакансии
+					h2.Banner_title Узнайте, как выглядит работа за границей!
+					.Banner_text
+						p В этом разделе вы можете прочесть отзывы от людей которые работают или работали раньше на тех или иных вакансиях за границей и решить заранее, подойдёт вам #[br.hidden-smPlus]такая работа или нет
+					button(type="button" data-action="closeBanner").BtnGreen.BtnGreen-banner.Banner_btn Понятно
 				.Companies.Companies-vacancies
 					form(action="", name="topics_filter")#TopicsFilter.Filter.Filter-vacanciesResults
 						.Filter_main
@@ -77,7 +84,7 @@ block content
 										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
 										.
 											Польша, Варшава Nowowiejska 5-147
-									.StatIcons.CompanyBlock_statIcons
+									.StatIcons.StatIcons-companyBlock.CompanyBlock_statIcons
 										.StatIcons_left
 											ul.StatIcons_list
 												li.StatIcon.StatIcons_item.StatIcons_item-smallMargin
@@ -91,6 +98,26 @@ block content
 													a(href="/topic_details.html").StatIcon_link
 														include /includes/svg/SvgIco/answer
 														span.StatIcon_count 0
+										.StatIcons_right
+											ul.StatIcons_list
+												li.StatIcon.StatIcons_item
+													.Bookmark
+														.NotificationMenu.NotificationMenu-bookmark.Bookmark_notificationMenu
+															a(href="javascript:;").NotificationMenu_icon
+																include /includes/svg/SvgIco/bell_thin
+															ul.NotificationMenu_wrapper
+																li.NotificationMenu_item
+																	a(href="#").NotificationMenu_link
+																		include /includes/svg/SvgIco/bell_thin
+																		.
+																			Без уведомлений
+																li.NotificationMenu_item
+																	a(href="#").NotificationMenu_link
+																		include /includes/svg/SvgIco/bell_check
+																		.
+																			Новые ответы
+														a(href="javascript:;", title="Сохранить в закладки").Bookmark_icon
+															include /includes/svg/SvgIco/bookmark
 						.CompanyBlock.CompanyBlock-vacancy.Companies_item
 							.CompanyBlock_photoWrapper.hidden-xs
 								a(href="/vacancy.html")

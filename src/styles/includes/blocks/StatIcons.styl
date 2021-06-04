@@ -19,7 +19,8 @@
 		&:last-child
 			margin-right 0
 		
-		&-country, &-views
+		&-country,
+		&-views
 			& > .SvgIco
 				color #999
 		
@@ -89,3 +90,8 @@
 				
 				&:after
 					display none
+	
+	&-companyBlock
+		.StatIcons_left
+			@media $smPlus
+				margin-right 25px
