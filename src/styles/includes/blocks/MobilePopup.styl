@@ -1,5 +1,4 @@
 .MobilePopup
-	// z-index 101
 	z-index 1000
 	position fixed
 	top 0
@@ -117,7 +116,6 @@
 			margin-right 0
 	
 	&_servicesIcons
-		// margin-bottom 20px
 		margin-bottom 34px
 	
 	&-opened
@@ -187,6 +185,12 @@
 			right 17px
 
 		.MobilePopup_wrapper
-			// min-height 480px
-			// padding-bottom 80px
 			padding-bottom 110px
+	
+	&-phoneReplenishment,
+	&-remmitance
+		.MobilePopup_wrapper
+			padding-bottom 35px
+		
+		.MobilePopup_text
+			margin-bottom 20px

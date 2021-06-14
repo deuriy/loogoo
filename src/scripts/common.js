@@ -272,17 +272,14 @@ function closeMobilePopup (mobilePopupID) {
 
 	if (!mobilePopup) return;
 
-	toggleMobilePopup(mobilePopupState, mobilePopup);
-}
+	if (mobilePopup.id === 'ServicesPopup') {
+		let popupLink = document.querySelector(`a[href="#ServicesPopup"]`);
+		popupLink.dataset.action = 'openMobilePopup';
+	}
 
-function locationHashChanged () {
-	document.querySelectorAll('[data-action="openMobilePopup"]').forEach( link => {
-		if (link.getAttribute('href') === location.hash) {
-			openMobilePopup(link.getAttribute('href').slice(1));
-		} else {
-			closeMobilePopup(link.getAttribute('href').slice(1));
-		}
-	});
+	mobilePopupState.visibility = false;
+	window.history.pushState(mobilePopupState, null, "");
+	toggleMobilePopup(mobilePopupState, mobilePopup);
 }
 
 function checkActiveBookmark (bookmark, bookmarkNotification) {
@@ -1648,6 +1645,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		let openedMobilePopup = document.querySelector('.MobilePopup-opened');
 
+		if (!openedMobilePopup) return;
+
 		if (openedMobilePopup.id === 'ServicesPopup') {
 			let popupLink = document.querySelector(`a[href="#ServicesPopup"]`);
 			popupLink.dataset.action = 'openMobilePopup';
@@ -1658,8 +1657,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 let popupClicks = 0, popupSteps = 0;
-
-window.onhashchange = locationHashChanged;
 
 window.onpopstate = state => {
 	popupSteps++;

@@ -132,7 +132,8 @@
         // transform translateX(100%)
         visibility hidden
         opacity 0
-        @extend .transition
+        // @extend .transition
+        transition all 50ms ease-in-out
     
     .FilterElement_header
       @media $xs
@@ -145,6 +146,8 @@
     
     .FilterElement_content
       @media $xs
+        height calc(100vh - 182px)
+        overflow auto
         padding-top 23px
         padding-bottom 23px
     
@@ -174,11 +177,12 @@
         &::before
           content ""
           position absolute
+          z-index 10
           top 0
           right 0
           bottom 0
           left 0
-          background rgba($black, .5)
+          background rgba($black, .75)
           
         .FilterElement_wrapper
           z-index 1000

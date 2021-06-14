@@ -55,6 +55,11 @@
       font-weight 500
       font-size 15px
   
+  &_content
+    @media $xs
+      height calc(100vh - 110px)
+      overflow auto
+  
   &_itemGroup,
   &_item
     @media $smPlus
@@ -97,7 +102,8 @@
   &_footer
     margin-top auto
     // padding-top 32px
-    padding-top 29px
+    // padding-top 29px
+    padding-top 15px
 
     @media $smPlus
       display none

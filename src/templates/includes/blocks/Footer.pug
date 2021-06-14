@@ -31,7 +31,7 @@
 .IconMenu.hidden-smPlus
 	ul.IconMenu_menu
 		li.IconMenu_item
-			a(href="/").IconMenu_link
+			a(href="/").IconMenu_link.active
 				.IconMenu_linkIcon
 					include /includes/svg/SvgIco/iconmenu/communication
 				span.IconMenu_linkTitle Общение
@@ -83,14 +83,16 @@
 				include /includes/svg/icon_close
 		.ServicesIcons.MobilePopup_servicesIcons
 			ul.ServicesIcons_list
-				li.ServicesIcon.ServicesIcons_item
-					.ServicesIcon_imgWrapper
-						img(src="/img/services/mobile.svg" alt="Пополнение мобильного").ServicesIcon_img
-					h4.ServicesIcon_title Пополнение мобильного
-				li.ServicesIcon.ServicesIcons_item
-					.ServicesIcon_imgWrapper
-						img(src="/img/services/remmitance.svg" alt="Денежный перевод").ServicesIcon_img
-					h4.ServicesIcon_title Денежный перевод
+				li.ServicesIcons_item
+					a(href="#PhoneReplenishmentPopup" data-action="openMobilePopup").ServicesIcon
+						.ServicesIcon_imgWrapper
+							img(src="/img/services/mobile.svg" alt="Пополнение мобильного").ServicesIcon_img
+						h4.ServicesIcon_title Пополнение мобильного
+				li.ServicesIcons_item
+					a(href="#RemmitancePopup" data-action="openMobilePopup").ServicesIcon
+						.ServicesIcon_imgWrapper
+							img(src="/img/services/remmitance.svg" alt="Денежный перевод").ServicesIcon_img
+						h4.ServicesIcon_title Денежный перевод
 				li.ServicesIcon.ServicesIcons_item
 					.ServicesIcon_imgWrapper
 						img(src="/img/services/book.svg" alt="База знаний").ServicesIcon_img
@@ -116,3 +118,45 @@
 						.NewsBlock_country 4 дня назад
 			.NewsBlocks_footer
 				a(href="/news_feed.html").NewsBlocks_link Все новости
+
+.MobilePopup.MobilePopup-phoneReplenishment#PhoneReplenishmentPopup
+	.Overlay
+	.MobilePopup_wrapper
+		.MobilePopup_header.MobilePopup_header-center
+			a(href="#ServicesPopup", data-action="openMobilePopup").BtnBack.BtnBack-noBack.MobileHeader_btnBack
+				include /includes/svg/SvgIco/arrow_left
+			h3.MobilePopup_title Пополнение
+			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+				include /includes/svg/icon_close
+		.MobilePopup_text Для того, чтобы пополнить ваш мобильный, свяжитесь удобным способом с нашей службой поддержки. Пополнение мгновенное.
+		.Soclinks
+			ul.Soclinks_list
+				li.Soclinks_item
+					a(href="tg://resolve?domain=infoza.top").Soclink
+						include /includes/svg/SvgIco/soclinks/telegram
+						span.Soclink_text @infoza.top
+				li.Soclinks_item
+					a(href="viber://chat?number=+380680220201").Soclink
+						include /includes/svg/SvgIco/soclinks/viber
+						span.Soclink_text +38 068 022 02 01
+
+.MobilePopup.MobilePopup-remmitance#RemmitancePopup
+	.Overlay
+	.MobilePopup_wrapper
+		.MobilePopup_header.MobilePopup_header-center
+			a(href="#ServicesPopup", data-action="openMobilePopup").BtnBack.BtnBack-noBack.MobileHeader_btnBack
+				include /includes/svg/SvgIco/arrow_left
+			h3.MobilePopup_title Перевод
+			a(href="javascript:;", data-action="closeMobilePopup").MobilePopup_close
+				include /includes/svg/icon_close
+		.MobilePopup_text Для того, чтобы осуществить денежный перевод, свяжитесь с нашей службой поддержки. Денежный перевод выполняется мгновенно.
+		.Soclinks
+			ul.Soclinks_list
+				li.Soclinks_item
+					a(href="tg://resolve?domain=infoza.top").Soclink
+						include /includes/svg/SvgIco/soclinks/telegram
+						span.Soclink_text @infoza.top
+				li.Soclinks_item
+					a(href="viber://chat?number=+380680220201").Soclink
+						include /includes/svg/SvgIco/soclinks/viber
+						span.Soclink_text +38 068 022 02 01

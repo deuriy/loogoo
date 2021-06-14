@@ -3,35 +3,25 @@
 	right 0
 	bottom 0
 	left 0
-	// z-index 100
-	// z-index 9
 	z-index 102
 	background $white
-	// box-shadow 0 0 10px 0 rgba(0, 0, 0, .05)
 	filter drop-shadow(0 0 4px rgba(0,0,0,0.1))
 	
 	&_menu
 		display flex
-		// justify-content space-between
 		align-items center
-		// padding 6px 27px
 		padding 8px 0 6px
 	
 	&_item
-		// margin 0 8px
-
 		&-more
 			margin-right 20px
 			margin-left auto
 	
 	&_link
-		// display block
 		display inline-flex
 		flex-direction column
 		align-items center
-		// padding 7px
 		padding 0 11px
-		// color #999
 		color $blue3
 		@extend .transition
 		
@@ -39,24 +29,32 @@
 			color #5681b8
 		
 		&-dot
-			position relative
-			
-			&:before
-				content ""
-				position absolute
-				top 4px
-				right 3px
-				width 11px
-				height 11px
-				border 2px solid $white
-				background $orange
-				border-radius 50%
+			.IconMenu_linkIcon
+				position relative
+				
+				&:before
+					content ""
+					position absolute
+					top 0
+					right -8px
+					width 7px
+					height 7px
+					// top 4px
+					// right 3px
+					// width 11px
+					// height 11px
+					// border 2px solid $white
+					background $orange
+					border-radius 50%
 		
 		&.active
-			color #5681b8
+			// color #5681b8
+			color $blue
+			
+			.IconMenu_linkTitle
+				color $blue
 	
 	&_linkTitle
 		color $blue3
 		font-weight 500
 		font-size 10px
-		// line-height 2

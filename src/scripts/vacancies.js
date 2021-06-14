@@ -32,7 +32,39 @@ document.addEventListener('DOMContentLoaded', function () {
 				}));
 			}
 		}
-	}	
+	}
+
+	document.addEventListener('input', function (e) {
+		let searchText = e.target.closest('.Search-results .Search_text');
+
+		if (!searchText) return;
+
+		let closeBtn = document.querySelector('.Search-results .Search_closeBtn');
+
+		if (searchText.value.length) {
+			closeBtn.classList.remove('hidden');
+		} else {
+			closeBtn.classList.add('hidden');
+		}
+	});
+
+	document.addEventListener('click', function (e) {
+		let closeBtn = e.target.closest('.Search-results .Search_closeBtn');
+
+		if (!closeBtn) return;
+
+		let searchText = document.querySelector('.Search-results .Search_text');
+		searchText.value = '';
+		closeBtn.classList.add('hidden');
+	});
+
+	document.addEventListener('click', function (e) {
+		let searchIcon = e.target.closest('.Search-results .Search_icon');
+
+		if (!searchIcon) return;
+
+		e.preventDefault();
+	});
 
 	document.addEventListener('input', function (e) {
 		let liveCheckboxSearchInput = e.target;
@@ -491,6 +523,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			showSearch: true,
 			searchText: 'Поиск…',
 		});
+
+		addFieldItemCountry.classList.add('hidden');
 	});
 
 	document.addEventListener('click', function(e) {
