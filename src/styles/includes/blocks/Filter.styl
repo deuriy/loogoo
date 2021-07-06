@@ -111,6 +111,10 @@
 		margin-right 14px
 		font-weight 600
 		font-size 26px
+		
+		@media $xs
+			margin-right 10px
+			font-size 24px
 	
 	&_results
 		font-size 18px
@@ -140,6 +144,28 @@
 	&_applyBtn
 		@media $smPlus
 			margin-left 15px
+	
+	&_linkWrapper
+		display flex
+		align-items baseline
+	
+	&_link
+		margin-right 7px
+		font-weight 500
+		font-size 15px
+		color $blue
+	
+	&_circle
+		display inline-flex
+		align-items center
+		justify-content center
+		width 16px
+		height 16px
+		border-radius 50%
+		background $blue
+		color $white
+		font-weight 500
+		font-size 11px
 	
 	&-results
 		padding-top 5px
@@ -204,14 +230,22 @@
 		
 		@media $xs
 			display flex
-			flex-direction column-reverse
+			// flex-direction column-reverse
+			flex-direction column
 
 			.Filter_main
-				flex-direction column
-				align-items stretch
-				margin 0 -20px 20px
-				padding-right 20px
-				padding-left 20px
+				// flex-direction column
+				flex-direction row
+				// align-items stretch
+				align-items center
+				min-height 0
+				// margin 0 -20px 20px
+				margin 0 -20px 2px
+				// padding-right 20px
+				// padding-left 20px
+				padding-right 24px
+				padding-left 23px
+				border-bottom none
 			
 			.Filter_right
 				display flex
@@ -221,3 +255,7 @@
 			.Filter_toggleLink
 				margin-top 5px
 				margin-right 5px
+			
+			.Filter_search
+				margin-right 5px
+				margin-left 5px

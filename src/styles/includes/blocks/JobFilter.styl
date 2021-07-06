@@ -2,6 +2,9 @@
   width 330px
   background $white
   @extend .transition
+  
+  @media $md
+    filter drop-shadow(0px 1px 6px rgba(100, 124, 151, 0.1))
 
   @media $xs
     position fixed
@@ -68,9 +71,11 @@
       &::after
         content ''
         position absolute
-        right 15px
+        // right 15px
+        right 0
         bottom 0
-        left 15px
+        // left 15px
+        left 0
         height 1px
         background $grey
       

@@ -1,0 +1,34 @@
+doctype html
+block vars
+html(lang="ru")
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		meta(name="format-detection" content="telephone=no")
+		title #{title} | Infoza
+		link(rel="apple-touch-icon" href="img/apple-touch-icon.png")
+		link(rel="shortcut icon" type="image/x-icon" href="img/favicon.ico")
+		link(href='/css/vendor.css', rel='stylesheet')
+		link(href='/css/style.css', rel='stylesheet')
+	body
+		#pagePreloader.Preloader.Preloader-active
+		
+		.Wrapper(class=wrapperModifiers)
+			include /includes/blocks/Header_vacancies.pug
+
+			main.Main(class=mainModifiers)
+				block content
+
+			include /includes/blocks/Footer.pug
+
+		include /includes/blocks/RegistrationPopup
+		include /includes/blocks/LoginPopup
+		include /includes/blocks/LoginPopupMenu
+		include /includes/blocks/LikePopup
+		include /includes/blocks/MobileNavigation
+
+		script(src='./js/vendor.js')
+		script(src='./js/common.js')
+
+		block page_bottom

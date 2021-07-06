@@ -1,17 +1,24 @@
-extends /layouts/main_layout_profile
+extends /layouts/main_layout_vacancies
 block vars
 	- var title = "Вакансии компаний (фильтр)";
-	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	//- - var wrapperModifiers = "Wrapper-noMobileHeader";
 	- var mainModifiers = "Main-vacanciesFilter";
 block content
-	.MobileHeader.MobileHeader-search.hidden-smPlus
-		a(href="#PopupMenu").SelectionLink.PopupMenuLink.hidden-smPlus Роботодавці
-		a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
-			include /includes/svg/SvgIco/dots
+	//- .MobileHeader.MobileHeader-search.hidden-smPlus
+	//- 	a(href="#PopupMenu").SelectionLink.PopupMenuLink.hidden-smPlus Роботодавці
+	//- 	a(href="#PopupShare", data-action="openMobilePopup").DotsIcon.MobileHeader_dotsIcon
+	//- 		include /includes/svg/SvgIco/dots
 	.Container.Container-vacancyFilter.Main_container
 		.Main_columns
 			.Main_left
-				.Banner.Banner-vacancies.Main_banner
+				ul.Breadcrumbs.Main_breadcrumbs
+					li.Breadcrumbs_item
+						a(href="#").Breadcrumbs_link
+							span Главная
+					li.Breadcrumbs_item
+						a(href="#").Breadcrumbs_link
+							span Вакансии
+				.Banner.Banner-vacancies.Main_banner.hidden
 					button(type="button" data-action="closeBanner").Banner_closeBtn
 					.Banner_label Вакансии
 					h2.Banner_title Узнайте, как выглядит работа за границей!
@@ -26,7 +33,10 @@ block content
 									h3.Filter_resultsTitle Вакансии
 									.Filter_results 1256
 							.Filter_right
-								.Filter_item.Filter_item-mobile
+								.Filter_linkWrapper
+									a(href="#JobFilter" data-action="openJobFilter").Filter_link Фильтр
+									span.Filter_circle 5
+								.Filter_item.Filter_item-mobile.hidden-xs
 									select.Select.Select-filterBlock(name="city[]")
 										option(value="all") Популярные
 										option(value="city1") Город 1
@@ -34,7 +44,7 @@ block content
 										option(value="city3") Город 3
 										option(value="city4") Город 4
 										option(value="city5") Город 5
-								a(href="#JobFilter" data-action="openJobFilter").FilterIcon.FilterIcon-zero.Filter_toggleLink.hidden-smPlus
+								a(href="#JobFilter" data-action="openJobFilter").FilterIcon.FilterIcon-zero.Filter_toggleLink.hidden
 									include /includes/svg/SvgIco/filter
 									span.FilterIcon_number
 						.Search.Search-results.Filter_search
@@ -42,8 +52,20 @@ block content
 								input(type="text", name="search_query2", placeholder="Поиск").Search_text
 								a(href="javascript:;").Search_closeBtn.hidden-smPlus.hidden
 									include /includes/svg/SvgIco/close
-							button(type="submit").Search_icon.hidden-smPlus
+							button(type="submit").Search_icon.hidden-smPlus.hidden
 								include /includes/svg/SvgIco/search
+						.RecentSearch.Companies_recentSearch
+							.RecentSearch_body
+								h3.RecentSearch_title Вы недавно искали
+								ul.RecentSearch_list
+									li.RecentSearch_item
+										a(href="#").RecentSearch_link Польша, Для мужчин, Бесплатное жилье, Официальное трудоустройство
+									li.RecentSearch_item
+										a(href="#").RecentSearch_link Польша, Для мужчин, Бесплатное жилье, Официальное трудоустройство
+									li.RecentSearch_item
+										a(href="#").RecentSearch_link Польша, Для мужчин, Бесплатное жилье, Официальное трудоустройство
+							.RecentSearch_footer
+								a(href="#").RecentSearch_moreLink Показать ещё 5
 					.Companies_items
 						.CompanyBlock.CompanyBlock-vacancy.Companies_item
 							.CompanyBlock_photoWrapper.hidden-xs

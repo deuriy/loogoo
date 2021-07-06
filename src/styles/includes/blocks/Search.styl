@@ -215,9 +215,9 @@
 			display flex
 			align-items center
 		
-		.Search_item
-			@media $xs
-				margin-right 17px
+		// .Search_item
+		// 	@media $xs
+		// 		margin-right 17px
 		
 		.Search_text
 			width 100%
@@ -233,9 +233,14 @@
 			@media $xs
 				height 45px
 				padding-right 42px
-				padding-left 13px
-				background-image none
-				font-size 13px
+				border-color #D2D7D9
+				// padding-left 13px
+				// background-image none
+				background-position 15px center
+				// font-size 13px
+				font-size 14px
+				+placeholder()
+					color $blue2
 		
 		.Search_closeBtn
 			color #ababab
