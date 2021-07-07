@@ -131,7 +131,7 @@ function setActiveMenuItem (menu) {
 
 function setActivePopupMenuItem (popupMenu, selectionLink) {
 	let activeLink = setActiveMenuItem(popupMenu);
-	if (activeLink) {
+	if (activeLink && selectionLink) {
 		selectionLink.textContent = activeLink.textContent;
 	}
 }
