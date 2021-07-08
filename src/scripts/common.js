@@ -140,7 +140,7 @@ function showElementOnPages (elem, pathNames = []) {
 	let currentPathName = window.location.pathname.slice(1).split('/');
 
 	pathNames.forEach(pathName => {
-		if (currentPathName.includes(pathName)) {
+		if (elem && currentPathName.includes(pathName)) {
 			elem.classList.remove('hidden');
 		}
 	});
@@ -1654,6 +1654,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		toggleMobilePopup(mobilePopupState, openedMobilePopup);
 	});
+
+	function checkTopBtn (topBtn) {
+		if (!topBtn) return;
+
+		if (document.documentElement.scrollTop >= 100) {
+			topBtn.classList.add('TopBtn-visible');
+		} else {
+			topBtn.classList.remove('TopBtn-visible');
+		}
+	}
+
+	let topBtn = document.querySelector('.TopBtn');
+	if (topBtn) {
+		checkTopBtn(topBtn);
+		
+		window.addEventListener('scroll', function (e) {
+			checkTopBtn(topBtn);
+		});
+
+		topBtn.addEventListener('click', function (e) {
+			window.scroll({
+			 top: 0,
+			 behavior: 'smooth'
+			});
+		});
+	}
 });
 
 let popupClicks = 0, popupSteps = 0;

@@ -33,7 +33,7 @@ block content
 									h3.Filter_resultsTitle Вакансии
 									.Filter_results 1256
 							.Filter_right
-								.Filter_linkWrapper
+								.Filter_linkWrapper.hidden-md
 									a(href="#JobFilter" data-action="openJobFilter").Filter_link Фильтр
 									span.Filter_circle 5
 								.Filter_item.Filter_item-mobile.hidden-xs
@@ -54,7 +54,7 @@ block content
 									include /includes/svg/SvgIco/close
 							button(type="submit").Search_icon.hidden-smPlus.hidden
 								include /includes/svg/SvgIco/search
-					.RecentSearch.Companies_recentSearch
+					.RecentSearch.Companies_recentSearch.hidden-md
 						.RecentSearch_body
 							h3.RecentSearch_title Вы недавно искали
 							ul.RecentSearch_list
@@ -645,5 +645,6 @@ block content
 	include /includes/blocks/CompanyAdding
 	include /includes/blocks/PopupShare
 	include /includes/blocks/LinkCopiedNotification
+	button(type="button").TopBtn
 block page_bottom
 	script(src="/js/vacancies.js")
