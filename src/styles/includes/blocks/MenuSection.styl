@@ -89,7 +89,6 @@
 	&-fixed,
 	&-sticky
 		@media $xs
-			position fixed
 			z-index 10
 			right 0
 			left 0
@@ -101,13 +100,16 @@
 		padding-left 10px
 		background $white
 		@extend .transition
+		
+		@media $xs
+			position fixed
 	
 	&-fixedTop
 		top 0
 	
 	&-sticky
 		@media $xs
-			position fixed
+			position sticky
 			z-index 10
 			top 51px
 			background $white

@@ -348,6 +348,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		let filterElement = radioBtnInput.closest('.FilterElement');
 		let saveFilterElementBtn = filterElement.querySelector('[data-action="saveFilterElement"]');
 		saveFilterElementBtn.click();
+
+		filterElement.querySelectorAll('.RadioBtn').forEach(radioBtn => {
+			delete radioBtn.dataset.selected;
+		});
+
+		let selectedRadioBtn = radioBtnInput.closest('.RadioBtn').dataset.selected = true;
+		console.log(selectedRadioBtn);
 	});
 
 	document.addEventListener('click', function (e) {

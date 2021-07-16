@@ -33,7 +33,7 @@ block content
 									h3.Filter_resultsTitle Вакансии
 									.Filter_results 1256
 							.Filter_right
-								.Filter_linkWrapper.hidden-md
+								.Filter_linkWrapper.hidden-smPlus
 									a(href="#JobFilter" data-action="openJobFilter").Filter_link Фильтр
 									span.Filter_circle 5
 								.Filter_item.Filter_item-mobile.hidden-xs
@@ -371,42 +371,44 @@ block content
 												a(href="javascript:;" data-action="clearFilterElement").FilterElement_clearLink Очистить
 										.FilterElement_content
 											input(type="text" name="city_search" placeholder="Я ищу…" data-action="liveCheckboxSearch" data-checkbox-list=".CheckboxList-cities").FilterElement_formText.FormText.FormText-jobFilter.hidden-smPlus
-											.CheckboxList.CheckboxList-jobFilter.CheckboxList-cities.hidden-smPlus
-												.CheckboxList_content
-													.Checkbox.Checkbox-jobFilter.CheckboxList_item
-														input(type="checkbox" name="city[]" value="belsko_byala" id="belsko_byala").Checkbox_input
-														label(for="belsko_byala").Checkbox_label Бельсько-Бяла
-													.Checkbox.Checkbox-jobFilter.CheckboxList_item
-														input(type="checkbox" name="city[]" value="bidgosch" id="bidgosch").Checkbox_input
-														label(for="bidgosch").Checkbox_label Бидгощ
-													.Checkbox.Checkbox-jobFilter.CheckboxList_item
-														input(type="checkbox" name="city[]" value="bilostok" id="bilostok").Checkbox_input
-														label(for="bilostok").Checkbox_label Білосток
-													.Checkbox.Checkbox-jobFilter.CheckboxList_item
-														input(type="checkbox" name="city[]" value="valbzhih" id="valbzhih").Checkbox_input
-														label(for="valbzhih").Checkbox_label Валбжих
-													.Checkbox.Checkbox-jobFilter.CheckboxList_item
-														input(type="checkbox" name="city[]" value="varsawa" id="varsawa").Checkbox_input
-														label(for="varsawa").Checkbox_label Варшава
-													.Checkbox.Checkbox-jobFilter.CheckboxList_item
-														input(type="checkbox" name="city[]" value="vlozlavek" id="vlozlavek").Checkbox_input
-														label(for="vlozlavek").Checkbox_label Влоцлавек
-													.Checkbox.Checkbox-jobFilter.CheckboxList_item
-														input(type="checkbox" name="city[]" value="wrozlaw" id="wrozlaw").Checkbox_input
-														label(for="wrozlaw").Checkbox_label Вроцлав
-													.Checkbox.Checkbox-jobFilter.CheckboxList_item
-														input(type="checkbox" name="city[]" value="valbzhih2" id="valbzhih2").Checkbox_input
-														label(for="valbzhih2").Checkbox_label Валбжих
-													.Checkbox.Checkbox-jobFilter.CheckboxList_item
-														input(type="checkbox" name="city[]" value="varsawa2" id="varsawa2").Checkbox_input
-														label(for="varsawa2").Checkbox_label Варшава
-													.Checkbox.Checkbox-jobFilter.CheckboxList_item
-														input(type="checkbox" name="city[]" value="vlozlavek2" id="vlozlavek2").Checkbox_input
-														label(for="vlozlavek2").Checkbox_label Влоцлавек
-													.Checkbox.Checkbox-jobFilter.CheckboxList_item
-														input(type="checkbox" name="city[]" value="wrozlaw2" id="wrozlaw2").Checkbox_input
-														label(for="wrozlaw2").Checkbox_label Вроцлав
-												.CheckboxList_noResults По вашему запросу ничего не найдено
+											.CheckboxListWrapper
+												h3.CheckboxListWrapper_title.hidden-smPlus Города
+												.CheckboxList.CheckboxList-jobFilter.CheckboxList-cities.hidden-smPlus
+													.CheckboxList_content
+														.Checkbox.Checkbox-jobFilter.CheckboxList_item
+															input(type="checkbox" name="city[]" value="belsko_byala" id="belsko_byala").Checkbox_input
+															label(for="belsko_byala").Checkbox_label Бельсько-Бяла
+														.Checkbox.Checkbox-jobFilter.CheckboxList_item
+															input(type="checkbox" name="city[]" value="bidgosch" id="bidgosch").Checkbox_input
+															label(for="bidgosch").Checkbox_label Бидгощ
+														.Checkbox.Checkbox-jobFilter.CheckboxList_item
+															input(type="checkbox" name="city[]" value="bilostok" id="bilostok").Checkbox_input
+															label(for="bilostok").Checkbox_label Білосток
+														.Checkbox.Checkbox-jobFilter.CheckboxList_item
+															input(type="checkbox" name="city[]" value="valbzhih" id="valbzhih").Checkbox_input
+															label(for="valbzhih").Checkbox_label Валбжих
+														.Checkbox.Checkbox-jobFilter.CheckboxList_item
+															input(type="checkbox" name="city[]" value="varsawa" id="varsawa").Checkbox_input
+															label(for="varsawa").Checkbox_label Варшава
+														.Checkbox.Checkbox-jobFilter.CheckboxList_item
+															input(type="checkbox" name="city[]" value="vlozlavek" id="vlozlavek").Checkbox_input
+															label(for="vlozlavek").Checkbox_label Влоцлавек
+														.Checkbox.Checkbox-jobFilter.CheckboxList_item
+															input(type="checkbox" name="city[]" value="wrozlaw" id="wrozlaw").Checkbox_input
+															label(for="wrozlaw").Checkbox_label Вроцлав
+														.Checkbox.Checkbox-jobFilter.CheckboxList_item
+															input(type="checkbox" name="city[]" value="valbzhih2" id="valbzhih2").Checkbox_input
+															label(for="valbzhih2").Checkbox_label Валбжих
+														.Checkbox.Checkbox-jobFilter.CheckboxList_item
+															input(type="checkbox" name="city[]" value="varsawa2" id="varsawa2").Checkbox_input
+															label(for="varsawa2").Checkbox_label Варшава
+														.Checkbox.Checkbox-jobFilter.CheckboxList_item
+															input(type="checkbox" name="city[]" value="vlozlavek2" id="vlozlavek2").Checkbox_input
+															label(for="vlozlavek2").Checkbox_label Влоцлавек
+														.Checkbox.Checkbox-jobFilter.CheckboxList_item
+															input(type="checkbox" name="city[]" value="wrozlaw2" id="wrozlaw2").Checkbox_input
+															label(for="wrozlaw2").Checkbox_label Вроцлав
+													.CheckboxList_noResults По вашему запросу ничего не найдено
 											.DropdownSelect.DropdownSelect-vacanciesFilter.FilterElement_dropdownSelect.hidden-xs
 												select(name="city[]" multiple="multiple").DropdownSelect_select
 													option(value="belsko_byala") Бельсько-Бяла
@@ -544,6 +546,23 @@ block content
 					a(href="/companies_dossiers.html").PopupMenu_link Роботодавці
 				li.PopupMenu_item
 					a(href="/vacancies.html").PopupMenu_link.active Вакансії
+	template#SelectedCheckboxes
+		.CheckboxListWrapper.CheckboxListWrapper-selected.FilterElement_selected
+			h3.CheckboxListWrapper_title Выбранные
+			.CheckboxList.CheckboxList-jobFilter.CheckboxList-cities.hidden-smPlus
+				.CheckboxList_content
+					.Checkbox.Checkbox-jobFilter.CheckboxList_item
+						input(type="checkbox" name="city[]" value="belsko_byala" id="belsko_byala").Checkbox_input
+						label(for="belsko_byala").Checkbox_label Бельсько-Бяла
+					.Checkbox.Checkbox-jobFilter.CheckboxList_item
+						input(type="checkbox" name="city[]" value="bidgosch" id="bidgosch").Checkbox_input
+						label(for="bidgosch").Checkbox_label Бидгощ
+					.Checkbox.Checkbox-jobFilter.CheckboxList_item
+						input(type="checkbox" name="city[]" value="bilostok" id="bilostok").Checkbox_input
+						label(for="bilostok").Checkbox_label Білосток
+					.Checkbox.Checkbox-jobFilter.CheckboxList_item
+						input(type="checkbox" name="city[]" value="valbzhih" id="valbzhih").Checkbox_input
+						label(for="valbzhih").Checkbox_label Валбжих
 	template#FilterElementsCountryTmpl
 		.FilterElementGroup_items(data-additional-group)
 			.FilterElement.FilterElement-hasNestedElements.FilterElementGroup_item(data-element-type="radioBtnsList" data-removable-element)

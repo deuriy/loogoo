@@ -396,14 +396,14 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	$('.VacancyImages_gallerySlide').fancybox({
-		touch: false,
+		// touch: false,
 		baseClass: 'fancybox-container--image fancybox-container--no-padding'
 	});
 
-	$('.VacancyImages_gallerySlide-video').fancybox({
-		touch: false,
-		baseClass: 'fancybox-container--video fancybox-container--no-padding'
-	});
+	// $('.VacancyImages_gallerySlide-video').fancybox({
+	// 	touch: false,
+	// 	baseClass: 'fancybox-container--video fancybox-container--no-padding'
+	// });
 
 	$.fancybox.defaults.backFocus = false;
 
@@ -493,7 +493,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});	
 
-	const menus = ['#ProfileSettingsMenu', '#UserMenu', '#ActionsMenu', '#PrimaryMenu', '#PrimaryMenuFooter', '#MobileMenu', '#SidebarMenu', '.MenuSection-company', '.SettingsMenu', '.SidebarMenu-profileMenu', '.CategoryMenu-companySettings', '.CategoryMenu-save', '.IconMenu', '.CategoryMenu-vacancyFull'];
+	const menus = ['#ProfileSettingsMenu', '#UserMenu', '#ActionsMenu', '#PrimaryMenu', '#PrimaryMenuFooter', '#MobileMenu', '#SidebarMenu', '.MenuSection-company', '.SettingsMenu', '.SidebarMenu-profileMenu', '.CategoryMenu-companySettings', '.CategoryMenu-save', '.IconMenu', '.CategoryMenu-vacancyFullDesktop', '.CategoryMenu-vacancyFullMob'];
 
 	menus.forEach(menu => setActiveMenuItem(document.querySelector(menu)));
 	setActivePopupMenuItem( document.querySelector('#PopupMenu'), document.querySelector('.PopupMenuLink') );

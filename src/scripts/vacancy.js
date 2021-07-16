@@ -90,8 +90,9 @@ document.addEventListener('DOMContentLoaded', function () {
   
   const galleryTop = new Swiper('.VacancyImages_gallery', {
     spaceBetween: 4,
-    loop: true,
+    // loop: true,
     // loopedSlides: 6,
+    slidesPerView: 'auto',
     navigation: {
       nextEl: '.VacancyImages_gallery .VacancyImages_next',
       prevEl: '.VacancyImages_gallery .VacancyImages_prev',

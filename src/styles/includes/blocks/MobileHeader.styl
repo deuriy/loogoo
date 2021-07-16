@@ -108,7 +108,7 @@
 			top 17px
 			left 20px
 	
-	&-reviews
+	&-lightGrey
 		background #F8F9FA
 		
 	&-company,
@@ -148,3 +148,17 @@
 		.MobileHeader_title
 			margin-right 35px
 			margin-left 20px
+	
+	&-withHeader
+		position sticky
+		top 0
+		border-top 1px solid $grey
+		// top 67px
+		
+		.MobileHeader_titleWrapper
+			padding-right 25px
+			text-overflow ellipsis
+			overflow hidden
+		
+		.MobileHeader_phoneIcon
+			right 20px
