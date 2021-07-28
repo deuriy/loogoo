@@ -263,7 +263,7 @@ function openMobilePopup (mobilePopupID) {
 	}
 
 	mobilePopupState.visibility = true;
-	window.history.pushState(mobilePopupState, null, "");
+	// window.history.pushState(mobilePopupState, null, "");
 	toggleMobilePopup(mobilePopupState, mobilePopup);
 }
 
@@ -278,7 +278,7 @@ function closeMobilePopup (mobilePopupID) {
 	}
 
 	mobilePopupState.visibility = false;
-	window.history.pushState(mobilePopupState, null, "");
+	// window.history.pushState(mobilePopupState, null, "");
 	toggleMobilePopup(mobilePopupState, mobilePopup);
 }
 
@@ -1260,7 +1260,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			mobilePopup.querySelector('.MobilePopup_title').textContent = mobilePopupTitle;
 		}
 
-		e.preventDefault();
+		// e.preventDefault();
 	});
 
 	document.addEventListener('click', function (e) {
@@ -1635,10 +1635,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		e.target.closest('.Banner').style.display = 'none';
 	});
 
-	(function setDefaultMobilePopupState() {
-		window.history.replaceState(mobilePopupState, null, "");
-		toggleMobilePopup(mobilePopupState, document.querySelector('.MobilePopup'));
-	})();
+	// (function setDefaultMobilePopupState() {
+	// 	window.history.replaceState(mobilePopupState, null, "");
+	// 	toggleMobilePopup(mobilePopupState, document.querySelector('.MobilePopup'));
+	// })();
 
 	window.addEventListener('popstate', function (e) {
 		if (e.state) mobilePopupState = e.state;
@@ -1647,10 +1647,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (!openedMobilePopup) return;
 
-		if (openedMobilePopup.id === 'ServicesPopup') {
-			let popupLink = document.querySelector(`a[href="#ServicesPopup"]`);
-			popupLink.dataset.action = 'openMobilePopup';
-		}
+		// if (openedMobilePopup.id === 'ServicesPopup') {
+		// 	let popupLink = document.querySelector(`a[href="#ServicesPopup"]`);
+		// 	popupLink.dataset.action = 'openMobilePopup';
+		// }
 
 		toggleMobilePopup(mobilePopupState, openedMobilePopup);
 	});
