@@ -383,12 +383,16 @@
 				padding-top 20px
 	
 	&-vacanciesFilter
+		@media $xs
+			overflow-x hidden
+			
 		@media $md
 			.Main_columns
 				justify-content space-between
 				
 			.Main_left
-				width 68%
+				// width 68%
+				width 100%
 				padding-right 0
 		
 		@media $xs

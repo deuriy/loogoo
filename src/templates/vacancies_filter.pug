@@ -33,7 +33,7 @@ block content
 									h3.Filter_resultsTitle Вакансии
 									.Filter_results 1256
 							.Filter_right
-								.Filter_linkWrapper.hidden-smPlus
+								.Filter_linkWrapper.hidden-smPlus(hidden)
 									a(href="#JobFilter" data-action="openJobFilter").Filter_link Фильтр
 									span.Filter_circle 5
 								.Filter_item.Filter_item-mobile.hidden-xs
@@ -299,7 +299,7 @@ block content
 													a(href="/topic_details.html").StatIcon_link
 														include /includes/svg/SvgIco/answer
 														span.StatIcon_count 0
-			form(action="#").JobFilter#JobFilter
+			form(action="#" hidden).JobFilter#JobFilter
 				.JobFilter_wrapper
 					.JobFilter_header
 						.JobFilter_headerLeft
