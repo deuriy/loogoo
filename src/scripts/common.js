@@ -263,7 +263,7 @@ function openMobilePopup (mobilePopupID) {
 	}
 
 	mobilePopupState.visibility = true;
-	// window.history.pushState(mobilePopupState, null, "");
+	window.history.pushState(mobilePopupState, null, "");
 	toggleMobilePopup(mobilePopupState, mobilePopup);
 }
 
@@ -278,7 +278,7 @@ function closeMobilePopup (mobilePopupID) {
 	}
 
 	mobilePopupState.visibility = false;
-	// window.history.pushState(mobilePopupState, null, "");
+	window.history.pushState(mobilePopupState, null, "");
 	toggleMobilePopup(mobilePopupState, mobilePopup);
 }
 
@@ -1260,7 +1260,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			mobilePopup.querySelector('.MobilePopup_title').textContent = mobilePopupTitle;
 		}
 
-		// e.preventDefault();
+		e.preventDefault();
 	});
 
 	document.addEventListener('click', function (e) {
@@ -1613,9 +1613,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		clonedLike.classList.add('Like-animated');
 	});
 
-	document.addEventListener('click', function (e) {
-		popupClicks++;
-	});
+	// document.addEventListener('click', function (e) {
+	// 	popupClicks++;
+	// });
 
 	document.addEventListener('click', function(e) {
 		let iconMenuLink = e.target.closest('.IconMenu_link');
@@ -1635,10 +1635,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		e.target.closest('.Banner').style.display = 'none';
 	});
 
-	// (function setDefaultMobilePopupState() {
-	// 	window.history.replaceState(mobilePopupState, null, "");
-	// 	toggleMobilePopup(mobilePopupState, document.querySelector('.MobilePopup'));
-	// })();
+	(function setDefaultMobilePopupState() {
+		window.history.replaceState(mobilePopupState, null, "");
+		toggleMobilePopup(mobilePopupState, document.querySelector('.MobilePopup'));
+	})();
 
 	window.addEventListener('popstate', function (e) {
 		if (e.state) mobilePopupState = e.state;
@@ -1647,10 +1647,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		if (!openedMobilePopup) return;
 
-		// if (openedMobilePopup.id === 'ServicesPopup') {
-		// 	let popupLink = document.querySelector(`a[href="#ServicesPopup"]`);
-		// 	popupLink.dataset.action = 'openMobilePopup';
-		// }
+		if (openedMobilePopup.id === 'ServicesPopup') {
+			let popupLink = document.querySelector(`a[href="#ServicesPopup"]`);
+			popupLink.dataset.action = 'openMobilePopup';
+		}
 
 		toggleMobilePopup(mobilePopupState, openedMobilePopup);
 	});
@@ -1682,18 +1682,20 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 });
 
-let popupClicks = 0, popupSteps = 0;
+// let popupClicks = 0, popupSteps = 0;
 
-window.onpopstate = state => {
-	popupSteps++;
-	if (popupClicks != popupSteps) {
-		let mobilePopupID = location.hash.slice(1);
+// window.onpopstate = state => {
+// 	console.log('On pop state', popupSteps, popupClicks);
+	
+// 	popupSteps++;
+// 	if (popupClicks != popupSteps) {
+// 		let mobilePopupID = location.hash.slice(1);
 
-		if (document.getElementById(mobilePopupID)) {
-			setTimeout(() => {
-				closeMobilePopup(mobilePopupID);
-				popupClicks = popupSteps = 0;
-			}, 0);
-		}
-	}
-};
+// 		if (document.getElementById(mobilePopupID)) {
+// 			setTimeout(() => {
+// 				closeMobilePopup(mobilePopupID);
+// 				popupClicks = popupSteps = 0;
+// 			}, 0);
+// 		}
+// 	}
+// };
