@@ -1,0 +1,63 @@
+.Hint
+	display inline-flex
+	position relative
+	
+	&_icon
+		width 14px
+		height 14px
+		background-image: url("data:image/svg+xml,%3Csvg version='1.2' baseProfile='tiny-ps' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath id='Фигура 1 копия 8' d='M7 14c-3.87 0-7-3.14-7-7C0 3.13 3.13-.01 7-.01S14 3.13 14 7c0 3.86-3.13 7-7 7zM6 6v5h2V6H6zm0-3v2h2V3H6z' fill='%23cdd2d8'/%3E%3C/svg%3E")
+		@extend .transition
+	
+	&_wrapper
+		z-index 100
+		position absolute
+		top calc(100% + 12px)
+		right -152px
+		width 320px
+		padding 20px 24px 18px
+		border-radius 2px
+		filter drop-shadow(0px 1px 4px rgba(0, 0, 0, .16))
+		background-color $white
+		font-size 12px
+		line-height 1.67
+		opacity 0
+		visibility hidden
+		@extend .transition
+		
+		&::before
+			content ""
+			position absolute
+			top -7px
+			right 0
+			left 0
+			width 9px
+			height 7px
+			margin auto
+			background url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8.993 6.996'%3E%3Cpath data-name='Op component 2' d='M4.492 0l-4.5 7h9z' fill='%23fff'/%3E%3C/svg%3E") center center no-repeat
+	
+	&_close
+		position absolute
+		top 9px
+		right 9px
+		width 20px
+		height 20px
+		border none
+		outline none
+		background url("data:image/svg+xml,%3Csvg version='1.2' baseProfile='tiny-ps' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M7.65 6.23l5.16-5.17a.61.61 0 000-.88.61.61 0 00-.88 0L6.76 5.35 1.6.18a.61.61 0 00-.88 0 .61.61 0 000 .88l5.16 5.17L.72 11.4a.61.61 0 000 .88c.12.12.28.18.44.18.16 0 .32-.06.44-.18l5.16-5.17 5.17 5.17c.12.12.28.18.44.18.16 0 .32-.06.44-.18a.61.61 0 000-.88L7.65 6.23z' fill='%23b8c2cc'/%3E%3C/svg%3E") center center / 13px auto no-repeat
+		@extend .transition
+		
+		&:hover
+			background-image url("data:image/svg+xml,%3Csvg version='1.2' baseProfile='tiny-ps' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M7.65 6.23l5.16-5.17a.61.61 0 000-.88.61.61 0 00-.88 0L6.76 5.35 1.6.18a.61.61 0 00-.88 0 .61.61 0 000 .88l5.16 5.17L.72 11.4a.61.61 0 000 .88c.12.12.28.18.44.18.16 0 .32-.06.44-.18l5.16-5.17 5.17 5.17c.12.12.28.18.44.18.16 0 .32-.06.44-.18a.61.61 0 000-.88L7.65 6.23z' fill='%23647C97'/%3E%3C/svg%3E")
+	
+	&_text
+		@media $xs
+			display none
+	
+	&-opened
+		.Hint_icon
+			background-image: url("data:image/svg+xml,%3Csvg version='1.2' baseProfile='tiny-ps' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath id='Фигура 1 копия 8' d='M7 14c-3.87 0-7-3.14-7-7C0 3.13 3.13-.01 7-.01S14 3.13 14 7c0 3.86-3.13 7-7 7zM6 6v5h2V6H6zm0-3v2h2V3H6z' fill='%23647C97'/%3E%3C/svg%3E")
+			
+		.Hint_wrapper
+			// display block
+			opacity 1
+			visibility visible

@@ -295,6 +295,36 @@
 				right auto
 				left 8px
 				margin auto
+	
+	&-plansTable
+		display inline-block
+		
+		.fs-wrap
+			width auto
+		
+		.fs-label-wrap .fs-label
+			padding-left 5px
+			font-size 16px
+			
+			@media $xs
+				font-size 15px
+			
+			&::after
+				content ""
+				position absolute
+				right 10px
+				bottom 4px
+				left 5px
+				border-bottom 1px dashed $blue
+		
+		.fs-dropdown
+			width 60px
+			margin-top 4px
+			
+			&::before
+				right 0
+				left 0
+				margin auto
 
 .fs-options	
 	.ps__rail-y

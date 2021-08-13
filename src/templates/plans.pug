@@ -1,0 +1,452 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Пакеты";
+block content
+	.Container.Container-plans.Main_container
+		.Plans
+			.Plans_header
+				h1.Plans_title Пакеты
+				.Plans_currency
+					span.Plans_currencyLabel Валюта
+					.DropdownSelect.DropdownSelect-plansTable.PlansTable_currencyDropdown
+						select(name="currency").DropdownSelect_select
+							option(value="uah") UAH
+							option(value="usd") USD
+			table.PlansTable.hidden-xs
+				thead
+					tr.PlansTable_row
+						th.PlansTable_th.PlansTable_th-currency Валюта
+							.DropdownSelect.DropdownSelect-plansTable.PlansTable_currencyDropdown
+								select(name="currency").DropdownSelect_select
+									option(value="uah") UAH
+									option(value="usd") USD
+						th.PlansTable_th Ferrum #[br]1350 UAH
+						th.PlansTable_th Aluminum #[br]1500 UAH
+						th.PlansTable_th Silver #[br]1800 UAH
+						th.PlansTable_th Gold #[br]2000 UAH
+						th.PlansTable_th Platinum #[br]2500 UAH
+				tbody
+					tr.PlansTable_row
+						td.PlansTable_data.PlansTable_data-title Арбитраж
+							.Hint.PlansTable_hint
+								a(href="javascript:;").Hint_icon
+								.Hint_wrapper
+									button(type="button").Hint_close
+									.Hint_text
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+						td.PlansTable_data 1
+						td.PlansTable_data 2
+						td.PlansTable_data 3
+						td.PlansTable_data 4
+						td.PlansTable_data 5
+					tr.PlanlsTable_row
+						td.PlansTable_data.PlansTable_data-title Дополнительный арбитраж
+							.Hint.PlansTable_hint
+								a(href="javascript:;").Hint_icon
+								.Hint_wrapper
+									button(type="button").Hint_close
+									.Hint_text
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+						td.PlansTable_data
+							img(src="/img/dash.svg")
+						td.PlansTable_data
+							img(src="/img/dash.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+							.PlansTable_price + 2000 UAH / ед.
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+							.PlansTable_price + 1000 UAH / ед.
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+							.PlansTable_price Бесплатно
+					tr.PlanlsTable_row
+						td.PlansTable_data.PlansTable_data-title Статистика посещаемости
+							.Hint.PlansTable_hint
+								a(href="javascript:;").Hint_icon
+								.Hint_wrapper
+									button(type="button").Hint_close
+									.Hint_text
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+					tr.PlanlsTable_row
+						td.PlansTable_data.PlansTable_data-title Приоритетная поддержка
+							.Hint.PlansTable_hint
+								a(href="javascript:;").Hint_icon
+								.Hint_wrapper
+									button(type="button").Hint_close
+									.Hint_text
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+					tr.PlanlsTable_row
+						td.PlansTable_data.PlansTable_data-title Личный менеджер
+							.Hint.PlansTable_hint
+								a(href="javascript:;").Hint_icon
+								.Hint_wrapper
+									button(type="button").Hint_close
+									.Hint_text
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+						td.PlansTable_data
+							img(src="/img/dash.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+					tr.PlanlsTable_row
+						td.PlansTable_data.PlansTable_data-title Поддержка 24/7
+							.Hint.PlansTable_hint
+								a(href="javascript:;").Hint_icon
+								.Hint_wrapper
+									button(type="button").Hint_close
+									.Hint_text
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+						td.PlansTable_data
+							img(src="/img/dash.svg")
+						td.PlansTable_data
+							img(src="/img/dash.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+					tr.PlanlsTable_row
+						td.PlansTable_data.PlansTable_data-title Просмотр отклонённых отзывов
+							.Hint.PlansTable_hint
+								a(href="javascript:;").Hint_icon
+								.Hint_wrapper
+									button(type="button").Hint_close
+									.Hint_text
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+						td.PlansTable_data
+							img(src="/img/dash.svg")
+						td.PlansTable_data
+							img(src="/img/dash.svg")
+						td.PlansTable_data
+							img(src="/img/dash.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+					tr.PlanlsTable_row
+						td.PlansTable_data.PlansTable_data-title Кол-во администраторов
+							.Hint.PlansTable_hint
+								a(href="javascript:;").Hint_icon
+								.Hint_wrapper
+									button(type="button").Hint_close
+									.Hint_text
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+						td.PlansTable_data 1
+						td.PlansTable_data 2
+						td.PlansTable_data 3
+						td.PlansTable_data 4
+						td.PlansTable_data 5
+					tr.PlanlsTable_row
+						td.PlansTable_data.PlansTable_data-title Возможность отвечать в темах от имени страницы компании
+							.Hint.PlansTable_hint
+								a(href="javascript:;").Hint_icon
+								.Hint_wrapper
+									button(type="button").Hint_close
+									.Hint_text
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+						td.PlansTable_data
+							img(src="/img/dash.svg")
+						td.PlansTable_data
+							img(src="/img/dash.svg")
+						td.PlansTable_data
+							img(src="/img/dash.svg")
+						td.PlansTable_data
+							img(src="/img/dash.svg")
+						td.PlansTable_data
+							img(src="/img/checkmark.svg")
+			.PlansSwiper.swiper-container.hidden-smPlus.Plans_slider
+				.swiper-wrapper
+					.swiper-slide.PlansSwiper_slide
+						.Plan
+							h2.Plan_title Ferrum
+							.Plan_content
+								.Plan_price 1350
+									span.Plan_priceSuffix UAH/мес.
+								ul.BenefitsList
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Арбитраж
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 1
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 1
+										span.BenefitsList_suffix 1 шт.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Статистика посещаемости
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 3
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Приоритетная поддержка
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Администраторы
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+										span.BenefitsList_suffix 1 шт.
+					.swiper-slide.PlansSwiper_slide
+						.Plan
+							h2.Plan_title Aluminum
+							.Plan_content
+								.Plan_price 1500
+									span.Plan_priceSuffix UAH/мес.
+								ul.BenefitsList
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Арбитраж
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 1
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 1
+										span.BenefitsList_suffix 2 шт.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Статистика посещаемости
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 3
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Приоритетная поддержка
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Личный менеджер
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Администраторы
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+										span.BenefitsList_suffix 2 шт.
+					.swiper-slide.PlansSwiper_slide
+						.Plan
+							h2.Plan_title Silver
+							.Plan_content
+								.Plan_price 1800
+									span.Plan_priceSuffix UAH/мес.
+								ul.BenefitsList
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Арбитраж
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 1
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 1
+										span.BenefitsList_suffix 3 шт.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Дополнительный арбитраж + 2000 UAH / ед.
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 2
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 2
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Статистика посещаемости
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 3
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Приоритетная поддержка
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Личный менеджер
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Поддержка 24/7
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Просмотр отклонённых отзывов
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Администраторы
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+										span.BenefitsList_suffix 3 шт.
+					.swiper-slide.PlansSwiper_slide
+						.Plan
+							h2.Plan_title Gold
+							.Plan_content
+								.Plan_price 2000
+									span.Plan_priceSuffix UAH/мес.
+								ul.BenefitsList
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Арбитраж
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 1
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 1
+										span.BenefitsList_suffix 4 шт.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Дополнительный арбитраж + 1000 UAH / ед.
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 2
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 2
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Статистика посещаемости
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 3
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Приоритетная поддержка
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Личный менеджер
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Поддержка 24/7
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Просмотр отклонённых отзывов
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Администраторы
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+										span.BenefitsList_suffix 4 шт.
+					.swiper-slide.PlansSwiper_slide
+						.Plan
+							h2.Plan_title Platinum
+							.Plan_content
+								.Plan_price 2500
+									span.Plan_priceSuffix UAH/мес.
+								ul.BenefitsList
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Арбитраж
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 1
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 1
+										span.BenefitsList_suffix 5 шт.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Бесплатно
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 2
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 2
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Статистика посещаемости
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex. 3
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Приоритетная поддержка
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Личный менеджер
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Поддержка 24/7
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Просмотр отклонённых отзывов
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Администраторы
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+										span.BenefitsList_suffix 5 шт.
+									li.BenefitsList_item
+										span.BenefitsList_itemTitle Возможность отвечать в темах от имени страницы компании
+										.Hint.BenefitsList_hint
+											a(href="javascript:;" data-fancybox data-src="#HintPopup").Hint_icon
+											.Hint_text
+												p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex.
+	.HintPopup#HintPopup(style="display: none;")
+		h2.HintPopup_title Просмотр отклонённых отзывов
+		.HintPopup_text
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+			p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+			p Аccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+		button(type="button" data-fancybox-close).BtnGrey.BtnGrey-mobilePopup.BtnGrey-fullWidth Закрыть окно
+
+block page_bottom
+	script(src="/js/plans.js")
