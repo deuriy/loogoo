@@ -51,8 +51,6 @@ $('[data-src="#HintPopup"]').fancybox({
   baseClass: 'fancybox-container--hint',
 
   beforeLoad(instance, slide) {
-    console.log(instance, slide);
-
     let hintIcon = this.opts.$orig[0];
     let hintTitle = hintIcon.closest('.BenefitsList_item').querySelector('.BenefitsList_itemTitle');
     let hintText = hintIcon.closest('.Hint').querySelector('.Hint_text');
@@ -61,7 +59,5 @@ $('[data-src="#HintPopup"]').fancybox({
 
     hintPopupTitle.textContent = hintTitle.textContent;
     hintPopupText.innerHTML = hintText.innerHTML;
-
-    console.log(hintPopupText);
   }
 });
