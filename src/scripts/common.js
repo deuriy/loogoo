@@ -375,14 +375,26 @@ function setRatingItemValue (ratingItem) {
 	}
 }
 
+let oldScrollY = 0;
 function checkTopBtn (topBtn) {
 	if (!topBtn) return;
 
+	console.log(document.documentElement.scrollTop);
+
+	let scrolled = document.documentElement.scrollTop;
+	let dY = scrolled - oldScrollY;
+
 	if (document.documentElement.scrollTop >= 100) {
-		topBtn.classList.add('TopBtn-visible');
+		if (dY < 0) {
+			topBtn.classList.add('TopBtn-visible');
+		} else {
+			topBtn.classList.remove('TopBtn-visible');
+		}
 	} else {
 		topBtn.classList.remove('TopBtn-visible');
 	}
+
+	oldScrollY = scrolled;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
