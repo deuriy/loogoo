@@ -137,15 +137,11 @@ function showSelectChain (targetOption, optionId) {
 	let nextSelectItems = getNextSelectItems(selectItem);
 	let parentId = selectItem.dataset.parentId;
 
-	// console.log(prevSelectItems);
-
 	selectItem.classList.remove('hidden');
 	targetOption.selected = true;
 
 	for (let item of prevSelectItems) {
 		item.classList.remove('hidden');
-
-		console.log(item.dataset.parentId);
 
 		for (let option of item.querySelector('.Select').options) {
 			if (option.dataset.id == parentId) {

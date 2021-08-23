@@ -379,8 +379,6 @@ let oldScrollY = 0;
 function checkTopBtn (topBtn) {
 	if (!topBtn) return;
 
-	console.log(document.documentElement.scrollTop);
-
 	let scrolled = document.documentElement.scrollTop;
 	let dY = scrolled - oldScrollY;
 
@@ -1664,8 +1662,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		topBtn.addEventListener('click', function (e) {
 			window.scroll({
-			 top: 0,
-			 behavior: 'smooth'
+			 top: 0
 			});
 		});
 	}	

@@ -354,7 +354,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 
 		let selectedRadioBtn = radioBtnInput.closest('.RadioBtn').dataset.selected = true;
-		console.log(selectedRadioBtn);
 	});
 
 	document.addEventListener('click', function (e) {

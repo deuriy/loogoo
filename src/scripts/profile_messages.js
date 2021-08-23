@@ -176,7 +176,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (!mobileSearchText) return;
 
 		let searchCloseBtn = mobileSearchText.closest('.Search-mobileHeader').querySelector('.Search_closeBtn');
-		// console.log(mobileSearchText.value.length);
 
 		if (mobileSearchText.value.length) {
 			searchCloseBtn.classList.remove('hidden');
