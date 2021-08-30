@@ -4,19 +4,22 @@ const plansSwiper = new Swiper('.PlansSwiper', {
 });
 
 // Hint
-document.addEventListener('click', function (e) {
-  let hintIcon = e.target.closest('.Hint_icon');
+document.addEventListener('mouseover', function (e) {
+  let hint = e.target.closest('.Hint');
 
-  if (!hintIcon) return;
+  if (!hint) return;
 
-  let hint = hintIcon.closest('.Hint');
+  hint.classList.add('Hint-opened');
 
-  let openedHint = document.querySelector('.Hint-opened');
-  if (openedHint && openedHint != hint) {
-    openedHint.classList.remove('Hint-opened');
-  }
+  e.preventDefault();
+});
 
-  hint.classList.toggle('Hint-opened');
+document.addEventListener('mouseout', function (e) {
+  let hint = e.target.closest('.Hint');
+
+  if (!hint) return;
+
+  hint.classList.remove('Hint-opened');
 
   e.preventDefault();
 });
@@ -28,20 +31,6 @@ document.addEventListener('click', function (e) {
 
   let hint = hintClose.closest('.Hint');
   hint.classList.remove('Hint-opened');
-
-  e.preventDefault();
-});
-
-document.addEventListener('click', function (e) {
-  let hintWrapper = e.target.closest('.Hint');
-
-  if (hintWrapper) return;
-
-  let openedHint = document.querySelector('.Hint-opened');
-
-  if (!openedHint) return;
-
-  openedHint.classList.remove('Hint-opened');
 
   e.preventDefault();
 });
