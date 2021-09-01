@@ -12,7 +12,7 @@
 		z-index 100
 		position absolute
 		top calc(100% + 12px)
-		right -152px
+		left -152px
 		width 320px
 		padding 20px 24px 18px
 		border-radius 2px
@@ -22,7 +22,7 @@
 		line-height 1.67
 		opacity 0
 		visibility hidden
-		@extend .transition
+		transition opacity .2s ease-in-out, visibility .2s ease-in-out
 		
 		&::before
 			content ""
@@ -60,3 +60,36 @@
 		.Hint_wrapper
 			opacity 1
 			visibility visible
+	
+	&-largeWidth
+		.Hint_wrapper
+			width 520px
+			left -260px
+	
+	&-top
+		.Hint_wrapper
+			top auto
+			bottom calc(100% + 12px)
+			
+			&::before
+				content ""
+				position absolute
+				top auto
+				right 0
+				bottom -7px
+				left 0
+				width 9px
+				height 7px
+				margin auto
+				background url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8.993 6.996'%3E%3Cpath data-name='Op component 2' d='M4.492 0l-4.5 7h9z' fill='%23fff'/%3E%3C/svg%3E") center center no-repeat
+				transform rotate(180deg)
+	
+	&-bottom
+		.Hint_wrapper
+			top calc(100% + 12px)
+			left -152px
+	
+	&-left
+		.Hint_wrapper
+			right auto
+			left 0
