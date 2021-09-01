@@ -1,15 +1,15 @@
 extends /layouts/main_layout
 block vars
 	- var title = "Страницы не существует";
-	- var wrapperModifiers = "Wrapper-noMobileHeader";
+	//- - var wrapperModifiers = "Wrapper-noMobileHeader";
 block content
-	.MobileHeader.hidden-smPlus
-		a(href="#").BtnBack.MobileHeader_btnBack
-			include /includes/svg/SvgIco/arrow_left
-		h1.MobileHeader_title Страницы не существует
+	//- .MobileHeader.hidden-smPlus
+	//- 	a(href="#").BtnBack.MobileHeader_btnBack
+	//- 		include /includes/svg/SvgIco/arrow_left
+	//- 	h1.MobileHeader_title Страницы не существует
 	.Container.Main_container
 		.NoResults.NoResults-404
 			.NoResults_img
-				img(src="/img/404.png", alt="404")
-			.NoResults_text К сожалению, такой страницы не существует
+				img(src="/img/404_new.png", alt="404")
+			.NoResults_text страница не найдена
 			a(href="/").BtnBlue.BtnBlue-frontpage Перейти на главную
