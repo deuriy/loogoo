@@ -1,0 +1,48 @@
+.TrustSection
+	background #F7FAFC
+	
+	&_container
+		display grid
+		grid-template-columns repeat(2, 1fr)
+		gap 120px
+		padding-top 123px
+		padding-bottom 112px
+		
+		@media $xs
+			grid-template-columns auto
+			padding-top 25px
+			padding-bottom 25px
+			gap 19px
+	
+	&_title
+		margin-bottom 10px
+		font-weight 600
+		font-size 36px
+		line-height 1.2
+		
+		@media $xs
+			margin-bottom 6px
+			font-size 23px
+	
+	&_subTitle
+		margin-bottom 51px
+		font-weight 600
+		font-size 18px
+		line-height 1.56
+		
+		@media $xs
+			margin-bottom 25px
+			font-size 16px
+			line-height 1.5
+	
+	&_right
+		padding-top 6px
+	
+	&_block
+		margin-bottom 49px
+		
+		@media $xs
+			margin-bottom 25px
+		
+		&:last-child
+			margin-bottom 0

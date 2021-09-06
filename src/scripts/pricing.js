@@ -1,5 +1,5 @@
 const plansSwiper = new Swiper('.PlansSwiper', {
   autoHeight: true,
   slidesPerView: 'auto',
-  spaceBetween: 12
+  spaceBetween: 8
 });

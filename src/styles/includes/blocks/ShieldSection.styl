@@ -1,0 +1,73 @@
+.ShieldSection
+	background url('../img/bg_shield_section.png') right top no-repeat, linear-gradient(to top, #00b7db 0%, #0074c7 100%)
+	color $white
+	
+	&_container
+		display flex
+		padding-top 96px
+		padding-bottom 120px
+		
+		@media $mdMinus
+			padding-top 65px
+		
+		@media $smMinus
+			padding-top 45px
+			padding-bottom 45px
+		
+		@media $xs
+			flex-direction column
+			padding-top 21px
+			padding-bottom 24px
+	
+	&_left
+		width 48%
+		padding 61px 20px 0 0
+		
+		@media $mdMinus
+			width 55%
+		
+		@media $smMinus
+			width 65%
+		
+		@media $xs
+			width 500px
+			max-width 100%
+			margin-right auto
+			margin-left auto
+			padding 0
+	
+	&_title
+		margin-bottom 18px
+		font-weight 600
+		font-size 48px
+		line-height 1.1379
+		
+		@media $mdMinus
+			font-size 48px
+		
+		@media $smMinus
+			font-size 42px
+		
+		@media $xs
+			margin-bottom 20px
+			font-size 28px
+			line-height 1.142857
+			text-align center
+	
+	&_text
+		max-width 520px
+		font-size 16px
+		line-height 1.625
+	
+	&_right
+		flex 1 1 auto
+		text-align right
+	
+	&_img
+		@media $smMinus
+			width 85%
+		
+		@media $xs
+			display block
+			width 320px
+			margin 0 auto 10px

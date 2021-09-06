@@ -96,3 +96,47 @@
 	&_imgWrap
 		margin-top 24px
 		margin-bottom 45px
+	
+	&-pricing
+		display grid
+		grid-template-columns 415px 1fr
+		
+		@media $xs
+			grid-template-columns auto
+		
+		.Thesis_left
+			position relative
+			
+		.Thesis_title
+			position relative
+			margin-left 37px
+			font-size 22px
+			line-height 1.36
+			
+			@media $xs
+				margin-right 25px
+				margin-bottom 7px
+				margin-left 0
+				font-size 18px
+				line-height 1.45
+		
+		.Thesis_number
+			position absolute
+			top -23px
+			left -16px
+			font-weight 900
+			font-family Arial
+			font-size 180px
+			
+			@media $xs
+				top -12px
+				right -20px
+				left auto
+				font-size 120px
+		
+		.Thesis_text
+			position relative
+			line-height 1.625
+			
+			@media $xs
+				font-size 16px
