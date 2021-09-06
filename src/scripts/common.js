@@ -431,6 +431,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		closeExisting: true
 	});
 
+	$('[data-src="#OrderCallPopup"], [data-src="#OrderCallPopupSuccess"]').fancybox({
+		baseClass: 'fancybox-container--order-call',
+		touch: false,
+		closeExisting: true
+	});
+
 	$('[data-src="#ComplaintFormPopup"]').fancybox({
 		touch: false
 	});

@@ -40,9 +40,29 @@
 		line-height 1.8461
 		@extend .transition
 		
-		& > .SvgIco
+		& > svg
 			margin-right 10px
 			color $blue3
 		
 		&:hover
 			background #f5f5f5
+		
+		&-phone
+			color $blue
+	
+	&-large
+		.ContextMenu_menu
+			width 216px
+	
+	&-contacts
+		.ContextMenu_menu
+			padding-top 10px
+			padding-bottom 10px
+			
+		.ContextMenu_link
+			padding 3px 14px 3px 23px
+			font-size 15px
+			
+			& > svg
+				width 16px
+				margin-right 12px

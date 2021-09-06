@@ -1,0 +1,26 @@
+.OrderCallPopup#OrderCallPopup(style="display:none;")
+	.OrderCallPopup_header
+		.OrderCallPopup_iconWrapper
+			include /includes/svg/contacts_menu/handset_arrow
+		h3.OrderCallPopup_title Заказать звонок
+	.OrderCallPopup_body
+		form(action="").Form.Form-orderCall
+			.Form_items.Form_items-twoCol
+				.Form_item
+					label(for="order_call_name").Form_label.Form_label-small Имя
+					input(type="text" name="order_call_name" id="order_call_name").Form_text
+				.Form_item
+					label(for="order_call_phone").Form_label.Form_label-small Телефон
+					input(type="tel" name="order_call_phone" id="order_call_phone").Form_text
+			.Form_actions
+				button(type="submit").BtnBlue.BtnBlue-orderCallPopup Позвонить мне
+.OrderCallPopup.OrderCallPopup-success#OrderCallPopupSuccess(style="display:none;")
+	.OrderCallPopup_header
+		.OrderCallPopup_iconWrapper
+			include /includes/svg/contacts_menu/handset_arrow
+		h3.OrderCallPopup_title Ожидайте звонка
+	.OrderCallPopup_body
+		.OrderCallPopup_text
+			p Сотрудники компании Робота в Польщі перезвонят вам в ближайшее время!
+		.OrderCallPopup_btnWrapper
+			button(type="button" data-fancybox-close).BtnBlue.BtnBlue-orderCallPopup Отлично
