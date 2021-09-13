@@ -193,6 +193,26 @@ block content
 						form(action="#").CommentForm.CommentsBlock_commentForm
 							textarea(name="comment_text", placeholder="Напишите комментарий", data-input-type="autoHeight").FormTextarea.FormTextarea-commentForm.CommentForm_textArea
 							.CommentForm_actions
+								.ContextMenu.ContextMenu-large.ContextMenu-commentSwitch
+									a(href="javascript:;", data-action="openContextMenu").ContextMenu_switchLink
+
+									ul.ContextMenu_menu
+										li.ContextMenu_item
+											a(href="tel:+380680220201").ContextMenu_link
+												include /includes/svg/contacts_menu/telegram
+												span +38 098 765 43 21
+										li.ContextMenu_item
+											a(href="tel:+380680220201").ContextMenu_link
+												include /includes/svg/contacts_menu/viber
+												span +38 098 765 43 21
+										li.ContextMenu_item
+											a(href="tel:+380680220201").ContextMenu_link
+												include /includes/svg/contacts_menu/phone
+												span +38 098 765 43 21
+										li.ContextMenu_item
+											a(href="javascript:;" data-fancybox data-src="#OrderCallPopup").ContextMenu_link.ContextMenu_link-phone
+												include /includes/svg/contacts_menu/handset_arrow
+												span Перезвонить вам?
 								button(type="reset").CommentForm_resetBtn Отмена
 								button(type="submit").BtnBlue.BtnBlue-light.BtnBlue-commentForm Отправить
 						.CommentsBlock_items

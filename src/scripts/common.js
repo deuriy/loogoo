@@ -38,9 +38,9 @@ function changeTextareaField (commentForm) {
 		setTimeout(() => {
 			let clickedElement = document.activeElement;
 
-			if (clickedElement != resetBtn && clickedElement != submitBtn) {
-				this.parentNode.classList.remove('CommentForm-expanded');
-			}
+			// if (clickedElement != resetBtn && clickedElement != submitBtn) {
+			// 	this.parentNode.classList.remove('CommentForm-expanded');
+			// }
 		}, 0);
 	});
 
@@ -1117,7 +1117,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		let openContextMenu = contextMenu.parentNode.querySelector('[data-action="openContextMenu"]');
 
-		if (contextMenu.classList.contains('ContextMenu_menu-opened') && !contextMenu.contains(e.target) && !openContextMenu.contains(e.target)) {
+		if ((contextMenu.classList.contains('ContextMenu_menu-opened') && !contextMenu.contains(e.target) && !openContextMenu.contains(e.target)) || e.target.closest('.ContextMenu_link')) {
 			contextMenu.classList.remove('ContextMenu_menu-opened');
 		}
 	});
