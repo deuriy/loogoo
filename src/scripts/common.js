@@ -379,17 +379,20 @@ let oldScrollY = 0;
 function checkTopBtn (topBtn) {
 	if (!topBtn) return;
 
+	let visibleClass = topBtn.classList.contains('MobileTopBtn') ? 'MobileTopBtn-visible' : 'TopBtn-visible';
+
 	let scrolled = document.documentElement.scrollTop;
 	let dY = scrolled - oldScrollY;
+	console.log(dY);
 
 	if (document.documentElement.scrollTop >= 100) {
 		if (dY < 0) {
-			topBtn.classList.add('TopBtn-visible');
+			topBtn.classList.add(visibleClass);
 		} else {
-			topBtn.classList.remove('TopBtn-visible');
+			topBtn.classList.remove(visibleClass);
 		}
 	} else {
-		topBtn.classList.remove('TopBtn-visible');
+		topBtn.classList.remove(visibleClass);
 	}
 
 	oldScrollY = scrolled;
@@ -802,6 +805,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!userPhotoLink && !dropdownWrapper) return;
 
 		document.querySelector('.Dropdown').classList.add('Dropdown-visible');
+
+		let header = document.querySelector('.Header');
+		if (!header) return;
+
+		header.style.zIndex = '110';
 	});
 
 	document.addEventListener('mouseout', function (e) {
@@ -810,6 +818,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!dropdownWrapper) return;
 
 		dropdownWrapper.parentNode.classList.remove('Dropdown-visible');
+
+		let header = document.querySelector('.Header');
+		if (!header) return;
+
+		header.style.cssText = '';
 	});
 
 	document.addEventListener('mousedown', function (e) {
@@ -822,6 +835,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!dropdownOverlay) return;
 
 		dropdownOverlay.parentNode.classList.remove('Dropdown-visible');
+
+		let header = document.querySelector('.Header');
+		if (!header) return;
+
+		header.style.cssText = '';
 	});	
 
 	let profileMenuTabs = document.querySelector('.Tabs-profileMenu');
@@ -1687,8 +1705,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		toggleMobilePopup(mobilePopupState, openedMobilePopup);
 	});
 
-	let topBtn = document.querySelector('.TopBtn');
-	if (topBtn) {
+	document.querySelectorAll('.MobileTopBtn, .TopBtn').forEach(topBtn => {
 		checkTopBtn(topBtn);
 		
 		window.addEventListener('scroll', function (e) {
@@ -1700,7 +1717,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			 top: 0
 			});
 		});
-	}
+	});
 
 	document.querySelectorAll('.Hint').forEach(checkHintPosition);
 
