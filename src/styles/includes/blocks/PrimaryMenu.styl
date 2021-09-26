@@ -4,27 +4,66 @@
 		align-items center
 	
 	&_item
-		margin-right 2em
 		font-size 14px
 		
 		@media $mdMinus
-			margin-right 1.4em
 			font-size 13px
 		
 		&:last-child
 			margin-right 0
+		
+		&-hasChild
+			position relative
+		
+			&:hover
+				color #1D1D1D
+				
+				.PrimaryMenu_subMenu
+					top calc(100% + 11px)
+					opacity 1
+					visibility visible
 	
 	&_link
 		padding-top 3px
 		padding-bottom 3px
+		padding 3px 14px
 		color #7D7F80
+		
+		&:hover
+			color $black
 		
 		&.active
 			font-weight 600
 			color #1D1D1D
+	
+	&_subMenu
+		position absolute
+		top calc(100% + 25px)
+		right 50%
+		transform translateX(50%)
+		width 232px
+		padding 12px 0
+		border-radius 4px
+		background #fff
+		filter drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.12))
+		opacity 0
+		visibility hidden
+		@extend .transition
 		
-		&:hover
-			color #1D1D1D
+		&::before
+			content ""
+			position absolute
+			width 10px
+			height 8px
+			top -8px
+			right 0
+			left 0
+			margin auto
+			background url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10.012' height='7.995' viewBox='0 0 10.012 7.995'%3E%3Cpath data-name='Op component 2' d='m5.006 0 5.006 7.995H0Z' fill='%23fff'/%3E%3C/svg%3E") 0 0 no-repeat
+		
+		.PrimaryMenu_link
+			display block
+			padding 7px 15px 6px 24px
 	
 	&-footer
 		.PrimaryMenu_item

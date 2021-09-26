@@ -1,0 +1,60 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Работодателям";
+	- var mainModifiers = "Main-employers";
+block content
+	.Container.Main_container
+		.Employers
+			.Breadcrumbs.Breadcrumbs-small.Employers_breadcrumbs
+				li.Breadcrumbs_item
+					a(href="/").Breadcrumbs_link Infoza
+				li.Breadcrumbs_item
+					a(href="/").Breadcrumbs_link Работодателям
+			.Employers_wrapper
+				h1.Employers_title Отличное #[span.Blue предложение для работодателей]
+				.Employers_imgWrapper
+					img(src="img/services_img.svg" alt="Работодателям").Employers_img
+				.Employers_text
+					p Портал INFOZA – это место, где пользователи общаются друг с другом, спрашивают совета, читают новости и, самое главное, подбирают себе вакансии на работу за границей.
+					p Вы, как работодатель, можете им в этом помочь. В результате, пользователи получат консультацию и всю необходимую информацию о будущей вакансии, а вы, как работодатель, получите заинтересованных работников для трудоустройства.
+			.ContactsBlock
+				.ContactsBlock_left
+					.ContactsBlock_text
+						p Свяжитесь с нами любым удобным для вас способом, и мы расскажем, как вы сможете помочь людям трудоустроится через вашу компанию на работу за границей.
+				.ContactsBlock_right
+					.Soclinks.Soclinks-contactsBlock.hidden-xs
+						ul.Soclinks_list
+							li.Soclinks_item
+								a(href="tg://resolve?domain=infoza.top").Soclink.Soclink-inlineGrid.Soclink-medium
+									include /includes/svg/SvgIco/soclinks/telegram
+									span.Soclink_text @infoza.top
+							li.Soclinks_item
+								a(href="viber://chat?number=+380680220201").Soclink.Soclink-inlineGrid.Soclink-medium
+									include /includes/svg/SvgIco/soclinks/viber
+									span.Soclink_text +38 068 022 02 01
+							li.Soclinks_item
+								a(href="mailto:info@infoza.top").Soclink.Soclink-inlineGrid.Soclink-medium
+									include /includes/svg/SvgIco/soclinks/email
+									span.Soclink_text info@infoza.top
+							li.Soclinks_item
+								a(href="tel:+380730330505").Soclink.Soclink-inlineGrid.Soclink-medium
+									include /includes/svg/SvgIco/soclinks/phone
+									span.Soclink_text &nbsp;+38 073 033 05 05
+					.SocIcons.SocIcons-contactsBlock.hidden-smPlus
+						ul.SocIcons_list
+							li.SocIcons_item
+								a(href="tg://resolve?domain=infoza.top").SocIcon.SocIcon-contactsBlock.SocIcon-tg
+									include /includes/svg/contacts/socicons/telegram
+									span.SocIcon_text Telegram
+							li.SocIcons_item
+								a(href="viber://chat?number=+380680220201").SocIcon.SocIcon-contactsBlock.SocIcon-viber
+									include /includes/svg/contacts/socicons/viber
+									span.SocIcon_text Viber
+							li.SocIcons_item
+								a(href="tel:+380730330505").SocIcon.SocIcon-contactsBlock.SocIcon-phone
+									include /includes/svg/contacts/socicons/phone
+									span.SocIcon_text Звонок
+							li.SocIcons_item
+								a(href="mailto:info@infoza.top").SocIcon.SocIcon-contactsBlock.SocIcon-email
+									include /includes/svg/contacts/socicons/email
+									span.SocIcon_text Email

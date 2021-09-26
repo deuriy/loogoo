@@ -1,0 +1,27 @@
+.ContactsBlock
+	@media $smPlus
+		display grid
+		grid-template-columns 50% 40.5%
+		justify-content space-between
+		padding 20px 30px
+		background #F5F9FC
+		border-radius 8px
+	
+	@media $md
+		padding 27px 34px
+	
+	&_left
+		@media $xs
+			margin-bottom 20px
+	
+	&_text
+		font-weight 500
+		font-size 16px
+		line-height 1.5
+		color #404A66
+	
+	&_right
+		@media $xs
+			padding 21px 7px 21px 0
+			border-radius 8px
+			background #F5F9FC

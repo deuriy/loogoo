@@ -49,3 +49,16 @@
 	&-pricing
 		.Soclinks_list
 			padding-left 0
+	
+	&-contactsBlock
+		.Soclinks_list
+			gap 13px 20px
+			padding-left 0
+			
+			@media $smPlus
+				display grid
+				grid-template-columns repeat(auto-fit, minmax(160px, 1fr))
+				justify-content start
+		
+		.Soclinks_item
+			margin-right 0
