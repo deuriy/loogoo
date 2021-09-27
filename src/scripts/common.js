@@ -383,7 +383,6 @@ function checkTopBtn (topBtn) {
 
 	let scrolled = document.documentElement.scrollTop;
 	let dY = scrolled - oldScrollY;
-	console.log(dY);
 
 	if (document.documentElement.scrollTop >= 100) {
 		if (dY < 0) {

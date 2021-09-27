@@ -5,11 +5,11 @@ block vars
 block content
 	.Container.Main_container
 		.Employers
-			.Breadcrumbs.Breadcrumbs-small.Employers_breadcrumbs
+			.Breadcrumbs
 				li.Breadcrumbs_item
 					a(href="/").Breadcrumbs_link Infoza
 				li.Breadcrumbs_item
-					a(href="/").Breadcrumbs_link Работодателям
+					a(href="/employers.html").Breadcrumbs_link Работодателям
 			.Employers_wrapper
 				h1.Employers_title Отличное #[span.Blue предложение для работодателей]
 				.Employers_imgWrapper
@@ -25,19 +25,19 @@ block content
 					.Soclinks.Soclinks-contactsBlock.hidden-xs
 						ul.Soclinks_list
 							li.Soclinks_item
-								a(href="tg://resolve?domain=infoza.top").Soclink.Soclink-inlineGrid.Soclink-medium
+								a(href="tg://resolve?domain=infoza.top").Soclink.Soclink-inlineGrid.Soclink-medium.Soclink-contactsBlock
 									include /includes/svg/SvgIco/soclinks/telegram
 									span.Soclink_text @infoza.top
 							li.Soclinks_item
-								a(href="viber://chat?number=+380680220201").Soclink.Soclink-inlineGrid.Soclink-medium
+								a(href="viber://chat?number=+380680220201").Soclink.Soclink-inlineGrid.Soclink-medium.Soclink-contactsBlock
 									include /includes/svg/SvgIco/soclinks/viber
 									span.Soclink_text +38 068 022 02 01
 							li.Soclinks_item
-								a(href="mailto:info@infoza.top").Soclink.Soclink-inlineGrid.Soclink-medium
+								a(href="mailto:info@infoza.top").Soclink.Soclink-inlineGrid.Soclink-medium.Soclink-contactsBlock
 									include /includes/svg/SvgIco/soclinks/email
 									span.Soclink_text info@infoza.top
 							li.Soclinks_item
-								a(href="tel:+380730330505").Soclink.Soclink-inlineGrid.Soclink-medium
+								a(href="tel:+380730330505").Soclink.Soclink-inlineGrid.Soclink-medium.Soclink-contactsBlock
 									include /includes/svg/SvgIco/soclinks/phone
 									span.Soclink_text &nbsp;+38 073 033 05 05
 					.SocIcons.SocIcons-contactsBlock.hidden-smPlus

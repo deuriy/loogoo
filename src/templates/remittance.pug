@@ -1,0 +1,35 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Денежный перевод";
+	- var mainModifiers = "Main-replenishment";
+block content
+	.Container.Main_container
+		.Replenishment
+			.Breadcrumbs
+				li.Breadcrumbs_item
+					a(href="/").Breadcrumbs_link Infoza
+				li.Breadcrumbs_item
+					a(href="/phone_replenisment.html").Breadcrumbs_link Денежный перевод
+			.Replenishment_wrapper
+				.Replenishment_imgWrapper
+					img(src="/img/remittance.svg" alt="Денежный перевод").Replenishment_img
+				h1.Replenishment_title денежный перевод #[br]#[span.Blue.Replenishment_highlighted БЕЗ КОМИССИИ]
+				.Replenishment_text
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+				.Replenishment_buttons.hidden-smPlus
+					a(href="#").BtnBlue.BtnBlue-replenishment
+						include /includes/svg/SvgIco/soclinks/telegram
+						span Telegram
+					a(href="#").BtnViolet.BtnViolet-replenishment
+						include /includes/svg/SvgIco/soclinks/viber
+						span Viber
+				.Soclinks.Soclinks-replenishment.Replenishment_soclinks.hidden-xs
+					ul.Soclinks_list
+						li.Soclinks_item
+							a(href="tg://resolve?domain=infoza.top").Soclink.Soclink-inlineGrid.Soclink-medium
+								include /includes/svg/SvgIco/soclinks/telegram
+								span.Soclink_text @infoza.top
+						li.Soclinks_item
+							a(href="viber://chat?number=+380680220201").Soclink.Soclink-inlineGrid.Soclink-medium
+								include /includes/svg/SvgIco/soclinks/viber
+								span.Soclink_text +38 068 022 02 01
