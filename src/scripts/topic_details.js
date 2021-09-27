@@ -75,5 +75,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!commentTextLink) return;
 
 		commentTextLink.target = '_blank';
-	});	
+	});
+
+	const employersBlocksSwiper = new Swiper('.EmployerBlocks_swiper', {
+    spaceBetween: 8,
+    slidesPerView: 'auto',
+  });
 });

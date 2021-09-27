@@ -1,0 +1,52 @@
+.EmployerBlock
+	display inline-grid
+	grid-template-columns 60px 1fr
+	column-gap 10px
+	align-items center
+	width 240px
+	max-width 100%
+	padding 7px 12px 6px 8px
+	border 1px solid #EBF0F2
+	background #FBFCFC
+	border-radius 4px
+	
+	@media $smPlus
+		width 280px
+		grid-template-columns 40px 1fr
+		padding 12px 12px 14px 17px
+	
+	&_img
+		grid-row 1 / 4
+		border-radius 4px
+	
+	&_title
+		font-weight 500
+		font-size 15px
+		line-height 1.6
+		
+		@media $xs
+			margin-bottom -2px
+	
+	&_textWrapper
+		@media $smPlus
+			display grid
+			grid-template-columns auto auto
+			align-items baseline
+			gap 3px
+	
+	&_label,
+	&_link
+		font-weight 500
+		font-size 12px
+		
+		@media $smPlus
+			font-size 13px
+	
+	&_label
+		color $blue3
+	
+	&_link
+		color $blue
+		
+		@media $xs
+			margin-left 6px
