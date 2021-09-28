@@ -218,6 +218,25 @@ block content
 											a(href="javascript:;" data-fancybox data-src="#OrderCallPopup").ContextMenu_link.ContextMenu_link-phone
 												include /includes/svg/contacts_menu/handset_arrow
 												span Перезвонить вам?
+								.UserPhoto.UserPhoto-commentSwitch.CommentForm_userPhoto.hidden-smPlus
+									a(href="#CommentSwitchPopup" data-action="openMobilePopup").UserPhoto_link
+										img(src="/img/comment_author_1.png", alt="Антон Сергеевич").UserPhoto_img
+								.DropdownMenu.CommentForm_dropdownMenu.hidden-xs
+									.UserPhoto.UserPhoto-commentSwitch.DropdownMenu_userPhoto
+										a(href="#").UserPhoto_link.DropdownMenu_switchLink
+											img(src="/img/comment_author_1.png", alt="Антон Сергеевич").UserPhoto_img
+									.DropdownMenu_wrapper
+										ul.DropdownMenu_list
+											li.DropdownMenu_item
+												a(href="#").DropdownMenu_link.DropdownMenu_link-active
+													.CommentAuthor
+														img(src="/img/comment_author_1.png").CommentAuthor_img
+														.CommentAuthor_name Антон Сергеевич
+											li.DropdownMenu_item
+												a(href="#").DropdownMenu_link
+													.CommentAuthor
+														img(src="/img/comment_author_2.png").CommentAuthor_img
+														.CommentAuthor_name Dream Pol
 								button(type="reset").CommentForm_resetBtn Отмена
 								button(type="submit").BtnBlue.BtnBlue-light.BtnBlue-commentForm Отправить
 						.CommentsBlock_items
@@ -467,6 +486,25 @@ block content
 			.Aside.Main_aside
 				include /includes/blocks/TopicCreationBlock
 				include /includes/blocks/PopularTopics
+	.MobilePopup.MobilePopup-commentSwitch#CommentSwitchPopup
+		.Overlay
+		.MobilePopup_wrapper
+			.MobilePopup_header
+				h3.MobilePopup_title Автор комментария
+			.MobilePopupMenu.CommentAuthors.MobilePopup_menu
+				ul.MobilePopupMenu_list
+					li.MobilePopupMenu_item
+						a(href="#").MobilePopupMenu_link.MobilePopupMenu_link-active
+							.CommentAuthor.CommentAuthor-selected(data-selectable)
+								img(src="/img/comment_author_1.png").CommentAuthor_img
+								.CommentAuthor_name Антон Сергеевич
+					li.MobilePopupMenu_item
+						a(href="#").MobilePopupMenu_link
+							.CommentAuthor(data-selectable)
+								img(src="/img/comment_author_2.png").CommentAuthor_img
+								.CommentAuthor_name Dream Pol
+			.MobilePopup_btnWrapper
+				a(href="#" data-action="closeMobilePopup").BtnBlue.BtnBlue-commentSwitchPopup.MobilePopup_btn Отмена
 	include /includes/blocks/ComplaintFormPopup
 	include /includes/blocks/TopicLikePopup
 	include /includes/blocks/PopupShare

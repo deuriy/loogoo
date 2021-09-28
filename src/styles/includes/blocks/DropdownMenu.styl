@@ -1,0 +1,42 @@
+.DropdownMenu
+	position relative
+	
+	&_wrapper
+		position absolute
+		top calc(100% + 6px)
+		right 50%
+		transform translateX(47%)
+		width 216px
+		border-radius 4px 4px 0 0
+		background $white
+		filter drop-shadow(0px 1px 4px rgba($black, 0.32))
+		opacity 0
+		visibility hidden
+		// @extend .transition
+		
+		&::before
+			content ""
+			position absolute
+			width 10px
+			height 8px
+			top -8px
+			right 0
+			left 0
+			margin auto
+			background url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10.012' height='7.995' viewBox='0 0 10.012 7.995'%3E%3Cpath data-name='Op component 2' d='M5.007 0 .001 8h10.012Z' fill='%23fff'/%3E%3C/svg%3E") 0 0 no-repeat
+		
+		&-opened
+			opacity 1
+			visibility visible
+	
+	&_link
+		display block
+		padding 8px 15px
+		// @extend .transition
+		
+		&:hover:not(.DropdownMenu_link-active)
+			background $lightGrey
+		
+		&-active
+			background $blue
+			color $white

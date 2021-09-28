@@ -10,10 +10,6 @@
 		width 50px
 		border-radius 50%
 	
-	&_icon
-		margin-top -3px
-		margin-left 5px
-	
 	&-online
 		position relative
 		
@@ -59,6 +55,17 @@
 	&-profileBlock
 		position relative
 		
+		.UserPhoto_link
+			column-gap 5px
+			
+			&::after
+				@media $smPlus
+					content ""
+					width 7px
+					height 6px
+					margin-top 3px
+					background url("data:image/svg+xml,%3Csvg viewBox='0 0 7 6' width='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.633 5.099 6.965.267a.179.179 0 0 0 .017-.184.175.175 0 0 0-.15-.083H.167a.175.175 0 0 0-.15.083C0 .117 0 .133 0 .167c0 .033.017.066.033.1l3.333 4.832c.033.05.083.067.133.067s.1-.034.134-.067z' fill='%23ebeff3'/%3E%3C/svg%3E") 0 0 no-repeat
+		
 		@media $xs
 			width 32px
 		
@@ -67,16 +74,6 @@
 			
 			@media $xs
 				width 32px
-		
-		.UserPhoto_icon
-			margin-top 2px
-			color $grey
-			
-			& > .SvgIco
-				width 7px
-			
-			@media $xs
-				display none
 		
 		.Dropdown			
 			@media $xs
@@ -101,6 +98,21 @@
 			.UserPhoto_img
 				width 40px
 	
-	&-shortMessage
+	&-shortMessage,
+	&-commentSwitch
 		.UserPhoto_img
 			width 40px
+	
+	&-commentSwitch
+		.UserPhoto_link
+			gap 6px
+			
+			&::after
+				content ""
+				width 6px
+				height 4px
+				background url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6.004' height='3.986' viewBox='0 0 6.004 3.986'%3E%3Cpath data-name='Многоугольник 1' d='M3.005 3.986.005 0h6Z' fill='%23647c97'/%3E%3C/svg%3E") 0 0 no-repeat
+		
+		.UserPhoto_img
+			@media $smPlus
+				width 34px

@@ -391,7 +391,7 @@ function checkTopButtons (topButtons) {
 			} else {
 				if (dY < 0) {
 					topBtn.classList.add(visibleClass);
-				} else if (dY > 20) {
+				} else if (dY > 30) {
 					topBtn.classList.remove(visibleClass);
 				}
 			}
@@ -807,7 +807,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		let userPhotoLink = e.target.closest('.UserPhoto_link');
 		let dropdownWrapper = e.target.closest('.Dropdown_wrapper');
 
-		if (!userPhotoLink && !dropdownWrapper) return;
+		if ((!userPhotoLink && !dropdownWrapper) || userPhotoLink.closest('.UserPhoto-commentSwitch')) return;
 
 		document.querySelector('.Dropdown').classList.add('Dropdown-visible');
 
@@ -1771,5 +1771,72 @@ document.addEventListener("DOMContentLoaded", function () {
 			scrolling = false;
 			checkTopButtons(topButtons);
 		}, 300);
+	});
+
+	document.addEventListener('click', function (e) {
+		let mobilePopupMenuLink = e.target.closest('.MobilePopupMenu_link');
+
+		if (!mobilePopupMenuLink) return;
+
+		let mobilePopupMenu = mobilePopupMenuLink.closest('.MobilePopupMenu');
+		let activeMobilePopupMenuLink = mobilePopupMenu.querySelector('.MobilePopupMenu_link-active');
+
+		if (activeMobilePopupMenuLink && activeMobilePopupMenuLink != mobilePopupMenuLink) {
+			activeMobilePopupMenuLink.classList.remove('MobilePopupMenu_link-active');
+		}
+		mobilePopupMenuLink.classList.add('MobilePopupMenu_link-active');
+
+		let mobilePopup = mobilePopupMenu.closest('.MobilePopup');
+		if (!mobilePopup) return;
+
+		closeMobilePopup(mobilePopup.id);
+
+		e.preventDefault();
+	});
+
+	document.addEventListener('click', function (e) {
+		let commentAuthor = e.target.closest('.CommentAuthor');
+
+		if (!commentAuthor || commentAuthor.dataset.selectable === undefined) return;
+
+		let commentAuthors = commentAuthor.closest('.CommentAuthors');
+		let selectedCommentAuthor = commentAuthors.querySelector('.CommentAuthor');
+
+		if (selectedCommentAuthor && selectedCommentAuthor != commentAuthor) {
+			selectedCommentAuthor.classList.remove('CommentAuthor-selected');
+		}
+		commentAuthor.classList.add('CommentAuthor-selected');
+	});
+
+	document.addEventListener('click', function (e) {
+		let dropdownMenuSwitchLink = e.target.closest('.DropdownMenu_switchLink');
+
+		if (!dropdownMenuSwitchLink) return;
+
+		let dropdownMenu = dropdownMenuSwitchLink.closest('.DropdownMenu');
+
+		if (!dropdownMenu) return;
+
+		let dropdownMenuWrapper = dropdownMenu.querySelector('.DropdownMenu_wrapper');
+		dropdownMenuWrapper.classList.toggle('DropdownMenu_wrapper-opened');
+
+		e.preventDefault();
+	});
+
+	document.addEventListener('click', function (e) {
+		let dropdownMenuLink = e.target.closest('.DropdownMenu_link');
+
+		if (!dropdownMenuLink) return;
+
+		let dropdownMenuWrapper = dropdownMenuLink.closest('.DropdownMenu_wrapper');
+		let dropdownMenuActiveLink = dropdownMenuWrapper.querySelector('.DropdownMenu_link-active');
+
+		if (dropdownMenuActiveLink && dropdownMenuActiveLink != dropdownMenuLink) {
+			dropdownMenuActiveLink.classList.remove('DropdownMenu_link-active');
+		}
+		dropdownMenuLink.classList.add('DropdownMenu_link-active');
+		dropdownMenuWrapper.classList.remove('DropdownMenu_wrapper-opened');
+
+		e.preventDefault();
 	});
 });

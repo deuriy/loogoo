@@ -1,0 +1,23 @@
+.CommentAuthor
+	display grid
+	grid-template-columns 40px 1fr
+	justify-content start
+	align-items center
+	gap 11px
+	font-weight 500
+	font-size 16px
+	
+	@media $smPlus
+		grid-template-columns 28px 1fr
+		gap 8px
+		font-weight 600
+		font-size 13px
+	
+	&-selected
+		@media $xs
+			grid-template-columns 40px 1fr 16px
+			
+			&::after
+				content ""
+				height 12px
+				background url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16.276' height='11.63' viewBox='0 0 16.276 11.63'%3E%3Cpath data-name='Фигура 2 копия 25' d='M15.904.336a1.173 1.173 0 0 0-1.638-.007l-.007.007-8.628 8.488-3.625-3.573a1.2 1.2 0 0 0-1.673.029 1.148 1.148 0 0 0 .029 1.644l4.447 4.369a1.173 1.173 0 0 0 1.638.007l.007-.007 9.45-9.284A1.124 1.124 0 0 0 15.97.401a1.012 1.012 0 0 0-.066-.065Z' fill='%234b97f9'/%3E%3C/svg%3E") 0 0 no-repeat

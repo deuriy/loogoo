@@ -7,7 +7,8 @@
 		@extend .transition
 		
 		@media $xs
-			margin-bottom 25px
+			// margin-bottom 25px
+			margin-bottom 17px
 	
 	&_actions
 		display none
@@ -16,6 +17,32 @@
 		
 		&-visible
 			display flex
+	
+	// &_resetBtn
+	// 	position relative
+	// 	margin-right 19px
+	// 	padding 11px 24px
+	// 	border none
+	// 	outline none
+	// 	border-radius 20px
+	// 	background #EBF0F2
+	// 	font-size 14px
+	// 	color $blue2
+		
+	// 	@media $xs
+	// 		// margin-right 30px
+	// 		margin-right 9px
+		
+	// 	@media $smPlus
+	// 		padding-top 8px
+	// 		padding-bottom 8px
+	
+	&_userPhoto
+		margin-right auto
+	
+	&_dropdownMenu
+		@media $smPlus
+			margin-right 39px
 	
 	&_resetBtn
 		position relative
@@ -27,7 +54,11 @@
 		color $blue2
 		
 		@media $xs
-			margin-right 30px
+			// margin-right 30px
+			margin-right 9px
+			padding 11px 24px
+			border-radius 20px
+			background #EBF0F2
 	
 	.AttachedImage
 		position absolute
