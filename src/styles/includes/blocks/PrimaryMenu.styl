@@ -14,6 +14,15 @@
 		
 		&-hasChild
 			position relative
+			
+			& > .PrimaryMenu_link
+				&::after
+					content ""
+					position absolute
+					top 8px
+					right 4px
+					border 3px solid transparent
+					border-top 3px solid $black
 		
 			&:hover
 				color #1D1D1D

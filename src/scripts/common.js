@@ -376,23 +376,29 @@ function setRatingItemValue (ratingItem) {
 }
 
 let oldScrollY = 0;
-function checkTopBtn (topBtn) {
-	if (!topBtn) return;
-
-	let visibleClass = topBtn.classList.contains('MobileTopBtn') ? 'MobileTopBtn-visible' : 'TopBtn-visible';
+function checkTopButtons (topButtons) {
+	if (!topButtons) return;
 
 	let scrolled = document.documentElement.scrollTop;
 	let dY = scrolled - oldScrollY;
 
-	if (document.documentElement.scrollTop >= 100) {
-		if (dY < 0) {
-			topBtn.classList.add(visibleClass);
+	topButtons.forEach(topBtn => {
+		let visibleClass = topBtn.classList.contains('MobileTopBtn') ? 'MobileTopBtn-visible' : 'TopBtn-visible';
+
+		if (scrolled >= 100) {
+			if (visibleClass == 'TopBtn-visible') {
+				topBtn.classList.add(visibleClass);
+			} else {
+				if (dY < 0) {
+					topBtn.classList.add(visibleClass);
+				} else if (dY > 20) {
+					topBtn.classList.remove(visibleClass);
+				}
+			}
 		} else {
 			topBtn.classList.remove(visibleClass);
 		}
-	} else {
-		topBtn.classList.remove(visibleClass);
-	}
+	});
 
 	oldScrollY = scrolled;
 }
@@ -1704,20 +1710,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		toggleMobilePopup(mobilePopupState, openedMobilePopup);
 	});
 
-	document.querySelectorAll('.MobileTopBtn, .TopBtn').forEach(topBtn => {
-		checkTopBtn(topBtn);
-		
-		window.addEventListener('scroll', function (e) {
-			checkTopBtn(topBtn);
-		});
-
-		topBtn.addEventListener('click', function (e) {
-			window.scroll({
-			 top: 0
-			});
-		});
-	});
-
 	document.querySelectorAll('.Hint').forEach(checkHintPosition);
 
 	// Hint
@@ -1756,5 +1748,28 @@ document.addEventListener("DOMContentLoaded", function () {
 	    hintPopupTitle.textContent = hintTitle.textContent;
 	    hintPopupText.innerHTML = hintText.innerHTML;
 	  }
+	});
+
+	let topButtons = document.querySelectorAll('.TopBtn, .MobileTopBtn');
+	topButtons.forEach(topBtn => {
+		topBtn.addEventListener('click', function (e) {
+			window.scroll({
+			 top: 0
+			});
+		});
+	});
+
+	let scrolling = false;
+	window.addEventListener('scroll', function (e) {
+		checkTopButtons(topButtons);
+
+		if (scrolling) return;
+
+		scrolling = true;
+
+		setTimeout(() => {
+			scrolling = false;
+			checkTopButtons(topButtons);
+		}, 300);
 	});
 });
