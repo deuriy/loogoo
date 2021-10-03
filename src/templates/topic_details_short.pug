@@ -241,6 +241,103 @@ block content
 								button(type="submit").BtnBlue.BtnBlue-light.BtnBlue-commentForm Отправить
 						.CommentsBlock_items
 							//- .Comment.Comment-hasChild.Comment-hideChildComments.CommentsBlock_item
+							.Comment.CommentsBlock_item
+								.Comment_wrapper
+									.Comment_header
+										.Comment_headerLeft
+											.UserPhoto.UserPhoto-parentComment.Comment_userPhoto
+												img(src="/img/anna_sergeevna.png", alt="Анна Сергеевна").UserPhoto_img
+											.Comment_info
+												.Comment_nameAndRating
+													.Comment_userName Анна Сергеевна
+													a(href="javascript:;").Rating.Rating-parentComment.Comment_rating
+														span.Rating_icon
+															include /includes/svg/user_icons/lightning_fill
+														span.Rating_number 17
+												.Comment_date сегодня в 7:05
+										.Comment_headerRight
+											a(href="#PopupOwnCommentSettings", data-action="openMobilePopup", data-mobile-popup-title="Просмотр комментария").DotsIcon.hidden-smPlus
+												include /includes/svg/SvgIco/dots
+											.DotsMenu.DotsMenu-comment.hidden-xs
+												a(href="javascript:;").DotsIcon.DotsMenu_icon
+													include /includes/svg/SvgIco/dots
+												.DotsMenu_wrapper
+													ul.DotsMenu_menu
+														li.DotsMenu_item
+															a(href="#LinkCopiedNotification").DotsMenu_link.DotsMenu_link-copyURL
+																include /includes/svg/SvgIco/copy_reverse
+																.
+																	Скопировать URL
+														li.DotsMenu_item
+															a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
+																include /includes/svg/SvgIco/edit
+																.
+																	Редактировать
+														li.DotsMenu_item
+															a(href="javascript:;").DotsMenu_link
+																include /includes/svg/SvgIco/remove
+																.
+																	Удалить
+									.Comment_text
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua.
+									.Comment_footer
+										.Comment_actionLinks
+											a(href="#").Comment_actionLink Ответить
+										a(href="javascript:;").Like.Like-comment
+											include /includes/svg/SvgIco/like
+											span.Like_count 42
+							.Comment.Comment-companyBehalf.CommentsBlock_item
+								.Comment_wrapper
+									.Comment_header
+										.Comment_headerLeft
+											.UserPhoto.UserPhoto-companyBehalf.Comment_userPhoto
+												a(href="#")
+													img(src="/img/andriym_company.png", alt="Анна Сергеевна").UserPhoto_img
+											.Comment_info
+												.Comment_nameAndRating
+													.Comment_userName
+														a(href="#") Робота за кордоном від Андрія Марисюка
+												a(href="#").Rating.Rating-orange.Rating-companyBehalf.Comment_rating
+													span.Rating_icon
+														include /includes/svg/SvgIco/icon_star
+													span.Rating_number 7.7
+													span.Rating_max / 10
+													span.Rating_label (790 отзывов)
+												//- span.EmployerBlock_label.hidden-smPlus работодатель
+												.Comment_dateWrapper
+													a(href="#").Comment_employerLink работодатель
+													.Comment_date сегодня в 7:05
+										.Comment_headerRight
+											a(href="#PopupOwnCommentSettings", data-action="openMobilePopup", data-mobile-popup-title="Просмотр комментария").DotsIcon.hidden-smPlus
+												include /includes/svg/SvgIco/dots
+											.DotsMenu.DotsMenu-comment.hidden-xs
+												a(href="javascript:;").DotsIcon.DotsMenu_icon
+													include /includes/svg/SvgIco/dots
+												.DotsMenu_wrapper
+													ul.DotsMenu_menu
+														li.DotsMenu_item
+															a(href="#LinkCopiedNotification").DotsMenu_link.DotsMenu_link-copyURL
+																include /includes/svg/SvgIco/copy_reverse
+																.
+																	Скопировать URL
+														li.DotsMenu_item
+															a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
+																include /includes/svg/SvgIco/edit
+																.
+																	Редактировать
+														li.DotsMenu_item
+															a(href="javascript:;").DotsMenu_link
+																include /includes/svg/SvgIco/remove
+																.
+																	Удалить
+									.Comment_text
+										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua.
+									.Comment_footer
+										.Comment_actionLinks
+											a(href="#").Comment_actionLink Ответить
+										a(href="javascript:;").Like.Like-comment
+											include /includes/svg/SvgIco/like
+											span.Like_count 42
 							.Comment.Comment-hasChild.CommentsBlock_item
 								.Comment_wrapper
 									.Comment_header
@@ -295,11 +392,6 @@ block content
 										.UserStatus Подтвержден
 									.Comment_text
 										p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcorati laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in volup #[a(href="http://google.com") Google]
-										//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua. #[a(href="#") ссылка]
-										//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua.
-										//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua.
-										//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua.
-										//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua.
 									.Comment_footer
 										.Comment_actionLinks
 											a(href="#").Comment_actionLink Ответить
@@ -308,31 +400,33 @@ block content
 											include /includes/svg/SvgIco/like
 											span.Like_count 42
 								.Comment_childComments
-									.Comment.Comment-child
+									.Comment.Comment-companyBehalf.Comment-child
 										.Comment_wrapper
 											.Comment_header
 												.Comment_headerLeft
-													.UserPhoto.UserPhoto-small.Comment_userPhoto
-														img(src="/img/vladimir_petrov.png", alt="Владимир Петров").UserPhoto_img
+													.UserPhoto.UserPhoto-companyBehalf.Comment_userPhoto
+														a(href="#")
+															img(src="/img/andriym_company.png", alt="Анна Сергеевна").UserPhoto_img
 													.Comment_info
 														.Comment_nameAndRating
-															.Comment_userName Владимир Петров
-															a(href="javascript:;").Rating.Comment_rating
-																span.Rating_icon
-																	include /includes/svg/user_icons/lightning_fill
-																span.Rating_number 17
-															a(href="#").ReplyName.Comment_replyName.hidden-xs
-																include /includes/svg/SvgIco/reply
-																.
-																	Анна Сергеевна
+															.Comment_userName
+																a(href="#") Робота за кордоном від Андрія Марисюка
+														a(href="#").Rating.Rating-orange.Rating-companyBehalf.Comment_rating
+															span.Rating_icon
+																include /includes/svg/SvgIco/icon_star
+															span.Rating_number 7.7
+															span.Rating_max / 10
+															span.Rating_label (790 отзывов)
+														//- span.EmployerBlock_label.hidden-smPlus работодатель
 														.Comment_dateWrapper
-															.Comment_date сегодня в 7:05
-															a(href="#").ReplyName.Comment_replyName.hidden-smPlus
+															a(href="#").Comment_employerLink работодатель
+															.Comment_date 1 час назад
+															a(href="#").ReplyName.Comment_replyName
 																include /includes/svg/SvgIco/reply
 																.
-																	Анна Сергеевна
+																	Unlx
 												.Comment_headerRight
-													a(href="#PopupCommentSettings", data-action="openMobilePopup", data-mobile-popup-title="Просмотр комментария").DotsIcon.hidden-smPlus
+													a(href="#PopupOwnCommentSettings", data-action="openMobilePopup", data-mobile-popup-title="Просмотр комментария").DotsIcon.hidden-smPlus
 														include /includes/svg/SvgIco/dots
 													.DotsMenu.DotsMenu-comment.hidden-xs
 														a(href="javascript:;").DotsIcon.DotsMenu_icon
@@ -345,10 +439,15 @@ block content
 																		.
 																			Скопировать URL
 																li.DotsMenu_item
-																	a(href="javascript:;", data-src="#ComplaintFormPopup").DotsMenu_link.DotsMenu_link-complaint.CommentComplaintLink
-																		include /includes/svg/SvgIco/warning
+																	a(href="javascript:;").DotsMenu_link.DotsMenu_link-edit
+																		include /includes/svg/SvgIco/edit
 																		.
-																			Пожаловаться
+																			Редактировать
+																li.DotsMenu_item
+																	a(href="javascript:;").DotsMenu_link
+																		include /includes/svg/SvgIco/remove
+																		.
+																			Удалить
 											.Comment_text
 												//- p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utа labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
 												p Lorem ipsum dolor sit amet, cons ectetur adipisicing elit, sed doeis mod
@@ -498,6 +597,11 @@ block content
 							.CommentAuthor.CommentAuthor-selected(data-selectable)
 								img(src="/img/comment_author_1.png").CommentAuthor_img
 								.CommentAuthor_name Антон Сергеевич
+					li.MobilePopupMenu_item
+						a(href="#").MobilePopupMenu_link
+							.CommentAuthor(data-selectable)
+								img(src="/img/comment_author_2.png").CommentAuthor_img
+								.CommentAuthor_name Dream Pol
 					li.MobilePopupMenu_item
 						a(href="#").MobilePopupMenu_link
 							.CommentAuthor(data-selectable)

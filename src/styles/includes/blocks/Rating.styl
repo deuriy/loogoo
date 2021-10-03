@@ -21,7 +21,8 @@
 			@media $xs
 				font-size 14px
 	
-	&_max, &_label
+	&_max,
+	&_label
 		flex-shrink 0
 		
 	&_max
@@ -442,6 +443,31 @@
 		.Rating_max,
 		.Rating_label
 			font-size 12px
+		
+		.Rating_max
+			margin-right 3px
+	
+	&-parentComment
+		align-items baseline
+		
+		.Rating_icon
+			color $blue2
+	
+	&-companyBehalf
+		align-items baseline
+		
+		.Rating_number,
+		.Rating_max
+			font-weight 600
+			
+		.Rating_number
+			margin-right 3px
+			font-size 14px
+			color $black
+		
+		.Rating_max,
+		.Rating_label
+			font-size 13px
 		
 		.Rating_max
 			margin-right 3px

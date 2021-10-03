@@ -384,6 +384,9 @@ function checkTopButtons (topButtons) {
 
 	topButtons.forEach(topBtn => {
 		let visibleClass = topBtn.classList.contains('MobileTopBtn') ? 'MobileTopBtn-visible' : 'TopBtn-visible';
+		let documentScrollHeight = document.documentElement.scrollHeight;
+		let documentScrollTop = document.documentElement.scrollTop;
+		let documentClientHeight = document.documentElement.clientHeight;
 
 		if (scrolled >= 100) {
 			if (visibleClass == 'TopBtn-visible') {
@@ -391,7 +394,7 @@ function checkTopButtons (topButtons) {
 			} else {
 				if (dY < 0) {
 					topBtn.classList.add(visibleClass);
-				} else if (dY > 30) {
+				} else if (dY > 30 || documentScrollHeight == (documentScrollTop + documentClientHeight)) {
 					topBtn.classList.remove(visibleClass);
 				}
 			}
@@ -804,12 +807,10 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	document.addEventListener('mouseover', function (e) {
-		let userPhotoLink = e.target.closest('.UserPhoto_link');
-		let dropdownWrapper = e.target.closest('.Dropdown_wrapper');
+		let userPhotoLink = e.target.closest('.UserPhoto-profileBlock .UserPhoto_link');
+		let dropdownWrapper = e.target.closest('.UserPhoto-profileBlock .Dropdown_wrapper');
 
-		if ((!userPhotoLink && !dropdownWrapper) || userPhotoLink.closest('.UserPhoto-commentSwitch')) return;
-
-		document.querySelector('.Dropdown').classList.add('Dropdown-visible');
+		if (!userPhotoLink && !dropdownWrapper) return;
 
 		let header = document.querySelector('.Header');
 		if (!header) return;
@@ -1800,7 +1801,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (!commentAuthor || commentAuthor.dataset.selectable === undefined) return;
 
 		let commentAuthors = commentAuthor.closest('.CommentAuthors');
-		let selectedCommentAuthor = commentAuthors.querySelector('.CommentAuthor');
+		let selectedCommentAuthor = commentAuthors.querySelector('.CommentAuthor-selected');
 
 		if (selectedCommentAuthor && selectedCommentAuthor != commentAuthor) {
 			selectedCommentAuthor.classList.remove('CommentAuthor-selected');

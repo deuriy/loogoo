@@ -1,6 +1,7 @@
 .Comment
 	&_wrapper
-		padding 3px 4px 10px
+		// padding 3px 4px 10px
+		padding 3px 5px 19px
 		border-bottom 1px solid #ebf0f2
 		background #FFF
 		transition all 3s linear
@@ -20,7 +21,8 @@
 	&_header
 		justify-content space-between
 		align-items flex-start
-		margin-bottom 13px
+		// margin-bottom 13px
+		margin-bottom 12px
 	
 	&_headerLeft
 		align-items center
@@ -48,7 +50,8 @@
 		margin-left 13px
 		
 		@media $xs
-			margin-left 11px
+			// margin-left 11px
+			margin-left 10px
 	
 	&_infoTop
 		align-items center
@@ -86,7 +89,12 @@
 	
 	&_dateWrapper
 		display flex
-		align-items center
+		align-items baseline
+	
+	&_employerLink
+		font-weight 500
+		font-size 13px
+		color $blue
 	
 	&_date,
 	&_person
@@ -94,8 +102,8 @@
 		font-size 13px
 		color $blue2
 		
-		@media $xs
-			font-size 12px
+		// @media $xs
+		// 	font-size 12px
 	
 	&_date
 		@media $xs
@@ -139,7 +147,8 @@
 				text-decoration none
 		
 		@media $xs
-			margin-bottom 13px
+			// margin-bottom 13px
+			margin-bottom 14px
 			font-size 14px
 			line-height 1.5714
 	
@@ -148,10 +157,12 @@
 		align-items center
 		
 		@media $xs
-			margin-bottom 3px
+			// margin-bottom 3px
+			margin-top -3px
 	
 	&_rating
-		margin-left 6px
+		// margin-left 6px
+		margin-left 8px
 	
 	&_replyLink
 		display inline-block
@@ -226,6 +237,12 @@
 		
 		@media $xs
 			padding 0 3px 0 45px
+		
+		.CommentForm
+			margin-left -60px
+			
+			@media $xs
+				margin-left -45px
 	
 	&_commentForm
 		margin-top 18px
@@ -266,13 +283,11 @@
 		& > .Comment_wrapper
 			margin-right -12px
 			margin-left -12px
-			// padding 4px 16px 7px 16px
 			padding-right 16px
 			padding-left 16px
 			border-radius 10px
 			background rgba($blue, 5%)
 			transition none
-			// animation fade-out 3s linear forwards
 	
 	&-reply
 		& > .Comment_wrapper
@@ -296,7 +311,8 @@
 		.Comment_nameAndRating
 			margin-bottom 3px
 		
-		.Comment_date, .Comment_person
+		.Comment_date,
+		.Comment_person
 			@media $xs
 				font-size 13px
 		
@@ -398,13 +414,46 @@
 	&-onCheck
 		.Comment_wrapper
 			background $lightGrey
-
-// @keyframes fade-out {
-// 	from {
-// 		background rgba($blue, 5%)
-// 	}
 	
-// 	to {
-// 		background rgba($blue, 0)
-// 	}
-// }
+	&-companyBehalf
+		.Comment_header
+			@media $xs
+				margin-bottom 9px
+			
+		.Comment_nameAndRating
+			margin-bottom 2px
+				
+		.Comment_userName
+			@media $xs
+				max-width 230px
+		
+		.Comment_rating
+			margin-left 1px
+		
+		.Comment_dateWrapper
+			@media $xs
+				flex-wrap wrap
+				gap 4px 6px
+				margin-left 2px
+		
+		.Comment_date
+			margin-left 3px
+			
+			@media $xs
+				margin-left -3px
+				
+			&::before
+				content "• "
+		
+		.Comment_replyName
+			
+			@media $xs
+				margin-left 0
+		
+		.Comment-child:not(.Comment-companyBehalf)
+			.Comment_date::before
+				display none
+			
+			.Comment_dateWrapper
+				@media $xs
+					flex-wrap nowrap
