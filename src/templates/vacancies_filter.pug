@@ -18,7 +18,7 @@ block content
 					li.Breadcrumbs_item
 						a(href="#").Breadcrumbs_link
 							span Вакансии
-				.Banner.Banner-vacancies.Main_banner
+				.Banner.Banner-vacancies.Main_banner(hidden)
 					button(type="button" data-action="closeBanner").Banner_closeBtn
 					.Banner_label Вакансии
 					h2.Banner_title Узнайте, как выглядит работа за границей!
@@ -30,10 +30,11 @@ block content
 						.Filter_main
 							.Filter_left
 								.Filter_titleWrapper
-									h3.Filter_resultsTitle Вакансии
-									.Filter_results 1256
+									h3.Filter_resultsTitle Отзывы о вакансиях на работу в Польше и за границей
+									.Filter_results.hidden-xs 144 вакансии
 							.Filter_right
-								.Filter_linkWrapper.hidden-smPlus(hidden)
+								.Filter_results.hidden-smPlus 144 вакансии
+								.Filter_linkWrapper.hidden-smPlus
 									a(href="#JobFilter" data-action="openJobFilter").Filter_link Фильтр
 									span.Filter_circle 5
 								.Filter_item.Filter_item-mobile.hidden-xs

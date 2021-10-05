@@ -56,7 +56,12 @@
 		margin-bottom 20px
 	
 	&_pageTitle
+		margin-top -6px
 		margin-bottom 20px
+		
+		@media $xs
+			margin-top -10px
+			margin-bottom 17px
 	
 	&_topicsFilter
 		margin-bottom 19px
@@ -146,8 +151,9 @@
 				padding-top 30px
 			
 			@media $xs
-				padding-top 5px
+				// padding-top 5px
 				// padding-top 20px
+				padding-top 0
 		
 		.Main_sidebar
 			@media $xs
@@ -161,12 +167,21 @@
 		
 		.Breadcrumbs
 			@media $md
-				margin-bottom 10px
+				// margin-bottom 10px
+				// margin-top -15px
+				margin-top -21px
+				margin-bottom 12px
 		
 		.Main_banner
 			@media $xs
-				margin-top 20px
-				margin-bottom 25px
+				margin 20px 5px 25px
+			
+			@media $md
+				margin-bottom 35px
+		
+		.Main_pageTitle
+			@media $xs
+				margin 4px 0 11px 5px
 	
 	&-dossier
 		.Main_container
@@ -294,10 +309,20 @@
 			padding-right 11px
 		
 		.Breadcrumbs
-			margin-bottom 15px
+			margin-top -15px
+			margin-bottom 12px
 			
 			@media $xs
 				margin-top 4px
+				margin-bottom 13px
+		
+		.Main_pageTitle
+			@media $md
+				margin-bottom 0
+		
+		.Main_banner
+			@media $md
+				margin-top 20px
 	
 	&-profileBalance
 		.Main_container
@@ -387,14 +412,21 @@
 	&-vacancies,
 	&-vacanciesFilter
 		.Breadcrumbs
-			margin-bottom 15px
+			margin-bottom 3px
+			
+			@media $xs
+				margin-top 9px
+				margin-bottom 0
+				margin-right 5px
+				margin-left 5px
 		
 		.Main_banner
 			margin-bottom 4px
 			
 		@media $md
 			.Main_container
-				padding-top 30px
+				// padding-top 30px
+				padding-top 25px
 			
 			.Main_left
 				padding-right 46px
@@ -405,6 +437,10 @@
 	&-vacanciesFilter
 		@media $xs
 			overflow-x hidden
+			
+			.Main_banner
+				margin-top 15px
+				margin-bottom 10px
 			
 		@media $md
 			.Main_columns
@@ -469,3 +505,8 @@
 			
 			@media $xlPlus
 				margin-bottom 147px
+	
+	&-homePage
+		.Main_pageTitle
+			@media $xs
+				margin-left 5px

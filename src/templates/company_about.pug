@@ -11,7 +11,7 @@ block content
 					include /includes/svg/SvgIco/arrow_left
 				.MobileHeader_titleWrapper
 					h1.MobileHeader_title Sony Corporation
-				a(href="#ContactPopupMenu").PopupMenuLink.MobileHeader_phoneIcon
+				a(href="#ContactButtonsMobilePopup" data-action="openMobilePopup").MobileHeader_phoneIcon
 					include /includes/svg/contacts/phone
 				a(href="#PopupShare", data-action="openMobilePopup", data-mobile-popup-title="Sony Corporation").DotsIcon.MobileHeader_dotsIcon
 					include /includes/svg/SvgIco/dots
@@ -128,6 +128,21 @@ block content
 					p Корпорация Sony была основана Акио Моритой и Масару Ибукой 7 мая 1946 года. В самом начале она называлась «Токё цусин когё кабусики-гайся» (Токийская #[br]коммуникационно-промышленная компания) или сокращённо Тоцуко или TTK, но, как выяснил Акио Морита, это название тяжело произносить американцам. Нынешнее название «Сони» произошло от комбинации лат. sonus («звук») и англ. sunny boys («солнечные ребята»; в варианте англ. sonny-boys приобрело в японском значение «малолетние гении»); кроме того, Морита старался найти слово, которого нет ни в одном языке мира. Поскольку в японском языке звуки «сон-ни» напоминают слово, обозначающее неуспешный бизнес (буквально: «потерять деньги»), было решено убрать одну из букв n.
 					p Морита возглавлял компанию долгое время, отвечал за маркетинг и продажи и сумел привести её к огромному успеху на рынке. Sony сделала своё имя на хорошем и привлекательном дизайне и новшествах. Особенную роль компания уделяла уменьшению размеров своих изделий.
 					p В 1950 году компания, тогда ещё называвшаяся TTK, начала выпуск первого в Японии магнитофона. Над улучшением качества звука магнитофонов начал работать Норио Ога. В начале 1950-х годов компания за 25 000 $ купила у Western Electric лицензию на производство транзисторов и в 1955 году выпустила свой первый радиоприёмник — «TR-63», эта новинка положила начало успеху компании. Приёмник, хоть и назывался карманным и действительно был маленьким, в карман обычной мужской рубашки не влезал. Для коммивояжёров компания сшила специальные рубашки с увеличенными карманами, чтобы они могли при продаже продемонстрировать, как легко туда помещается приёмник.
+	.MobilePopup#ContactButtonsMobilePopup
+		.Overlay
+		.MobilePopup_wrapper
+			.MobilePopup_header.MobilePopup_header-center
+				h3.MobilePopup_title Связаться
+			.SquareButtons.MobilePopup_squareButtons
+				ul.SquareButtons_list
+					li.SquareButtons_item
+						a(href="#WriteMessagePopup" data-action="openMobilePopup").SquareBtn.SquareBtn-write.SquareButtons_btn Написать
+					li.SquareButtons_item
+						a(href="#CallPopup" data-action="openMobilePopup").SquareBtn.SquareBtn-call.SquareButtons_btn Позвонить
+					li.SquareButtons_item
+						a(href="#RequestCallPopup" data-action="openMobilePopup").SquareBtn.SquareBtn-orderCall.SquareButtons_btn Заказать звонок
+			.MobilePopup_btnWrapper
+				a(href="#" data-action="closeMobilePopup").BtnLightBlue.BtnLightBlue-fullWidth Отмена
 	include /includes/blocks/ContactPopupMenu
 	include /includes/blocks/WriteMessagePopup
 	include /includes/blocks/CallPopup

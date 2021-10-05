@@ -6,9 +6,16 @@
 		justify-content flex-end
 		align-items center
 		margin-bottom 14px
+		
+		@media $xs
+			margin-bottom 0
 	
 	&_headerLeft
 		flex-grow 1
+	
+	&_filter
+		@media $xs
+			margin-bottom 14px
 	
 	&_filterLinks
 		display flex
@@ -37,7 +44,8 @@
 			max-width 100%
 		
 		@media $xs
-			padding-top 19px
+			// padding-top 19px
+			padding-top 4px
 		
 		.Companies_item
 			margin-bottom 35px
@@ -82,3 +90,6 @@
 				
 				&:last-child
 					margin-bottom 0
+		
+		@media $md
+			padding-top 0

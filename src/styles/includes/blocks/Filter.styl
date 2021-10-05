@@ -22,7 +22,7 @@
 		
 		@media $xs
 			flex-direction row-reverse
-			padding-top 7px
+			padding-top 0
 			padding-bottom 7px
 			border-top none
 	
@@ -106,19 +106,34 @@
 	&_titleWrapper
 		display flex
 		align-items baseline
+		
+		@media $md
+			align-items center
 	
 	&_resultsTitle
-		margin-right 14px
+		margin-right 7px
 		font-weight 600
-		font-size 26px
+		font-size 24px
 		
 		@media $xs
-			margin-right 10px
-			font-size 24px
+			margin-right 0
+			font-size 19.36px
+			line-height 24.2px
 	
 	&_results
-		font-size 18px
+		font-size 16px
+		line-height 24.2px
 		color $blue2
+		
+		@media $xs
+			font-size 14px
+			line-height 24px
+		
+		@media $md
+			padding 2px 8px
+			color #808080
+			background #F2F6FA
+			border-radius 4px
 	
 	&_title
 		font-weight 500
@@ -220,7 +235,8 @@
 				align-items baseline
 				min-height 0
 				padding-top 3px
-				padding-bottom 10px
+				// padding-bottom 10px
+				padding-bottom 20px
 			
 			.fs-label-wrap .fs-label
 				font-size 13px
@@ -230,27 +246,37 @@
 		
 		@media $xs
 			display flex
-			// flex-direction column-reverse
 			flex-direction column
 
 			.Filter_main
-				// flex-direction column
 				flex-direction row
-				// align-items stretch
 				align-items center
 				min-height 0
-				// margin 0 -20px 20px
-				margin 0 -20px 2px
-				// padding-right 20px
-				// padding-left 20px
+				margin 0 -20px 0
 				padding-right 24px
 				padding-left 23px
 				border-bottom none
 			
+			.Filter_left
+				padding-right 0
+				padding-bottom 12px
+			
+			.Filter_resultsTitle
+				margin-left 2px
+			
 			.Filter_right
 				display flex
 				justify-content space-between
-				padding-left 0
+				align-items end
+				width 100%
+				padding-left 3px
+			
+			.Filter_linkWrapper
+				align-items center
+			
+			.Filter_link
+				margin-right 4px
+				font-size 14px
 			
 			.Filter_toggleLink
 				margin-top 5px

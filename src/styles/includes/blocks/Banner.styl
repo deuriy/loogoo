@@ -1,9 +1,7 @@
 .Banner
 	position relative
 	padding 18px 20px 24px 18px
-	// background-image linear-gradient(225deg, #00bdfc 0%, #0072dd 100%)
 	background-image linear-gradient(210deg, #e2faff 0%, #e5f6ff 100%)
-	// color $white
 	color #2D3040
 	border-radius 8px
 	
@@ -17,7 +15,6 @@
 		width 40px
 		height 40px
 		border none
-		// background: url("data:image/svg+xml,%3Csvg version='1.2' baseProfile='tiny-ps' xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cstyle%3E%3C/style%3E%3Cg id='Общение'%3E%3Cpath id='ciose' d='M9.12 8l6.64-6.64c.31-.31.31-.82 0-1.13a.803.803 0 00-1.13 0L7.99 6.87 1.35.23a.803.803 0 00-1.13 0c-.31.31-.31.82 0 1.13L6.86 8 .22 14.64a.803.803 0 00.57 1.37c.2 0 .41-.08.56-.24l6.64-6.64 6.64 6.64c.15.16.36.24.56.24a.803.803 0 00.57-1.37L9.12 8z' opacity='.702' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E") center center no-repeat
 		background url("data:image/svg+xml,%3Csvg version='1.2' baseProfile='tiny-ps' xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cstyle%3E%3C/style%3E%3Cg id='Общение'%3E%3Cpath id='ciose' d='M9.12 8l6.64-6.64c.31-.31.31-.82 0-1.13a.803.803 0 00-1.13 0L7.99 6.87 1.35.23a.803.803 0 00-1.13 0c-.31.31-.31.82 0 1.13L6.86 8 .22 14.64a.803.803 0 00.57 1.37c.2 0 .41-.08.56-.24l6.64-6.64 6.64 6.64c.15.16.36.24.56.24a.803.803 0 00.57-1.37L9.12 8z' opacity='.702' fill='%23b8c2cc'/%3E%3C/g%3E%3C/svg%3E") center center no-repeat
 	
 	&_label,
@@ -52,14 +49,28 @@
 		@media $xs
 			margin-bottom 30px
 	
+	&_actions
+		display grid
+		grid-template-columns repeat(2, auto)
+		justify-content start
+		align-items center
+		gap 28px
+	
 	&_btn
 		margin-left 2px
 		
 		@media $xs
 			margin-bottom 8px
 	
+	&_link
+		font-weight 500
+		color $blue
+		text-decoration underline
+		
+		&:hover
+			text-decoration none
+	
 	&-communication
-		// background url('../img/Chat.png') calc(100% - 24px) calc(100% - 11px) no-repeat, linear-gradient(225deg, #00bdfc 0%, #0072dd 100%)
 		background url('../img/chat.png') calc(100% - 23px) calc(100% - 7px) no-repeat, linear-gradient(210deg, #e2faff 0%, #e5f6ff 100%)
 	
 	&-vacancies
@@ -67,3 +78,44 @@
 	
 	&-companies
 		background url('../img/company.png') calc(100% - 7px) calc(100% - 13px) no-repeat, linear-gradient(210deg, #e2faff 0%, #e5f6ff 100%)
+		
+		@media $xs
+			background linear-gradient(210deg, #e2faff 0%, #e5f6ff 100%)
+			
+			.Banner_btn
+				margin-bottom 0
+	
+	&-articles
+		background url('../img/question.svg') calc(100% - 21px) calc(100% - 5px) no-repeat, linear-gradient(210deg, #e2faff 0%, #e5f6ff 100%)
+		
+		@media $xs
+			padding-left 20px
+			background-position calc(100% - 21px) calc(100% - 15px)
+			
+			.Banner_title
+				line-height 26px
+		
+			.Banner_text
+				margin-bottom 20px
+		
+		@media $smPlus
+			padding 18px 20px 23px 24px
+		
+		.Banner_btn
+			margin-left 0
+	
+	&-news
+		background url('../img/bullhorn.svg') calc(100% - 30px) calc(100% - 13px) no-repeat, linear-gradient(210deg, #e2faff 0%, #e5f6ff 100%)
+		
+		@media $xs
+			padding-left 20px
+			background-position calc(100% - 23px) calc(100% - 15px)
+			
+			.Banner_title
+				line-height 26px
+		
+			.Banner_text
+				margin-bottom 20px
+		
+		.Banner_btn
+			margin-left 0
