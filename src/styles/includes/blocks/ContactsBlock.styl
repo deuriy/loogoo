@@ -1,10 +1,15 @@
 .ContactsBlock
+	padding 21px
+	background #F5F9FC
+	
 	@media $smPlus
 		display grid
-		grid-template-columns 50% 40.5%
-		justify-content space-between
+		// grid-template-columns 50% 40.5%
+		// grid-template-columns calc(29% - 28px) calc(33.6% - 24px) calc(33% - 24px)
+		grid-template-columns calc(29% - 28px) calc(33.6% - 8px) calc(32.6% - 24px)
+		gap 56px
+		// justify-content space-between
 		padding 20px 30px
-		background #F5F9FC
 		border-radius 8px
 	
 	@media $md
@@ -16,12 +21,28 @@
 	
 	&_text
 		font-weight 500
-		font-size 16px
-		line-height 1.5
+		// font-size 16px
+		// line-height 1.5
+		font-size 15px
+		line-height 1.467
 		color #404A66
-	
-	&_right
+		
 		@media $xs
-			padding 21px 7px 21px 0
-			border-radius 8px
-			background #F5F9FC
+			margin-bottom 15px
+			font-size 16px
+			line-height 1.5
+	
+	&_buttons
+		display grid
+		grid-template-columns 155px 155px
+		justify-content center
+		align-items center
+		gap 8px
+	
+	// &_right
+	// 	display grid
+		
+	// 	@media $xs
+	// 		padding 21px 7px 21px 0
+	// 		border-radius 8px
+	// 		background #F5F9FC

@@ -283,3 +283,20 @@
 		
 		&:hover
 			background darken($blue, 10)
+	
+	&-write
+		display inline-grid
+		grid-template-columns 14px auto
+		justify-content center
+		align-items center
+		gap 6px
+		padding-top 9px
+		padding-bottom 8px
+		background $blue
+		border-radius 18px
+		
+		&::before
+			content ""
+			width 14px
+			height 14px
+			background url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14.002' height='14'%3E%3Cpath data-name='Фигура 897' d='M7.002 0a6.832 6.832 0 0 0-7 6.631 6.349 6.349 0 0 0 1.113 3.587A5.921 5.921 0 0 1 .071 13.58a.255.255 0 0 0-.044.283.232.232 0 0 0 .209.136h.033a12.016 12.016 0 0 0 3.878-1.311 7.267 7.267 0 0 0 2.857.577A6.641 6.641 0 1 0 7.002 0ZM3.735 7.614a.984.984 0 1 1 .934-.983.96.96 0 0 1-.935.983Zm3.267 0a.984.984 0 1 1 .933-.983.96.96 0 0 1-.933.983Zm3.267 0a.984.984 0 1 1 .933-.983.96.96 0 0 1-.934.983Z' fill='%23fff'/%3E%3C/svg%3E") 0 0 no-repeat

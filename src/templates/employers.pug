@@ -17,44 +17,100 @@ block content
 				.Employers_text
 					p Портал INFOZA – это место, где пользователи общаются друг с другом, спрашивают совета, читают новости и, самое главное, подбирают себе вакансии на работу за границей.
 					p Вы, как работодатель, можете им в этом помочь. В результате, пользователи получат консультацию и всю необходимую информацию о будущей вакансии, а вы, как работодатель, получите заинтересованных работников для трудоустройства.
-			.ContactsBlock
-				.ContactsBlock_left
-					.ContactsBlock_text
-						p Свяжитесь с нами любым удобным для вас способом, и мы расскажем, как вы сможете помочь людям трудоустроится через вашу компанию на работу за границей.
-				.ContactsBlock_right
-					.Soclinks.Soclinks-contactsBlock.hidden-xs
-						ul.Soclinks_list
-							li.Soclinks_item
-								a(href="tg://resolve?domain=infoza.top").Soclink.Soclink-inlineGrid.Soclink-medium.Soclink-contactsBlock
-									include /includes/svg/SvgIco/soclinks/telegram
-									span.Soclink_text @infoza.top
-							li.Soclinks_item
-								a(href="viber://chat?number=+380680220201").Soclink.Soclink-inlineGrid.Soclink-medium.Soclink-contactsBlock
-									include /includes/svg/SvgIco/soclinks/viber
-									span.Soclink_text +38 068 022 02 01
-							li.Soclinks_item
-								a(href="mailto:info@infoza.top").Soclink.Soclink-inlineGrid.Soclink-medium.Soclink-contactsBlock
-									include /includes/svg/SvgIco/soclinks/email
-									span.Soclink_text info@infoza.top
-							li.Soclinks_item
-								a(href="tel:+380730330505").Soclink.Soclink-inlineGrid.Soclink-medium.Soclink-contactsBlock
-									include /includes/svg/SvgIco/soclinks/phone
-									span.Soclink_text &nbsp;+38 073 033 05 05
-					.SocIcons.SocIcons-contactsBlock.hidden-smPlus
-						ul.SocIcons_list
-							li.SocIcons_item
-								a(href="tg://resolve?domain=infoza.top").SocIcon.SocIcon-contactsBlock.SocIcon-tg
-									include /includes/svg/contacts/socicons/telegram
-									span.SocIcon_text Telegram
-							li.SocIcons_item
-								a(href="viber://chat?number=+380680220201").SocIcon.SocIcon-contactsBlock.SocIcon-viber
-									include /includes/svg/contacts/socicons/viber
-									span.SocIcon_text Viber
-							li.SocIcons_item
-								a(href="tel:+380730330505").SocIcon.SocIcon-contactsBlock.SocIcon-phone
-									include /includes/svg/contacts/socicons/phone
-									span.SocIcon_text Звонок
-							li.SocIcons_item
-								a(href="mailto:info@infoza.top").SocIcon.SocIcon-contactsBlock.SocIcon-email
-									include /includes/svg/contacts/socicons/email
-									span.SocIcon_text Email
+			.ContactsBlock.Employers_contactsBlock
+				.ContactsBlock_text
+					p Свяжитесь с нами и мы расскажем, как вы сможете помочь людям трудоустроится через вашу компанию на работу за границей.
+				.Soclinks.Soclinks-contactsBlock.hidden-xs
+					h4.Soclinks_title Отдел сотрудничества:
+					ul.Soclinks_list
+						li.Soclinks_item
+							a(href="tg://resolve?domain=infoza.top").Soclink.Soclink-inlineGrid.Soclink-medium.Soclink-contactsBlock
+								include /includes/svg/SvgIco/soclinks/telegram
+								span.Soclink_text @infoza.top
+						li.Soclinks_item
+							a(href="viber://chat?number=+380680220201").Soclink.Soclink-inlineGrid.Soclink-twoIcons.Soclink-medium.Soclink-contactsBlock
+								include /includes/svg/SvgIco/soclinks/phone
+								include /includes/svg/SvgIco/soclinks/viber
+								span.Soclink_text +38 066 345 35 21
+						li.Soclinks_item
+							a(href="mailto:info@infoza.top").Soclink.Soclink-inlineGrid.Soclink-medium.Soclink-contactsBlock
+								include /includes/svg/SvgIco/soclinks/email
+								span.Soclink_text info@infoza.top
+						li.Soclinks_item
+							a(href="tel:+380730330505").Soclink.Soclink-inlineGrid.Soclink-twoIcons.Soclink-medium.Soclink-contactsBlock
+								include /includes/svg/SvgIco/soclinks/phone
+								include /includes/svg/SvgIco/soclinks/viber
+								span.Soclink_text &nbsp;+38 096 165 17 89
+				.Soclinks.Soclinks-contactsBlock.hidden-xs
+					h4.Soclinks_title Служба поддержки:
+					ul.Soclinks_list
+						li.Soclinks_item
+							a(href="tg://resolve?domain=infoza.top").Soclink.Soclink-inlineGrid.Soclink-medium.Soclink-contactsBlock
+								include /includes/svg/SvgIco/soclinks/telegram
+								span.Soclink_text @infoza.top
+						li.Soclinks_item
+							a(href="viber://chat?number=+380680220201").Soclink.Soclink-inlineGrid.Soclink-medium.Soclink-contactsBlock
+								include /includes/svg/SvgIco/soclinks/viber
+								span.Soclink_text +38 068 022 02 01
+						li.Soclinks_item
+							a(href="mailto:info@infoza.top").Soclink.Soclink-inlineGrid.Soclink-medium.Soclink-contactsBlock
+								include /includes/svg/SvgIco/soclinks/email
+								span.Soclink_text info@infoza.top
+				//- .SocIcons.SocIcons-contactsBlock.hidden-smPlus.hidden
+				//- 	ul.SocIcons_list
+				//- 		li.SocIcons_item
+				//- 			a(href="tg://resolve?domain=infoza.top").SocIcon.SocIcon-contactsBlock.SocIcon-tg
+				//- 				include /includes/svg/contacts/socicons/telegram
+				//- 				span.SocIcon_text Telegram
+				//- 		li.SocIcons_item
+				//- 			a(href="viber://chat?number=+380680220201").SocIcon.SocIcon-contactsBlock.SocIcon-viber
+				//- 				include /includes/svg/contacts/socicons/viber
+				//- 				span.SocIcon_text Viber
+				//- 		li.SocIcons_item
+				//- 			a(href="tel:+380730330505").SocIcon.SocIcon-contactsBlock.SocIcon-phone
+				//- 				include /includes/svg/contacts/socicons/phone
+				//- 				span.SocIcon_text Звонок
+				//- 		li.SocIcons_item
+				//- 			a(href="mailto:info@infoza.top").SocIcon.SocIcon-contactsBlock.SocIcon-email
+				//- 				include /includes/svg/contacts/socicons/email
+				//- 				span.SocIcon_text Email
+				.ContactsBlock_buttons.hidden-smPlus
+					a(href="#WriteMobilePopup" data-action="openMobilePopup").BtnBlue.BtnBlue-write Написать
+					a(href="#CallMobilePopup" data-action="openMobilePopup").BtnGreen.BtnGreen-call Позвонить
+	.MobilePopup.MobilePopup-contactLinks#WriteMobilePopup
+		.Overlay
+		.MobilePopup_wrapper
+			.ContactLinks.MobilePopup_contactLinks
+				h4.ContactLinks_title Отдел сотрудничества:
+				ul.ContactLinks_list
+					li.ContactLinks_item
+						a(href="#").ContactLinks_link.ContactLinks_link-telegram @infoza.top
+					li.ContactLinks_item
+						a(href="mailto:info@infoza.top").ContactLinks_link.ContactLinks_link-email info@infoza.top
+					li.ContactLinks_item
+						a(href="tel:+380663453521").ContactLinks_link.ContactLinks_link-viber +38 066 345 35 21
+					li.ContactLinks_item
+						a(href="tel:+380961651789").ContactLinks_link.ContactLinks_link-viber +38 096 165 17 89
+			.ContactLinks.MobilePopup_contactLinks
+				h4.ContactLinks_title Служба поддержки:
+				ul.ContactLinks_list
+					li.ContactLinks_item
+						a(href="#").ContactLinks_link.ContactLinks_link-telegram @infoza.top
+					li.ContactLinks_item
+						a(href="mailto:info@infoza.top").ContactLinks_link.ContactLinks_link-email info@infoza.top
+					li.ContactLinks_item
+						a(href="tel:+380730330505").ContactLinks_link.ContactLinks_link-viber +38 073 033 05 05
+			.MobilePopup_btnWrapper
+				a(href="#" data-action="closeMobilePopup").BtnLightBlue.BtnLightBlue-fullWidth.BtnLightBlue-contactLinksPopup Отмена
+	.MobilePopup.MobilePopup-contactLinks#CallMobilePopup
+		.Overlay
+		.MobilePopup_wrapper
+			.ContactLinks.MobilePopup_contactLinks
+				h4.ContactLinks_title Отдел сотрудничества:
+				ul.ContactLinks_list
+					li.ContactLinks_item
+						a(href="#").ContactLinks_link.ContactLinks_link-phone +38 066 345 35 21
+					li.ContactLinks_item
+						a(href="#").ContactLinks_link.ContactLinks_link-phone +38 096 165 17 89
+			.MobilePopup_btnWrapper
+				a(href="#" data-action="closeMobilePopup").BtnLightBlue.BtnLightBlue-fullWidth.BtnLightBlue-contactLinksPopup Отмена
