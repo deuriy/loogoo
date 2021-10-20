@@ -1,10 +1,14 @@
 .JobFilter
-  width 330px
+  // width 330px
+  width 300px
   background $white
   @extend .transition
   
   @media $md
-    filter drop-shadow(0px 1px 6px rgba(100, 124, 151, 0.1))
+    // filter drop-shadow(0px 1px 6px rgba(100, 124, 151, 0.1))
+    // padding-bottom 20px
+    border-radius 4px
+    box-shadow 0 2px 6px rgba(100, 124, 151, 0.1)
 
   @media $xs
     position fixed
@@ -35,7 +39,9 @@
       padding 12px 20px
 
     @media $smPlus
-      margin-bottom 24px
+      // margin-bottom 24px
+      padding 24px 25px 25px
+      border-bottom none
   
   &_headerLeft
     display flex
@@ -53,16 +59,16 @@
   
   &_clearLink
     color $blue
-    font-size 13px
-
-    @media $xs
-      font-weight 500
-      font-size 15px
+    font-weight 500
+    font-size 15px
   
   &_content
     @media $xs
       height calc(100vh - 110px)
       overflow auto
+    
+    @media $smPlus
+      padding-bottom 35px
   
   &_itemGroup,
   &_item
@@ -90,6 +96,10 @@
     @media $smPlus
       margin-bottom 36px
       padding-bottom 36px
+      
+      &:last-child
+        margin-bottom 0
+        padding-bottom 0
   
   &_item
     margin-bottom 42px
@@ -101,6 +111,9 @@
     
     &-salary
       margin-bottom 36px
+      
+      @media $smPlus
+        margin-bottom 29px
 
     &:last-child
       margin-bottom 0
@@ -114,7 +127,10 @@
     text-align center
 
     @media $smPlus
-      display none
+      // display none
+      padding-top 12px
+      padding-bottom 15px
+      border-top 1px solid #EBF0F2
   
   &-opened
     @media $xs

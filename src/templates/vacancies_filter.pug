@@ -38,7 +38,7 @@ block content
 									a(href="#JobFilter" data-action="openJobFilter").Filter_link Фильтр
 									span.Filter_circle 5
 								a(href="#" data-action="openMobilePopup").BtnBlue.BtnBlue-findJob.Filter_findJobBtn.hidden-smPlus Подобрать вакансию
-								.Filter_item.Filter_item-mobile.hidden-xs
+								.Filter_item.Filter_item-mobile.hidden-xs.hidden-smPlus
 									select.Select.Select-filterBlock(name="city[]")
 										option(value="all") Популярные
 										option(value="city1") Город 1
@@ -92,17 +92,36 @@ block content
 											img(src="/img/vacancy_new1.png" alt="Vacancy image 1")
 										a(href="/vacancy.html").Swiper_slide.Swiper_slide-video.swiper-slide
 											img(src="/img/vacancy_new2.png" alt="Vacancy image 2")
+								.JobCharacteristics.CompanyBlock_jobCharacteristics
+									.JobCharacteristicsGroup.JobCharacteristics_group
+										.JobCharacteristicsGroup_header
+											h4.JobCharacteristicsGroup_title Специалисты
+											.JobCharacteristicsGroup_salary 3250 - 4800 zł
+										ul.JobCharacteristicsGroup_list
+											li.JobCharacteristic.JobCharacteristic-sex.JobCharacteristicsGroup_item Для семейных пар или женщин
+											li.JobCharacteristic.JobCharacteristic-employment.JobCharacteristicsGroup_item Официальное трудоустройство
+											li.JobCharacteristic.JobCharacteristic-housing.JobCharacteristicsGroup_item Бесплатное жилье
+											li.JobCharacteristic.JobCharacteristic-passport.JobCharacteristicsGroup_item Биометрический паспорт
+									.JobCharacteristicsGroup.JobCharacteristics_group
+										.JobCharacteristicsGroup_header
+											h4.JobCharacteristicsGroup_title Разнорабочие
+											.JobCharacteristicsGroup_salary 3250 - 4800 zł
+										ul.JobCharacteristicsGroup_list
+											li.JobCharacteristic.JobCharacteristic-sex.JobCharacteristicsGroup_item Для мужчин
+											li.JobCharacteristic.JobCharacteristic-employment.JobCharacteristicsGroup_item Неофициальное трудоустройство
+											li.JobCharacteristic.JobCharacteristic-housing.JobCharacteristicsGroup_item 200 зл/мес коммунальные услуги
+											li.JobCharacteristic.JobCharacteristic-passport.JobCharacteristicsGroup_item Биометрический паспорт
 								.CompanyBlock_country.hidden-smPlus
 									img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
 									.
 										Польша, Варшава Nowowiejska 5-147
-								.CompanyBlock_activities
-									.Activity.CompanyBlock_activity
-										.Activity_name Разнорабочие
-										.Activity_salary 26 400 – 28 000 CZK
-									.Activity.CompanyBlock_activity
-										.Activity_name Специалисты
-										.Activity_salary 26 400 – 28 000 CZK
+								//- .CompanyBlock_activities
+								//- 	.Activity.CompanyBlock_activity
+								//- 		.Activity_name Разнорабочие
+								//- 		.Activity_salary 26 400 – 28 000 CZK
+								//- 	.Activity.CompanyBlock_activity
+								//- 		.Activity_name Специалисты
+								//- 		.Activity_salary 26 400 – 28 000 CZK
 								.CompanyBlock_footer
 									.CompanyBlock_country.hidden-xs
 										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
@@ -165,17 +184,36 @@ block content
 											img(src="/img/vacancy_new1.png" alt="Vacancy image 1")
 										a(href="/vacancy.html").Swiper_slide.Swiper_slide-video.swiper-slide
 											img(src="/img/vacancy_new2.png" alt="Vacancy image 2")
+								.JobCharacteristics.CompanyBlock_jobCharacteristics
+									.JobCharacteristicsGroup.JobCharacteristics_group
+										.JobCharacteristicsGroup_header
+											h4.JobCharacteristicsGroup_title Специалисты
+											.JobCharacteristicsGroup_salary 3250 - 4800 zł
+										ul.JobCharacteristicsGroup_list
+											li.JobCharacteristic.JobCharacteristic-sex.JobCharacteristicsGroup_item Для семейных пар или женщин
+											li.JobCharacteristic.JobCharacteristic-employment.JobCharacteristicsGroup_item Официальное трудоустройство
+											li.JobCharacteristic.JobCharacteristic-housing.JobCharacteristicsGroup_item Бесплатное жилье
+											li.JobCharacteristic.JobCharacteristic-passport.JobCharacteristicsGroup_item Биометрический паспорт
+									.JobCharacteristicsGroup.JobCharacteristics_group
+										.JobCharacteristicsGroup_header
+											h4.JobCharacteristicsGroup_title Разнорабочие
+											.JobCharacteristicsGroup_salary 3250 - 4800 zł
+										ul.JobCharacteristicsGroup_list
+											li.JobCharacteristic.JobCharacteristic-sex.JobCharacteristicsGroup_item Для мужчин
+											li.JobCharacteristic.JobCharacteristic-employment.JobCharacteristicsGroup_item Неофициальное трудоустройство
+											li.JobCharacteristic.JobCharacteristic-housing.JobCharacteristicsGroup_item 200 зл/мес коммунальные услуги
+											li.JobCharacteristic.JobCharacteristic-passport.JobCharacteristicsGroup_item Биометрический паспорт
 								.CompanyBlock_country.hidden-smPlus
 									img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
 									.
 										Польша, Варшава Nowowiejska 5-147
-								.CompanyBlock_activities
-									.Activity.CompanyBlock_activity
-										.Activity_name Разнорабочие
-										.Activity_salary 26 400 – 28 000 CZK
-									.Activity.CompanyBlock_activity
-										.Activity_name Специалисты
-										.Activity_salary 26 400 – 28 000 CZK
+								//- .CompanyBlock_activities
+								//- 	.Activity.CompanyBlock_activity
+								//- 		.Activity_name Разнорабочие
+								//- 		.Activity_salary 26 400 – 28 000 CZK
+								//- 	.Activity.CompanyBlock_activity
+								//- 		.Activity_name Специалисты
+								//- 		.Activity_salary 26 400 – 28 000 CZK
 								.CompanyBlock_footer
 									.CompanyBlock_country.hidden-xs
 										img(src="/img/icon_poland.png", alt="Poland").CompanyBlock_countryIcon
@@ -316,18 +354,23 @@ block content
 							li почтовые склады;
 							li склады одежды и обуви.
 						p Прежде, чем искать работу в Польше, опытные люди советуют почитать отзывы тех, кто уже имеет такой опыт. Оценки могут быть достаточно противоречивыми, но их изучение помогает лучше понимать чего ждать от того или иного места работы и работодателя, на какие нюансы нужно обращать внимание, как избежать различных трудностей и неурядиц. В отзывах на сайте Infoza можно найти множество советов и рекомендаций.
-			.Main_sidebar
+			.Aside.Aside-vacancies.Main_aside
+				.OfferBlock.OfferBlock-findJob.Aside_offerBlock
+					h3.OfferBlock_title Нужна работа?
+					.OfferBlock_text
+						p Бесплатно подберем вакансию!
+					a(href="#FindJobPopup" data-fancybox).BtnBlue.BtnBlue-offerBlock Подобрать вакансию
 				form(action="#").JobFilter#JobFilter
 					.JobFilter_wrapper
 						.JobFilter_header
 							.JobFilter_headerLeft
 								a(href="javascript:;" data-action="closeFilter").BtnBack.BtnBack-noBack.JobFilter_closeLink
 									include /includes/svg/SvgIco/arrow_left
-								h3.JobFilter_title Фильтр
-							.JobFilter_headerRight
+								h3.JobFilter_title Фильтры
+							.JobFilter_headerRight.hidden-smPlus
 								a(href="javascript:;" data-action="clearFilter").JobFilter_clearLink Очистить
 						.JobFilter_content
-							.FilterElement.FilterElement-salary.JobFilter_item.JobFilter_item-salary(data-element-type="range").hidden
+							.FilterElement.FilterElement-salary.JobFilter_item.JobFilter_item-salary(data-element-type="range")
 								a(href="javascript:;" data-action="openFilterElement").FilterElement_mobLink
 									.FilterElement_mobTitle Зарплата
 								.FilterElement_wrapper
@@ -555,7 +598,8 @@ block content
 									.FilterElement_footer
 										button(type="button" data-action="saveFilterElement").BtnBlue.BtnBlue-jobFilter Применить
 						.JobFilter_footer
-							button(type="button" data-action="saveFilter").BtnBlue.BtnBlue-jobFilter Показать 1256 вакансий
+							button(type="button" data-action="saveFilter").BtnBlue.BtnBlue-jobFilter.hidden-smPlus Показать 1256 вакансий
+							a(href="javascript:;" data-action="clearFilter").FilterElement_clearLink.hidden-xs Очистить фильтр
 	.PopupMenu.PopupMenu-paddingTop.PopupMenu-paddingLeft#PopupMenu
 		.PopupMenu_overlay
 		.PopupMenu_wrapper
@@ -682,5 +726,6 @@ block content
 	include /includes/blocks/CompanyAdding
 	include /includes/blocks/PopupShare
 	include /includes/blocks/LinkCopiedNotification
+	include /includes/blocks/popups/FindJob
 block page_bottom
 	script(src="/js/vacancies.js")

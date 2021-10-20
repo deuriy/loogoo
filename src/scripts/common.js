@@ -387,14 +387,15 @@ function checkTopButtons (topButtons) {
 		let documentScrollHeight = document.documentElement.scrollHeight;
 		let documentScrollTop = document.documentElement.scrollTop;
 		let documentClientHeight = document.documentElement.clientHeight;
+		let bottomDistance = documentScrollHeight - documentScrollTop - documentClientHeight;
 
 		if (scrolled >= 100) {
 			if (visibleClass == 'TopBtn-visible') {
 				topBtn.classList.add(visibleClass);
 			} else {
-				if (dY < 0) {
+				if (dY < 0 && bottomDistance > 20) {
 					topBtn.classList.add(visibleClass);
-				} else if (dY > 30 || documentScrollHeight == (documentScrollTop + documentClientHeight)) {
+				} else if (dY > 30 || bottomDistance < 20) {
 					topBtn.classList.remove(visibleClass);
 				}
 			}
