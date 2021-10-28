@@ -112,6 +112,18 @@
   &_selected
     margin-bottom 30px
   
+  &_currencyLink
+    display inline-flex
+    align-items center
+    color $blue
+    font-weight 500
+    
+    &::after
+      content ""
+      width 4px
+      height 3px
+      background url("data:image/svg+xml,%3Csvg version='1.2' baseProfile='tiny-ps' xmlns='http://www.w3.org/2000/svg' width='4' height='3'%3E%3Cstyle%3E%3C/style%3E%3Cg id='Filter_1'%3E%3Cpath id='Многоугольник 1 копия 12' d='M2 3 0-.01h4L2 3Z' style='fill:%234b97f9'/%3E%3C/g%3E%3C/svg%3E") 0 center no-repeat
+  
   &_footer
     @media $xs
       margin-top auto
@@ -255,3 +267,7 @@
   &-removable
     .FilterElement_mobLink::after
       display none
+  
+  &-salary
+    .FilterElement_headerLeft
+      align-items center
