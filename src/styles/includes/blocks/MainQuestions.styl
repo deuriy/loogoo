@@ -1,0 +1,31 @@
+.MainQuestions
+	padding 31px 0 40px
+	
+	@media $md
+		padding 94px 0 124px
+	
+	&_title
+		margin-bottom 20px
+		font-weight 600
+		font-size 24px
+		line-height 1.25
+		color #28394C
+		
+		@media $md
+			margin-bottom 71px
+			text-align center
+			font-size 36px
+	
+	&_items
+		display grid
+		grid-template-columns 100%
+		gap 29px
+		
+		@media $md
+			grid-template-columns 1fr 1fr
+			gap 29px 50px
+	
+	&_textBlock
+		&:first-child
+			@media $md
+				grid-row 1 / 3

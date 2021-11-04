@@ -1,0 +1,90 @@
+extends /layouts/main_layout
+block vars
+	- var title = "Workers";
+	//- - var wrapperModifiers = "Wrapper-noMobileHeader";
+	- var mainModifiers = "Main-workers";
+block content
+	.Main_container
+		.WorkersBanner
+			.Container.Container-workers.WorkersBanner_container
+				h2.WorkersBanner_title Нужны работники на ваши вакансии? Запросто!
+				.WorkersBanner_text INFOZA – крупнейший портал в СНГ, на котором люди ищут работу за границей. Каждый день пользователи оставляют несколько сотен заявок с просьбой подобрать им вакансию. Получайте заявки, предлагайте свои услуги и трудоустраивайте людей на работу за границей!
+		.TextBlock
+			.Container.Container-largeMd.TextBlock_container
+				h2.TextBlock_title Как это работает
+				.TextBlock_imgWrapper
+					img(src="/img/how_it_works.png" alt="How it works").TextBlock_img
+				.TextBlock_text
+					p Пользователи просматривают раздел «Вакансии», в котором, кроме комментариев и оценок, опубликованы фото и видео с различных мест работы за границей. В этом же разделе присутствует кнопка «Подобрать вакансию» при нажатии на которую, пользователь оставляет свой номер телефона. Так же у него есть возможность оставить не общую заявку на подбор вакансии, а на конкретную выбранную вакансию, которая ему понравилась. Все эти заявки от потенциальных клиентов на трудоустройство мгновенно передаются работодателям, которые в них заинтересованы. Поэтому, если вам нужны заявки на трудоустройство – вы в правильном месте!
+		.MainQuestions
+			.Container.Container-mainQuestions.MainQuestions_container
+				h2.MainQuestions_title Основные вопросы
+				.MainQuestions_items
+					.QuestionTextBlock.MainQuestions_textBlock
+						h3.QuestionTextBlock_title Почему заявки на INFOZA эффективные?
+						.QuestionTextBlock_text
+							p Существует огромная разница между тем, когда пользователь, занимаясь своими делами или просматривая интересные ролики в интернете видит рекламу, и когда пользователь целенаправленно ищет какую-то услугу.
+							p Когда пользователь видит рекламу на одном из ресурсов, где он просто проводит свободное время, то в большинстве случаев, заявки им могут оставляться ради любопытства или для того, чтобы получить бесплатную консультацию или узнать на будущее, какие варианты ему могут быть предложены. Таким образом, по подтвержденной статистике, из 20–30 оставленных пользователями заявок только 1 или 2 для вас, как для работодателя, могут быть действительно эффективными.
+							p Если же пользователь целенаправленно просматривает вакансии на портале INFOZA , изучает отзывы, смотрит как выглядит работа изнутри, то и качество такой заявки для вас, как для работодателя, всегда будет значительно выше.
+							p Таким образом, INFOZA объединяет пользователей, которым действительно нужна работа за границей и работодателей, которые могут их трудоустроить и предложить свои дополнительные услуги.
+					.QuestionTextBlock.MainQuestions_textBlock
+						h3.QuestionTextBlock_title Как быстро вы начнёте получать заявки?
+						.QuestionTextBlock_text
+							p Мы создали удобный личный кабинет для работодателя, настройка которого займёт не более 5 минут. Наша служба поддержки всегда поможет и при необходимоси все настроит. Таким образом, в течение нескольких минут после пополнение баланса вы сразу же начнете получать заявки.
+							p Отдельного внимание заслуживает способ получения заявок, так как INFOZA – единственный сервис, который бесплатно и безлимитно отправляет заявки в Viber, Telegram и на указанный вами Email. Также вы можете экспортировать заявки в Excel или подключить передачу заявок в свою CRM-систему. Таким образом, работать с INFOZA не только выгодно, но и удобно!
+					.QuestionTextBlock.MainQuestions_textBlock
+						h3.QuestionTextBlock_title Почему вы ничем не рискуете?
+						.QuestionTextBlock_text
+							p На INFOZA вы платите только по факту полученных заявок. Поэтому, если вы не получите заявок на выбранные вами вакансии – то и средства у вас останутся на балансе без изменений. К тому же, вы всегда мгновенно сможете добавить, удалить, отредактировать или остановить список вакансий, на который вам нужны сотрудники. На портале нет скрытых комиссий и минимальной суммы для пополнения.
+		.TextBlock.TextBlock-mainDifference.TextBlock-whiteBg
+			.Container.TextBlock_container
+				h2.TextBlock_title Главное отличие #[br]от других ресурсов
+				.TextBlock_phoneImages
+					img(src="/img/main_difference_phone1.png" alt="").TextBlock_img.hidden-smMinus
+					img(src="/img/main_difference_phone2.png" alt="").TextBlock_img
+				.TextBlock_text
+					p INFOZA – это крупнейший портал в СНГ о работе за границей. Кардинальное отличие и преимущество нашего портала в том, что INFOZA – это социальная сеть исключительно для людей, которым интересна работа за границей и всё, что с этим связано. Поэтому, когда пользователь оставляет заявку на подбор вакансии в соответствующем разделе – такая заявка примерно в 5–7 раз более востребована и актуальна.
+		.CostSection
+			.Container.Container-costSection
+				h2.CostSection_title Стоимость
+				.CostSection_costBlocks
+					.CostBlock.CostBlock-generalSelection.CostSection_costBlock
+						.CostBlock_sum $3
+						h3.CostBlock_title Заявка на общий подбор вакансии
+						.CostBlock_label за одну позицию
+					.CostBlock.CostBlock-specific.CostSection_costBlock
+						.CostBlock_sum.CostBlock_sum-blue $4
+						h3.CostBlock_title Заявка на конкретную вакансию
+						.CostBlock_label за одну позицию
+				.CostSection_contacts
+					.CostSection_contactsText
+						p Для осуществления заказа, свяжитесь с нами удобным способом и начните получать заявки уже сегодня!
+					.Soclinks.Soclinks-workers.hidden-smMinus
+						h4.Soclinks_title Контакты
+						ul.Soclinks_list
+							li.Soclinks_item
+								a(href="tg://resolve?domain=infoza_top").Soclink.Soclink-workers
+									include /includes/svg/SvgIco/soclinks/telegram
+									span.Soclink_text @infoza_top
+							li.Soclinks_item
+								a(href="viber://chat?number=+380730330505").Soclink.Soclink-workers
+									include /includes/svg/SvgIco/soclinks/viber
+									span.Soclink_text +38 073 033 05 05
+							li.Soclinks_item
+								a(href="mailto:info@infoza.top").Soclink.Soclink-workers
+									include /includes/svg/SvgIco/soclinks/email
+									span.Soclink_text info@infoza.top
+					.SocIcons.SocIcons-workers.hidden-md
+						ul.SocIcons_list
+							li.SocIcons_item
+								a(href="tg://resolve?domain=infoza_top").SocIcon.SocIcon-large.SocIcon-tg
+									include /includes/svg/contacts/socicons/telegram
+									span.SocIcon_text Telegram
+							li.SocIcons_item
+								a(href="viber://chat?number=+380730330505").SocIcon.SocIcon-large.SocIcon-viber
+									include /includes/svg/contacts/socicons/viber
+									span.SocIcon_text Viber
+							li.SocIcons_item
+								a(href="mailto:info@infoza.top").SocIcon.SocIcon-large.SocIcon-email
+									include /includes/svg/contacts/socicons/email
+									span.SocIcon_text Email

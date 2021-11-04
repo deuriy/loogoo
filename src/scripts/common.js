@@ -1100,7 +1100,18 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	// Rating line fill
-	document.querySelectorAll('.ExtendedRating_lineFill').forEach( el => el.style.width = (el.dataset.mark * 10) + '%');
+	document.querySelectorAll('.ExtendedRating_lineFill').forEach( el => {
+		let percent = el.dataset.mark * 10;
+		el.style.width = percent + '%';
+
+		if (percent <= 33) {
+			el.classList.add('ExtendedRating_lineFill-red');
+		} else if (percent > 33 && percent <= 66) {
+			el.classList.add('ExtendedRating_lineFill-orange');
+		} else {
+			el.classList.add('ExtendedRating_lineFill-green');
+		}
+	});
 
 	let remark = document.querySelector('.Remark');
 	if (remark) {

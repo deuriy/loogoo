@@ -1,0 +1,114 @@
+.TextBlock
+	padding 37px 0
+	background #F7F9FA
+	
+	@media $smPlus
+		padding 60px 0 50px
+	
+	@media $md
+		padding 174px 0 97px
+	
+	&_container
+		@media $md
+			display grid
+			grid-template-columns 1fr 1fr
+			grid-template-rows auto 1fr
+			column-gap 40px
+	
+	&_title,
+	&_text
+		@media $md
+			max-width 520px
+			margin-left 36px
+	
+	&_title
+		margin-bottom 29px
+		font-weight 600
+		font-size 24px
+		line-height 1.25
+		color #28394C
+		
+		@media $smMinus
+			text-align center
+		
+		@media $md
+			align-self end
+			margin-top -10px
+			margin-bottom 17px
+			font-size 36px
+	
+	&_imgWrapper
+		margin-bottom 11px
+		text-align center
+		
+		@media $md
+			grid-row 1 / 3
+	
+	&_img
+		@media $xs
+			width 260px
+	
+	&_phoneImages
+		margin-bottom 29px
+		margin-left 20px
+		text-align center
+		overflow hidden
+		
+		@media $smMinus
+			max-height 306px
+		
+		@media $md
+			display grid
+			grid-template-columns auto auto
+			justify-content end
+			grid-area 1 / 2 / 3 / 3
+			min-height 540px
+			margin-right -38px
+			margin-bottom 0
+			margin-left 0
+	
+	&_text
+		font-size 15px
+		line-height 24px
+		color #5C6370
+	
+	&-whiteBg
+		background $white
+	
+	&-mainDifference
+		padding-top 5px
+		
+		@media $md
+			padding 0
+			background #F8F9FA
+		
+		.TextBlock_container
+			@media $md
+				grid-template-rows auto auto
+		
+		.TextBlock_title,
+		.TextBlock_text
+			@media $md
+				margin-left 33px
+		
+		.TextBlock_title
+			margin-bottom 17px
+			
+			@media $md
+				align-self end
+		
+		.TextBlock_text
+			@media $md
+				align-self start
+		
+		.TextBlock_img
+			width auto
+			
+			&:first-child
+				@media $md
+					position relative
+					left 22px
+			
+			&:nth-child(2)
+				@media $md
+					align-self end

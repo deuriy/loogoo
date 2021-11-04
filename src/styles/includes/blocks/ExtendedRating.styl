@@ -25,7 +25,8 @@
 		@media $xs
 			margin-left 0
 	
-	&_label, &_ratingsNumber
+	&_label,
+	&_ratingsNumber
 		color $blue3
 		font-weight 500
 		font-size 13px
@@ -49,9 +50,15 @@
 	&_lineFill
 		width 0
 		height inherit
-		background-image -webkit-linear-gradient(to right, #f29624, #ffc20d)
-		background-image -o-linear-gradient(to right, #f29624, #ffc20d)
-		background-image linear-gradient(to right, #f29624, #ffc20d)
+		
+		&-red
+			background-image linear-gradient(90deg, #ff0000 0%, #ff5949 100%)
+		
+		&-orange
+			background-image linear-gradient(to right, #f29624, #ffc20d)
+		
+		&-green
+			background-image linear-gradient(90deg, #00b23b 0%, #66cc00 100%);
 	
 	&_ratingsNumber
 		flex-shrink 0
