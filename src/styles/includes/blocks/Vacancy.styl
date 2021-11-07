@@ -66,11 +66,20 @@
 		@media $xs
 			margin-right -20px
 			margin-left -20px
-			margin-bottom 9px
+			margin-bottom 21px
 	
 	&_mark
 		color #999
 		font-size 13px
+	
+	&_actionLinks
+		display grid
+		grid-template-columns auto auto
+		justify-content space-between
+		align-items center
+		margin-bottom 15px
+		padding-bottom 15px
+		border-bottom 1px solid #ebeff3
 	
 	&_text
 		margin-bottom 2.5em
@@ -90,6 +99,18 @@
 			margin-left 0
 			margin-bottom 18px
 			font-size 14px
+		
+	&_truncatedText
+		display -webkit-box
+		text-overflow ellipsis
+		-webkit-line-clamp 5
+		-webkit-box-orient vertical
+		word-wrap break-word
+		overflow hidden
+	
+	&_jobBtn
+		@media $xs
+			width 100%
 	
 	&_statIcons
 		margin-bottom 28px

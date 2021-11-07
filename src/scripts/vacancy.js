@@ -59,6 +59,24 @@
 //     }
 //   });
 // }
+
+function initSwiperImagesNumber (swiper) {
+  let slider = swiper.$el[0],
+  sliderWrapper = slider.closest('.Swiper'),
+  slidesCount = sliderWrapper.querySelectorAll('.Swiper_gallery .swiper-slide:not(.swiper-slide-duplicate)').length,
+  photosNumber = sliderWrapper.querySelector('.VacancyImages_photosNumber');
+
+  sliderWrapper.classList.add('Swiper-initialized');
+  photosNumber.querySelector('.PhotosNumber_current').textContent = 1;
+  photosNumber.querySelector('.PhotosNumber_all').textContent = slidesCount;
+}
+
+function changeCurrentImageNumber (swiper) {
+  let photosNumber = swiper.$el[0].closest('.Swiper').querySelector('.VacancyImages_photosNumber');
+  let currentSlideNumber = Number(swiper.$el[0].querySelector('.Swiper_gallery .swiper-slide-active').dataset.swiperSlideIndex) + 1;
+  photosNumber.querySelector('.PhotosNumber_current').textContent = currentSlideNumber;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   const countThumbSlides = $(".VacancyImages_thumbs .swiper-slide").length;
   
@@ -99,7 +117,17 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     thumbs: {
       swiper: galleryThumbs
-    }
+    },
+    on: {
+      init: function () {
+        initSwiperImagesNumber(this);
+        console.log('Init');
+      },
+    },
+  });
+
+  galleryTop.on('slideChange', function () {
+    setTimeout(() => changeCurrentImageNumber(this), 0);
   });
 
   // document.addEventListener('click', function (e) {
@@ -120,6 +148,16 @@ document.addEventListener('DOMContentLoaded', function () {
   
   // galleryTop.on('slideChangeTransitionStart', function() {
   //   vacancyThumbs.slideTo(galleryTop.activeIndex);
+  // });
+
+  // document.addEventListener('click', function (e) {
+  //   let vacancyMoreLink = e.target.closest('.Vacancy_moreLink');
+
+  //   if (!vacancyMoreLink) return;
+
+  //   let vacancyTextTruncated = vacancyMoreLink.closest('.Vacancy_text').querySelector('.Vacancy_truncated');
+  //   vacancyTextTruncated.classList.remove('Vacancy_truncated');
+  //   vacancyMoreLink.classList.add('hidden');
   // });
 });
 
