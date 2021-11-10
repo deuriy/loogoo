@@ -260,6 +260,9 @@
 	&_images
 		margin-bottom -10px
 	
+	&_bestCommentLabel
+		margin-bottom 13px
+	
 	&-hasChild
 		& > .Comment_wrapper
 			padding-bottom 20px
@@ -446,7 +449,6 @@
 				content "• "
 		
 		.Comment_replyName
-			
 			@media $xs
 				margin-left 0
 		
@@ -457,3 +459,9 @@
 			.Comment_dateWrapper
 				@media $xs
 					flex-wrap nowrap
+	
+	&-bestAnswer
+		& > .Comment_wrapper
+			padding 20px
+			border-radius 4px
+			background-color #f3f8e8
